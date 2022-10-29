@@ -24,7 +24,7 @@ public interface IWailaBlock
      *
      * @param world world obj
      * @param pos   Block's pos
-     * @param nbt   the server sync nbt (not always possible, but non null for checking)
+     * @param nbt   the server sync nbt (not always possible, but non-null for checking)
      * @return a List containing tooltips to write on the panel's body
      */
     @Nonnull
@@ -38,7 +38,7 @@ public interface IWailaBlock
      *
      * @param world world obj
      * @param pos   Block's pos
-     * @param nbt   the server sync nbt (not always possible, but non null for checking)
+     * @param nbt   the server sync nbt (not always possible, but non-null for checking)
      * @return a List containing tooltips to write on the panel's head
      */
     @Nonnull
@@ -52,7 +52,7 @@ public interface IWailaBlock
      *
      * @param world world obj
      * @param pos   Block's pos
-     * @param nbt   the server sync nbt (not always possible, but non null for checking)
+     * @param nbt   the server sync nbt (not always possible, but non-null for checking)
      * @return a ItemStack to be shown at the side of the panel.
      */
     @Nonnull

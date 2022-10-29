@@ -108,24 +108,13 @@ repositories {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
-    //maven {
-    //    name = "Hwyla maven"
-    //    url "http://tehnut.info/maven"
-    //}
-    maven { // TOP
-        name 'tterrag maven'
-        url "https://maven.tterrag.com/"
-    }
     maven {
         name = "CoFH Maven"
         url = "https://maven.covers1624.net/"
     }
     maven {
         name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
-    }
-    maven {
-        url "https://cursemaven.com"
+        url = "https://cursemaven.com"
     }
 }
 
@@ -136,14 +125,11 @@ String strippedVersion = shortVersion.replace(".", "") + "0"
 dependencies {
     // Mod dependencies go here.
     // Do not add dependencies without prior approval from the dev team. You can update existing ones.
-    deobfProvided "CraftTweaker2:CraftTweaker2-MC${strippedVersion}-Main:${config.crafttweaker.version}"
-    deobfProvided "mezz.jei:jei_${config.minecraft.version}:${config.jei.version}"
+    deobfProvided "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.680"
+    deobfProvided "curse.maven:had-enough-items-557549:3862733"
 
     // For now, since maven is no show, use the curse maven plugin to resolve the exact file name
-    compileOnly "curse.maven:hwyla-253449:2568751"
-    //compileOnly "mcp.mobius.waila:Hwyla:${config.HWYLA.version}_${config.minecraft.version}"
-    deobfProvided "mcjty.theoneprobe:TheOneProbe-${shortVersion}:${config.TOP.version}"
-    deobfProvided "vazkii.patchouli:Patchouli:${config.patchouli.version}"
+    deobfProvided "curse.maven:the-one-probe-245211:2667280"
 }
 
 processResources {
