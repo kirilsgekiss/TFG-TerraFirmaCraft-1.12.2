@@ -790,9 +790,9 @@ public final class ConfigTFC
         public static final class CrucibleCFG
         {
             @Config.Comment("How much metal (units / mB) can a crucible hold?")
-            @Config.RangeInt(min = 100, max = Alloy.SAFE_MAX_ALLOY)
+            @Config.RangeInt(min = 144, max = Alloy.SAFE_MAX_ALLOY)
             @Config.LangKey("config." + MOD_ID + ".devices.crucible.tank")
-            public int tank = 3_000;
+            public int tank = 4_320;
 
             @Config.Comment("Let crucibles accept pouring metal (from small vessels / molds) from all 9 input slots at the same time.")
             @Config.LangKey("config." + MOD_ID + ".devices.crucible.enableAllSlots")
@@ -877,9 +877,9 @@ public final class ConfigTFC
         public static final class SmallVesselCFG
         {
             @Config.Comment("How much metal (units / mB) can a small vessel hold?")
-            @Config.RangeInt(min = 100, max = Alloy.SAFE_MAX_ALLOY)
+            @Config.RangeInt(min = 144, max = Alloy.SAFE_MAX_ALLOY)
             @Config.LangKey("config." + MOD_ID + ".devices.small_vessel.tank")
-            public int tank = 4_000;
+            public int tank = 5_760;
         }
 
         public static final class SluiceCFG

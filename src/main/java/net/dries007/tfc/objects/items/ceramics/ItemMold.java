@@ -171,7 +171,7 @@ public class ItemMold extends ItemPottery
 
         FilledMoldCapability(@Nullable NBTTagCompound nbt)
         {
-            tank = new FluidTank(100);
+            tank = new FluidTank(144);
 
             if (nbt != null)
             {
