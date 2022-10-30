@@ -36,6 +36,7 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCKeybindings;
 import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
 import net.dries007.tfc.command.*;
+import net.dries007.tfc.compat.patchouli.TFCPatchouliPlugin;
 import net.dries007.tfc.network.*;
 import net.dries007.tfc.objects.LootTablesTFC;
 import net.dries007.tfc.objects.advancements.TFCTriggers;
@@ -195,6 +196,10 @@ public final class TerraFirmaCraft
         CapabilityMetalItem.init();
 
         FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "net.dries007.tfc.compat.waila.TOPPlugin");
+        if (Loader.isModLoaded("patchouli"))
+        {
+            TFCPatchouliPlugin.init();
+        }
     }
 
     @Mod.EventHandler
