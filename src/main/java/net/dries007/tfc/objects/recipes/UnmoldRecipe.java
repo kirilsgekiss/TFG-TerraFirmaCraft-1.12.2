@@ -12,7 +12,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.gson.JsonObject;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
@@ -34,10 +33,9 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.IMoldHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.items.ceramics.ItemMold;
-import net.dries007.tfc.objects.items.metal.ItemMetal;
+import org.apache.commons.lang3.StringUtils;
 
 import static net.dries007.tfc.api.capability.heat.CapabilityItemHeat.ITEM_HEAT_CAPABILITY;
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;
@@ -46,15 +44,26 @@ import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_
 @ParametersAreNonnullByDefault
 public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
-    private final NonNullList<Ingredient> input;
     private final ResourceLocation group;
+
+    private final NonNullList<Ingredient> input;
+    private final String inputMaterial;
+    private final int inputMaterialAmount;
     private final OrePrefix orePrefix;
     private final float chance;
 
-    private UnmoldRecipe(@Nullable ResourceLocation group, NonNullList<Ingredient> input, @Nonnull OrePrefix orePrefix, float chance)
+    private UnmoldRecipe(
+            @Nullable ResourceLocation group,
+            NonNullList<Ingredient> input,
+            @Nonnull String inputMaterial,
+            int inputMaterialAmount,
+            @Nonnull OrePrefix orePrefix,
+            float chance)
     {
         this.group = group;
         this.input = input;
+        this.inputMaterial = inputMaterial;
+        this.inputMaterialAmount = inputMaterialAmount;
         this.orePrefix = orePrefix;
         this.chance = chance;
     }
@@ -78,8 +87,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
                         IMoldHandler moldHandler = (IMoldHandler) cap;
                         if (!moldHandler.isMolten())
                         {
-                            Metal metal = moldHandler.getMetal();
-                            if (metal != null && moldItem.getType().equals(this.orePrefix) && !foundMold)
+                            if (moldItem.getType().equals(this.orePrefix) && !foundMold)
                             {
                                 foundMold = true;
                             }
@@ -141,7 +149,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             if (moldCap instanceof IMoldHandler)
             {
                 IMoldHandler moldHandler = (IMoldHandler) moldCap;
-                if (!moldHandler.isMolten() && moldHandler.getAmount() == 144)
+                if (!moldHandler.isMolten() && moldHandler.getAmount() == inputMaterialAmount)
                 {
                     return getOutputItem(moldHandler);
                 }
@@ -247,18 +255,16 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
 
     public ItemStack getOutputItem(final IMoldHandler moldHandler)
     {
-        Metal m = moldHandler.getMetal();
-        if (m != null)
+        ItemStack output = OreDictUnifier.get(orePrefix + inputMaterial);
+
+        System.out.println(orePrefix + inputMaterial);
+
+        IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
+        if (heat != null)
         {
-            ItemStack output = OreDictUnifier.get(orePrefix, Materials.Copper);
-            IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
-            if (heat != null)
-            {
-                heat.setTemperature(moldHandler.getTemperature());
-            }
-            return output;
+            heat.setTemperature(moldHandler.getTemperature());
         }
-        return ItemStack.EMPTY;
+        return output;
     }
 
     @SuppressWarnings("unused")
@@ -267,19 +273,20 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
         @Override
         public IRecipe parse(final JsonContext context, final JsonObject json)
         {
+            final String group = JsonUtils.getString(json, "group", "");
             final NonNullList<Ingredient> ingredients = RecipeUtils.parseShapeless(context, json);
             final String result = JsonUtils.getString(json, "result");
-            final OrePrefix type = OrePrefix.getPrefix(result.toUpperCase());
-            final String group = JsonUtils.getString(json, "group", "");
+            final OrePrefix type = OrePrefix.getPrefix(result);
+            final int materialAmount = Integer.parseInt(JsonUtils.getString(json, "material_amount"));
+            final String material = JsonUtils.getString(json, "material_input");
 
-            //Chance of getting the mold back
             float chance = 0;
             if (JsonUtils.hasField(json, "chance"))
             {
                 chance = JsonUtils.getFloat(json, "chance");
             }
 
-            return new UnmoldRecipe(group.isEmpty() ? new ResourceLocation(result) : new ResourceLocation(group), ingredients, type, chance);
+            return new UnmoldRecipe(group.isEmpty() ? new ResourceLocation(result) : new ResourceLocation(group), ingredients, material, materialAmount, type, chance);
         }
     }
 }

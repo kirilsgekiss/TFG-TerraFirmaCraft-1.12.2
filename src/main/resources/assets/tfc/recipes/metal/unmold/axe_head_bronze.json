@@ -1,0 +1,12 @@
+{
+  "type": "tfc:unmold_recipe",
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/fired/mold/toolheadaxe"
+    }
+  ],
+  "material_input": "BlackBronze",
+  "material_amount": 144,
+
+  "result": "toolHeadAxe"
+}

@@ -7,9 +7,7 @@ package net.dries007.tfc.objects.items.ceramics;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.annotation.Nonnull;
@@ -273,7 +271,7 @@ public class ItemSmallVessel extends ItemPottery
         @Override
         public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
         {
-            Metal metal = getMetal();
+            Metal metal = getMaterial();
             if (metal != null)
             {
                 String desc = TextFormatting.DARK_GREEN + I18n.format(Helpers.getTypeName(metal)) + ": " + I18n.format("tfc.tooltip.units", getAmount());
@@ -338,7 +336,7 @@ public class ItemSmallVessel extends ItemPottery
 
         @Nullable
         @Override
-        public Metal getMetal()
+        public Metal getMaterial()
         {
             return fluidMode && tank.getFluid() != null ? FluidsTFC.getMetalFromFluid(tank.getFluid().getFluid()) : null;
         }

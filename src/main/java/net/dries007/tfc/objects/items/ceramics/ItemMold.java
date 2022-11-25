@@ -5,24 +5,18 @@
 
 package net.dries007.tfc.objects.items.ceramics;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.FluidStack;
@@ -31,23 +25,16 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.FluidTankPropertiesWrapper;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidTankProperties;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.dries007.tfc.api.capability.IMoldHandler;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.Heat;
-import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.container.ContainerEmpty;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.recipes.UnmoldRecipe;
 import net.dries007.tfc.util.Helpers;
 
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;
@@ -125,7 +112,7 @@ public class ItemMold extends ItemPottery
         IFluidHandler capFluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (capFluidHandler instanceof IMoldHandler)
         {
-            Metal metal = ((IMoldHandler) capFluidHandler).getMetal();
+            Metal metal = ((IMoldHandler) capFluidHandler).getMaterial();
             if (metal != null)
             {
                 //noinspection ConstantConditions
@@ -164,7 +151,7 @@ public class ItemMold extends ItemPottery
     public boolean canStack(ItemStack stack)
     {
         IMoldHandler moldHandler = (IMoldHandler) stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
-        return moldHandler == null || moldHandler.getMetal() == null;
+        return moldHandler == null || moldHandler.getMaterial() == null;
     }
 
     // Extends ItemHeatHandler for ease of use
@@ -185,7 +172,7 @@ public class ItemMold extends ItemPottery
 
         @Nullable
         @Override
-        public Metal getMetal()
+        public Metal getMaterial()
         {
             return tank.getFluid() != null ? FluidsTFC.getMetalFromFluid(tank.getFluid().getFluid()) : null;
         }
@@ -213,7 +200,7 @@ public class ItemMold extends ItemPottery
             {
                 Metal metal = FluidsTFC.getMetalFromFluid(resource.getFluid());
                 //noinspection ConstantConditions
-                if (metal != null && type.materialType.hasProperty(PropertyKey.TOOL))  // if (metal != null && type.hasMold(metal))
+                if (metal != null)  // if (metal != null && type.hasMold(metal))
                 {
                     int fillAmount = tank.fill(resource, doFill);
                     if (fillAmount == tank.getFluidAmount())
@@ -253,7 +240,7 @@ public class ItemMold extends ItemPottery
         @Override
         public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
         {
-            Metal metal = getMetal();
+            Metal metal = getMaterial();
             if (metal != null)
             {
                 String desc = TextFormatting.DARK_GREEN + I18n.format(Helpers.getTypeName(metal)) + ": " + I18n.format("tfc.tooltip.units", getAmount());

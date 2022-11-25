@@ -8,11 +8,15 @@ package net.dries007.tfc.client;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.ore.OrePrefix;
+import javafx.util.Pair;
+import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.mixins.IOrePrefixListAccessor;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -78,57 +82,6 @@ public final class ClientRegisterEvents
     @SuppressWarnings("ConstantConditions")
     public static void registerModels(ModelRegistryEvent event)
     {
-        final List<OrePrefix> orePrefixes = new ArrayList<OrePrefix>() {{
-            add(OrePrefix.dust);
-            add(OrePrefix.dustSmall);
-            add(OrePrefix.dustTiny);
-            add(OrePrefix.dustImpure);
-            add(OrePrefix.dustPure);
-            add(OrePrefix.crushed);
-            add(OrePrefix.crushedPurified);
-            add(OrePrefix.crushedCentrifuged);
-            add(OrePrefix.gem);
-            add(OrePrefix.gemChipped);
-            add(OrePrefix.gemFlawed);
-            add(OrePrefix.gemFlawless);
-            add(OrePrefix.gemExquisite);
-            add(OrePrefix.ingot);
-            add(OrePrefix.ingotHot);
-            add(OrePrefix.plate);
-            add(OrePrefix.plateDouble);
-            add(OrePrefix.plateDense);
-            add(OrePrefix.foil);
-            add(OrePrefix.stick);
-            add(OrePrefix.stickLong);
-            add(OrePrefix.bolt);
-            add(OrePrefix.screw);
-            add(OrePrefix.ring);
-            add(OrePrefix.nugget);
-            add(OrePrefix.round);
-            add(OrePrefix.spring);
-            add(OrePrefix.springSmall);
-            add(OrePrefix.gear);
-            add(OrePrefix.gearSmall);
-            add(OrePrefix.wireFine);
-            add(OrePrefix.rotor);
-            add(OrePrefix.lens);
-            add(OrePrefix.turbineBlade);
-            add(OrePrefix.toolHeadSword);
-            add(OrePrefix.toolHeadPickaxe);
-            add(OrePrefix.toolHeadShovel);
-            add(OrePrefix.toolHeadAxe);
-            add(OrePrefix.toolHeadHoe);
-            add(OrePrefix.toolHeadHammer);
-            add(OrePrefix.toolHeadFile);
-            add(OrePrefix.toolHeadSaw);
-            add(OrePrefix.toolHeadDrill);
-            add(OrePrefix.toolHeadChainsaw);
-            add(OrePrefix.toolHeadWrench);
-            add(OrePrefix.toolHeadSense);
-            add(OrePrefix.toolHeadBuzzSaw);
-            add(OrePrefix.toolHeadScrewdriver);
-        }};
-
         // ITEMS //
 
         // Registering fluid containers
@@ -168,19 +121,20 @@ public final class ClientRegisterEvents
         ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));
 
         // Ceramic Molds
+        /*
         ModelBakery.registerItemVariants(ItemMold.get(OrePrefix.ingot), new ModelResourceLocation(ItemMold.get(OrePrefix.ingot).getRegistryName() + "/unknown"));
-        for (OrePrefix value : orePrefixes)
+        for (OrePrefix orePrefix : TFGUtils.orePrefixes)
         {
-            ItemMold item = ItemMold.get(value);
+            ItemMold item = ItemMold.get(orePrefix);
             if (item == null) continue;
 
             ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() + "/empty"));
-            /*
+
             ModelBakery.registerItemVariants(item, TFCRegistries.METALS.getValuesCollection()
                 .stream()
                 .filter(value::hasMold)
                 .map(x -> new ModelResourceLocation(item.getRegistryName().toString() + "/" + x.getRegistryName().getPath()))
-                .toArray(ModelResourceLocation[]::new));*/
+                .toArray(ModelResourceLocation[]::new));
             ModelLoader.setCustomMeshDefinition(item, new ItemMeshDefinition()
             {
                 private final ModelResourceLocation FALLBACK = new ModelResourceLocation(item.getRegistryName().toString() + "/empty");
@@ -201,7 +155,7 @@ public final class ClientRegisterEvents
                     return FALLBACK;
                 }
             });
-        }
+        }*/
 
         // Item Blocks
         for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())

@@ -95,11 +95,11 @@ dependencies {
     "deobfCompile"("codechicken:ChickenASM:$shortVersion-${config["chickenasm.version"]}")
     "deobfCompile"("curse.maven:had-enough-items-557549:3862733")
     "deobfCompile"("curse.maven:the-one-probe-245211:2667280")
-    "deobfCompile"("CraftTweaker2:CraftTweaker2-MC$strippedVersion-Main:${config["crafttweaker.version"]}")
+    "compileOnly"("CraftTweaker2:CraftTweaker2-MC$strippedVersion-Main:${config["crafttweaker.version"]}")
 
     "compileOnly" ("curse.maven:hwyla-253449:2568751")
 
-    "provided"(files("libs/gregtech-1.12.2-${config["gregtech.version"]}.jar"))
+    "provided"(files("libs/gregtech-1.12.2-2.4.3-beta.jar"))
 }
 
 val processResources: ProcessResources by tasks

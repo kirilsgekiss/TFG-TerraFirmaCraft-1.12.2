@@ -43,7 +43,7 @@ public class GuiLiquidTransfer extends GuiContainerTFC
         IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (cap instanceof IMoldHandler)
         {
-            Metal metal = ((IMoldHandler) cap).getMetal();
+            Metal metal = ((IMoldHandler) cap).getMaterial();
             if (metal != null)
             {
                 String metalName = I18n.format(Helpers.getTypeName(metal));

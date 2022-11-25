@@ -7,12 +7,14 @@ package net.dries007.tfc.api.capability;
 
 import javax.annotation.Nullable;
 
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
+import net.dries007.tfc.api.types.Metal;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import net.dries007.tfc.api.capability.heat.IItemHeat;
-import net.dries007.tfc.api.types.Metal;
 
 /**
  * This is an interface for objects that implement both {@link IFluidHandler} and {@link IItemHeat}. Anything that wants to behave similar to an {@link net.dries007.tfc.objects.items.ceramics.ItemMold} should implement this interface on the capability object, and return this instance when queried.
@@ -28,7 +30,7 @@ public interface IMoldHandler extends IFluidHandler, INBTSerializable<NBTTagComp
      * @return The metal
      */
     @Nullable
-    Metal getMetal();
+    Metal getMaterial();
 
     /**
      * Gets the current amount of metal in the mold. Zero if empty.
