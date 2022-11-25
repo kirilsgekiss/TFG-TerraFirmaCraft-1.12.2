@@ -353,6 +353,7 @@ public final class DefaultRecipes
         }
 
         // Molds
+        /*
         for (Metal.ItemType type : Metal.ItemType.values())
         {
             ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(type);
@@ -361,7 +362,7 @@ public final class DefaultRecipes
             {
                 r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_mold_" + type.name().toLowerCase()));
             }
-        }
+        }*/
 
         // Standard / Simple recipes
         r.registerAll(

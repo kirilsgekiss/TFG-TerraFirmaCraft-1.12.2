@@ -6,11 +6,14 @@
 package net.dries007.tfc.objects.items.ceramics;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
@@ -52,16 +55,16 @@ import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_
 @ParametersAreNonnullByDefault
 public class ItemMold extends ItemPottery
 {
-    private static final EnumMap<Metal.ItemType, ItemMold> MAP = new EnumMap<>(Metal.ItemType.class);
+    private static final HashMap<OrePrefix, ItemMold> MAP = new HashMap<>();
 
-    public static ItemMold get(Metal.ItemType category)
+    public static ItemMold get(OrePrefix itemMold)
     {
-        return MAP.get(category);
+        return MAP.get(itemMold);
     }
 
-    private final Metal.ItemType type;
+    private final OrePrefix type;
 
-    public ItemMold(Metal.ItemType type)
+    public ItemMold(OrePrefix type)
     {
         this.type = type;
         if (MAP.put(type, this) != null)
@@ -70,6 +73,7 @@ public class ItemMold extends ItemPottery
         }
     }
 
+    /*
     @Override
     @Nonnull
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand)
@@ -112,7 +116,7 @@ public class ItemMold extends ItemPottery
             }
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
-    }
+    }*/
 
     @Override
     @Nonnull
@@ -144,7 +148,7 @@ public class ItemMold extends ItemPottery
         CapabilityContainerListener.applyShareTag(stack, nbt);
     }
 
-    public Metal.ItemType getType()
+    public OrePrefix getType()
     {
         return type;
     }
@@ -209,7 +213,7 @@ public class ItemMold extends ItemPottery
             {
                 Metal metal = FluidsTFC.getMetalFromFluid(resource.getFluid());
                 //noinspection ConstantConditions
-                if (metal != null && type.hasMold(metal))
+                if (metal != null && type.materialType.hasProperty(PropertyKey.TOOL))  // if (metal != null && type.hasMold(metal))
                 {
                     int fillAmount = tank.fill(resource, doFill);
                     if (fillAmount == tank.getFluidAmount())

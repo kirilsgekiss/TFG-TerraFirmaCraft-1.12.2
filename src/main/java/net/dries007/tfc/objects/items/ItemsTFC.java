@@ -7,6 +7,8 @@ package net.dries007.tfc.objects.items;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -53,6 +55,9 @@ import net.dries007.tfc.objects.items.wood.ItemWoodenBucket;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.agriculture.Food;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
@@ -197,6 +202,57 @@ public final class ItemsTFC
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
+        final List<OrePrefix> orePrefixes = new ArrayList<OrePrefix>() {{
+            add(OrePrefix.dust);
+            add(OrePrefix.dustSmall);
+            add(OrePrefix.dustTiny);
+            add(OrePrefix.dustImpure);
+            add(OrePrefix.dustPure);
+            add(OrePrefix.crushed);
+            add(OrePrefix.crushedPurified);
+            add(OrePrefix.crushedCentrifuged);
+            add(OrePrefix.gem);
+            add(OrePrefix.gemChipped);
+            add(OrePrefix.gemFlawed);
+            add(OrePrefix.gemFlawless);
+            add(OrePrefix.gemExquisite);
+            add(OrePrefix.ingot);
+            add(OrePrefix.ingotHot);
+            add(OrePrefix.plate);
+            add(OrePrefix.plateDouble);
+            add(OrePrefix.plateDense);
+            add(OrePrefix.foil);
+            add(OrePrefix.stick);
+            add(OrePrefix.stickLong);
+            add(OrePrefix.bolt);
+            add(OrePrefix.screw);
+            add(OrePrefix.ring);
+            add(OrePrefix.nugget);
+            add(OrePrefix.round);
+            add(OrePrefix.spring);
+            add(OrePrefix.springSmall);
+            add(OrePrefix.gear);
+            add(OrePrefix.gearSmall);
+            add(OrePrefix.wireFine);
+            add(OrePrefix.rotor);
+            add(OrePrefix.lens);
+            add(OrePrefix.turbineBlade);
+            add(OrePrefix.toolHeadSword);
+            add(OrePrefix.toolHeadPickaxe);
+            add(OrePrefix.toolHeadShovel);
+            add(OrePrefix.toolHeadAxe);
+            add(OrePrefix.toolHeadHoe);
+            add(OrePrefix.toolHeadHammer);
+            add(OrePrefix.toolHeadFile);
+            add(OrePrefix.toolHeadSaw);
+            add(OrePrefix.toolHeadDrill);
+            add(OrePrefix.toolHeadChainsaw);
+            add(OrePrefix.toolHeadWrench);
+            add(OrePrefix.toolHeadSense);
+            add(OrePrefix.toolHeadBuzzSaw);
+            add(OrePrefix.toolHeadScrewdriver);
+        }};
+
         IForgeRegistry<Item> r = event.getRegistry();
         Builder<Item> simpleItems = ImmutableList.builder();
 
@@ -278,6 +334,21 @@ public final class ItemsTFC
             }
         }
 
+
+
+        //
+
+        for (OrePrefix orePrefix : orePrefixes)
+        {
+            if (true)
+            {
+                ItemPottery moldItem = new ItemMold(orePrefix);
+                register(r, "ceramics/fired/mold/" + orePrefix.name, moldItem, CT_POTTERY);
+            }
+        }
+
+        //
+
         for (Powder powder : Powder.values())
             simpleItems.add(register(r, "powder/" + powder.name().toLowerCase(), new ItemPowder(powder), CT_MISC));
 
@@ -287,8 +358,8 @@ public final class ItemsTFC
                 if (type.hasMold(null))
                 {
                     // Not using registerPottery here because the ItemMold uses a custom ItemModelMesher, meaning it can't be in simpleItems
-                    ItemPottery item = new ItemMold(type);
-                    register(r, "ceramics/fired/mold/" + type.name().toLowerCase(), item, CT_POTTERY);
+
+                    //
                     simpleItems.add(register(r, "ceramics/unfired/mold/" + type.name().toLowerCase(), new ItemUnfiredMold(type), CT_POTTERY));
                 }
             }
