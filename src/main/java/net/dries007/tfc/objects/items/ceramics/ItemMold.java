@@ -11,7 +11,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.fluids.MetaFluids;
+import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
+import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,14 +31,10 @@ import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.api.capability.IMoldHandler;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.Heat;
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.util.Helpers;
 
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;
 
@@ -50,73 +49,35 @@ public class ItemMold extends ItemPottery
     }
 
     private final OrePrefix type;
+    public final int moldCapacity;
 
-    public ItemMold(OrePrefix type)
+    public ItemMold(OrePrefix type, int moldCapacity)
     {
         this.type = type;
+        this.moldCapacity = moldCapacity;
         if (MAP.put(type, this) != null)
         {
             throw new IllegalStateException("There can only be one.");
         }
     }
 
-    /*
-    @Override
-    @Nonnull
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand)
+    public OrePrefix getOrePrefix()
     {
-        ItemStack stack = player.getHeldItem(hand);
-        if (!world.isRemote)
-        {
-            IItemHeat cap = stack.getCapability(CapabilityItemHeat.ITEM_HEAT_CAPABILITY, null);
-            if (!player.isSneaking() && cap != null && cap.isMolten())
-            {
-                TFCGuiHandler.openGui(world, player, TFCGuiHandler.Type.MOLD);
-            }
-
-            if (player.isSneaking())
-            {
-                // Unmold on right click, if possible
-                InventoryCrafting craftMatrix = new InventoryCrafting(new ContainerEmpty(), 3, 3);
-                craftMatrix.setInventorySlotContents(0, stack);
-                for (IRecipe recipe : ForgeRegistries.RECIPES.getValuesCollection())
-                {
-                    if (recipe instanceof UnmoldRecipe && recipe.matches(craftMatrix, world))
-                    {
-                        ItemStack result = recipe.getCraftingResult(craftMatrix);
-                        if (!result.isEmpty())
-                        {
-                            ItemStack moldResult = ((UnmoldRecipe) recipe).getMoldResult(stack);
-                            player.setHeldItem(hand, result);
-                            if (!moldResult.isEmpty())
-                            {
-                                ItemHandlerHelper.giveItemToPlayer(player, moldResult);
-                            }
-                            else
-                            {
-                                player.world.playSound(null, player.getPosition(), TFCSounds.CERAMIC_BREAK, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
-    }*/
+        return type;
+    }
 
     @Override
     @Nonnull
     public String getTranslationKey(ItemStack stack)
     {
         IFluidHandler capFluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (capFluidHandler instanceof IMoldHandler)
+        if (capFluidHandler instanceof IMaterialHandler)
         {
-            Metal metal = ((IMoldHandler) capFluidHandler).getMaterial();
+            Material metal = ((IMaterialHandler) capFluidHandler).getMaterial();
             if (metal != null)
             {
                 //noinspection ConstantConditions
-                return super.getTranslationKey(stack) + "." + metal.getRegistryName().getPath();
+                return super.getTranslationKey(stack) + "." + metal.getUnlocalizedName();
             }
         }
         return super.getTranslationKey(stack);
@@ -135,11 +96,6 @@ public class ItemMold extends ItemPottery
         CapabilityContainerListener.applyShareTag(stack, nbt);
     }
 
-    public OrePrefix getType()
-    {
-        return type;
-    }
-
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt)
@@ -150,19 +106,19 @@ public class ItemMold extends ItemPottery
     @Override
     public boolean canStack(ItemStack stack)
     {
-        IMoldHandler moldHandler = (IMoldHandler) stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
+        IMaterialHandler moldHandler = (IMaterialHandler) stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
         return moldHandler == null || moldHandler.getMaterial() == null;
     }
 
     // Extends ItemHeatHandler for ease of use
-    private class FilledMoldCapability extends ItemHeatHandler implements ICapabilityProvider, IMoldHandler
+    private class FilledMoldCapability extends ItemHeatHandler implements ICapabilityProvider, IMaterialHandler
     {
         private final FluidTank tank;
         private IFluidTankProperties[] fluidTankProperties;
 
         FilledMoldCapability(@Nullable NBTTagCompound nbt)
         {
-            tank = new FluidTank(144);
+            tank = new FluidTank(moldCapacity);
 
             if (nbt != null)
             {
@@ -172,14 +128,12 @@ public class ItemMold extends ItemPottery
 
         @Nullable
         @Override
-        public Metal getMaterial()
-        {
-            return tank.getFluid() != null ? FluidsTFC.getMetalFromFluid(tank.getFluid().getFluid()) : null;
+        public Material getMaterial() {
+            return tank.getFluid() != null ? MetaFluids.getMaterialFromFluid(tank.getFluid().getFluid()) : null;
         }
 
         @Override
-        public int getAmount()
-        {
+        public int getAmount() {
             return tank.getFluidAmount();
         }
 
@@ -198,9 +152,8 @@ public class ItemMold extends ItemPottery
         {
             if (resource != null)
             {
-                Metal metal = FluidsTFC.getMetalFromFluid(resource.getFluid());
-                //noinspection ConstantConditions
-                if (metal != null)  // if (metal != null && type.hasMold(metal))
+                Material material = MetaFluids.getMaterialFromFluid(resource.getFluid());
+                if (material != null)  // if (metal != null && type.hasMold(metal))
                 {
                     int fillAmount = tank.fill(resource, doFill);
                     if (fillAmount == tank.getFluidAmount())
@@ -240,10 +193,10 @@ public class ItemMold extends ItemPottery
         @Override
         public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
         {
-            Metal metal = getMaterial();
-            if (metal != null)
+            Material material = getMaterial();
+            if (material != null)
             {
-                String desc = TextFormatting.DARK_GREEN + I18n.format(Helpers.getTypeName(metal)) + ": " + I18n.format("tfc.tooltip.units", getAmount());
+                String desc = TextFormatting.DARK_GREEN + I18n.format(material.getUnlocalizedName()) + ": " + I18n.format("tfc.tooltip.units", getAmount());
                 if (isMolten())
                 {
                     desc += I18n.format("tfc.tooltip.liquid");
@@ -254,7 +207,7 @@ public class ItemMold extends ItemPottery
                 }
                 text.add(desc);
             }
-            IMoldHandler.super.addHeatInfo(stack, text);
+            IMaterialHandler.super.addHeatInfo(stack, text);
         }
 
         @Override
@@ -327,14 +280,18 @@ public class ItemMold extends ItemPottery
             heatCapacity = 1;
             if (fluid != null)
             {
-                Metal metal = FluidsTFC.getMetalFromFluid(fluid.getFluid());
+                Material material = MetaFluids.getMaterialFromFluid(fluid.getFluid());
                 //noinspection ConstantConditions
-                if (metal != null)
+                if (material != null)
                 {
-                    meltTemp = metal.getMeltTemp();
-                    heatCapacity = metal.getSpecificHeat();
+                    // meltTemp = material.getMeltTemp();
+                    // heatCapacity = material.getSpecificHeat();
+                    meltTemp = material.getFluid().getTemperature();
+                    heatCapacity = 0.35f;
                 }
             }
         }
+
+
     }
 }

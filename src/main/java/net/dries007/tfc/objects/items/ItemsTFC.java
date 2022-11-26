@@ -287,26 +287,16 @@ public final class ItemsTFC
             }
         }
 
-        List<MaterialIconType> materialIconTypes = new ArrayList<MaterialIconType>()
-        {
-            {
-                add(MaterialIconType.toolHeadSword);
-                add(MaterialIconType.toolHeadAxe);
-                add(MaterialIconType.toolHeadPickaxe);
-                add(MaterialIconType.toolHeadShovel);
-                add(MaterialIconType.toolHeadHoe);
-            }
-        };
+        // CRINGE
+        ItemPottery moldItem = new ItemMold(OrePrefix.toolHeadSword, 288);
+        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadSword.name, moldItem, CT_POTTERY);
 
-        // Generate Fired Molds
-        for (OrePrefix orePrefix : TFGUtils.orePrefixes)
-        {
-            if (materialIconTypes.contains(orePrefix.materialIconType))
-            {
-                ItemPottery moldItem = new ItemMold(orePrefix);
-                register(r, "ceramics/fired/mold/" + orePrefix.name, moldItem, CT_POTTERY);
-            }
-        }
+        ItemPottery moldItem1 = new ItemMold(OrePrefix.toolHeadAxe, 144);
+        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadAxe.name, moldItem1, CT_POTTERY);
+
+        ItemPottery moldItem2 = new ItemMold(OrePrefix.toolHeadPickaxe, 288);
+        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadPickaxe.name, moldItem2, CT_POTTERY);
+        //
 
         for (Powder powder : Powder.values())
         {

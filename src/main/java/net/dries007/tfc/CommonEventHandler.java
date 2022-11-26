@@ -7,6 +7,8 @@ package net.dries007.tfc;
 
 import java.util.Arrays;
 
+import gregtech.api.GregTechAPI;
+import net.dries007.tfc.compat.gregtech.TFCMaterialHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSnow;
@@ -137,6 +139,20 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public final class CommonEventHandler
 {
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+
+    @SubscribeEvent
+    public static void onMaterialsInit(GregTechAPI.MaterialEvent event) {
+        TFCMaterialHandler.init();
+    }
+
+
+
+
+
+
+
+
+
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onNeighborNotify(BlockEvent.NeighborNotifyEvent event)

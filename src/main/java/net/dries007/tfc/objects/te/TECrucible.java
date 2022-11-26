@@ -10,6 +10,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.fluids.MetaFluids;
+import gregtech.api.unification.material.Material;
+import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -57,7 +61,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     private final IItemHandler inventoryWrapperInsert;
 
     private final HeatRecipe[] cachedRecipes;
-    private Metal alloyResult;
+    private Material alloyResult;
     private float temperature;
     private float targetTemperature;
     private int lastFillTimer;
@@ -84,14 +88,14 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
         }
     }
 
-    public int addMetal(Metal metal, int amount)
+    public int addMetal(Material metal, int amount)
     {
         int overflow = Math.max(0, alloy.getAmount() + amount - alloy.getMaxAmount()); // Amount which cannot be inserted
         alloy.add(metal, amount);
 
         // Update crucible temperature to match
-        temperature = metal.getMeltTemp();
-        targetTemperature = metal.getMeltTemp();
+        temperature = metal.getFluid().getTemperature();
+        targetTemperature = metal.getFluid().getTemperature();
 
         // Alloy changed, so sync to client
         markForSync();
@@ -141,15 +145,15 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
                     }
                 }
                 // Try and drain fluid
-                if (cap instanceof IMoldHandler)
+                if (cap instanceof IMaterialHandler)
                 {
-                    IMoldHandler mold = (IMoldHandler) cap;
+                    IMaterialHandler mold = (IMaterialHandler) cap;
                     if (canFill)
                     {
                         if (mold.isMolten())
                         {
                             // Use mold.getMetal() to avoid off by one errors during draining
-                            Metal metal = mold.getMaterial();
+                            Material metal = mold.getMaterial();
                             FluidStack fluidStack = mold.drain(ConfigTFC.Devices.CRUCIBLE.pouringSpeed, true);
                             if (fluidStack != null && fluidStack.amount > 0)
                             {
@@ -173,20 +177,20 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
             // Output filling
             ItemStack outputStack = inventory.getStackInSlot(SLOT_OUTPUT);
             IItemHeat capOut = outputStack.getCapability(CapabilityItemHeat.ITEM_HEAT_CAPABILITY, null);
-            if (capOut instanceof IMoldHandler)
+            if (capOut instanceof IMaterialHandler)
             {
-                IMoldHandler mold = (IMoldHandler) capOut;
+                IMaterialHandler mold = (IMaterialHandler) capOut;
 
                 // Check that the crucible metal is molten
-                Metal alloyMetal = alloy.getResult();
-                if (temperature > alloyMetal.getMeltTemp())
+                Material alloyMetal = alloy.getResult();
+                if (temperature > alloyMetal.getFluid().getTemperature())
                 {
                     // Fill from the current alloy
                     int amountToFill = alloy.removeAlloy(1, true);
                     if (amountToFill > 0)
                     {
                         // Do fill of the mold
-                        Fluid metalFluid = FluidsTFC.getFluidFromMetal(alloyMetal);
+                        Fluid metalFluid = alloyMetal.getFluid(); /*FluidsTFC.getFluidFromMetal(alloyMetal);*/
                         FluidStack fluidStack = new FluidStack(metalFluid, amountToFill);
                         int amountFilled = mold.fill(fluidStack, true);
 
@@ -226,11 +230,11 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
         if (slot != SLOT_OUTPUT)
         {
             IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-            if (cap instanceof IMoldHandler)
+            if (cap instanceof IMaterialHandler)
             {
                 if (cap instanceof ISmallVesselHandler)
                 {
-                    if (((ISmallVesselHandler) cap).getMaterial() != null)
+                    if (((ISmallVesselHandler) cap).getMetal() != null)
                     {
                         return true;
                     }
@@ -248,7 +252,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
                 }
                 else
                 {
-                    return ((IMoldHandler) cap).getAmount() > 0; // This will make empty molds go to the output slot / prevent empty molds go to the input (no sense in heating them here anyway)
+                    return ((IMaterialHandler) cap).getAmount() > 0; // This will make empty molds go to the output slot / prevent empty molds go to the input (no sense in heating them here anyway)
                 }
             }
         }
@@ -395,7 +399,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
      * @return the current result of getAlloy().getResult()
      */
     @Nonnull
-    public Metal getAlloyResult()
+    public Material getAlloyResult()
     {
         return alloyResult;
     }

@@ -10,6 +10,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Sets;
+import gregtech.api.GregTechAPI;
+import gregtech.api.fluids.MetaFluids;
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;
@@ -17,14 +21,9 @@ import net.minecraftforge.fluids.FluidStack;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
-import net.dries007.tfc.api.capability.metal.CapabilityMetalItem;
-import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.recipes.AlloyRecipe;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.fluids.properties.MetalProperty;
 
 /**
  * A helper class for working with alloys
@@ -46,7 +45,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      */
     public static final double EPSILON = 1d / SAFE_MAX_ALLOY;
 
-    private final Object2DoubleMap<Metal> metalMap, sanitizedMetalMap;
+    private final Object2DoubleMap<Material> metalMap, sanitizedMetalMap;
     private int totalUnits;
     private int maxUnits;
 
@@ -79,12 +78,9 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      */
     public Alloy add(@Nonnull FluidStack stack)
     {
-        MetalProperty metalProperty = FluidsTFC.getWrapper(stack.getFluid()).get(MetalProperty.METAL);
-        if (metalProperty != null)
-        {
-            Metal metal = metalProperty.getMetal();
-            add(metal, stack.amount);
-        }
+        Material metal = MetaFluids.getMaterialFromFluid(stack.getFluid());
+        add(metal, stack.amount);
+
         return this;
     }
 
@@ -95,10 +91,12 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      * @param stack an item stack
      * @return the alloy, for method chaining
      */
+    /*
     public Alloy add(@Nonnull ItemStack stack)
     {
         return add(stack, Metal.Tier.TIER_VI, Float.MAX_VALUE);
     }
+    */
 
     /**
      * Add metal to an alloy from an item stack
@@ -109,6 +107,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      * @param temperature the temperature to melt items
      * @return the alloy, for method chaining
      */
+    /*
     public Alloy add(@Nonnull ItemStack stack, @Nonnull Metal.Tier deviceTier, float temperature)
     {
         if (!stack.isEmpty())
@@ -130,7 +129,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
         }
         return this;
     }
-
+    */
     /**
      * Add metal to an alloy from an item stack
      *
@@ -170,7 +169,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
         }
         // Directly add the other alloy exact values. This is important as it needs to not round floating point alloy amounts
         totalUnits += other.totalUnits;
-        for (Map.Entry<Metal, Double> entry : other.metalMap.entrySet())
+        for (Map.Entry<Material, Double> entry : other.metalMap.entrySet())
         {
             metalMap.merge(entry.getKey(), keepRatio * entry.getValue(), Double::sum);
         }
@@ -185,7 +184,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      * @param amount The amount to add
      * @return The alloy, for method chaining
      */
-    public Alloy add(@Nullable Metal metal, int amount)
+    public Alloy add(@Nullable Material metal, int amount)
     {
         if (metal != null)
         {
@@ -213,7 +212,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      * @return the result metal. Unknown if it doesn't match any recipe
      */
     @Nonnull
-    public Metal getResult()
+    public Material getResult()
     {
         if (metalMap.size() == 1)
         {
@@ -226,7 +225,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
                 return r.getResult();
             }
         }
-        return Metal.UNKNOWN;
+        return Materials.Neutronium;
     }
 
     /**
@@ -250,8 +249,8 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
         }
         else
         {
-            Map<Metal, Double> resultMap = new Object2DoubleOpenHashMap<>(metalMap.size());
-            for (Map.Entry<Metal, Double> entry : metalMap.entrySet())
+            Map<Material, Double> resultMap = new Object2DoubleOpenHashMap<>(metalMap.size());
+            for (Map.Entry<Material, Double> entry : metalMap.entrySet())
             {
                 // Remove the amount of metal from each component, add the remainder (if it exists) into the result map
                 double remove = removeAmount * entry.getValue() / totalUnits;
@@ -304,7 +303,7 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
      *
      * @return a map of metals -> unit values
      */
-    public Map<Metal, Double> getMetals()
+    public Map<Material, Double> getMetals()
     {
         return sanitizedMetalMap;
     }
@@ -316,10 +315,10 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
         nbt.setInteger("maxAmount", maxUnits);
         nbt.setInteger("totalAmount", totalUnits);
         NBTTagCompound alloys = new NBTTagCompound();
-        for (Map.Entry<Metal, Double> entry : this.metalMap.entrySet())
+        for (Map.Entry<Material, Double> entry : this.metalMap.entrySet())
         {
             //noinspection ConstantConditions
-            alloys.setDouble(entry.getKey().getRegistryName().toString(), entry.getValue());
+            alloys.setDouble(entry.getKey().getUnlocalizedName(), entry.getValue());
         }
         nbt.setTag("contents", alloys);
         return nbt;
@@ -335,10 +334,10 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
             totalUnits = nbt.getInteger("totalAmount");
 
             NBTTagCompound alloys = nbt.getCompoundTag("contents");
-            for (Metal metal : TFCRegistries.METALS.getValuesCollection())
+            for (Material metal : GregTechAPI.MATERIAL_REGISTRY)
             {
                 //noinspection ConstantConditions
-                String key = metal.getRegistryName().toString();
+                String key = metal.getUnlocalizedName();
                 if (alloys.hasKey(key))
                 {
                     double amount = alloys.getDouble(key);
@@ -395,9 +394,9 @@ public class Alloy implements INBTSerializable<NBTTagCompound>
     {
         // for each metal in the alloy, it needs to satisfy an ingredient
         // for each metal in the recipe, it needs to match with an alloy
-        Map<Metal, Double> metals = getMetals();
+        Map<Material, Double> metals = getMetals();
         double actualTotalAmount = getAmountAccurately();
-        for (Metal metal : Sets.union(recipe.getMetals().keySet(), metals.keySet()))
+        for (Material metal : Sets.union(recipe.getMetals().keySet(), metals.keySet()))
         {
             if (!metals.containsKey(metal) || !recipe.getMetals().containsKey(metal) || !recipe.getMetals().get(metal).test(metals.get(metal) / actualTotalAmount))
             {

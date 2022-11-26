@@ -5,6 +5,7 @@
 
 package net.dries007.tfc.client.render;
 
+import gregtech.api.unification.material.Material;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -33,8 +34,8 @@ public class TESRCrucible extends TileEntitySpecialRenderer<TECrucible>
     {
         int amount = te.getAlloy().getAmount();
         if (amount < 1) return;
-        Metal metal = te.getAlloyResult();
-        Fluid metalFluid = FluidsTFC.getFluidFromMetal(metal);
+        Material metal = te.getAlloyResult();
+        Fluid metalFluid = metal.getFluid();
 
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, z);

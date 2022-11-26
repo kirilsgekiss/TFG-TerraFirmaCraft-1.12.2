@@ -7,7 +7,7 @@
     }
   ],
   "input_oreprefix": "toolHeadAxe",
-  "input_material": "bronze",
+  "input_material": "copper",
   "input_material_amount": 144,
 
   "chance": 1

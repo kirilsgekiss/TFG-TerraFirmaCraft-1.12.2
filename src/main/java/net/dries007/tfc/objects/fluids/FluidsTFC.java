@@ -17,6 +17,10 @@ import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import gregtech.api.GregTechAPI;
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
+import net.dries007.tfc.MaterialProperty;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.EnumRarity;
@@ -39,6 +43,7 @@ import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.fluids.properties.MetalProperty;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -77,6 +82,7 @@ public final class FluidsTFC
     public static FluidWrapper RUM;
     private static ImmutableSet<FluidWrapper> allAlcoholsFluids;
     private static ImmutableMap<Metal, FluidWrapper> allMetalFluids;
+    private static ImmutableMap<Material, FluidWrapper> allMaterialFluids;
     private static ImmutableSet<FluidWrapper> allOtherFiniteFluids;
 
     public static ImmutableSet<FluidWrapper> getAllAlcoholsFluids()
@@ -93,6 +99,8 @@ public final class FluidsTFC
     {
         return allMetalFluids.values();
     }
+
+    public static ImmutableCollection<FluidWrapper> getAllMaterialFluids() { return allMaterialFluids.values(); }
 
     @Nonnull
     @SuppressWarnings("ConstantConditions")

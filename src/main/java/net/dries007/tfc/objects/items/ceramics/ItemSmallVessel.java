@@ -172,12 +172,13 @@ public class ItemSmallVessel extends ItemPottery
 
             for (int i = 0; i < cap.getSlots(); i++)
             {
-                alloy.add(cap.getStackInSlot(i), Metal.Tier.TIER_VI, 1600f);
+                // TODO
+                //alloy.add(cap.getStackInSlot(i), Metal.Tier.TIER_VI, 1600f);
                 cap.setStackInSlot(i, ItemStack.EMPTY);
             }
 
             cap.setFluidMode(true);
-            cap.fill(new FluidStack(FluidsTFC.getFluidFromMetal(alloy.getResult()), alloy.getAmount()), true);
+            //cap.fill(new FluidStack(FluidsTFC.getFluidFromMetal(alloy.getResult()), alloy.getAmount()), true);
             cap.setTemperature(1600f);
         }
         return input;
@@ -271,7 +272,7 @@ public class ItemSmallVessel extends ItemPottery
         @Override
         public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
         {
-            Metal metal = getMaterial();
+            Metal metal = getMetal();
             if (metal != null)
             {
                 String desc = TextFormatting.DARK_GREEN + I18n.format(Helpers.getTypeName(metal)) + ": " + I18n.format("tfc.tooltip.units", getAmount());
@@ -336,7 +337,7 @@ public class ItemSmallVessel extends ItemPottery
 
         @Nullable
         @Override
-        public Metal getMaterial()
+        public Metal getMetal()
         {
             return fluidMode && tank.getFluid() != null ? FluidsTFC.getMetalFromFluid(tank.getFluid().getFluid()) : null;
         }

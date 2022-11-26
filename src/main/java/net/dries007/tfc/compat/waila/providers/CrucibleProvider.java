@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nonnull;
 
+import gregtech.api.unification.material.Material;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -33,8 +34,8 @@ public class CrucibleProvider implements IWailaBlock
         {
             if (crucible.getAlloy().getAmount() > 0)
             {
-                Metal metal = crucible.getAlloyResult();
-                currentTooltip.add(new TextComponentTranslation("waila.tfc.metal.output", crucible.getAlloy().getAmount(), new TextComponentTranslation(metal.getTranslationKey()).getFormattedText()).getFormattedText());
+                Material metal = crucible.getAlloyResult();
+                currentTooltip.add(new TextComponentTranslation("waila.tfc.metal.output", crucible.getAlloy().getAmount(), new TextComponentTranslation(metal.getLocalizedName()).getFormattedText()).getFormattedText());
             }
             float temperature = nbt.getFloat("temp");
             String heatTooltip = Heat.getTooltip(temperature);
