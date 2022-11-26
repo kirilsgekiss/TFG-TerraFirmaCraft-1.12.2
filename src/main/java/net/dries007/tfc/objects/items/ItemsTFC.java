@@ -224,6 +224,7 @@ public final class ItemsTFC
         }
 
         {
+            /*
             Builder<ItemOreTFC> b = new Builder<>();
             for (Ore ore : TFCRegistries.ORES.getValuesCollection())
             {
@@ -233,7 +234,7 @@ public final class ItemsTFC
                     simpleItems.add(register(r, "ore/small/" + ore.getRegistryName().getPath(), new ItemSmallOre(ore), CT_ROCK_ITEMS));
                 }
             }
-            allOreItems = b.build();
+            allOreItems = b.build();*/
 
         }
 
@@ -287,17 +288,6 @@ public final class ItemsTFC
             }
         }
 
-        // CRINGE
-        ItemPottery moldItem = new ItemMold(OrePrefix.toolHeadSword, 288);
-        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadSword.name, moldItem, CT_POTTERY);
-
-        ItemPottery moldItem1 = new ItemMold(OrePrefix.toolHeadAxe, 144);
-        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadAxe.name, moldItem1, CT_POTTERY);
-
-        ItemPottery moldItem2 = new ItemMold(OrePrefix.toolHeadPickaxe, 288);
-        register(r, "ceramics/fired/mold/" + OrePrefix.toolHeadPickaxe.name, moldItem2, CT_POTTERY);
-        //
-
         for (Powder powder : Powder.values())
         {
             simpleItems.add(register(r, "powder/" + powder.name().toLowerCase(), new ItemPowder(powder), CT_MISC));
@@ -305,15 +295,12 @@ public final class ItemsTFC
 
         // POTTERY
         {
-            for (Metal.ItemType type : Metal.ItemType.values())
+            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.orePrefixListForUnmold.entrySet())
             {
-                if (type.hasMold(null))
-                {
-                    // Not using registerPottery here because the ItemMold uses a custom ItemModelMesher, meaning it can't be in simpleItems
+                ItemPottery moldItem = new ItemMold(entry.getKey(), entry.getValue());
+                register(r, "ceramics/fired/mold/" + entry.getKey().name, moldItem, CT_POTTERY);
 
-                    //
-                    simpleItems.add(register(r, "ceramics/unfired/mold/" + type.name().toLowerCase(), new ItemUnfiredMold(type), CT_POTTERY));
-                }
+                simpleItems.add(register(r, "ceramics/unfired/mold/" + entry.getKey(), new ItemUnfiredMold(entry.getKey()), CT_POTTERY));
             }
 
             simpleItems.add(register(r, "ceramics/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));

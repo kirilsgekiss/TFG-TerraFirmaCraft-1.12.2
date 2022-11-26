@@ -1,0 +1,13 @@
+{
+  "type": "tfc:unmold_recipe",
+
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/fired/mold/toolheadhoe"
+    }
+  ],
+  "input_oreprefix": "toolHeadHoe",
+  "input_material_amount": 144,
+
+  "chance": 1
+}

@@ -5,12 +5,16 @@
 
 package net.dries007.tfc.compat.jei;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import gregtech.api.GregTechAPI;
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.ore.OrePrefix;
+import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.objects.items.ceramics.ItemMold;
+import net.dries007.tfc.objects.items.ceramics.ItemPottery;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -54,6 +58,8 @@ import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.rock.ItemRockKnife;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
 import net.dries007.tfc.world.classic.worldgen.vein.VeinRegistry;
+
+import static net.dries007.tfc.objects.CreativeTabsTFC.CT_POTTERY;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
@@ -327,15 +333,18 @@ public final class TFCJEIPlugin implements IModPlugin
             {
                 registry.addRecipeCatalyst(new ItemStack(ItemMetalTool.get(metal, Metal.ItemType.KNIFE)), SCRAPING_UID);
             }
-            for (Metal.ItemType type : Metal.ItemType.values())
+
+        }
+
+        for (Material material : TFGUtils.materialListForUnmold)
+        {
+            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.orePrefixListForUnmold.entrySet())
             {
-                if (type.hasMold(metal))
-                {
-                    unmoldList.add(new UnmoldRecipeWrapper(metal, type));
-                    castingList.add(new CastingRecipeWrapper(metal, type));
-                }
+                unmoldList.add(new UnmoldRecipeWrapper(material, entry.getKey()));
+                //castingList.add(new CastingRecipeWrapper(metal, type));
             }
         }
+
         registry.addRecipes(unmoldList, VanillaRecipeCategoryUid.CRAFTING);
         registry.addRecipes(castingList, CASTING_UID);
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), CASTING_UID);

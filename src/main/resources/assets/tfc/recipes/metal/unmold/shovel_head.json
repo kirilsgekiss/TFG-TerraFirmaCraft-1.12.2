@@ -1,0 +1,13 @@
+{
+  "type": "tfc:unmold_recipe",
+
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/fired/mold/toolheadshovel"
+    }
+  ],
+  "input_oreprefix": "toolHeadShovel",
+  "input_material_amount": 144,
+
+  "chance": 1
+}

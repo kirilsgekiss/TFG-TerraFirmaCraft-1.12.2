@@ -4,9 +4,7 @@ import com.google.gson.JsonObject;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.api.worldgen.config.OreConfigUtils;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
@@ -33,8 +31,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import java.util.Objects;
-
 import static net.dries007.tfc.api.capability.heat.CapabilityItemHeat.ITEM_HEAT_CAPABILITY;
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;
 
@@ -44,7 +40,6 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
 
     private final ResourceLocation resourceLocation;
     private final NonNullList<Ingredient> ingredient;
-    private final Material ingredientMaterial;
     private final int ingredientMaterialAmount;
     private final OrePrefix ingredientOrePrefix;
     private final float moldBreakChance;
@@ -53,7 +48,6 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             (
                     @Nullable ResourceLocation resourceLocation,
                     NonNullList<Ingredient> ingredient,
-                    @Nonnull Material ingredientMaterial,
                     int ingredientMaterialAmount,
                     @Nonnull OrePrefix ingredientOrePrefix,
                     float moldBreakChance
@@ -61,7 +55,6 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
     {
         this.resourceLocation = resourceLocation;
         this.ingredient = ingredient;
-        this.ingredientMaterial = ingredientMaterial;
         this.ingredientMaterialAmount = ingredientMaterialAmount;
         this.ingredientOrePrefix = ingredientOrePrefix;
         this.moldBreakChance = moldBreakChance;
@@ -257,16 +250,13 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             final String resourceLocation = JsonUtils.getString(json, "resourceLocation", "");
             final NonNullList<Ingredient> ingredient = RecipeUtils.parseShapeless(context, json);
             final OrePrefix ingredientOrePrefix = OrePrefix.getPrefix(JsonUtils.getString(json, "input_oreprefix"));
-            final Material ingredientMaterial = GregTechAPI.MATERIAL_REGISTRY.getObject(JsonUtils.getString(json, "input_material"));
             final int materialAmount = JsonUtils.getInt(json, "input_material_amount");
             final float moldBreakChance = JsonUtils.getFloat(json, "chance");
 
-            assert ingredientMaterial != null;
             return new UnmoldRecipe
                     (
                         resourceLocation.isEmpty() ? new ResourceLocation(ingredientOrePrefix.name) : new ResourceLocation(resourceLocation),
                         ingredient,
-                        ingredientMaterial,
                         materialAmount,
                         ingredientOrePrefix,
                         moldBreakChance
