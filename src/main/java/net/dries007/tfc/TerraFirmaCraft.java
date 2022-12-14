@@ -1,35 +1,71 @@
+/*
+ * Work under Copyright. Licensed under the EUPL.
+ * See the project README.md and LICENSE.txt for more information.
+ */
+
 package net.dries007.tfc;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.server.dedicated.PropertyManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.server.FMLServerHandler;
+
+import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
+import net.dries007.tfc.api.capability.egg.CapabilityEgg;
+import net.dries007.tfc.api.capability.food.CapabilityFood;
+import net.dries007.tfc.api.capability.food.FoodHandler;
+import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
+import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
+import net.dries007.tfc.api.capability.metal.CapabilityMetalItem;
+import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
+import net.dries007.tfc.api.capability.size.CapabilityItemSize;
+import net.dries007.tfc.api.capability.worldtracker.CapabilityWorldTracker;
+import net.dries007.tfc.client.ClientEvents;
+import net.dries007.tfc.client.TFCGuiHandler;
+import net.dries007.tfc.client.TFCKeybindings;
+import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
+import net.dries007.tfc.command.*;
+import net.dries007.tfc.network.*;
+import net.dries007.tfc.objects.LootTablesTFC;
+import net.dries007.tfc.objects.advancements.TFCTriggers;
+import net.dries007.tfc.objects.entity.EntitiesTFC;
+import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.proxy.IProxy;
+import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.fuel.FuelManager;
+import net.dries007.tfc.util.json.JsonConfigRegistry;
+import net.dries007.tfc.world.classic.WorldTypeTFC;
+import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
+@SuppressWarnings("FieldMayBeFinal")
 @Mod.EventBusSubscriber
 @Mod(
         modid = MOD_ID,
         name = TerraFirmaCraft.MOD_NAME,
         version = TerraFirmaCraft.VERSION,
         useMetadata = true,
-<<<<<<< Updated upstream
-        //guiFactory = Constants.GUI_FACTORY,
-        dependencies = "required:forge@[14.23.5.2816,);after:jei@[4.14.2,);after:crafttweaker@[4.1.11,);after:waila@(1.8.25,)")
-
-public final class TerraFirmaCraft {
-=======
         guiFactory = Constants.GUI_FACTORY,
         dependencies = "required:forge@[14.23.5.2816,);after:gregtech;after:jei@[4.14.2,);after:crafttweaker@[4.1.11,);after:waila@(1.8.25,)")
 public final class TerraFirmaCraft
 {
->>>>>>> Stashed changes
     public static final String MOD_ID = "tfc";
     public static final String MOD_NAME = "TerraFirmaCraft GTCEuVersion";
     public static final String VERSION = "@VERSION@";
 
     @Mod.Instance
     private static TerraFirmaCraft INSTANCE = null;
-<<<<<<< Updated upstream
-=======
 
     @SidedProxy(modId = MOD_ID, clientSide = "net.dries007.tfc.proxy.ClientProxy", serverSide = "net.dries007.tfc.proxy.ServerProxy")
     private static IProxy PROXY = null;
@@ -195,5 +231,4 @@ public final class TerraFirmaCraft
         // Initialize calendar for the current server
         CalendarTFC.INSTANCE.init(event.getServer());
     }
->>>>>>> Stashed changes
 }
