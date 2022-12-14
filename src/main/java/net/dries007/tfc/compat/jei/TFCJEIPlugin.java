@@ -8,14 +8,11 @@ package net.dries007.tfc.compat.jei;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.TFGUtils;
-import net.dries007.tfc.objects.items.ceramics.ItemMold;
-import net.dries007.tfc.objects.items.ceramics.ItemPottery;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -29,7 +26,6 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
-import mezz.jei.api.recipe.IRecipeWrapper;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.dries007.tfc.TerraFirmaCraft;
@@ -40,7 +36,6 @@ import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.gui.*;
 import net.dries007.tfc.compat.jei.categories.*;
@@ -48,18 +43,12 @@ import net.dries007.tfc.compat.jei.wrappers.*;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockLoom;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
 import net.dries007.tfc.objects.items.ItemsTFC;
-import net.dries007.tfc.objects.items.metal.ItemAnvil;
-import net.dries007.tfc.objects.items.metal.ItemMetalChisel;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.rock.ItemRockKnife;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
-import net.dries007.tfc.world.classic.worldgen.vein.VeinRegistry;
-
-import static net.dries007.tfc.objects.CreativeTabsTFC.CT_POTTERY;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
@@ -115,8 +104,6 @@ public final class TFCJEIPlugin implements IModPlugin
         registry.addRecipeCategories(new LoomCategory(registry.getJeiHelpers().getGuiHelper(), LOOM_UID));
         registry.addRecipeCategories(new MetalHeatingCategory(registry.getJeiHelpers().getGuiHelper(), METAL_HEAT_UID));
         registry.addRecipeCategories(new QuernCategory(registry.getJeiHelpers().getGuiHelper(), QUERN_UID));
-        registry.addRecipeCategories(new RockLayerCategory(registry.getJeiHelpers().getGuiHelper(), ROCK_LAYER_UID));
-        registry.addRecipeCategories(new VeinCategory(registry.getJeiHelpers().getGuiHelper(), VEIN_UID));
         registry.addRecipeCategories(new WeldingCategory(registry.getJeiHelpers().getGuiHelper(), WELDING_UID));
         registry.addRecipeCategories(new ScrapingCategory(registry.getJeiHelpers().getGuiHelper(), SCRAPING_UID));
     }
@@ -291,21 +278,6 @@ public final class TFCJEIPlugin implements IModPlugin
 
         registry.addRecipes(chiselList, CHISEL_UID);
 
-        //Wraps all rock layers
-        List<RockLayerWrapper> rockLayerList = TFCRegistries.ROCKS.getValuesCollection()
-            .stream()
-            .map(RockLayerWrapper::new)
-            .collect(Collectors.toList());
-
-        registry.addRecipes(rockLayerList, ROCK_LAYER_UID);
-
-        //Wraps all veins
-        List<VeinWrapper> veinList = VeinRegistry.INSTANCE.getVeins().values()
-            .stream().map(VeinWrapper::new)
-            .collect(Collectors.toList());
-
-        registry.addRecipes(veinList, VEIN_UID);
-
         // Register metal related stuff (put everything here for performance + sorted registration)
         List<UnmoldRecipeWrapper> unmoldList = new ArrayList<>();
         List<CastingRecipeWrapper> castingList = new ArrayList<>();
@@ -314,12 +286,17 @@ public final class TFCJEIPlugin implements IModPlugin
             .sorted(Comparator.comparingInt(metal -> metal.getTier().ordinal()))
             .collect(Collectors.toList());
 
-        for (Material material : TFGUtils.materialListForUnmold)
+        for (Map.Entry<Material, Integer> materialAndTier : TFGUtils.MATERIALS_TO_TIER.entrySet())
         {
-            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.orePrefixListForUnmold.entrySet())
+            for (Map.Entry<OrePrefix, Integer> orePrefixAndAmount : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.entrySet())
             {
-                unmoldList.add(new UnmoldRecipeWrapper(material, entry.getKey()));
-                //castingList.add(new CastingRecipeWrapper(metal, type));
+                if (materialAndTier.getKey().hasProperty(PropertyKey.TOOL))
+                {
+                    unmoldList.add(new UnmoldRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
+                    castingList.add(new CastingRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
+                }
+
+
             }
         }
 

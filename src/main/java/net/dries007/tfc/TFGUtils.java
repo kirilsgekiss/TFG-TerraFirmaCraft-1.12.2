@@ -5,13 +5,13 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.compat.gregtech.TFGOrePrefix;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public final class TFGUtils {
 
-    public static final HashMap<Material, Integer> materialsToTier = new HashMap<Material, Integer>()
+    public static final HashMap<Material, Integer> MATERIALS_TO_TIER = new HashMap<Material, Integer>()
     {
         {
             put(Materials.Copper, 1);
@@ -19,16 +19,18 @@ public final class TFGUtils {
             put(Materials.BlackBronze, 2);
             put(Materials.BismuthBronze, 2);
             put(Materials.WroughtIron, 3);
+            put(Materials.AceticAcid, 123);
         }
     };
 
-    public static final HashMap<OrePrefix, Integer> orePrefixToMetalUnits = new HashMap<OrePrefix, Integer>()
+    public static final HashMap<OrePrefix, Integer> ORE_PREFIX_TO_METAL_UNITS = new HashMap<OrePrefix, Integer>()
     {
         {
             put(OrePrefix.plate, 144);
             put(OrePrefix.ingot, 144);
             put(OrePrefix.dust, 144);
             put(OrePrefix.nugget, 16);
+
             put(OrePrefix.toolHeadSword, 288);
             put(OrePrefix.toolHeadPickaxe, 288);
             put(OrePrefix.toolHeadAxe, 288);
@@ -41,33 +43,33 @@ public final class TFGUtils {
         }
     };
 
+    private static final List<OrePrefix> OREPREFIXES_HAS_MOLD = Arrays.asList
+    (
+            OrePrefix.ingot,
+            OrePrefix.toolHeadSword,
+            OrePrefix.toolHeadAxe,
+            OrePrefix.toolHeadPickaxe,
+            OrePrefix.toolHeadAxe,
+            OrePrefix.toolHeadShovel,
+            OrePrefix.toolHeadHoe,
+            OrePrefix.toolHeadSaw,
+            OrePrefix.toolHeadHammer,
+            OrePrefix.toolHeadSense,
+            TFGOrePrefix.toolHeadKnife
+    );
 
-    public static final List<Material> materialListForUnmold = new ArrayList<Material>()
+    public static boolean isOrePrefixHasMold(OrePrefix orePrefix)
     {
-        {
-            add(Materials.Copper);
-            add(Materials.BismuthBronze);
-            add(Materials.Bronze);
-            add(Materials.BlackBronze);
-        }
-    };
+        return OREPREFIXES_HAS_MOLD.contains(orePrefix);
+    }
 
-    public static final HashMap<OrePrefix, Integer> orePrefixListForUnmold = new HashMap<OrePrefix, Integer>()
+    public static int getMetalAmountForOrePrefix(OrePrefix orePrefix)
     {
-        {
-            put(OrePrefix.toolHeadSword, 288);
-            put(OrePrefix.toolHeadPickaxe, 288);
-            put(OrePrefix.toolHeadAxe, 288);
-            put(OrePrefix.toolHeadShovel, 144);
-            put(OrePrefix.toolHeadHoe, 144);
-            put(OrePrefix.toolHeadSaw, 144);
-            put(OrePrefix.toolHeadHammer, 432);
-            put(OrePrefix.toolHeadSense, 432);
-            put(TFGOrePrefix.toolHeadKnife, 144);
-        }
-    };
+        return ORE_PREFIX_TO_METAL_UNITS.get(orePrefix);
+    }
 
-
-
-
+    public static int getMaterialTier(Material material)
+    {
+        return MATERIALS_TO_TIER.get(material);
+    }
 }

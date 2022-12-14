@@ -286,12 +286,14 @@ public final class ItemsTFC
 
         // POTTERY
         {
-            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.orePrefixListForUnmold.entrySet())
+            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.entrySet())
             {
-                ItemPottery moldItem = new ItemMold(entry.getKey(), entry.getValue());
-                register(r, "ceramics/fired/mold/" + entry.getKey().name, moldItem, CT_POTTERY);
+                if (TFGUtils.isOrePrefixHasMold(entry.getKey()))
+                {
+                    register(r, "ceramics/fired/mold/" + entry.getKey().name, new ItemMold(entry.getKey(), entry.getValue()), CT_POTTERY);
 
-                simpleItems.add(register(r, "ceramics/unfired/mold/" + entry.getKey(), new ItemUnfiredMold(entry.getKey()), CT_POTTERY));
+                    simpleItems.add(register(r, "ceramics/unfired/mold/" + entry.getKey().name, new ItemUnfiredMold(entry.getKey()), CT_POTTERY));
+                }
             }
 
             simpleItems.add(register(r, "ceramics/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));

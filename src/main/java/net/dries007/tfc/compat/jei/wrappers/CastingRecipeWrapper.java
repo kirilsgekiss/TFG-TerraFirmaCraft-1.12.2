@@ -25,7 +25,7 @@ public class CastingRecipeWrapper implements IRecipeWrapper
 
     public CastingRecipeWrapper(Material metal, OrePrefix type)
     {
-        input = new FluidStack(metal.getFluid(), 100);
+        input = new FluidStack(metal.getFluid(), ItemMold.get(type).moldCapacity);
         mold = new ItemStack(ItemMold.get(type));
         IFluidHandler cap = mold.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (cap instanceof IMaterialHandler)

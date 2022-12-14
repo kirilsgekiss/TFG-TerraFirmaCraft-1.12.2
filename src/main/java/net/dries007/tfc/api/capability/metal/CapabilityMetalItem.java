@@ -12,6 +12,8 @@ import javax.annotation.Nullable;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.api.types.Ore;
+import net.dries007.tfc.compat.gregtech.TFGOrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -40,12 +42,22 @@ public final class CapabilityMetalItem
         CapabilityManager.INSTANCE.register(IMetalItem.class, new DumbStorage<>(), MetalItemHandler::new);
 
         // Register ore dict prefix values
-        //ORE_DICT_METAL_ITEMS.put("ingotDouble", Metal.ItemType.DOUBLE_INGOT);
+        // ORE_DICT_METAL_ITEMS.put("ingotDouble", Metal.ItemType.DOUBLE_INGOT);
         ORE_DICT_MATERIAL_ITEMS.put("ingot", OrePrefix.ingot);
-        //ORE_DICT_METAL_ITEMS.put("plateDouble", Metal.ItemType.DOUBLE_SHEET);
+        ORE_DICT_MATERIAL_ITEMS.put("plateDouble", OrePrefix.plateDouble);
         ORE_DICT_MATERIAL_ITEMS.put("plate", OrePrefix.plate);
         ORE_DICT_MATERIAL_ITEMS.put("dust", OrePrefix.dust);
         ORE_DICT_MATERIAL_ITEMS.put("nugget", OrePrefix.nugget);
+
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSword", OrePrefix.toolHeadSword);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadAxe", OrePrefix.toolHeadAxe);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadPickaxe", OrePrefix.toolHeadPickaxe);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadShovel", OrePrefix.toolHeadShovel);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadHoe", OrePrefix.toolHeadHoe);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSaw", OrePrefix.toolHeadSaw);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadHammer", OrePrefix.toolHeadHammer);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSense", OrePrefix.toolHeadSense);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadKnife", TFGOrePrefix.toolHeadKnife);
     }
 
     public static void init()
@@ -116,10 +128,10 @@ public final class CapabilityMetalItem
         {
             if (oreDict.startsWith(oreName))
             {
-                return TFGUtils.materialsToTier.keySet().stream()
+                return TFGUtils.MATERIALS_TO_TIER.keySet().stream()
                         .filter(material -> oreDict.equals(OreDictionaryHelper.toString(oreName, material.toCamelCaseString())) && material.hasFluid())
                         .findFirst()
-                        .map(metal -> new MetalItemHandler(metal, TFGUtils.orePrefixToMetalUnits.get(OrePrefix.getPrefix(oreName)), true)).orElse(null);
+                        .map(metal -> new MetalItemHandler(metal, TFGUtils.getMetalAmountForOrePrefix(OrePrefix.getPrefix(oreName)), true)).orElse(null);
             }
         }
         return null;
