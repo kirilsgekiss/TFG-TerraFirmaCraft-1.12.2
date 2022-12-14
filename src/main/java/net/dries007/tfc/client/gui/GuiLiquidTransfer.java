@@ -5,6 +5,8 @@
 
 package net.dries007.tfc.client.gui;
 
+import gregtech.api.unification.material.Material;
+import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -16,9 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.api.capability.IMoldHandler;
-import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.util.Helpers;
 
 @SideOnly(Side.CLIENT)
 public class GuiLiquidTransfer extends GuiContainerTFC
@@ -41,13 +40,13 @@ public class GuiLiquidTransfer extends GuiContainerTFC
     {
         ItemStack stack = playerInv.getStackInSlot(slotIdx);
         IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (cap instanceof IMoldHandler)
+        if (cap instanceof IMaterialHandler)
         {
-            Metal metal = ((IMoldHandler) cap).getMetal();
+            Material metal = ((IMaterialHandler) cap).getMaterial();
             if (metal != null)
             {
-                String metalName = I18n.format(Helpers.getTypeName(metal));
-                String amountName = I18n.format("tfc.tooltip.units", ((IMoldHandler) cap).getAmount());
+                String metalName = I18n.format(metal.getUnlocalizedName());
+                String amountName = I18n.format("tfc.tooltip.units", ((IMaterialHandler) cap).getAmount());
                 fontRenderer.drawString(metalName, xSize / 2 - fontRenderer.getStringWidth(metalName) / 2, 14, 0x404040);
                 fontRenderer.drawString(amountName, xSize / 2 - fontRenderer.getStringWidth(amountName) / 2, 23, 0x404040);
             }

@@ -14,6 +14,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -273,10 +274,10 @@ public class ItemSmallVessel extends ItemPottery
         @Override
         public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
         {
-            Metal metal = getMetal();
+            Material metal = getMaterial();
             if (metal != null)
             {
-                String desc = TextFormatting.DARK_GREEN + I18n.format(Helpers.getTypeName(metal)) + ": " + I18n.format("tfc.tooltip.units", getAmount());
+                String desc = TextFormatting.DARK_GREEN + I18n.format(metal.getUnlocalizedName()) + ": " + I18n.format("tfc.tooltip.units", getAmount());
                 if (isMolten())
                 {
                     desc += I18n.format("tfc.tooltip.liquid");
@@ -338,9 +339,9 @@ public class ItemSmallVessel extends ItemPottery
 
         @Nullable
         @Override
-        public Metal getMetal()
+        public Material getMaterial()
         {
-            return fluidMode && tank.getFluid() != null ? FluidsTFC.getMetalFromFluid(tank.getFluid().getFluid()) : null;
+            return fluidMode && tank.getFluid() != null ? MetaFluids.getMaterialFromFluid(tank.getFluid().getFluid()) : null;
         }
 
         @Override

@@ -15,7 +15,7 @@ import net.dries007.tfc.api.capability.heat.IItemHeat;
 /**
  * This is an interface for the capability that is returned by a Small Vessel. You can safely cast it to this.
  */
-public interface ISmallVesselHandler extends IItemHandlerModifiable, IFluidHandler, INBTSerializable<NBTTagCompound>, IItemHeat, IMoldHandler
+public interface ISmallVesselHandler extends IItemHandlerModifiable, IFluidHandler, INBTSerializable<NBTTagCompound>, IItemHeat, IMaterialHandler
 {
     /**
      * This gets the fluid mode, including liquid temperature status

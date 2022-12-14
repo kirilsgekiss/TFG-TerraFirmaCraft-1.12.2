@@ -116,7 +116,7 @@ public final class CapabilityMetalItem
         {
             if (oreDict.startsWith(oreName))
             {
-                return TFGUtils.materialListFromGT.stream()
+                return TFGUtils.materialsToTier.keySet().stream()
                         .filter(material -> oreDict.equals(OreDictionaryHelper.toString(oreName, material.toCamelCaseString())) && material.hasFluid())
                         .findFirst()
                         .map(metal -> new MetalItemHandler(metal, TFGUtils.orePrefixToMetalUnits.get(OrePrefix.getPrefix(oreName)), true)).orElse(null);

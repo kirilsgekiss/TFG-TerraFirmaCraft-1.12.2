@@ -1,6 +1,5 @@
 package net.dries007.tfc;
 
-import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
@@ -12,14 +11,14 @@ import java.util.List;
 
 public final class TFGUtils {
 
-    public static final List<Material> materialListFromGT = new ArrayList<Material>()
+    public static final HashMap<Material, Integer> materialsToTier = new HashMap<Material, Integer>()
     {
         {
-            System.out.println("Filled");
-            for (Material material : GregTechAPI.MATERIAL_REGISTRY)
-            {
-                add(material);
-            }
+            put(Materials.Copper, 1);
+            put(Materials.Bronze, 2);
+            put(Materials.BlackBronze, 2);
+            put(Materials.BismuthBronze, 2);
+            put(Materials.WroughtIron, 3);
         }
     };
 

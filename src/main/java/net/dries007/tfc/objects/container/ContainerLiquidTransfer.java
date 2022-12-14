@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.container;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,7 +18,6 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
 
-import net.dries007.tfc.api.capability.IMoldHandler;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
@@ -40,13 +40,13 @@ public class ContainerLiquidTransfer extends ContainerItemStack implements ISlot
     {
         // This is where we transfer liquid metal into a mold
         IFluidHandler capFluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (capFluidHandler instanceof IMoldHandler)
+        if (capFluidHandler instanceof IMaterialHandler)
         {
             ItemStack outputStack = inventory.getStackInSlot(0);
             if (!outputStack.isEmpty())
             {
                 IFluidHandler outFluidHandler = outputStack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                if (outFluidHandler instanceof IMoldHandler)
+                if (outFluidHandler instanceof IMaterialHandler)
                 {
                     FluidStack fStack = capFluidHandler.drain(1, false);
                     if (fStack != null && outFluidHandler.fill(fStack, false) == 1)
@@ -54,7 +54,7 @@ public class ContainerLiquidTransfer extends ContainerItemStack implements ISlot
                         outFluidHandler.fill(capFluidHandler.drain(1, true), true);
 
                         // Copy the input temperature onto the output temperature
-                        ((IMoldHandler) outFluidHandler).setTemperature(((IMoldHandler) capFluidHandler).getTemperature());
+                        ((IMaterialHandler) outFluidHandler).setTemperature(((IMaterialHandler) capFluidHandler).getTemperature());
                     }
                 }
             }

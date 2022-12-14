@@ -31,7 +31,6 @@ import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.api.capability.IMoldHandler;
 import net.dries007.tfc.api.capability.ISmallVesselHandler;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.FoodTrait;
@@ -234,7 +233,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
             {
                 if (cap instanceof ISmallVesselHandler)
                 {
-                    if (((ISmallVesselHandler) cap).getMetal() != null)
+                    if (((ISmallVesselHandler) cap).getMaterial() != null)
                     {
                         return true;
                     }
@@ -408,7 +407,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     public boolean canInsert(int slot, ItemStack stack, EnumFacing side)
     {
         IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (cap instanceof IMoldHandler)
+        if (cap instanceof IMaterialHandler)
         {
             // Molds will go into the output slot (automating filling molds should be possible)
             return side != EnumFacing.DOWN && slot == SLOT_OUTPUT;
