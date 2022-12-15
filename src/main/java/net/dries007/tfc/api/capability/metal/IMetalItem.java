@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.material.Material;
+import net.dries007.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -63,15 +64,16 @@ public interface IMetalItem
     @SideOnly(Side.CLIENT)
     default void addMetalInfo(ItemStack stack, List<String> text)
     {
-        Material metal = getMetal(stack);
-        if (metal != null)
+        Material material = getMetal(stack);
+        if (material != null)
         {
-            int melttemp = metal.getFluid().getTemperature();
+            int meltTemp = material.getFluid().getTemperature();
+
             text.add("");
-            text.add(I18n.format("tfc.tooltip.metal", I18n.format(metal.getUnlocalizedName())));
+            text.add(I18n.format("tfc.tooltip.metal", material.getUnlocalizedName()));
             text.add(I18n.format("tfc.tooltip.units", getSmeltAmount(stack)));
-            text.add(I18n.format("tfc.tooltip.melttemp", melttemp));
-            text.add(I18n.format("TIER %" + metal.getUnlocalizedName()));
+            text.add(I18n.format("tfc.tooltip.melttemp", meltTemp));
+            text.add(I18n.format("tfc.tooltip.tier" + TFGUtils.MATERIALS_TO_TIER.get(material)));
         }
     }
 }

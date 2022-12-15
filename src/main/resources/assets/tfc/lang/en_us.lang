@@ -86,6 +86,7 @@ tfc.tooltip.toolclasses=§fTool Classes:
 tfc.tooltip.oredictionaryentry=§fOre Dictionary name:§7 %s
 tfc.tooltip.oredictionaryentries=§fOre Dictionary names:
 tfc.tooltip.metal=§fMetal:§7 %s
+tfc.tooltip.tier=Tier: %d
 tfc.tooltip.units=%d units
 tfc.tooltip.melttemp=%d°C
 tfc.tooltip.crucible_units=%d / %d units

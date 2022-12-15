@@ -5,12 +5,15 @@
 
 package net.dries007.tfc.types;
 
-import java.util.Arrays;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
+import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.objects.items.ceramics.ItemMold;
+import net.dries007.tfc.objects.items.ceramics.ItemUnfiredMold;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -45,10 +48,8 @@ import net.dries007.tfc.api.recipes.quern.QuernRecipe;
 import net.dries007.tfc.api.recipes.quern.QuernRecipeRandomGem;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.Gem;
-import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.BlockDecorativeStone;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
@@ -73,9 +74,7 @@ import net.dries007.tfc.util.skills.SmithingSkill;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.types.Metal.ItemType.*;
 import static net.dries007.tfc.objects.fluids.FluidsTFC.*;
-import static net.dries007.tfc.types.DefaultMetals.*;
 import static net.dries007.tfc.util.forge.ForgeRule.*;
-import static net.dries007.tfc.util.skills.SmithingSkill.Type.*;
 
 /**
  * In 1.14+, every line in here needs to be a json file. Yay, but also ugh.
@@ -275,15 +274,15 @@ public final class DefaultRecipes
 
         /* CLAY ITEMS */
 
-        /*
-        for (Metal.ItemType type : Metal.ItemType.values())
+
+        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
         {
-            if (type.hasMold(null))
+            if (TFGUtils.isOrePrefixHasMold(orePrefix))
             {
-                int amount = type == INGOT ? 2 : 1;
-                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(type), amount), type.getPattern()).setRegistryName(type.name().toLowerCase() + "_mold"));
+                int amount = orePrefix == OrePrefix.ingot ? 2 : 1;
+                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(orePrefix), amount), TFGUtils.getKnappingRecipe(orePrefix)).setRegistryName(orePrefix.name() + "_mold"));
             }
-        }*/
+        }
 
         event.getRegistry().registerAll(
             new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemsTFC.UNFIRED_VESSEL), " XXX ", "XXXXX", "XXXXX", "XXXXX", " XXX ").setRegistryName("clay_small_vessel"),
@@ -297,7 +296,6 @@ public final class DefaultRecipes
         );
 
         /* LEATHER ITEMS */
-
         event.getRegistry().registerAll(
             new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(Items.LEATHER_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("leather_helmet"),
             new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(Items.LEATHER_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("leather_chestplate"),
@@ -308,12 +306,10 @@ public final class DefaultRecipes
         );
 
         /* FIRE CLAY ITEMS */
-
         event.getRegistry().registerAll(
             new KnappingRecipeSimple(KnappingType.FIRE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_CRUCIBLE), "X   X", "X   X", "X   X", "X   X", "XXXXX").setRegistryName("fire_clay_crucible"),
             new KnappingRecipeSimple(KnappingType.FIRE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_FIRE_BRICK, 3), "XXXXX", "     ", "XXXXX", "     ", "XXXXX").setRegistryName("fire_clay_brick")
         );
-
     }
 
     @SubscribeEvent
@@ -328,7 +324,7 @@ public final class DefaultRecipes
     public static void onRegisterBlastFurnaceRecipeEvent(RegistryEvent.Register<BlastFurnaceRecipe> event)
     {
         event.getRegistry().registerAll(
-            new BlastFurnaceRecipe(Materials.WroughtIron, Materials.Steel, IIngredient.of("dustFlux")) // TODO
+            new BlastFurnaceRecipe(Materials.WroughtIron, Materials.Steel, IIngredient.of("dustFlux")) // TODO replace steel on weakSteel
         );
     }
 
@@ -337,12 +333,11 @@ public final class DefaultRecipes
     {
         IForgeRegistry<HeatRecipe> r = event.getRegistry();
 
-        /*
-        for (Metal metal : TFCRegistries.METALS.getValuesCollection())
+
+        for (Material material : TFGUtils.MATERIALS_TO_TIER.keySet())
         {
-            //noinspection ConstantConditions
-            r.register(new HeatRecipeMetalMelting(metal).setRegistryName(metal.getRegistryName().getPath() + "_melting"));
-        }*/
+            r.register(new HeatRecipeMetalMelting(material).setRegistryName(material.getUnlocalizedName() + "_melting"));
+        }
 
         // Pottery Items with metadata
         for (EnumDyeColor dye : EnumDyeColor.values())
@@ -353,16 +348,19 @@ public final class DefaultRecipes
         }
 
         // Molds
-        /*
-        for (Metal.ItemType type : Metal.ItemType.values())
+
+        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
         {
-            ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(type);
-            ItemMold firedMold = ItemMold.get(type);
-            if (unfiredMold != null && firedMold != null)
+            if (TFGUtils.isOrePrefixHasMold(orePrefix))
             {
-                r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_mold_" + type.name().toLowerCase()));
+                ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(orePrefix);
+                ItemMold firedMold = ItemMold.get(orePrefix);
+                if (unfiredMold != null && firedMold != null)
+                {
+                    r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f).setRegistryName("fired_mold_" + orePrefix.name()));
+                }
             }
-        }*/
+        }
 
         // Standard / Simple recipes
         r.registerAll(
@@ -551,19 +549,19 @@ public final class DefaultRecipes
         IForgeRegistry<WeldingRecipe> r = event.getRegistry();
 
         // Basic Parts
-        addWelding(r, INGOT, DOUBLE_INGOT, null);
-        addWelding(r, SHEET, DOUBLE_SHEET, null);
+        //addWelding(r, INGOT, DOUBLE_INGOT, null);
+        //addWelding(r, SHEET, DOUBLE_SHEET, null);
 
         // Armor
-        addWelding(r, UNFINISHED_HELMET, SHEET, HELMET, true, ARMOR);
-        addWelding(r, UNFINISHED_CHESTPLATE, DOUBLE_SHEET, CHESTPLATE, true, ARMOR);
-        addWelding(r, UNFINISHED_GREAVES, SHEET, GREAVES, true, ARMOR);
-        addWelding(r, UNFINISHED_BOOTS, SHEET, BOOTS, true, ARMOR);
+        //addWelding(r, UNFINISHED_HELMET, SHEET, HELMET, true, ARMOR);
+        //addWelding(r, UNFINISHED_CHESTPLATE, DOUBLE_SHEET, CHESTPLATE, true, ARMOR);
+        //addWelding(r, UNFINISHED_GREAVES, SHEET, GREAVES, true, ARMOR);
+        //addWelding(r, UNFINISHED_BOOTS, SHEET, BOOTS, true, ARMOR);
 
         // Steel Welding
-        addWelding(r, WEAK_STEEL, PIG_IRON, HIGH_CARBON_BLACK_STEEL);
-        addWelding(r, WEAK_BLUE_STEEL, BLACK_STEEL, HIGH_CARBON_BLUE_STEEL);
-        addWelding(r, WEAK_RED_STEEL, BLACK_STEEL, HIGH_CARBON_RED_STEEL);
+        //addWelding(r, WEAK_STEEL, PIG_IRON, HIGH_CARBON_BLACK_STEEL);
+        //addWelding(r, WEAK_BLUE_STEEL, BLACK_STEEL, HIGH_CARBON_BLUE_STEEL);
+        //addWelding(r, WEAK_RED_STEEL, BLACK_STEEL, HIGH_CARBON_RED_STEEL);
 
         // Special Recipes
         //addWelding(r, KNIFE_BLADE, KNIFE_BLADE, SHEARS, true, TOOLS);
@@ -587,7 +585,7 @@ public final class DefaultRecipes
     @SuppressWarnings("ConstantConditions")
     public static void onRegisterQuernRecipeEvent(RegistryEvent.Register<QuernRecipe> event)
     {
-        /*
+
         IForgeRegistry<QuernRecipe> r = event.getRegistry();
 
         r.registerAll(
@@ -600,32 +598,6 @@ public final class DefaultRecipes
             new QuernRecipe(IIngredient.of("grainMaize"), new ItemStack(ItemFoodTFC.get(Food.CORNMEAL_FLOUR), 1)).setRegistryName("maize"),
 
             new QuernRecipe(new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.OLIVE))), new ItemStack(ItemsTFC.OLIVE_PASTE, 1)).setRegistryName("olive"),
-
-            //Flux
-            new QuernRecipe(IIngredient.of("gemBorax"), new ItemStack(ItemPowder.get(Powder.FLUX), 6)).setRegistryName("borax"),
-            new QuernRecipe(IIngredient.of("rockFlux"), new ItemStack(ItemPowder.get(Powder.FLUX), 2)).setRegistryName("flux"),
-
-            //Redstone
-            new QuernRecipe(IIngredient.of("gemCinnabar"), new ItemStack(Items.REDSTONE, 8)).setRegistryName("cinnabar"),
-            new QuernRecipe(IIngredient.of("gemCryolite"), new ItemStack(Items.REDSTONE, 8)).setRegistryName("cryolite"),
-
-            //Hematite
-            new QuernRecipe(IIngredient.of(ItemSmallOre.get(Ore.HEMATITE, 1)), new ItemStack(ItemPowder.get(Powder.HEMATITE), 2)).setRegistryName("hematite_powder_from_small"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.HEMATITE, Ore.Grade.POOR, 1)), new ItemStack(ItemPowder.get(Powder.HEMATITE), 3)).setRegistryName("hematite_powder_from_poor"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.HEMATITE, Ore.Grade.NORMAL, 1)), new ItemStack(ItemPowder.get(Powder.HEMATITE), 5)).setRegistryName("hematite_powder_from_normal"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.HEMATITE, Ore.Grade.RICH, 1)), new ItemStack(ItemPowder.get(Powder.HEMATITE), 7)).setRegistryName("hematite_powder_from_rich"),
-
-            //Limonite
-            new QuernRecipe(IIngredient.of(ItemSmallOre.get(Ore.LIMONITE, 1)), new ItemStack(ItemPowder.get(Powder.LIMONITE), 2)).setRegistryName("limonite_powder_from_small"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.LIMONITE, Ore.Grade.POOR, 1)), new ItemStack(ItemPowder.get(Powder.LIMONITE), 3)).setRegistryName("limonite_powder_from_poor"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.LIMONITE, Ore.Grade.NORMAL, 1)), new ItemStack(ItemPowder.get(Powder.LIMONITE), 5)).setRegistryName("limonite_powder_from_normal"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.LIMONITE, Ore.Grade.RICH, 1)), new ItemStack(ItemPowder.get(Powder.LIMONITE), 7)).setRegistryName("limonite_powder_from_rich"),
-
-            //Malachite
-            new QuernRecipe(IIngredient.of(ItemSmallOre.get(Ore.MALACHITE, 1)), new ItemStack(ItemPowder.get(Powder.MALACHITE), 2)).setRegistryName("malachite_powder_from_small"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.MALACHITE, Ore.Grade.POOR, 1)), new ItemStack(ItemPowder.get(Powder.MALACHITE), 3)).setRegistryName("malachite_powder_from_poor"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.MALACHITE, Ore.Grade.NORMAL, 1)), new ItemStack(ItemPowder.get(Powder.MALACHITE), 5)).setRegistryName("malachite_powder_from_normal"),
-            new QuernRecipe(IIngredient.of(ItemOreTFC.get(Ore.MALACHITE, Ore.Grade.RICH, 1)), new ItemStack(ItemPowder.get(Powder.MALACHITE), 7)).setRegistryName("malachite_powder_from_rich"),
 
             //Bone meal
             new QuernRecipe(IIngredient.of("bone"), new ItemStack(Items.DYE, 3, EnumDyeColor.WHITE.getDyeDamage())).setRegistryName("bone_meal_from_bone"),
@@ -696,18 +668,9 @@ public final class DefaultRecipes
             new QuernRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.VRIESEA))), new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage())).setRegistryName("crushed_vriesea"),
 
             //Misc
-            new QuernRecipe(IIngredient.of("gemSylvite"), new ItemStack(ItemPowder.get(Powder.FERTILIZER), 4)).setRegistryName("sylvite"),
-            new QuernRecipe(IIngredient.of("gemSulfur"), new ItemStack(ItemPowder.get(Powder.SULFUR), 4)).setRegistryName("sulfur"),
-            new QuernRecipe(IIngredient.of("gemSaltpeter"), new ItemStack(ItemPowder.get(Powder.SALTPETER), 4)).setRegistryName("saltpeter"),
-            new QuernRecipe(IIngredient.of("charcoal"), new ItemStack(ItemPowder.get(Powder.CHARCOAL), 4)).setRegistryName("charcoal"),
-            new QuernRecipe(IIngredient.of("rockRocksalt"), new ItemStack(ItemPowder.get(Powder.SALT), 4)).setRegistryName("rocksalt"),
             new QuernRecipe(IIngredient.of(Items.BLAZE_ROD), new ItemStack(Items.BLAZE_POWDER, 2)).setRegistryName("blaze_powder"),
-            new QuernRecipe(IIngredient.of("gemLapis"), new ItemStack(ItemPowder.get(Powder.LAPIS_LAZULI), 4)).setRegistryName("lapis_lazuli"),
-            new QuernRecipe(IIngredient.of("gemGraphite"), new ItemStack(ItemPowder.get(Powder.GRAPHITE), 4)).setRegistryName("graphite_powder"),
-            new QuernRecipe(IIngredient.of("gemKaolinite"), new ItemStack(ItemPowder.get(Powder.KAOLINITE), 4)).setRegistryName("kaolinite_powder"),
-            new QuernRecipeRandomGem(IIngredient.of("gemKimberlite"), Gem.DIAMOND).setRegistryName("diamonds"),
-            new QuernRecipe(IIngredient.of(BlockRockVariant.get(Rock.LIMESTONE, Rock.Type.RAW)), new ItemStack(ItemsTFC.GYPSUM)).setRegistryName("gypsum")
-        );*/
+            new QuernRecipeRandomGem(IIngredient.of("gemKimberlite"), Gem.DIAMOND).setRegistryName("diamonds")
+        );
     }
 
     @SubscribeEvent

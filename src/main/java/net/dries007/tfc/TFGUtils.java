@@ -19,7 +19,6 @@ public final class TFGUtils {
             put(Materials.BlackBronze, 2);
             put(Materials.BismuthBronze, 2);
             put(Materials.WroughtIron, 3);
-            put(Materials.AceticAcid, 123);
         }
     };
 
@@ -40,6 +39,24 @@ public final class TFGUtils {
             put(OrePrefix.toolHeadHammer, 432);
             put(OrePrefix.toolHeadSense, 432);
             put(TFGOrePrefix.toolHeadKnife, 144);
+        }
+    };
+
+    // TODO
+    private static final HashMap<OrePrefix, String> ORE_PREFIX_TO_KNAPPING_RECIPE = new HashMap<OrePrefix, String>()
+    {
+        {
+            put(OrePrefix.ingot, "");
+
+            put(OrePrefix.toolHeadSword, "");
+            put(OrePrefix.toolHeadPickaxe, "");
+            put(OrePrefix.toolHeadAxe, "");
+            put(OrePrefix.toolHeadShovel, "");
+            put(OrePrefix.toolHeadHoe, "");
+            put(OrePrefix.toolHeadSaw, "");
+            put(OrePrefix.toolHeadHammer, "");
+            put(OrePrefix.toolHeadSense, "");
+            put(TFGOrePrefix.toolHeadKnife, "");
         }
     };
 
@@ -66,6 +83,11 @@ public final class TFGUtils {
     public static int getMetalAmountForOrePrefix(OrePrefix orePrefix)
     {
         return ORE_PREFIX_TO_METAL_UNITS.get(orePrefix);
+    }
+
+    public static String getKnappingRecipe(OrePrefix orePrefix)
+    {
+        return ORE_PREFIX_TO_KNAPPING_RECIPE.get(orePrefix);
     }
 
     public static int getMaterialTier(Material material)

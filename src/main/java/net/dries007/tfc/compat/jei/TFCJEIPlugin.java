@@ -290,13 +290,11 @@ public final class TFCJEIPlugin implements IModPlugin
         {
             for (Map.Entry<OrePrefix, Integer> orePrefixAndAmount : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.entrySet())
             {
-                if (materialAndTier.getKey().hasProperty(PropertyKey.TOOL))
+                if (TFGUtils.isOrePrefixHasMold(orePrefixAndAmount.getKey()))
                 {
                     unmoldList.add(new UnmoldRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
                     castingList.add(new CastingRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
                 }
-
-
             }
         }
 

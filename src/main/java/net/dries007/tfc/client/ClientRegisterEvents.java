@@ -16,7 +16,6 @@ import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.ore.OrePrefix;
 import javafx.util.Pair;
 import net.dries007.tfc.TFGUtils;
-import net.dries007.tfc.mixins.IOrePrefixListAccessor;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;

@@ -1,11 +1,10 @@
 package net.dries007.tfc.objects.recipes;
 
 import com.google.gson.JsonObject;
-import gregtech.api.GregTechAPI;
 import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.Constants;
+import net.dries007.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;
@@ -40,23 +39,20 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
 
     private final ResourceLocation resourceLocation;
     private final NonNullList<Ingredient> ingredient;
-    private final int ingredientMaterialAmount;
-    private final OrePrefix ingredientOrePrefix;
+    private final OrePrefix resultOrePrefix;
     private final float moldBreakChance;
 
     private UnmoldRecipe
             (
                     @Nullable ResourceLocation resourceLocation,
                     NonNullList<Ingredient> ingredient,
-                    int ingredientMaterialAmount,
-                    @Nonnull OrePrefix ingredientOrePrefix,
+                    @Nonnull OrePrefix resultOrePrefix,
                     float moldBreakChance
             )
     {
         this.resourceLocation = resourceLocation;
         this.ingredient = ingredient;
-        this.ingredientMaterialAmount = ingredientMaterialAmount;
-        this.ingredientOrePrefix = ingredientOrePrefix;
+        this.resultOrePrefix = resultOrePrefix;
         this.moldBreakChance = moldBreakChance;
     }
 
@@ -74,7 +70,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
 
     public ItemStack getOutputItem(final IMaterialHandler moldHandler)
     {
-        ItemStack output = OreDictUnifier.get(ingredientOrePrefix, moldHandler.getMaterial());
+        ItemStack output = OreDictUnifier.get(resultOrePrefix, moldHandler.getMaterial());
         System.out.println(output);
 
         IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
@@ -103,7 +99,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
                         IMaterialHandler moldHandler = (IMaterialHandler) cap;
                         if (!moldHandler.isMolten())
                         {
-                            if (moldItem.getOrePrefix().equals(this.ingredientOrePrefix) && !foundMold)
+                            if (moldItem.getOrePrefix().equals(this.resultOrePrefix) && !foundMold)
                             {
                                 foundMold = true;
                             }
@@ -144,7 +140,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
                 if (stack.getItem() instanceof ItemMold)
                 {
                     ItemMold tmp = ((ItemMold) stack.getItem());
-                    if (tmp.getOrePrefix().equals(this.ingredientOrePrefix) && moldStack == null)
+                    if (tmp.getOrePrefix().equals(this.resultOrePrefix) && moldStack == null)
                     {
                         moldStack = stack;
                     }
@@ -165,7 +161,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             if (moldCap instanceof IMaterialHandler)
             {
                 IMaterialHandler moldHandler = (IMaterialHandler) moldCap;
-                if (!moldHandler.isMolten() && moldHandler.getAmount() == ingredientMaterialAmount)
+                if (!moldHandler.isMolten() && moldHandler.getAmount() == TFGUtils.getMetalAmountForOrePrefix(this.resultOrePrefix))
                 {
                     return getOutputItem(moldHandler);
                 }
@@ -249,15 +245,13 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
         {
             final String resourceLocation = JsonUtils.getString(json, "resourceLocation", "");
             final NonNullList<Ingredient> ingredient = RecipeUtils.parseShapeless(context, json);
-            final OrePrefix ingredientOrePrefix = OrePrefix.getPrefix(JsonUtils.getString(json, "input_oreprefix"));
-            final int materialAmount = JsonUtils.getInt(json, "input_material_amount");
+            final OrePrefix ingredientOrePrefix = OrePrefix.getPrefix(JsonUtils.getString(json, "result"));
             final float moldBreakChance = JsonUtils.getFloat(json, "chance");
 
             return new UnmoldRecipe
                     (
                         resourceLocation.isEmpty() ? new ResourceLocation(ingredientOrePrefix.name) : new ResourceLocation(resourceLocation),
                         ingredient,
-                        materialAmount,
                         ingredientOrePrefix,
                         moldBreakChance
                     );

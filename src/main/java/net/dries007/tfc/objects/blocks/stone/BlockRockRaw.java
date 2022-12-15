@@ -119,6 +119,7 @@ public class BlockRockRaw extends BlockRockVariant
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
+        // TODO
         super.getDrops(drops, world, pos, state, fortune);
         // Raw rocks drop random gems
         if (RANDOM.nextDouble() < ConfigTFC.General.MISC.stoneGemDropChance)

@@ -129,12 +129,6 @@ public enum JsonConfigRegistry
                 {
                     AnimalFood.readFile(jsonObject.entrySet());
                 }
-                else
-                {
-                    // Defaults to the vein loader, this will be thrown out at 1.15 anyway
-                    String veinPath = tfcConfigDir.toPath().relativize(path.getParent()).toString();
-                    VeinRegistry.INSTANCE.readFile(jsonObject.entrySet(), veinPath);
-                }
 
             }
             catch (IOException e)
@@ -144,7 +138,6 @@ public enum JsonConfigRegistry
                 TerraFirmaCraft.getLog().error("Error: ", e);
             }
         }
-        VeinRegistry.INSTANCE.postInit();
         CapabilityDamageResistance.postInit();
     }
 

@@ -11,7 +11,6 @@ import gregtech.api.unification.material.info.MaterialIconType;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.TFGUtils;
-import net.dries007.tfc.mixins.IOrePrefixListAccessor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

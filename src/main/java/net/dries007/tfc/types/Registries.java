@@ -40,7 +40,6 @@ public final class Registries
     public static void onNewRegistryEvent(RegistryEvent.NewRegistry event)
     {
         // Pre Block registries (dirty hack)
-
         newRegistry(ROCK_TYPE, RockCategory.class, true); // Required before: ROCK
         newRegistry(ROCK, Rock.class, true);
         newRegistry(METAL, Metal.class, true);// Required before: ORE, ALLOY_RECIPE, WELDING_RECIPE

@@ -7,6 +7,7 @@ package net.dries007.tfc.compat.jei.wrappers;
 
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
+import net.dries007.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -23,10 +24,10 @@ public class CastingRecipeWrapper implements IRecipeWrapper
     private final ItemStack mold;
     private final FluidStack input;
 
-    public CastingRecipeWrapper(Material metal, OrePrefix type)
+    public CastingRecipeWrapper(Material material, OrePrefix orePrefix)
     {
-        input = new FluidStack(metal.getFluid(), ItemMold.get(type).moldCapacity);
-        mold = new ItemStack(ItemMold.get(type));
+        input = new FluidStack(material.getFluid(), ItemMold.get(orePrefix).moldCapacity);
+        mold = new ItemStack(ItemMold.get(orePrefix));
         IFluidHandler cap = mold.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (cap instanceof IMaterialHandler)
         {
