@@ -7,9 +7,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.stone.BlockRockRaw;
 import net.dries007.tfc.types.DefaultRocks;
-import net.minecraft.block.BlockStone;
 import net.minecraft.block.SoundType;
-import net.minecraft.init.Blocks;
 
 public class TFCStoneTypes {
 

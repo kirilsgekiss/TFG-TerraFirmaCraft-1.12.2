@@ -61,7 +61,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public final class TerraFirmaCraft
 {
     public static final String MOD_ID = "tfc";
-    public static final String MOD_NAME = "TerraFirmaCraft GTCEuVersion";
+    public static final String MOD_NAME = "TerraFirmaCraft GTCEuAddon";
     public static final String VERSION = "@VERSION@";
 
     @Mod.Instance
@@ -101,7 +101,6 @@ public final class TerraFirmaCraft
     }
 
     private final Logger log = LogManager.getLogger(MOD_ID);
-    private final boolean isSignedBuild = true;
     private WorldTypeTFC worldTypeTFC;
     private SimpleNetworkWrapper network;
 
@@ -196,10 +195,6 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        if (!isSignedBuild)
-        {
-            log.warn("You are not running an official build. Please do not use this and then report bugs or issues.");
-        }
         FuelManager.postInit();
         JsonConfigRegistry.INSTANCE.postInit();
     }
@@ -215,11 +210,6 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void onServerStarting(FMLServerStartingEvent event)
     {
-        if (!isSignedBuild)
-        {
-            log.warn("You are not running an official build. Please do not use this and then report bugs or issues.");
-        }
-
         event.registerServerCommand(new CommandStripWorld());
         event.registerServerCommand(new CommandHeat());
         event.registerServerCommand(new CommandPlayerTFC());
