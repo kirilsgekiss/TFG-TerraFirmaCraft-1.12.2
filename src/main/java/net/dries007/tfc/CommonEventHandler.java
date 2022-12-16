@@ -7,8 +7,9 @@ package net.dries007.tfc;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFGMaterialHandler;
-import net.dries007.tfc.compat.gregtech.TFGOrePrefixHandler;
+import net.dries007.tfc.compat.gregtech.TFCMaterialHandler;
+import net.dries007.tfc.compat.gregtech.TFCOrePrefixHandler;
+import net.dries007.tfc.compat.gregtech.recipes.TFCRecipeHandlerList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSnow;
@@ -30,11 +31,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
@@ -52,6 +53,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.GameRuleChangeEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
@@ -116,7 +118,6 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.DamageSourcesTFC;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.MonsterEquipment;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.CalendarWorldData;
@@ -136,8 +137,14 @@ public final class CommonEventHandler
 
     @SubscribeEvent
     public static void onMaterialsInit(GregTechAPI.MaterialEvent event) {
-        TFGMaterialHandler.init();
-        TFGOrePrefixHandler.init();
+        TFCMaterialHandler.init();
+        TFCOrePrefixHandler.init();
+    }
+
+    @SubscribeEvent
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
+    {
+        TFCRecipeHandlerList.register();
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

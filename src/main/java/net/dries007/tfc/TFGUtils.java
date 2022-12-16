@@ -3,7 +3,7 @@ package net.dries007.tfc;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFGOrePrefix;
+import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,7 +38,7 @@ public final class TFGUtils {
             put(OrePrefix.toolHeadSaw, 144);
             put(OrePrefix.toolHeadHammer, 432);
             put(OrePrefix.toolHeadSense, 432);
-            put(TFGOrePrefix.toolHeadKnife, 144);
+            put(TFCOrePrefix.toolHeadKnife, 144);
         }
     };
 
@@ -56,7 +56,7 @@ public final class TFGUtils {
             put(OrePrefix.toolHeadSaw, "");
             put(OrePrefix.toolHeadHammer, "");
             put(OrePrefix.toolHeadSense, "");
-            put(TFGOrePrefix.toolHeadKnife, "");
+            put(TFCOrePrefix.toolHeadKnife, "");
         }
     };
 
@@ -72,7 +72,7 @@ public final class TFGUtils {
             OrePrefix.toolHeadSaw,
             OrePrefix.toolHeadHammer,
             OrePrefix.toolHeadSense,
-            TFGOrePrefix.toolHeadKnife
+            TFCOrePrefix.toolHeadKnife
     );
 
     public static boolean isOrePrefixHasMold(OrePrefix orePrefix)

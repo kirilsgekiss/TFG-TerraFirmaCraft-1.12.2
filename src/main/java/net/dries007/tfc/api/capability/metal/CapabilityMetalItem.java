@@ -12,8 +12,7 @@ import javax.annotation.Nullable;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.TFGUtils;
-import net.dries007.tfc.api.types.Ore;
-import net.dries007.tfc.compat.gregtech.TFGOrePrefix;
+import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -57,7 +56,7 @@ public final class CapabilityMetalItem
         ORE_DICT_MATERIAL_ITEMS.put("toolHeadSaw", OrePrefix.toolHeadSaw);
         ORE_DICT_MATERIAL_ITEMS.put("toolHeadHammer", OrePrefix.toolHeadHammer);
         ORE_DICT_MATERIAL_ITEMS.put("toolHeadSense", OrePrefix.toolHeadSense);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadKnife", TFGOrePrefix.toolHeadKnife);
+        ORE_DICT_MATERIAL_ITEMS.put("toolHeadKnife", TFCOrePrefix.toolHeadKnife);
     }
 
     public static void init()

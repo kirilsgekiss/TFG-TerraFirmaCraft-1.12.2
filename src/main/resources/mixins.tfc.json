@@ -6,6 +6,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
       "gregtech.IStoneTypeAccessor",
-      "gregtech.StoneTypeMixin"
+      "gregtech.StoneTypeMixin",
+      "gregtech.BlockOreMixin",
   ]
 }
