@@ -161,7 +161,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             if (moldCap instanceof IMaterialHandler)
             {
                 IMaterialHandler moldHandler = (IMaterialHandler) moldCap;
-                if (!moldHandler.isMolten() && moldHandler.getAmount() == TFGUtils.getMetalAmountForOrePrefix(this.resultOrePrefix))
+                if (!moldHandler.isMolten() && moldHandler.getAmount() == TFGUtils.getMetalAmountFromOrePrefix(this.resultOrePrefix))
                 {
                     return getOutputItem(moldHandler);
                 }

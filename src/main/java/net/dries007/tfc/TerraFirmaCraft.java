@@ -5,6 +5,7 @@
 
 package net.dries007.tfc;
 
+import gregtech.api.unification.material.Materials;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.server.MinecraftServer;

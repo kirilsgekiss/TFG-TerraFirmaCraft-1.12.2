@@ -280,7 +280,7 @@ public final class DefaultRecipes
             if (TFGUtils.isOrePrefixHasMold(orePrefix))
             {
                 int amount = orePrefix == OrePrefix.ingot ? 2 : 1;
-                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(orePrefix), amount), TFGUtils.getKnappingRecipe(orePrefix)).setRegistryName(orePrefix.name() + "_mold"));
+                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(orePrefix), amount), TFGUtils.getKnappingPattern(orePrefix)).setRegistryName(orePrefix.name() + "_mold"));
             }
         }
 

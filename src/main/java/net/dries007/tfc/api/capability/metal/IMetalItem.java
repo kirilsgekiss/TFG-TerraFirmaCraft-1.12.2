@@ -70,10 +70,10 @@ public interface IMetalItem
             int meltTemp = material.getFluid().getTemperature();
 
             text.add("");
-            text.add(I18n.format("tfc.tooltip.metal", material.getUnlocalizedName()));
+            text.add(I18n.format("tfc.tooltip.metal", I18n.format(material.getUnlocalizedName())));
             text.add(I18n.format("tfc.tooltip.units", getSmeltAmount(stack)));
             text.add(I18n.format("tfc.tooltip.melttemp", meltTemp));
-            text.add(I18n.format("tfc.tooltip.tier" + TFGUtils.MATERIALS_TO_TIER.get(material)));
+            text.add(I18n.format("tfc.tooltip.tier", TFGUtils.MATERIALS_TO_TIER.get(material)));
         }
     }
 }

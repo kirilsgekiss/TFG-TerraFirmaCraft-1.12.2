@@ -12,7 +12,6 @@ import javax.annotation.Nullable;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.TFGUtils;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -26,42 +25,28 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import net.dries007.tfc.util.OreDictionaryHelper;
 
 public final class CapabilityMetalItem
 {
     public static final ResourceLocation KEY = new ResourceLocation(TerraFirmaCraft.MOD_ID, "metal_object");
-    public static final Map<IIngredient<ItemStack>, Supplier<ICapabilityProvider>> CUSTOM_METAL_ITEMS = new HashMap<>(); //Used inside CT, set custom IMetalItem for items outside TFC
-    public static final Map<String, OrePrefix> ORE_DICT_MATERIAL_ITEMS = new LinkedHashMap<>();
+    // Used inside CT, set custom IMetalItem for items outside TFC
+    public static final Map<IIngredient<ItemStack>, Supplier<ICapabilityProvider>> CUSTOM_METAL_ITEMS = new HashMap<>();
+    public static final Set<OrePrefix> ORE_DICT_MATERIAL_ITEMS = new LinkedHashSet<>();
     @CapabilityInject(IMetalItem.class)
     public static Capability<IMetalItem> METAL_OBJECT_CAPABILITY;
 
+    // Register ore dict prefix values (any ingot has 144mb, etc)
     public static void preInit()
     {
         CapabilityManager.INSTANCE.register(IMetalItem.class, new DumbStorage<>(), MetalItemHandler::new);
 
-        // Register ore dict prefix values
         // ORE_DICT_METAL_ITEMS.put("ingotDouble", Metal.ItemType.DOUBLE_INGOT);
-        ORE_DICT_MATERIAL_ITEMS.put("ingot", OrePrefix.ingot);
-        ORE_DICT_MATERIAL_ITEMS.put("plateDouble", OrePrefix.plateDouble);
-        ORE_DICT_MATERIAL_ITEMS.put("plate", OrePrefix.plate);
-        ORE_DICT_MATERIAL_ITEMS.put("dust", OrePrefix.dust);
-        ORE_DICT_MATERIAL_ITEMS.put("nugget", OrePrefix.nugget);
-
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSword", OrePrefix.toolHeadSword);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadAxe", OrePrefix.toolHeadAxe);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadPickaxe", OrePrefix.toolHeadPickaxe);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadShovel", OrePrefix.toolHeadShovel);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadHoe", OrePrefix.toolHeadHoe);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSaw", OrePrefix.toolHeadSaw);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadHammer", OrePrefix.toolHeadHammer);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadSense", OrePrefix.toolHeadSense);
-        ORE_DICT_MATERIAL_ITEMS.put("toolHeadKnife", TFCOrePrefix.toolHeadKnife);
+        ORE_DICT_MATERIAL_ITEMS.addAll(TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet());
     }
 
+    // Register metalItemHandler here for custom items
     public static void init()
     {
-        // Register metalItemHandler here for custom items
         CUSTOM_METAL_ITEMS.put(IIngredient.of(Blocks.IRON_BARS), () -> new MetalItemHandler(Materials.WroughtIron, 36, true));
     }
 
@@ -123,14 +108,14 @@ public final class CapabilityMetalItem
     @Nullable
     private static ICapabilityProvider getMetalItemFromOreDict(String oreDict)
     {
-        for (String oreName : ORE_DICT_MATERIAL_ITEMS.keySet())
+        for (OrePrefix orePrefix : ORE_DICT_MATERIAL_ITEMS)
         {
-            if (oreDict.startsWith(oreName))
+            if (oreDict.startsWith(orePrefix.name()))
             {
                 return TFGUtils.MATERIALS_TO_TIER.keySet().stream()
-                        .filter(material -> oreDict.equals(OreDictionaryHelper.toString(oreName, material.toCamelCaseString())) && material.hasFluid())
+                        .filter(material -> oreDict.equals(orePrefix.name() + material.toCamelCaseString()) && material.hasFluid())
                         .findFirst()
-                        .map(metal -> new MetalItemHandler(metal, TFGUtils.getMetalAmountForOrePrefix(OrePrefix.getPrefix(oreName)), true)).orElse(null);
+                        .map(material -> new MetalItemHandler(material, TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true)).orElse(null);
             }
         }
         return null;
