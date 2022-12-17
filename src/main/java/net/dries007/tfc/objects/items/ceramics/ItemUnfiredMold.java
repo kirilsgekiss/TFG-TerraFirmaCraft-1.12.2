@@ -39,6 +39,6 @@ public class ItemUnfiredMold extends ItemPottery
     @Nonnull
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return I18n.format("item.tfc.ceramics.unfired.mold.name", I18n.format("item.material.oreprefix." + type.name + ".empty"));
+        return LocalizationUtils.format("item.tfc.ceramics.unfired.mold.name", LocalizationUtils.format("item.material.oreprefix." + type.name + ".empty"));
     }
 }

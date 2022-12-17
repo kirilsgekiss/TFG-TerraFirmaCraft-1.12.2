@@ -69,7 +69,6 @@ public class ItemMold extends ItemPottery
         return type;
     }
 
-
     @Nonnull
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
@@ -79,10 +78,10 @@ public class ItemMold extends ItemPottery
             Material material = ((IMaterialHandler) capFluidHandler).getMaterial();
             if (material != null)
             {
-                return I18n.format("item.tfc.ceramics.fired.mold.name", I18n.format("item.material.oreprefix." + type.name, material.getLocalizedName()));
+                return LocalizationUtils.format("item.tfc.ceramics.fired.mold.name", LocalizationUtils.format("item.material.oreprefix." + type.name, material.getLocalizedName()));
             }
         }
-        return I18n.format("item.tfc.ceramics.fired.mold.empty.name", I18n.format("item.material.oreprefix." + type.name + ".empty"));
+        return LocalizationUtils.format("item.tfc.ceramics.fired.mold.empty.name", LocalizationUtils.format("item.material.oreprefix." + type.name + ".empty"));
     }
 
     @Nullable
