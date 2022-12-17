@@ -5,7 +5,7 @@
 
 package net.dries007.tfc;
 
-import gregtech.api.unification.material.Materials;
+import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.server.MinecraftServer;
@@ -109,6 +109,8 @@ public final class TerraFirmaCraft
     public void preInit(FMLPreInitializationEvent event)
     {
         log.debug("If you can see this, debug logging is working :)");
+
+        // TFCMetaItem.init();
 
         // No need to sync config here, forge magic
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new TFCGuiHandler());

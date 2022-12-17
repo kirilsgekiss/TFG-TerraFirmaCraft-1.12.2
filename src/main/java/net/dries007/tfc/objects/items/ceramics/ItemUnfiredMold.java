@@ -5,14 +5,17 @@
 
 package net.dries007.tfc.objects.items.ceramics;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 
-import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.api.types.Metal;
+import gregtech.api.util.LocalizationUtils;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class ItemUnfiredMold extends ItemPottery
 {
     private static final HashMap<OrePrefix, ItemUnfiredMold> MAP = new HashMap<>();
@@ -31,5 +34,11 @@ public class ItemUnfiredMold extends ItemPottery
         {
             throw new IllegalStateException("There can only be one.");
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return I18n.format("item.tfc.ceramics.unfired.mold.name", I18n.format("item.material.oreprefix." + type.name + ".empty"));
     }
 }

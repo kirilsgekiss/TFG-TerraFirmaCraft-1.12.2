@@ -96,7 +96,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
         if (cap instanceof IForgeableMeasurableMetal)
         {
             text.add("");
-            text.add(I18n.format("tfc.tooltip.metal", I18n.format(Helpers.getTypeName((IForgeRegistryEntry<?>) ((IForgeableMeasurableMetal) cap).getMetal())))); // TODO
+            text.add(I18n.format("tfc.tooltip.metal", I18n.format(((IForgeableMeasurableMetal) cap).getMetal().getUnlocalizedName())));
             text.add(I18n.format("tfc.tooltip.units", ((IForgeableMeasurableMetal) cap).getMetalAmount()));
             text.add(I18n.format(((IForgeableMeasurableMetal) cap).getMetal().getUnlocalizedName())); // TODO
         }

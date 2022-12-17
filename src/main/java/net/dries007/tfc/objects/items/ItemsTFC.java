@@ -228,12 +228,13 @@ public final class ItemsTFC
 
         }
 
+        /*
         {
             Builder<ItemGem> b = new Builder<>();
             for (Gem gem : Gem.values())
                 b.add(register(r, "gem/" + gem.name().toLowerCase(), new ItemGem(gem), CT_GEMS));
             allGemItems = b.build();
-        }
+        }*/
 
         for (Metal.ItemType type : Metal.ItemType.values())
         {
@@ -393,7 +394,6 @@ public final class ItemsTFC
         simpleItems.add(register(r, "glue", new ItemMisc(Size.TINY, Weight.LIGHT, "slimeball", "glue"), CT_MISC));
         simpleItems.add(register(r, "brass_mechanisms", new ItemMisc(Size.NORMAL, Weight.LIGHT), CT_MISC));
 
-        register(r, "goldpan", new ItemGoldPan(), CT_MISC);
         simpleItems.add(register(r, "wrought_iron_grill", new ItemMisc(Size.LARGE, Weight.HEAVY, "grill"), CT_MISC));
 
         allSimpleItems = simpleItems.build();

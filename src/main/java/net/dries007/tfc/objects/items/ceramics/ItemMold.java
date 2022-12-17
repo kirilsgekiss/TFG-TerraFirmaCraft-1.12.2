@@ -11,14 +11,17 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.util.LocalizationUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -66,21 +69,20 @@ public class ItemMold extends ItemPottery
         return type;
     }
 
-    @Override
+
     @Nonnull
-    public String getTranslationKey(ItemStack stack)
-    {
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
         IFluidHandler capFluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (capFluidHandler instanceof IMaterialHandler)
         {
-            Material metal = ((IMaterialHandler) capFluidHandler).getMaterial();
-            if (metal != null)
+            Material material = ((IMaterialHandler) capFluidHandler).getMaterial();
+            if (material != null)
             {
-                //noinspection ConstantConditions
-                return super.getTranslationKey(stack) + "." + metal.getUnlocalizedName();
+                return I18n.format("item.tfc.ceramics.fired.mold.name", I18n.format("item.material.oreprefix." + type.name, material.getLocalizedName()));
             }
         }
-        return super.getTranslationKey(stack);
+        return I18n.format("item.tfc.ceramics.fired.mold.empty.name", I18n.format("item.material.oreprefix." + type.name + ".empty"));
     }
 
     @Nullable
@@ -287,7 +289,7 @@ public class ItemMold extends ItemPottery
                     // meltTemp = material.getMeltTemp();
                     // heatCapacity = material.getSpecificHeat();
                     meltTemp = material.getFluid().getTemperature();
-                    heatCapacity = 0.35f;
+                    heatCapacity = 0.35f; // TODO
                 }
             }
         }

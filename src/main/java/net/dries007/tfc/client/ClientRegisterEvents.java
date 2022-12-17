@@ -5,17 +5,16 @@
 
 package net.dries007.tfc.client;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
+import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
-import javafx.util.Pair;
 import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.api.capability.IMaterialHandler;
+import net.dries007.tfc.objects.items.ceramics.ItemMold;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -27,7 +26,6 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidBase;
@@ -43,13 +41,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.render.*;
 import net.dries007.tfc.objects.Gem;
-import net.dries007.tfc.objects.blocks.BlockFlowerPotTFC;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockThatchBed;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
@@ -64,7 +58,6 @@ import net.dries007.tfc.objects.items.ItemGem;
 import net.dries007.tfc.objects.items.ItemGoldPan;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.te.*;
-import net.dries007.tfc.types.DefaultPlants;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -83,8 +76,8 @@ public final class ClientRegisterEvents
         // Registering fluid containers
         ModelLoader.setCustomModelResourceLocation(ItemsTFC.WOODEN_BUCKET, 0, new ModelResourceLocation(ItemsTFC.WOODEN_BUCKET.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_JUG, 0, new ModelResourceLocation(ItemsTFC.FIRED_JUG.getRegistryName(), "inventory"));
-        //ModelLoader.setCustomModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET.getRegistryName(), "inventory"));
-        //ModelLoader.setCustomModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET.getRegistryName(), "inventory"));
+        // ModelLoader.setCustomModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET.getRegistryName(), "inventory"));
+        // ModelLoader.setCustomModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET.getRegistryName(), "inventory"));
 
         // Simple Items
         for (Item item : ItemsTFC.getAllSimpleItems())
@@ -97,62 +90,43 @@ public final class ClientRegisterEvents
             ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.FIRED_VESSEL_GLAZED.getRegistryName().toString()));
         }
 
-        // Gems
-        for (ItemGem item : ItemsTFC.getAllGemItems())
-            for (Gem.Grade grade : Gem.Grade.values())
-                registerEnumBasedMetaItems("gem", grade, item);
-
-        // Ore Items
-        /*
-        for (ItemOreTFC item : ItemsTFC.getAllOreItems())
-            if (item.ore.isGraded())
-                for (Ore.Grade grade : Ore.Grade.values())
-                    registerEnumBasedMetaItems("ore", grade, item);
-            else
-                registerEnumBasedMetaItems("ore", Ore.Grade.NORMAL, item);*/
-
         // Gold Pan
-        ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));
+        /*ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));
         for (int meta = 0; meta < ItemGoldPan.TYPES.length; meta++)
             ModelLoader.setCustomModelResourceLocation(ItemsTFC.GOLDPAN, meta, new ModelResourceLocation(MOD_ID + ":goldpan/" + ItemGoldPan.TYPES[meta]));
-        ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));
+        ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));*/
 
         // Ceramic Molds
-        /*
-        ModelBakery.registerItemVariants(ItemMold.get(OrePrefix.ingot), new ModelResourceLocation(ItemMold.get(OrePrefix.ingot).getRegistryName() + "/unknown"));
-        for (OrePrefix orePrefix : TFGUtils.orePrefixes)
+        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
         {
-            ItemMold item = ItemMold.get(orePrefix);
-            if (item == null) continue;
-
-            ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() + "/empty"));
-
-            ModelBakery.registerItemVariants(item, TFCRegistries.METALS.getValuesCollection()
-                .stream()
-                .filter(value::hasMold)
-                .map(x -> new ModelResourceLocation(item.getRegistryName().toString() + "/" + x.getRegistryName().getPath()))
-                .toArray(ModelResourceLocation[]::new));
-            ModelLoader.setCustomMeshDefinition(item, new ItemMeshDefinition()
+            if (TFGUtils.isOrePrefixHasMold(orePrefix))
             {
-                private final ModelResourceLocation FALLBACK = new ModelResourceLocation(item.getRegistryName().toString() + "/empty");
+                ItemMold item = ItemMold.get(orePrefix);
 
-                @Override
-                @Nonnull
-                public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack)
+                ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() +  "_empty"));
+                ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() +  "_filled"));
+
+                ModelLoader.setCustomMeshDefinition(item, new ItemMeshDefinition()
                 {
-                    IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                    if (cap instanceof IMoldHandler)
+                    @Override
+                    @Nonnull
+                    public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack)
                     {
-                        Metal metal = ((IMoldHandler) cap).getMetal();
-                        if (metal != null)
+                        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+                        if (cap instanceof IMaterialHandler)
                         {
-                            return new ModelResourceLocation(stack.getItem().getRegistryName() + "/" + metal.getRegistryName().getPath());
+                            Material material = ((IMaterialHandler) cap).getMaterial();
+                            if (material != null)
+                            {
+                                return new ModelResourceLocation(item.getRegistryName().toString() + "_filled");
+                            }
                         }
+                        return new ModelResourceLocation(item.getRegistryName().toString() + "_empty");
                     }
-                    return FALLBACK;
-                }
-            });
-        }*/
+                });
+            }
+
+        }
 
         // Item Blocks
         for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
@@ -324,6 +298,25 @@ public final class ClientRegisterEvents
             }
             return 0xFFFFFF;
         }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemFood).toArray(Item[]::new));
+
+        // Colorize item molds
+        itemColors.registerItemColorHandler((stack, tintIndex) -> {
+            if (tintIndex != 1) return 0xFFFFFF;
+
+            IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+            if (cap != null)
+            {
+                if (cap instanceof IMaterialHandler)
+                {
+                    Material material = ((IMaterialHandler) cap).getMaterial();
+                    if (material != null && material.hasFluid())
+                    {
+                        return material.getMaterialRGB();
+                    }
+                }
+            }
+            return 0xFFFFFF;
+        }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemMold).toArray(Item[]::new));
     }
 
     /**
