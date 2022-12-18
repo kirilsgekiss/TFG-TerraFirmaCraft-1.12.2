@@ -67,8 +67,6 @@ public final class TFCJEIPlugin implements IModPlugin
     public static final String METAL_HEAT_UID = TerraFirmaCraft.MOD_ID + ".metal_heat";
     public static final String LOOM_UID = TerraFirmaCraft.MOD_ID + ".loom";
     public static final String QUERN_UID = TerraFirmaCraft.MOD_ID + ".quern";
-    public static final String ROCK_LAYER_UID = TerraFirmaCraft.MOD_ID + ".rock_layer";
-    public static final String VEIN_UID = TerraFirmaCraft.MOD_ID + ".vein";
     public static final String WELDING_UID = TerraFirmaCraft.MOD_ID + ".welding";
     public static final String SCRAPING_UID = TerraFirmaCraft.MOD_ID + ".scraping";
 

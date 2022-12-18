@@ -1,12 +1,6 @@
 package net.dries007.tfc.util;
 
-
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Set;
-import javax.annotation.Nullable;
-
-import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -35,8 +29,6 @@ public class RegenRocksSticks extends WorldGenLooseRocks
             final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
             final ChunkDataTFC baseChunkData = ChunkDataTFC.get(world, chunkBlockPos);
 
-            // Get the proper list of veins
-            //Set<Vein> veins = Sets.newHashSet();
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
@@ -50,19 +42,6 @@ public class RegenRocksSticks extends WorldGenLooseRocks
                     ChunkDataTFC.get(world, chunkBlockPos.add(16, 0, 16))
                 };
                 if (!chunkData[0].isInitialized()) return;
-
-                // Default to 35 below the surface, like classic
-                int lowestYScan = Math.max(10, world.getTopSolidOrLiquidBlock(chunkBlockPos).getY() - ConfigTFC.General.WORLD.looseRockScan);
-
-                for (ChunkDataTFC data : chunkData)
-                {
-                    //veins.addAll(data.getGeneratedVeins());
-                }
-/*
-                if (!veins.isEmpty())
-                {
-                    veins.removeIf(v -> v.getType() == null || !v.getType().hasLooseRocks() || v.getHighestY() < lowestYScan);
-                }*/
             }
 
             for (int i = 0; i < ConfigTFC.General.WORLD.looseRocksFrequency * factor; i++)
@@ -85,7 +64,7 @@ public class RegenRocksSticks extends WorldGenLooseRocks
 
     private static Boolean isReplaceable(World world, BlockPos pos)
     {
-        //Modified to allow replacement of grass during spring regen
+        // Modified to allow replacement of grass during spring regen
         Block test = world.getBlockState(pos).getBlock();
         return test instanceof BlockShortGrassTFC || test.isAir(world.getBlockState(pos), world, pos);
     }

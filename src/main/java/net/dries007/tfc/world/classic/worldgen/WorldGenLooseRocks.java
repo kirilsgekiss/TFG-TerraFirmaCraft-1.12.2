@@ -5,10 +5,7 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import javax.annotation.Nullable;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -38,13 +35,6 @@ public class WorldGenLooseRocks implements IWorldGenerator
         factor = 1;
     }
 
-    public void setFactor(double factor)
-    {
-        if (factor < 0) factor = 0;
-        if (factor > 1) factor = 1;
-        this.factor = factor;
-    }
-
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
@@ -54,7 +44,6 @@ public class WorldGenLooseRocks implements IWorldGenerator
             final ChunkDataTFC baseChunkData = ChunkDataTFC.get(world, chunkBlockPos);
 
             // Get the proper list of veins
-            //List<Vein> veins = Collections.emptyList();
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
@@ -71,30 +60,6 @@ public class WorldGenLooseRocks implements IWorldGenerator
                 {
                     return;
                 }
-
-                // Default to 35 below the surface, like classic
-                int lowestYScan = Math.max(10, world.getTopSolidOrLiquidBlock(chunkBlockPos).getY() - ConfigTFC.General.WORLD.looseRockScan);
-
-/*
-                veins = WorldGenOreVeins.getNearbyVeins(chunkX, chunkZ, world.getSeed(), 1);
-                if (!veins.isEmpty())
-                {
-                    veins.removeIf(v -> {
-                        if (v.getType() == null || !v.getType().hasLooseRocks() || v.getHighestY() < lowestYScan)
-                        {
-                            return true;
-                        }
-                        for (ChunkDataTFC data : chunkData)
-                        {
-                            // No need to check for initialized chunk data, ores will be empty.
-                            if (data.getGeneratedVeins().contains(v))
-                            {
-                                return false;
-                            }
-                        }
-                        return true;
-                    });
-                }*/
             }
 
             for (int i = 0; i < ConfigTFC.General.WORLD.looseRocksFrequency * factor; i++)

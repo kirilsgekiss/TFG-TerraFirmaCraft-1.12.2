@@ -47,31 +47,6 @@ public enum JsonConfigRegistry
             throw new Error("Problem creating TFC extra config directory.");
         }
 
-        // Create or overwrite our default ore gen file
-        /*
-        if (ConfigTFC.General.OVERRIDES.forceDefaultOreGenFile)
-        {
-            // Create default vein file
-            try
-            {
-                File defaultFile = new File(tfcConfigDir, "ore_spawn_data.json");
-                if (defaultFile.exists())
-                {
-                    // Back up the file, in case of illiteracy
-                    FileUtils.copyFile(defaultFile, new File(defaultFile.getPath() + ".old"));
-                    // And replace the contents
-                    FileUtils.copyInputStreamToFile(Objects.requireNonNull(JsonConfigRegistry.class.getClassLoader().getResourceAsStream(DEFAULT_ORE_SPAWN)), defaultFile);
-                }
-                else if (defaultFile.createNewFile())
-                {
-                    FileUtils.copyInputStreamToFile(Objects.requireNonNull(JsonConfigRegistry.class.getClassLoader().getResourceAsStream(DEFAULT_ORE_SPAWN)), defaultFile);
-                }
-            }
-            catch (IOException e)
-            {
-                throw new Error("Problem creating default ore vein config file.", e);
-            }
-        }*/
         File defaultFile = new File(tfcConfigDir, "entity_resistance_data.json");
         try
         {

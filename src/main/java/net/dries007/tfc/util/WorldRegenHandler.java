@@ -57,7 +57,7 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
  * Seasonally regenerates rocks, sticks, snow, plants, crops and bushes.
  */
 
-//@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused", "WeakerAccess"})
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class WorldRegenHandler
 {
@@ -76,7 +76,7 @@ public class WorldRegenHandler
         ChunkDataTFC chunkDataTFC = ChunkDataTFC.get(event.getChunk());
         if (event.getWorld().provider.getDimension() == 0 && chunkDataTFC.isInitialized() && POSITIONS.size() < 1000)
         {
-            //Only run this in the early months of each year
+            // Only run this in the early months of each year
             if (CalendarTFC.CALENDAR_TIME.getMonthOfYear().isWithin(Month.APRIL, Month.JULY) && !chunkDataTFC.isSpawnProtected() && CalendarTFC.CALENDAR_TIME.getTotalYears() > chunkDataTFC.getLastUpdateYear())
             {
                 POSITIONS.add(event.getChunk().getPos());
