@@ -26,12 +26,10 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGenLooseRocks implements IWorldGenerator
 {
-    protected final boolean generateOres;
     protected double factor;
 
-    public WorldGenLooseRocks(boolean generateOres)
+    public WorldGenLooseRocks()
     {
-        this.generateOres = generateOres;
         factor = 1;
     }
 
@@ -46,21 +44,6 @@ public class WorldGenLooseRocks implements IWorldGenerator
             // Get the proper list of veins
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
-
-            if (generateOres)
-            {
-                // Grab 2x2 area
-                ChunkDataTFC[] chunkData = {
-                    baseChunkData, // This chunk
-                    ChunkDataTFC.get(world, chunkBlockPos.add(16, 0, 0)),
-                    ChunkDataTFC.get(world, chunkBlockPos.add(0, 0, 16)),
-                    ChunkDataTFC.get(world, chunkBlockPos.add(16, 0, 16))
-                };
-                if (!chunkData[0].isInitialized())
-                {
-                    return;
-                }
-            }
 
             for (int i = 0; i < ConfigTFC.General.WORLD.looseRocksFrequency * factor; i++)
             {

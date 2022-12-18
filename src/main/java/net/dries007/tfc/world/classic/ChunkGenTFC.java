@@ -66,9 +66,9 @@ public class ChunkGenTFC implements IChunkGenerator
 {
     public static final IBlockState STONE = Blocks.STONE.getDefaultState();
     public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-    public static final IBlockState SALT_WATER = FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
-    public static final IBlockState FRESH_WATER = FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
-    public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState SALT_WATER = FluidsTFC.SALT_WATER.get().getBlock().getDefaultState(); // todo: replace
+    public static final IBlockState FRESH_WATER = FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState(); // todo: replace
+    public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState(); // todo: replace
     public static final IBlockState LAVA = Blocks.LAVA.getDefaultState(); // todo: replace
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     /* Layers must be one here - otherwise snow becomes non-replaceable and wrecks the rest of world gen */
@@ -86,7 +86,7 @@ public class ChunkGenTFC implements IChunkGenerator
     private static final IWorldGenerator BERRY_BUSH_GEN = new WorldGenBerryBushes();
     private static final IWorldGenerator FRUIT_TREE_GEN = new WorldGenFruitTrees();
     private static final IWorldGenerator WILD_CROPS_GEN = new WorldGenWildCrops();
-    private static final IWorldGenerator LOOSE_ROCKS_GEN = new WorldGenLooseRocks(true);
+    private static final IWorldGenerator LOOSE_ROCKS_GEN = new WorldGenLooseRocks();
     private static final IWorldGenerator STALACTITE_GEN = new WorldGenSpikes(true, 300);
     private static final IWorldGenerator STALAGMITE_GEN = new WorldGenSpikes(false, 300);
     private static final IWorldGenerator WATERFALL_GEN = new WorldGenFalls(FRESH_WATER, 15);

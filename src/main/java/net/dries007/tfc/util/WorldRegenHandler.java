@@ -62,7 +62,7 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 public class WorldRegenHandler
 {
 
-    private static final RegenRocksSticks ROCKS_GEN = new RegenRocksSticks(true);
+    private static final RegenRocksSticks ROCKS_GEN = new RegenRocksSticks();
     private static final RegenWildCrops CROPS_GEN = new RegenWildCrops();
     private static final WorldGenBerryBushes BUSH_GEN = new WorldGenBerryBushes();
     public static final WorldGenPlantTFC PLANT_GEN = new WorldGenPlantTFC();

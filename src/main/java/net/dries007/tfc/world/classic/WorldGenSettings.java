@@ -18,7 +18,7 @@ public class WorldGenSettings
         return Constants.GSON.fromJson(options, WorldGenSettingsBuilder.class);
     }
 
-    public final int spawnFuzz; //todo: remove, vanilla does it with a gamerule
+    public final int spawnFuzz; // todo: remove, vanilla does it with a gamerule
     public final boolean flatBedrock;
     public final int rockLayerSize;
     public final int ravineRarity;
@@ -28,11 +28,11 @@ public class WorldGenSettings
     public final int surfaceRavineHeight;
     public final int surfaceRavineVariability;
     public final int riverRavineRarity;
-    public final int lavaFissureRarity = 25; //todo
-    public final int waterFissureRarity = 90; //todo
-    public final int lavaFissureClusterRarity = 400; //todo
-    public final int waterFissureClusterRarity = 225; //todo
-    public final int largeRockRarity = 20; //todo
+    public final int lavaFissureRarity = 250; // todo
+    public final int waterFissureRarity = 90; // todo
+    public final int lavaFissureClusterRarity = 400; // todo
+    public final int waterFissureClusterRarity = 225; // todo
+    public final int largeRockRarity = 20; // todo
 
     public WorldGenSettings(WorldGenSettingsBuilder b)
     {
