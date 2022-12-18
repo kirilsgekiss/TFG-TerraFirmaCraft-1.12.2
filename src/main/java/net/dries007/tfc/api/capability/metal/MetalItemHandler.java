@@ -15,8 +15,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
-import net.dries007.tfc.api.types.Metal;
-
 public class MetalItemHandler implements ICapabilityProvider, IMetalItem
 {
     private final Material metal;

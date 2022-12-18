@@ -14,7 +14,6 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
-import net.dries007.tfc.objects.items.metal.ItemMetalChisel;
 
 public class PacketCycleItemMode implements IMessageEmpty
 {

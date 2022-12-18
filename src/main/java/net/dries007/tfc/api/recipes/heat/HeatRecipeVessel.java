@@ -10,14 +10,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.item.ItemStack;
 
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.ceramics.ItemSmallVessel;
 
 @ParametersAreNonnullByDefault
 public class HeatRecipeVessel extends HeatRecipe
 {
-    public HeatRecipeVessel(IIngredient<ItemStack> ingredient, float transformTemp, Metal.Tier minTier)
+    public HeatRecipeVessel(IIngredient<ItemStack> ingredient, float transformTemp, int minTier)
     {
         super(ingredient, transformTemp, minTier);
     }

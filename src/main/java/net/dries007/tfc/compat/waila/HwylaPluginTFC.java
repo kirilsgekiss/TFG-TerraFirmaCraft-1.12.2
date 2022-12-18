@@ -28,12 +28,10 @@ public class HwylaPluginTFC implements IWailaPlugin
         new HwylaBlockInterface(new CropProvider()),
         new HwylaBlockInterface(new CrucibleProvider()),
         new HwylaBlockInterface(new FruitTreeProvider()),
-        new HwylaBlockInterface(new OreProvider()),
         new HwylaBlockInterface(new PitKilnProvider()),
         new HwylaBlockInterface(new PlacedItemProvider()),
         new HwylaBlockInterface(new InfoProvider()),
         new HwylaBlockInterface(new TreeProvider()),
-        new HwylaBlockInterface(new IngotPileProvider()),
         new HwylaBlockInterface(new LogPileProvider()),
         new HwylaBlockInterface(new QuernProvider())
     );

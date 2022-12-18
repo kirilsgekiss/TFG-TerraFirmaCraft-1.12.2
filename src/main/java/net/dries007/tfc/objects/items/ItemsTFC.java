@@ -40,8 +40,6 @@ import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.objects.items.food.ItemSandwich;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
-import net.dries007.tfc.objects.items.metal.ItemMetal;
-import net.dries007.tfc.objects.items.metal.ItemMetalBucket;
 import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.rock.ItemRockToolHead;
@@ -135,10 +133,10 @@ public final class ItemsTFC
 
     public static final ItemWoodenBucket WOODEN_BUCKET = getNull();
 
-    @GameRegistry.ObjectHolder("metal/bucket/blue_steel")
-    public static final ItemMetalBucket BLUE_STEEL_BUCKET = getNull();
-    @GameRegistry.ObjectHolder("metal/bucket/red_steel")
-    public static final ItemMetalBucket RED_STEEL_BUCKET = getNull();
+    //@GameRegistry.ObjectHolder("metal/bucket/blue_steel")
+    //public static final ItemMetalBucket BLUE_STEEL_BUCKET = getNull();
+    //@GameRegistry.ObjectHolder("metal/bucket/red_steel")
+    //public static final ItemMetalBucket RED_STEEL_BUCKET = getNull();
 
     @GameRegistry.ObjectHolder("dye/black")
     public static final ItemMisc DYE_BLACK = getNull();
@@ -227,7 +225,7 @@ public final class ItemsTFC
                 b.add(register(r, "gem/" + gem.name().toLowerCase(), new ItemGem(gem), CT_GEMS));
             allGemItems = b.build();
         }*/
-
+/*
         for (Metal.ItemType type : Metal.ItemType.values())
         {
             for (Metal metal : TFCRegistries.METALS.getValuesCollection())
@@ -237,7 +235,7 @@ public final class ItemsTFC
                     simpleItems.add(register(r, "metal/" + type.name().toLowerCase() + "/" + metal.getRegistryName().getPath(), Metal.ItemType.create(metal, type), CT_METAL));
                 }
             }
-        }
+        }*/
 
         BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
@@ -411,10 +409,10 @@ public final class ItemsTFC
     }
 
     public static void init()
-    {
+    {/*
         for (Metal metal : TFCRegistries.METALS.getValuesCollection())
             if (metal.getToolMetal() != null)
-                metal.getToolMetal().setRepairItem(new ItemStack(ItemMetal.get(metal, Metal.ItemType.SCRAP)));
+                metal.getToolMetal().setRepairItem(new ItemStack(ItemMetal.get(metal, Metal.ItemType.SCRAP)));*/
     }
 
     private static void registerPottery(Builder<Item> items, IForgeRegistry<Item> r, String nameUnfired, String nameFired)

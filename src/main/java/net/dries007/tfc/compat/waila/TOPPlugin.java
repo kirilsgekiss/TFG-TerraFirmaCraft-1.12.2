@@ -26,12 +26,10 @@ public class TOPPlugin implements Function<ITheOneProbe, Void>
         new TOPBlockInterface(new CropProvider()),
         new TOPBlockInterface(new CrucibleProvider()),
         new TOPBlockInterface(new FruitTreeProvider()),
-        new TOPBlockInterface(new OreProvider()),
         new TOPBlockInterface(new PitKilnProvider()),
         new TOPBlockInterface(new PlacedItemProvider()),
         new TOPBlockInterface(new InfoProvider()),
         new TOPBlockInterface(new TreeProvider()),
-        new TOPBlockInterface(new IngotPileProvider()),
         new TOPBlockInterface(new LogPileProvider()),
         new TOPBlockInterface(new QuernProvider())
     );

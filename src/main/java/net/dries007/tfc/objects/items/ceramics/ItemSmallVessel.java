@@ -16,6 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -57,7 +58,6 @@ import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
@@ -536,12 +536,11 @@ public class ItemSmallVessel extends ItemPottery
             heatCapacity = 1;
             if (fluid != null)
             {
-                Metal metal = FluidsTFC.getMetalFromFluid(fluid.getFluid());
-                //noinspection ConstantConditions
-                if (metal != null)
+                Material material = MetaFluids.getMaterialFromFluid(fluid.getFluid());
+                if (material != null)
                 {
-                    meltTemp = metal.getMeltTemp();
-                    heatCapacity = metal.getSpecificHeat();
+                    meltTemp = material.getFluid().getTemperature();
+                    heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
                 }
             }
         }

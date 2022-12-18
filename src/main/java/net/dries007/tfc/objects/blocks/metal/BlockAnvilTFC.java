@@ -12,6 +12,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.unification.OreDictUnifier;
+import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -37,11 +39,9 @@ import net.minecraftforge.items.IItemHandler;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.client.particle.TFCParticles;
-import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.te.TEAnvilTFC;
 import net.dries007.tfc.util.Helpers;
 
@@ -53,28 +53,16 @@ import static net.dries007.tfc.objects.te.TEAnvilTFC.SLOT_HAMMER;
 public class BlockAnvilTFC extends Block
 {
     public static final PropertyDirection AXIS = PropertyDirection.create("axis", EnumFacing.Plane.HORIZONTAL);
-    private static final Map<Metal, BlockAnvilTFC> MAP = new HashMap<>();
     private static final AxisAlignedBB AABB_Z = new AxisAlignedBB(0.1875, 0, 0, 0.8125, 0.6875, 1);
     private static final AxisAlignedBB AABB_X = new AxisAlignedBB(0, 0, 0.1875, 1, 0.6875, 0.8125);
 
-    public static BlockAnvilTFC get(Metal metal)
-    {
-        return MAP.get(metal);
-    }
+    private final gregtech.api.unification.material.Material metal;
 
-    public static ItemStack get(Metal metal, int amount)
-    {
-        return new ItemStack(MAP.get(metal), amount);
-    }
-
-    private final Metal metal;
-
-    public BlockAnvilTFC(Metal metal)
+    public BlockAnvilTFC(gregtech.api.unification.material.Material metal)
     {
         super(Material.IRON);
 
         this.metal = metal;
-        if (MAP.put(metal, this) != null) throw new IllegalStateException("There can only be one.");
 
         setHardness(4.0F);
         setResistance(10F);
@@ -168,13 +156,13 @@ public class BlockAnvilTFC extends Block
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemAnvil.get(metal, Metal.ItemType.ANVIL);
+        return OreDictUnifier.get(TFCOrePrefix.anvilTFC, metal).getItem();
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (hand == EnumHand.OFF_HAND) //Avoid issues with insertion/extraction
+        if (hand == EnumHand.OFF_HAND) // Avoid issues with insertion/extraction
         {
             return false;
         }
@@ -289,10 +277,10 @@ public class BlockAnvilTFC extends Block
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(ItemAnvil.get(metal, Metal.ItemType.ANVIL));
+        return OreDictUnifier.get(TFCOrePrefix.anvilTFC, metal);
     }
 
-    public Metal getMetal()
+    public gregtech.api.unification.material.Material getMetal()
     {
         return metal;
     }

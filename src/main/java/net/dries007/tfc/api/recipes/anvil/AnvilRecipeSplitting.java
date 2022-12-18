@@ -16,7 +16,6 @@ import net.minecraft.util.ResourceLocation;
 import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.forge.ForgeRule;
 
@@ -29,7 +28,7 @@ public class AnvilRecipeSplitting extends AnvilRecipeMeasurable
 {
     protected int splitAmount;
 
-    public AnvilRecipeSplitting(ResourceLocation name, IIngredient<ItemStack> input, ItemStack icon, int splitAmount, Metal.Tier minTier, ForgeRule... rules) throws IllegalArgumentException
+    public AnvilRecipeSplitting(ResourceLocation name, IIngredient<ItemStack> input, ItemStack icon, int splitAmount, int minTier, ForgeRule... rules) throws IllegalArgumentException
     {
         //output only for icon
         super(name, input, icon, minTier, rules);

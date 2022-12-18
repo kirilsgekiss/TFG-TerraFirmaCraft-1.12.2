@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -26,7 +28,9 @@ import net.dries007.tfc.objects.fluids.capability.FluidTankCallback;
 import net.dries007.tfc.objects.fluids.capability.IFluidHandlerSidedCallback;
 import net.dries007.tfc.objects.fluids.capability.IFluidTankCallback;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockMetalLamp;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @ParametersAreNonnullByDefault
 public class TELamp extends TETickCounter implements IFluidTankCallback, IFluidHandlerSidedCallback
@@ -40,6 +44,19 @@ public class TELamp extends TETickCounter implements IFluidTankCallback, IFluidH
         CAPACITY = ConfigTFC.Devices.LAMP.tank;
         this.tank.setCapacity(CAPACITY);
         this.tank.setTileEntity(this);
+
+
+    }
+
+    public Set<Fluid> getValidFluids()
+    {
+        String[] fluidNames = ConfigTFC.Devices.LAMP.fuels;
+        Set<Fluid> validFluids = new HashSet<>();
+        for (String fluidName : fluidNames)
+        {
+            validFluids.add(FluidRegistry.getFluid(fluidName));
+        }
+        return validFluids;
     }
 
     public int getFuel()
@@ -77,8 +94,10 @@ public class TELamp extends TETickCounter implements IFluidTankCallback, IFluidH
         {
             return false;
         }
-        return ItemBlockMetalLamp.getValidFluids().contains(resource.getFluid());
+        return getValidFluids().contains(resource.getFluid());
     }
+
+
 
     @Override
     public boolean canDrain(EnumFacing side)

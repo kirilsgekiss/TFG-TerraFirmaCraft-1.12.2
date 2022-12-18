@@ -19,7 +19,6 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.liquid.ILiquidStack;
 import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.forge.ForgeRule;
 import net.dries007.tfc.util.skills.SmithingSkill;
@@ -48,14 +47,13 @@ public class CTAnvil
             ForgeRule rl = ForgeRule.valueOf(str.toUpperCase());
             forgeRules[i] = rl;
         }
-        Metal.Tier tier = Metal.Tier.valueOf(minTier);
         ItemStack outputItem = (ItemStack) output.getInternal();
         SmithingSkill.Type skillType = null;
         if (skillTypeName != null)
         {
             skillType = SmithingSkill.Type.valueOf(skillTypeName.toUpperCase());
         }
-        AnvilRecipe recipe = new AnvilRecipe(new ResourceLocation(registryName), ingredient, outputItem, tier, skillType, forgeRules);
+        AnvilRecipe recipe = new AnvilRecipe(new ResourceLocation(registryName), ingredient, outputItem, minTier, skillType, forgeRules);
         CraftTweakerAPI.apply(new IAction()
         {
             @Override

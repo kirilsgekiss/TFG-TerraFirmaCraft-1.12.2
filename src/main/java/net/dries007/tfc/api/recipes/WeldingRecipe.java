@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -18,7 +19,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.compat.jei.IJEISimpleRecipe;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.skills.SkillType;
@@ -32,23 +32,23 @@ import net.dries007.tfc.util.skills.SmithingSkill;
 @ParametersAreNonnullByDefault
 public class WeldingRecipe extends IForgeRegistryEntry.Impl<WeldingRecipe> implements IJEISimpleRecipe
 {
-    public static WeldingRecipe get(ItemStack stack1, ItemStack stack2, Metal.Tier tier)
+    public static WeldingRecipe get(ItemStack stack1, ItemStack stack2, int tier)
     {
         return TFCRegistries.WELDING.getValuesCollection().stream().filter(x -> x.matches(stack1, stack2, tier)).findFirst().orElse(null);
     }
 
-    private final Metal.Tier minTier;
+    private final int minTier;
     private final IIngredient<ItemStack> input1;
     private final IIngredient<ItemStack> input2;
     private final ItemStack output;
     private final SmithingSkill.Type skillType;
 
-    public WeldingRecipe(ResourceLocation name, IIngredient<ItemStack> input1, IIngredient<ItemStack> input2, ItemStack output, Metal.Tier minTier)
+    public WeldingRecipe(ResourceLocation name, IIngredient<ItemStack> input1, IIngredient<ItemStack> input2, ItemStack output, int minTier)
     {
         this(name, input1, input2, output, minTier, null);
     }
 
-    public WeldingRecipe(ResourceLocation name, IIngredient<ItemStack> input1, IIngredient<ItemStack> input2, ItemStack output, Metal.Tier minTier, @Nullable SmithingSkill.Type skillType)
+    public WeldingRecipe(ResourceLocation name, IIngredient<ItemStack> input1, IIngredient<ItemStack> input2, ItemStack output, int minTier, @Nullable SmithingSkill.Type skillType)
     {
         this.input1 = input1;
         this.input2 = input2;
@@ -59,8 +59,7 @@ public class WeldingRecipe extends IForgeRegistryEntry.Impl<WeldingRecipe> imple
         setRegistryName(name);
     }
 
-    @Nonnull
-    public Metal.Tier getTier()
+    public int getTier()
     {
         return minTier;
     }
@@ -85,10 +84,10 @@ public class WeldingRecipe extends IForgeRegistryEntry.Impl<WeldingRecipe> imple
         return stack;
     }
 
-    public boolean matches(ItemStack input1, ItemStack input2, Metal.Tier tier)
+    public boolean matches(ItemStack input1, ItemStack input2, int tier)
     {
         // Need to check both orientations
-        return tier.isAtLeast(minTier) && ((this.input1.test(input1) && this.input2.test(input2)) || (this.input1.test(input2) && this.input2.test(input1)));
+        return TFGUtils.isAtLeast(tier, minTier) && ((this.input1.test(input1) && this.input2.test(input2)) || (this.input1.test(input2) && this.input2.test(input1)));
     }
 
     @Override

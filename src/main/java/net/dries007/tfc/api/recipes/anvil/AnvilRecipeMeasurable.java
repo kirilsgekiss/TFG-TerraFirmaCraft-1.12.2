@@ -15,7 +15,6 @@ import net.minecraft.util.ResourceLocation;
 import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.forge.ForgeRule;
 
@@ -33,7 +32,7 @@ public class AnvilRecipeMeasurable extends AnvilRecipe
      * @param minTier the anvil's min tier required to work this recipe
      * @param rules   the forging rules
      */
-    public AnvilRecipeMeasurable(ResourceLocation name, IIngredient<ItemStack> input, ItemStack output, Metal.Tier minTier, ForgeRule... rules) throws IllegalArgumentException
+    public AnvilRecipeMeasurable(ResourceLocation name, IIngredient<ItemStack> input, ItemStack output, int minTier, ForgeRule... rules) throws IllegalArgumentException
     {
         super(name, input, output, minTier, null, rules);
     }

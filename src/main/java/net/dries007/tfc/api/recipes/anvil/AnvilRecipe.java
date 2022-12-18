@@ -18,7 +18,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.compat.jei.IJEISimpleRecipe;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.te.TEAnvilTFC;
@@ -48,11 +47,11 @@ public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implement
     protected final ForgeRule[] rules;
     protected final ItemStack output;
     protected final IIngredient<ItemStack> ingredient;
-    protected final Metal.Tier minTier;
+    protected final int minTier;
     protected final long workingSeed;
     protected final SmithingSkill.Type skillBonusType;
 
-    public AnvilRecipe(ResourceLocation name, IIngredient<ItemStack> ingredient, ItemStack output, Metal.Tier minTier, @Nullable SmithingSkill.Type skillBonusType, ForgeRule... rules)
+    public AnvilRecipe(ResourceLocation name, IIngredient<ItemStack> ingredient, ItemStack output, int minTier, @Nullable SmithingSkill.Type skillBonusType, ForgeRule... rules)
     {
         this.ingredient = ingredient;
         this.output = output;
@@ -99,8 +98,7 @@ public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implement
         return rules;
     }
 
-    @Nonnull
-    public Metal.Tier getTier()
+    public int getTier()
     {
         return minTier;
     }

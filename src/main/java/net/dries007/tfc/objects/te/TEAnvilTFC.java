@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -31,7 +32,6 @@ import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.recipes.WeldingRecipe;
 import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
@@ -102,15 +102,14 @@ public class TEAnvilTFC extends TEInventory
         return state.getBlock() instanceof BlockStoneAnvil;
     }
 
-    @Nonnull
-    public Metal.Tier getTier()
+    public int getTier()
     {
         IBlockState state = world.getBlockState(pos);
         if (state.getBlock() instanceof BlockAnvilTFC)
         {
-            return ((BlockAnvilTFC) state.getBlock()).getMetal().getTier();
+            return TFGUtils.getTierFromMaterial(((BlockAnvilTFC) state.getBlock()).getMetal());
         }
-        return Metal.Tier.TIER_0;
+        return 0;
     }
 
     @Nullable

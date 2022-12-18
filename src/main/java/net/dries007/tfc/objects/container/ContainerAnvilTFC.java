@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.container;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -110,7 +111,7 @@ public class ContainerAnvilTFC extends ContainerTE<TEAnvilTFC> implements IButto
         {
             return false;
         }
-        if (!tile.getTier().isAtLeast(recipe.getTier()))
+        if (!TFGUtils.isAtLeast(tile.getTier(), recipe.getTier()))
         {
             TerraFirmaCraft.getLog().info("Anvil Tier: {} + Recipe Tier: {}", tile.getTier(), recipe.getTier());
             player.sendMessage(new TextComponentTranslation(MOD_ID + ".tooltip.anvil_tier_too_low"));

@@ -34,10 +34,8 @@ import net.dries007.tfc.api.capability.food.IFoodStatsTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
-import net.dries007.tfc.objects.fluids.properties.MetalProperty;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -78,7 +76,6 @@ public final class FluidsTFC
     public static FluidWrapper BEER;
     public static FluidWrapper RUM;
     private static ImmutableSet<FluidWrapper> allAlcoholsFluids;
-    private static ImmutableMap<Metal, FluidWrapper> allMetalFluids;
     private static ImmutableMap<Material, FluidWrapper> allMaterialFluids;
     private static ImmutableSet<FluidWrapper> allOtherFiniteFluids;
 
@@ -90,11 +87,6 @@ public final class FluidsTFC
     public static ImmutableSet<FluidWrapper> getAllOtherFiniteFluids()
     {
         return allOtherFiniteFluids;
-    }
-
-    public static ImmutableCollection<FluidWrapper> getAllMetalFluids()
-    {
-        return allMetalFluids.values();
     }
 
     public static ImmutableCollection<FluidWrapper> getAllMaterialFluids() { return allMaterialFluids.values(); }
@@ -115,18 +107,6 @@ public final class FluidsTFC
     public static Set<FluidWrapper> getAllWrappers()
     {
         return WRAPPERS.values();
-    }
-
-    @Nonnull
-    public static Fluid getFluidFromMetal(@Nonnull Metal metal)
-    {
-        return allMetalFluids.get(metal).get();
-    }
-
-    @Nonnull
-    public static Metal getMetalFromFluid(@Nonnull Fluid fluid)
-    {
-        return getWrapper(fluid).get(MetalProperty.METAL).getMetal();
     }
 
     @Nonnull
@@ -199,18 +179,6 @@ public final class FluidsTFC
                 CURDLED_MILK = registerFluid(new Fluid("milk_curdled", STILL, FLOW, 0xFFFFFBE8)),
                 MILK_VINEGAR = registerFluid(new Fluid("milk_vinegar", STILL, FLOW, 0xFFFFFBE8)),
                 LYE = registerFluid(new Fluid("lye", STILL, FLOW, 0xFFfeffde))
-            )
-            .build();
-
-        //noinspection ConstantConditions
-        allMetalFluids = ImmutableMap.<Metal, FluidWrapper>builder()
-            .putAll(
-                TFCRegistries.METALS.getValuesCollection()
-                    .stream()
-                    .collect(Collectors.toMap(
-                        metal -> metal,
-                        metal -> registerFluid(new Fluid(metal.getRegistryName().getPath(), LAVA_STILL, LAVA_FLOW, metal.getColor())).with(MetalProperty.METAL, new MetalProperty(metal))
-                    ))
             )
             .build();
 

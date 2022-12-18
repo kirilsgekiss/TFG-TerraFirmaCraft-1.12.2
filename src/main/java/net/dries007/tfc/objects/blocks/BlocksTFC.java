@@ -7,6 +7,9 @@ package net.dries007.tfc.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
+import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.block.BlockGravel;
@@ -79,7 +82,6 @@ public final class BlocksTFC
     public static final BlockCharcoalPile CHARCOAL_PILE = getNull();
     public static final BlockNestBox NEST_BOX = getNull();
     public static final BlockLogPile LOG_PILE = getNull();
-    public static final BlockIngotPile INGOT_PILE = getNull();
     public static final BlockCharcoalForge CHARCOAL_FORGE = getNull();
     public static final BlockCrucible CRUCIBLE = getNull();
     public static final BlockMolten MOLTEN = getNull();
@@ -100,7 +102,6 @@ public final class BlocksTFC
 
     private static ImmutableList<BlockFluidBase> allFluidBlocks;
     private static ImmutableList<BlockRockVariant> allBlockRockVariants;
-    private static ImmutableList<BlockOreTFC> allOreBlocks;
     private static ImmutableList<BlockWallTFC> allWallBlocks;
     private static ImmutableList<BlockLogTFC> allLogBlocks;
     private static ImmutableList<BlockLeavesTFC> allLeafBlocks;
@@ -164,11 +165,6 @@ public final class BlocksTFC
     public static ImmutableList<BlockLeavesTFC> getAllLeafBlocks()
     {
         return allLeafBlocks;
-    }
-
-    public static ImmutableList<BlockOreTFC> getAllOreBlocks()
-    {
-        return allOreBlocks;
     }
 
     public static ImmutableList<BlockFenceGateTFC> getAllFenceGateBlocks()
@@ -367,10 +363,6 @@ public final class BlocksTFC
             {
                 b.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllMetalFluids())
-            {
-                b.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.LAVA)));
-            }
             for (EnumDyeColor color : EnumDyeColor.values())
             {
                 FluidWrapper wrapper = FluidsTFC.getFluidFromDye(color);
@@ -445,15 +437,6 @@ public final class BlocksTFC
                     }
                 }
             }
-        }
-
-        {
-            Builder<BlockOreTFC> b = ImmutableList.builder();
-            for (Ore ore : TFCRegistries.ORES.getValuesCollection())
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    b.add(register(r, ("ore/" + ore.getRegistryName().getPath() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockOreTFC(ore, rock), CT_ROCK_BLOCKS));
-            allOreBlocks = b.build();
-            allOreBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
         {
@@ -587,18 +570,23 @@ public final class BlocksTFC
             Builder<BlockMetalLamp> lamps = ImmutableList.builder();
             Builder<BlockTrapDoorMetalTFC> metalTrapdoors = ImmutableList.builder();
 
-            for (Metal metal : TFCRegistries.METALS.getValuesCollection())
+            for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
             {
-                if (Metal.ItemType.ANVIL.hasType(metal))
-                    anvils.add(register(r, "anvil/" + metal.getRegistryName().getPath(), new BlockAnvilTFC(metal), CT_METAL));
-                if (Metal.ItemType.SHEET.hasType(metal))
-                {
-                    sheets.add(register(r, "sheet/" + metal.getRegistryName().getPath(), new BlockMetalSheet(metal), CT_METAL));
-                    metalTrapdoors.add(register(r, "trapdoor/" + metal.getRegistryName().getPath(), new BlockTrapDoorMetalTFC(metal), CT_METAL));
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
+                    anvils.add(register(r, "anvil/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockAnvilTFC(extendedMaterial.getMaterial()), CT_METAL));
                 }
-                /*
-                if (Metal.ItemType.LAMP.hasType(metal))
-                    lamps.add(register(r, "lamp/" + metal.getRegistryName().getPath(), new BlockMetalLamp(metal), CT_METAL));*/
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
+                    sheets.add(register(r, "sheet/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockMetalSheet(extendedMaterial.getMaterial()), CT_METAL));
+                }
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
+                    metalTrapdoors.add(register(r, "trapdoor/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockTrapDoorMetalTFC(extendedMaterial.getMaterial()), CT_METAL));
+                }
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
+                    lamps.add(register(r, "lamp/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockMetalLamp(extendedMaterial.getMaterial()), CT_METAL));
+                }
 
             }
 
@@ -719,7 +707,6 @@ public final class BlocksTFC
         register(r, "placed_item_flat", new BlockPlacedItemFlat());
         register(r, "placed_hide", new BlockPlacedHide());
         register(r, "charcoal_pile", new BlockCharcoalPile());
-        register(r, "ingot_pile", new BlockIngotPile());
         register(r, "log_pile", new BlockLogPile());
         register(r, "molten", new BlockMolten());
         register(r, "bloom", new BlockBloom());
@@ -743,7 +730,6 @@ public final class BlocksTFC
         register(TEChestTFC.class, "chest");
         register(TENestBox.class, "nest_box");
         register(TELogPile.class, "log_pile");
-        register(TEIngotPile.class, "ingot_pile");
         register(TEFirePit.class, "fire_pit");
         register(TEToolRack.class, "tool_rack");
         register(TELoom.class, "loom");

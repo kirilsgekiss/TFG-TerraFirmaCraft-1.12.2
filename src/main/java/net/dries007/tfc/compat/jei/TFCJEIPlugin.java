@@ -33,7 +33,6 @@ import net.dries007.tfc.api.recipes.barrel.BarrelRecipeFoodTraits;
 import net.dries007.tfc.api.recipes.heat.HeatRecipeMetalMelting;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.gui.*;
@@ -250,7 +249,7 @@ public final class TFCJEIPlugin implements IModPlugin
         getAllIngredients().forEach(stack -> {
             HeatRecipeMetalMelting recipe = (HeatRecipeMetalMelting) TFCRegistries.HEAT.getValuesCollection()
                 .stream().filter(x -> x instanceof HeatRecipeMetalMelting)
-                .filter(x -> x.isValidInput(stack, Metal.Tier.TIER_VI))
+                .filter(x -> x.isValidInput(stack, 6))
                 .findFirst().orElse(null);
             if (recipe != null)
             {
@@ -278,10 +277,6 @@ public final class TFCJEIPlugin implements IModPlugin
         // Register metal related stuff (put everything here for performance + sorted registration)
         List<UnmoldRecipeWrapper> unmoldList = new ArrayList<>();
         List<CastingRecipeWrapper> castingList = new ArrayList<>();
-        List<Metal> tierOrdered = TFCRegistries.METALS.getValuesCollection()
-            .stream()
-            .sorted(Comparator.comparingInt(metal -> metal.getTier().ordinal()))
-            .collect(Collectors.toList());
 
         for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
         {

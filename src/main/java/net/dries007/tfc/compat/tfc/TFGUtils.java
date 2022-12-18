@@ -83,4 +83,14 @@ public final class TFGUtils {
                 .findFirst()
                 .map(TFCMaterialExtended::getMaterialTier).orElse(0);
     }
+
+    public static boolean isAtLeast(int value, int requiredInclusive)
+    {
+        return value >= requiredInclusive;
+    }
+
+    public boolean isAtMost(int value, int requiredInclusive)
+    {
+        return value <= requiredInclusive;
+    }
 }

@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.objects.blocks.metal;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.unification.OreDictUnifier;
+import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -33,8 +33,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.objects.items.metal.ItemMetalSheet;
 import net.dries007.tfc.objects.te.TEMetalSheet;
 import net.dries007.tfc.util.Helpers;
 
@@ -49,7 +47,6 @@ public class BlockMetalSheet extends Block
         PropertyBool.create("west"),
         PropertyBool.create("east")
     };
-    private static final Map<Metal, BlockMetalSheet> MAP = new HashMap<>();
     private static final AxisAlignedBB[] SHEET_AABB = new AxisAlignedBB[] {
         new AxisAlignedBB(0d, 0.9375d, 0d, 1d, 1d, 1d),
         new AxisAlignedBB(0d, 0d, 0d, 1d, 0.0625d, 1d),
@@ -59,24 +56,13 @@ public class BlockMetalSheet extends Block
         new AxisAlignedBB(0d, 0d, 0d, 0.0625d, 1d, 1d)
     };
 
-    public static BlockMetalSheet get(Metal metal)
-    {
-        return MAP.get(metal);
-    }
+    private final gregtech.api.unification.material.Material metal;
 
-    public static ItemStack get(Metal metal, int amount)
-    {
-        return new ItemStack(MAP.get(metal), amount);
-    }
-
-    private final Metal metal;
-
-    public BlockMetalSheet(Metal metal)
+    public BlockMetalSheet(gregtech.api.unification.material.Material metal)
     {
         super(Material.IRON);
 
         this.metal = metal;
-        if (MAP.put(metal, this) != null) throw new IllegalStateException("There can only be one.");
 
         setHardness(40F);
         setResistance(25F);
@@ -86,7 +72,7 @@ public class BlockMetalSheet extends Block
     }
 
     @Nonnull
-    public Metal getMetal()
+    public gregtech.api.unification.material.Material getMetal()
     {
         return metal;
     }
@@ -233,7 +219,7 @@ public class BlockMetalSheet extends Block
             {
                 if (tile.getFace(face) && !worldIn.isSideSolid(pos.offset(face.getOpposite()), face))
                 {
-                    InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ItemMetalSheet.get(metal, Metal.ItemType.SHEET)));
+                    InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), OreDictUnifier.get(TFCOrePrefix.claddingTFC, metal));
                     tile.setFace(face, false);
                 }
             }
@@ -313,6 +299,6 @@ public class BlockMetalSheet extends Block
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(ItemMetalSheet.get(this.metal, Metal.ItemType.SHEET));
+        return OreDictUnifier.get(TFCOrePrefix.claddingTFC, metal);
     }
 }

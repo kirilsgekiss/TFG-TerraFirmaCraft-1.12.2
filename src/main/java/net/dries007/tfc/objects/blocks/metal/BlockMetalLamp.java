@@ -41,7 +41,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.advancements.TFCTriggers;
 import net.dries007.tfc.objects.blocks.BlockTorchTFC;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
@@ -52,21 +51,9 @@ import net.dries007.tfc.util.calendar.ICalendar;
 @ParametersAreNonnullByDefault
 public class BlockMetalLamp extends Block implements ILightableBlock
 {
-
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.VERTICAL);
-    private static final Map<gregtech.api.unification.material.Material, BlockMetalLamp> MAP = new HashMap<>();
     private static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 0.5, 0.6875);
     private static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 1, 0.6875);
-
-    public static BlockMetalLamp get(Metal metal)
-    {
-        return MAP.get(metal);
-    }
-
-    public static ItemStack get(Metal metal, int amount)
-    {
-        return new ItemStack(MAP.get(metal), amount);
-    }
 
     private final gregtech.api.unification.material.Material metal;
 
@@ -74,7 +61,6 @@ public class BlockMetalLamp extends Block implements ILightableBlock
     {
         super(Material.REDSTONE_LIGHT);
         this.metal = metal;
-        if (MAP.put(metal, this) != null) throw new IllegalStateException("There can only be one.");
 
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(LIT, false));
         setHardness(1f);

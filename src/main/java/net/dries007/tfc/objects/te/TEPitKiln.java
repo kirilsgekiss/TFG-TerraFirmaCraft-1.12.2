@@ -35,7 +35,6 @@ import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.Heat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.devices.BlockPitKiln;
 import net.dries007.tfc.objects.items.ItemsTFC;
@@ -355,7 +354,7 @@ public class TEPitKiln extends TEPlacedItem implements ITickable
                 heat.setTemperature(Heat.maxVisibleTemperature());
 
                 // Only Tier I and below can be melted in a pit kiln
-                HeatRecipe recipe = HeatRecipe.get(stack, Metal.Tier.TIER_I);
+                HeatRecipe recipe = HeatRecipe.get(stack, 1);
                 if (recipe != null)
                 {
                     outputStack = recipe.getOutputStack(stack);

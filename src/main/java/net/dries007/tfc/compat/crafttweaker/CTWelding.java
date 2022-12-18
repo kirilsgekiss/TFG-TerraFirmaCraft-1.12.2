@@ -19,7 +19,6 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.liquid.ILiquidStack;
 import net.dries007.tfc.api.recipes.WeldingRecipe;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.skills.SmithingSkill;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -45,10 +44,9 @@ public class CTWelding
             throw new IllegalArgumentException("There is a fluid where it's supposed to be an item!");
         IIngredient ingredient1 = CTHelper.getInternalIngredient(input1);
         IIngredient ingredient2 = CTHelper.getInternalIngredient(input2);
-        Metal.Tier tier = Metal.Tier.valueOf(minTier);
         ItemStack outputStack = (ItemStack) output.getInternal();
         SmithingSkill.Type skillType = skillTypeName == null ? null : SmithingSkill.Type.valueOf(skillTypeName.toUpperCase());
-        WeldingRecipe recipe = new WeldingRecipe(new ResourceLocation(registryName), ingredient1, ingredient2, outputStack, tier, skillType);
+        WeldingRecipe recipe = new WeldingRecipe(new ResourceLocation(registryName), ingredient1, ingredient2, outputStack, minTier, skillType);
         CraftTweakerAPI.apply(new IAction()
         {
             @Override

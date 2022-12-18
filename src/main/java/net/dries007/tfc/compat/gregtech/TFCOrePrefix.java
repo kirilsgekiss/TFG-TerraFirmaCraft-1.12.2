@@ -41,6 +41,13 @@ public class TFCOrePrefix {
     public static final OrePrefix oreSiltStone = new OrePrefix("oreSiltStone", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
     public static final OrePrefix oreSlate = new OrePrefix("oreSlate", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
 
+    public static final OrePrefix trapdoorTFC = new OrePrefix("trapdoorTFC", M * 6, null, null, ENABLE_UNIFICATION, material -> material.hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR));
+    public static final OrePrefix lampTFC = new OrePrefix("lampTFC", M * 6, null, null, ENABLE_UNIFICATION, material -> material.hasFlag(TFCMaterialFlags.GENERATE_LAMP));
+
+    public static final OrePrefix anvilTFC = new OrePrefix("anvilTFC", M * 14, null, null, ENABLE_UNIFICATION, material -> material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL));
+
+    public static final OrePrefix claddingTFC = new OrePrefix("claddingTFC", M * 2, null, null, ENABLE_UNIFICATION, material -> material.hasFlag(TFCMaterialFlags.GENERATE_CLADDING));
+
     static
     {
         oreChunk.addSecondaryMaterial(new MaterialStack(Materials.Stone, M));
