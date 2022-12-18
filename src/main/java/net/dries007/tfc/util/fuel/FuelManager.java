@@ -56,6 +56,9 @@ public final class FuelManager
         FUELS.add(new Fuel(IIngredient.of("gemCoal"), 2200, 1415f, true, false));
         FUELS.add(new Fuel(IIngredient.of("gemLignite"), 2000, 1350f, true, false));
 
+        // TODO
+        // Add Coke Coal
+
         // Charcoal
         FUELS.add(new Fuel(IIngredient.of("charcoal"), 1800, 1350f, true, true));
 

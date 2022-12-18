@@ -34,8 +34,6 @@ import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.util.skills.ProspectingSkill;
 import net.dries007.tfc.util.skills.SkillType;
-import net.dries007.tfc.world.classic.worldgen.vein.VeinRegistry;
-import net.dries007.tfc.world.classic.worldgen.vein.VeinType;
 
 import net.minecraftforge.common.MinecraftForge;
 

@@ -23,14 +23,12 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import net.dries007.tfc.world.classic.worldgen.vein.Vein;
-import net.dries007.tfc.world.classic.worldgen.vein.VeinRegistry;
 
-public class WorldGenOreVeins implements IWorldGenerator
+public class WorldGenOreVeins
 {
     private static final Random LOCAL_RANDOM = new Random();
     public static int CHUNK_RADIUS = 1;
-
+/*
     // Used to generate chunk
     public static List<Vein> getNearbyVeins(int chunkX, int chunkZ, long worldSeed, int radius)
     {
@@ -43,8 +41,8 @@ public class WorldGenOreVeins implements IWorldGenerator
             }
         }
         return veins;
-    }
-
+    }*/
+/*
     // Gets veins at a single chunk. Deterministic for a specific chunk x/z and world seed
     private static void getVeinsAtChunk(List<Vein> listToAdd, int chunkX, int chunkZ, long worldSeed)
     {
@@ -53,8 +51,8 @@ public class WorldGenOreVeins implements IWorldGenerator
             .filter(veinType -> LOCAL_RANDOM.nextInt(veinType.getRarity()) == 0)
             .map(veinType -> veinType.createVein(LOCAL_RANDOM, chunkX, chunkZ))
             .collect(Collectors.toList()));
-    }
-
+    }*/
+/*
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
@@ -111,5 +109,5 @@ public class WorldGenOreVeins implements IWorldGenerator
                 }
             }
         }
-    }
+    }*/
 }

@@ -43,7 +43,6 @@ import net.dries007.tfc.objects.items.ItemGem;
 import net.dries007.tfc.objects.items.metal.ItemSmallOre;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import net.dries007.tfc.world.classic.worldgen.vein.Vein;
 
 @ParametersAreNonnullByDefault
 public class TESluice extends TEBase implements ITickable
@@ -72,6 +71,7 @@ public class TESluice extends TEBase implements ITickable
                         ChunkDataTFC chunkData = getChunkData(true);
                         if (chunkData != null)
                         {
+                            /*
                             // Only check for not null veins
                             List<Vein> veinList = chunkData.getGeneratedVeins()
                                 .stream().filter(vein -> vein.getType() != null && vein.getType().getOre() != null)
@@ -81,7 +81,7 @@ public class TESluice extends TEBase implements ITickable
                             Ore ore = veinList.get(Constants.RNG.nextInt(veinList.size())).getType().getOre();
                             ItemStack output = new ItemStack(ItemSmallOre.get(ore));
                             Helpers.spawnItemStack(world, getFrontWaterPos(), output);
-                            chunkData.addWork(3);
+                            chunkData.addWork(3);*/
                         }
                     }
                     else if (Constants.RNG.nextDouble() < ConfigTFC.Devices.SLUICE.gemChance)
@@ -276,10 +276,11 @@ public class TESluice extends TEBase implements ITickable
                 ChunkDataTFC chunkData = ChunkDataTFC.get(chunk);
                 if (chunkData.canWork(1))
                 {
+                    /*
                     if (!checkVeins || chunkData.getGeneratedVeins().stream().anyMatch(vein -> vein.getType() != null && vein.getType().getOre() != null))
                     {
                         chunks.add(chunk);
-                    }
+                    }*/
                 }
             }
         }

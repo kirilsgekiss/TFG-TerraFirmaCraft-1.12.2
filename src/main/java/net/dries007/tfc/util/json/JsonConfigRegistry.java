@@ -21,8 +21,6 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
 import net.dries007.tfc.objects.entity.animal.AnimalFood;
-import net.dries007.tfc.world.classic.worldgen.vein.VeinRegistry;
-
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public enum JsonConfigRegistry
