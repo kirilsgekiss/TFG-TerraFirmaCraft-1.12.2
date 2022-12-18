@@ -58,7 +58,7 @@ public class AnvilRecipeSplitting extends AnvilRecipeMeasurable
             if (inCap instanceof IForgeableMeasurableMetal)
             {
                 int metalAmount = ((IForgeableMeasurableMetal) inCap).getMetalAmount();
-                Material metal = ((IForgeableMeasurableMetal) inCap).getMetal();
+                Material metal = ((IForgeableMeasurableMetal) inCap).getMaterial();
                 int surplus = metalAmount % splitAmount;
                 int outCount = metalAmount / splitAmount;
 
@@ -71,7 +71,7 @@ public class AnvilRecipeSplitting extends AnvilRecipeMeasurable
                     {
                         cap.reset();
                         ((IForgeableMeasurableMetal) cap).setMetalAmount(splitAmount);
-                        ((IForgeableMeasurableMetal) cap).setMetal(metal);
+                        ((IForgeableMeasurableMetal) cap).setMaterial(metal);
                     }
                     output.add(dump);
                 }
@@ -83,7 +83,7 @@ public class AnvilRecipeSplitting extends AnvilRecipeMeasurable
                     {
                         cap.reset();
                         ((IForgeableMeasurableMetal) cap).setMetalAmount(surplus);
-                        ((IForgeableMeasurableMetal) cap).setMetal(metal);
+                        ((IForgeableMeasurableMetal) cap).setMaterial(metal);
                     }
 
                     output.add(dumpSurplus);

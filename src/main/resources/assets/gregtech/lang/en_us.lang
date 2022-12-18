@@ -1,6 +1,16 @@
 # GTCEu
 
 # Локализация новых материалов
+material.unknown=Unknown
+material.pig_iron=Pig Iron
+material.high_carbon_steel=High Carbon Steel
+material.high_carbon_black_steel=High Carbon Black Steel
+material.high_carbon_red_steel=High Carbon Red Steel
+material.high_carbon_blue_steel=High Carbon Blue Steel
+material.weak_steel=Weak Steel
+material.weak_red_steel=Weak Red Steel
+material.weak_blue_steel=Weak Blue Steel
+
 material.breccia=Breccia
 material.catlinite=Catlinite
 material.chalk=Chalk

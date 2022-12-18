@@ -19,7 +19,6 @@ import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
 import net.dries007.tfc.api.capability.metal.CapabilityMetalItem;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.ItemsTFC;
 
@@ -65,7 +64,7 @@ public class BloomeryRecipe extends IForgeRegistryEntry.Impl<BloomeryRecipe>
         {
             IForgeableMeasurableMetal capBloom = (IForgeableMeasurableMetal) cap;
             capBloom.setMetalAmount(metalAmount);
-            capBloom.setMetal(metal);
+            capBloom.setMaterial(metal);
             capBloom.setTemperature(capBloom.getMeltTemp() - 1);
         }
         return bloom;
@@ -84,7 +83,7 @@ public class BloomeryRecipe extends IForgeRegistryEntry.Impl<BloomeryRecipe>
         {
             IForgeableMeasurableMetal capBloom = (IForgeableMeasurableMetal) cap;
             capBloom.setMetalAmount(100);
-            capBloom.setMetal(metal);
+            capBloom.setMaterial(metal);
             capBloom.setTemperature(capBloom.getMeltTemp() - 1);
         }
         return bloom;

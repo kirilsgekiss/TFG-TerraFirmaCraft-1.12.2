@@ -11,7 +11,8 @@ import javax.annotation.Nullable;
 
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -41,7 +42,10 @@ public final class CapabilityMetalItem
         CapabilityManager.INSTANCE.register(IMetalItem.class, new DumbStorage<>(), MetalItemHandler::new);
 
         // ORE_DICT_METAL_ITEMS.put("ingotDouble", Metal.ItemType.DOUBLE_INGOT);
-        ORE_DICT_MATERIAL_ITEMS.addAll(TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet());
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
+        {
+            ORE_DICT_MATERIAL_ITEMS.add(extendedOrePrefix.getOrePrefix());
+        }
     }
 
     // Register metalItemHandler here for custom items
@@ -112,10 +116,10 @@ public final class CapabilityMetalItem
         {
             if (oreDict.startsWith(orePrefix.name()))
             {
-                return TFGUtils.MATERIALS_TO_TIER.keySet().stream()
-                        .filter(material -> oreDict.equals(orePrefix.name() + material.toCamelCaseString()) && material.hasFluid())
+                return TFGUtils.EXTENDED_MATERIALS.stream()
+                        .filter(extendedMaterial -> oreDict.equals(orePrefix.name() + extendedMaterial.getMaterial().toCamelCaseString()) && extendedMaterial.getMaterial().hasFluid())
                         .findFirst()
-                        .map(material -> new MetalItemHandler(material, TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true)).orElse(null);
+                        .map(extendedMaterial -> new MetalItemHandler(extendedMaterial.getMaterial(), TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true)).orElse(null);
             }
         }
         return null;

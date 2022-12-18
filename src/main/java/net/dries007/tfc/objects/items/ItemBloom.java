@@ -29,9 +29,6 @@ import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Metal;
-import net.dries007.tfc.util.Helpers;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @ParametersAreNonnullByDefault
 public class ItemBloom extends ItemTFC implements IMetalItem
@@ -64,7 +61,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
         IForgeable cap = stack.getCapability(CapabilityForgeable.FORGEABLE_CAPABILITY, null);
         if (cap instanceof IForgeableMeasurableMetal)
         {
-            return ((IForgeableMeasurableMetal) cap).getMetal();
+            return ((IForgeableMeasurableMetal) cap).getMaterial();
         }
         return TFCMaterials.Unknown;
     }
@@ -96,9 +93,9 @@ public class ItemBloom extends ItemTFC implements IMetalItem
         if (cap instanceof IForgeableMeasurableMetal)
         {
             text.add("");
-            text.add(I18n.format("tfc.tooltip.metal", I18n.format(((IForgeableMeasurableMetal) cap).getMetal().getUnlocalizedName())));
+            text.add(I18n.format("tfc.tooltip.metal", I18n.format(((IForgeableMeasurableMetal) cap).getMaterial().getUnlocalizedName())));
             text.add(I18n.format("tfc.tooltip.units", ((IForgeableMeasurableMetal) cap).getMetalAmount()));
-            text.add(I18n.format(((IForgeableMeasurableMetal) cap).getMetal().getUnlocalizedName())); // TODO
+            text.add(I18n.format(((IForgeableMeasurableMetal) cap).getMaterial().getUnlocalizedName())); // TODO
         }
     }
 
@@ -123,7 +120,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
                 if (cap instanceof IForgeableMeasurableMetal)
                 {
                     IForgeableMeasurableMetal handler = (IForgeableMeasurableMetal) cap;
-                    handler.setMetal(Materials.WroughtIron);
+                    handler.setMaterial(Materials.WroughtIron);
                     handler.setMetalAmount(i);
                     items.add(stack);
                 }

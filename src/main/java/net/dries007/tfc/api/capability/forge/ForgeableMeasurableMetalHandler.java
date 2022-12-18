@@ -11,18 +11,14 @@ import javax.annotation.Nullable;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.TFCMaterials;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Metal;
 
 /**
  * Extension of forgeable heatable handler for blooms
@@ -30,22 +26,22 @@ import net.dries007.tfc.api.types.Metal;
 public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler implements IForgeableMeasurableMetal
 {
     private int metalAmount;
-    private Material metal;
+    private Material material;
 
-    public ForgeableMeasurableMetalHandler(Material metal, int metalAmount)
+    public ForgeableMeasurableMetalHandler(Material material, int metalAmount)
     {
         this.metalAmount = metalAmount;
-        this.metal = metal;
-        this.heatCapacity = 0.35F;
-        this.meltTemp = metal.getFluid().getTemperature();
+        this.material = material;
+        this.heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
+        this.meltTemp = material.getFluid().getTemperature();
     }
 
     public ForgeableMeasurableMetalHandler(@Nonnull NBTTagCompound nbt)
     {
         this.metalAmount = 0;
-        this.metal = TFCMaterials.Unknown;
+        this.material = TFCMaterials.Unknown;
         this.heatCapacity = TFCMaterials.Unknown.getFluid().getTemperature();
-        this.meltTemp = 0.35F;
+        this.meltTemp = TFGUtils.getHeatCapacityFromMaterial(material);
         deserializeNBT(nbt);
     }
 
@@ -59,14 +55,14 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
         this.metalAmount = metalAmount;
     }
 
-    public Material getMetal()
+    public Material getMaterial()
     {
-        return metal;
+        return material;
     }
 
-    public void setMetal(Material metal)
+    public void setMaterial(Material material)
     {
-        this.metal = metal;
+        this.material = material;
     }
 
     @Override
@@ -75,7 +71,7 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
     {
         NBTTagCompound nbt = super.serializeNBT();
         nbt.setInteger("metalAmount", metalAmount);
-        nbt.setString("metal", metal.getUnlocalizedName());
+        nbt.setString("metal", material.getUnlocalizedName());
         return nbt;
     }
 
@@ -86,13 +82,13 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
         {
             metalAmount = nbt.getInteger("metalAmount");
             String material = nbt.getString("metal");
-            metal = GregTechAPI.MATERIAL_REGISTRY.getObject(material);
-            if (metal == null)
+            this.material = GregTechAPI.MATERIAL_REGISTRY.getObject(material);
+            if (this.material == null)
             {
-                metal = TFCMaterials.Unknown;
+                this.material = TFCMaterials.Unknown;
             }
-            this.meltTemp = metal.getFluid().getTemperature();
-            this.heatCapacity = 0.35F; // TODO
+            this.meltTemp = this.material.getFluid().getTemperature();
+            this.heatCapacity = TFGUtils.getHeatCapacityFromMaterial(this.material);
         }
         super.deserializeNBT(nbt);
     }

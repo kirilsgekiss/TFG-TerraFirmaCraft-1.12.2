@@ -6,7 +6,6 @@
 package net.dries007.tfc.api.capability.forge;
 
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.api.types.Metal;
 
 /**
  * Interface for the forgeable heatable capability for items that store a metal amount, i.e. blooms
@@ -32,12 +31,12 @@ public interface IForgeableMeasurableMetal extends IForgeableHeatable
      *
      * @return the metal obj
      */
-    Material getMetal();
+    Material getMaterial();
 
     /**
      * Sets the metal this item stores
      *
-     * @param metal the metal obj
+     * @param material the metal obj
      */
-    void setMetal(Material metal);
+    void setMaterial(Material material);
 }

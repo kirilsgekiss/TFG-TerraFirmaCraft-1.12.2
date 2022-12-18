@@ -7,7 +7,6 @@ package net.dries007.tfc.compat.jei.wrappers;
 
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;

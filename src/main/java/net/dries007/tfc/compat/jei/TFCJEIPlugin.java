@@ -9,10 +9,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import gregtech.api.fluids.MetaFluids;
-import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.properties.PropertyKey;
-import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -286,14 +285,14 @@ public final class TFCJEIPlugin implements IModPlugin
             .sorted(Comparator.comparingInt(metal -> metal.getTier().ordinal()))
             .collect(Collectors.toList());
 
-        for (Map.Entry<Material, Integer> materialAndTier : TFGUtils.MATERIALS_TO_TIER.entrySet())
+        for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
         {
-            for (Map.Entry<OrePrefix, Integer> orePrefixAndAmount : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.entrySet())
+            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
             {
-                if (TFGUtils.isOrePrefixHasMold(orePrefixAndAmount.getKey()))
+                if (extendedMaterial.isHasTool() && extendedOrePrefix.isHasMold())
                 {
-                    unmoldList.add(new UnmoldRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
-                    castingList.add(new CastingRecipeWrapper(materialAndTier.getKey(), orePrefixAndAmount.getKey()));
+                    unmoldList.add(new UnmoldRecipeWrapper(extendedMaterial.getMaterial(), extendedOrePrefix.getOrePrefix()));
+                    castingList.add(new CastingRecipeWrapper(extendedMaterial.getMaterial(), extendedOrePrefix.getOrePrefix()));
                 }
             }
         }

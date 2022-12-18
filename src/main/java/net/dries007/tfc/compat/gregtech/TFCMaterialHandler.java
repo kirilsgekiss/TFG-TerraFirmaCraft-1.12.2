@@ -1,7 +1,6 @@
 package net.dries007.tfc.compat.gregtech;
 
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.BlastProperty;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
@@ -10,10 +9,8 @@ import gregtech.api.unification.material.properties.ToolProperty;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.Materials.BlackSteel;
-import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
 
-import static gregtech.api.unification.material.info.MaterialIconSet.ROUGH;
 import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
 
 public class TFCMaterialHandler {
@@ -22,34 +19,57 @@ public class TFCMaterialHandler {
     {
         // TODO
         Unknown = new Material.Builder(32000, "unknown")
-                .ingot(1).fluid()
+                .ingot().fluid()
                 .color(0x8B4513).iconSet(METALLIC)
-                .flags(EXT_METAL)
-                .fluidPipeProperties(1696, 6, true)
-                .fluidTemp(1358)
+                .fluidTemp(1250)
                 .build();
 
-        WeakSteel = new Material.Builder(32001, "weak_steel")
+        PigIron = new Material.Builder(32001, "pig_iron")
+                .ingot().fluid()
+                .color(0x8B4513).iconSet(METALLIC)
+                .fluidTemp(1535)
+                .build();
+
+        HighCarbonSteel = new Material.Builder(32002, "high_carbon_steel")
+                .ingot().fluid()
+                .color(0x8B4513).iconSet(METALLIC)
+                .fluidTemp(1540)
+                .build();
+
+        HighCarbonBlackSteel = new Material.Builder(32003, "high_carbon_black_steel")
+                .ingot().fluid()
+                .color(0x8B4513).iconSet(METALLIC)
+                .fluidTemp(1540)
+                .build();
+
+        HighCarbonRedSteel = new Material.Builder(32004, "high_carbon_red_steel")
+                .ingot().fluid()
+                .color(0x8B4513).iconSet(METALLIC)
+                .fluidTemp(1540)
+                .build();
+
+        HighCarbonBlueSteel = new Material.Builder(32005, "high_carbon_blue_steel")
+                .ingot().fluid()
+                .color(0x8B4513).iconSet(METALLIC)
+                .fluidTemp(1540)
+                .build();
+
+        WeakSteel = new Material.Builder(32006, "weak_steel")
                 .ingot().fluid()
                 .color(0x808080).iconSet(METALLIC)
-                .components(Iron, 1)
-                .fluidPipeProperties(1855, 75, true)
-                .blastTemp(1000, null, VA[MV], 800)
-                .fluidTemp(2046)
+                .fluidTemp(1540)
                 .build();
 
-        WeakBlueSteel = new Material.Builder(32002, "weak_blue_steel")
+        WeakBlueSteel = new Material.Builder(32007, "weak_blue_steel")
                 .ingot().fluid()
                 .color(0x64648C).iconSet(METALLIC)
-                .components(RoseGold, 1, Brass, 1, Steel, 2, BlackSteel, 4)
-                .blastTemp(1400, BlastProperty.GasTier.LOW, VA[HV], 1000)
+                .fluidTemp(1540)
                 .build();
 
-        WeakRedSteel = new Material.Builder(32003, "weak_red_steel")
+        WeakRedSteel = new Material.Builder(32008, "weak_red_steel")
                 .ingot().fluid()
                 .color(0x8C6464).iconSet(METALLIC)
-                .components(SterlingSilver, 1, BismuthBronze, 1, Steel, 2, BlackSteel, 4)
-                .blastTemp(1300, BlastProperty.GasTier.LOW, VA[HV], 1000)
+                .fluidTemp(1540)
                 .build();
 
         Breccia = new Material.Builder(32100, "breccia")

@@ -7,10 +7,8 @@ package net.dries007.tfc.objects.items;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
-import gregtech.api.unification.material.info.MaterialIconType;
-import gregtech.api.unification.material.properties.PropertyKey;
-import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -31,7 +29,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.Gem;
 import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
@@ -45,7 +42,6 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
 import net.dries007.tfc.objects.items.metal.ItemMetal;
 import net.dries007.tfc.objects.items.metal.ItemMetalBucket;
-import net.dries007.tfc.objects.items.metal.ItemSmallOre;
 import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.rock.ItemRockToolHead;
@@ -56,10 +52,6 @@ import net.dries007.tfc.objects.items.wood.ItemWoodenBucket;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.agriculture.Food;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
@@ -286,13 +278,13 @@ public final class ItemsTFC
 
         // POTTERY
         {
-            for (Map.Entry<OrePrefix, Integer> entry : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.entrySet())
+            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
             {
-                if (TFGUtils.isOrePrefixHasMold(entry.getKey()))
+                if (extendedOrePrefix.isHasMold())
                 {
-                    register(r, "ceramics/fired/mold/" + entry.getKey().name, new ItemMold(entry.getKey(), entry.getValue()), CT_POTTERY);
+                    register(r, "ceramics/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY);
 
-                    simpleItems.add(register(r, "ceramics/unfired/mold/" + entry.getKey().name, new ItemUnfiredMold(entry.getKey()), CT_POTTERY));
+                    simpleItems.add(register(r, "ceramics/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
                 }
             }
 

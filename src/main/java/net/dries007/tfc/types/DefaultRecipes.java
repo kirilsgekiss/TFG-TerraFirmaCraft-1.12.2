@@ -8,10 +8,12 @@ package net.dries007.tfc.types;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.compat.gregtech.TFCMaterials;
 import net.dries007.tfc.objects.items.ceramics.ItemMold;
 import net.dries007.tfc.objects.items.ceramics.ItemUnfiredMold;
 import net.minecraft.block.Block;
@@ -275,12 +277,12 @@ public final class DefaultRecipes
         /* CLAY ITEMS */
 
 
-        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
         {
-            if (TFGUtils.isOrePrefixHasMold(orePrefix))
+            if (extendedOrePrefix.isHasMold())
             {
-                int amount = orePrefix == OrePrefix.ingot ? 2 : 1;
-                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(orePrefix), amount), TFGUtils.getKnappingPattern(orePrefix)).setRegistryName(orePrefix.name() + "_mold"));
+                int amount = extendedOrePrefix.getOrePrefix() == OrePrefix.ingot ? 2 : 1;
+                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(extendedOrePrefix.getOrePrefix()), amount), extendedOrePrefix.getKnappingRecipe()).setRegistryName(extendedOrePrefix.getOrePrefix().name() + "_mold"));
             }
         }
 
@@ -324,7 +326,7 @@ public final class DefaultRecipes
     public static void onRegisterBlastFurnaceRecipeEvent(RegistryEvent.Register<BlastFurnaceRecipe> event)
     {
         event.getRegistry().registerAll(
-            new BlastFurnaceRecipe(Materials.WroughtIron, Materials.Steel, IIngredient.of("dustFlux")) // TODO replace steel on weakSteel
+            new BlastFurnaceRecipe(Materials.WroughtIron, TFCMaterials.WeakSteel, IIngredient.of("dustFlux"))
         );
     }
 
@@ -333,10 +335,10 @@ public final class DefaultRecipes
     {
         IForgeRegistry<HeatRecipe> r = event.getRegistry();
 
-
-        for (Material material : TFGUtils.MATERIALS_TO_TIER.keySet())
+        // Any item with metal capability -> Metal
+        for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
         {
-            r.register(new HeatRecipeMetalMelting(material).setRegistryName(material.getUnlocalizedName() + "_melting"));
+            r.register(new HeatRecipeMetalMelting(extendedMaterial.getMaterial()).setRegistryName(extendedMaterial.getMaterial().getUnlocalizedName() + "_melting"));
         }
 
         // Pottery Items with metadata
@@ -347,18 +349,15 @@ public final class DefaultRecipes
             );
         }
 
-        // Molds
-
-        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
+        // Unfired and Fired Molds
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
         {
-            if (TFGUtils.isOrePrefixHasMold(orePrefix))
+            if (extendedOrePrefix.isHasMold())
             {
-                ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(orePrefix);
-                ItemMold firedMold = ItemMold.get(orePrefix);
-                if (unfiredMold != null && firedMold != null)
-                {
-                    r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f).setRegistryName("fired_mold_" + orePrefix.name()));
-                }
+                ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(extendedOrePrefix.getOrePrefix());
+                ItemMold firedMold = ItemMold.get(extendedOrePrefix.getOrePrefix());
+
+                r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f).setRegistryName("fired_mold_" + extendedOrePrefix.getOrePrefix().name));
             }
         }
 
@@ -510,7 +509,7 @@ public final class DefaultRecipes
                 IForgeable cap = x.getCapability(CapabilityForgeable.FORGEABLE_CAPABILITY, null);
                 if (cap instanceof IForgeableMeasurableMetal)
                 {
-                    return ((IForgeableMeasurableMetal) cap).getMetal() == Materials.WroughtIron && ((IForgeableMeasurableMetal) cap).getMetalAmount() == 144;
+                    return ((IForgeableMeasurableMetal) cap).getMaterial() == Materials.WroughtIron && ((IForgeableMeasurableMetal) cap).getMetalAmount() == 144;
                 }
             }
             return false;

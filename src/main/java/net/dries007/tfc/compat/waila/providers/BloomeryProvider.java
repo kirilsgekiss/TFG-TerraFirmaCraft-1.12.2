@@ -72,7 +72,7 @@ public class BloomeryProvider implements IWailaBlock
                     if (cap instanceof IForgeableMeasurableMetal)
                     {
                         IForgeableMeasurableMetal forgeCap = ((IForgeableMeasurableMetal) cap);
-                        currentTooltip.add(new TextComponentTranslation("waila.tfc.bloomery.output", forgeCap.getMetalAmount(), new TextComponentTranslation(forgeCap.getMetal().getUnlocalizedName()).getFormattedText()).getFormattedText());
+                        currentTooltip.add(new TextComponentTranslation("waila.tfc.bloomery.output", forgeCap.getMetalAmount(), new TextComponentTranslation(forgeCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
                     }
                 }
             }
@@ -96,7 +96,7 @@ public class BloomeryProvider implements IWailaBlock
                 if (forgeCap instanceof IForgeableMeasurableMetal)
                 {
                     IForgeableMeasurableMetal bloomCap = ((IForgeableMeasurableMetal) forgeCap);
-                    currentTooltip.add(new TextComponentTranslation("waila.tfc.metal.output", bloomCap.getMetalAmount(), new TextComponentTranslation(bloomCap.getMetal().getUnlocalizedName()).getFormattedText()).getFormattedText());
+                    currentTooltip.add(new TextComponentTranslation("waila.tfc.metal.output", bloomCap.getMetalAmount(), new TextComponentTranslation(bloomCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
                 }
             }
         }

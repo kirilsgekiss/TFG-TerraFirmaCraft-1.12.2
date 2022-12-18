@@ -11,17 +11,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.util.LocalizationUtils;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -282,13 +281,10 @@ public class ItemMold extends ItemPottery
             if (fluid != null)
             {
                 Material material = MetaFluids.getMaterialFromFluid(fluid.getFluid());
-                //noinspection ConstantConditions
                 if (material != null)
                 {
-                    // meltTemp = material.getMeltTemp();
-                    // heatCapacity = material.getSpecificHeat();
                     meltTemp = material.getFluid().getTemperature();
-                    heatCapacity = 0.35f; // TODO
+                    heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
                 }
             }
         }

@@ -1,6 +1,16 @@
 # GTCEu
 
 # Локализация новых материалов
+material.unknown=Неизвестный металл
+material.pig_iron=Чугун
+material.high_carbon_steel=Высокоуглеродная сталь
+material.high_carbon_black_steel=Высокоуглеродная черная сталь
+material.high_carbon_red_steel=Высокоуглеродная красная сталь
+material.high_carbon_blue_steel=Высокоуглеродная синяя сталь
+material.weak_steel=Слабая сталь
+material.weak_red_steel=Слабая красная сталь
+material.weak_blue_steel=Слабая синяя сталь
+
 material.breccia=Брекчия
 material.catlinite=Катлинит
 material.chalk=Мел

@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.Constants;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;

@@ -10,6 +10,7 @@ import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.gregtech.TFCMaterialHandler;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefixHandler;
 import net.dries007.tfc.compat.gregtech.recipes.TFCRecipeHandlerList;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSnow;
@@ -524,10 +525,10 @@ public final class CommonEventHandler
                 {
                     // Add a forgeable capability for this item, if none is found
                     IMetalItem cap = (IMetalItem) metalCapability;
-                    Material metal = cap.getMetal(stack);
-                    if (metal != null)
+                    Material material = cap.getMetal(stack);
+                    if (material != null)
                     {
-                        event.addCapability(CapabilityForgeable.KEY, new ForgeableHeatableHandler(null, 0.35F, metal.getFluid().getTemperature()));
+                        event.addCapability(CapabilityForgeable.KEY, new ForgeableHeatableHandler(null, TFGUtils.getHeatCapacityFromMaterial(material), material.getFluid().getTemperature()));
                         isHeatable = true;
                     }
                 }

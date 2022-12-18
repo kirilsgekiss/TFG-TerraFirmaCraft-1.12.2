@@ -5,14 +5,13 @@
 
 package net.dries007.tfc.client;
 
-import java.util.Arrays;
 import javax.annotation.Nonnull;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TFGUtils;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.objects.items.ceramics.ItemMold;
 import net.minecraft.block.*;
@@ -24,7 +23,6 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.*;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -43,7 +41,6 @@ import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.render.*;
-import net.dries007.tfc.objects.Gem;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockThatchBed;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
@@ -54,8 +51,6 @@ import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
-import net.dries007.tfc.objects.items.ItemGem;
-import net.dries007.tfc.objects.items.ItemGoldPan;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.te.*;
 
@@ -97,11 +92,11 @@ public final class ClientRegisterEvents
         ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));*/
 
         // Ceramic Molds
-        for (OrePrefix orePrefix : TFGUtils.ORE_PREFIX_TO_METAL_UNITS.keySet())
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
         {
-            if (TFGUtils.isOrePrefixHasMold(orePrefix))
+            if (extendedOrePrefix.isHasMold())
             {
-                ItemMold item = ItemMold.get(orePrefix);
+                ItemMold item = ItemMold.get(extendedOrePrefix.getOrePrefix());
 
                 ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() +  "_empty"));
                 ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName().toString() +  "_filled"));
