@@ -7,5 +7,11 @@ public class TFCOrePrefixHandler {
     {
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadKnife);
         MetaItems.addOrePrefix(TFCOrePrefix.oreChunk);
+
+        // MetaItems.addOrePrefix(TFCOrePrefix.trapdoorTFC);
+        // MetaItems.addOrePrefix(TFCOrePrefix.lampTFC);
+        // MetaItems.addOrePrefix(TFCOrePrefix.anvilTFC);
+        // MetaItems.addOrePrefix(TFCOrePrefix.claddingTFC);
+
     }
 }

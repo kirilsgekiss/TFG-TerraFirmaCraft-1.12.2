@@ -7,15 +7,21 @@ package net.dries007.tfc.objects.items;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import gregtech.api.unification.material.info.MaterialFlag;
+import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
+import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.objects.items.metal.ItemAnvil;
+import net.dries007.tfc.objects.items.metal.ItemCladding;
+import net.dries007.tfc.objects.items.metal.ItemLamp;
+import net.dries007.tfc.objects.items.metal.ItemMetalTrapdoor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSnow;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -203,40 +209,6 @@ public final class ItemsTFC
                 simpleItems.add(register(r, "brick/" + rock.getRegistryName().getPath().toLowerCase(), new ItemBrickTFC(rock), CT_ROCK_ITEMS));
         }
 
-        {
-            /*
-            Builder<ItemOreTFC> b = new Builder<>();
-            for (Ore ore : TFCRegistries.ORES.getValuesCollection())
-            {
-                b.add(register(r, "ore/" + ore.getRegistryName().getPath(), new ItemOreTFC(ore), CT_ROCK_ITEMS));
-                if (ore.isGraded())
-                {
-                    simpleItems.add(register(r, "ore/small/" + ore.getRegistryName().getPath(), new ItemSmallOre(ore), CT_ROCK_ITEMS));
-                }
-            }
-            allOreItems = b.build();*/
-
-        }
-
-        /*
-        {
-            Builder<ItemGem> b = new Builder<>();
-            for (Gem gem : Gem.values())
-                b.add(register(r, "gem/" + gem.name().toLowerCase(), new ItemGem(gem), CT_GEMS));
-            allGemItems = b.build();
-        }*/
-/*
-        for (Metal.ItemType type : Metal.ItemType.values())
-        {
-            for (Metal metal : TFCRegistries.METALS.getValuesCollection())
-            {
-                if (type != Metal.ItemType.BUCKET && type.hasType(metal)) // buckets registered separately
-                {
-                    simpleItems.add(register(r, "metal/" + type.name().toLowerCase() + "/" + metal.getRegistryName().getPath(), Metal.ItemType.create(metal, type), CT_METAL));
-                }
-            }
-        }*/
-
         BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllBarrelItemBlocks().forEach(x -> registerItemBlock(r, x));
@@ -272,6 +244,28 @@ public final class ItemsTFC
         for (Powder powder : Powder.values())
         {
             simpleItems.add(register(r, "powder/" + powder.name().toLowerCase(), new ItemPowder(powder), CT_MISC));
+        }
+
+        // METAL
+        {
+            for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
+            {
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
+                    simpleItems.add(register(r, "metal/anvil/" + extendedMaterial.getMaterial().getUnlocalizedName(), new ItemAnvil(extendedMaterial.getMaterial()), CT_METAL));
+                }
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
+                    simpleItems.add(register(r, "metal/trapdoor/" + extendedMaterial.getMaterial().getUnlocalizedName(), new ItemMetalTrapdoor(extendedMaterial.getMaterial()), CT_METAL));
+                }
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
+                    simpleItems.add(register(r, "metal/cladding/" + extendedMaterial.getMaterial().getUnlocalizedName(), new ItemCladding(extendedMaterial.getMaterial()), CT_METAL));
+                }
+
+                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
+                    simpleItems.add(register(r, "metal/lamp/" + extendedMaterial.getMaterial().getUnlocalizedName(), new ItemLamp(extendedMaterial.getMaterial()), CT_METAL));
+                }
+            }
         }
 
         // POTTERY

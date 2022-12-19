@@ -27,7 +27,6 @@ public final class CreativeTabsTFC
     public static final CreativeTabs CT_WOOD = new TFCCreativeTab("wood", "tfc:wood/log/pine");
     public static final CreativeTabs CT_DECORATIONS = new TFCCreativeTab("decorations", "tfc:wall/cobble/granite");
     public static final CreativeTabs CT_METAL = new TFCCreativeTab("metal", "tfc:metal/ingot/bronze");
-    public static final CreativeTabs CT_GEMS = new TFCCreativeTab("gems", "tfc:gem/diamond");
     public static final CreativeTabs CT_POTTERY = new TFCCreativeTab("pottery", "tfc:ceramics/fired/mold/ingot");
     public static final CreativeTabs CT_FOOD = new TFCCreativeTab("food", "tfc:food/green_apple");
     public static final CreativeTabs CT_MISC = new TFCCreativeTab("misc", "tfc:wand");

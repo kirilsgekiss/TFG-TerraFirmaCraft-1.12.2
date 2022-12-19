@@ -11,6 +11,7 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.Materials.BlackSteel;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
 
+import static net.dries007.tfc.compat.gregtech.TFCMaterialFlags.*;
 import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
 
 public class TFCMaterialHandler {
@@ -218,5 +219,25 @@ public class TFCMaterialHandler {
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
         SaltWater.setMaterialRGB(0xFF1F5099);
 
+        // TFC Stuff
+        Copper.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        BismuthBronze.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Bronze.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        BlackBronze.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        WroughtIron.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR, GENERATE_CLADDING);
+        BlackSteel.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        RedSteel.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+        BlueSteel.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
+
+        Brass.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Gold.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Lead.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Nickel.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Platinum.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        RoseGold.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Silver.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        SterlingSilver.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Tin.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
+        Zinc.addFlags(GENERATE_LAMP, GENERATE_TRAPDOOR);
     }
 }

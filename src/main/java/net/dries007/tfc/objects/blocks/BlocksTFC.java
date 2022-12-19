@@ -7,11 +7,11 @@ package net.dries007.tfc.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -109,13 +109,13 @@ public final class BlocksTFC
     private static ImmutableList<BlockSaplingTFC> allSaplingBlocks;
     private static ImmutableList<BlockDoorTFC> allDoorBlocks;
     private static ImmutableList<BlockTrapDoorWoodTFC> allTrapDoorWoodBlocks;
-    private static ImmutableList<BlockTrapDoorMetalTFC> allTrapDoorMetalBlocks;
+    private static ImmutableList<BlockTrapDoorTFC> allTrapDoorMetalBlocks;
     private static ImmutableList<BlockStairsTFC> allStairsBlocks;
     private static ImmutableList<BlockSlabTFC.Half> allSlabBlocks;
     private static ImmutableList<BlockChestTFC> allChestBlocks;
     private static ImmutableList<BlockAnvilTFC> allAnvils;
-    private static ImmutableList<BlockMetalSheet> allSheets;
-    private static ImmutableList<BlockMetalLamp> allLamps;
+    private static ImmutableList<BlockCladdingTFC> allSheets;
+    private static ImmutableList<BlockLampTFC> allLamps;
     private static ImmutableList<BlockToolRack> allToolRackBlocks;
     private static ImmutableList<BlockCropTFC> allCropBlocks;
     private static ImmutableList<BlockCropDead> allDeadCropBlocks;
@@ -192,7 +192,7 @@ public final class BlocksTFC
         return allTrapDoorWoodBlocks;
     }
 
-    public static ImmutableList<BlockTrapDoorMetalTFC> getAllTrapDoorMetalBlocks()
+    public static ImmutableList<BlockTrapDoorTFC> getAllTrapDoorMetalBlocks()
     {
         return allTrapDoorMetalBlocks;
     }
@@ -217,12 +217,12 @@ public final class BlocksTFC
         return allAnvils;
     }
 
-    public static ImmutableList<BlockMetalSheet> getAllSheets()
+    public static ImmutableList<BlockCladdingTFC> getAllSheets()
     {
         return allSheets;
     }
 
-    public static ImmutableList<BlockMetalLamp> getAllLamps()
+    public static ImmutableList<BlockLampTFC> getAllLamps()
     {
         return allLamps;
     }
@@ -566,9 +566,9 @@ public final class BlocksTFC
 
         {
             Builder<BlockAnvilTFC> anvils = ImmutableList.builder();
-            Builder<BlockMetalSheet> sheets = ImmutableList.builder();
-            Builder<BlockMetalLamp> lamps = ImmutableList.builder();
-            Builder<BlockTrapDoorMetalTFC> metalTrapdoors = ImmutableList.builder();
+            Builder<BlockCladdingTFC> sheets = ImmutableList.builder();
+            Builder<BlockLampTFC> lamps = ImmutableList.builder();
+            Builder<BlockTrapDoorTFC> metalTrapdoors = ImmutableList.builder();
 
             for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
             {
@@ -577,17 +577,16 @@ public final class BlocksTFC
                 }
 
                 if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
-                    sheets.add(register(r, "sheet/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockMetalSheet(extendedMaterial.getMaterial()), CT_METAL));
+                    sheets.add(register(r, "cladding/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockCladdingTFC(extendedMaterial.getMaterial()), CT_METAL));
                 }
 
                 if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
-                    metalTrapdoors.add(register(r, "trapdoor/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockTrapDoorMetalTFC(extendedMaterial.getMaterial()), CT_METAL));
+                    metalTrapdoors.add(register(r, "trapdoor/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockTrapDoorTFC(extendedMaterial.getMaterial()), CT_METAL));
                 }
 
                 if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
-                    lamps.add(register(r, "lamp/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockMetalLamp(extendedMaterial.getMaterial()), CT_METAL));
+                    lamps.add(register(r, "lamp/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockLampTFC(extendedMaterial.getMaterial()), CT_METAL));
                 }
-
             }
 
             allAnvils = anvils.build();

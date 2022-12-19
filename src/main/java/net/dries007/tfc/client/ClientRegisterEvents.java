@@ -14,6 +14,7 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.objects.items.ceramics.ItemMold;
+import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -299,30 +300,12 @@ public final class ClientRegisterEvents
                 if (cap instanceof IMaterialHandler)
                 {
                     Material material = ((IMaterialHandler) cap).getMaterial();
-                    if (material != null && material.hasFluid())
-                    {
+                    if (material != null) {
                         return material.getMaterialRGB();
                     }
                 }
             }
             return 0xFFFFFF;
         }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemMold).toArray(Item[]::new));
-    }
-
-    /**
-     * Turns "gem/diamond" + enum NORMAL into "gem/normal/diamond"
-     */
-    @SideOnly(Side.CLIENT)
-    private static void registerEnumBasedMetaItems(String prefix, Enum e, Item item)
-    {
-        //noinspection ConstantConditions
-        String registryName = item.getRegistryName().getPath();
-        StringBuilder path = new StringBuilder(MOD_ID).append(':');
-        if (!Strings.isNullOrEmpty(prefix)) path.append(prefix).append('/');
-        path.append(e.name());
-        if (!Strings.isNullOrEmpty(prefix))
-            path.append(registryName.replace(prefix, "")); // There well be a '/' at the start of registryName due to the prefix, so don't add an extra one.
-        else path.append('/').append(registryName);
-        ModelLoader.setCustomModelResourceLocation(item, e.ordinal(), new ModelResourceLocation(path.toString().toLowerCase()));
     }
 }

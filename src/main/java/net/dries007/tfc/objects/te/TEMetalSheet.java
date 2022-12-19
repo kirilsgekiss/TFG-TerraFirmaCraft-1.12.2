@@ -11,6 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
+import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -97,7 +98,7 @@ public class TEMetalSheet extends TEBase
 
     public void onBreakBlock(Material outMetal)
     {
-        Item item = OreDictUnifier.get(TFCOrePrefix.claddingTFC, outMetal).getItem();
+        Item item = ItemCladding.get(outMetal);
         ItemStack output = new ItemStack(item, getFaceCount());
         InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), output);
     }
