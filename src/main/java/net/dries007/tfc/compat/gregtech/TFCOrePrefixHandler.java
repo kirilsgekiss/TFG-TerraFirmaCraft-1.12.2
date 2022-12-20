@@ -6,12 +6,9 @@ public class TFCOrePrefixHandler {
     public static void init()
     {
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadKnife);
+        MetaItems.addOrePrefix(TFCOrePrefix.ingotDouble);
+        MetaItems.addOrePrefix(TFCOrePrefix.ingotTriple);
+        MetaItems.addOrePrefix(TFCOrePrefix.ingotHex);
         MetaItems.addOrePrefix(TFCOrePrefix.oreChunk);
-
-        // MetaItems.addOrePrefix(TFCOrePrefix.trapdoorTFC);
-        // MetaItems.addOrePrefix(TFCOrePrefix.lampTFC);
-        // MetaItems.addOrePrefix(TFCOrePrefix.anvilTFC);
-        // MetaItems.addOrePrefix(TFCOrePrefix.claddingTFC);
-
     }
 }

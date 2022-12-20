@@ -1,14 +1,15 @@
 package net.dries007.tfc.compat.gregtech;
 
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.properties.BlastProperty;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.material.properties.ToolProperty;
+import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 
-import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.Materials.BlackSteel;
+import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
 
 import static net.dries007.tfc.compat.gregtech.TFCMaterialFlags.*;
@@ -20,7 +21,7 @@ public class TFCMaterialHandler {
     {
         // TODO
         Unknown = new Material.Builder(32000, "unknown")
-                .ingot().fluid()
+                .fluid()
                 .color(0x8B4513).iconSet(METALLIC)
                 .fluidTemp(1250)
                 .build();
@@ -219,7 +220,13 @@ public class TFCMaterialHandler {
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
         SaltWater.setMaterialRGB(0xFF1F5099);
 
+        Bismuth.addFlags(GENERATE_PLATE);
+
         // TFC Stuff
+        for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS) {
+            extendedMaterial.getMaterial().addFlags(USABLE_MATERIALS);
+        }
+
         Copper.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
         BismuthBronze.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);
         Bronze.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);

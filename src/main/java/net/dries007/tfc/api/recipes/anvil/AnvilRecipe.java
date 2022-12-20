@@ -25,12 +25,6 @@ import net.dries007.tfc.util.forge.ForgeRule;
 import net.dries007.tfc.util.forge.ForgeSteps;
 import net.dries007.tfc.util.skills.SmithingSkill;
 
-/**
- * Anvil Recipe
- * <p>
- * They all take a single item input and will produce a single item output
- * todo: in 1.13+ move this to a json recipe type
- */
 @ParametersAreNonnullByDefault
 public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implements IJEISimpleRecipe
 {
@@ -120,7 +114,7 @@ public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implement
     {
         NonNullList<IIngredient<ItemStack>> list = NonNullList.create();
         list.add(ingredient);
-        list.add(IIngredient.of("hammer"));
+        list.add(IIngredient.of("craftingToolHardHammer"));
         return list;
     }
 

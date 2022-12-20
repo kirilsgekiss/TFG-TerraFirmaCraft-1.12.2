@@ -1029,13 +1029,13 @@ tfc.types.rock_category.igneous_extrusive=Магматическая экстр�
 
 ## Tier
 
-tfc.enum.tier.tier_0=Уровень 0
-tfc.enum.tier.tier_i=Уровень I
-tfc.enum.tier.tier_ii=Уровень II
-tfc.enum.tier.tier_iii=Уровень III
-tfc.enum.tier.tier_iv=Уровень IV
-tfc.enum.tier.tier_v=Уровень V
-tfc.enum.tier.tier_vi=Уровень VI
+tfc.enum.tier.0=Уровень 0
+tfc.enum.tier.1=Уровень I
+tfc.enum.tier.2=Уровень II
+tfc.enum.tier.3=Уровень III
+tfc.enum.tier.4=Уровень IV
+tfc.enum.tier.5=Уровень V
+tfc.enum.tier.6=Уровень VI
 
 ## Size
 tfc.enum.size.tiny=Крошечный
@@ -1169,6 +1169,7 @@ jei.category.tfc.quern=Жёрнов
 jei.category.tfc.rock_layer=Руды породного слоя
 jei.category.tfc.vein=Информация о жилах
 jei.category.tfc.welding=Рецепты сварки
+jei.category.tfc.unmold=Рецепты форм
 
 ## JEI Tooltips
 jei.tooltips.tfc.barrel.instant=Мгновенно

@@ -5,7 +5,15 @@
 
 package net.dries007.tfc;
 
+import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.ore.OrePrefix;
+import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
+import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
+import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
+import net.dries007.tfc.types.DefaultRecipes;
+import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.server.MinecraftServer;
@@ -49,6 +57,8 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static net.dries007.tfc.util.forge.ForgeRule.*;
+import static net.dries007.tfc.util.skills.SmithingSkill.Type.GENERAL;
 
 @SuppressWarnings("FieldMayBeFinal")
 @Mod.EventBusSubscriber
@@ -198,6 +208,9 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        DefaultRecipes.registerAnvilRecipes();
+        DefaultRecipes.registerWeldingRecipes();
+
         FuelManager.postInit();
         JsonConfigRegistry.INSTANCE.postInit();
     }

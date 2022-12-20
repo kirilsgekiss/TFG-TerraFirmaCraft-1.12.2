@@ -7,13 +7,16 @@ import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.ConfigHolder;
 
 import static gregtech.api.GTValues.M;
-import static gregtech.api.unification.ore.OrePrefix.Conditions.hasOreProperty;
-import static gregtech.api.unification.ore.OrePrefix.Conditions.hasToolProperty;
+import static gregtech.api.unification.ore.OrePrefix.Conditions.*;
 import static gregtech.api.unification.ore.OrePrefix.Flags.ENABLE_UNIFICATION;
 
 public class TFCOrePrefix {
     public static final OrePrefix toolHeadKnife = new OrePrefix("toolHeadKnife", M, null, TFCMaterialIconType.toolHeadKnife, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix oreChunk = new OrePrefix("oreChunk", -1, null, TFCMaterialIconType.oreChunk, ENABLE_UNIFICATION, hasOreProperty);
+
+    public static final OrePrefix ingotDouble = new OrePrefix("ingotDouble", M * 2, null, MaterialIconType.ingotDouble, ENABLE_UNIFICATION, hasIngotProperty);
+    public static final OrePrefix ingotTriple = new OrePrefix("ingotTriple", M * 3, null, MaterialIconType.ingotTriple, ENABLE_UNIFICATION, hasIngotProperty);
+    public static final OrePrefix ingotHex = new OrePrefix("ingotHex", M * 6, null, TFCMaterialIconType.ingotHex, ENABLE_UNIFICATION, hasIngotProperty);
 
     public static final OrePrefix oreRockSalt = new OrePrefix("oreRockSalt", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
     public static final OrePrefix oreQuartzite = new OrePrefix("oreQuartzite", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);

@@ -7,6 +7,7 @@ package net.dries007.tfc.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
@@ -570,22 +571,22 @@ public final class BlocksTFC
             Builder<BlockLampTFC> lamps = ImmutableList.builder();
             Builder<BlockTrapDoorTFC> metalTrapdoors = ImmutableList.builder();
 
-            for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS)
+            for (gregtech.api.unification.material.Material material : GregTechAPI.MATERIAL_REGISTRY)
             {
-                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
-                    anvils.add(register(r, "anvil/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockAnvilTFC(extendedMaterial.getMaterial()), CT_METAL));
+                if (material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
+                    anvils.add(register(r, "anvil/" + material.getUnlocalizedName(), new BlockAnvilTFC(material), CT_METAL));
                 }
 
-                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
-                    sheets.add(register(r, "cladding/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockCladdingTFC(extendedMaterial.getMaterial()), CT_METAL));
+                if (material.hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
+                    sheets.add(register(r, "cladding/" + material.getUnlocalizedName(), new BlockCladdingTFC(material), CT_METAL));
                 }
 
-                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
-                    metalTrapdoors.add(register(r, "trapdoor/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockTrapDoorTFC(extendedMaterial.getMaterial()), CT_METAL));
+                if (material.hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
+                    metalTrapdoors.add(register(r, "trapdoor/" + material.getUnlocalizedName(), new BlockTrapDoorTFC(material), CT_METAL));
                 }
 
-                if (extendedMaterial.getMaterial().hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
-                    lamps.add(register(r, "lamp/" + extendedMaterial.getMaterial().getUnlocalizedName(), new BlockLampTFC(extendedMaterial.getMaterial()), CT_METAL));
+                if (material.hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
+                    lamps.add(register(r, "lamp/" + material.getUnlocalizedName(), new BlockLampTFC(material), CT_METAL));
                 }
             }
 
