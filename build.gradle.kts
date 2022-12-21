@@ -95,6 +95,8 @@ dependencies {
     "deobfCompile"("codechicken:ChickenASM:$shortVersion-${config["chickenasm.version"]}")
     "deobfCompile"("curse.maven:had-enough-items-557549:3862733")
     "deobfCompile"("curse.maven:the-one-probe-245211:2667280")
+    "deobfCompile"("curse.maven:fluidloggedapi-485654:4128089")
+    // "deobfCompile"("curse.maven:dramatictrees-637540:4059721")
     "deobfCompile"("CraftTweaker2:CraftTweaker2-MC$strippedVersion-Main:${config["crafttweaker.version"]}")
 
     "compileOnly" ("curse.maven:hwyla-253449:2568751")

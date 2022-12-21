@@ -6,6 +6,7 @@
 package net.dries007.tfc.objects.blocks;
 
 import java.util.Random;
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -67,4 +69,26 @@ public class BlockFluidHotWater extends BlockFluidTFC
             }
         }
     }
+
+    /**
+     * Have your fluid block implement this if it should be able to hold fluidloggable blocks.
+     * @author jbred
+     *
+     */
+    public interface IFluidloggableFluid extends IFluidBlock
+    {
+        /**
+         * Used when the fluid is in the world
+         */
+        default boolean isFluidloggableFluid(@Nonnull IBlockState fluid, @Nonnull World world, @Nonnull BlockPos pos) {
+            return isFluidloggableFluid();
+        }
+
+        /**
+         * Used when the fluid isn't in the world (bucket fluidlogging for example)
+         */
+        boolean isFluidloggableFluid();
+    }
 }
+
+

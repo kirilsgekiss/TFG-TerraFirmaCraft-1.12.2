@@ -17,6 +17,9 @@ import net.minecraftforge.fluids.Fluid;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.util.climate.ITemperatureBlock;
 import net.dries007.tfc.util.climate.IceMeltHandler;
+import net.minecraftforge.fluids.IFluidBlock;
+
+import javax.annotation.Nonnull;
 
 public class BlockFluidWater extends BlockFluidTFC implements ITemperatureBlock
 {
@@ -47,5 +50,25 @@ public class BlockFluidWater extends BlockFluidTFC implements ITemperatureBlock
                 }
             }
         }
+    }
+
+    /**
+     * Have your fluid block implement this if it should be able to hold fluidloggable blocks.
+     * @author jbred
+     *
+     */
+    public interface IFluidloggableFluid extends IFluidBlock
+    {
+        /**
+         * Used when the fluid is in the world
+         */
+        default boolean isFluidloggableFluid(@Nonnull IBlockState fluid, @Nonnull World world, @Nonnull BlockPos pos) {
+            return isFluidloggableFluid();
+        }
+
+        /**
+         * Used when the fluid isn't in the world (bucket fluidlogging for example)
+         */
+        boolean isFluidloggableFluid();
     }
 }

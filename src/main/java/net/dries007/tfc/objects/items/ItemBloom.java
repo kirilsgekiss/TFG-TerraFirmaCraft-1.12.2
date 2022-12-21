@@ -13,6 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -73,7 +74,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
         if (cap instanceof IForgeableMeasurableMetal)
         {
             int amount = ((IForgeableMeasurableMetal) cap).getMetalAmount();
-            if (amount > 100) amount = 100;
+            if (amount > 144) amount = 144;
             return amount;
         }
         return 0;
@@ -92,10 +93,13 @@ public class ItemBloom extends ItemTFC implements IMetalItem
         IForgeable cap = stack.getCapability(CapabilityForgeable.FORGEABLE_CAPABILITY, null);
         if (cap instanceof IForgeableMeasurableMetal)
         {
+            Material material = ((IForgeableMeasurableMetal) cap).getMaterial();
+            int metalAmount = ((IForgeableMeasurableMetal) cap).getMetalAmount();
+
             text.add("");
-            text.add(I18n.format("tfc.tooltip.metal", I18n.format(((IForgeableMeasurableMetal) cap).getMaterial().getUnlocalizedName())));
-            text.add(I18n.format("tfc.tooltip.units", ((IForgeableMeasurableMetal) cap).getMetalAmount()));
-            text.add(I18n.format(((IForgeableMeasurableMetal) cap).getMaterial().getUnlocalizedName())); // TODO
+            text.add(I18n.format("tfc.tooltip.metal", I18n.format(material.getUnlocalizedName())));
+            text.add(I18n.format("tfc.tooltip.units", metalAmount));
+            text.add(I18n.format("tfc.tooltip.tier", TFGUtils.getTierFromMaterial(material)));
         }
     }
 
@@ -104,7 +108,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
     public String getTranslationKey(ItemStack stack)
     {
         //noinspection ConstantConditions
-        return super.getTranslationKey(stack) + "." + getMetal(stack).getUnlocalizedName();
+        return super.getTranslationKey(stack) + "." + getMetal(stack).getUnlocalizedName(); // TODO
     }
 
     @SideOnly(Side.CLIENT)
@@ -113,7 +117,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
     {
         if (isInCreativeTab(tab))
         {
-            for (int i = 100; i <= 400; i += 100)
+            for (int i = 144; i <= 576; i += 144)
             {
                 ItemStack stack = new ItemStack(this);
                 IForgeable cap = stack.getCapability(CapabilityForgeable.FORGEABLE_CAPABILITY, null);

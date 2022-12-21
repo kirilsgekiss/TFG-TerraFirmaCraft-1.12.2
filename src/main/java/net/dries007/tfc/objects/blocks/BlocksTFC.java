@@ -8,10 +8,7 @@ package net.dries007.tfc.objects.blocks;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
-import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
-import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
-import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
@@ -110,7 +107,7 @@ public final class BlocksTFC
     private static ImmutableList<BlockSaplingTFC> allSaplingBlocks;
     private static ImmutableList<BlockDoorTFC> allDoorBlocks;
     private static ImmutableList<BlockTrapDoorWoodTFC> allTrapDoorWoodBlocks;
-    private static ImmutableList<BlockTrapDoorTFC> allTrapDoorMetalBlocks;
+    private static ImmutableList<BlockTrapDoorMetalTFC> allTrapDoorMetalBlocks;
     private static ImmutableList<BlockStairsTFC> allStairsBlocks;
     private static ImmutableList<BlockSlabTFC.Half> allSlabBlocks;
     private static ImmutableList<BlockChestTFC> allChestBlocks;
@@ -193,7 +190,7 @@ public final class BlocksTFC
         return allTrapDoorWoodBlocks;
     }
 
-    public static ImmutableList<BlockTrapDoorTFC> getAllTrapDoorMetalBlocks()
+    public static ImmutableList<BlockTrapDoorMetalTFC> getAllTrapDoorMetalBlocks()
     {
         return allTrapDoorMetalBlocks;
     }
@@ -569,7 +566,7 @@ public final class BlocksTFC
             Builder<BlockAnvilTFC> anvils = ImmutableList.builder();
             Builder<BlockCladdingTFC> sheets = ImmutableList.builder();
             Builder<BlockLampTFC> lamps = ImmutableList.builder();
-            Builder<BlockTrapDoorTFC> metalTrapdoors = ImmutableList.builder();
+            Builder<BlockTrapDoorMetalTFC> metalTrapdoors = ImmutableList.builder();
 
             for (gregtech.api.unification.material.Material material : GregTechAPI.MATERIAL_REGISTRY)
             {
@@ -582,7 +579,7 @@ public final class BlocksTFC
                 }
 
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
-                    metalTrapdoors.add(register(r, "trapdoor/" + material.getUnlocalizedName(), new BlockTrapDoorTFC(material), CT_METAL));
+                    metalTrapdoors.add(register(r, "trapdoor/" + material.getUnlocalizedName(), new BlockTrapDoorMetalTFC(material), CT_METAL));
                 }
 
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {

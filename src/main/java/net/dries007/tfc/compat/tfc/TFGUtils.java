@@ -6,6 +6,7 @@ import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static gregtech.api.unification.material.Materials.*;
 import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
@@ -46,25 +47,25 @@ public final class TFGUtils {
             new TFCMaterialExtended(Silver, 961, 0.48F, 1),
             new TFCMaterialExtended(Tin, 230,0.14F, 1),
             new TFCMaterialExtended(Zinc, 420, 0.21F, 1),
-            new TFCMaterialExtended(SterlingSilver, 900, 0.35F,1),
-            new TFCMaterialExtended(Bronze, 950, 0.35F,2),
-            new TFCMaterialExtended(BlackBronze, 1070, 0.35F,2),
-            new TFCMaterialExtended(BismuthBronze, 985, 0.35F,2),
-            new TFCMaterialExtended(Gold, 1060, 0.6F,2),
-            new TFCMaterialExtended(PigIron, 0.35F,3),
-            new TFCMaterialExtended(HighCarbonSteel,  0.35F,3),
-            new TFCMaterialExtended(WroughtIron, 1535, 0.35F,3),
-            new TFCMaterialExtended(HighCarbonBlackSteel,  0.35F,4),
-            new TFCMaterialExtended(Steel, 1540, 0.35F,4),
-            new TFCMaterialExtended(WeakSteel,  0.35F,4),
-            new TFCMaterialExtended(Platinum, 1730, 0.35F,5),
-            new TFCMaterialExtended(BlackSteel, 1485, 0.35F,5),
-            new TFCMaterialExtended(WeakBlueSteel,  0.35F,5),
-            new TFCMaterialExtended(WeakRedSteel,  0.35F,5),
-            new TFCMaterialExtended(HighCarbonBlueSteel,  0.35F,5),
-            new TFCMaterialExtended(HighCarbonRedSteel,  0.35F,5),
-            new TFCMaterialExtended(BlueSteel, 1540, 0.35F,6),
-            new TFCMaterialExtended(RedSteel, 1540, 0.35F,6)
+            new TFCMaterialExtended(SterlingSilver, 900, 0.35F, 1),
+            new TFCMaterialExtended(Bronze, 950, 0.35F, 2),
+            new TFCMaterialExtended(BlackBronze, 1070, 0.35F, 2),
+            new TFCMaterialExtended(BismuthBronze, 985, 0.35F, 2),
+            new TFCMaterialExtended(Gold, 1060, 0.6F, 2),
+            new TFCMaterialExtended(PigIron, 0.35F, 3),
+            new TFCMaterialExtended(HighCarbonSteel,  0.35F, 3),
+            new TFCMaterialExtended(WroughtIron, 1535, 0.35F, 3),
+            new TFCMaterialExtended(HighCarbonBlackSteel,  0.35F, 4),
+            new TFCMaterialExtended(Steel, 1540, 0.35F, 4),
+            new TFCMaterialExtended(WeakSteel,  0.35F, 4),
+            new TFCMaterialExtended(Platinum, 1730, 0.35F, 5),
+            new TFCMaterialExtended(BlackSteel, 1485, 0.35F, 5),
+            new TFCMaterialExtended(WeakBlueSteel,  0.35F, 5),
+            new TFCMaterialExtended(WeakRedSteel,  0.35F, 5),
+            new TFCMaterialExtended(HighCarbonBlueSteel,  0.35F, 5),
+            new TFCMaterialExtended(HighCarbonRedSteel,  0.35F, 5),
+            new TFCMaterialExtended(BlueSteel, 1540, 0.35F, 6),
+            new TFCMaterialExtended(RedSteel, 1540, 0.35F, 6)
     );
 
     public static int getMetalAmountFromOrePrefix(OrePrefix orePrefix) {
@@ -88,12 +89,19 @@ public final class TFGUtils {
                 .map(TFCMaterialExtended::getMaterialTier).orElse(0);
     }
 
+    public static Material getMaterialFromName(String name) {
+        return EXTENDED_MATERIALS.stream()
+                .filter(s -> Objects.equals(s.getMaterial().getUnlocalizedName(), name))
+                .findFirst()
+                .map(TFCMaterialExtended::getMaterial).orElse(null);
+    }
+
     public static boolean isAtLeast(int value, int requiredInclusive)
     {
         return value >= requiredInclusive;
     }
 
-    public boolean isAtMost(int value, int requiredInclusive)
+    public static boolean isAtMost(int value, int requiredInclusive)
     {
         return value <= requiredInclusive;
     }

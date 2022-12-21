@@ -39,7 +39,7 @@ public class AnvilRecipeSplitting extends AnvilRecipeMeasurable
     public boolean matches(ItemStack input)
     {
         if (!super.matches(input)) return false;
-        //Splitable if the output is at least two(don't change this or you will have duplicates)
+        // Splitable if the output is at least two(don't change this or you will have duplicates)
         IForgeable cap = input.getCapability(CapabilityForgeable.FORGEABLE_CAPABILITY, null);
         if (cap instanceof IForgeableMeasurableMetal)
             return splitAmount < ((IForgeableMeasurableMetal) cap).getMetalAmount();

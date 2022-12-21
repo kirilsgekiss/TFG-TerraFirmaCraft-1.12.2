@@ -56,6 +56,7 @@ import net.dries007.tfc.util.json.JsonConfigRegistry;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
 
+import static net.dries007.tfc.TerraFirmaCraft.DEPENDENCIES;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.util.forge.ForgeRule.*;
 import static net.dries007.tfc.util.skills.SmithingSkill.Type.GENERAL;
@@ -68,12 +69,13 @@ import static net.dries007.tfc.util.skills.SmithingSkill.Type.GENERAL;
         version = TerraFirmaCraft.VERSION,
         useMetadata = true,
         guiFactory = Constants.GUI_FACTORY,
-        dependencies = "required:forge@[14.23.5.2816,);after:gregtech;after:jei@[4.14.2,);after:crafttweaker@[4.1.11,);after:waila@(1.8.25,)")
+        dependencies = DEPENDENCIES)
 public final class TerraFirmaCraft
 {
     public static final String MOD_ID = "tfc";
-    public static final String MOD_NAME = "TerraFirmaCraft GTCEuAddon";
+    public static final String MOD_NAME = "TerraFirmaCraft: GregTech Edition";
     public static final String VERSION = "@VERSION@";
+    public static final String DEPENDENCIES = "required:forge@[14.23.5.2847,);after:gregtech;after:jei@[4.14.2,);after:crafttweaker@[4.1.11,);after:waila@(1.8.25,)";
 
     @Mod.Instance
     private static TerraFirmaCraft INSTANCE = null;
