@@ -6,8 +6,8 @@ public class TFCOrePrefixExtended {
 
     private final OrePrefix orePrefix;
     private final int metalUnits;
-    private final String[] knappingRecipe;
-    private final boolean hasMold;
+    private String[] knappingRecipe;
+    private boolean hasMold;
 
     public TFCOrePrefixExtended(OrePrefix orePrefix, int metalUnits) {
         this.orePrefix = orePrefix;
@@ -16,10 +16,9 @@ public class TFCOrePrefixExtended {
         this.knappingRecipe = new String[0];
     }
 
-    public TFCOrePrefixExtended(OrePrefix orePrefix, int metalUnits, boolean hasMold, String[] knappingRecipe) {
-        this.orePrefix = orePrefix;
-        this.metalUnits = metalUnits;
-        this.hasMold = hasMold;
+    public TFCOrePrefixExtended(OrePrefix orePrefix, int metalUnits, String[] knappingRecipe) {
+        this(orePrefix, metalUnits);
+        this.hasMold = true;
         this.knappingRecipe = knappingRecipe;
     }
 

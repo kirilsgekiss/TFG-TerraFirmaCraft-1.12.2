@@ -689,11 +689,41 @@ public final class DefaultRecipes
                             WEAPONS,
                             HIT_LAST, DRAW_SECOND_LAST, DRAW_THIRD_LAST));
 
-                    // Ingot 1x -> Propick         Head TOOLS, PUNCH_LAST, DRAW_NOT_LAST, BEND_NOT_LAST
-                    // Ingot 6x -> Mace Head       WEAPONS, HIT_LAST, SHRINK_NOT_LAST, BEND_NOT_LAST
-                    // Ingot 2x -> Javelin Head    WEAPONS, HIT_LAST, HIT_SECOND_LAST, DRAW_THIRD_LAST
-                    // Ingot 1x -> Chisel Head     TOOLS, HIT_LAST, HIT_NOT_LAST, DRAW_NOT_LAST
-                    // Ingot 2x -> TUYERE          GENERAL, BEND_LAST, BEND_SECOND_LAST
+                    // Ingot 3x -> Propick
+                    r.register(new AnvilRecipe(
+                            new ResourceLocation(MOD_ID, "ingot_to_propick_" + material.getUnlocalizedName()),
+                            IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
+                            TOOLS,
+                            PUNCH_LAST, DRAW_NOT_LAST, BEND_NOT_LAST));
+
+                    // Ingot 2x -> Chisel Head
+                    r.register(new AnvilRecipe(
+                            new ResourceLocation(MOD_ID, "ingot_to_chisel_" + material.getUnlocalizedName()),
+                            IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
+                            TOOLS,
+                            HIT_LAST, HIT_NOT_LAST, DRAW_NOT_LAST));
+
+                    // Ingot 3x -> Javelin Head
+                    r.register(new AnvilRecipe(
+                            new ResourceLocation(MOD_ID, "ingot_to_javelin_" + material.getUnlocalizedName()),
+                            IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
+                            WEAPONS,
+                            HIT_LAST, HIT_SECOND_LAST, DRAW_THIRD_LAST));
+
+                    // Ingot 6x -> TUYERE
+                    r.register(new AnvilRecipe(
+                            new ResourceLocation(MOD_ID, "ingot_to_tuyere_" + material.getUnlocalizedName()),
+                            IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadTuyere, material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
+                            GENERAL,
+                            BEND_LAST, BEND_SECOND_LAST));
                 }
             }
         }

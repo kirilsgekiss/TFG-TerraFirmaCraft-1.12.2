@@ -13,7 +13,7 @@ public final class TFGUtils {
 
     public static final List<TFCOrePrefixExtended> TFC_OREPREFIX_REGISTRY = Arrays.asList
     (
-            new TFCOrePrefixExtended(OrePrefix.ingot, 144, true, new String[]{"XXXX", "X  X", "X  X", "X  X", "XXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.ingot, 144, new String[]{"XXXX", "X  X", "X  X", "X  X", "XXXX"}),
             new TFCOrePrefixExtended(TFCOrePrefix.ingotDouble, 288),
             new TFCOrePrefixExtended(TFCOrePrefix.ingotTriple, 432),
             new TFCOrePrefixExtended(TFCOrePrefix.ingotHex, 864),
@@ -22,15 +22,19 @@ public final class TFGUtils {
             new TFCOrePrefixExtended(OrePrefix.nugget, 16),
             new TFCOrePrefixExtended(OrePrefix.plate, 144),
             new TFCOrePrefixExtended(OrePrefix.plateDouble, 288),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadSword, 288, true, new String[]{"XXX  ", "XX   ", "X   X", "X  XX", " XXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadPickaxe, 432, true, new String[]{"XXXXX", "X   X", " XXX ", "XXXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadAxe, 432, true, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadShovel, 144, true, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadHoe, 144, true, new String[]{"X   X", "X   X", "X   X", "X   X", "XX XX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadSaw, 288, true, new String[]{"XXXXX", "     ", "  XXX", "XXXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadHammer, 864, true, new String[]{"     ", "     ", "XX XX", "XXXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadSense, 432, true, new String[]{"XXXXX", "X    ", "    X", "  XXX", "XXXXX"}),
-            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadKnife, 144, true, new String[]{"XX X", "X  X", "X  X", "X  X", "X  X"})
+            new TFCOrePrefixExtended(OrePrefix.toolHeadSword, 288, new String[]{"XXX  ", "XX   ", "X   X", "X  XX", " XXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadPickaxe, 432, new String[]{"XXXXX", "X   X", " XXX ", "XXXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadAxe, 432, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadShovel, 144, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadHoe, 144, new String[]{"X   X", "X   X", "X   X", "X   X", "XX XX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadSaw, 288, new String[]{"XXXXX", "     ", "  XXX", "XXXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadHammer, 864, new String[]{"     ", "     ", "XX XX", "XXXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadSense, 432, new String[]{"XXXXX", "X    ", "    X", "  XXX", "XXXXX"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadKnife, 144, new String[]{"XX X", "X  X", "X  X", "X  X", "X  X"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadPropick, 432, new String[]{"XXXXX", "    X", " XXX ", " XXXX", "XXXXX"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadChisel, 288, new String[]{"X X", "X X", "X X", "X X", "X X"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadJavelin, 432, new String[]{"XX   ", "X    ", "     ", "X   X", "XX XX"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadTuyere, 864)
     );
 
     public static final List<TFCMaterialExtended> TFC_MATERIAL_REGISTRY = Arrays.asList

@@ -2,9 +2,12 @@ package net.dries007.tfc.compat.gregtech;
 
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.info.MaterialIconType;
+import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.ConfigHolder;
+import javafx.beans.property.Property;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialIconType;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 
@@ -14,11 +17,15 @@ import static gregtech.api.unification.ore.OrePrefix.Flags.ENABLE_UNIFICATION;
 
 public class TFCOrePrefix {
     public static final OrePrefix toolHeadKnife = new OrePrefix("toolHeadKnife", M, null, TFCMaterialIconType.toolHeadKnife, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix toolHeadPropick = new OrePrefix("toolHeadPropick", M * 3, null, TFCMaterialIconType.toolHeadPropick, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix toolHeadChisel = new OrePrefix("toolHeadChisel", M * 2, null, TFCMaterialIconType.toolHeadChisel, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix toolHeadJavelin = new OrePrefix("toolHeadJavelin", M * 3, null, TFCMaterialIconType.toolHeadJavelin, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix toolHeadTuyere = new OrePrefix("toolHeadTuyere", M * 6, null, TFCMaterialIconType.toolHeadTuyere, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix oreChunk = new OrePrefix("oreChunk", -1, null, TFCMaterialIconType.oreChunk, ENABLE_UNIFICATION, hasOreProperty);
 
-    public static final OrePrefix ingotDouble = new OrePrefix("ingotDouble", M * 2, null, MaterialIconType.ingotDouble, ENABLE_UNIFICATION, hasIngotProperty);
-    public static final OrePrefix ingotTriple = new OrePrefix("ingotTriple", M * 3, null, MaterialIconType.ingotTriple, ENABLE_UNIFICATION, hasIngotProperty);
-    public static final OrePrefix ingotHex = new OrePrefix("ingotHex", M * 6, null, TFCMaterialIconType.ingotHex, ENABLE_UNIFICATION, hasIngotProperty);
+    public static final OrePrefix ingotDouble = new OrePrefix("ingotDouble", M * 2, null, MaterialIconType.ingotDouble, ENABLE_UNIFICATION, s -> s.hasProperty(PropertyKey.INGOT) && !s.hasFlag(TFCMaterialFlags.UNUSABLE_IN_TFC));
+    public static final OrePrefix ingotTriple = new OrePrefix("ingotTriple", M * 3, null, MaterialIconType.ingotTriple, ENABLE_UNIFICATION, s -> s.hasProperty(PropertyKey.INGOT) && !s.hasFlag(TFCMaterialFlags.UNUSABLE_IN_TFC));
+    public static final OrePrefix ingotHex = new OrePrefix("ingotHex", M * 6, null, TFCMaterialIconType.ingotHex, ENABLE_UNIFICATION, s -> s.hasProperty(PropertyKey.INGOT) && !s.hasFlag(TFCMaterialFlags.UNUSABLE_IN_TFC));
 
     public static final OrePrefix oreRockSalt = new OrePrefix("oreRockSalt", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
     public static final OrePrefix oreQuartzite = new OrePrefix("oreQuartzite", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
