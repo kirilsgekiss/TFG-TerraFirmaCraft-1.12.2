@@ -14,6 +14,7 @@ import gregtech.api.util.LocalizationUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.forge.ForgeableHeatableHandler;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.block.state.IBlockState;
@@ -94,7 +95,7 @@ public class ItemAnvil extends ItemTFC implements IMetalItem
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
-        return new ForgeableHeatableHandler(nbt, TFGUtils.getHeatCapacityFromMaterial(material), material.getFluid().getTemperature());
+        return new ForgeableHeatableHandler(nbt, material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity(), material.getFluid().getTemperature());
     }
 
     @Override

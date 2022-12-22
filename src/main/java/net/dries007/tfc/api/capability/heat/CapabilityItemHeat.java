@@ -37,12 +37,11 @@ public final class CapabilityItemHeat
     public static void preInit()
     {
         CapabilityManager.INSTANCE.register(IItemHeat.class, new DumbStorage<>(), ItemHeatHandler::new);
-
     }
 
     public static void init()
     {
-        //register heat on vanilla egg for cooking
+        // register heat on vanilla egg for cooking
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(Items.EGG), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of("blockClay"), () -> new ItemHeatHandler(null, 1, 600));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.GLASS_SHARD), () -> new ItemHeatHandler(null, 1, 1000));

@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.TFCMaterials;
@@ -35,7 +36,7 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
     {
         this.metalAmount = metalAmount;
         this.material = material;
-        this.heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
+        this.heatCapacity = material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
         this.meltTemp = material.getFluid().getTemperature();
     }
 
@@ -44,7 +45,7 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
         this.metalAmount = 0;
         this.material = TFCMaterials.Unknown;
         this.heatCapacity = TFCMaterials.Unknown.getFluid().getTemperature();
-        this.meltTemp = TFGUtils.getHeatCapacityFromMaterial(material);
+        this.meltTemp = material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
         deserializeNBT(nbt);
     }
 
@@ -85,13 +86,14 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
         {
             metalAmount = nbt.getInteger("metalAmount");
             String materialName = nbt.getString("metal");
-            this.material = TFGUtils.getMaterialFromName(materialName);
+            this.material = getMaterialFromName(materialName);
+            System.out.println(this.material);
             if (this.material == null)
             {
                 this.material = TFCMaterials.Unknown;
             }
             this.meltTemp = this.material.getFluid().getTemperature();
-            this.heatCapacity = TFGUtils.getHeatCapacityFromMaterial(this.material);
+            this.heatCapacity = this.material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
         }
         super.deserializeNBT(nbt);
     }
@@ -103,5 +105,11 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
         String desc = TextFormatting.WHITE + I18n.format("tfc.tooltip.units", metalAmount);
         text.add(desc);
         super.addHeatInfo(stack, text);
+    }
+
+    public Material getMaterialFromName(String name) {
+        return GregTechAPI.MaterialRegistry.getAllMaterials().stream()
+                .filter(s -> Objects.equals(s.getUnlocalizedName(), name))
+                .findFirst().orElse(null);
     }
 }

@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -107,7 +108,7 @@ public class TEAnvilTFC extends TEInventory
         IBlockState state = world.getBlockState(pos);
         if (state.getBlock() instanceof BlockAnvilTFC)
         {
-            return TFGUtils.getTierFromMaterial(((BlockAnvilTFC) state.getBlock()).getMetal());
+            return ((BlockAnvilTFC) state.getBlock()).getMetal().getProperty(TFCPropertyKey.TFC).getMaterialTier();
         }
         return 0;
     }

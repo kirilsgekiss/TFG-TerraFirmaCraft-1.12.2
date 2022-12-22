@@ -12,6 +12,7 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.Materials.BlackSteel;
 import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
+import static gregtech.api.unification.material.info.MaterialFlags.NO_UNIFICATION;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
 
 import static net.dries007.tfc.compat.gregtech.TFCMaterialFlags.*;
@@ -26,6 +27,7 @@ public class TFCMaterialHandler {
                 .fluid()
                 .color(0x8B4513).iconSet(METALLIC)
                 .fluidTemp(1250)
+                .flags(NO_UNIFICATION)
                 .build();
 
         PigIron = new Material.Builder(32001, "pig_iron")
@@ -231,40 +233,41 @@ public class TFCMaterialHandler {
         // TFC
 
         // All TFC Materials has USABLE_MATERIALS
-        for (TFCMaterialExtended extendedMaterial : TFGUtils.EXTENDED_MATERIALS) {
+        for (TFCMaterialExtended extendedMaterial : TFGUtils.TFC_MATERIAL_REGISTRY) {
             extendedMaterial.getMaterial().addFlags(USABLE_MATERIALS);
         }
 
         // Apply to all TFC materials new property key
         Unknown.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.5F, 1));
 
-        Copper.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1080, 1));
-        Bismuth.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 270, 1));
-        Lead.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.22F, 930, 1));
-        Nickel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.48F, 1453, 1));
-        RoseGold.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 960, 1));
-        Silver.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.48F, 961, 1));
-        Tin.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.14F, 230, 1));
-        Zinc.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.21F, 420, 1));
-        SterlingSilver.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 900, 1));
-        Bronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 950,2));
-        BlackBronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1070,2));
-        BismuthBronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 985,2));
-        Gold.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.6F, 1060,2));
-        PigIron.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,3));
-        HighCarbonSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,3));
-        WroughtIron.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1535,3));
-        HighCarbonBlackSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,4));
-        Steel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1540,4));
-        WeakSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,4));
-        Platinum.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1730,5));
-        BlackSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1485,5));
-        WeakBlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,5));
-        WeakRedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,5));
-        HighCarbonBlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,5));
-        HighCarbonRedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F,5));
-        BlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1540, 6));
-        RedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1540, 6));
+        Copper.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1));
+        Bismuth.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1));
+        Brass.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1));
+        Lead.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.22F, 1));
+        Nickel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.48F, 1));
+        RoseGold.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1));
+        Silver.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.48F, 1));
+        Tin.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.14F, 1));
+        Zinc.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.21F, 1));
+        SterlingSilver.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 1));
+        Bronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 2));
+        BlackBronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 2));
+        BismuthBronze.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 2));
+        Gold.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.6F, 2));
+        PigIron.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 3));
+        HighCarbonSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 3));
+        WroughtIron.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 3));
+        HighCarbonBlackSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 4));
+        Steel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 4));
+        WeakSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 4));
+        Platinum.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        BlackSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        WeakBlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        WeakRedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        HighCarbonBlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        HighCarbonRedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 5));
+        BlueSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 6));
+        RedSteel.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.35F, 6));
 
         // Generate block flags
         Copper.addFlags(GENERATE_ANVIL, GENERATE_LAMP, GENERATE_TRAPDOOR);

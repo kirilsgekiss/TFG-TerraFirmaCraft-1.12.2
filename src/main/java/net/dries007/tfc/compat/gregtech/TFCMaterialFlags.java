@@ -7,7 +7,7 @@ public class TFCMaterialFlags {
 
     // All those metals that were in the TFC + can be unmolded
     public static final MaterialFlag USABLE_MATERIALS = new MaterialFlag.Builder("usable_materials")
-            .requireProps(PropertyKey.FLUID, PropertyKey.INGOT)
+            .requireProps(PropertyKey.FLUID)
             .build();
 
     public static final MaterialFlag GENERATE_LAMP = new MaterialFlag.Builder("generate_lamp")

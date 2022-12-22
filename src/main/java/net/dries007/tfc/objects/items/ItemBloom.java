@@ -13,6 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -99,7 +100,7 @@ public class ItemBloom extends ItemTFC implements IMetalItem
             text.add("");
             text.add(I18n.format("tfc.tooltip.metal", I18n.format(material.getUnlocalizedName())));
             text.add(I18n.format("tfc.tooltip.units", metalAmount));
-            text.add(I18n.format("tfc.tooltip.tier", TFGUtils.getTierFromMaterial(material)));
+            text.add(I18n.format("tfc.tooltip.tier", material.getProperty(TFCPropertyKey.TFC).getMaterialTier()));
         }
     }
 

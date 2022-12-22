@@ -15,6 +15,7 @@ import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.util.LocalizationUtils;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.client.resources.I18n;
@@ -284,7 +285,7 @@ public class ItemMold extends ItemPottery
                 if (material != null)
                 {
                     meltTemp = material.getFluid().getTemperature();
-                    heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
+                    heatCapacity = material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
                 }
             }
         }

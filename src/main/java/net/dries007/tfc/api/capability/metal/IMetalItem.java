@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.material.Material;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
@@ -71,7 +72,7 @@ public interface IMetalItem
             text.add(I18n.format("tfc.tooltip.metal", material.getLocalizedName()));
             text.add(I18n.format("tfc.tooltip.units", getSmeltAmount(stack)));
             text.add(I18n.format("tfc.tooltip.melttemp", meltTemp));
-            text.add(I18n.format("tfc.tooltip.tier", TFGUtils.getTierFromMaterial(material)));
+            text.add(I18n.format("tfc.tooltip.tier", material.getProperty(TFCPropertyKey.TFC).getMaterialTier()));
         }
     }
 }

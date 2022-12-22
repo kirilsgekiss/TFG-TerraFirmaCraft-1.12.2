@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -51,7 +52,7 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
             if (state.getBlock() instanceof BlockCladdingTFC)
             {
                 BlockCladdingTFC block = (BlockCladdingTFC) state.getBlock();
-                return TFGUtils.isAtLeast(TFGUtils.getTierFromMaterial(block.getMetal()), 3); // todo && block.getMetal().isToolMetal()
+                return TFGUtils.isAtLeast(block.getMetal().getProperty(TFCPropertyKey.TFC).getMaterialTier(), 3); // todo && block.getMetal().isToolMetal()
             }
             return false;
         };

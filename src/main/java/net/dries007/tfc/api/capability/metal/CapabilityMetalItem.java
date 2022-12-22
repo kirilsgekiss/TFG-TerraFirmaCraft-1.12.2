@@ -9,7 +9,9 @@ import java.util.*;
 import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
-import gregtech.api.GregTechAPI;
+import gregtech.api.items.materialitem.MetaPrefixItem;
+import gregtech.api.items.metaitem.MetaItem;
+import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
@@ -28,13 +30,13 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
+import org.lwjgl.Sys;
 
 public final class CapabilityMetalItem
 {
     public static final ResourceLocation KEY = new ResourceLocation(TerraFirmaCraft.MOD_ID, "metal_object");
     // Used inside CT, set custom IMetalItem for items outside TFC
     public static final Map<IIngredient<ItemStack>, Supplier<ICapabilityProvider>> CUSTOM_METAL_ITEMS = new HashMap<>();
-    public static final Set<OrePrefix> ORE_DICT_MATERIAL_ITEMS = new LinkedHashSet<>();
     @CapabilityInject(IMetalItem.class)
     public static Capability<IMetalItem> METAL_OBJECT_CAPABILITY;
 
@@ -42,10 +44,6 @@ public final class CapabilityMetalItem
     public static void preInit()
     {
         CapabilityManager.INSTANCE.register(IMetalItem.class, new DumbStorage<>(), MetalItemHandler::new);
-
-        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES) {
-            ORE_DICT_MATERIAL_ITEMS.add(extendedOrePrefix.getOrePrefix());
-        }
     }
 
     // Register metalItemHandler here for custom items
@@ -85,41 +83,18 @@ public final class CapabilityMetalItem
     @Nullable
     public static ICapabilityProvider getCustomMetalItem(ItemStack stack)
     {
-        if (!stack.isEmpty())
-        {
-            Set<IIngredient<ItemStack>> itemItemSet = CUSTOM_METAL_ITEMS.keySet();
-            for (IIngredient<ItemStack> ingredient : itemItemSet)
-            {
-                if (ingredient.testIgnoreCount(stack))
-                {
-                    return CUSTOM_METAL_ITEMS.get(ingredient).get();
-                }
-            }
-            // Try using ore dict prefix-suffix common values (ie: ingotCopper)
-            int[] ids = OreDictionary.getOreIDs(stack);
-            for (int id : ids)
-            {
-                ICapabilityProvider handler = getMetalItemFromOreDict(OreDictionary.getOreName(id));
-                if (handler != null)
-                {
-                    return handler;
-                }
-            }
-        }
-        return null;
-    }
+        if (!(stack.getItem() instanceof MetaPrefixItem)) return null;
 
-    @Nullable
-    private static ICapabilityProvider getMetalItemFromOreDict(String oreDict)
-    {
-        for (OrePrefix orePrefix : ORE_DICT_MATERIAL_ITEMS) {
-            if (oreDict.startsWith(orePrefix.name())) {
-                return TFGUtils.EXTENDED_MATERIALS.stream()
-                        .filter(extendedMaterial -> oreDict.equals(orePrefix.name() + extendedMaterial.getMaterial().toCamelCaseString()))
-                        .findFirst()
-                        .map(extendedMaterial -> new MetalItemHandler(extendedMaterial.getMaterial(), TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true)).orElse(null);
-            }
-        }
+        MetaPrefixItem metaPrefixItem = (MetaPrefixItem) stack.getItem();
+        OrePrefix orePrefix = metaPrefixItem.getOrePrefix();
+        Material material = metaPrefixItem.getMaterial(stack);
+
+        if (material == null) return null;
+        if (!material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS)) return null;
+
+        if (TFGUtils.TFC_OREPREFIX_REGISTRY.stream().anyMatch(s -> s.getOrePrefix() == orePrefix))
+            return new MetalItemHandler(material, TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true);
+
         return null;
     }
 }

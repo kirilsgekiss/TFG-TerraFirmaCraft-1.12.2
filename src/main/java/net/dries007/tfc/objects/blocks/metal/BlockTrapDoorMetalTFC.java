@@ -46,7 +46,6 @@ public class BlockTrapDoorMetalTFC extends BlockTrapDoor
 
         setHardness(1F);
         setSoundType(SoundType.METAL);
-        OreDictionaryHelper.register(this, "trapdoorMetal" + metal.toCamelCaseString());
     }
 
     /**

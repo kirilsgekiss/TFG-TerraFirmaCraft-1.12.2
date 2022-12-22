@@ -13,6 +13,7 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.TFCMaterials;
@@ -269,7 +270,7 @@ public final class DefaultRecipes
         /* CLAY ITEMS */
 
 
-        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
         {
             if (extendedOrePrefix.isHasMold())
             {
@@ -471,7 +472,7 @@ public final class DefaultRecipes
         }
 
         // Unfired and Fired Molds
-        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.EXTENDED_OREPREFIXES)
+        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
         {
             if (extendedOrePrefix.isHasMold())
             {
@@ -601,7 +602,7 @@ public final class DefaultRecipes
                         new ResourceLocation(MOD_ID, "ingot_to_plate_" + material.getUnlocalizedName()),
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         OreDictUnifier.get(OrePrefix.plate, material),
-                        TFGUtils.getTierFromMaterial(material),
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                         GENERAL,
                         HIT_LAST, HIT_SECOND_LAST, HIT_THIRD_LAST));
 
@@ -610,7 +611,7 @@ public final class DefaultRecipes
                         new ResourceLocation(MOD_ID, "ingot_to_stick_" + material.getUnlocalizedName()),
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         OreDictUnifier.get(OrePrefix.stick, material, 2),
-                        TFGUtils.getTierFromMaterial(material),
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                         GENERAL,
                         DRAW_LAST, DRAW_NOT_LAST, PUNCH_NOT_LAST));
 
@@ -620,7 +621,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "double_ingot_to_sword_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadSword, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             WEAPONS,
                             HIT_LAST, BEND_SECOND_LAST, BEND_THIRD_LAST));
 
@@ -629,7 +630,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "triple_ingot_to_pickaxe_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, BEND_NOT_LAST, DRAW_NOT_LAST));
 
@@ -638,7 +639,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_axe_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, BEND_NOT_LAST, DRAW_NOT_LAST));
 
@@ -647,7 +648,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_shovel_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadShovel, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, HIT_NOT_LAST));
 
@@ -656,7 +657,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_saw_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadSaw, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             HIT_LAST, HIT_SECOND_LAST));
 
@@ -665,7 +666,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_hammer_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadHammer, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, SHRINK_NOT_LAST));
 
@@ -674,7 +675,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_sense_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
                             OreDictUnifier.get(OrePrefix.toolHeadSense, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             WEAPONS,
                             HIT_LAST, DRAW_SECOND_LAST, BEND_THIRD_LAST));
 
@@ -683,7 +684,7 @@ public final class DefaultRecipes
                             new ResourceLocation(MOD_ID, "ingot_to_knife_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                             OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, material),
-                            TFGUtils.getTierFromMaterial(material),
+                            material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             WEAPONS,
                             HIT_LAST, DRAW_SECOND_LAST, DRAW_THIRD_LAST));
 
@@ -700,7 +701,7 @@ public final class DefaultRecipes
                 new ResourceLocation(MOD_ID, "high_carbon_steel"),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.PigIron)),
                 OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonSteel),
-                TFGUtils.getTierFromMaterial(TFCMaterials.HighCarbonSteel),
+                TFCMaterials.HighCarbonSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                 null,
                 HIT_ANY, HIT_ANY, HIT_ANY));
 
@@ -708,7 +709,7 @@ public final class DefaultRecipes
                 new ResourceLocation(MOD_ID, "steel"),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonSteel)),
                 OreDictUnifier.get(OrePrefix.ingot, Materials.Steel),
-                TFGUtils.getTierFromMaterial(Materials.Steel),
+                Materials.Steel.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                 null,
                 HIT_ANY, HIT_ANY, HIT_ANY));
 
@@ -716,7 +717,7 @@ public final class DefaultRecipes
                 new ResourceLocation(MOD_ID, "black_steel"),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonBlackSteel)),
                 OreDictUnifier.get(OrePrefix.ingot,  Materials.BlackSteel),
-                TFGUtils.getTierFromMaterial(Materials.BlackSteel),
+                Materials.BlackSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                 null,
                 HIT_ANY, HIT_ANY, HIT_ANY));
 
@@ -724,7 +725,7 @@ public final class DefaultRecipes
                 new ResourceLocation(MOD_ID, "blue_steel"),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonBlueSteel)),
                 OreDictUnifier.get(OrePrefix.ingot,  Materials.BlueSteel),
-                TFGUtils.getTierFromMaterial(Materials.BlueSteel),
+                Materials.BlueSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                 null,
                 HIT_ANY, HIT_ANY, HIT_ANY));
 
@@ -732,7 +733,7 @@ public final class DefaultRecipes
                 new ResourceLocation(MOD_ID, "red_steel"),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonRedSteel)),
                 OreDictUnifier.get(OrePrefix.ingot,  Materials.RedSteel),
-                TFGUtils.getTierFromMaterial(Materials.RedSteel),
+                Materials.RedSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                 null,
                 HIT_ANY, HIT_ANY, HIT_ANY));
 
@@ -786,7 +787,7 @@ public final class DefaultRecipes
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         OreDictUnifier.get(TFCOrePrefix.ingotDouble, material),
-                        TFGUtils.getTierFromMaterial(material)
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier()
                 ));
 
                 r.register(new WeldingRecipe(
@@ -794,7 +795,7 @@ public final class DefaultRecipes
                         IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         OreDictUnifier.get(TFCOrePrefix.ingotTriple, material),
-                        TFGUtils.getTierFromMaterial(material)
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier()
                 ));
 
                 /*
@@ -803,14 +804,15 @@ public final class DefaultRecipes
                         IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
                         IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
                         OreDictUnifier.get(TFCOrePrefix.ingotTriple, material),
-                        TFGUtils.getTierFromMaterial(material)));*/
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier()
+                ));*/
 
                 r.register(new WeldingRecipe(
                         new ResourceLocation(MOD_ID, "triple_plate_" + material.getUnlocalizedName()),
                         IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
                         IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
                         OreDictUnifier.get(TFCOrePrefix.ingotHex, material),
-                        TFGUtils.getTierFromMaterial(material)
+                        material.getProperty(TFCPropertyKey.TFC).getMaterialTier()
                 ));
             }
         }
@@ -820,7 +822,7 @@ public final class DefaultRecipes
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.WeakSteel)),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.PigIron)),
                 OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonBlackSteel),
-                TFGUtils.getTierFromMaterial(TFCMaterials.HighCarbonBlackSteel)
+                TFCMaterials.HighCarbonBlackSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier()
         ));
 
         r.register(new WeldingRecipe(
@@ -828,7 +830,7 @@ public final class DefaultRecipes
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.WeakBlueSteel)),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, Materials.BlackSteel)),
                 OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonBlueSteel),
-                TFGUtils.getTierFromMaterial(TFCMaterials.HighCarbonBlueSteel)
+                TFCMaterials.HighCarbonBlueSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier()
         ));
 
         r.register(new WeldingRecipe(
@@ -836,7 +838,7 @@ public final class DefaultRecipes
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.WeakRedSteel)),
                 IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, Materials.BlackSteel)),
                 OreDictUnifier.get(OrePrefix.ingot, TFCMaterials.HighCarbonRedSteel),
-                TFGUtils.getTierFromMaterial(TFCMaterials.HighCarbonRedSteel)
+                TFCMaterials.HighCarbonRedSteel.getProperty(TFCPropertyKey.TFC).getMaterialTier()
         ));
 
         // Armor

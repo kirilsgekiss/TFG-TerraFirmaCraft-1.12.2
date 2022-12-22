@@ -13,7 +13,7 @@ import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
 
 public final class TFGUtils {
 
-    public static final List<TFCOrePrefixExtended> EXTENDED_OREPREFIXES = Arrays.asList
+    public static final List<TFCOrePrefixExtended> TFC_OREPREFIX_REGISTRY = Arrays.asList
     (
             new TFCOrePrefixExtended(OrePrefix.ingot, 144, true, new String[]{"XXXX", "X  X", "X  X", "X  X", "XXXX"}),
             new TFCOrePrefixExtended(TFCOrePrefix.ingotDouble, 288),
@@ -35,74 +35,48 @@ public final class TFGUtils {
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadKnife, 144, true, new String[]{"XX X", "X  X", "X  X", "X  X", "X  X"})
     );
 
-    public static final List<TFCMaterialExtended> EXTENDED_MATERIALS = Arrays.asList
+    public static final List<TFCMaterialExtended> TFC_MATERIAL_REGISTRY = Arrays.asList
     (
-            new TFCMaterialExtended(Unknown, 0.5F, 1),
-            new TFCMaterialExtended(Copper, 1080, 0.35F, 1),
-            new TFCMaterialExtended(Bismuth, 270, 0.35F, 1),
-            new TFCMaterialExtended(Brass, 930, 0.35F, 1),
-            new TFCMaterialExtended(Lead, 328, 0.22F, 1),
-            new TFCMaterialExtended(Nickel, 1453, 0.48F, 1),
-            new TFCMaterialExtended(RoseGold, 960, 0.35F, 1),
-            new TFCMaterialExtended(Silver, 961, 0.48F, 1),
-            new TFCMaterialExtended(Tin, 230,0.14F, 1),
-            new TFCMaterialExtended(Zinc, 420, 0.21F, 1),
-            new TFCMaterialExtended(SterlingSilver, 900, 0.35F, 1),
-            new TFCMaterialExtended(Bronze, 950, 0.35F, 2),
-            new TFCMaterialExtended(BlackBronze, 1070, 0.35F, 2),
-            new TFCMaterialExtended(BismuthBronze, 985, 0.35F, 2),
-            new TFCMaterialExtended(Gold, 1060, 0.6F, 2),
-            new TFCMaterialExtended(PigIron, 0.35F, 3),
-            new TFCMaterialExtended(HighCarbonSteel,  0.35F, 3),
-            new TFCMaterialExtended(WroughtIron, 1535, 0.35F, 3),
-            new TFCMaterialExtended(HighCarbonBlackSteel,  0.35F, 4),
-            new TFCMaterialExtended(Steel, 1540, 0.35F, 4),
-            new TFCMaterialExtended(WeakSteel,  0.35F, 4),
-            new TFCMaterialExtended(Platinum, 1730, 0.35F, 5),
-            new TFCMaterialExtended(BlackSteel, 1485, 0.35F, 5),
-            new TFCMaterialExtended(WeakBlueSteel,  0.35F, 5),
-            new TFCMaterialExtended(WeakRedSteel,  0.35F, 5),
-            new TFCMaterialExtended(HighCarbonBlueSteel,  0.35F, 5),
-            new TFCMaterialExtended(HighCarbonRedSteel,  0.35F, 5),
-            new TFCMaterialExtended(BlueSteel, 1540, 0.35F, 6),
-            new TFCMaterialExtended(RedSteel, 1540, 0.35F, 6)
+            new TFCMaterialExtended(Unknown),
+            new TFCMaterialExtended(Copper, 1080),
+            new TFCMaterialExtended(Bismuth, 270),
+            new TFCMaterialExtended(Brass, 930),
+            new TFCMaterialExtended(Lead, 328),
+            new TFCMaterialExtended(Nickel, 1453),
+            new TFCMaterialExtended(RoseGold, 960),
+            new TFCMaterialExtended(Silver, 961),
+            new TFCMaterialExtended(Tin, 230),
+            new TFCMaterialExtended(Zinc, 420),
+            new TFCMaterialExtended(SterlingSilver, 900),
+            new TFCMaterialExtended(Bronze, 950),
+            new TFCMaterialExtended(BlackBronze, 1070),
+            new TFCMaterialExtended(BismuthBronze, 985),
+            new TFCMaterialExtended(Gold, 1060),
+            new TFCMaterialExtended(PigIron),
+            new TFCMaterialExtended(HighCarbonSteel),
+            new TFCMaterialExtended(WroughtIron, 1535),
+            new TFCMaterialExtended(HighCarbonBlackSteel),
+            new TFCMaterialExtended(Steel, 1540),
+            new TFCMaterialExtended(WeakSteel),
+            new TFCMaterialExtended(Platinum, 1730),
+            new TFCMaterialExtended(BlackSteel, 1485),
+            new TFCMaterialExtended(WeakBlueSteel),
+            new TFCMaterialExtended(WeakRedSteel),
+            new TFCMaterialExtended(HighCarbonBlueSteel),
+            new TFCMaterialExtended(HighCarbonRedSteel),
+            new TFCMaterialExtended(BlueSteel, 1540),
+            new TFCMaterialExtended(RedSteel, 1540)
     );
 
     public static int getMetalAmountFromOrePrefix(OrePrefix orePrefix) {
-        return EXTENDED_OREPREFIXES.stream()
+        return TFC_OREPREFIX_REGISTRY.stream()
                 .filter(s -> s.getOrePrefix() == orePrefix)
                 .findFirst()
                 .map(TFCOrePrefixExtended::getMetalUnits).orElse(0);
     }
 
-    public static float getHeatCapacityFromMaterial(Material material) {
-        return EXTENDED_MATERIALS.stream()
-                .filter(s -> s.getMaterial() == material)
-                .findFirst()
-                .map(TFCMaterialExtended::getHeatCapacity).orElse(0F);
-    }
-
-    public static int getTierFromMaterial(Material material) {
-        return EXTENDED_MATERIALS.stream()
-                .filter(s -> s.getMaterial() == material)
-                .findFirst()
-                .map(TFCMaterialExtended::getMaterialTier).orElse(0);
-    }
-
-    public static Material getMaterialFromName(String name) {
-        return EXTENDED_MATERIALS.stream()
-                .filter(s -> Objects.equals(s.getMaterial().getUnlocalizedName(), name))
-                .findFirst()
-                .map(TFCMaterialExtended::getMaterial).orElse(null);
-    }
-
     public static boolean isAtLeast(int value, int requiredInclusive)
     {
         return value >= requiredInclusive;
-    }
-
-    public static boolean isAtMost(int value, int requiredInclusive)
-    {
-        return value <= requiredInclusive;
     }
 }

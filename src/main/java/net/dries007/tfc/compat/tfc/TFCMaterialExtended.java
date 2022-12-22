@@ -6,30 +6,19 @@ import gregtech.api.unification.material.properties.PropertyKey;
 public class TFCMaterialExtended {
 
     private final Material material;
-    private final float heatCapacity;
-    private final int materialTier;
 
-    public TFCMaterialExtended(Material material, float heatCapacity, int materialTier) {
+    public TFCMaterialExtended(Material material)
+    {
         this.material = material;
-        this.heatCapacity = heatCapacity;
-        this.materialTier = materialTier;
     }
 
-    public TFCMaterialExtended(Material material, int fluidTemp, float heatCapacity, int materialTier) {
-        this(material, heatCapacity, materialTier);
+    public TFCMaterialExtended(Material material, int customFluidTemp) {
+        this(material);
 
-        material.getProperty(PropertyKey.FLUID).setFluidTemperature(fluidTemp);
+        material.getProperty(PropertyKey.FLUID).setFluidTemperature(customFluidTemp);
     }
 
     public Material getMaterial() {
         return material;
-    }
-
-    public float getHeatCapacity() {
-        return heatCapacity;
-    }
-
-    public int getMaterialTier() {
-        return materialTier;
     }
 }

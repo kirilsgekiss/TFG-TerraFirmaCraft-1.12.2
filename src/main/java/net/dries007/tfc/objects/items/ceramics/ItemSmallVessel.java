@@ -16,6 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
+import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -540,7 +541,7 @@ public class ItemSmallVessel extends ItemPottery
                 if (material != null)
                 {
                     meltTemp = material.getFluid().getTemperature();
-                    heatCapacity = TFGUtils.getHeatCapacityFromMaterial(material);
+                    heatCapacity = material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
                 }
             }
         }
