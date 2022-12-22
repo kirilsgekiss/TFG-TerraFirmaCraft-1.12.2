@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

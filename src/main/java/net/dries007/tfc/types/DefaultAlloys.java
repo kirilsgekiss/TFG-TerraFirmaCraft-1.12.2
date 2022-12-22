@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.dries007.tfc.api.recipes.AlloyRecipe;
 
 import static gregtech.api.unification.material.Materials.*;
-import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
+import static net.dries007.tfc.compat.gregtech.materials.TFCMaterials.*;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SuppressWarnings("WeakerAccess")

@@ -1,6 +1,5 @@
-package net.dries007.tfc.compat.gregtech.properties;
+package net.dries007.tfc.compat.gregtech.materials.properties;
 
-import gregtech.api.unification.material.properties.BlastProperty;
 import gregtech.api.unification.material.properties.IMaterialProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 

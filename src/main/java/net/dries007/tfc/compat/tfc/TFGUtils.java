@@ -1,15 +1,13 @@
 package net.dries007.tfc.compat.tfc;
 
-import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import static gregtech.api.unification.material.Materials.*;
-import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
+import static net.dries007.tfc.compat.gregtech.materials.TFCMaterials.*;
 
 public final class TFGUtils {
 

@@ -5,6 +5,8 @@ import gregtech.api.unification.material.info.MaterialIconType;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.ConfigHolder;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialIconType;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 
 import static gregtech.api.GTValues.M;
 import static gregtech.api.unification.ore.OrePrefix.Conditions.*;

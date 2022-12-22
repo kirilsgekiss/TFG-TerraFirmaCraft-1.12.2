@@ -11,12 +11,12 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.objects.items.ceramics.ItemMold;
 import net.dries007.tfc.objects.items.ceramics.ItemUnfiredMold;
 import net.minecraft.block.Block;
@@ -70,6 +70,7 @@ import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.fuel.FuelManager;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags.UNUSABLE_IN_TFC;
 import static net.dries007.tfc.objects.fluids.FluidsTFC.*;
 import static net.dries007.tfc.util.forge.ForgeRule.*;
 import static net.dries007.tfc.util.skills.SmithingSkill.Type.*;
@@ -447,7 +448,7 @@ public final class DefaultRecipes
     public static void onRegisterBlastFurnaceRecipeEvent(RegistryEvent.Register<BlastFurnaceRecipe> event)
     {
         event.getRegistry().registerAll(
-                new BlastFurnaceRecipe(Materials.WroughtIron, TFCMaterials.WeakSteel, IIngredient.of("dustFlux"))
+                new BlastFurnaceRecipe(TFCMaterials.PigIron, Materials.WroughtIron, IIngredient.of("dustFlux"))
         );
     }
 
@@ -458,7 +459,7 @@ public final class DefaultRecipes
 
         // Any item with metal capability -> Metal
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
-            if (material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS)) {
+            if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL)) {
                 r.register(new HeatRecipeMetalMelting(material).setRegistryName(material.getUnlocalizedName() + "_melting"));
             }
         }
@@ -595,7 +596,7 @@ public final class DefaultRecipes
         IForgeRegistry<AnvilRecipe> r = TFCRegistries.ANVIL;
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
-            if (material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS) && material != TFCMaterials.Unknown) {
+            if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && !material.hasFlag(UNUSABLE_IN_TFC)) {
 
                 // Ingot -> Plate
                 r.register(new AnvilRecipe(
@@ -780,7 +781,7 @@ public final class DefaultRecipes
         IForgeRegistry<WeldingRecipe> r = TFCRegistries.WELDING;
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
-            if (material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS) && material != TFCMaterials.Unknown) {
+            if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && !material.hasFlag(UNUSABLE_IN_TFC)) {
 
                 r.register(new WeldingRecipe(
                         new ResourceLocation(MOD_ID, "plate_" + material.getUnlocalizedName()),

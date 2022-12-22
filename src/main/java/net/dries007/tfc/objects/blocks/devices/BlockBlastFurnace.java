@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

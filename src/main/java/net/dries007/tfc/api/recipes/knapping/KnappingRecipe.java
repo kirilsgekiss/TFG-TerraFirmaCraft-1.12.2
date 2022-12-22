@@ -10,9 +10,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import net.dries007.tfc.util.SimpleCraftMatrix;
 
-/**
- * todo: in 1.13+ move this to a json recipe type
- */
 public abstract class KnappingRecipe extends IForgeRegistryEntry.Impl<KnappingRecipe>
 {
     private final KnappingType type;

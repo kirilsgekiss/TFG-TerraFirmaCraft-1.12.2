@@ -11,12 +11,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import gregtech.api.GregTechAPI;
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
-import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
-import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -87,7 +84,6 @@ public class ForgeableMeasurableMetalHandler extends ForgeableHeatableHandler im
             metalAmount = nbt.getInteger("metalAmount");
             String materialName = nbt.getString("metal");
             this.material = getMaterialFromName(materialName);
-            System.out.println(this.material);
             if (this.material == null)
             {
                 this.material = TFCMaterials.Unknown;

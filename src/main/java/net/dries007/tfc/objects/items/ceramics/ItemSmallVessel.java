@@ -16,8 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
-import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -63,11 +62,9 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.util.Alloy;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
 @ParametersAreNonnullByDefault

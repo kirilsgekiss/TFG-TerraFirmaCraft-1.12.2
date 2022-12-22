@@ -1,4 +1,4 @@
-package net.dries007.tfc.compat.gregtech;
+package net.dries007.tfc.compat.gregtech.materials;
 
 import gregtech.api.unification.material.info.MaterialIconType;
 

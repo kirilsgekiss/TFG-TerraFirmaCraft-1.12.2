@@ -13,8 +13,8 @@ import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
@@ -303,7 +303,7 @@ public final class TFCJEIPlugin implements IModPlugin
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
             for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
-                if (material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS) && extendedOrePrefix.isHasMold() && material != TFCMaterials.Unknown) {
+                if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && extendedOrePrefix.isHasMold() && material != TFCMaterials.Unknown) {
                     if (material.hasProperty(PropertyKey.TOOL)) {
                         unmoldList.add(new UnmoldRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
                     }

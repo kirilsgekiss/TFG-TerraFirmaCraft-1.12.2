@@ -24,11 +24,6 @@ import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.util.skills.SmithingSkill;
 
-/**
- * Welding Recipe
- * This takes two items and produces a single item out
- * todo: in 1.13+ move this to a json recipe type
- */
 @ParametersAreNonnullByDefault
 public class WeldingRecipe extends IForgeRegistryEntry.Impl<WeldingRecipe> implements IJEISimpleRecipe
 {

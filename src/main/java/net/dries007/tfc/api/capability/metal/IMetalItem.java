@@ -9,8 +9,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
-import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

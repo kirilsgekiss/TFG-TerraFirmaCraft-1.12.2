@@ -6,8 +6,7 @@ import net.dries007.tfc.api.capability.forge.ForgeableHeatableHandler;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
-import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.objects.blocks.metal.BlockLampTFC;
 import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.block.state.IBlockState;
@@ -28,8 +27,6 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
-
-import static net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC.AXIS;
 
 @ParametersAreNonnullByDefault
 public class ItemLamp extends ItemTFC implements IMetalItem {

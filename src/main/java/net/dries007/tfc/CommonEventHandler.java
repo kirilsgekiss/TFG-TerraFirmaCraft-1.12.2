@@ -7,11 +7,10 @@ package net.dries007.tfc;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFCMaterialHandler;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialHandler;
 import net.dries007.tfc.compat.gregtech.TFCOrePrefixHandler;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.gregtech.recipes.TFCRecipeHandlerList;
-import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSnow;

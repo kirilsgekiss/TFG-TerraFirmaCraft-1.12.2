@@ -12,9 +12,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
-import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

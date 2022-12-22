@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;

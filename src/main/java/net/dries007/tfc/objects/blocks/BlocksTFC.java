@@ -8,7 +8,7 @@ package net.dries007.tfc.objects.blocks;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
-import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;

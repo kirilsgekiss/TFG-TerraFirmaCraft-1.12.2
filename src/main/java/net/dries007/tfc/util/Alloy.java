@@ -13,7 +13,7 @@ import com.google.common.collect.Sets;
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;

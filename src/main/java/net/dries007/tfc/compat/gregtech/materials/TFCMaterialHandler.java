@@ -1,82 +1,85 @@
-package net.dries007.tfc.compat.gregtech;
+package net.dries007.tfc.compat.gregtech.materials;
 
+import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.material.properties.ToolProperty;
-import net.dries007.tfc.compat.gregtech.properties.TFCProperty;
-import net.dries007.tfc.compat.gregtech.properties.TFCPropertyKey;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCProperty;
+import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.Materials.BlackSteel;
-import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
-import static gregtech.api.unification.material.info.MaterialFlags.NO_UNIFICATION;
+import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
 
-import static net.dries007.tfc.compat.gregtech.TFCMaterialFlags.*;
-import static net.dries007.tfc.compat.gregtech.TFCMaterials.*;
+import static net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags.*;
+import static net.dries007.tfc.compat.gregtech.materials.TFCMaterials.*;
 
 public class TFCMaterialHandler {
 
     public static void init()
     {
-        // TODO
+        // Custom Metals
+
         Unknown = new Material.Builder(32000, "unknown")
                 .fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x2F2B27).iconSet(METALLIC)
                 .fluidTemp(1250)
                 .flags(NO_UNIFICATION)
                 .build();
 
         PigIron = new Material.Builder(32001, "pig_iron")
                 .ingot().fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x6A595C).iconSet(METALLIC)
                 .fluidTemp(1535)
                 .build();
 
         HighCarbonSteel = new Material.Builder(32002, "high_carbon_steel")
                 .ingot().fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x5F5F5F).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         HighCarbonBlackSteel = new Material.Builder(32003, "high_carbon_black_steel")
                 .ingot().fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x111111).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         HighCarbonRedSteel = new Material.Builder(32004, "high_carbon_red_steel")
                 .ingot().fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x700503).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         HighCarbonBlueSteel = new Material.Builder(32005, "high_carbon_blue_steel")
                 .ingot().fluid()
-                .color(0x8B4513).iconSet(METALLIC)
+                .color(0x2D5596).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         WeakSteel = new Material.Builder(32006, "weak_steel")
                 .ingot().fluid()
-                .color(0x808080).iconSet(METALLIC)
+                .color(0x111111).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         WeakBlueSteel = new Material.Builder(32007, "weak_blue_steel")
                 .ingot().fluid()
-                .color(0x64648C).iconSet(METALLIC)
+                .color(0x2D5596).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
 
         WeakRedSteel = new Material.Builder(32008, "weak_red_steel")
                 .ingot().fluid()
-                .color(0x8C6464).iconSet(METALLIC)
+                .color(0x700503).iconSet(METALLIC)
                 .fluidTemp(1540)
                 .build();
+
+        // Custom Rocks
 
         Breccia = new Material.Builder(32100, "breccia")
                 .dust()
@@ -197,6 +200,17 @@ public class TFCMaterialHandler {
 
         // GTCEu
 
+        for (Material material : GregTechAPI.MATERIAL_REGISTRY)
+        {
+            if (material.hasProperty(PropertyKey.TOOL))
+            {
+                ToolProperty toolProperty = material.getProperty(PropertyKey.TOOL);
+
+                toolProperty.setToolSpeed(toolProperty.getToolSpeed() * 2);
+                toolProperty.setToolDurability(toolProperty.getToolEnchantability() * 7);
+            }
+        }
+
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
         Perlite.setProperty(PropertyKey.ORE, new OreProperty());
         Uvarovite.setProperty(PropertyKey.ORE, new OreProperty());
@@ -227,15 +241,24 @@ public class TFCMaterialHandler {
 
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
         SaltWater.setMaterialRGB(0xFF1F5099);
-
         Bismuth.addFlags(GENERATE_PLATE);
 
         // TFC
 
         // All TFC Materials has USABLE_MATERIALS
         for (TFCMaterialExtended extendedMaterial : TFGUtils.TFC_MATERIAL_REGISTRY) {
-            extendedMaterial.getMaterial().addFlags(USABLE_MATERIALS);
+            extendedMaterial.getMaterial().addFlags(TFC_MATERIAL);
         }
+
+        Unknown.addFlags(UNUSABLE_IN_TFC);
+        PigIron.addFlags(UNUSABLE_IN_TFC);
+        HighCarbonSteel.addFlags(UNUSABLE_IN_TFC);
+        HighCarbonBlackSteel.addFlags(UNUSABLE_IN_TFC);
+        HighCarbonBlueSteel.addFlags(UNUSABLE_IN_TFC);
+        HighCarbonRedSteel.addFlags(UNUSABLE_IN_TFC);
+        WeakSteel.addFlags(UNUSABLE_IN_TFC);
+        WeakRedSteel.addFlags(UNUSABLE_IN_TFC);
+        WeakBlueSteel.addFlags(UNUSABLE_IN_TFC);
 
         // Apply to all TFC materials new property key
         Unknown.setProperty(TFCPropertyKey.TFC, new TFCProperty(0.5F, 1));

@@ -10,12 +10,10 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 import gregtech.api.items.materialitem.MetaPrefixItem;
-import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFCMaterialFlags;
-import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -25,12 +23,10 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.oredict.OreDictionary;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import org.lwjgl.Sys;
 
 public final class CapabilityMetalItem
 {
@@ -90,7 +86,7 @@ public final class CapabilityMetalItem
         Material material = metaPrefixItem.getMaterial(stack);
 
         if (material == null) return null;
-        if (!material.hasFlag(TFCMaterialFlags.USABLE_MATERIALS)) return null;
+        if (!material.hasFlag(TFCMaterialFlags.TFC_MATERIAL)) return null;
 
         if (TFGUtils.TFC_OREPREFIX_REGISTRY.stream().anyMatch(s -> s.getOrePrefix() == orePrefix))
             return new MetalItemHandler(material, TFGUtils.getMetalAmountFromOrePrefix(orePrefix), true);

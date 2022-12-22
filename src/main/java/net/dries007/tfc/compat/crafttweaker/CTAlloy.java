@@ -7,5 +7,5 @@ package net.dries007.tfc.compat.crafttweaker;
 
 public class CTAlloy
 {
-
+    // maybe todo ?
 }
