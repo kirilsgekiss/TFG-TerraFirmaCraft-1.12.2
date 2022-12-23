@@ -65,7 +65,6 @@ import static net.dries007.tfc.util.skills.SmithingSkill.Type.GENERAL;
 public final class TerraFirmaCraft
 {
     public static final String MOD_ID = "tfc";
-    public static final String FLORAE_MOD_ID = "tfcflorae";
     public static final String MOD_NAME = "TerraFirmaCraft: GregTech Edition";
     public static final String VERSION = "@VERSION@";
     public static final String DEPENDENCIES = "required:forge@[14.23.5.2847,);after:gregtech;after:jei@[4.14.2,);after:crafttweaker@[4.1.11,);after:waila@(1.8.25,)";
