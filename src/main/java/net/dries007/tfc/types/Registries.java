@@ -57,6 +57,10 @@ public final class Registries
         newRegistry(CHISEL_RECIPE, ChiselRecipe.class, false);
         newRegistry(BLOOMERY_RECIPE, BloomeryRecipe.class, false);
         newRegistry(BLAST_FURNACE_RECIPE, BlastFurnaceRecipe.class, false);
+
+        // newRegistry(ALEMBIC_RECIPE, AlembicRecipe.class, false);
+        // newRegistry(DRYING_RECIPE, DryingRecipe.class, false);
+        // newRegistry(STICK_BUNDLE_RECIPE, StickBundleRecipe.class, false);
     }
 
     /**
