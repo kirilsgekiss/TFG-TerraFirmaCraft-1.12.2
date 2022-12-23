@@ -2140,4 +2140,75 @@ public final class ConfigTFC
             public int rarity = 150;
         }
     }
+
+    @Config(modid = MOD_ID, category = "tech", name = "TerraFirmaCraft - Tech")
+    @Config.LangKey("config." + MOD_ID + ".tech")
+    public static final class Tech
+    {
+        @Config.Comment({"Should TFCTech remove TFC and vanilla glass recipes?"})
+        @Config.LangKey("config." + MOD_ID + ".tweaks.removeGlassRecipes")
+        public boolean removeGlassRecipes = true;
+
+        @Config.Comment({"Which blocks are considered valid for rubber tapping?"})
+        @Config.LangKey("config." + MOD_ID + ".tweaks.validRubberTrees")
+        public String[] rubberTrees = new String[] {"tfc:wood/log/hevea{placed=false,axis=y}"};
+
+        @Config.Comment({"Modifier for how quickly electric forge heats items. Smaller number = slower temperature changes. Note: This is affected by TFC global modifier."})
+        @Config.RangeDouble(min = 0.01D, max = 1000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.electricForgeSpeed")
+        public double electricForgeSpeed = 1.0D;
+
+        @Config.Comment({"The maximum heat obtainable by electric forge."})
+        @Config.RangeDouble(min = 500.0D, max = 5000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.electricForgeMaxTemperature")
+        public double electricForgeMaxTemperature = 1601.0D;
+
+        @Config.Comment({"Electric forge energy consumption modifier."})
+        @Config.RangeDouble(min = 0.01D, max = 1000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.electricForgeEnergyConsumption")
+        public double electricForgeEnergyConsumption = 1;
+
+        @Config.RequiresWorldRestart
+        @Config.Comment({"Electric forge energy capacity."})
+        @Config.RangeInt(min = 1000, max = 1_000_000_000)
+        @Config.LangKey("config." + MOD_ID + ".devices.electricForgeEnergyCapacity")
+        public int electricForgeEnergyCapacity = 10000;
+
+        @Config.Comment({"Induction crucible energy consumption, in RF/t."})
+        @Config.RangeInt(min = 1, max = 1_000_000_000)
+        @Config.LangKey("config." + MOD_ID + ".devices.inductionCrucibleEnergyConsumption")
+        public int inductionCrucibleEnergyConsumption = 20;
+
+        @Config.RequiresWorldRestart
+        @Config.Comment({"Induction crucible energy capacity."})
+        @Config.RangeInt(min = 1000, max = 1_000_000_000)
+        @Config.LangKey("config." + MOD_ID + ".devices.inductionCrucibleEnergyCapacity")
+        public int inductionCrucibleEnergyCapacity = 10000;
+
+        @Config.Comment({"Induction crucible target temperature."})
+        @Config.RangeInt(min = 1, max = 1_000_000)
+        @Config.LangKey("config." + MOD_ID + ".devices.inductionCrucibleTargetTemperature")
+        public float inductionCrucibleTargetTemperature = 1601;
+
+        @Config.Comment({"Fridge energy consumption modifier."})
+        @Config.RangeDouble(min = 0.01D, max = 1000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.fridgeEnergyConsumption")
+        public double fridgeEnergyConsumption = 1;
+
+        @Config.RequiresWorldRestart
+        @Config.Comment({"Fridge energy capacity."})
+        @Config.RangeInt(min = 1000, max = 1_000_000_000)
+        @Config.LangKey("config." + MOD_ID + ".devices.fridgeEnergyCapacity")
+        public int fridgeEnergyCapacity = 10000;
+
+        @Config.Comment({"How fast fridges reach frozen state."})
+        @Config.RangeDouble(min = 0.01D, max = 1000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.fridgeEfficiency")
+        public double fridgeEfficiency = 1;
+
+        @Config.Comment({"How fast fridges lose efficiency when the door is open."})
+        @Config.RangeDouble(min = 0.01D, max = 1000.0D)
+        @Config.LangKey("config." + MOD_ID + ".devices.fridgeLoseEfficiency")
+        public double fridgeLoseEfficiency = 1;
+    }
 }
