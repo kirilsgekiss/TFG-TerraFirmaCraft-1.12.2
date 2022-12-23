@@ -8,9 +8,6 @@ package net.dries007.tfc.api.registries;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import net.dries007.tfc.api.recipes.tech.GlassWorkingRecipe;
-import net.dries007.tfc.api.recipes.tech.SmelteryRecipe;
-import net.dries007.tfc.api.recipes.tech.WireDrawingRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -50,11 +47,6 @@ public class TFCRegistries
     public static final IForgeRegistry<BlastFurnaceRecipe> BLAST_FURNACE = GameRegistry.findRegistry(BlastFurnaceRecipe.class);
 
     public static final IForgeRegistry<Plant> PLANTS = GameRegistry.findRegistry(Plant.class);
-
-    public static final IForgeRegistry<SmelteryRecipe> SMELTERY = GameRegistry.findRegistry(SmelteryRecipe.class);
-    public static final IForgeRegistry<WireDrawingRecipe> WIRE_DRAWING = GameRegistry.findRegistry(WireDrawingRecipe.class);
-    public static final IForgeRegistry<GlassWorkingRecipe> GLASS_WORKING = GameRegistry.findRegistry(GlassWorkingRecipe.class);
-
 
     static
     {
