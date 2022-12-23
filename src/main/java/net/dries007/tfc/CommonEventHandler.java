@@ -362,14 +362,14 @@ public final class CommonEventHandler
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isFreshWater = BlocksTFC.isFreshWater(waterState), isSaltWater = BlocksTFC.isSaltWater(waterState);
-                if ((isFreshWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
+                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSaltWater(waterState);
+                if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
                 {
                     //Simulated so client will check if he would drink before updating stats
                     if (!world.isRemote)
                     {
                         player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                        if (isFreshWater)
+                        if (isWater)
                         {
                             foodStats.attemptDrink(10, false);
                         }
@@ -967,7 +967,7 @@ public final class CommonEventHandler
                     ((WorldServer) entityItem.world).spawnParticle(EnumParticleTypes.SMOKE_NORMAL, entityItem.posX, entityItem.posY, entityItem.posZ, 42, 0.0D, 0.15D, 0.0D, 0.08D);
                     if (rand <= 0.01F)
                     {
-                        entityItem.world.setBlockState(pos, FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState(), 2); // 1/100 chance of the ice turning into water.
+                        entityItem.world.setBlockState(pos, Blocks.WATER.getDefaultState(), 2); // 1/100 chance of the ice turning into water.
                     }
                 }
                 else if (state.getMaterial() == net.minecraft.block.material.Material.PACKED_ICE)
@@ -977,7 +977,7 @@ public final class CommonEventHandler
                     ((WorldServer) entityItem.world).spawnParticle(EnumParticleTypes.SMOKE_NORMAL, entityItem.posX, entityItem.posY, entityItem.posZ, 42, 0.0D, 0.15D, 0.0D, 0.08D);
                     if (rand <= 0.005F)
                     {
-                        entityItem.world.setBlockState(pos, FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState(), 2); // 1/200 chance of the packed ice turning into water.
+                        entityItem.world.setBlockState(pos, Blocks.WATER.getDefaultState().getBlock().getDefaultState(), 2); // 1/200 chance of the packed ice turning into water.
                     }
                 }
                 event.setExtraLife(itemTemp == 0 ? lifespan : ConfigTFC.Devices.TEMPERATURE.ticksBeforeAttemptToCool); // Set lifespan accordingly

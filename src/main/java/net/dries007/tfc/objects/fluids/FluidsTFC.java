@@ -48,8 +48,6 @@ public final class FluidsTFC
     private static final ResourceLocation FLOW = new ResourceLocation(MOD_ID, "blocks/fluid_flow");
 
     private static final HashBiMap<Fluid, FluidWrapper> WRAPPERS = HashBiMap.create();
-    private static final ResourceLocation LAVA_STILL = new ResourceLocation(MOD_ID, "blocks/lava_still");
-    private static final ResourceLocation LAVA_FLOW = new ResourceLocation(MOD_ID, "blocks/lava_flow");
     private static final Map<EnumDyeColor, FluidWrapper> DYE_FLUIDS = new EnumMap<>(EnumDyeColor.class);
     // Water variants
     public static FluidWrapper HOT_WATER;

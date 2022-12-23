@@ -150,7 +150,7 @@ public class MapGenRiverRavine extends MapGenBase
 
                         if (y < 20/* todo make option, was 10*/)
                             primer.setBlockState(x, y, z, LAVA); // todo: check stability?
-                        else if (y < waterHeight) primer.setBlockState(x, y, z, FRESH_WATER);
+                        else if (y < waterHeight) primer.setBlockState(x, y, z, WATER);
                         else primer.setBlockState(x, y, z, AIR);
                     }
                 }

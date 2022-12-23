@@ -22,7 +22,7 @@ import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.FRESH_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
@@ -267,7 +267,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         }
         else
         {
-            return FRESH_WATER;
+            return WATER;
         }
     }
 

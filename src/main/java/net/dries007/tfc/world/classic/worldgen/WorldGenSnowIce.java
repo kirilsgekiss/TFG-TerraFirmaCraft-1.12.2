@@ -38,9 +38,9 @@ public class WorldGenSnowIce implements IWorldGenerator
                     BlockPos posDown = pos.down();
                     IBlockState stateAt = world.getBlockState(posDown);
                     float actualTemp = ClimateTFC.getActualTemp(world, posDown);
-                    if (actualTemp < IceMeltHandler.ICE_MELT_THRESHOLD - 4 + 4 * (rand.nextFloat() - rand.nextFloat()) && stateAt.getBlock() == ChunkGenTFC.FRESH_WATER.getBlock())
+                    if (actualTemp < IceMeltHandler.ICE_MELT_THRESHOLD - 4 + 4 * (rand.nextFloat() - rand.nextFloat()) && stateAt.getBlock() == ChunkGenTFC.WATER.getBlock())
                     {
-                        world.setBlockState(posDown, ChunkGenTFC.FRESH_WATER_ICE);
+                        world.setBlockState(posDown, ChunkGenTFC.WATER_ICE);
                     }
 
                     if (world.isAirBlock(pos) && ChunkGenTFC.SNOW.getBlock().canPlaceBlockAt(world, pos) && actualTemp < -4 + 4 * (rand.nextFloat() - rand.nextFloat()))

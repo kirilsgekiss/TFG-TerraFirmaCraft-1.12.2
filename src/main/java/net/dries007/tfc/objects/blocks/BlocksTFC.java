@@ -769,7 +769,7 @@ public final class BlocksTFC
 
     public static boolean isWater(IBlockState current)
     {
-        return current.getMaterial() == Material.WATER;
+        return current == Blocks.WATER.getDefaultState();
     }
 
     public static boolean isFreshWater(IBlockState current)

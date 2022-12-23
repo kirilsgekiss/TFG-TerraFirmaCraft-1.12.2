@@ -66,15 +66,15 @@ public class ChunkGenTFC implements IChunkGenerator
 {
     public static final IBlockState STONE = Blocks.STONE.getDefaultState();
     public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-    public static final IBlockState SALT_WATER = FluidsTFC.SALT_WATER.get().getBlock().getDefaultState(); // todo: replace
-    public static final IBlockState FRESH_WATER = FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState(); // todo: replace
-    public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState(); // todo: replace
-    public static final IBlockState LAVA = Blocks.LAVA.getDefaultState(); // todo: replace
+    public static final IBlockState SALT_WATER = FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState WATER = Blocks.WATER.getDefaultState();
+    public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState LAVA = Blocks.LAVA.getDefaultState();
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     /* Layers must be one here - otherwise snow becomes non-replaceable and wrecks the rest of world gen */
     public static final IBlockState SNOW = Blocks.SNOW_LAYER.getDefaultState().withProperty(BlockSnow.LAYERS, 1);
     public static final IBlockState SALT_WATER_ICE = BlocksTFC.SEA_ICE.getDefaultState();
-    public static final IBlockState FRESH_WATER_ICE = Blocks.ICE.getDefaultState();
+    public static final IBlockState WATER_ICE = Blocks.ICE.getDefaultState();
     private static final float[] parabolicField = new float[25];
 
     /* This is done here rather than GameRegistry.registerWorldGenerator since we need to control the ordering of them better */
@@ -89,7 +89,7 @@ public class ChunkGenTFC implements IChunkGenerator
     private static final IWorldGenerator LOOSE_ROCKS_GEN = new WorldGenLooseRocks();
     private static final IWorldGenerator STALACTITE_GEN = new WorldGenSpikes(true, 300);
     private static final IWorldGenerator STALAGMITE_GEN = new WorldGenSpikes(false, 300);
-    private static final IWorldGenerator WATERFALL_GEN = new WorldGenFalls(FRESH_WATER, 15);
+    private static final IWorldGenerator WATERFALL_GEN = new WorldGenFalls(WATER, 15);
     private static final IWorldGenerator LAVAFALL_GEN = new WorldGenFalls(Blocks.FLOWING_LAVA.getDefaultState(), 5);
     private static final IWorldGenerator SNOW_ICE_GEN = new WorldGenSnowIce();
 
@@ -736,7 +736,7 @@ public class ChunkGenTFC implements IChunkGenerator
                     //  && biome != BiomesTFC.OCEAN && biome != BiomesTFC.DEEP_OCEAN && biome != BiomesTFC.BEACH && biome != BiomesTFC.GRAVEL_BEACH
                     else if (inp.getBlockState(x, y, z) == SALT_WATER && !(BiomesTFC.isOceanicBiome(biome) || BiomesTFC.isBeachBiome(biome)))
                     {
-                        outp.setBlockState(x, y + yOffset, z, FRESH_WATER);
+                        outp.setBlockState(x, y + yOffset, z, WATER);
                     }
                 }
 
