@@ -265,7 +265,7 @@ public class TEBarrel extends TETickableInventory implements ITickable, ICalenda
                     inventory.setStackInSlot(SLOT_FLUID_CONTAINER_IN, result.getResult());
                 }
 
-                Fluid freshWater = FluidRegistry.getFluid("fresh_water");
+                Fluid freshWater = FluidRegistry.getFluid("water");
 
                 if (!sealed && world.isRainingAt(pos.up()) && (tank.getFluid() == null || tank.getFluid().getFluid() == freshWater))
                 {

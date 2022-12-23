@@ -34,6 +34,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -298,7 +299,7 @@ public class BlockFirePit extends Block implements IBellowsConsumerBlock, ILight
                     if (tile.getCookingPotStage() == TEFirePit.CookingPotStage.EMPTY)
                     {
                         FluidStack fluidStack = FluidUtil.getFluidContained(held);
-                        if (fluidStack != null && fluidStack.amount >= 1000 && fluidStack.getFluid() == FluidsTFC.FRESH_WATER.get())
+                        if (fluidStack != null && fluidStack.amount >= 1000 && fluidStack.getFluid() == FluidRegistry.WATER)
                         {
                             // Add water
                             tile.addWaterToCookingPot();

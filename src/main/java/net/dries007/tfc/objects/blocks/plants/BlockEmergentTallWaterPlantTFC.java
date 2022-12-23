@@ -47,7 +47,7 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
         if (water == SALT_WATER)
             return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
         else
-            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
     }
 
     public void shrink(World worldIn, BlockPos pos)
@@ -72,7 +72,7 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
         IBlockState soil = worldIn.getBlockState(pos.down());
         if (plant.getWaterType() == SALT_WATER)
             return (soil.getBlock() == this || BlocksTFC.isSaltWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
-        return (soil.getBlock() == this || BlocksTFC.isFreshWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
+        return (soil.getBlock() == this || BlocksTFC.isWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
     }
 
     @Override

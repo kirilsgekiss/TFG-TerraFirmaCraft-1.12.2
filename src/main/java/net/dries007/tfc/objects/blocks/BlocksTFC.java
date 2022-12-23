@@ -21,6 +21,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -756,7 +757,7 @@ public final class BlocksTFC
         {
             TerraFirmaCraft.getLog().info("The below warnings about unintended overrides are normal. The override is intended. ;)");
             event.getRegistry().registerAll(
-                new BlockIceTFC(FluidsTFC.FRESH_WATER.get()).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
+                new BlockIceTFC(FluidRegistry.WATER).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
                 new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow")
             );
         }
@@ -772,11 +773,6 @@ public final class BlocksTFC
         return current == Blocks.WATER.getDefaultState();
     }
 
-    public static boolean isFreshWater(IBlockState current)
-    {
-        return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
-    }
-
     public static boolean isSaltWater(IBlockState current)
     {
         return current == FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
@@ -784,7 +780,7 @@ public final class BlocksTFC
 
     public static boolean isFreshWaterOrIce(IBlockState current)
     {
-        return current.getBlock() == Blocks.ICE || isFreshWater(current);
+        return current.getBlock() == Blocks.ICE || isWater(current);
     }
 
     public static boolean isRawStone(IBlockState current)

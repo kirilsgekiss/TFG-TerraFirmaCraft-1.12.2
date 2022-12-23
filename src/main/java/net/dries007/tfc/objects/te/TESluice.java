@@ -28,6 +28,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -49,7 +50,7 @@ public class TESluice extends TEBase implements ITickable
 
     public static boolean isValidFluid(Fluid fluid)
     {
-        return fluid == FluidsTFC.FRESH_WATER.get() || fluid == FluidsTFC.SALT_WATER.get();
+        return fluid == FluidRegistry.WATER || fluid == FluidsTFC.SALT_WATER.get();
     }
 
     private int soil;

@@ -7,6 +7,8 @@ package net.dries007.tfc.client.render;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.minecraft.init.Blocks;
+import net.minecraftforge.fluids.FluidRegistry;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -48,7 +50,7 @@ public class TESRFirePit extends TileEntitySpecialRenderer<TEFirePit>
         // Rendering liquid in the soup pot
         if (te.getCookingPotStage() != TEFirePit.CookingPotStage.EMPTY)
         {
-            Fluid water = FluidsTFC.FRESH_WATER.get();
+            Fluid water = FluidRegistry.WATER;
 
             GlStateManager.pushMatrix();
             GlStateManager.translate(x, y, z);

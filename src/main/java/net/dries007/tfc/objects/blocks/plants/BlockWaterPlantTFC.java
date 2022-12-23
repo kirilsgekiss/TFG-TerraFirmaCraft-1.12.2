@@ -42,7 +42,7 @@ public class BlockWaterPlantTFC extends BlockPlantTFC
         IBlockState soil = worldIn.getBlockState(pos.down());
         if (plant.getWaterType() == SALT_WATER)
             return BlocksTFC.isSaltWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
-        return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
+        return BlocksTFC.isWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
     }
 
     @Override

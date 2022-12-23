@@ -59,7 +59,7 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
         if (water == SALT_WATER)
             return i < plant.getMaxHeight() && BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
         else
-            return i < plant.getMaxHeight() && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && BlocksTFC.isWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
     }
 
     @Override

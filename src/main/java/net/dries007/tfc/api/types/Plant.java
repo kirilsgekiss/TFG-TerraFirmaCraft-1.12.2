@@ -11,6 +11,7 @@ import java.util.Random;
 import java.util.function.Function;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
@@ -22,7 +23,6 @@ import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
@@ -267,7 +267,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         }
         else
         {
-            return WATER;
+            return ChunkGenTFC.WATER;
         }
     }
 
@@ -302,7 +302,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
             case WATER:
             case TALL_WATER:
             case EMERGENT_TALL_WATER:
-                return EnumPlantTypeTFC.FRESH_WATER;
+                return EnumPlantTypeTFC.WATER;
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
@@ -427,7 +427,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         DRY,
         FRESH_BEACH,
         SALT_BEACH,
-        FRESH_WATER,
+        WATER,
         SALT_WATER,
         NONE;
 
