@@ -1,7 +1,7 @@
 buildscript {
     repositories {
+        mavenCentral()
         maven {
-            // url = 'https://maven.cleanroommc.com'
             url = 'https://maven.minecraftforge.net'
         }
         maven {
@@ -21,14 +21,10 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
-//apply plugin: 'com.github.johnrengelman.shadow'
 
 if (project.use_mixins.toBoolean()) {
     apply plugin: 'org.spongepowered.mixin'
 }
-
-//plugins id 'com.github.johnrengelman.shadow' version '4.0.4'
-
 
 version = version_major + '.' + version_minor + '.' + version_patch
 group = project.maven_group
@@ -59,8 +55,8 @@ minecraft {
         args << '-Dmixin.debug.export=true'
         args << '-Xmx8G'
     }
-    clientJvmArgs.addAll(args)
-    serverJvmArgs.addAll(args)
+    //clientJvmArgs.addAll(args)
+    //serverJvmArgs.addAll(args)
 
     replace "@VERSION@", version
 }
@@ -94,15 +90,13 @@ dependencies {
     deobfCompile 'curse.maven:fluidloggedapi-485654:4128089'
     deobfCompile 'curse.maven:ctm-267602:2915363'
 
-//    deobfCompile 'curse.maven:florae-389228:3590520'
-//    deobfCompile 'curse.maven:dramatictrees-637540:4059721'
-//    deobfCompile 'codechicken:ChickenASM:1.12-1.0.2.9'
+    // deobfCompile 'curse.maven:dramatictrees-637540:4059721'
 
     compile 'curse.maven:crafttweaker-239197:3935788'
 
-    compileOnly   'curse.maven:hwyla-253449:2568751'
+    compileOnly 'curse.maven:hwyla-253449:2568751'
 
-    provided files('libs/gregtech-1.12.2-2.4.3-beta.jar')
+    provided files('libs/gregtech-1.12.2-2.4.5-beta.jar')
 }
 
 sourceSets {
