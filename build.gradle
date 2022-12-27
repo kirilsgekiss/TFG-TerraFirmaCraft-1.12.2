@@ -53,10 +53,9 @@ minecraft {
         args << '-Dmixin.hotSwap=true'
         args << '-Dmixin.checks.interfaces=true'
         args << '-Dmixin.debug.export=true'
-        args << '-Xmx8G'
     }
-    //clientJvmArgs.addAll(args)
-    //serverJvmArgs.addAll(args)
+    clientJvmArgs.addAll(args)
+    serverJvmArgs.addAll(args)
 
     replace "@VERSION@", version
 }
