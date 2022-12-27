@@ -47,7 +47,7 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
         if (water == SALT_WATER)
             return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
         else
-            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
     }
 
     public void shrink(World worldIn, BlockPos pos)
@@ -55,7 +55,7 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
         boolean flag = false;
         for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
         {
-            if (BlocksTFC.isWater(worldIn.getBlockState(pos.offset(enumfacing))))
+            if (BlocksTFC.isFreshWater(worldIn.getBlockState(pos.offset(enumfacing))))
             {
                 flag = true;
             }

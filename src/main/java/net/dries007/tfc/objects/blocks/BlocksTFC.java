@@ -794,22 +794,27 @@ public final class BlocksTFC
 
     public static boolean isWater(IBlockState current)
     {
-        return current == FluidRegistry.WATER.getBlock().getDefaultState() || current == FluidsTFC.TANNIN.get().getBlock().getDefaultState();
+        return current.getMaterial() == Material.WATER;
+    }
+
+    public static boolean isVanillaWater(IBlockState current)
+    {
+        return current == FluidRegistry.WATER.getBlock().getDefaultState();
     }
 
     public static boolean isFreshWater(IBlockState current)
     {
-        return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState() || current == FluidsTFC.TANNIN.get().getBlock().getDefaultState();
+        return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isSaltWater(IBlockState current)
     {
-        return current == FluidsTFC.SALT_WATER.get().getBlock().getDefaultState() || current == FluidsTFC.TANNIN.get().getBlock().getDefaultState();
+        return current == FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isFreshWaterOrIce(IBlockState current)
     {
-        return current.getBlock() == Blocks.ICE || isWater(current);
+        return current.getBlock() == Blocks.ICE || isVanillaWater(current);
     }
 
     public static boolean isRawStone(IBlockState current)
