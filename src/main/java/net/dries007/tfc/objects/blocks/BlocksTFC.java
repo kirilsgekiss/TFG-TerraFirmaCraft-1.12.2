@@ -1261,16 +1261,21 @@ public final class BlocksTFC
     public static boolean isGrowableSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return false;
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (current.getBlock() instanceof BlockRockVariant)
+        {
+            Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+
+            return type == GRASS ||
+                    type == DRY_GRASS ||
+                    type == DIRT ||
+                    type == CLAY ||
+                    type == CLAY_GRASS;
+        }
+
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+
         RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
-        return type == GRASS ||
-                type == DRY_GRASS ||
-                type == DIRT ||
-                type == CLAY ||
-                type == CLAY_GRASS ||
-                rockTFCF == RockTFCF.ROOTED_DIRT ||
+        return rockTFCF == RockTFCF.ROOTED_DIRT ||
                 rockTFCF == RockTFCF.ROOTED_LOAMY_SAND ||
                 rockTFCF == RockTFCF.ROOTED_SANDY_LOAM ||
                 rockTFCF == RockTFCF.ROOTED_LOAM ||
