@@ -676,8 +676,7 @@ public final class BlocksTFC
                         plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA) ||
                         plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) ||
                         plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM))
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS))
                 {
                     if (plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
                         b.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));

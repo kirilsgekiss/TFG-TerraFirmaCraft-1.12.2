@@ -337,7 +337,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockLogTFCF> allNormalTreeLog = Helpers.getNull();
     private static ImmutableList<BlockCoral> allCoralPlants = Helpers.getNull();
     private static ImmutableList<BlockWaterGlowPlant> allGlowWaterPlants = Helpers.getNull();
-    private static ImmutableList<BlockSporeBlossom> allSporeBlossomBlocks = Helpers.getNull();
     private static ImmutableList<BlockWaterPlantTFCF> allWaterPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockHangingPlantTFCF> allHangingPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockHangingGlowingPlant> allHangingGlowingPlantBlocks = Helpers.getNull();
@@ -604,11 +603,6 @@ public final class BlocksTFCF
     public static ImmutableList<BlockWaterGlowPlant> getAllGlowWaterPlants()
     {
         return allGlowWaterPlants;
-    }
-
-    public static ImmutableList<BlockSporeBlossom> getAllSporeBlossomBlocks()
-    {
-        return allSporeBlossomBlocks;
     }
 
     public static ImmutableList<BlockWaterPlantTFCF> getAllWaterPlantBlocks()
@@ -1007,7 +1001,6 @@ public final class BlocksTFCF
         }
 
         {
-            Builder<BlockSporeBlossom> sporeBlossomBlock = ImmutableList.builder();
             Builder<BlockWaterPlantTFCF> plantWaterBlock = ImmutableList.builder();
             Builder<BlockHangingPlantTFCF> plantHangingBlock = ImmutableList.builder();
             Builder<BlockHangingGlowingPlant> plantHangingGlowingBlock = ImmutableList.builder();
@@ -1022,11 +1015,7 @@ public final class BlocksTFCF
 
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
-                if (plant.getPlantType() == Plant.PlantType.EPIPHYTE && plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM))
-                {
-                    sporeBlossomBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockSporeBlossom(plant), CT_FLORA));
-                }
-                else if (plant.getPlantType() == Plant.PlantType.WATER)
+                if (plant.getPlantType() == Plant.PlantType.WATER)
                 {
                     plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockWaterPlantTFCF(FluidsTFC.FRESH_WATER.get(), plant), CT_FLORA));
                 }
@@ -1080,11 +1069,6 @@ public final class BlocksTFCF
                 {
                     plantSaguaroCactusBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockSaguaroCactus(plant), CT_FLORA));
                 }
-            }
-            allSporeBlossomBlocks = sporeBlossomBlock.build();
-            for (BlockSporeBlossom blockSporeBlossom : allSporeBlossomBlocks)
-            {
-                normalItemBlocks.add(new ItemBlockTFC(blockSporeBlossom));
             }
             allWaterPlantBlocks = plantWaterBlock.build();
             for (BlockWaterPlantTFCF blockWaterPlant : allWaterPlantBlocks)
@@ -1759,9 +1743,6 @@ public final class BlocksTFCF
     {
         // Vanilla Overrides. Used for small tweaks on vanilla items, rather than replacing them outright
         TFCFlorae.getLog().info("The below warnings about unintended overrides are normal. The overrides are intended - deal with it. ;)");
-        event.getRegistry().registerAll(
-            new BlockFluidLava(Material.LAVA).setRegistryName("minecraft", "lava").setTranslationKey("lava")
-        );
     }
 
     public static boolean isRawStone(IBlockState current)

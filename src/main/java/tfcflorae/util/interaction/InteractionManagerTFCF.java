@@ -20,7 +20,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.interaction.*;
@@ -28,8 +27,6 @@ import net.dries007.tfc.util.interaction.*;
 import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.devices.BlockStickBundle;
-import tfcflorae.objects.blocks.groundcover.BlockPowder;
-import tfcflorae.objects.items.ItemPowderTFC;
 import tfcflorae.objects.te.TEPowder;
 import tfcflorae.util.OreDictionaryHelper;
 
@@ -189,45 +186,6 @@ public final class InteractionManagerTFCF
                         }
                         return EnumActionResult.SUCCESS;
                     }
-                }
-            }
-            return EnumActionResult.FAIL;
-        });
-
-        USE_ACTIONS.put(stack -> stack.getItem() instanceof ItemPowderTFC, (stack, player, worldIn, pos, hand, direction, hitX, hitY, hitZ) -> {
-            ItemStack stackHand = player.getHeldItem(hand);
-            if (worldIn.getBlockState(pos).isNormalCube() && stackHand.getItem() instanceof ItemPowderTFC)
-            {
-                if (!ItemStack.areItemStacksEqual(new ItemStack(stackHand.getItem(), stackHand.getCount()), stackHand))
-                {
-                    return EnumActionResult.FAIL;
-                }
-                ItemPowderTFC block = (ItemPowderTFC) stackHand.getItem();
-                BlockPos posAt = pos.offset(direction);
-                IBlockState stateAt = worldIn.getBlockState(posAt);
-    
-                if (stateAt.getBlock() instanceof BlockPowder)
-                {
-                    // Existing sheet block
-                    Powder powderItem = ((BlockPowder) stateAt.getBlock()).getPowder();
-                    if (powderItem == block.powder)
-                    {
-                        stackHand.shrink(1);
-                        player.setHeldItem(hand, stackHand);
-                        return placeBlock(worldIn, posAt, direction);
-                    }
-                }
-                else if (stateAt.getBlock().isReplaceable(worldIn, posAt))
-                {
-                    // Place a new block
-                    if (!worldIn.isRemote)
-                    {
-                        worldIn.setBlockState(posAt, BlockPowder.get(block.powder).getDefaultState());
-                        stackHand.shrink(1);
-                        player.setHeldItem(hand, stackHand);
-                        placeBlock(worldIn, posAt, direction);
-                    }
-                    return EnumActionResult.SUCCESS;
                 }
             }
             return EnumActionResult.FAIL;

@@ -319,6 +319,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             }
                             break;
                         }*/
+                        /*
                         case EPIPHYTE:
                         {
                             if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM))
@@ -334,7 +335,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                                 }
                             }
                             break;
-                        }
+                        }*/
                         case CREEPING:
                         {
                             for (float i = rng.nextInt(Math.round((creepingCount + 32) / floraDiversity)); i < (1 + floraDensity) * 5; i++)

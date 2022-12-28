@@ -60,7 +60,6 @@ public class WorldGeneratorPlants implements IWorldGenerator
     private float tallCountConfig = ConfigTFCF.General.WORLD.tallPlantCount;
     private float epiphyteCountConfig = ConfigTFCF.General.WORLD.epiphyteCount;
     private float standardCountConfig = ConfigTFCF.General.WORLD.standardCount;
-    private float sporeBlossomUndergroundCount = ConfigTFCF.General.WORLD.sporeBlossomUndergroundCount;
 
     public WorldGeneratorPlants()
     {
@@ -227,18 +226,6 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                         {
                                             plantGen.generate(world, rng, blockPos);
                                         }
-                                    }
-                                }
-                            }
-                            else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM) && floraDensity >= 0.3f)
-                            {
-                                for (float i = rng.nextInt(Math.round((epiphyteCount + 64) / floraDiversity)); i < (1 + floraDensity) * sporeBlossomUndergroundCount; i++)
-                                {
-                                    BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                    IBlockState blockPosState = world.getBlockState(blockPos.down());
-                                    if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
-                                    {
-                                        plantGen.generate(world, rng, blockPos);
                                     }
                                 }
                             }

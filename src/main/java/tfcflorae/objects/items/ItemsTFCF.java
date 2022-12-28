@@ -1937,9 +1937,6 @@ public final class ItemsTFCF
             }
         }
 
-        for (PowderTFCF powder : PowderTFCF.values())
-            simpleItems.add(register(r, "powder/" + powder.name().toLowerCase(), new ItemPowderTFCF(powder), CT_MISC));
-
         // Tools
         simpleItems.add(register(r, "tools/walking_stick", new ItemWalkingStick(ToolMaterial.WOOD, 1f, 1.5f, 0.02f, 96, "stick_wood", "walking_stick"), CT_MISC));
 
@@ -2319,13 +2316,6 @@ public final class ItemsTFCF
             new ItemFlint(Size.VERY_SMALL, Weight.VERY_LIGHT).setRegistryName(Items.FLINT.getRegistryName()).setTranslationKey("flint"),
             new ItemBlockStickBundle(BlocksTFCF.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
         );
-
-        for (Powder powder : Powder.values())
-        {
-            event.getRegistry().registerAll(
-                new ItemPowderTFC(powder).setRegistryName(MOD_ID, "powder/" + powder.name().toLowerCase()).setTranslationKey("powder." + powder.name().toLowerCase())
-            );
-        }
     }
 
     private static void registerPottery(Builder<Item> items, IForgeRegistry<Item> r, String nameUnfired, String nameFired)

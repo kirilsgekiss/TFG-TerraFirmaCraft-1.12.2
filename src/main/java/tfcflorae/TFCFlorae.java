@@ -88,25 +88,6 @@ public class TFCFlorae
             if (Mod.getModId().equals("tfc_ph_compat"))
                 TFCPHCompatAdded = true;
         }
-        /*
-        if (TFCFlorae.FirmaLifeAdded)
-        {
-            MinecraftForge.EVENT_BUS.register(JEIPluginFLCompat.class);
-            MinecraftForge.EVENT_BUS.register(CastingCategoryFLCompat.class);
-            MinecraftForge.EVENT_BUS.register(CastingRecipeWrapperKaoliniteFL.class);
-            MinecraftForge.EVENT_BUS.register(UnmoldRecipeWrapperKaoliniteFL.class);
-            MinecraftForge.EVENT_BUS.register(UnmoldMalletRecipe.class);
-        }
-        if (TFCFlorae.TFCElementiaAdded)
-        {
-            MinecraftForge.EVENT_BUS.register(ItemKaoliniteMoldTFCE.class);
-            MinecraftForge.EVENT_BUS.register(ItemUnfiredKaoliniteMoldTFCE.class);
-            MinecraftForge.EVENT_BUS.register(JEIPluginTFCECompat.class);
-            MinecraftForge.EVENT_BUS.register(CastingRecipeKaoliniteTFCEWrapper.class);
-            MinecraftForge.EVENT_BUS.register(UnmoldRecipeKaoliniteTFCEWrapper.class);
-            MinecraftForge.EVENT_BUS.register(UnmoldRecipeKaolinite.class);
-        }
-        */
 
         EntitiesTFCF.preInit();
         proxy.preInit(event);
