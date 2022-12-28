@@ -20,9 +20,8 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.items.rock.ItemMud;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -33,7 +32,7 @@ public class BlockRockVariantFallableTFCF extends BlockRockVariantTFCF
         return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariantTFCF);
     }
 
-    public BlockRockVariantFallableTFCF(RockTFCF rockTFCF, Rock rock)
+    public BlockRockVariantFallableTFCF(Type rockTFCF, Rock rock)
     {
         super(rockTFCF, rock);
         if (rockTFCF.canFall())
@@ -179,12 +178,12 @@ public class BlockRockVariantFallableTFCF extends BlockRockVariantTFCF
                 case SPARSE_STONEWARE_CLAY_HUMUS_GRASS:
                     spec = new FallingBlockManager.Specification(spec);
 
-                    RockTFCF tempRock = RockTFCF.getNonGrassVersionStatic(rockTFCF);
+                    Type tempRock = Type.getNonGrassVersionStatic(rockTFCF);
                     if(tempRock != null)
                         spec.setResultingState(BlockRockVariantTFCF.get(rock, tempRock).getDefaultState());
                     else
                     {
-                        Rock.Type tempRockTFC = RockTFCF.getNonGrassVersionTFCStatic(rockTFCF);
+                        Rock.Type tempRockTFC = Type.getNonGrassVersionTFCStatic(rockTFCF);
                         if (tempRockTFC != null)
                             spec.setResultingState(BlockRockVariant.get(rock, tempRockTFC).getDefaultState());
                     }
@@ -214,7 +213,7 @@ public class BlockRockVariantFallableTFCF extends BlockRockVariantTFCF
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (rockTFCF == RockTFCF.MUD)
+        if (rockTFCF == Type.MUD)
         {
             if (fortune > 3)
             {

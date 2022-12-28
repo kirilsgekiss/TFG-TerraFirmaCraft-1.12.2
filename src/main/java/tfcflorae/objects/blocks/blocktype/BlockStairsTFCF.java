@@ -14,25 +14,25 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Rock;
 
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockStairsTFCF extends BlockStairs
 {
-    private static final Map<Rock, EnumMap<RockTFCF, BlockStairsTFCF>> ROCK_TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, BlockStairsTFCF>> ROCK_TABLE = new HashMap<>();
 
-    public static BlockStairsTFCF get(Rock rock, RockTFCF rockTFCF)
+    public static BlockStairsTFCF get(Rock rock, Type rockTFCF)
     {
         return ROCK_TABLE.get(rock).get(rockTFCF);
     }
 
-    public BlockStairsTFCF(Rock rock, RockTFCF rockTFCF)
+    public BlockStairsTFCF(Rock rock, Type rockTFCF)
     {
         super(BlockRockVariantTFCF.get(rock, rockTFCF).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
-            ROCK_TABLE.put(rock, new EnumMap<>(RockTFCF.class));
+            ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
         ROCK_TABLE.get(rock).put(rockTFCF, this);
 
         Block baseBlock = BlockRockVariantTFCF.get(rock, rockTFCF);

@@ -13,14 +13,14 @@ import net.minecraft.util.NonNullList;
 
 import net.dries007.tfc.api.types.Rock;
 
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.util.OreDictionaryHelper;
 
 public class BlockWallTFCF  extends BlockWall
 {
-    private static final Map<Rock, EnumMap<RockTFCF, BlockWallTFCF>> TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, BlockWallTFCF>> TABLE = new HashMap<>();
 
-    public static BlockWallTFCF get(Rock rock, RockTFCF rockTFCF)
+    public static BlockWallTFCF get(Rock rock, Type rockTFCF)
     {
         return TABLE.get(rock).get(rockTFCF);
     }
@@ -32,7 +32,7 @@ public class BlockWallTFCF  extends BlockWall
         super(modelBlock);
 
         if (!TABLE.containsKey(modelBlock.rock))
-            TABLE.put(modelBlock.rock, new EnumMap<>(RockTFCF.class));
+            TABLE.put(modelBlock.rock, new EnumMap<>(Type.class));
         TABLE.get(modelBlock.rock).put(modelBlock.rockTFCF, this);
 
         parent = modelBlock;

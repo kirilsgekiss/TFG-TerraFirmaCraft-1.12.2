@@ -28,7 +28,7 @@ import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
@@ -58,7 +58,7 @@ public class BlockSandyLoamFarmland extends FarmlandTFCF
     private static final AxisAlignedBB FARMLAND_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockSandyLoamFarmland(RockTFCF rockTFCF, Rock rock)
+    public BlockSandyLoamFarmland(Type rockTFCF, Rock rock)
     {
         super(rockTFCF, rock);
         setDefaultState(blockState.getBaseState().withProperty(MOISTURE, 1)); // 1 is default so it doesn't instantly turn back to dirt
@@ -213,12 +213,12 @@ public class BlockSandyLoamFarmland extends FarmlandTFCF
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(get(rock, RockTFCF.SANDY_LOAM));
+        return Item.getItemFromBlock(get(rock, Type.SANDY_LOAM));
     }
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, RockTFCF.SANDY_LOAM).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.SANDY_LOAM).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {

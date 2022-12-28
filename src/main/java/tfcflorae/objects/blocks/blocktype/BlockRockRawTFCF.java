@@ -25,7 +25,7 @@ import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.stone.BlockStoneAnvil;
 import net.dries007.tfc.objects.items.ItemGem;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
@@ -35,7 +35,7 @@ public class BlockRockRawTFCF extends BlockRockVariantTFCF
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
-    public BlockRockRawTFCF(RockTFCF rockTFCF, Rock rock)
+    public BlockRockRawTFCF(Type rockTFCF, Rock rock)
     {
         super(rockTFCF, rock);
 

@@ -3,60 +3,40 @@ package tfcflorae.objects.blocks;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.CreativeTabsTFC;
 import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.BlockFireBrick;
 import net.dries007.tfc.objects.blocks.BlockFluidTFC;
-import net.dries007.tfc.objects.blocks.BlockFluidWater;
 import net.dries007.tfc.objects.blocks.BlockLargeVessel;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockStairsTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.agriculture.*;
-import net.dries007.tfc.objects.blocks.devices.*;
-import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockFloatingWaterTFC;
 import net.dries007.tfc.objects.blocks.stone.*;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.items.itemblock.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
-import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.agriculture.BerryBush;
-import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.dries007.tfc.util.Helpers;
 
@@ -84,14 +64,11 @@ import tfcflorae.objects.items.itemblock.ItemBlockTallGrassWater;
 import tfcflorae.objects.items.itemblock.ItemBlockUrn;
 import tfcflorae.objects.items.itemblock.ItemBlockUrnLoot;
 import tfcflorae.objects.te.*;
-import tfcflorae.types.BlockTypesTFCF;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.agriculture.*;
 
-import static net.dries007.tfc.objects.fluids.FluidsTFC.*;
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.types.Rock.Type.*;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
@@ -1187,7 +1164,7 @@ public final class BlocksTFCF
             allPowders = blockPowder.build();
         }
 
-        for (RockTFCF rockTFCF : RockTFCF.values())
+        for (Type rockTFCF : Type.values())
         {
             if (ConfigTFCF.General.WORLD.enableAllBlockRockTypes || rockTFCF.shouldRockify())
             {
@@ -1199,7 +1176,7 @@ public final class BlocksTFCF
                     }
                     else
                     {
-                        if (rockTFCF == RockTFCF.MOSSY_RAW || rockTFCF == RockTFCF.MUD_BRICKS || rockTFCF == RockTFCF.MUD)
+                        if (rockTFCF == Type.MOSSY_RAW || rockTFCF == Type.MUD_BRICKS || rockTFCF == Type.MUD)
                         {
                             blockRockVariantsTFCF.add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariantTFCF.create(rock, rockTFCF), CT_ROCK_BLOCKS));
                         }
@@ -1273,22 +1250,22 @@ public final class BlocksTFCF
 
         {
             // Walls
-            for (RockTFCF rockTFCF : new RockTFCF[] {RockTFCF.MUD_BRICKS})
+            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     blockWallTFCF.add(register(r, "wall/" + rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath().toLowerCase(), new BlockWallTFCF(BlockRockVariantTFCF.get(rock, rockTFCF)), CT_DECORATIONS));
 
             // Stairs
-            for (RockTFCF rockTFCF : new RockTFCF[] {RockTFCF.MUD_BRICKS})
+            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     blockStairsTFC.add(register(r, "stairs/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockStairsTFCF(rock, rockTFCF), CT_DECORATIONS));
 
             // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
-            for (RockTFCF rockTFCF : new RockTFCF[] {RockTFCF.MUD_BRICKS})
+            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     register(r, "double_slab/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFCF.Double(rock, rockTFCF));
 
             // Slabs
-            for (RockTFCF rockTFCF : new RockTFCF[] {RockTFCF.MUD_BRICKS})
+            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     blockSlabTFCF.add(register(r, "slab/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFCF.Half(rock, rockTFCF), CT_DECORATIONS));
 
@@ -1748,10 +1725,10 @@ public final class BlocksTFCF
     public static boolean isRawStone(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.MOSSY_RAW || 
+        rockTFCF == Type.MOSSY_RAW ||
         type == Rock.Type.RAW || 
         type == Rock.Type.COBBLE || 
         type == Rock.Type.SMOOTH;
@@ -1760,444 +1737,444 @@ public final class BlocksTFCF
     public static boolean isClay(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.SANDY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY ||
+        rockTFCF == Type.CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY ||
+        rockTFCF == Type.COARSE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_HUMUS ||
+        rockTFCF == Type.CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS ||
+        rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS ||
+        rockTFCF == Type.STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isClayGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         //Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
         //type == Rock.Type.CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS_GRASS;
+        rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_GRASS ||
+        rockTFCF == Type.CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_HUMUS_GRASS;
     }
 
     public static boolean isClayDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isKaoliniteClayGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isKaoliniteClayDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isKaoliniteClayPodzol(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL;
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL;
     }
 
     public static boolean isKaoliniteClayDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS;
+        rockTFCF == Type.KAOLINITE_CLAY ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS;
     }
 
     public static boolean isStonewareClayGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isStonewareClayDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isStonewareClayPodzol(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL;
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL;
     }
 
     public static boolean isStonewareClayDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS;
+        rockTFCF == Type.STONEWARE_CLAY ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS;
     }
 
     public static boolean isEarthenwareClayGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isEarthenwareClayDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isEarthenwareClayPodzol(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
     }
 
     public static boolean isEarthenwareClayDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS;
+        rockTFCF == Type.EARTHENWARE_CLAY ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS;
     }
 
     public static boolean isClayPodzol(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL;
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL;
     }
 
     public static boolean isClayDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         //Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
         //type == Rock.Type.CLAY || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_HUMUS;
+        rockTFCF == Type.SANDY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY ||
+        rockTFCF == Type.CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY ||
+        rockTFCF == Type.CLAY_HUMUS;
     }
 
     public static boolean isDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.ROOTED_DIRT || 
-        rockTFCF == RockTFCF.ROOTED_LOAMY_SAND || 
-        rockTFCF == RockTFCF.ROOTED_SANDY_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT || 
-        rockTFCF == RockTFCF.ROOTED_HUMUS || 
-        rockTFCF == RockTFCF.BOG_IRON || 
-        rockTFCF == RockTFCF.COARSE_DIRT || 
-        rockTFCF == RockTFCF.LOAMY_SAND || 
-        rockTFCF == RockTFCF.SANDY_LOAM || 
-        rockTFCF == RockTFCF.LOAM || 
-        rockTFCF == RockTFCF.SILT_LOAM || 
-        rockTFCF == RockTFCF.SILT || 
-        rockTFCF == RockTFCF.COARSE_LOAMY_SAND || 
-        rockTFCF == RockTFCF.COARSE_SANDY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT || 
-        rockTFCF == RockTFCF.COARSE_HUMUS;
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.ROOTED_DIRT ||
+        rockTFCF == Type.ROOTED_LOAMY_SAND ||
+        rockTFCF == Type.ROOTED_SANDY_LOAM ||
+        rockTFCF == Type.ROOTED_LOAM ||
+        rockTFCF == Type.ROOTED_SILT_LOAM ||
+        rockTFCF == Type.ROOTED_SILT ||
+        rockTFCF == Type.ROOTED_HUMUS ||
+        rockTFCF == Type.BOG_IRON ||
+        rockTFCF == Type.COARSE_DIRT ||
+        rockTFCF == Type.LOAMY_SAND ||
+        rockTFCF == Type.SANDY_LOAM ||
+        rockTFCF == Type.LOAM ||
+        rockTFCF == Type.SILT_LOAM ||
+        rockTFCF == Type.SILT ||
+        rockTFCF == Type.COARSE_LOAMY_SAND ||
+        rockTFCF == Type.COARSE_SANDY_LOAM ||
+        rockTFCF == Type.COARSE_LOAM ||
+        rockTFCF == Type.COARSE_SILT_LOAM ||
+        rockTFCF == Type.COARSE_SILT ||
+        rockTFCF == Type.COARSE_HUMUS;
     }
 
     public static boolean isSand(IBlockState current)
@@ -2210,837 +2187,837 @@ public final class BlocksTFCF
     public static boolean isSoil(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.ROOTED_DIRT || 
-        rockTFCF == RockTFCF.ROOTED_LOAMY_SAND || 
-        rockTFCF == RockTFCF.ROOTED_SANDY_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT || 
-        rockTFCF == RockTFCF.ROOTED_HUMUS || 
-        rockTFCF == RockTFCF.COARSE_DIRT || 
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.BOG_IRON || 
-        rockTFCF == RockTFCF.BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.DRY_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.BOG_IRON_PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND || 
-        rockTFCF == RockTFCF.SANDY_LOAM || 
-        rockTFCF == RockTFCF.LOAM || 
-        rockTFCF == RockTFCF.SILT_LOAM || 
-        rockTFCF == RockTFCF.SILT || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAMY_SAND || 
-        rockTFCF == RockTFCF.COARSE_SANDY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT || 
-        rockTFCF == RockTFCF.PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.LOAMY_SAND_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.LOAM_GRASS || 
-        rockTFCF == RockTFCF.LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILT_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_GRASS || 
-        rockTFCF == RockTFCF.SILT_PODZOL || 
-        rockTFCF == RockTFCF.DRY_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_GRASS || 
-        rockTFCF == RockTFCF.HUMUS || 
-        rockTFCF == RockTFCF.COARSE_HUMUS || 
-        rockTFCF == RockTFCF.HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.ROOTED_DIRT ||
+        rockTFCF == Type.ROOTED_LOAMY_SAND ||
+        rockTFCF == Type.ROOTED_SANDY_LOAM ||
+        rockTFCF == Type.ROOTED_LOAM ||
+        rockTFCF == Type.ROOTED_SILT_LOAM ||
+        rockTFCF == Type.ROOTED_SILT ||
+        rockTFCF == Type.ROOTED_HUMUS ||
+        rockTFCF == Type.COARSE_DIRT ||
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.BOG_IRON ||
+        rockTFCF == Type.BOG_IRON_GRASS ||
+        rockTFCF == Type.DRY_BOG_IRON_GRASS ||
+        rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
+        rockTFCF == Type.BOG_IRON_PODZOL ||
+        rockTFCF == Type.LOAMY_SAND ||
+        rockTFCF == Type.SANDY_LOAM ||
+        rockTFCF == Type.LOAM ||
+        rockTFCF == Type.SILT_LOAM ||
+        rockTFCF == Type.SILT ||
+        rockTFCF == Type.SANDY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY ||
+        rockTFCF == Type.CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY ||
+        rockTFCF == Type.COARSE_LOAMY_SAND ||
+        rockTFCF == Type.COARSE_SANDY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY ||
+        rockTFCF == Type.COARSE_LOAM ||
+        rockTFCF == Type.COARSE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILT_LOAM ||
+        rockTFCF == Type.COARSE_SILT ||
+        rockTFCF == Type.PODZOL ||
+        rockTFCF == Type.LOAMY_SAND_GRASS ||
+        rockTFCF == Type.LOAMY_SAND_PODZOL ||
+        rockTFCF == Type.SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.LOAM_GRASS ||
+        rockTFCF == Type.LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_LOAM_GRASS ||
+        rockTFCF == Type.SILT_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_GRASS ||
+        rockTFCF == Type.SILT_PODZOL ||
+        rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.DRY_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_GRASS ||
+        rockTFCF == Type.HUMUS ||
+        rockTFCF == Type.COARSE_HUMUS ||
+        rockTFCF == Type.HUMUS_GRASS ||
+        rockTFCF == Type.DRY_HUMUS_GRASS ||
+        rockTFCF == Type.CLAY_HUMUS ||
+        rockTFCF == Type.CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS ||
+        rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_GRASS ||
+        rockTFCF == Type.SPARSE_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS ||
+        rockTFCF == Type.STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isGrowableSoil(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.ROOTED_DIRT || 
-        rockTFCF == RockTFCF.ROOTED_LOAMY_SAND || 
-        rockTFCF == RockTFCF.ROOTED_SANDY_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT || 
-        rockTFCF == RockTFCF.ROOTED_HUMUS || 
-        rockTFCF == RockTFCF.COARSE_DIRT || 
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.BOG_IRON || 
-        rockTFCF == RockTFCF.BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.DRY_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.BOG_IRON_PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND || 
-        rockTFCF == RockTFCF.SANDY_LOAM || 
-        rockTFCF == RockTFCF.LOAM || 
-        rockTFCF == RockTFCF.SILT_LOAM || 
-        rockTFCF == RockTFCF.SILT || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAMY_SAND || 
-        rockTFCF == RockTFCF.COARSE_SANDY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT || 
-        rockTFCF == RockTFCF.PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.LOAMY_SAND_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.LOAM_GRASS || 
-        rockTFCF == RockTFCF.LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILT_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_GRASS || 
-        rockTFCF == RockTFCF.SILT_PODZOL || 
-        rockTFCF == RockTFCF.DRY_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_GRASS || 
-        rockTFCF == RockTFCF.HUMUS || 
-        rockTFCF == RockTFCF.COARSE_HUMUS || 
-        rockTFCF == RockTFCF.HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.ROOTED_DIRT ||
+        rockTFCF == Type.ROOTED_LOAMY_SAND ||
+        rockTFCF == Type.ROOTED_SANDY_LOAM ||
+        rockTFCF == Type.ROOTED_LOAM ||
+        rockTFCF == Type.ROOTED_SILT_LOAM ||
+        rockTFCF == Type.ROOTED_SILT ||
+        rockTFCF == Type.ROOTED_HUMUS ||
+        rockTFCF == Type.COARSE_DIRT ||
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.BOG_IRON ||
+        rockTFCF == Type.BOG_IRON_GRASS ||
+        rockTFCF == Type.DRY_BOG_IRON_GRASS ||
+        rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
+        rockTFCF == Type.BOG_IRON_PODZOL ||
+        rockTFCF == Type.LOAMY_SAND ||
+        rockTFCF == Type.SANDY_LOAM ||
+        rockTFCF == Type.LOAM ||
+        rockTFCF == Type.SILT_LOAM ||
+        rockTFCF == Type.SILT ||
+        rockTFCF == Type.SANDY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY ||
+        rockTFCF == Type.CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY ||
+        rockTFCF == Type.COARSE_LOAMY_SAND ||
+        rockTFCF == Type.COARSE_SANDY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY ||
+        rockTFCF == Type.COARSE_LOAM ||
+        rockTFCF == Type.COARSE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILT_LOAM ||
+        rockTFCF == Type.COARSE_SILT ||
+        rockTFCF == Type.PODZOL ||
+        rockTFCF == Type.LOAMY_SAND_GRASS ||
+        rockTFCF == Type.LOAMY_SAND_PODZOL ||
+        rockTFCF == Type.SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.LOAM_GRASS ||
+        rockTFCF == Type.LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_LOAM_GRASS ||
+        rockTFCF == Type.SILT_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_GRASS ||
+        rockTFCF == Type.SILT_PODZOL ||
+        rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.DRY_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_GRASS ||
+        rockTFCF == Type.HUMUS ||
+        rockTFCF == Type.COARSE_HUMUS ||
+        rockTFCF == Type.HUMUS_GRASS ||
+        rockTFCF == Type.DRY_HUMUS_GRASS ||
+        rockTFCF == Type.CLAY_HUMUS ||
+        rockTFCF == Type.CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS ||
+        rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_GRASS ||
+        rockTFCF == Type.SPARSE_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS ||
+        rockTFCF == Type.STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isSoilOrGravel(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.ROOTED_DIRT || 
-        rockTFCF == RockTFCF.ROOTED_LOAMY_SAND || 
-        rockTFCF == RockTFCF.ROOTED_SANDY_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT || 
-        rockTFCF == RockTFCF.ROOTED_HUMUS || 
-        rockTFCF == RockTFCF.COARSE_DIRT || 
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.BOG_IRON || 
-        rockTFCF == RockTFCF.BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.DRY_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.BOG_IRON_PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND || 
-        rockTFCF == RockTFCF.SANDY_LOAM || 
-        rockTFCF == RockTFCF.LOAM || 
-        rockTFCF == RockTFCF.SILT_LOAM || 
-        rockTFCF == RockTFCF.SILT || 
-        rockTFCF == RockTFCF.COARSE_LOAMY_SAND || 
-        rockTFCF == RockTFCF.COARSE_SANDY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT || 
-        rockTFCF == RockTFCF.PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.LOAMY_SAND_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.LOAM_GRASS || 
-        rockTFCF == RockTFCF.LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILT_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_GRASS || 
-        rockTFCF == RockTFCF.SILT_PODZOL || 
-        rockTFCF == RockTFCF.DRY_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_GRASS || 
-        rockTFCF == RockTFCF.HUMUS || 
-        rockTFCF == RockTFCF.COARSE_HUMUS || 
-        rockTFCF == RockTFCF.HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_HUMUS_GRASS;
+        rockTFCF == Type.ROOTED_DIRT ||
+        rockTFCF == Type.ROOTED_LOAMY_SAND ||
+        rockTFCF == Type.ROOTED_SANDY_LOAM ||
+        rockTFCF == Type.ROOTED_LOAM ||
+        rockTFCF == Type.ROOTED_SILT_LOAM ||
+        rockTFCF == Type.ROOTED_SILT ||
+        rockTFCF == Type.ROOTED_HUMUS ||
+        rockTFCF == Type.COARSE_DIRT ||
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.BOG_IRON ||
+        rockTFCF == Type.BOG_IRON_GRASS ||
+        rockTFCF == Type.DRY_BOG_IRON_GRASS ||
+        rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
+        rockTFCF == Type.BOG_IRON_PODZOL ||
+        rockTFCF == Type.LOAMY_SAND ||
+        rockTFCF == Type.SANDY_LOAM ||
+        rockTFCF == Type.LOAM ||
+        rockTFCF == Type.SILT_LOAM ||
+        rockTFCF == Type.SILT ||
+        rockTFCF == Type.COARSE_LOAMY_SAND ||
+        rockTFCF == Type.COARSE_SANDY_LOAM ||
+        rockTFCF == Type.COARSE_LOAM ||
+        rockTFCF == Type.COARSE_SILT_LOAM ||
+        rockTFCF == Type.COARSE_SILT ||
+        rockTFCF == Type.PODZOL ||
+        rockTFCF == Type.LOAMY_SAND_GRASS ||
+        rockTFCF == Type.LOAMY_SAND_PODZOL ||
+        rockTFCF == Type.SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_LOAM_PODZOL ||
+        rockTFCF == Type.LOAM_GRASS ||
+        rockTFCF == Type.LOAM_PODZOL ||
+        rockTFCF == Type.SILT_LOAM_GRASS ||
+        rockTFCF == Type.SILT_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_GRASS ||
+        rockTFCF == Type.SILT_PODZOL ||
+        rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.DRY_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_GRASS ||
+        rockTFCF == Type.HUMUS ||
+        rockTFCF == Type.COARSE_HUMUS ||
+        rockTFCF == Type.HUMUS_GRASS ||
+        rockTFCF == Type.DRY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_GRASS ||
+        rockTFCF == Type.SPARSE_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_GRASS ||
+        rockTFCF == Type.SPARSE_HUMUS_GRASS;
     }
 
     public static boolean isGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return rockTFCF.isGrass;
     }
 
     public static boolean isPodzol(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.PODZOL || 
-        rockTFCF == RockTFCF.BOG_IRON_PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
+        rockTFCF == Type.PODZOL ||
+        rockTFCF == Type.BOG_IRON_PODZOL ||
+        rockTFCF == Type.LOAMY_SAND_PODZOL ||
+        rockTFCF == Type.SANDY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
     }
 
     public static boolean isSparseGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.SPARSE_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.SPARSE_GRASS ||
+        rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_GRASS ||
+        rockTFCF == Type.SPARSE_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.DRY_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_GRASS || 
-        rockTFCF == RockTFCF.DRY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.DRY_BOG_IRON_GRASS ||
+        rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.DRY_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_GRASS ||
+        rockTFCF == Type.DRY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isGround(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        RockTFCF rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
         return
-        rockTFCF == RockTFCF.ROOTED_DIRT || 
-        rockTFCF == RockTFCF.ROOTED_LOAMY_SAND || 
-        rockTFCF == RockTFCF.ROOTED_SANDY_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT_LOAM || 
-        rockTFCF == RockTFCF.ROOTED_SILT || 
-        rockTFCF == RockTFCF.ROOTED_HUMUS || 
-        rockTFCF == RockTFCF.COARSE_DIRT || 
-        rockTFCF == RockTFCF.MUD || 
-        rockTFCF == RockTFCF.BOG_IRON || 
-        rockTFCF == RockTFCF.BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.DRY_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_BOG_IRON_GRASS || 
-        rockTFCF == RockTFCF.BOG_IRON_PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND || 
-        rockTFCF == RockTFCF.SANDY_LOAM || 
-        rockTFCF == RockTFCF.LOAM || 
-        rockTFCF == RockTFCF.SILT_LOAM || 
-        rockTFCF == RockTFCF.SILT || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_CLAY || 
-        rockTFCF == RockTFCF.CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAMY_SAND || 
-        rockTFCF == RockTFCF.COARSE_SANDY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILT || 
-        rockTFCF == RockTFCF.PODZOL || 
-        rockTFCF == RockTFCF.LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.LOAMY_SAND_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.LOAM_GRASS || 
-        rockTFCF == RockTFCF.LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILT_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SILT_GRASS || 
-        rockTFCF == RockTFCF.SILT_PODZOL || 
-        rockTFCF == RockTFCF.DRY_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILT_GRASS || 
-        rockTFCF == RockTFCF.HUMUS || 
-        rockTFCF == RockTFCF.COARSE_HUMUS || 
-        rockTFCF == RockTFCF.HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS || 
-        rockTFCF == RockTFCF.CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_KAOLINITE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_KAOLINITE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAMY_SAND_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILT_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_STONEWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_STONEWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_STONEWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SANDY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.COARSE_SILTY_EARTHENWARE_CLAY_LOAM || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SANDY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_PODZOL || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.DRY_EARTHENWARE_CLAY_HUMUS_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS || 
-        rockTFCF == RockTFCF.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+        rockTFCF == Type.ROOTED_DIRT ||
+        rockTFCF == Type.ROOTED_LOAMY_SAND ||
+        rockTFCF == Type.ROOTED_SANDY_LOAM ||
+        rockTFCF == Type.ROOTED_LOAM ||
+        rockTFCF == Type.ROOTED_SILT_LOAM ||
+        rockTFCF == Type.ROOTED_SILT ||
+        rockTFCF == Type.ROOTED_HUMUS ||
+        rockTFCF == Type.COARSE_DIRT ||
+        rockTFCF == Type.MUD ||
+        rockTFCF == Type.BOG_IRON ||
+        rockTFCF == Type.BOG_IRON_GRASS ||
+        rockTFCF == Type.DRY_BOG_IRON_GRASS ||
+        rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
+        rockTFCF == Type.BOG_IRON_PODZOL ||
+        rockTFCF == Type.LOAMY_SAND ||
+        rockTFCF == Type.SANDY_LOAM ||
+        rockTFCF == Type.LOAM ||
+        rockTFCF == Type.SILT_LOAM ||
+        rockTFCF == Type.SILT ||
+        rockTFCF == Type.SANDY_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_CLAY ||
+        rockTFCF == Type.CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY_LOAM ||
+        rockTFCF == Type.SILTY_CLAY ||
+        rockTFCF == Type.COARSE_LOAMY_SAND ||
+        rockTFCF == Type.COARSE_SANDY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_CLAY ||
+        rockTFCF == Type.COARSE_LOAM ||
+        rockTFCF == Type.COARSE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILT_LOAM ||
+        rockTFCF == Type.COARSE_SILT ||
+        rockTFCF == Type.PODZOL ||
+        rockTFCF == Type.LOAMY_SAND_GRASS ||
+        rockTFCF == Type.LOAMY_SAND_PODZOL ||
+        rockTFCF == Type.SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_CLAY_PODZOL ||
+        rockTFCF == Type.LOAM_GRASS ||
+        rockTFCF == Type.LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_LOAM_GRASS ||
+        rockTFCF == Type.CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_LOAM_GRASS ||
+        rockTFCF == Type.SILT_LOAM_PODZOL ||
+        rockTFCF == Type.SILT_GRASS ||
+        rockTFCF == Type.SILT_PODZOL ||
+        rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.DRY_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SILT_GRASS ||
+        rockTFCF == Type.HUMUS ||
+        rockTFCF == Type.COARSE_HUMUS ||
+        rockTFCF == Type.HUMUS_GRASS ||
+        rockTFCF == Type.DRY_HUMUS_GRASS ||
+        rockTFCF == Type.CLAY_HUMUS ||
+        rockTFCF == Type.CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_KAOLINITE_CLAY ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS ||
+        rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAMY_SAND_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SILT_GRASS ||
+        rockTFCF == Type.SPARSE_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_STONEWARE_CLAY ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS ||
+        rockTFCF == Type.STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SANDY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+        rockTFCF == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+        rockTFCF == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static Block registerWoodBlock(IForgeRegistry<Block> r, String name, Block block)

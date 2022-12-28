@@ -42,7 +42,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.blocktype.BlockRockVariantTFCF;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 
 public class StructureGenerator extends WorldGenerator
 {
@@ -177,7 +177,7 @@ public class StructureGenerator extends WorldGenerator
                                     }
                                     else if (BlocksTFCF.isSparseGrass(current))
                                     {
-                                        world.setBlockState(new BlockPos(posX, posY, posZ), BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, position), RockTFCF.SPARSE_GRASS).getDefaultState(), 2);
+                                        world.setBlockState(new BlockPos(posX, posY, posZ), BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, position), Type.SPARSE_GRASS).getDefaultState(), 2);
                                     }
                                     else
                                     {

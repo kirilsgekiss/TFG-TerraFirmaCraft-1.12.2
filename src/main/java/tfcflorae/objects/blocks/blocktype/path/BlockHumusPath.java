@@ -17,7 +17,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -26,7 +26,7 @@ public class BlockHumusPath extends BlockPathTFCF
     private static final AxisAlignedBB GRASS_PATH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockHumusPath(RockTFCF rockTFCF, Rock rock)
+    public BlockHumusPath(Type rockTFCF, Rock rock)
     {
         super(rockTFCF, rock);
         setLightOpacity(255);
@@ -87,7 +87,7 @@ public class BlockHumusPath extends BlockPathTFCF
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, RockTFCF.HUMUS).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.HUMUS).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {

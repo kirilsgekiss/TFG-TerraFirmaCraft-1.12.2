@@ -11,8 +11,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.registries.ForgeRegistry;
-import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.api.types.Rock;
@@ -28,7 +26,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.blocktype.BlockRockVariantTFCF;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 
 public class WorldGenSoilDecorative implements IWorldGenerator
 {
@@ -192,36 +190,36 @@ public class WorldGenSoilDecorative implements IWorldGenerator
 
                                     if (blockRock.getType() == Rock.Type.GRASS || blockRock.getType() == Rock.Type.DRY_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.PODZOL).getDefaultState(), 2);
                                     }
                                 }
                                 else if (current.getBlock() instanceof BlockRockVariantTFCF)
                                 {
                                     BlockRockVariantTFCF blockRockTFCF = (BlockRockVariantTFCF) current.getBlock();
 
-                                    if (blockRockTFCF.getType() == RockTFCF.LOAMY_SAND_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_LOAMY_SAND_GRASS)
+                                    if (blockRockTFCF.getType() == Type.LOAMY_SAND_GRASS || blockRockTFCF.getType() == Type.DRY_LOAMY_SAND_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.LOAMY_SAND_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAMY_SAND_PODZOL).getDefaultState(), 2);
                                     }
-                                    else if (blockRockTFCF.getType() == RockTFCF.SANDY_LOAM_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_SANDY_LOAM_GRASS)
+                                    else if (blockRockTFCF.getType() == Type.SANDY_LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_SANDY_LOAM_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SANDY_LOAM_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SANDY_LOAM_PODZOL).getDefaultState(), 2);
                                     }
-                                    else if (blockRockTFCF.getType() == RockTFCF.LOAM_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_LOAM_GRASS)
+                                    else if (blockRockTFCF.getType() == Type.LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_LOAM_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.LOAM_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAM_PODZOL).getDefaultState(), 2);
                                     }
-                                    else if (blockRockTFCF.getType() == RockTFCF.SILT_LOAM_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_SILT_LOAM_GRASS)
+                                    else if (blockRockTFCF.getType() == Type.SILT_LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_SILT_LOAM_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SILT_LOAM_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_LOAM_PODZOL).getDefaultState(), 2);
                                     }
-                                    else if (blockRockTFCF.getType() == RockTFCF.SILT_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_SILT_GRASS)
+                                    else if (blockRockTFCF.getType() == Type.SILT_GRASS || blockRockTFCF.getType() == Type.DRY_SILT_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SILT_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_PODZOL).getDefaultState(), 2);
                                     }
-                                    else if (blockRockTFCF.getType() == RockTFCF.HUMUS_GRASS || blockRockTFCF.getType() == RockTFCF.DRY_HUMUS_GRASS)
+                                    else if (blockRockTFCF.getType() == Type.HUMUS_GRASS || blockRockTFCF.getType() == Type.DRY_HUMUS_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SPARSE_HUMUS_GRASS).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_HUMUS_GRASS).getDefaultState(), 2);
                                     }
                                 }
                             }
@@ -282,11 +280,11 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                                 final IBlockState current = world.getBlockState(pos);
                                 if (BlocksTFC.isDirt(current))
                                 {
-                                    world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.MUD).getDefaultState(), 2);
+                                    world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.MUD).getDefaultState(), 2);
                                 }
                                 else if (BlocksTFC.isGrass(current))
                                 {
-                                    world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.MUD).getDefaultState(), 2);
+                                    world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.MUD).getDefaultState(), 2);
                                 }
                             }
                         }
@@ -325,23 +323,23 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                                 {
                                     if (BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.BOG_IRON).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.BOG_IRON).getDefaultState(), 2);
                                     }
                                     else if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.BOG_IRON_PODZOL).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.BOG_IRON_PODZOL).getDefaultState(), 2);
                                     }
                                     else if (BlocksTFCF.isSparseGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SPARSE_BOG_IRON_GRASS).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_BOG_IRON_GRASS).getDefaultState(), 2);
                                     }
                                     else if (BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current))
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.DRY_BOG_IRON_GRASS).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.DRY_BOG_IRON_GRASS).getDefaultState(), 2);
                                     }
                                     else if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current))
                                     {
-                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), RockTFCF.SPARSE_BOG_IRON_GRASS).getDefaultState(), 2);
+                                        world.setBlockState(pos, BlockRockVariantTFCF.get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_BOG_IRON_GRASS).getDefaultState(), 2);
                                     }
                                 }
                                 if (rng.nextInt(15) == 0)

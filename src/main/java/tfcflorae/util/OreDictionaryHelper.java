@@ -17,7 +17,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import net.dries007.tfc.api.capability.damage.DamageType;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.items.ItemsTFC;
 
@@ -26,7 +25,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.groundcover.BlockCoral;
 import tfcflorae.objects.blocks.groundcover.BlockCoralBlock;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.types.BlockTypesTFCF.RockTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 
 public class OreDictionaryHelper 
 {
@@ -65,7 +64,7 @@ public class OreDictionaryHelper
         register(new Thing(thing, meta), parts);
     }
 
-    public static void registerRockType(Block thing, RockTFCF rockTFCF, Object... prefixParts)
+    public static void registerRockType(Block thing, Type rockTFCF, Object... prefixParts)
     {
         registerRockType(new Thing(thing), rockTFCF, prefixParts);
     }
@@ -229,7 +228,7 @@ public class OreDictionaryHelper
         MAP.put(thing, toString(parts));
     }
 
-    private static void registerRockType(Thing thing, RockTFCF rockTFCF, Object... prefixParts)
+    private static void registerRockType(Thing thing, Type rockTFCF, Object... prefixParts)
     {
         switch (rockTFCF)
         {
