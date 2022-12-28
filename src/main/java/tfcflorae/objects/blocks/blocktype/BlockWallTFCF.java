@@ -35,11 +35,11 @@ public class BlockWallTFCF  extends BlockWall
 
         if (!TABLE.containsKey(modelBlock.rock))
             TABLE.put(modelBlock.rock, new EnumMap<>(Type.class));
-        TABLE.get(modelBlock.rock).put(modelBlock.rockTFCF, this);
+        TABLE.get(modelBlock.rock).put(modelBlock.rock, this);
 
         parent = modelBlock;
         OreDictionaryHelper.register(this, "wall");
-        OreDictionaryHelper.registerRockType(this, modelBlock.rockTFCF, "wall");
+        OreDictionaryHelper.registerRockType(this, modelBlock.rock, "wall");
     }
 
     @Override

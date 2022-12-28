@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;

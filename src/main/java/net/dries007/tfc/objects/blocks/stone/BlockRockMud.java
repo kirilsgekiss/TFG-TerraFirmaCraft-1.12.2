@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.blocktype;
+package net.dries007.tfc.objects.blocks.stone;
 
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -53,30 +53,11 @@ public class BlockRockMud extends BlockRockVariant
     public BlockRockMud(Type type, Rock rock)
     {
         super(type, rock);
+
         if (type.canFall())
         {
-            FallingBlockManager.Specification spec = type.getFallingSpecification();
-            switch(type)
-            {
-                case MUD:
-                    spec = new FallingBlockManager.Specification(spec);
-
-                    Type tempRock = Type.getNonGrassVersionStatic(type);
-                    if(tempRock != null)
-                        spec.setResultingState(BlockRockVariant.get(rock, tempRock).getDefaultState());
-                    else
-                    {
-                        Type tempRockTFC = Type.getNonGrassVersionTFCStatic(type);
-                        if (tempRockTFC != null)
-                            spec.setResultingState(BlockRockVariant.get(rock, tempRockTFC).getDefaultState());
-                    }
-
-                    FallingBlockManager.registerFallable(this, spec);
-                    break;
-                default:
-                    spec = new FallingBlockManager.Specification(spec);
-                    FallingBlockManager.registerFallable(this, type.getFallingSpecification());
-            }
+            FallingBlockManager.Specification spec = new FallingBlockManager.Specification(type.getFallingSpecification());
+            FallingBlockManager.registerFallable(this, type.getFallingSpecification());
         }
     }
 
@@ -84,7 +65,7 @@ public class BlockRockMud extends BlockRockVariant
     @Override
     public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
     {
-        if (this.rockTFCF.canFall() && rand.nextInt(16) == 0 && FallingBlockManager.shouldFall(world, pos, pos, state, false))
+        if (this.type.canFall() && rand.nextInt(16) == 0 && FallingBlockManager.shouldFall(world, pos, pos, state, false))
         {
             double d0 = (float) pos.getX() + rand.nextFloat();
             double d1 = (double) pos.getY() - 0.05D;
@@ -96,7 +77,7 @@ public class BlockRockMud extends BlockRockVariant
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (rockTFCF == Type.MUD)
+        if (type == Type.MUD)
         {
             if (fortune > 3)
             {
