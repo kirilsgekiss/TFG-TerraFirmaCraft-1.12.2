@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

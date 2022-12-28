@@ -35,6 +35,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
+import net.dries007.tfc.api.types.Rock.*;
+import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.plants.BlockMushroomTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
