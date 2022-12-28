@@ -3,6 +3,7 @@ package tfcflorae.objects.blocks.blocktype;
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariantFallable;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -28,7 +29,7 @@ import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockVariantConnectedTFCF extends BlockRockVariantFallableTFCF
+public class BlockRockVariantConnectedTFCF extends BlockRockVariantFallable
 {
     // Used for connected textures only.
     public static final PropertyBool NORTH = PropertyBool.create("north");

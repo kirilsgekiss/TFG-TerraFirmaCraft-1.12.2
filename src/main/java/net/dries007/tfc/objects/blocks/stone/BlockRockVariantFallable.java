@@ -6,28 +6,32 @@
 package net.dries007.tfc.objects.blocks.stone;
 
 import java.util.Random;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Rock;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.util.FallingBlockManager;
+import tfcflorae.objects.items.rock.ItemMud;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class BlockRockVariantFallable extends BlockRockVariant
 {
-
-    public BlockRockVariantFallable(Rock.Type type, Rock rock)
+    public BlockRockVariantFallable(Type type, Rock rock)
     {
         super(type, rock);
         if (type.canFall())
@@ -64,7 +68,31 @@ public class BlockRockVariantFallable extends BlockRockVariant
                 return Items.FLINT;
             }
         }
+        if (type == Type.MUD)
+        {
+            if (fortune > 3)
+            {
+                fortune = 3;
+            }
+
+            if (rand.nextInt(10 - fortune * 3) == 0)
+            {
+                return ItemMud.get(rock);
+            }
+        }
         return super.getItemDropped(state, rand, fortune);
+    }
+    @Nullable
+    private BlockPos checkAreaClear(World world, BlockPos pos)
+    {
+        // Check that there are no entities in the area, otherwise it would collide with them
+        if (!world.getEntitiesWithinAABB(EntityFallingBlock.class, new AxisAlignedBB(pos, pos.add(1, 1, 1))).isEmpty())
+        {
+            // If we can't fall due to a collision, wait for the block to move out of the way and try again later
+            world.scheduleUpdate(pos, this, 20);
+            return null;
+        }
+        return pos;
     }
 
 }
