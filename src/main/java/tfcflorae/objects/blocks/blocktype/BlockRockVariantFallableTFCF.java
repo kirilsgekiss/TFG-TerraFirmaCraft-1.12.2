@@ -25,11 +25,11 @@ import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockVariantFallableTFCF extends BlockRockVariantTFCF
+public class BlockRockVariantFallableTFCF extends BlockRockVariant
 {
     public static boolean isSupportingSideBlock(IBlockState state)
     {
-        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariantTFCF);
+        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariant);
     }
 
     public BlockRockVariantFallableTFCF(Type rockTFCF, Rock rock)
@@ -180,10 +180,10 @@ public class BlockRockVariantFallableTFCF extends BlockRockVariantTFCF
 
                     Type tempRock = Type.getNonGrassVersionStatic(rockTFCF);
                     if(tempRock != null)
-                        spec.setResultingState(BlockRockVariantTFCF.get(rock, tempRock).getDefaultState());
+                        spec.setResultingState(BlockRockVariant.get(rock, tempRock).getDefaultState());
                     else
                     {
-                        Rock.Type tempRockTFC = Type.getNonGrassVersionTFCStatic(rockTFCF);
+                        Type tempRockTFC = Type.getNonGrassVersionTFCStatic(rockTFCF);
                         if (tempRockTFC != null)
                             spec.setResultingState(BlockRockVariant.get(rock, tempRockTFC).getDefaultState());
                     }

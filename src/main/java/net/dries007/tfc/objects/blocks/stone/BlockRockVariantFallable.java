@@ -52,7 +52,7 @@ public class BlockRockVariantFallable extends BlockRockVariant
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (type == Rock.Type.GRAVEL)
+        if (type == Type.GRAVEL)
         {
             if (fortune > 3)
             {

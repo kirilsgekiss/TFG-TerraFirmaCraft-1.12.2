@@ -244,7 +244,7 @@ public class BlockStoneAnvil extends BlockRockVariant
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(BlockRockRaw.get(rock, Rock.Type.RAW));
+        return new ItemStack(BlockRockRaw.get(rock, Type.RAW));
     }
 
     @Override

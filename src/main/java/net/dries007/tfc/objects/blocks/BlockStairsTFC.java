@@ -45,7 +45,7 @@ public class BlockStairsTFC extends BlockStairs
         super(BlockRockVariant.get(rock, type).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
-            ROCK_TABLE.put(rock, new EnumMap<>(Rock.Type.class));
+            ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
         ROCK_TABLE.get(rock).put(type, this);
 
         Block baseBlock = BlockRockVariant.get(rock, type);

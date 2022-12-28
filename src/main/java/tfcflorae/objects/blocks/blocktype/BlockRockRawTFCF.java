@@ -30,7 +30,7 @@ import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockRawTFCF extends BlockRockVariantTFCF
+public class BlockRockRawTFCF extends BlockRockVariant
 {
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
@@ -40,7 +40,7 @@ public class BlockRockRawTFCF extends BlockRockVariantTFCF
         super(rockTFCF, rock);
 
         FallingBlockManager.Specification spec = new FallingBlockManager.Specification(rockTFCF.getFallingSpecification()); // Copy as each raw stone has an unique resultingState
-        spec.setResultingState(BlockRockVariant.get(rock, Rock.Type.COBBLE).getDefaultState());
+        spec.setResultingState(BlockRockVariant.get(rock, Type.COBBLE).getDefaultState());
         FallingBlockManager.registerFallable(this, spec);
 
         setDefaultState(getBlockState().getBaseState().withProperty(CAN_FALL, true));
@@ -99,7 +99,7 @@ public class BlockRockRawTFCF extends BlockRockVariantTFCF
             if (!worldIn.isRemote)
             {
                 // Create a stone anvil
-                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Rock.Type.ANVIL);
+                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
                 if (anvil instanceof BlockStoneAnvil)
                 {
                     worldIn.setBlockState(pos, anvil.getDefaultState());

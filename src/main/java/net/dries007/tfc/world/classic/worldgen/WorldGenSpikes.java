@@ -61,8 +61,8 @@ public class WorldGenSpikes implements IWorldGenerator
             if (canPlace)
             {
                 BlockRockRaw rockBlock = (BlockRockRaw) world.getBlockState(stoneAttach).getBlock();
-                IBlockState baseState = BlockRockVariant.get(rockBlock.getRock(), Rock.Type.SPIKE).getDefaultState().withProperty(BlockRockSpike.BASE, true).withProperty(BlockRockSpike.CEILING, ceiling);
-                IBlockState topState = BlockRockVariant.get(rockBlock.getRock(), Rock.Type.SPIKE).getDefaultState().withProperty(BlockRockSpike.BASE, false).withProperty(BlockRockSpike.CEILING, ceiling);
+                IBlockState baseState = BlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(BlockRockSpike.BASE, true).withProperty(BlockRockSpike.CEILING, ceiling);
+                IBlockState topState = BlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(BlockRockSpike.BASE, false).withProperty(BlockRockSpike.CEILING, ceiling);
                 world.setBlockState(basePos, baseState, 2);
                 world.setBlockState(topPos, topState, 2);
             }

@@ -28,7 +28,7 @@ import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockMud extends BlockRockVariantTFCF
+public class BlockRockMud extends BlockRockVariant
 {
     protected static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.6D, 1.0D);
 
@@ -46,26 +46,26 @@ public class BlockRockMud extends BlockRockVariantTFCF
 
     public static boolean isSupportingSideBlock(IBlockState state)
     {
-        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariantTFCF);
+        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariant);
     }
 
-    public BlockRockMud(Type rockTFCF, Rock rock)
+    public BlockRockMud(Type type, Rock rock)
     {
-        super(rockTFCF, rock);
-        if (rockTFCF.canFall())
+        super(type, rock);
+        if (type.canFall())
         {
-            FallingBlockManager.Specification spec = rockTFCF.getFallingSpecification();
-            switch(rockTFCF)
+            FallingBlockManager.Specification spec = type.getFallingSpecification();
+            switch(type)
             {
                 case MUD:
                     spec = new FallingBlockManager.Specification(spec);
 
-                    Type tempRock = Type.getNonGrassVersionStatic(rockTFCF);
+                    Type tempRock = Type.getNonGrassVersionStatic(type);
                     if(tempRock != null)
-                        spec.setResultingState(BlockRockVariantTFCF.get(rock, tempRock).getDefaultState());
+                        spec.setResultingState(BlockRockVariant.get(rock, tempRock).getDefaultState());
                     else
                     {
-                        Rock.Type tempRockTFC = Type.getNonGrassVersionTFCStatic(rockTFCF);
+                        Type tempRockTFC = Type.getNonGrassVersionTFCStatic(type);
                         if (tempRockTFC != null)
                             spec.setResultingState(BlockRockVariant.get(rock, tempRockTFC).getDefaultState());
                     }
@@ -74,7 +74,7 @@ public class BlockRockMud extends BlockRockVariantTFCF
                     break;
                 default:
                     spec = new FallingBlockManager.Specification(spec);
-                    FallingBlockManager.registerFallable(this, rockTFCF.getFallingSpecification());
+                    FallingBlockManager.registerFallable(this, type.getFallingSpecification());
             }
         }
     }

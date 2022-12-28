@@ -36,7 +36,7 @@ public class BlockWallTFC extends BlockWall
         super(modelBlock);
 
         if (!TABLE.containsKey(modelBlock.rock))
-            TABLE.put(modelBlock.rock, new EnumMap<>(Rock.Type.class));
+            TABLE.put(modelBlock.rock, new EnumMap<>(Type.class));
         TABLE.get(modelBlock.rock).put(modelBlock.type, this);
 
         parent = modelBlock;

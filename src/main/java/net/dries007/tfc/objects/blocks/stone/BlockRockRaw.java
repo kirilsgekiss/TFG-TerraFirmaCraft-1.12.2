@@ -102,7 +102,7 @@ public class BlockRockRaw extends BlockRockVariant
             if (!worldIn.isRemote)
             {
                 // Create a stone anvil
-                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Rock.Type.ANVIL);
+                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
                 if (anvil instanceof BlockStoneAnvil)
                 {
                     worldIn.setBlockState(pos, anvil.getDefaultState());

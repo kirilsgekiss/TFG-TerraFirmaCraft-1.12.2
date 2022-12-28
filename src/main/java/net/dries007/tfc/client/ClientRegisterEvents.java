@@ -176,15 +176,15 @@ public final class ClientRegisterEvents
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build());
 
         BlocksTFC.getAllBlockRockVariants().forEach(e -> {
-            if (e.getType() == Rock.Type.FARMLAND)
+            if (e.getType() == Type.FARMLAND)
             {
                 ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockFarmlandTFC.MOISTURE).build());
             }
-            else if (e.getType() == Rock.Type.RAW)
+            else if (e.getType() == Type.RAW)
             {
                 ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockRaw.CAN_FALL).build());
             }
-            else if (e.getType() == Rock.Type.SMOOTH)
+            else if (e.getType() == Type.SMOOTH)
             {
                 ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockSmooth.CAN_FALL).build());
             }
@@ -246,7 +246,7 @@ public final class ClientRegisterEvents
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFC.getAllFlowerPots().toArray(new Block[0]));
 
         blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockFarmlandTFC.TINT[state.getValue(BlockFarmlandTFC.MOISTURE)],
-            BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Rock.Type.FARMLAND).toArray(BlockRockVariant[]::new));
+            BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.FARMLAND).toArray(BlockRockVariant[]::new));
     }
 
     @SubscribeEvent

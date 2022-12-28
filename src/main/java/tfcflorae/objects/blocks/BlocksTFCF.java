@@ -50,7 +50,7 @@ import tfcflorae.objects.blocks.wood.bamboo.*;
 import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.blocktype.*;
-import tfcflorae.objects.blocks.blocktype.BlockRockVariantTFCF;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import tfcflorae.objects.blocks.devices.*;
 import tfcflorae.objects.fluids.FluidsTFCF;
 import tfcflorae.objects.items.food.*;
@@ -293,7 +293,7 @@ public final class BlocksTFCF
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
     private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
-    private static ImmutableList<BlockRockVariantTFCF> allBlockRockVariantsTFCF = Helpers.getNull();
+    private static ImmutableList<BlockRockVariant> allBlockRockVariantsTFCF = Helpers.getNull();
     private static ImmutableList<BlockWallTFCF> allWallBlocks = Helpers.getNull();
     private static ImmutableList<BlockStairsTFCF> allStairBlocks = Helpers.getNull();
     private static ImmutableList<BlockSlabTFCF.Half> allSlabBlocks = Helpers.getNull();
@@ -482,7 +482,7 @@ public final class BlocksTFCF
         return allBerryBushBlocks;
     }
 
-    public static ImmutableList<BlockRockVariantTFCF> getAllBlockRockVariantsTFCF()
+    public static ImmutableList<BlockRockVariant> getAllBlockRockVariantsTFCF()
     {
         return allBlockRockVariantsTFCF;
     }
@@ -719,7 +719,7 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
         ImmutableList.Builder<BlockBerryBush> cropBerryBushBlocks = ImmutableList.builder();
-        ImmutableList.Builder<BlockRockVariantTFCF> blockRockVariantsTFCF = ImmutableList.builder();
+        ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
         ImmutableList.Builder<BlockWallTFCF> blockWallTFCF = ImmutableList.builder();
         ImmutableList.Builder<BlockStairsTFCF> blockStairsTFC = new Builder<>();
         ImmutableList.Builder<BlockSlabTFCF.Half> blockSlabTFCF = new Builder<>();
@@ -1172,13 +1172,17 @@ public final class BlocksTFCF
                 {
                     if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
                     {
-                        blockRockVariantsTFCF.add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariantTFCF.create(rock, rockTFCF), CT_ROCK_BLOCKS));
+                        blockRockVariantsTFCF
+                                .add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
+                                        BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
                     }
                     else
                     {
                         if (rockTFCF == Type.MOSSY_RAW || rockTFCF == Type.MUD_BRICKS || rockTFCF == Type.MUD)
                         {
-                            blockRockVariantsTFCF.add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariantTFCF.create(rock, rockTFCF), CT_ROCK_BLOCKS));
+                            blockRockVariantsTFCF.add(
+                                    register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
+                                            BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
                         }
                     }
                 }
@@ -1187,7 +1191,8 @@ public final class BlocksTFCF
             {
                 if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
                 {
-                    blockRockVariantsTFCF.add(register(r, "single/" + rockTFCF.name().toLowerCase(), BlockRockVariantTFCF.create(null, rockTFCF), CT_ROCK_BLOCKS));
+                    blockRockVariantsTFCF.add(register(r, "single/" + rockTFCF.name().toLowerCase(),
+                            BlockRockVariant.create(null, rockTFCF), CT_ROCK_BLOCKS));
                 }
             }
         }
@@ -1252,7 +1257,10 @@ public final class BlocksTFCF
             // Walls
             for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockWallTFCF.add(register(r, "wall/" + rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath().toLowerCase(), new BlockWallTFCF(BlockRockVariantTFCF.get(rock, rockTFCF)), CT_DECORATIONS));
+                    blockWallTFCF.add(register(r,
+                            "wall/" + rockTFCF.name().toLowerCase() + "/"
+                                    + rock.getRegistryName().getPath().toLowerCase(),
+                            new BlockWallTFCF(BlockRockVariant.get(rock, rockTFCF)), CT_DECORATIONS));
 
             // Stairs
             for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
@@ -1277,18 +1285,18 @@ public final class BlocksTFCF
         }
 
         // TFC Stairs
-        for (Rock.Type type : new Rock.Type[] {Rock.Type.RAW})
+        for (Rock.Type type : new Rock.Type[] { Type.RAW })
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 blockStairTFC.add(register(r, "stairs/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockStairsTFC(rock, type), CT_DECORATIONS));
 
         // TFC Double Slabs
         // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
-        for (Rock.Type type : new Rock.Type[] {Rock.Type.RAW})
+        for (Rock.Type type : new Rock.Type[] { Type.RAW })
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 register(r, "double_slab/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Double(rock, type));
 
         // TFC Slabs
-        for (Rock.Type type : new Rock.Type[] {Rock.Type.RAW})
+        for (Rock.Type type : new Rock.Type[] { Type.RAW })
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 blockSlabTFC.add(register(r, "slab/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Half(rock, type), CT_DECORATIONS));
 
@@ -1724,20 +1732,22 @@ public final class BlocksTFCF
 
     public static boolean isRawStone(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.MOSSY_RAW ||
-        type == Rock.Type.RAW || 
-        type == Rock.Type.COBBLE || 
-        type == Rock.Type.SMOOTH;
+                type == Type.RAW ||
+                type == Type.COBBLE ||
+                type == Type.SMOOTH;
     }
 
     public static boolean isClay(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.MUD ||
         rockTFCF == Type.SANDY_CLAY_LOAM ||
@@ -1902,11 +1912,12 @@ public final class BlocksTFCF
 
     public static boolean isClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         //Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
-        //type == Rock.Type.CLAY_GRASS || 
+        // type == Type.CLAY_GRASS ||
         rockTFCF == Type.SANDY_CLAY_LOAM_GRASS ||
         rockTFCF == Type.SANDY_CLAY_GRASS ||
         rockTFCF == Type.CLAY_LOAM_GRASS ||
@@ -1917,8 +1928,9 @@ public final class BlocksTFCF
 
     public static boolean isClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
         rockTFCF == Type.DRY_SANDY_CLAY_GRASS ||
@@ -1937,8 +1949,9 @@ public final class BlocksTFCF
 
     public static boolean isKaoliniteClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.KAOLINITE_CLAY_GRASS ||
         rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
@@ -1951,8 +1964,9 @@ public final class BlocksTFCF
 
     public static boolean isKaoliniteClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
         rockTFCF == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
@@ -1972,8 +1986,9 @@ public final class BlocksTFCF
 
     public static boolean isKaoliniteClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.KAOLINITE_CLAY_PODZOL ||
         rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
@@ -1985,8 +2000,9 @@ public final class BlocksTFCF
 
     public static boolean isKaoliniteClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.KAOLINITE_CLAY ||
         rockTFCF == Type.SANDY_KAOLINITE_CLAY_LOAM ||
@@ -1999,8 +2015,9 @@ public final class BlocksTFCF
 
     public static boolean isStonewareClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.STONEWARE_CLAY_GRASS ||
         rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
@@ -2013,8 +2030,9 @@ public final class BlocksTFCF
 
     public static boolean isStonewareClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
         rockTFCF == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
@@ -2034,8 +2052,9 @@ public final class BlocksTFCF
 
     public static boolean isStonewareClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.STONEWARE_CLAY_PODZOL ||
         rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
@@ -2047,8 +2066,9 @@ public final class BlocksTFCF
 
     public static boolean isStonewareClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.STONEWARE_CLAY ||
         rockTFCF == Type.SANDY_STONEWARE_CLAY_LOAM ||
@@ -2061,8 +2081,9 @@ public final class BlocksTFCF
 
     public static boolean isEarthenwareClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.EARTHENWARE_CLAY_GRASS ||
         rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
@@ -2075,8 +2096,9 @@ public final class BlocksTFCF
 
     public static boolean isEarthenwareClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
         rockTFCF == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
@@ -2096,8 +2118,9 @@ public final class BlocksTFCF
 
     public static boolean isEarthenwareClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.EARTHENWARE_CLAY_PODZOL ||
         rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
@@ -2109,8 +2132,9 @@ public final class BlocksTFCF
 
     public static boolean isEarthenwareClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.EARTHENWARE_CLAY ||
         rockTFCF == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
@@ -2123,8 +2147,9 @@ public final class BlocksTFCF
 
     public static boolean isClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.CLAY_PODZOL ||
         rockTFCF == Type.SANDY_CLAY_LOAM_PODZOL ||
@@ -2136,11 +2161,12 @@ public final class BlocksTFCF
 
     public static boolean isClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         //Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return
-        //type == Rock.Type.CLAY || 
+        // type == Type.CLAY ||
         rockTFCF == Type.SANDY_CLAY_LOAM ||
         rockTFCF == Type.SANDY_CLAY ||
         rockTFCF == Type.CLAY_LOAM ||
@@ -2151,8 +2177,9 @@ public final class BlocksTFCF
 
     public static boolean isDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.MUD ||
         rockTFCF == Type.ROOTED_DIRT ||
@@ -2186,8 +2213,9 @@ public final class BlocksTFCF
     
     public static boolean isSoil(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.ROOTED_DIRT ||
         rockTFCF == Type.ROOTED_LOAMY_SAND ||
@@ -2402,8 +2430,9 @@ public final class BlocksTFCF
 
     public static boolean isGrowableSoil(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.ROOTED_DIRT ||
         rockTFCF == Type.ROOTED_LOAMY_SAND ||
@@ -2618,8 +2647,9 @@ public final class BlocksTFCF
 
     public static boolean isSoilOrGravel(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.ROOTED_DIRT ||
         rockTFCF == Type.ROOTED_LOAMY_SAND ||
@@ -2676,15 +2706,17 @@ public final class BlocksTFCF
 
     public static boolean isGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return rockTFCF.isGrass;
     }
 
     public static boolean isPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.PODZOL ||
         rockTFCF == Type.BOG_IRON_PODZOL ||
@@ -2721,8 +2753,9 @@ public final class BlocksTFCF
 
     public static boolean isSparseGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.SPARSE_GRASS ||
         rockTFCF == Type.SPARSE_BOG_IRON_GRASS ||
@@ -2764,8 +2797,9 @@ public final class BlocksTFCF
 
     public static boolean isDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.DRY_BOG_IRON_GRASS ||
         rockTFCF == Type.DRY_LOAMY_SAND_GRASS ||
@@ -2806,8 +2840,9 @@ public final class BlocksTFCF
 
     public static boolean isGround(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariantTFCF)) return false;
-        Type rockTFCF = ((BlockRockVariantTFCF) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant))
+            return false;
+        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
         return
         rockTFCF == Type.ROOTED_DIRT ||
         rockTFCF == Type.ROOTED_LOAMY_SAND ||

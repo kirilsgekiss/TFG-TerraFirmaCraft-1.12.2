@@ -186,7 +186,7 @@ public abstract class BlockSlabTFC extends BlockSlab
             super(rock, type);
 
             if (!ROCK_TABLE.containsKey(rock))
-                ROCK_TABLE.put(rock, new EnumMap<>(Rock.Type.class));
+                ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
             ROCK_TABLE.get(rock).put(type, this);
 
             // No oredict, because no item.
@@ -228,7 +228,7 @@ public abstract class BlockSlabTFC extends BlockSlab
             super(rock, type);
 
             if (!ROCK_TABLE.containsKey(rock))
-                ROCK_TABLE.put(rock, new EnumMap<>(Rock.Type.class));
+                ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
             ROCK_TABLE.get(rock).put(type, this);
 
             doubleSlab = Double.get(rock, type);

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.minecraft.block.BlockWall;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,9 +26,9 @@ public class BlockWallTFCF  extends BlockWall
         return TABLE.get(rock).get(rockTFCF);
     }
 
-    public final BlockRockVariantTFCF parent;
+    public final BlockRockVariant parent;
 
-    public BlockWallTFCF(BlockRockVariantTFCF modelBlock)
+    public BlockWallTFCF(BlockRockVariant modelBlock)
     {
         super(modelBlock);
 

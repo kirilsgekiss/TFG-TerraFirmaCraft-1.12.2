@@ -421,8 +421,8 @@ public final class DefaultRecipes
         // Rock smoothing
         for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
         {
-            Block rawRock = BlockRockVariant.get(rock, Rock.Type.RAW);
-            IBlockState smoothRock = BlockRockVariant.get(rock, Rock.Type.SMOOTH).getDefaultState();
+            Block rawRock = BlockRockVariant.get(rock, Type.RAW);
+            IBlockState smoothRock = BlockRockVariant.get(rock, Type.SMOOTH).getDefaultState();
             event.getRegistry().register(new ChiselRecipe(rawRock, smoothRock).setRegistryName("smooth_" + rock.getRegistryName().getPath()));
         }
 

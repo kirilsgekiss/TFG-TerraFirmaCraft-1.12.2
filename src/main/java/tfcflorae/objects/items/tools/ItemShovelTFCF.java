@@ -77,9 +77,9 @@ public class ItemShovelTFCF extends ItemSpade implements IItemSize
                 return EnumActionResult.PASS;
             }
             BlockRockVariant rockVariant = (BlockRockVariant) block;
-            if (ConfigTFC.General.OVERRIDES.enableGrassPath && facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && rockVariant.getType() == Rock.Type.GRASS || rockVariant.getType() == Rock.Type.DRY_GRASS || rockVariant.getType() == Rock.Type.DIRT)
+            if (ConfigTFC.General.OVERRIDES.enableGrassPath && facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && rockVariant.getType() == Type.GRASS || rockVariant.getType() == Type.DRY_GRASS || rockVariant.getType() == Type.DIRT)
             {
-                IBlockState iblockstate1 = BlockRockVariant.get(rockVariant.getRock(), Rock.Type.PATH).getDefaultState();
+                IBlockState iblockstate1 = BlockRockVariant.get(rockVariant.getRock(), Type.PATH).getDefaultState();
                 worldIn.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
                 if (!worldIn.isRemote)

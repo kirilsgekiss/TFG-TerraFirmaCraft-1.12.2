@@ -63,7 +63,7 @@ public class WorldGenLargeRocks implements IWorldGenerator
                 for (int y = -2; y <= 2; y++)
                 {
                     if (x * x + z * z + y * y > size * size) continue;
-                    world.setBlockState(start.add(x, y, z), BlockRockVariant.get(rock, Rock.Type.RAW).getDefaultState());
+                    world.setBlockState(start.add(x, y, z), BlockRockVariant.get(rock, Type.RAW).getDefaultState());
                 }
             }
         }

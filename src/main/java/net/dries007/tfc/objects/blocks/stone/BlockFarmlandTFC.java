@@ -184,12 +184,12 @@ public class BlockFarmlandTFC extends BlockRockVariantFallable
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(get(rock, Rock.Type.DIRT));
+        return Item.getItemFromBlock(get(rock, Type.DIRT));
     }
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, Rock.Type.DIRT).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.DIRT).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {

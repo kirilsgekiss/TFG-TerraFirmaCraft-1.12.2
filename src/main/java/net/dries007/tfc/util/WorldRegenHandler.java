@@ -171,7 +171,7 @@ public class WorldRegenHandler
                     {
                         BlockRockVariant soilRock = (BlockRockVariant) soil.getBlock();
                         //Stop removing dead crops from farmland please!
-                        if (soilRock.getType() != Rock.Type.FARMLAND)
+                        if (soilRock.getType() != Type.FARMLAND)
                         {
                             world.removeTileEntity(topPos);
                             world.setBlockToAir(topPos);

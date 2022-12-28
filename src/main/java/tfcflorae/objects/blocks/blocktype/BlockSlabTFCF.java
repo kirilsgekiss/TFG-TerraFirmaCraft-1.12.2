@@ -37,8 +37,8 @@ public abstract class BlockSlabTFCF extends BlockSlab
 
     private BlockSlabTFCF(Rock rock, Type rockTFCF)
     {
-        this(BlockRockVariantTFCF.get(rock, rockTFCF));
-        Block c = BlockRockVariantTFCF.get(rock, rockTFCF);
+        this(BlockRockVariant.get(rock, rockTFCF));
+        Block c = BlockRockVariant.get(rock, rockTFCF);
         //noinspection ConstantConditions
         setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));
         useNeighborBrightness = true;

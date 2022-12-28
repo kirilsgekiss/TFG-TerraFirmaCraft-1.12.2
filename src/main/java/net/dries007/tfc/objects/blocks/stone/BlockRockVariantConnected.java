@@ -83,11 +83,11 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 }
                 else if (currentBlock instanceof BlockRockVariant)
                 {
-                    Rock.Type spreader = Rock.Type.GRASS;
+                    Rock.Type spreader = Type.GRASS;
                     usBlock = us.getBlock();
-                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Rock.Type.DRY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_GRASS)
                     {
-                        spreader = Rock.Type.DRY_GRASS;
+                        spreader = Type.DRY_GRASS;
                     }
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
                     world.setBlockState(target, block.getVariant(block.getType().getGrassVersion(spreader)).getDefaultState());

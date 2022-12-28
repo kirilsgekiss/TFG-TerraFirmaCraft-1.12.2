@@ -39,8 +39,8 @@ import net.dries007.tfc.world.classic.spawner.WorldEntitySpawnerTFC;
 
 public class BiomeMesaTFC extends BiomeTFC
 {
-    //protected static final IBlockState COARSE_DIRT = BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Rock.Type.DIRT).getDefaultState();
-    //protected static final IBlockState GRASS = BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Rock.Type.GRASS).getDefaultState();
+    //protected static final IBlockState COARSE_DIRT = BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.DIRT).getDefaultState();
+    //protected static final IBlockState GRASS = BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.GRASS).getDefaultState();
     protected static final IBlockState HARDENED_CLAY = Blocks.HARDENED_CLAY.getDefaultState();
     protected static final IBlockState STAINED_HARDENED_CLAY = Blocks.STAINED_HARDENED_CLAY.getDefaultState();
     protected static final IBlockState ORANGE_STAINED_HARDENED_CLAY = STAINED_HARDENED_CLAY.withProperty(BlockColored.COLOR, EnumDyeColor.ORANGE);
@@ -124,7 +124,7 @@ public class BiomeMesaTFC extends BiomeTFC
         {
             if (chunkPrimerIn.getBlockState(l1, j1, k1).getMaterial() == Material.AIR && j1 < (int)d4)
             {
-                chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Rock.Type.RAW).getDefaultState());
+                chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState());
             }
 
             if (j1 <= rand.nextInt(5))
@@ -139,7 +139,7 @@ public class BiomeMesaTFC extends BiomeTFC
                 {
                     l = -1;
                 }
-                else if (iblockstate1.getBlock() == BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Rock.Type.RAW).getDefaultState())
+                else if (iblockstate1.getBlock() == BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState())
                 {
                     if (l == -1)
                     {
@@ -148,7 +148,7 @@ public class BiomeMesaTFC extends BiomeTFC
                         if (k <= 0)
                         {
                             iblockstate = AIR;
-                            iblockstate3 = BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Rock.Type.RAW).getDefaultState();
+                            iblockstate3 = BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState();
                         }
                         else if (j1 >= i2 - 4 && j1 <= i2 + 1)
                         {
@@ -169,11 +169,11 @@ public class BiomeMesaTFC extends BiomeTFC
                             {
                                 if (flag)
                                 {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Rock.Type.DIRT).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.DIRT).getDefaultState());
                                 }
                                 else
                                 {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Rock.Type.GRASS).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.GRASS).getDefaultState());
                                 }
                             }
                             else if (j1 > i2 + 3 + k)
