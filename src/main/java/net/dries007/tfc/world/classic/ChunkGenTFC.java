@@ -259,8 +259,8 @@ public class ChunkGenTFC implements IChunkGenerator
         rockLayer2 = rocksGenLayer2.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();
         rockLayer3 = rocksGenLayer3.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();
 
-        /*regionLayer = regionGenLayer.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();
-        riverLayer = riverGenLayer.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();*/
+        //regionLayer = regionGenLayer.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();
+        //riverLayer = riverGenLayer.getInts(chunkX * 16, chunkZ * 16, 16, 16).clone();
 
         final float regionalFactor = 5f * 0.09f * (float) noiseGen10.getValue(chunkX * 0.05, chunkZ * 0.05); // Range -5 <> 5
         averageTemp = ClimateHelper.monthFactor(regionalFactor, Month.AVERAGE_TEMPERATURE_MODIFIER, chunkZ << 4);
