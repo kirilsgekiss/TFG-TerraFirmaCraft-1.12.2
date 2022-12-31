@@ -2,10 +2,10 @@ package tfcflorae.types;
 
 import net.minecraftforge.fml.common.Mod;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public final class RecipesTFCF
 {
 

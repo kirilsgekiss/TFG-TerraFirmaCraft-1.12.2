@@ -47,14 +47,11 @@ public class BlockRockVariantConnectedTFCF extends BlockRockVariantFallable
             {
                 BlockRockVariant block = ((BlockRockVariant) us.getBlock());
                 Type tempRock = block.getType().getNonGrassVersion();
-                if(tempRock == null)
+                if (tempRock == null)
                 {
-                    Rock.Type tempType = block.getType().getNonGrassVersionTFC();
-                    BlockRockVariant variant = BlockRockVariant.get(((BlockRockVariant) block).rock, tempType);
-                    if(variant != null)
-                        world.setBlockState(pos, variant.getDefaultState());
-                    else
-                        TFCFlorae.getLog().warn("Can't get a rock variant of type: ", tempType);
+                    Rock.Type tempType = block.getType().getNonGrassVersion();
+                    BlockRockVariant variant = BlockRockVariant.get(block.getRock(), tempType);
+                    world.setBlockState(pos, variant.getDefaultState());
                 }
                 else
                     world.setBlockState(pos, block.getVariant(block.getType().getNonGrassVersion()).getDefaultState());

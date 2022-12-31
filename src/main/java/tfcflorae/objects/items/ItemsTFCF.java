@@ -2,84 +2,46 @@ package tfcflorae.objects.items;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
-import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemSnow;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ResourceLocation;
 
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockDoorTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ItemMisc;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.items.ItemSlabTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
-import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
-import net.dries007.tfc.objects.items.food.ItemSandwich;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
-import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
-import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.objects.items.rock.ItemRockToolHead;
-import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
-import net.dries007.tfc.objects.items.wood.ItemDoorTFC;
-import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
-import net.dries007.tfc.objects.items.wood.ItemWoodenBucket;
-import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.agriculture.Crop;
-import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.dries007.tfc.util.Helpers;
 
 import tfcflorae.objects.*;
-import tfcflorae.objects.blocks.*;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.groundcover.*;
-import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
 import tfcflorae.objects.blocks.blocktype.BlockSlabTFCF;
-import tfcflorae.objects.items.*;
 import tfcflorae.objects.items.ceramics.*;
 import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;
@@ -95,8 +57,6 @@ import tfcflorae.objects.items.tools.ItemJavelinTFCF;
 import tfcflorae.objects.items.tools.ItemKnifeTFCF;
 import tfcflorae.objects.items.tools.ItemShovelTFCF;
 import tfcflorae.objects.items.tools.ItemWalkingStick;
-import tfcflorae.objects.items.tools.ItemBowTFCF;
-import tfcflorae.types.PlantsTFCF;
 import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.agriculture.*;
 import tfcflorae.util.OreDictionaryHelper;
@@ -105,11 +65,11 @@ import tfcflorae.TFCFlorae;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = MODID)
-@GameRegistry.ObjectHolder(MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
+@GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class ItemsTFCF
 {
     /*
@@ -2336,8 +2296,8 @@ public final class ItemsTFCF
 
     private static <T extends Item> T register(IForgeRegistry<Item> r, String name, T item, CreativeTabs ct)
     {
-        item.setRegistryName(MODID, name);
-        item.setTranslationKey(MODID + "." + name.replace('/', '.'));
+        item.setRegistryName(TFCFLORAE_MODID, name);
+        item.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         item.setCreativeTab(ct);
         r.register(item);
         return item;

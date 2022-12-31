@@ -3,15 +3,12 @@ package tfcflorae.objects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.LootTableList;
-import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import net.dries007.tfc.util.loot.ApplySimpleSkill;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-import static tfcflorae.TFCFlorae.MODID;
-
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public class LootTablesTFCF
 {
     public static ResourceLocation ANIMALS_SILK_MOTH;
@@ -23,7 +20,7 @@ public class LootTablesTFCF
 
     private static ResourceLocation register(String id)
     {
-        return LootTableList.register(new ResourceLocation(MODID, id));
+        return LootTableList.register(new ResourceLocation(TFCFLORAE_MODID, id));
     }
 
     private static void remove(LootTableLoadEvent event, String tableName, String pool)

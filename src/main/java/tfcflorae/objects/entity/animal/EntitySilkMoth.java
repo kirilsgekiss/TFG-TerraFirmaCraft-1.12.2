@@ -1,6 +1,5 @@
 package tfcflorae.objects.entity.animal;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +11,17 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
@@ -36,20 +29,13 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
-import net.dries007.tfc.api.capability.food.CapabilityFood;
-import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.ILivestock;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.advancements.TFCTriggers;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.objects.entity.animal.AnimalGroupingRules;
 import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
-import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import tfcflorae.objects.LootTablesTFCF;
@@ -59,7 +45,7 @@ import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
 {
@@ -194,23 +180,23 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     {
         if (this.getGender() == Gender.MALE)
         {
-            return new TextComponentTranslation(MODID + ".tooltip.animal.product.male_egg");
+            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.male_egg");
         }
         else if (this.getAge() == Age.OLD)
         {
-            return new TextComponentTranslation(MODID + ".tooltip.animal.product.old", getAnimalName());
+            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.old", getAnimalName());
         }
         else if (this.getAge() == Age.CHILD)
         {
-            return new TextComponentTranslation(MODID + ".tooltip.animal.product.young", getAnimalName());
+            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.young", getAnimalName());
         }
         else if (getFamiliarity() <= 0.15f)
         {
-            return new TextComponentTranslation(MODID + ".tooltip.animal.product.low_familiarity", getAnimalName());
+            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.low_familiarity", getAnimalName());
         }
         else if (!hasEggs())
         {
-            return new TextComponentTranslation(MODID + ".tooltip.animal.product.no_egg", getAnimalName());
+            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.no_egg", getAnimalName());
         }
         return null;
     }

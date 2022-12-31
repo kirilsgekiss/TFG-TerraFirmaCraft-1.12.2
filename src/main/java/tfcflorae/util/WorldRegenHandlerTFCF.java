@@ -26,13 +26,13 @@ import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceRocks;
 import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceSeashells;
 import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceTwig;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 /**
  * Seasonally regenerates rocks, sticks, snow, plants, crops and bushes.
  */
 
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public class WorldRegenHandlerTFCF
 {
     private static final WorldGenSurfaceBones BONE_GEN = new WorldGenSurfaceBones();

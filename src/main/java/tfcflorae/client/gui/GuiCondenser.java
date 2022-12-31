@@ -34,11 +34,11 @@ import net.dries007.tfc.client.FluidSpriteCache;
 
 import tfcflorae.objects.container.ContainerCondenser;
 import tfcflorae.objects.te.TECondenser;
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 public class GuiCondenser extends GuiContainerTE<TECondenser>
 {
-    public static final ResourceLocation CONDENSER_BACKGROUND = new ResourceLocation(MODID, "textures/gui/condenser.png");
+    public static final ResourceLocation CONDENSER_BACKGROUND = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/condenser.png");
     private final String translationKey;
 
     public GuiCondenser(Container container, InventoryPlayer playerInv, TECondenser tile, String translationKey)
@@ -74,12 +74,12 @@ public class GuiCondenser extends GuiContainerTE<TECondenser>
 
                 if (fluid == null || fluid.amount == 0)
                 {
-                    tooltip.add(I18n.format(MODID + ".tooltip.condenser_empty"));
+                    tooltip.add(I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_empty"));
                 }
                 else
                 {
                     tooltip.add(fluid.getLocalizedName());
-                    tooltip.add(TextFormatting.GRAY.toString() + I18n.format(MODID + ".tooltip.condenser_fluid_amount", fluid.amount));
+                    tooltip.add(TextFormatting.GRAY.toString() + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_fluid_amount", fluid.amount));
                 }
 
                 this.drawHoveringText(tooltip, mouseX, mouseY, fontRenderer);

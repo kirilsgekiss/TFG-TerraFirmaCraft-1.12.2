@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IThreadListener;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -33,9 +32,9 @@ import tfcflorae.world.worldgen.soil.*;
 import tfcflorae.world.worldgen.structures.WorldGenStructures;
 import tfcflorae.world.worldgen.structures.WorldGenStructuresCorals;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public class CommonProxy implements IProxy
 {
     public void preInit(FMLPreInitializationEvent event) 

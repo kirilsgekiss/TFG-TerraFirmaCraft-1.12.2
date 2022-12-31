@@ -12,20 +12,17 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.render.TESRBase;
-import net.dries007.tfc.objects.te.TELoom;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.te.TEFruitLoom;
 import tfcflorae.types.TreesTFCF;
-import tfcflorae.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)
 public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
@@ -48,7 +45,7 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             String name = fruitTree.getName().toLowerCase();
             
             //noinspection ConstantConditions
-            PLANKS_TEXTURES.put(fruitTree, new ResourceLocation(MODID, "textures/blocks/wood/planks/" + name + ".png"));
+            PLANKS_TEXTURES.put(fruitTree, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/" + name + ".png"));
         }
 
         for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
@@ -56,9 +53,9 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             PLANKS_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + BlocksTFCF.bamboo[i] + ".png"));
         }
 
-        PLANKS_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(MODID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
 
-        PLANKS_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(MODID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
     }
 
     @Override

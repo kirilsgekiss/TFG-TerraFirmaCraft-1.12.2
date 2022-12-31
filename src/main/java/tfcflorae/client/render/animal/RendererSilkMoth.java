@@ -9,7 +9,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import tfcflorae.client.model.animal.ModelSilkMoth;
 import tfcflorae.objects.entity.animal.EntitySilkMoth;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 public class RendererSilkMoth extends RenderLiving<EntitySilkMoth> implements IRenderFactory
 {
@@ -23,7 +23,7 @@ public class RendererSilkMoth extends RenderLiving<EntitySilkMoth> implements IR
 	@Override
 	protected ResourceLocation getEntityTexture(EntitySilkMoth entity)
     {
-		return new ResourceLocation(MODID, "textures/entity/animal/silk_moth.png");
+		return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/animal/silk_moth.png");
 	}
 
 	@Override

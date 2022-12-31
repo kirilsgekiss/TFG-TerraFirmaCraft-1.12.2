@@ -30,9 +30,9 @@ import tfcflorae.objects.blocks.devices.BlockStickBundle;
 import tfcflorae.objects.te.TEPowder;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public final class InteractionManagerTFCF
 {
     private static final Map<Predicate<ItemStack>, IRightClickBlockAction> USE_ACTIONS = new HashMap<>();

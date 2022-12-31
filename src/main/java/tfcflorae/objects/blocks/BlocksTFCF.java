@@ -30,7 +30,6 @@ import net.dries007.tfc.objects.blocks.BlockLargeVessel;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockStairsTFC;
 import net.dries007.tfc.objects.blocks.agriculture.*;
-import net.dries007.tfc.objects.blocks.stone.*;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
@@ -73,11 +72,11 @@ import static net.dries007.tfc.api.types.Rock.Type.*;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = MODID)
-@GameRegistry.ObjectHolder(MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
+@GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class BlocksTFCF
 {
     @GameRegistry.ObjectHolder("devices/dryer")
@@ -1166,34 +1165,16 @@ public final class BlocksTFCF
 
         for (Type rockTFCF : Type.values())
         {
-            if (ConfigTFCF.General.WORLD.enableAllBlockRockTypes || rockTFCF.shouldRockify())
+            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
             {
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+                if (rockTFCF == Type.MOSSY_RAW || rockTFCF == Type.MUD_BRICKS || rockTFCF == Type.MUD)
                 {
-                    if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
-                    {
-                        blockRockVariantsTFCF
-                                .add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
-                                        BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
-                    }
-                    else
-                    {
-                        if (rockTFCF == Type.MOSSY_RAW || rockTFCF == Type.MUD_BRICKS || rockTFCF == Type.MUD)
-                        {
-                            blockRockVariantsTFCF.add(
-                                    register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
-                                            BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
-                        }
-                    }
+                    blockRockVariantsTFCF
+                            .add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
+                                    BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
                 }
-            }
-            else
-            {
-                if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
-                {
-                    blockRockVariantsTFCF.add(register(r, "single/" + rockTFCF.name().toLowerCase(),
-                            BlockRockVariant.create(null, rockTFCF), CT_ROCK_BLOCKS));
-                }
+
+
             }
         }
         allBlockRockVariantsTFCF = blockRockVariantsTFCF.build();
@@ -1255,12 +1236,13 @@ public final class BlocksTFCF
 
         {
             // Walls
+            /*
             for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     blockWallTFCF.add(register(r,
                             "wall/" + rockTFCF.name().toLowerCase() + "/"
                                     + rock.getRegistryName().getPath().toLowerCase(),
-                            new BlockWallTFCF(BlockRockVariant.get(rock, rockTFCF)), CT_DECORATIONS));
+                            new BlockWallTFCF(BlockRockVariant.get(rock, rockTFCF)), CT_DECORATIONS));*/
 
             // Stairs
             for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
@@ -3057,8 +3039,8 @@ public final class BlocksTFCF
 
     public static Block registerWoodBlock(IForgeRegistry<Block> r, String name, Block block)
     {
-        block.setRegistryName(MODID, name);
-        block.setTranslationKey(MODID + "." + name.replace('/', '.'));
+        block.setRegistryName(TFCFLORAE_MODID, name);
+        block.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         block.setCreativeTab(CreativeTabsTFC.CT_DECORATIONS);
         r.register(block);
         return block;
@@ -3072,14 +3054,14 @@ public final class BlocksTFCF
 
     private static <T extends Block> T register(IForgeRegistry<Block> r, String name, T block)
     {
-        block.setRegistryName(MODID, name);
-        block.setTranslationKey(MODID + "." + name.replace('/', '.'));
+        block.setRegistryName(TFCFLORAE_MODID, name);
+        block.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         r.register(block);
         return block;
     }
 
     private static <T extends TileEntity> void register(Class<T> te, String name)
     {
-        TileEntity.register(MODID + ":" + name, te);
+        TileEntity.register(TFCFLORAE_MODID + ":" + name, te);
     }
 }

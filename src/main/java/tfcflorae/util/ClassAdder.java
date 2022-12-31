@@ -6,7 +6,6 @@ import java.util.Objects;
 import com.google.common.io.Files;
 
 import org.apache.commons.io.FileUtils;
-import org.jline.terminal.impl.jna.freebsd.CLibrary.winsize;
 
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fml.common.Loader;
@@ -776,7 +775,7 @@ public class ClassAdder
         }
         catch (IOException e)
         {
-            throw new Error(TFCFlorae.MODID + ": Sorry, but I couldn't copy the class files into Bansoukou's directory.", e);
+            throw new Error(TFCFlorae.TFCFLORAE_MODID + ": Sorry, but I couldn't copy the class files into Bansoukou's directory.", e);
         }
     }
 

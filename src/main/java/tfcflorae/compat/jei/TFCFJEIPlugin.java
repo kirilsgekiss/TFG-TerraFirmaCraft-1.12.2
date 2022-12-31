@@ -2,7 +2,6 @@ package tfcflorae.compat.jei;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +27,6 @@ import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.compat.jei.categories.*;
 import net.dries007.tfc.compat.jei.wrappers.*;
@@ -48,23 +46,23 @@ import tfcflorae.objects.items.rock.ItemMud;
 public final class TFCFJEIPlugin implements IModPlugin
 {
     private static IModRegistry REGISTRY;
-    public static final String KNAP_PINEAPPLE_LEATHER_UID = TFCFlorae.MODID + ".knap.pineapple_leather";
-    public static final String KNAP_BURLAP_CLOTH_UID = TFCFlorae.MODID + ".knap.burlap_cloth";
-    public static final String KNAP_WOOL_CLOTH_UID = TFCFlorae.MODID + ".knap.wool_cloth";
-    public static final String KNAP_SILK_CLOTH_UID = TFCFlorae.MODID + ".knap.silk_cloth";
-    public static final String KNAP_SISAL_CLOTH_UID = TFCFlorae.MODID + ".knap.sisal_cloth";
-    public static final String KNAP_COTTON_CLOTH_UID = TFCFlorae.MODID + ".knap.cotton_cloth";
-    public static final String KNAP_LINEN_CLOTH_UID = TFCFlorae.MODID + ".knap.linen_cloth";
-    public static final String KNAP_HEMP_CLOTH_UID = TFCFlorae.MODID + ".knap.hemp_cloth";
-    public static final String KNAP_YUCCA_CANVAS_UID = TFCFlorae.MODID + ".knap.yucca_canvas";
-    public static final String KNAP_MUD_UID = TFCFlorae.MODID + ".knap.mud";
-    public static final String KNAP_EARTHENWARE_CLAY_UID = TFCFlorae.MODID + ".knap.earthenware_clay";
-    public static final String KNAP_KAOLINITE_CLAY_UID = TFCFlorae.MODID + ".knap.kaolinite_clay";
-    public static final String KNAP_STONEWARE_CLAY_UID = TFCFlorae.MODID + ".knap.stoneware_clay";
-    public static final String KNAP_FLINT_UID = TFCFlorae.MODID + ".knap.flint";
-    public static final String CASTING_UID = TFCFlorae.MODID + ".casting";
-    public static final String DRY_UID = TFCFlorae.MODID + ".drying";
-    public static final String STICK_BUNDLE_UID = TFCFlorae.MODID + ".stick_bundle";
+    public static final String KNAP_PINEAPPLE_LEATHER_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.pineapple_leather";
+    public static final String KNAP_BURLAP_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.burlap_cloth";
+    public static final String KNAP_WOOL_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.wool_cloth";
+    public static final String KNAP_SILK_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.silk_cloth";
+    public static final String KNAP_SISAL_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.sisal_cloth";
+    public static final String KNAP_COTTON_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.cotton_cloth";
+    public static final String KNAP_LINEN_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.linen_cloth";
+    public static final String KNAP_HEMP_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.hemp_cloth";
+    public static final String KNAP_YUCCA_CANVAS_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.yucca_canvas";
+    public static final String KNAP_MUD_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.mud";
+    public static final String KNAP_EARTHENWARE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.earthenware_clay";
+    public static final String KNAP_KAOLINITE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.kaolinite_clay";
+    public static final String KNAP_STONEWARE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.stoneware_clay";
+    public static final String KNAP_FLINT_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.flint";
+    public static final String CASTING_UID = TFCFlorae.TFCFLORAE_MODID + ".casting";
+    public static final String DRY_UID = TFCFlorae.TFCFLORAE_MODID + ".drying";
+    public static final String STICK_BUNDLE_UID = TFCFlorae.TFCFLORAE_MODID + ".stick_bundle";
     public static final String EARTHENWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".earthenware.unmold";
     public static final String KAOLINITE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".kaolinite.unmold";
     public static final String STONEWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".stoneware.unmold";

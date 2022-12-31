@@ -3,7 +3,6 @@ package tfcflorae.objects.items.itemblock;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -21,7 +20,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -40,7 +38,7 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import tfcflorae.objects.te.TECondenser;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 import static tfcflorae.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
 
 public class ItemBlockCondenser extends ItemBlockTFC
@@ -122,20 +120,20 @@ public class ItemBlockCondenser extends ItemBlockTFC
             {
                 if (inventory.isEmpty())
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(MODID + ".tooltip.condenser_empty"));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_empty"));
                 }
                 else
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(MODID + ".tooltip.condenser_item", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_item", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
                 }
             }
             else
             {
-                tooltip.add(TextFormatting.BLUE + I18n.format(MODID + ".tooltip.condenser_fluid", fluidStack.amount, fluidStack.getLocalizedName()));
+                tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_fluid", fluidStack.amount, fluidStack.getLocalizedName()));
 
                 if (!inventory.isEmpty())
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(MODID + ".tooltip.condenser_item_in_fluid", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_item_in_fluid", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
                 }
             }
         }

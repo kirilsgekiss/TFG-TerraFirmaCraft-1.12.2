@@ -19,12 +19,12 @@ import net.dries007.tfc.util.Helpers;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.entity.animal.EntitySilkMoth;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public class EntitiesTFCF
 {
-    @GameRegistry.ObjectHolder(MODID + ":long")
+    @GameRegistry.ObjectHolder(TFCFLORAE_MODID + ":long")
     public static final DataSerializerEntry LONG_DATA_SERIALIZER_ENTRY = Helpers.getNull();
 
     private static final DataSerializer<Long> LONG_DATA_SERIALIZER = new DataSerializer<Long>()
@@ -73,12 +73,12 @@ public class EntitiesTFCF
 
     private static void register(String name, Class<? extends Entity> cls)
     {
-        EntityRegistry.registerModEntity(new ResourceLocation(MODID, name), cls, name, id++, TFCFlorae.getInstance(), 160, 20, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(TFCFLORAE_MODID, name), cls, name, id++, TFCFlorae.getInstance(), 160, 20, true);
     }
 
     private static void registerLiving(String name, Class<? extends Entity> cls, int eggPrimaryColor, int eggSecondaryColor)
     {
         //Register entity and create a spawn egg for creative
-        EntityRegistry.registerModEntity(new ResourceLocation(MODID, name), cls, name, id++, TFCFlorae.getInstance(), 80, 3, true, eggPrimaryColor, eggSecondaryColor);
+        EntityRegistry.registerModEntity(new ResourceLocation(TFCFLORAE_MODID, name), cls, name, id++, TFCFlorae.getInstance(), 80, 3, true, eggPrimaryColor, eggSecondaryColor);
     }
 }

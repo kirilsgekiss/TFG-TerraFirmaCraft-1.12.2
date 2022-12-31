@@ -19,11 +19,11 @@ import net.dries007.tfc.network.PacketGuiButton;
 import tfcflorae.client.gui.button.GuiButtonCrate;
 import tfcflorae.objects.te.TECrate;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 public class GuiCrate extends GuiContainerTE<TECrate>
 {
-    public static final ResourceLocation CRATE_BACKGROUND = new ResourceLocation(MODID, "textures/gui/crate.png");
+    public static final ResourceLocation CRATE_BACKGROUND = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/crate.png");
     private final String translationKey;
 
     public GuiCrate(Container container, InventoryPlayer playerInv, TECrate tile, String translationKey)

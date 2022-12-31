@@ -1,11 +1,8 @@
 package tfcflorae.types;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
@@ -15,14 +12,8 @@ import net.dries007.tfc.world.classic.worldgen.trees.*;
 import tfcflorae.TFCFlorae;
 import tfcflorae.world.worldgen.TreeGenRandom;
 
-import static net.dries007.tfc.types.DefaultTrees.*;
-import static net.dries007.tfc.types.DefaultTrees.GEN_TALL;
-import static net.dries007.tfc.util.Helpers.getNull;
-
-import static tfcflorae.TFCFlorae.MODID;
-
 @SuppressWarnings({"unused", "WeakerAccess"})
-@Mod.EventBusSubscriber(modid = TFCFlorae.MODID)
+@Mod.EventBusSubscriber(modid = TFCFlorae.TFCFLORAE_MODID)
 public final class TreesTFCF
 {
     public static final ResourceLocation AFRICAN_PADAUK = new ResourceLocation(TerraFirmaCraft.MOD_ID, "african_padauk");

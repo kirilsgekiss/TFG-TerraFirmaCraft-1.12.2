@@ -14,19 +14,19 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = MODID)
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = TFCFLORAE_MODID)
 public class ClientProxy extends CommonProxy implements IProxy
 {
     @Override
     public void preInit(FMLPreInitializationEvent event) 
     {
         super.preInit(event);
-		OBJLoader.INSTANCE.addDomain(MODID);
+		OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID);
     }
     
     @SideOnly(Side.CLIENT)

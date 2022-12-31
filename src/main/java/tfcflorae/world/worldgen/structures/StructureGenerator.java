@@ -31,8 +31,6 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
@@ -42,7 +40,6 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
 public class StructureGenerator extends WorldGenerator
@@ -60,7 +57,7 @@ public class StructureGenerator extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.MODID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, structureName));
 		int variation = 3;
 
 		if (template == null)

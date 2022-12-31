@@ -16,7 +16,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
@@ -25,7 +24,7 @@ import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -55,8 +54,8 @@ public class ItemMud extends ItemTFCF implements IRockObject
     public ItemMud(Rock rock)
     {
         this.rock = rock;
-        this.textureForegroundLocation = new ResourceLocation(MODID, "textures/gui/knapping/mud_button/" + rock + ".png");
-        this.textureBackgroundLocation = new ResourceLocation(MODID, "textures/gui/knapping/mud_button_disabled/" + rock + ".png");
+        this.textureForegroundLocation = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/knapping/mud_button/" + rock + ".png");
+        this.textureBackgroundLocation = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/knapping/mud_button_disabled/" + rock + ".png");
         if (MAP.put(rock, this) != null) throw new IllegalStateException("There can only be one.");
         setMaxDamage(0);
         OreDictionaryHelper.register(this, "mud");

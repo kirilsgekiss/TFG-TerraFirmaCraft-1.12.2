@@ -17,10 +17,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.entity.EntityBoatTFCF;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -70,18 +69,18 @@ public class RenderBoatTFCF extends Render<EntityBoatTFCF>
         if (wood != null)
         {
             //noinspection ConstantConditions
-            return new ResourceLocation(MODID, "textures/entity/boat/" + wood.getName().toLowerCase() + ".png");
+            return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/" + wood.getName().toLowerCase() + ".png");
         }
 
         final Tree tree = entity.getTree();
         if (tree != null)
         {
             //noinspection ConstantConditions
-            return new ResourceLocation(MODID, "textures/entity/boat/" + tree.getRegistryName().getPath().toLowerCase() + ".png");
+            return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/" + tree.getRegistryName().getPath().toLowerCase() + ".png");
         }
 
         // Fallback
-        return new ResourceLocation(MODID, "textures/entity/boat/oak.png");
+        return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/oak.png");
     }
 
     @Override

@@ -14,11 +14,11 @@ import net.minecraftforge.registries.RegistryBuilder;
 
 import tfcflorae.objects.recipes.*;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 import static tfcflorae.api.registries.TFCFRegistryNames.*;
 
-@Mod.EventBusSubscriber(modid = MODID)
-@GameRegistry.ObjectHolder(MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
+@GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class RegistriesTFCF
 {
     private static final Map<ResourceLocation, IForgeRegistry<?>> preBlockRegistries = new LinkedHashMap<>(); // Needs to respect insertion order

@@ -53,6 +53,7 @@ minecraft {
         args << '-Dmixin.hotSwap=true'
         args << '-Dmixin.checks.interfaces=true'
         args << '-Dmixin.debug.export=true'
+        args << '-Xmx12G'
     }
     clientJvmArgs.addAll(args)
     serverJvmArgs.addAll(args)

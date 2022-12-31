@@ -69,10 +69,10 @@ import tfcflorae.TFCFlorae;
 import tfcflorae.api.stateproperty.StatePropertiesTFCF;
 
 import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(value = {Side.CLIENT}, modid = TFCFlorae.MODID)
+@Mod.EventBusSubscriber(value = {Side.CLIENT}, modid = TFCFlorae.TFCFLORAE_MODID)
 public class ClientRegisterEventsTFCF 
 {
     private final java.util.Map<net.minecraftforge.registries.IRegistryDelegate<Item>, IItemColor> itemColorMap = com.google.common.collect.Maps.newHashMap();
@@ -484,7 +484,7 @@ public class ClientRegisterEventsTFCF
     {
         //noinspection ConstantConditions
         String registryName = item.getRegistryName().getPath();
-        StringBuilder path = new StringBuilder(MODID).append(':');
+        StringBuilder path = new StringBuilder(TFCFLORAE_MODID).append(':');
         if (!Strings.isNullOrEmpty(prefix)) path.append(prefix).append('/');
         path.append(e.name());
         if (!Strings.isNullOrEmpty(prefix))

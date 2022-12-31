@@ -17,16 +17,15 @@ import tfcflorae.objects.LootTablesTFCF;
 import tfcflorae.objects.entity.EntitiesTFCF;
 import tfcflorae.proxy.CommonProxy;
 import tfcflorae.util.CapabilityHeatHandler;
-import tfcflorae.util.ClassAdder;
 import tfcflorae.util.HelpersTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.util.fuel.FuelsTFCF;
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
-@Mod(modid = TFCFlorae.MODID, name = TFCFlorae.NAME, version = TFCFlorae.VERSION, dependencies = TFCFlorae.DEPENDENCIES, certificateFingerprint = TFCFlorae.SIGNING_KEY)
+@Mod(modid = TFCFlorae.TFCFLORAE_MODID, name = TFCFlorae.NAME, version = TFCFlorae.VERSION, dependencies = TFCFlorae.DEPENDENCIES, certificateFingerprint = TFCFlorae.SIGNING_KEY)
 public class TFCFlorae
 {
-    public static final String MODID = "tfcflorae";
+    public static final String TFCFLORAE_MODID = "tfcflorae";
     public static final String NAME = "TFC Florae";
     public static final String VERSION = "@VERSION@";
     public static final String SIGNING_KEY = "@FINGERPRINT@";
@@ -76,7 +75,7 @@ public class TFCFlorae
         logger = event.getModLog();
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
-        network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+        network = NetworkRegistry.INSTANCE.newSimpleChannel(TFCFLORAE_MODID);
         int id = 0;
 
         for (ModContainer Mod : Loader.instance().getActiveModList())

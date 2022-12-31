@@ -20,7 +20,7 @@ public class KnappingTFCF
     public static void add(String type, String name, IItemStack output, String... pattern) {
         KnappingType knappingType = KnappingHelperTFCF.getType(type);
         if(knappingType != null) {
-            KnappingHelperTFCF.addRecipe(new ResourceLocation(TFCFlorae.MODID, name), knappingType, output, pattern);
+            KnappingHelperTFCF.addRecipe(new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, name), knappingType, output, pattern);
         }
         else CraftTweakerAPI.logError("Error Wrong Type name entered!");
     }

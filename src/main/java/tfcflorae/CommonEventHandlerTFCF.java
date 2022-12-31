@@ -29,13 +29,12 @@ import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.skills.SmithingSkill;
 
 import tfcflorae.objects.items.ItemsTFCF;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
-import static tfcflorae.TFCFlorae.MODID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = MODID)
+@Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public final class CommonEventHandlerTFCF
 {
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
