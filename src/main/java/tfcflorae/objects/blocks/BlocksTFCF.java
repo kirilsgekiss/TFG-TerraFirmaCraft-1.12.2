@@ -1163,25 +1163,6 @@ public final class BlocksTFCF
             allPowders = blockPowder.build();
         }
 
-        for (Type rockTFCF : Type.values())
-        {
-            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-            {
-                if (rockTFCF == Type.MOSSY_RAW || rockTFCF == Type.MUD_BRICKS || rockTFCF == Type.MUD)
-                {
-                    blockRockVariantsTFCF
-                            .add(register(r, rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath(),
-                                    BlockRockVariant.create(rock, rockTFCF), CT_ROCK_BLOCKS));
-                }
-
-
-            }
-        }
-        allBlockRockVariantsTFCF = blockRockVariantsTFCF.build();
-        allBlockRockVariantsTFCF.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
-        });
-
         if (ConfigTFCF.General.WORLD.enableGroundcoverRock)
         {
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())

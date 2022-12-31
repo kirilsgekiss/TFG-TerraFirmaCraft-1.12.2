@@ -381,30 +381,7 @@ public final class BlocksTFC
                 {
                     if (type != ANVIL)
                     {
-                        // if tfc type
-                        if (
-                                type == RAW ||
-                                type == SPIKE ||
-                                type == SMOOTH ||
-                                type == COBBLE ||
-                                type == BRICKS ||
-                                type == SAND ||
-                                type == GRAVEL ||
-                                type == DIRT ||
-                                type == GRASS ||
-                                type == DRY_GRASS ||
-                                type == CLAY ||
-                                type == CLAY_GRASS ||
-                                type == FARMLAND ||
-                                type == PATH
-                        )
-                        {
-                            b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
-                        }
-                        else
-                        {
-                            b.add(registerFlorae(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
-                        }
+                        b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
                     }
                     else if (rock.getRockCategory().hasAnvil())
                     {
@@ -1861,24 +1838,5 @@ public final class BlocksTFC
     private static <T extends TileEntity> void register(Class<T> te, String name)
     {
         TileEntity.register(MOD_ID + ":" + name, te);
-    }
-
-    private static <T extends Block> T registerFlorae(IForgeRegistry<Block> r, String name, T block, CreativeTabs ct)
-    {
-        block.setCreativeTab(ct);
-        return registerFlorae(r, name, block);
-    }
-
-    private static <T extends Block> T registerFlorae(IForgeRegistry<Block> r, String name, T block)
-    {
-        block.setRegistryName(TFCFLORAE_MODID, name);
-        block.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
-        r.register(block);
-        return block;
-    }
-
-    private static <T extends TileEntity> void registerFlorae(Class<T> te, String name)
-    {
-        TileEntity.register(TFCFLORAE_MODID + ":" + name, te);
     }
 }

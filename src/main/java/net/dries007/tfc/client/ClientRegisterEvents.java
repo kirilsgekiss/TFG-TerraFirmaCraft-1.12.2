@@ -53,6 +53,9 @@ import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.te.*;
+import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.objects.blocks.blocktype.BlockRockRawTFCF;
+import tfcflorae.objects.blocks.blocktype.farmland.*;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -189,6 +192,34 @@ public final class ClientRegisterEvents
             {
                 ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockSmooth.CAN_FALL).build());
             }
+            else if (e.getType() == Type.LOAMY_SAND_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockLoamySandFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.SANDY_LOAM_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockSandyLoamFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.LOAM_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockLoamFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.SILT_LOAM_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockSiltLoamFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.SILT_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockSiltFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.HUMUS_FARMLAND)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockHumusFarmland.MOISTURE).build());
+            }
+            else if (e.getType() == Type.MOSSY_RAW)
+            {
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockRawTFCF.CAN_FALL).build());
+            }
         });
 
         ModelLoader.setCustomStateMapper(BlocksTFC.THATCH_BED, new StateMap.Builder().ignore(BlockThatchBed.OCCUPIED).build());
@@ -235,7 +266,8 @@ public final class ClientRegisterEvents
         IBlockColor foliageColor = GrassColorHandler::computeGrassColor;
 
         blockColors.registerBlockColorHandler(grassColor, BlocksTFC.PEAT_GRASS);
-        blockColors.registerBlockColorHandler(grassColor, BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType().isGrass).toArray(BlockRockVariant[]::new));
+        blockColors.registerBlockColorHandler(grassColor, BlocksTFC.getAllBlockRockVariants().stream()
+                .filter(x -> x.getType().isGrass).toArray(BlockRockVariant[]::new));
         // This is talking about tall grass vs actual grass blocks
         blockColors.registerBlockColorHandler(grassColor, BlocksTFC.getAllGrassBlocks().toArray(new BlockPlantTFC[0]));
 
@@ -248,6 +280,30 @@ public final class ClientRegisterEvents
 
         blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockFarmlandTFC.TINT[state.getValue(BlockFarmlandTFC.MOISTURE)],
             BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.FARMLAND).toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockLoamySandFarmland.TINT[state.getValue(BlockLoamySandFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream()
+                        .filter(x -> x.getType() == Type.LOAMY_SAND_FARMLAND).toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockSandyLoamFarmland.TINT[state.getValue(BlockSandyLoamFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream()
+                        .filter(x -> x.getType() == Type.SANDY_LOAM_FARMLAND).toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockLoamFarmland.TINT[state.getValue(BlockLoamFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.LOAM_FARMLAND)
+                        .toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockSiltLoamFarmland.TINT[state.getValue(BlockSiltLoamFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream()
+                        .filter(x -> x.getType() == Type.SILT_LOAM_FARMLAND).toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockSiltFarmland.TINT[state.getValue(BlockSiltFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.SILT_FARMLAND)
+                        .toArray(BlockRockVariant[]::new));
+
+        blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> BlockHumusFarmland.TINT[state.getValue(BlockHumusFarmland.MOISTURE)],
+                BlocksTFC.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.HUMUS_FARMLAND)
+                        .toArray(BlockRockVariant[]::new));
     }
 
     @SubscribeEvent

@@ -517,10 +517,6 @@ public class ConfigTFCF
             @Config.LangKey("config." + TFCFLORAE_MODID + ".general.world.enableAllBlockTypes")
             public boolean enableAllBlockTypes = true;
 
-            @Config.Comment("Enable rock types for every kind of block?")
-            @Config.LangKey("config." + TFCFLORAE_MODID + ".general.world.enableAllBlockRockTypes")
-            public boolean enableAllBlockRockTypes = false;
-
             @Config.Comment("Enable all world generation?")
             @Config.LangKey("config." + TFCFLORAE_MODID + ".general.world.enableAllWorldGen")
             public boolean enableAllWorldGen = true;
