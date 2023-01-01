@@ -33,7 +33,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
-import tfcflorae.objects.blocks.blocktype.farmland.*;
+import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import tfcflorae.objects.blocks.plants.BlockWaterPlantTFCF;
 
 import net.dries007.tfc.ConfigTFC;
@@ -42,7 +42,7 @@ import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockFarmlandTFC;
+import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;

@@ -15,12 +15,11 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockFarmlandTFC;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.util.agriculture.Crop;
 
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.blocktype.farmland.FarmlandTFCF;
+import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 import tfcflorae.util.agriculture.CropTFCF;
 
 public class InteractionInjectTFCF
@@ -34,7 +33,7 @@ public class InteractionInjectTFCF
         {
             return itemstack.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
         }
-        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, itemSeed) && worldIn.isAirBlock(pos.up()) && state.getBlock() instanceof FarmlandTFCF)
+        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, itemSeed) && worldIn.isAirBlock(pos.up()) && state.getBlock() instanceof BlockFarmlandTFC)
         {
             ICrop seedCrop = null;
 
@@ -48,7 +47,7 @@ public class InteractionInjectTFCF
 
             if (seedCrop == null)
             {
-                TFCFlorae.getLog().error("TFCFlorae: Couldn't find crop to place in TFCFlorae farmland");
+                TFCFlorae.getLog().error("Couldn't find crop to place in farmland");
                 return EnumActionResult.FAIL;
             }
 

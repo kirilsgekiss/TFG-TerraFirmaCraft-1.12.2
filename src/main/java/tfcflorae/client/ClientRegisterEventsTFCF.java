@@ -45,7 +45,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.*;
-import tfcflorae.objects.blocks.blocktype.BlockSlabTFCF;
+import net.dries007.tfc.objects.blocks.BlockSlabTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;

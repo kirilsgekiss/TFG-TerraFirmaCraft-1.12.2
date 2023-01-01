@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.blocktype.farmland;
+package net.dries007.tfc.objects.blocks.stone.farmland;
 
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import mcp.MethodsReturnNonnullByDefault;
 
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
 import net.dries007.tfc.objects.te.TECropBase;
@@ -34,7 +33,7 @@ import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockLoamFarmland extends FarmlandTFCF
+public class BlockSiltLoamFarmland extends BlockFarmlandTFC
 {
     public static final int MAX_MOISTURE = 15;
     public static final PropertyInteger MOISTURE = PropertyInteger.create("moisture", 0, MAX_MOISTURE);
@@ -59,7 +58,7 @@ public class BlockLoamFarmland extends FarmlandTFCF
     private static final AxisAlignedBB FARMLAND_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockLoamFarmland(Type rockTFCF, Rock rock)
+    public BlockSiltLoamFarmland(Type rockTFCF, Rock rock)
     {
         super(rockTFCF, rock);
         setDefaultState(blockState.getBaseState().withProperty(MOISTURE, 1)); // 1 is default so it doesn't instantly turn back to dirt
@@ -67,7 +66,7 @@ public class BlockLoamFarmland extends FarmlandTFCF
         setLightOpacity(255);
         useNeighborBrightness = true;
         OreDictionaryHelper.register(this, "farmland");
-        OreDictionaryHelper.register(this, "farmland", "loam");
+        OreDictionaryHelper.register(this, "farmland", "silt", "loam");
     }
 
     @Override
@@ -128,8 +127,6 @@ public class BlockLoamFarmland extends FarmlandTFCF
         }
 
         super.updateTick(world, pos, state, rand);
-
-        updateCropAbove(world, pos, state, rand);
     }
 
     private void updateCropAbove(World world, BlockPos pos, IBlockState state, Random rand)
@@ -143,7 +140,7 @@ public class BlockLoamFarmland extends FarmlandTFCF
                 IBlockState stateFarmland = world.getBlockState(pos);
                 if (!state.getValue(BlockCropTFC.WILD))
                 {
-                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof FarmlandTFCF && stateFarmland.getValue(MOISTURE) < 3))
+                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof BlockFarmlandTFC && stateFarmland.getValue(MOISTURE) < 3))
                     {
                         te.resetCounter();
                         return;
@@ -216,12 +213,12 @@ public class BlockLoamFarmland extends FarmlandTFCF
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(get(rock, Type.LOAM));
+        return Item.getItemFromBlock(get(rock, Type.SILT_LOAM));
     }
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, Type.LOAM).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.SILT_LOAM).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {

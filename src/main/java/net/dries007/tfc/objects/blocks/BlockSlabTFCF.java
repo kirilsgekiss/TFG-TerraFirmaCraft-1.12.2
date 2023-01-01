@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.blocktype;
+package net.dries007.tfc.objects.blocks;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
 
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 
 import net.dries007.tfc.api.types.Rock.Type;

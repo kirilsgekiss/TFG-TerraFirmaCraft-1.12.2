@@ -41,7 +41,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import tfcflorae.objects.blocks.blocktype.BlockSlabTFCF;
+import net.dries007.tfc.objects.blocks.BlockSlabTFCF;
 import tfcflorae.objects.items.ceramics.*;
 import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;

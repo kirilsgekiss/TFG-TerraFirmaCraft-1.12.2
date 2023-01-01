@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.blocktype.farmland;
+package net.dries007.tfc.objects.blocks.stone.farmland;
 
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import mcp.MethodsReturnNonnullByDefault;
 
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
 import net.dries007.tfc.objects.te.TECropBase;
@@ -34,7 +33,7 @@ import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockLoamySandFarmland extends FarmlandTFCF
+public class BlockLoamySandFarmland extends BlockFarmlandTFC
 {
     public static final int MAX_MOISTURE = 15;
     public static final PropertyInteger MOISTURE = PropertyInteger.create("moisture", 0, MAX_MOISTURE);
@@ -141,7 +140,7 @@ public class BlockLoamySandFarmland extends FarmlandTFCF
                 IBlockState stateFarmland = world.getBlockState(pos);
                 if (!state.getValue(BlockCropTFC.WILD))
                 {
-                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof FarmlandTFCF && stateFarmland.getValue(MOISTURE) < 3))
+                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof BlockFarmlandTFC && stateFarmland.getValue(MOISTURE) < 3))
                     {
                         te.resetCounter();
                         return;
