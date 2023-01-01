@@ -551,27 +551,4 @@ public class BlockRockVariantConnectedTFCF extends BlockRockVariantFallable
     {
         super(rockTFCF, rock);
     }
-
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        return 0;
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos)
-    {
-        pos = pos.add(0, -1, 0);
-        return state.withProperty(NORTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.NORTH))))
-            .withProperty(EAST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.EAST))))
-            .withProperty(SOUTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.SOUTH))))
-            .withProperty(WEST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.WEST))));
-    }
-
-    @Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, NORTH, EAST, WEST, SOUTH);
-    }
 }

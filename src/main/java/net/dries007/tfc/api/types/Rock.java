@@ -623,6 +623,7 @@ public class Rock extends IForgeRegistryEntry.Impl<Rock>
         public Type getGrassVersion(Type spreader)
         {
             if (!spreader.isGrass) throw new IllegalArgumentException("Non-grass can't spread.");
+            // System.out.println(this + " " + spreader);
             switch (this)
             {
                 case DIRT:
@@ -868,7 +869,8 @@ public class Rock extends IForgeRegistryEntry.Impl<Rock>
                     else
                         return STONEWARE_CLAY_HUMUS_GRASS;
             }
-            throw new IllegalArgumentException("You cannot get grass from rock types.");
+            return null;
+            // throw new IllegalArgumentException("You cannot get grass from rock types.");
         }
 
         public static boolean isDryGrass(Type grass)

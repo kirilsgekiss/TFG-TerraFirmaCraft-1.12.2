@@ -1032,7 +1032,6 @@ public final class BlocksTFC
     }
 
     // todo: change to property of type? (soil & stone maybe?)
-    // BUG!
     public static boolean isSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return true;
@@ -1544,16 +1543,10 @@ public final class BlocksTFC
     public static boolean isGrass(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeatGrass) return true;
-        if (current.getBlock() instanceof BlockRockVariant)
-        {
-            Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-            return type.isGrass;
-        }
-        if (!(current.getBlock() instanceof BlockRockVariant))
-            return false;
-        Type rockTFCF = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
 
-        return rockTFCF.isGrass;
+        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type.isGrass;
     }
 
     public static boolean isDryGrass(IBlockState current)

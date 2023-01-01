@@ -715,10 +715,8 @@ public class BlockRockVariant extends Block implements IItemSize {
 
     @Override
     public void randomTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        if (world.isRemote)
-            return;
-        if (type.isGrass)
-            BlockRockVariantConnected.spreadGrass(world, pos, state, rand);
+        if (world.isRemote) return;
+        if (type.isGrass) BlockRockVariantConnected.spreadGrass(world, pos, state, rand);
         super.randomTick(world, pos, state, rand);
     }
 
