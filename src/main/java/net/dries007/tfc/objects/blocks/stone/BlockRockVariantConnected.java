@@ -42,18 +42,22 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
 
     @SuppressWarnings("ConstantConditions")
     public static void spreadGrass(World world, BlockPos pos, IBlockState us, Random rand) {
-        IBlockState stateUp = world.getBlockState(pos.up());
-        if ((world.getLightFromNeighbors(pos.up()) < 4 && stateUp.getLightOpacity(world, pos.up()) > 2) || stateUp.getMaterial().isLiquid())
+        BlockPos upPos = pos.up();
+        IBlockState stateUp = world.getBlockState(upPos);
+        Block usBlock = us.getBlock();
+        
+        if ((world.getLightFromNeighbors(upPos) < 4 && stateUp.getLightOpacity(world, upPos) > 2) || stateUp.getMaterial().isLiquid())
         {
-            if (us.getBlock() instanceof BlockRockVariant)
+
+            if (usBlock instanceof BlockRockVariant)
             {
-                BlockRockVariant block = ((BlockRockVariant) us.getBlock());
+                BlockRockVariant block = ((BlockRockVariant) usBlock);
                 world.setBlockState(pos, block.getVariant(block.getType().getNonGrassVersion()).getDefaultState());
             }
         }
         else
         {
-            if (world.getLightFromNeighbors(pos.up()) < 9 || stateUp.getMaterial().isLiquid()) return;
+            if (world.getLightFromNeighbors(upPos) < 9 || stateUp.getMaterial().isLiquid()) return;
 
             for (int i = 0; i < 4; ++i)
             {
@@ -67,12 +71,12 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                     continue;
 
                 // TFC Grass
-                if (current.getBlock() instanceof BlockRockVariant && us.getBlock() instanceof BlockRockVariant) {
+                if (current.getBlock() instanceof BlockRockVariant && usBlock instanceof BlockRockVariant) {
                     Type spreader = Type.GRASS;
 
-                    if (((BlockRockVariant) us.getBlock()).getType() == Type.DRY_GRASS)
+                    if (((BlockRockVariant) usBlock).getType() == Type.DRY_GRASS)
                         spreader = Type.DRY_GRASS;
-                    else if (((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_GRASS)
+                    else if (((BlockRockVariant) usBlock).getType() == Type.SPARSE_GRASS)
                         spreader = Type.SPARSE_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -82,12 +86,12 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                     }
                 }
 
-                if (current.getBlock() instanceof BlockRockVariant && us.getBlock() instanceof BlockRockVariant) {
+                if (current.getBlock() instanceof BlockRockVariant && usBlock instanceof BlockRockVariant) {
                     Type spreader = Type.CLAY_GRASS;
 
-                    if (((BlockRockVariant) us.getBlock()).getType() == Type.DRY_CLAY_GRASS)
+                    if (((BlockRockVariant) usBlock).getType() == Type.DRY_CLAY_GRASS)
                         spreader = Type.DRY_CLAY_GRASS;
-                    else if (((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_CLAY_GRASS)
+                    else if (((BlockRockVariant) usBlock).getType() == Type.SPARSE_CLAY_GRASS)
                         spreader = Type.SPARSE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -100,9 +104,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.BOG_IRON_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_BOG_IRON_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_BOG_IRON_GRASS)
                         spreader = Type.DRY_BOG_IRON_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_BOG_IRON_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_BOG_IRON_GRASS)
                         spreader = Type.SPARSE_BOG_IRON_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -115,9 +119,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.LOAMY_SAND_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_LOAMY_SAND_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_LOAMY_SAND_GRASS)
                         spreader = Type.DRY_LOAMY_SAND_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_LOAMY_SAND_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_LOAMY_SAND_GRASS)
                         spreader = Type.SPARSE_LOAMY_SAND_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -130,9 +134,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_LOAM_GRASS)
                         spreader = Type.DRY_SANDY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_LOAM_GRASS)
                         spreader = Type.SPARSE_SANDY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -145,9 +149,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_LOAM_GRASS)
                         spreader = Type.DRY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_LOAM_GRASS)
                         spreader = Type.SPARSE_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -160,9 +164,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILT_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILT_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILT_LOAM_GRASS)
                         spreader = Type.DRY_SILT_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILT_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILT_LOAM_GRASS)
                         spreader = Type.SPARSE_SILT_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -175,9 +179,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILT_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILT_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILT_GRASS)
                         spreader = Type.DRY_SILT_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILT_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILT_GRASS)
                         spreader = Type.SPARSE_SILT_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -190,9 +194,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.HUMUS_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_HUMUS_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_HUMUS_GRASS)
                         spreader = Type.DRY_HUMUS_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_HUMUS_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_HUMUS_GRASS)
                         spreader = Type.SPARSE_HUMUS_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -206,9 +210,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SANDY_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SANDY_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -221,9 +225,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_CLAY_GRASS)
                         spreader = Type.DRY_SANDY_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_CLAY_GRASS)
                         spreader = Type.SPARSE_SANDY_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -236,9 +240,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -251,9 +255,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_CLAY_GRASS)
                         spreader = Type.DRY_SILTY_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_CLAY_GRASS)
                         spreader = Type.SPARSE_SILTY_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -266,9 +270,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SILTY_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SILTY_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -281,9 +285,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.CLAY_HUMUS_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_CLAY_HUMUS_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_CLAY_HUMUS_GRASS)
                         spreader = Type.DRY_CLAY_HUMUS_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_CLAY_HUMUS_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_CLAY_HUMUS_GRASS)
                         spreader = Type.SPARSE_CLAY_HUMUS_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -297,9 +301,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -312,9 +316,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_EARTHENWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -327,9 +331,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.EARTHENWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -342,9 +346,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.EARTHENWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_EARTHENWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.EARTHENWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_EARTHENWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_EARTHENWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -357,9 +361,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_EARTHENWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -372,9 +376,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -387,9 +391,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.EARTHENWARE_CLAY_HUMUS_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS)
                         spreader = Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS)
                         spreader = Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -403,9 +407,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -418,9 +422,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_KAOLINITE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS)
                         spreader = Type.DRY_SANDY_KAOLINITE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS)
                         spreader = Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -433,9 +437,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.KAOLINITE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_KAOLINITE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -448,9 +452,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.KAOLINITE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_KAOLINITE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_KAOLINITE_CLAY_GRASS)
                         spreader = Type.KAOLINITE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_KAOLINITE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_KAOLINITE_CLAY_GRASS)
                         spreader = Type.SPARSE_KAOLINITE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -463,9 +467,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_KAOLINITE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS)
                         spreader = Type.DRY_SILTY_KAOLINITE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS)
                         spreader = Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -478,9 +482,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -493,9 +497,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.KAOLINITE_CLAY_HUMUS_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS)
                         spreader = Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS)
                         spreader = Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -509,9 +513,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_STONEWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -524,9 +528,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SANDY_STONEWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SANDY_STONEWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SANDY_STONEWARE_CLAY_GRASS)
                         spreader = Type.DRY_SANDY_STONEWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -539,9 +543,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.STONEWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_STONEWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_STONEWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -554,9 +558,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.STONEWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_STONEWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_STONEWARE_CLAY_GRASS)
                         spreader = Type.STONEWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_STONEWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_STONEWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_STONEWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -569,9 +573,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_STONEWARE_CLAY_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_STONEWARE_CLAY_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_STONEWARE_CLAY_GRASS)
                         spreader = Type.DRY_SILTY_STONEWARE_CLAY_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS)
                         spreader = Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -584,9 +588,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.SILTY_STONEWARE_CLAY_LOAM_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS)
                         spreader = Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -599,9 +603,9 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
                 if (current.getBlock() instanceof BlockRockVariant) {
                     Type spreader = Type.STONEWARE_CLAY_HUMUS_GRASS;
 
-                    if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS)
+                    if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS)
                         spreader = Type.DRY_STONEWARE_CLAY_HUMUS_GRASS;
-                    else if ((us.getBlock() instanceof BlockRockVariant) && ((BlockRockVariant) us.getBlock()).getType() == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS)
+                    else if ((usBlock instanceof BlockRockVariant) && ((BlockRockVariant) usBlock).getType() == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS)
                         spreader = Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS;
 
                     BlockRockVariant block = ((BlockRockVariant) current.getBlock());
@@ -616,22 +620,22 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
             {
                 if (plant.getPlantType() == Plant.PlantType.SHORT_GRASS && rand.nextFloat() < 0.5f)
                 {
-                    float temp = ClimateTFC.getActualTemp(world, pos.up());
+                    float temp = ClimateTFC.getActualTemp(world, upPos);
                     BlockShortGrassTFC plantBlock = BlockShortGrassTFC.get(plant);
 
-                    if (world.isAirBlock(pos.up()) &&
-                            plant.isValidLocation(temp, ChunkDataTFC.getRainfall(world, pos.up()), Math.subtractExact(world.getLightFor(EnumSkyBlock.SKY, pos.up()), world.getSkylightSubtracted())) &&
+                    if (world.isAirBlock(upPos) &&
+                            plant.isValidLocation(temp, ChunkDataTFC.getRainfall(world, upPos), Math.subtractExact(world.getLightFor(EnumSkyBlock.SKY, upPos), world.getSkylightSubtracted())) &&
                             plant.isValidGrowthTemp(temp) &&
-                            rand.nextDouble() < plantBlock.getGrowthRate(world, pos.up()))
+                            rand.nextDouble() < plantBlock.getGrowthRate(world, upPos))
                     {
-                        world.setBlockState(pos.up(), plantBlock.getDefaultState());
+                        world.setBlockState(upPos, plantBlock.getDefaultState());
                     }
                 }
             }
         }
     }
 
-    public BlockRockVariantConnected(Rock.Type type, Rock rock)
+    public BlockRockVariantConnected(Type type, Rock rock)
     {
         super(type, rock);
     }
