@@ -45,7 +45,7 @@ public class BlockRockVariantConnected extends BlockRockVariantFallable
         BlockPos upPos = pos.up();
         IBlockState stateUp = world.getBlockState(upPos);
         Block usBlock = us.getBlock();
-        
+
         if ((world.getLightFromNeighbors(upPos) < 4 && stateUp.getLightOpacity(world, upPos) > 2) || stateUp.getMaterial().isLiquid())
         {
 
