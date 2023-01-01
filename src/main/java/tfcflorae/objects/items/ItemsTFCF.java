@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableList.Builder;
 
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.objects.items.ItemSlabTFC;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -41,7 +42,6 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import net.dries007.tfc.objects.blocks.BlockSlabTFCF;
 import tfcflorae.objects.items.ceramics.*;
 import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;
@@ -2239,13 +2239,10 @@ public final class ItemsTFCF
         }
 
         for (BlockFruitSlab.Half slab : BlocksTFCF.getAllFruitSlabBlocks())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFCF(slab, slab, slab.doubleSlab), CT_DECORATIONS));
+            simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (BlockSlabTFC.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
                 simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
-
-        for (BlockSlabTFCF.Half slab : BlocksTFCF.getAllSlabBlocks())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFCF(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
         allFruitDoors = fruitDoors.build();

@@ -45,7 +45,6 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.*;
-import net.dries007.tfc.objects.blocks.BlockSlabTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;
@@ -202,12 +201,6 @@ public class ClientRegisterEventsTFCF
 
         for (Block block : BlocksTFCF.getAllWallBlocks())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWall.VARIANT).build());
-
-        for (BlockSlabTFCF.Half block : BlocksTFCF.getAllSlabBlocks())
-        {
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockSlabTFCF.VARIANT).build());
-            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockSlabTFCF.VARIANT).build());
-        }
 
         for (BlockFruitSlab.Half block : BlocksTFCF.getAllFruitSlabBlocks())
         {

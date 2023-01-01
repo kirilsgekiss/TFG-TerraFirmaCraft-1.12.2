@@ -42,7 +42,7 @@ public abstract class BlockSlabTFC extends BlockSlab
     public final Block modelBlock;
     protected Half halfSlab;
 
-    private BlockSlabTFC(Rock rock, Rock.Type type)
+    private BlockSlabTFC(Rock rock, Type type)
     {
         this(BlockRockVariant.get(rock, type));
         Block c = BlockRockVariant.get(rock, type);
@@ -169,10 +169,10 @@ public abstract class BlockSlabTFC extends BlockSlab
 
     public static class Double extends BlockSlabTFC
     {
-        private static final Map<Rock, EnumMap<Rock.Type, Double>> ROCK_TABLE = new HashMap<>();
+        private static final Map<Rock, EnumMap<Type, Double>> ROCK_TABLE = new HashMap<>();
         private static final Map<Tree, Double> WOOD_MAP = new HashMap<>();
 
-        public static Double get(Rock rock, Rock.Type type)
+        public static Double get(Rock rock, Type type)
         {
             return ROCK_TABLE.get(rock).get(type);
         }
@@ -182,13 +182,13 @@ public abstract class BlockSlabTFC extends BlockSlab
             return WOOD_MAP.get(wood);
         }
 
-        public Double(Rock rock, Rock.Type type)
+        public Double(Rock rock, Type type)
         {
             super(rock, type);
 
             if (!ROCK_TABLE.containsKey(rock))
                 ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
-            ROCK_TABLE.get(rock).put(type, this);
+                ROCK_TABLE.get(rock).put(type, this);
 
             // No oredict, because no item.
         }
@@ -230,7 +230,7 @@ public abstract class BlockSlabTFC extends BlockSlab
 
             if (!ROCK_TABLE.containsKey(rock))
                 ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
-            ROCK_TABLE.get(rock).put(type, this);
+                ROCK_TABLE.get(rock).put(type, this);
 
             doubleSlab = Double.get(rock, type);
             doubleSlab.halfSlab = this;
