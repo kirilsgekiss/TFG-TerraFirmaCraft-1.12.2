@@ -39,7 +39,6 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.render.*;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockThatchBed;
@@ -53,8 +52,6 @@ import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.te.*;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.blocktype.BlockRockRawTFCF;
 import tfcflorae.objects.blocks.blocktype.farmland.*;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -218,7 +215,7 @@ public final class ClientRegisterEvents
             }
             else if (e.getType() == Type.MOSSY_RAW)
             {
-                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockRawTFCF.CAN_FALL).build());
+                ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(BlockRockRaw.CAN_FALL).build());
             }
         });
 

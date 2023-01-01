@@ -40,11 +40,12 @@ public class BlockRockRaw extends BlockRockVariant
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
-    public BlockRockRaw(Rock.Type type, Rock rock)
+    public BlockRockRaw(Type type, Rock rock)
     {
         super(type, rock);
 
         FallingBlockManager.Specification spec = new FallingBlockManager.Specification(type.getFallingSpecification()); // Copy as each raw stone has an unique resultingState
+//        spec.setResultingState(BlockRockVariant.get(rock, Type.COBBLE).getDefaultState());
         FallingBlockManager.registerFallable(this, spec);
 
         setDefaultState(getBlockState().getBaseState().withProperty(CAN_FALL, true));

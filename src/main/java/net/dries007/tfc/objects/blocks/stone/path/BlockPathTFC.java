@@ -1,7 +1,13 @@
-package tfcflorae.objects.blocks.blocktype.path;
+/*
+ * Work under Copyright. Licensed under the EUPL.
+ * See the project README.md and LICENSE.txt for more information.
+ */
+
+package net.dries007.tfc.objects.blocks.stone.path;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariantFallable;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -13,23 +19,20 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
-
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 
-import net.dries007.tfc.api.types.Rock.Type;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockSandyLoamPath extends BlockPathTFCF
+public class BlockPathTFC extends BlockRockVariantFallable
 {
     private static final AxisAlignedBB GRASS_PATH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockSandyLoamPath(Type rockTFCF, Rock rock)
+    public BlockPathTFC(Type type, Rock rock)
     {
-        super(rockTFCF, rock);
+        super(type, rock);
         setLightOpacity(255);
         useNeighborBrightness = true;
     }
@@ -88,7 +91,7 @@ public class BlockSandyLoamPath extends BlockPathTFCF
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, Type.SANDY_LOAM).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.DIRT).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {

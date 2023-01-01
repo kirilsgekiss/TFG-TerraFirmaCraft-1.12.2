@@ -43,7 +43,7 @@ import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import tfcflorae.objects.blocks.blocktype.farmland.*;
-import tfcflorae.objects.blocks.blocktype.path.*;
+import net.dries007.tfc.objects.blocks.stone.path.*;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.objects.items.rock.ItemMud;
 

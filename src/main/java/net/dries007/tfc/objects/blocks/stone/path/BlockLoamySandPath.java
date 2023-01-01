@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.blocktype.path;
+package net.dries007.tfc.objects.blocks.stone.path;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
 
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 
@@ -22,12 +21,12 @@ import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockHumusPath extends BlockPathTFCF
+public class BlockLoamySandPath extends BlockPathTFC
 {
     private static final AxisAlignedBB GRASS_PATH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockHumusPath(Type type, Rock rock)
+    public BlockLoamySandPath(Type type, Rock rock)
     {
         super(type, rock);
         setLightOpacity(255);
@@ -88,7 +87,7 @@ public class BlockHumusPath extends BlockPathTFCF
 
     private void turnToDirt(World world, BlockPos pos)
     {
-        world.setBlockState(pos, get(rock, Type.HUMUS).getDefaultState());
+        world.setBlockState(pos, get(rock, Type.LOAMY_SAND).getDefaultState());
         AxisAlignedBB axisalignedbb = FLIPPED_AABB.offset(pos);
         for (Entity entity : world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb))
         {
