@@ -40,11 +40,11 @@ public class Main {
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event)
     {
-        System.out.println("Mod Config for Cellars has Cool Mod as "+ModConfig.coolMod);
-        System.out.println("Mod Config for Cellars has Icy Mod as "+ModConfig.icyMod);
-        System.out.println("Mod Config for Cellars has Frozen Mod as "+ModConfig.icleMod);
-        System.out.println("Mod Config for Cellars has Freeze Dryed Mod as "+ModConfig.dryMod);
-        System.out.println("Mod Config for Cellars has Preserving Mod as "+ModConfig.preservingMod);
+        System.out.println("Mod Config for Cellars has Cool Mod as " + ModConfig.coolMod);
+        System.out.println("Mod Config for Cellars has Icy Mod as " + ModConfig.icyMod);
+        System.out.println("Mod Config for Cellars has Frozen Mod as " + ModConfig.icleMod);
+        System.out.println("Mod Config for Cellars has Freeze Dryed Mod as " + ModConfig.dryMod);
+        System.out.println("Mod Config for Cellars has Preserving Mod as " + ModConfig.preservingMod);
 
         RegistryHandler.initRegistries();
 
@@ -59,9 +59,6 @@ public class Main {
             System.out.println("Key = " + entry.getKey() +
                     ", Value = " + entry.getValue() +
                     ", Decay = " + entry.getValue().getDecayModifier());
-
-
-
     }
     @Mod.EventHandler
     public void PostInit(FMLPostInitializationEvent event)
@@ -69,57 +66,4 @@ public class Main {
         Reference.initialized = true;
         PacketHandler.init();
     }
-
-    @SubscribeEvent/*
-    public static void onEntityJoinWorldEvent(EntityJoinWorldEvent event) {
-        if(ModConfig.firstJoinBook){
-            if (event.getEntity() instanceof EntityPlayerMP) {
-                EntityPlayerMP player = (EntityPlayerMP) event.getEntity();
-
-                System.out.println("Checking for player first join.");
-                if (player.getEntityData().getInteger("CellarsFirstJoin") != 1) {
-                    System.out.println("Joined before, skipping book giving.");
-                } else {
-                    System.out.println("Setting variable.");
-                    player.getEntityData().setInteger("CellarsFirstJoin",1);
-
-                    System.out.println("Attempting to give book.");
-                    NBTTagCompound bookData = new NBTTagCompound();
-                    bookData.setString("patchouli:book", "cellars:book");
-                    ItemStack book = new ItemStack(PatchouliItems.book);
-                    book.setTagCompound(bookData);
-                    ItemHandlerHelper.giveItemToPlayer(player, book);
-                }
-            }
-        }
-    }*/
-
-    public static void onEntityJoinWorldEvent(EntityJoinWorldEvent event) {
-        if (!ModConfig.firstJoinBook || event.getWorld().isRemote) {
-            return;
-        }
-        if(event.getEntity() instanceof EntityPlayer){
-            NBTTagCompound data = event.getEntity().getEntityData();
-            NBTTagCompound persistent;
-            if (!data.hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
-                data.setTag(EntityPlayer.PERSISTED_NBT_TAG, (persistent = new NBTTagCompound()));
-            } else {
-                persistent = data.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
-            }
-
-            if (!persistent.hasKey("CellarsFirstJoin")) {
-                persistent.setBoolean("CellarsFirstJoin", true);
-                try {
-                    NBTTagCompound bookData = new NBTTagCompound();
-                    bookData.setString("patchouli:book", "cellars:book");
-                    ItemStack book = new ItemStack(PatchouliItems.book);
-                    book.setTagCompound(bookData);
-                    ItemHandlerHelper.giveItemToPlayer((EntityPlayer) event.getEntity(), book);
-                }catch (NoClassDefFoundError e){
-                    System.out.println("Mod failed to give Patchouli Book to" + event.getEntity());
-                }
-            }
-        }
-    }
-
 }

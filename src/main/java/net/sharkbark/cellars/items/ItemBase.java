@@ -9,7 +9,7 @@ import net.sharkbark.cellars.util.IHasModel;
 public abstract class ItemBase extends ItemTFC implements IHasModel {
 
     public ItemBase(String name){
-        //setUnlocalizedName(name);
+        // setUnlocalizedName(name);
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.MATERIALS);
