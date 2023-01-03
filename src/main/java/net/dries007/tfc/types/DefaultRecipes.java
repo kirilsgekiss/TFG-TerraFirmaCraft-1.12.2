@@ -271,8 +271,6 @@ public final class DefaultRecipes
         );
 
         /* CLAY ITEMS */
-
-
         for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
         {
             if (extendedOrePrefix.isHasMold())

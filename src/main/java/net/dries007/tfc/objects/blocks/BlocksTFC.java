@@ -783,6 +783,7 @@ public final class BlocksTFC
                     new BlockIceTFC(FluidRegistry.WATER).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
                     new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow")
             );
+
         }
 
         if (ConfigTFC.General.OVERRIDES.enableTorchOverride)
