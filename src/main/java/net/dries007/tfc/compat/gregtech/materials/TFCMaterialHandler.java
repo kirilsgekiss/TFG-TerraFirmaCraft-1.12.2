@@ -186,7 +186,7 @@ public class TFCMaterialHandler {
                 .color(0x686567)
                 .build();
 
-        SiltStone = new Material.Builder(32121, "siltstone")
+        Siltstone = new Material.Builder(32121, "siltstone")
                 .dust()
                 .color(0xA98D79)
                 .build();

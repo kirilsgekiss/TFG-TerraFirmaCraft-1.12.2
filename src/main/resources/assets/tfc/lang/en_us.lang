@@ -1,3 +1,26 @@
+# TFG Stuff
+# Molds Stuff
+item.tfc.ceramics.fired.mold.name=%s Mold
+item.tfc.ceramics.fired.mold.empty.name=%s Empty Mold
+
+item.tfc.ceramics.unfired.mold.name=%s Unfired Mold
+
+item.material.oreprefix.ingot.empty=Ingot
+item.material.oreprefix.toolHeadSword.empty=Sword Blade
+item.material.oreprefix.toolHeadPickaxe.empty=Pickaxe Head
+item.material.oreprefix.toolHeadAxe.empty=Axe Head
+item.material.oreprefix.toolHeadShovel.empty=Shovel Head
+item.material.oreprefix.toolHeadHoe.empty=Hoe Head
+item.material.oreprefix.toolHeadSaw.empty=Saw Head
+item.material.oreprefix.toolHeadHammer.empty=Hammer Head
+item.material.oreprefix.toolHeadSense.empty=Sense Head
+item.material.oreprefix.toolHeadKnife.empty=Knife Head
+item.material.oreprefix.toolHeadPropick.empty=Propick Head
+item.material.oreprefix.toolHeadChisel.empty=Chisel Head
+item.material.oreprefix.toolHeadJavelin.empty=Javelin Head
+
+# New Oreprefixes
+
 # Command
 tfc.command.timetfc.usage=/timetfc <add|query|set> [args...]
 tfc.command.timetfc.usage_expected_first_argument=Expected <add|query|set> after /timetfc
@@ -1188,7 +1211,6 @@ jei.category.tfc.anvil=Anvil recipes
 jei.category.tfc.barrel=Barrel recipes
 jei.category.tfc.blast_furnace=Blast Furnace recipes
 jei.category.tfc.bloomery=Bloomery recipes
-jei.category.tfc.casting=Casting recipes
 jei.category.tfc.chisel=Chisel Smoothing recipes
 jei.category.tfc.heat=Heating recipes
 jei.category.tfc.knap.clay=Clay knapping
@@ -1202,7 +1224,10 @@ jei.category.tfc.rock_layer=Rock Layer Ores
 jei.category.tfc.vein=Vein Information
 jei.category.tfc.welding=Welding recipes
 jei.category.tfc.scraping=Scraping recipes
-jei.category.tfc.unmold=Unmold recipes
+jei.category.tfc.clay.unmold=Unmold clay recipes
+jei.category.tfc.earthenware.unmold=Unmold earthenware clay recipes
+jei.category.tfc.kaolinite.unmold=Unmold kaolinite clay recipes
+jei.category.tfc.stoneware.unmold=Unmold stoneware clay recipes
 
 ## JEI Tooltips
 jei.tooltips.tfc.barrel.instant=Instant
@@ -15901,22 +15926,6 @@ item.tfc.powder.malachite.name=Malachite Powder
 item.tfc.powder.salt.name=Salt
 item.tfc.powder.fertilizer.name=Fertilizer
 item.tfc.powder.charcoal.name=Charcoal Powder
-
-item.tfc.ceramics.fired.mold.name=%s Mold
-item.tfc.ceramics.fired.mold.empty.name=%s Empty Mold
-
-item.tfc.ceramics.unfired.mold.name=%s Unfired Mold
-
-item.material.oreprefix.ingot.empty=Ingot
-item.material.oreprefix.toolHeadSword.empty=Sword Blade
-item.material.oreprefix.toolHeadPickaxe.empty=Pickaxe Head
-item.material.oreprefix.toolHeadAxe.empty=Axe Head
-item.material.oreprefix.toolHeadShovel.empty=Shovel Head
-item.material.oreprefix.toolHeadHoe.empty=Hoe Head
-item.material.oreprefix.toolHeadSaw.empty=Saw Head
-item.material.oreprefix.toolHeadHammer.empty=Hammer Head
-item.material.oreprefix.toolHeadSense.empty=Sense Head
-item.material.oreprefix.toolHeadKnife.empty=Knife Head
 
 item.tfc.ceramics.fired.vessel.name=Small Vessel
 item.tfc.ceramics.unfired.vessel.name=Small Unfired Vessel

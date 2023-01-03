@@ -12,7 +12,7 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
@@ -639,7 +639,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_axe_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material),
+                            OreDictUnifier.get(OrePrefix.toolHeadAxe, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, BEND_NOT_LAST, DRAW_NOT_LAST));
@@ -720,7 +720,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_tuyere_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
-                            OreDictUnifier.get(TFCOrePrefix.toolHeadTuyere, material),
+                            OreDictUnifier.get(TFCOrePrefix.tuyere, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             GENERAL,
                             BEND_LAST, BEND_SECOND_LAST));

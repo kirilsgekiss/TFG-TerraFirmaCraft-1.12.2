@@ -1,6 +1,6 @@
 # GTCEu
 
-# Локализация новых материалов
+# Локализация материалов
 material.unknown=Неизвестный металл
 material.pig_iron=Чугун
 material.high_carbon_steel=Высокоуглеродная сталь
@@ -38,7 +38,17 @@ material.soapstone=Мыльный камень
 
 material.banded_iron=Оксид железа (III)
 
-# Локализация новой руды
+# Локализация орПрефиксов
+item.material.oreprefix.ingotDouble=%s (Двойной слиток)
+item.material.oreprefix.ingotTriple=%s (Тройной слиток)
+item.material.oreprefix.ingotHex=%s (Шестрирной слиток)
+item.material.oreprefix.oreChunk=%s (Кусок руды)
+item.material.oreprefix.toolHeadKnife=%s (Оголовье ножа)
+item.material.oreprefix.toolHeadPropick=%s (Оголовье геологического молота)
+item.material.oreprefix.toolHeadChisel=%s (Оголовье стамески)
+item.material.oreprefix.toolHeadJavelin=%s (Оголовье копья)
+item.material.oreprefix.tuyere=%s (Фурма)
+
 item.material.oreprefix.oreBreccia=%s (Брекчиевая руда)
 item.material.oreprefix.oreCatlinite=%s (Катлинитовая руда)
 item.material.oreprefix.oreChalk=%s (Меловая руда)
@@ -65,9 +75,3 @@ item.material.oreprefix.oreShale=%s (Сланцевая руда)
 item.material.oreprefix.oreSiltstone=%s (Алевролитовая руда)
 item.material.oreprefix.oreSlate=%s (Шиферная руда)
 item.material.oreprefix.oreSoapstone=%s (Мыльно-каменная руда)
-
-# Локализация кусков руды
-item.material.oreprefix.oreChunk=%s (Кусок руды)
-
-# Локализация ножей
-item.material.oreprefix.toolHeadKnife=%s (Оголовье ножа)

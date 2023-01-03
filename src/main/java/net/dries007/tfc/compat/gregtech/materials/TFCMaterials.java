@@ -34,6 +34,6 @@ public class TFCMaterials {
     public static Material Sandstone;
     public static Material Schist;
     public static Material Shale;
-    public static Material SiltStone;
+    public static Material Siltstone;
     public static Material Slate;
 }

@@ -8,7 +8,7 @@ package net.dries007.tfc;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialHandler;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefixHandler;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefixHandler;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.gregtech.recipes.TFCRecipeHandlerList;
 import net.minecraft.block.Block;

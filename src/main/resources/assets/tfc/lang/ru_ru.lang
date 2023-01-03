@@ -1,3 +1,24 @@
+# TFG Utils
+# Molds Stuff
+item.tfc.ceramics.fired.mold.name=%s (Форма)
+item.tfc.ceramics.fired.mold.empty.name=%s (Пустная форма)
+
+item.tfc.ceramics.unfired.mold.name=%s (Неформованная форма)
+
+item.material.oreprefix.ingot.empty=(Слиток)
+item.material.oreprefix.toolHeadSword.empty=(Оголовье меча)
+item.material.oreprefix.toolHeadPickaxe.empty=(Оголовье кирки)
+item.material.oreprefix.toolHeadAxe.empty=(Оголовье топора)
+item.material.oreprefix.toolHeadShovel.empty=(Оголовье лопаты)
+item.material.oreprefix.toolHeadHoe.empty=(Оголовье мотыги)
+item.material.oreprefix.toolHeadSaw.empty=(Оголовье пилы)
+item.material.oreprefix.toolHeadHammer.empty=(Оголовье молота)
+item.material.oreprefix.toolHeadSense.empty=(Оголовье косы)
+item.material.oreprefix.toolHeadKnife.empty=(Оголовье ножа)
+item.material.oreprefix.toolHeadPropick.empty=(Оголовье геологической кирки)
+item.material.oreprefix.toolHeadChisel.empty=(Оголовье стамески)
+item.material.oreprefix.toolHeadJavelin.empty=(Оголовье копья)
+
 # Command
 tfc.command.timetfc.usage=/timetfc <add|query|set> [args...]
 tfc.command.timetfc.usage_expected_first_argument=/timetfc <add|query|set>
@@ -1156,7 +1177,6 @@ jei.category.tfc.anvil=Наковальня
 jei.category.tfc.barrel=Рецепты бочки
 jei.category.tfc.blast_furnace=Рецепты доменной печи
 jei.category.tfc.bloomery=Рецепты горна
-jei.category.tfc.casting=Рецепты отливки
 jei.category.tfc.chisel=Рецепты сглаживания зубила
 jei.category.tfc.heat=Рецепты нагрева
 jei.category.tfc.knap.clay=Обработка глины
@@ -1169,7 +1189,10 @@ jei.category.tfc.quern=Жёрнов
 jei.category.tfc.rock_layer=Руды породного слоя
 jei.category.tfc.vein=Информация о жилах
 jei.category.tfc.welding=Рецепты сварки
-jei.category.tfc.unmold=Рецепты форм
+jei.category.tfc.clay.unmold=Рецепты расформировывания из глины
+jei.category.tfc.earthenware.unmold=Рецепты расформировывания из фаянса
+jei.category.tfc.kaolinite.unmold=Рецепты расформировывания из каолинита
+jei.category.tfc.stoneware.unmold=Рецепты расформировывания из керамогранита
 
 ## JEI Tooltips
 jei.tooltips.tfc.barrel.instant=Мгновенно
@@ -3666,22 +3689,6 @@ item.tfc.powder.malachite.name=Малахитовый порошок
 item.tfc.powder.salt.name=Соль
 item.tfc.powder.fertilizer.name=Удобрение
 item.tfc.powder.charcoal.name=Порошок древесного угля
-
-item.tfc.ceramics.fired.mold.name=%s (Форма)
-item.tfc.ceramics.fired.mold.empty.name=%s (Пустная форма)
-
-item.tfc.ceramics.unfired.mold.name=%s (Неформованная форма)
-
-item.material.oreprefix.ingot.empty=(Слиток)
-item.material.oreprefix.toolHeadSword.empty=(Оголовье меча)
-item.material.oreprefix.toolHeadPickaxe.empty=(Оголовье кирки)
-item.material.oreprefix.toolHeadAxe.empty=(Оголовье топора)
-item.material.oreprefix.toolHeadShovel.empty=(Оголовье лопаты)
-item.material.oreprefix.toolHeadHoe.empty=(Оголовье мотыги)
-item.material.oreprefix.toolHeadSaw.empty=(Оголовье пилы)
-item.material.oreprefix.toolHeadHammer.empty=(Оголовье молота)
-item.material.oreprefix.toolHeadSense.empty=(Оголовье косы)
-item.material.oreprefix.toolHeadKnife.empty=(Оголовье ножа)
 
 item.tfc.ceramics.fired.vessel.name=Малый сосуд
 item.tfc.ceramics.unfired.vessel.name=Малый необожженный сосуд

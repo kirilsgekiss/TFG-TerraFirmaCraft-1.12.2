@@ -1,4 +1,4 @@
-package net.dries007.tfc.compat.gregtech;
+package net.dries007.tfc.compat.gregtech.oreprefix;
 
 import gregtech.common.items.MetaItems;
 
@@ -9,7 +9,7 @@ public class TFCOrePrefixHandler {
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadPropick);
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadChisel);
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadJavelin);
-        MetaItems.addOrePrefix(TFCOrePrefix.toolHeadTuyere);
+        MetaItems.addOrePrefix(TFCOrePrefix.tuyere);
         MetaItems.addOrePrefix(TFCOrePrefix.ingotDouble);
         MetaItems.addOrePrefix(TFCOrePrefix.ingotTriple);
         MetaItems.addOrePrefix(TFCOrePrefix.ingotHex);

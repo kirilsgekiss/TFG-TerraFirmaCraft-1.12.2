@@ -1,4 +1,4 @@
-package tfcflorae.compat.jei.wrappers;
+package net.dries007.tfc.compat.jei.wrappers;
 
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
@@ -13,20 +13,20 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 
-import tfcflorae.objects.items.ceramics.ItemStonewareMold;
+import tfcflorae.objects.items.ceramics.ItemEarthenwareMold;
 
-public class UnmoldRecipeWrapperStonewareTFCF implements IRecipeWrapper
+public class UnmoldRecipeWrapperEarthenware implements IRecipeWrapper
 {
     private final ItemStack mold;
     private final ItemStack output;
 
-    public UnmoldRecipeWrapperStonewareTFCF(Material material, OrePrefix orePrefix)
+    public UnmoldRecipeWrapperEarthenware(Material material, OrePrefix orePrefix)
     {
-        mold = new ItemStack(ItemStonewareMold.get(orePrefix));
+        mold = new ItemStack(ItemEarthenwareMold.get(orePrefix));
         IFluidHandler cap = mold.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (cap instanceof IMaterialHandler)
         {
-            cap.fill(new FluidStack(material.getFluid(), ItemStonewareMold.get(orePrefix).moldCapacity), true);
+            cap.fill(new FluidStack(material.getFluid(), ItemEarthenwareMold.get(orePrefix).moldCapacity), true);
         }
         output = OreDictUnifier.get(orePrefix, material);
     }

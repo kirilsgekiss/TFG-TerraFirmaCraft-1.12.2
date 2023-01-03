@@ -1,7 +1,7 @@
 package net.dries007.tfc.compat.tfc;
 
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +34,7 @@ public final class TFGUtils {
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadPropick, 432, new String[]{"XXXXX", "    X", " XXX ", " XXXX", "XXXXX"}),
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadChisel, 288, new String[]{"X X", "X X", "X X", "X X", "X X"}),
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadJavelin, 432, new String[]{"XX   ", "X    ", "     ", "X   X", "XX XX"}),
-            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadTuyere, 864)
+            new TFCOrePrefixExtended(TFCOrePrefix.tuyere, 864)
     );
 
     public static final List<TFCMaterialExtended> TFC_MATERIAL_REGISTRY = Arrays.asList

@@ -1,4 +1,4 @@
-package tfcflorae.compat.jei.category;
+package net.dries007.tfc.compat.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawableAnimated;
@@ -11,20 +11,19 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.jei.BaseRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import tfcflorae.compat.jei.wrappers.UnmoldRecipeWrapperKaoliniteTFCF;
+import net.dries007.tfc.compat.jei.wrappers.UnmoldRecipeWrapperStoneware;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class UnmoldKaoliniteCategory extends BaseRecipeCategory<UnmoldRecipeWrapperKaoliniteTFCF> {
-
+public class UnmoldStonewareCategory extends BaseRecipeCategory<UnmoldRecipeWrapperStoneware> {
     private static final ResourceLocation ICONS = new ResourceLocation(TerraFirmaCraft.MOD_ID, "textures/gui/icons/jei.png");
 
     private final IDrawableStatic slot;
     private final IDrawableStatic arrow;
     private final IDrawableAnimated arrowAnimated;
 
-    public UnmoldKaoliniteCategory(IGuiHelper helper, String Uid)
+    public UnmoldStonewareCategory(IGuiHelper helper, String Uid)
     {
         super(helper.createBlankDrawable(120, 38), Uid);
         arrow = helper.createDrawable(ICONS, 0, 14, 22, 16);
@@ -43,7 +42,7 @@ public class UnmoldKaoliniteCategory extends BaseRecipeCategory<UnmoldRecipeWrap
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperKaoliniteTFCF recipeWrapper, IIngredients ingredients)
+    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperStoneware recipeWrapper, IIngredients ingredients)
     {
         IGuiItemStackGroup itemStackGroup = recipeLayout.getItemStacks();
         itemStackGroup.init(0, true, 20, 16);

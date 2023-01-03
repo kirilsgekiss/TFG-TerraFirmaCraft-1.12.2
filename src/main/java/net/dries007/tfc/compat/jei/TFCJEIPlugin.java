@@ -20,7 +20,6 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
@@ -39,7 +38,6 @@ import net.dries007.tfc.api.recipes.barrel.BarrelRecipeFoodTraits;
 import net.dries007.tfc.api.recipes.heat.HeatRecipeMetalMelting;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.gui.*;
@@ -54,16 +52,19 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.rock.ItemRockKnife;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
+import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
+import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
+import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
 {
+    public static final String CRAFTING_UID = "minecraft.crafting";
     public static final String ALLOY_UID = TerraFirmaCraft.MOD_ID + ".alloy";
     public static final String ANVIL_UID = TerraFirmaCraft.MOD_ID + ".anvil";
     public static final String BARREL_UID = TerraFirmaCraft.MOD_ID + ".barrel";
     public static final String BLAST_FURNACE_UID = TerraFirmaCraft.MOD_ID + ".blast_furnace";
     public static final String BLOOMERY_UID = TerraFirmaCraft.MOD_ID + ".bloomery";
-    public static final String CASTING_UID = TerraFirmaCraft.MOD_ID + ".casting";
     public static final String CHISEL_UID = TerraFirmaCraft.MOD_ID + ".chisel";
     public static final String HEAT_UID = TerraFirmaCraft.MOD_ID + ".heat";
     public static final String KNAP_CLAY_UID = TerraFirmaCraft.MOD_ID + ".knap.clay";
@@ -75,7 +76,10 @@ public final class TFCJEIPlugin implements IModPlugin
     public static final String QUERN_UID = TerraFirmaCraft.MOD_ID + ".quern";
     public static final String WELDING_UID = TerraFirmaCraft.MOD_ID + ".welding";
     public static final String SCRAPING_UID = TerraFirmaCraft.MOD_ID + ".scraping";
-    public static final String UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".unmold";
+    public static final String CLAY_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".clay.unmold";
+    public static final String EARTHENWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".earthenware.unmold";
+    public static final String KAOLINITE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".kaolinite.unmold";
+    public static final String STONEWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".stoneware.unmold";
 
     private static IModRegistry REGISTRY;
 
@@ -98,7 +102,6 @@ public final class TFCJEIPlugin implements IModPlugin
         registry.addRecipeCategories(new BarrelCategory(registry.getJeiHelpers().getGuiHelper(), BARREL_UID));
         registry.addRecipeCategories(new BlastFurnaceCategory(registry.getJeiHelpers().getGuiHelper(), BLAST_FURNACE_UID));
         registry.addRecipeCategories(new BloomeryCategory(registry.getJeiHelpers().getGuiHelper(), BLOOMERY_UID));
-        registry.addRecipeCategories(new CastingCategory(registry.getJeiHelpers().getGuiHelper(), CASTING_UID));
         registry.addRecipeCategories(new ChiselCategory(registry.getJeiHelpers().getGuiHelper(), CHISEL_UID));
         registry.addRecipeCategories(new HeatCategory(registry.getJeiHelpers().getGuiHelper(), HEAT_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_CLAY_UID));
@@ -110,7 +113,10 @@ public final class TFCJEIPlugin implements IModPlugin
         registry.addRecipeCategories(new QuernCategory(registry.getJeiHelpers().getGuiHelper(), QUERN_UID));
         registry.addRecipeCategories(new WeldingCategory(registry.getJeiHelpers().getGuiHelper(), WELDING_UID));
         registry.addRecipeCategories(new ScrapingCategory(registry.getJeiHelpers().getGuiHelper(), SCRAPING_UID));
-        registry.addRecipeCategories(new UnmoldCategory(registry.getJeiHelpers().getGuiHelper(), UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldClayCategory(registry.getJeiHelpers().getGuiHelper(), CLAY_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldEarthenwareCategory(registry.getJeiHelpers().getGuiHelper(), EARTHENWARE_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldKaoliniteCategory(registry.getJeiHelpers().getGuiHelper(), KAOLINITE_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldStonewareCategory(registry.getJeiHelpers().getGuiHelper(), STONEWARE_UNMOLD_UID));
     }
 
     @Override
@@ -139,12 +145,16 @@ public final class TFCJEIPlugin implements IModPlugin
         for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
             registry.addRecipeCatalyst(new ItemStack(ItemRock.get(rock)), KNAP_STONE_UID);
         }
-        for (Item barrelItem : BlocksTFC.getAllBarrelItemBlocks()) {
-            registry.addRecipeCatalyst(new ItemStack(barrelItem), BARREL_UID);
+        for (ItemStack stack : OreDictionary.getOres("barrel")) {
+            registry.addRecipeCatalyst(stack, BARREL_UID);
         }
         for (ItemStack stack : OreDictionary.getOres("workbench"))
         {
-            registry.addRecipeCatalyst(stack, UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, CRAFTING_UID);
+            registry.addRecipeCatalyst(stack, CLAY_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, EARTHENWARE_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, KAOLINITE_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, STONEWARE_UNMOLD_UID);
         }
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLOOMERY), BLOOMERY_UID);
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLAST_FURNACE), BLAST_FURNACE_UID);
@@ -156,8 +166,6 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), WELDING_UID);
             }
         }
-        registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), CASTING_UID);
-        registry.addRecipeCatalyst(new ItemStack(ItemsTFC.FIRED_VESSEL), CASTING_UID);
         TFCRegistries.ROCK_CATEGORIES.forEach(category -> registry.addRecipeCatalyst(new ItemStack(ItemRockKnife.get(category)), SCRAPING_UID));
 
         // Wrappers
@@ -298,26 +306,34 @@ public final class TFCJEIPlugin implements IModPlugin
 
         registry.addRecipes(chiselList, CHISEL_UID);
 
-        // Register metal related stuff (put everything here for performance + sorted registration)
-        List<UnmoldRecipeWrapper> unmoldList = new ArrayList<>();
-        List<CastingRecipeWrapper> castingList = new ArrayList<>();
+        List<UnmoldRecipeWrapperClay> unmoldListClay = new ArrayList<>();
+        List<UnmoldRecipeWrapperEarthenware> unmoldListEarthenware = new ArrayList<>();
+        List<UnmoldRecipeWrapperKaolinite> unmoldListKaolinite = new ArrayList<>();
+        List<UnmoldRecipeWrapperStoneware> unmoldListStoneware = new ArrayList<>();
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
             for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
                 if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && extendedOrePrefix.isHasMold() && material != TFCMaterials.Unknown) {
                     if (material.hasProperty(PropertyKey.TOOL)) {
-                        unmoldList.add(new UnmoldRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListClay.add(new UnmoldRecipeWrapperClay(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenware(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaolinite(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListStoneware.add(new UnmoldRecipeWrapperStoneware(material, extendedOrePrefix.getOrePrefix()));
                     }
                     else if (extendedOrePrefix.getOrePrefix() == OrePrefix.ingot) {
-                        unmoldList.add(new UnmoldRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListClay.add(new UnmoldRecipeWrapperClay(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenware(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaolinite(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListStoneware.add(new UnmoldRecipeWrapperStoneware(material, extendedOrePrefix.getOrePrefix()));
                     }
-                    castingList.add(new CastingRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
                 }
             }
         }
 
-        registry.addRecipes(unmoldList, UNMOLD_UID);
-        registry.addRecipes(castingList, CASTING_UID);
+        registry.addRecipes(unmoldListClay, CLAY_UNMOLD_UID);
+        registry.addRecipes(unmoldListEarthenware, EARTHENWARE_UNMOLD_UID);
+        registry.addRecipes(unmoldListKaolinite, KAOLINITE_UNMOLD_UID);
+        registry.addRecipes(unmoldListStoneware, STONEWARE_UNMOLD_UID);
 
         // Click areas
         registry.addRecipeClickArea(GuiKnapping.class, 97, 44, 22, 15, KNAP_CLAY_UID, KNAP_FIRECLAY_UID, KNAP_LEATHER_UID, KNAP_STONE_UID);

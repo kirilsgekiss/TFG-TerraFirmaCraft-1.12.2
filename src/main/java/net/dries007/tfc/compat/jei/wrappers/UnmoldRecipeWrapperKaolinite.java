@@ -1,4 +1,4 @@
-package tfcflorae.compat.jei.wrappers;
+package net.dries007.tfc.compat.jei.wrappers;
 
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
@@ -15,12 +15,12 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 
 import tfcflorae.objects.items.ceramics.ItemKaoliniteMold;
 
-public class UnmoldRecipeWrapperKaoliniteTFCF implements IRecipeWrapper
+public class UnmoldRecipeWrapperKaolinite implements IRecipeWrapper
 {
     private final ItemStack mold;
     private final ItemStack output;
 
-    public UnmoldRecipeWrapperKaoliniteTFCF(Material material, OrePrefix orePrefix)
+    public UnmoldRecipeWrapperKaolinite(Material material, OrePrefix orePrefix)
     {
         mold = new ItemStack(ItemKaoliniteMold.get(orePrefix));
         IFluidHandler cap = mold.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);

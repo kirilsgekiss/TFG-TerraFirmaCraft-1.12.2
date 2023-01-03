@@ -9,7 +9,6 @@ import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
@@ -60,12 +59,8 @@ public final class TFCFJEIPlugin implements IModPlugin
     public static final String KNAP_KAOLINITE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.kaolinite_clay";
     public static final String KNAP_STONEWARE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.stoneware_clay";
     public static final String KNAP_FLINT_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.flint";
-    public static final String CASTING_UID = TFCFlorae.TFCFLORAE_MODID + ".casting";
     public static final String DRY_UID = TFCFlorae.TFCFLORAE_MODID + ".drying";
     public static final String STICK_BUNDLE_UID = TFCFlorae.TFCFLORAE_MODID + ".stick_bundle";
-    public static final String EARTHENWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".earthenware.unmold";
-    public static final String KAOLINITE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".kaolinite.unmold";
-    public static final String STONEWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".stoneware.unmold";
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry)
@@ -84,12 +79,8 @@ public final class TFCFJEIPlugin implements IModPlugin
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_KAOLINITE_CLAY_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_STONEWARE_CLAY_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_FLINT_UID));
-        registry.addRecipeCategories(new CastingCategory(registry.getJeiHelpers().getGuiHelper(), CASTING_UID));
         registry.addRecipeCategories(new DryingRecipeCategory(registry.getJeiHelpers().getGuiHelper(), DRY_UID));
         registry.addRecipeCategories(new StickBundleRecipeCategory(registry.getJeiHelpers().getGuiHelper(), STICK_BUNDLE_UID));
-        registry.addRecipeCategories(new UnmoldEarthenwareCategory(registry.getJeiHelpers().getGuiHelper(), EARTHENWARE_UNMOLD_UID));
-        registry.addRecipeCategories(new UnmoldKaoliniteCategory(registry.getJeiHelpers().getGuiHelper(), KAOLINITE_UNMOLD_UID));
-        registry.addRecipeCategories(new UnmoldStonewareCategory(registry.getJeiHelpers().getGuiHelper(), STONEWARE_UNMOLD_UID));
     }
 
     /**
@@ -286,46 +277,14 @@ public final class TFCFJEIPlugin implements IModPlugin
         registry.addRecipeClickArea(GuiKnappingTFCF.class, 97, 44, 22, 15, KNAP_MUD_UID, KNAP_EARTHENWARE_CLAY_UID, KNAP_KAOLINITE_CLAY_UID, KNAP_STONEWARE_CLAY_UID, KNAP_FLINT_UID);
 
         // Register metal related stuff (put everything here for performance + sorted registration)
-        List<UnmoldRecipeWrapperEarthenwareTFCF> unmoldListEarthenware = new ArrayList<>();
-        List<CastingRecipeWrapperEarthenwareTFCF> castingListEarthenware = new ArrayList<>();
-        List<UnmoldRecipeWrapperKaoliniteTFCF> unmoldListKaolinite = new ArrayList<>();
-        List<CastingRecipeWrapperKaoliniteTFCF> castingListKaolinite = new ArrayList<>();
-        List<UnmoldRecipeWrapperStonewareTFCF> unmoldListStoneware = new ArrayList<>();
-        List<CastingRecipeWrapperStonewareTFCF> castingListStoneware = new ArrayList<>();
 
-        for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
-            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
-                if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && extendedOrePrefix.isHasMold() && material != TFCMaterials.Unknown) {
-                    if (material.hasProperty(PropertyKey.TOOL)) {
-                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenwareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaoliniteTFCF(material, extendedOrePrefix.getOrePrefix()));
-                        unmoldListStoneware.add(new UnmoldRecipeWrapperStonewareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                    }
-                    else if (extendedOrePrefix.getOrePrefix() == OrePrefix.ingot) {
-                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenwareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaoliniteTFCF(material, extendedOrePrefix.getOrePrefix()));
-                        unmoldListStoneware.add(new UnmoldRecipeWrapperStonewareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                    }
-                    castingListEarthenware.add(new CastingRecipeWrapperEarthenwareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                    castingListKaolinite.add(new CastingRecipeWrapperKaoliniteTFCF(material, extendedOrePrefix.getOrePrefix()));
-                    castingListStoneware.add(new CastingRecipeWrapperStonewareTFCF(material, extendedOrePrefix.getOrePrefix()));
-                }
-            }
-        }
 
-        for (ItemStack stack : OreDictionary.getOres("workbench"))
-        {
-            registry.addRecipeCatalyst(stack, EARTHENWARE_UNMOLD_UID);
-            registry.addRecipeCatalyst(stack, KAOLINITE_UNMOLD_UID);
-            registry.addRecipeCatalyst(stack, STONEWARE_UNMOLD_UID);
-        }
 
-        registry.addRecipes(unmoldListEarthenware, EARTHENWARE_UNMOLD_UID);
-        registry.addRecipes(castingListEarthenware, CASTING_UID);
-        registry.addRecipes(unmoldListKaolinite, KAOLINITE_UNMOLD_UID);
-        registry.addRecipes(castingListKaolinite, CASTING_UID);
-        registry.addRecipes(unmoldListStoneware, STONEWARE_UNMOLD_UID);
-        registry.addRecipes(castingListStoneware, CASTING_UID);
+
+
+
+
+
 
         //ContainerInventoryCrafting - Add ability to transfer recipe items
         IRecipeTransferRegistry transferRegistry = registry.getRecipeTransferRegistry();

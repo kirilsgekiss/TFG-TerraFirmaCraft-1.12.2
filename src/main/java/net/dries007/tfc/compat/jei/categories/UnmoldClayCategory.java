@@ -1,29 +1,27 @@
-package tfcflorae.compat.jei.category;
+package net.dries007.tfc.compat.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.gui.IDrawableAnimated;
-import mezz.jei.api.gui.IDrawableStatic;
-import mezz.jei.api.gui.IGuiItemStackGroup;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.*;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.jei.BaseRecipeCategory;
+import net.dries007.tfc.compat.jei.wrappers.UnmoldRecipeWrapperClay;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import tfcflorae.compat.jei.wrappers.UnmoldRecipeWrapperEarthenwareTFCF;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class UnmoldEarthenwareCategory extends BaseRecipeCategory<UnmoldRecipeWrapperEarthenwareTFCF> {
+public class UnmoldClayCategory extends BaseRecipeCategory<UnmoldRecipeWrapperClay> {
+
     private static final ResourceLocation ICONS = new ResourceLocation(TerraFirmaCraft.MOD_ID, "textures/gui/icons/jei.png");
 
     private final IDrawableStatic slot;
     private final IDrawableStatic arrow;
     private final IDrawableAnimated arrowAnimated;
 
-    public UnmoldEarthenwareCategory(IGuiHelper helper, String Uid)
+    public UnmoldClayCategory(IGuiHelper helper, String Uid)
     {
         super(helper.createBlankDrawable(120, 38), Uid);
         arrow = helper.createDrawable(ICONS, 0, 14, 22, 16);
@@ -42,7 +40,7 @@ public class UnmoldEarthenwareCategory extends BaseRecipeCategory<UnmoldRecipeWr
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperEarthenwareTFCF recipeWrapper, IIngredients ingredients)
+    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperClay recipeWrapper, IIngredients ingredients)
     {
         IGuiItemStackGroup itemStackGroup = recipeLayout.getItemStacks();
         itemStackGroup.init(0, true, 20, 16);
