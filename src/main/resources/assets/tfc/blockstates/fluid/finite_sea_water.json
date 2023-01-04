@@ -9,7 +9,7 @@
     "normal": {
       "transform": "forge:default-item",
       "custom": {
-        "fluid": "high_carbon_black_steel"
+        "fluid": "sea_water"
       }
     }
   }

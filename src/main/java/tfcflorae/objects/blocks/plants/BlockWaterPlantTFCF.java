@@ -8,9 +8,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import git.jbredwards.fluidlogged_api.api.block.BlockWaterloggedPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -31,8 +31,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -42,7 +40,6 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.agriculture.Food;
@@ -54,10 +51,10 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.util.OreDictionaryHelper;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 @ParametersAreNonnullByDefault
-public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPlantable
+public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemSize, IPlantable
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     /*
@@ -81,14 +78,9 @@ public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPl
     protected final Plant plant;
     protected final BlockStateContainer blockState;
 
-    public BlockWaterPlantTFCF(Fluid fluid, Plant plant)
+    public BlockWaterPlantTFCF(Plant plant)
     {
-        this(fluid, Material.WATER, plant);
-    }
-
-    public BlockWaterPlantTFCF(Fluid fluid, Material materialIn, Plant plant)
-    {
-        super(fluid, Material.WATER, false);
+        super(plant.getMaterial());
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 
         this.plant = plant;
@@ -99,9 +91,8 @@ public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPl
         Blocks.FIRE.setFireInfo(this, 5, 20);
         blockState = this.createPlantBlockState();
 
-        this.canCreateSources = false;
         this.setLightOpacity(3);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 0));
+        this.setDefaultState(this.blockState.getBaseState());
 
         plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
     }
@@ -128,19 +119,10 @@ public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPl
         return state.withProperty(DAYPERIOD, getDayPeriod()).withProperty(growthStageProperty, plant.getStageForMonth());
     }
 
-    @Nonnull
     @Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer.Builder(this)
-            .add(LEVEL)
-            .add(FLUID_RENDER_PROPS.toArray(new IUnlistedProperty<?>[0]))
-            .build();
-    }
-
     protected boolean canSustainBush(IBlockState state)
     {
-        return true;
+        return BlocksTFC.isGround(state) || (state.getBlock() == BlockTallWaterPlantTFCF.get(plant));
     }
 
     @Nonnull
@@ -265,8 +247,9 @@ public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPl
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        if (plant.getWaterType() == SALT_WATER)
-            return BlocksTFC.isSaltWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up()));
+
+        if (plant.getWaterType() == SEA_WATER)
+            return BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up()));
         return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()));
     }
 
@@ -444,13 +427,7 @@ public class BlockWaterPlantTFCF extends BlockFluidTFC implements IItemSize, IPl
     @Nonnull
     protected BlockStateContainer createPlantBlockState()
     {
-        return new BlockStateContainer.Builder(this)
-            .add(LEVEL)
-            .add(FLUID_RENDER_PROPS.toArray(new IUnlistedProperty<?>[0]))
-            .add(growthStageProperty)
-            .add(DAYPERIOD)
-            .add(AGE)
-            .build();
+        return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE);
     }
 
     int getDayPeriod()

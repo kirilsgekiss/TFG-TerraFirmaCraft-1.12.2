@@ -1731,7 +1731,7 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.SPARSE_SILT_LOAM_GRASS ||
                             type == Type.SPARSE_SILT_GRASS ||
                             type == Type.SPARSE_HUMUS_GRASS;
-                case SALT_WATER:
+                case SEA_WATER:
                     return type == Type.DIRT ||
                             type == Type.GRASS ||
                             type == Type.DRY_GRASS ||
@@ -1858,7 +1858,7 @@ public class BlockRockVariant extends Block implements IItemSize {
                     boolean flag = false;
                     for (EnumFacing facing : EnumFacing.HORIZONTALS) {
                         for (int i = 1; i <= beachDistance; i++)
-                            if (BlocksTFC.isSaltWater(world.getBlockState(pos.offset(facing, i)))) {
+                            if (BlocksTFC.isSeaWater(world.getBlockState(pos.offset(facing, i)))) {
                                 flag = true;
                             }
                     }

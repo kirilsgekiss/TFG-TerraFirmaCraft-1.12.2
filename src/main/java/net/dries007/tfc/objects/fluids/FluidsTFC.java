@@ -33,12 +33,10 @@ import net.dries007.tfc.api.capability.food.FoodStatsTFC;
 import net.dries007.tfc.api.capability.food.IFoodStatsTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -52,7 +50,7 @@ public final class FluidsTFC
     // Water variants
     public static FluidWrapper HOT_WATER;
     public static FluidWrapper FRESH_WATER;
-    public static FluidWrapper SALT_WATER;
+    public static FluidWrapper SEA_WATER;
     // Other fluids
     public static FluidWrapper LIMEWATER;
     public static FluidWrapper TANNIN;
@@ -122,7 +120,7 @@ public final class FluidsTFC
             }
         });
         HOT_WATER = registerFluid(new Fluid("hot_water", STILL, FLOW, 0xFF345FDA).setTemperature(350));
-        SALT_WATER = registerFluid(new Fluid("salt_water", STILL, FLOW, 0xFF1F5099)).with(DrinkableProperty.DRINKABLE, player -> {
+        SEA_WATER = registerFluid(new Fluid("sea_water", STILL, FLOW, 0xFF1F5099)).with(DrinkableProperty.DRINKABLE, player -> {
             if (player.getFoodStats() instanceof FoodStatsTFC)
             {
                 ((FoodStatsTFC) player.getFoodStats()).addThirst(-10);

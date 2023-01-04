@@ -41,11 +41,9 @@ import net.dries007.tfc.api.types.Rock.Type;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateHelper;
@@ -72,7 +70,7 @@ public class ChunkGenTFC implements IChunkGenerator
 {
     public static final IBlockState STONE = Blocks.STONE.getDefaultState();
     public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-    public static final IBlockState SALT_WATER = FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState SEA_WATER = FluidsTFC.SEA_WATER.get().getBlock().getDefaultState();
     public static final IBlockState WATER = FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
     public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState();
     public static final IBlockState LAVA = Blocks.LAVA.getDefaultState();
@@ -448,7 +446,7 @@ public class ChunkGenTFC implements IChunkGenerator
                                 if ((var47 += var49) > 0.0D)
                                     primer.setBlockState(x * 4 + xx, y * 8 + yy, z * 4 + zz, STONE);
                                 else if (y * 8 + yy < seaLevel)
-                                    primer.setBlockState(x * 4 + xx, y * 8 + yy, z * 4 + zz, SALT_WATER);
+                                    primer.setBlockState(x * 4 + xx, y * 8 + yy, z * 4 + zz, SEA_WATER);
                                 else primer.setBlockState(x * 4 + xx, y * 8 + yy, z * 4 + zz, AIR);
                             }
                             var34 += var38;
@@ -1041,14 +1039,14 @@ public class ChunkGenTFC implements IChunkGenerator
                         {
                             if (y >= seaLevel - 1)
                             {
-                                inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SALT_WATER);
-                                outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SALT_WATER);
+                                inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SEA_WATER);
+                                outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SEA_WATER);
                             }
                         }
                         else
                         {
-                            inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SALT_WATER);
-                            outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SALT_WATER);
+                            inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SEA_WATER);
+                            outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SEA_WATER);
                         }
 
 
@@ -1056,8 +1054,8 @@ public class ChunkGenTFC implements IChunkGenerator
                     }
                     else if (!BiomesTFC.isRiverBiome(biome) && nonRiverTiles < 9 && outp.getBlockState(x, y + yOffset, z) == STONE && ((y >= ((highestStone - seaLevel) / (10 - nonRiverTiles) + seaLevel)) || (nonRiverTiles <= 5 && y >= seaLevel)))
                     {
-                        inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SALT_WATER);
-                        outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SALT_WATER);
+                        inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SEA_WATER);
+                        outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SEA_WATER);
                     }
 
                     if (outp.getBlockState(x, y + yOffset, z) == STONE)
@@ -1125,7 +1123,7 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     outp.setBlockState(x, yOffset + y + c, z, AIR);
                                     if (yOffset + y + c + 1 > 256) continue;
-                                    if (outp.getBlockState(x, yOffset + y + c + 1, z) == SALT_WATER)
+                                    if (outp.getBlockState(x, yOffset + y + c + 1, z) == SEA_WATER)
                                         outp.setBlockState(x, yOffset + y + c, z, subSurfaceBlock);
                                 }
                             }
@@ -1135,7 +1133,7 @@ public class ChunkGenTFC implements IChunkGenerator
 
                             if (smooth > 0)
                             {
-                                if (y >= seaLevel - 1 && y + 1 < yOffset && inp.getBlockState(x, y + 1, z) != SALT_WATER && dirtH > 0 && !(BiomesTFC.isBeachBiome(biome) && y > highestBeachTheoretical + 2))
+                                if (y >= seaLevel - 1 && y + 1 < yOffset && inp.getBlockState(x, y + 1, z) != SEA_WATER && dirtH > 0 && !(BiomesTFC.isBeachBiome(biome) && y > highestBeachTheoretical + 2))
                                 {
                                     outp.setBlockState(x, y + yOffset, z, surfaceBlock);
 
@@ -1151,8 +1149,8 @@ public class ChunkGenTFC implements IChunkGenerator
                             }
                         }
 
-                        if (y > seaLevel - 2 && y < seaLevel && inp.getBlockState(x, y + 1, z) == SALT_WATER ||
-                                y < seaLevel && inp.getBlockState(x, y + 1, z) == SALT_WATER)
+                        if (y > seaLevel - 2 && y < seaLevel && inp.getBlockState(x, y + 1, z) == SEA_WATER ||
+                                y < seaLevel && inp.getBlockState(x, y + 1, z) == SEA_WATER)
                         {
                             if (biome != BiomesTFC.SWAMPLAND || biome != BiomesTFC.BAYOU || biome != BiomesTFC.MANGROVE || biome != BiomesTFC.MARSH) // Most areas have gravel and sand bottoms
                             {
@@ -1181,7 +1179,7 @@ public class ChunkGenTFC implements IChunkGenerator
                     {
                         outp.setBlockState(x, y + yOffset, z, TANNIN);
                     }*/
-                    else if (inp.getBlockState(x, y, z) == SALT_WATER && !(BiomesTFC.isOceanicBiome(biome) || BiomesTFC.isBeachBiome(biome)))
+                    else if (inp.getBlockState(x, y, z) == SEA_WATER && !(BiomesTFC.isOceanicBiome(biome) || BiomesTFC.isBeachBiome(biome)))
                     {
                         outp.setBlockState(x, y + yOffset, z, WATER);
                     }
@@ -1207,7 +1205,7 @@ public class ChunkGenTFC implements IChunkGenerator
 
                         if (BiomesTFC.isBeachBiome(biome) || BiomesTFC.isOceanicBiome(biome))
                         {
-                            if (outp.getBlockState(x, y + 1, z) == SALT_WATER)
+                            if (outp.getBlockState(x, y + 1, z) == SEA_WATER)
                             {
                                 outp.setBlockState(x, y, z, BlockRockVariant.get(rock1, Type.SAND).getDefaultState());
                                 outp.setBlockState(x, y - 1, z,

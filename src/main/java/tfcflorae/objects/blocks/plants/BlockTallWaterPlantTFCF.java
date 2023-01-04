@@ -7,10 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -20,21 +17,17 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
-import net.minecraftforge.common.property.IUnlistedProperty;
-import net.minecraftforge.fluids.Fluid;
+import net.minecraft.world.World;;
 
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.util.OreDictionaryHelper;
 
-import static net.minecraft.block.BlockLiquid.LEVEL;
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 @ParametersAreNonnullByDefault
 public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGrowable, ITallPlant
@@ -47,10 +40,9 @@ public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGro
         return BlockTallWaterPlantTFCF.MAP.get(plant);
     }
 
-    public BlockTallWaterPlantTFCF(Fluid fluid, Plant plant)
+    public BlockTallWaterPlantTFCF(Plant plant)
     {
-        super(fluid, plant);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 0));
+        super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 
         plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
@@ -63,8 +55,8 @@ public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGro
         int i;
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
-        if (water == SALT_WATER)
-            return i < plant.getMaxHeight() && BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
+        if (water == SEA_WATER)
+            return i < plant.getMaxHeight() && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
         else
             return i < plant.getMaxHeight() && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
     }
@@ -191,8 +183,6 @@ public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGro
     protected BlockStateContainer createPlantBlockState()
     {
         return new BlockStateContainer.Builder(this)
-            .add(LEVEL)
-            .add(FLUID_RENDER_PROPS.toArray(new IUnlistedProperty<?>[0]))
             .add(growthStageProperty)
             .add(DAYPERIOD)
             .add(AGE)

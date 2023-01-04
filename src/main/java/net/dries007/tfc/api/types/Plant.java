@@ -23,8 +23,6 @@ import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
-
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public class Plant extends IForgeRegistryEntry.Impl<Plant>
 {
@@ -263,7 +261,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
     {
         if (plantType == PlantType.FLOATING_SEA || plantType == PlantType.WATER_SEA || plantType == PlantType.TALL_WATER_SEA || plantType == PlantType.EMERGENT_TALL_WATER_SEA)
         {
-            return SALT_WATER;
+            return ChunkGenTFC.SEA_WATER;
         }
         else
         {
@@ -306,7 +304,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
-                return EnumPlantTypeTFC.SALT_WATER;
+                return EnumPlantTypeTFC.SEA_WATER;
             default:
                 if (isClayMarking) return EnumPlantTypeTFC.CLAY;
                 else return EnumPlantTypeTFC.NONE;
@@ -428,7 +426,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         FRESH_BEACH,
         SALT_BEACH,
         WATER,
-        SALT_WATER,
+        SEA_WATER,
         NONE;
 
         public String toString()

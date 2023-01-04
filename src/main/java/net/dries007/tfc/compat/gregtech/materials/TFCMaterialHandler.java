@@ -1,6 +1,7 @@
 package net.dries007.tfc.compat.gregtech.materials;
 
 import gregtech.api.GregTechAPI;
+import gregtech.api.fluids.fluidType.FluidTypes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
@@ -240,9 +241,8 @@ public class TFCMaterialHandler {
         Glowstone.setProperty(PropertyKey.ORE, new OreProperty(1, 1, true));
 
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
-        SaltWater.setMaterialRGB(0xFF1F5099);
-        Bismuth.addFlags(GENERATE_PLATE);
 
+        Bismuth.addFlags(GENERATE_PLATE);
         // TFC
 
         // All TFC Materials has USABLE_MATERIALS

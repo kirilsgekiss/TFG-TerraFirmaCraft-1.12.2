@@ -30,7 +30,7 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 @ParametersAreNonnullByDefault
 public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowable, ITallPlant
@@ -56,8 +56,8 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
         int i;
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
-        if (water == SALT_WATER)
-            return i < plant.getMaxHeight() && BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
+        if (water == SEA_WATER)
+            return i < plant.getMaxHeight() && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
         else
             return i < plant.getMaxHeight() && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
     }

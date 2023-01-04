@@ -262,7 +262,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
 
         if (state.getBlock() == this)
         {
-            return (BlocksTFC.isGround(soil) || BlocksTFCF.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSaltWater(soil) || BlocksTFC.isFreshWater(soil));
+            return (BlocksTFC.isGround(soil) || BlocksTFCF.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil));
         }
         return this.canSustainBush(soil);
     }

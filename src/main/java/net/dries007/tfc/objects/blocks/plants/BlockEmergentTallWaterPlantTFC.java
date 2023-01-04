@@ -19,7 +19,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 @ParametersAreNonnullByDefault
 public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC implements ITallPlant
@@ -44,8 +44,8 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
         int i;
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
-        if (water == SALT_WATER)
-            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
+        if (water == SEA_WATER)
+            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
         else
             return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
     }
@@ -70,8 +70,8 @@ public class BlockEmergentTallWaterPlantTFC extends BlockTallWaterPlantTFC imple
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        if (plant.getWaterType() == SALT_WATER)
-            return (soil.getBlock() == this || BlocksTFC.isSaltWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
+        if (plant.getWaterType() == SEA_WATER)
+            return (soil.getBlock() == this || BlocksTFC.isSeaWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
         return (soil.getBlock() == this || BlocksTFC.isWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
     }
 

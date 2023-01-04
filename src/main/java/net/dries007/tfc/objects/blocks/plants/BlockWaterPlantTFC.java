@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 // todo: either pull some trickery to make this look like water or simply wait until 1.13 and implement ILiquidContainer
 @ParametersAreNonnullByDefault
@@ -40,8 +40,8 @@ public class BlockWaterPlantTFC extends BlockPlantTFC
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        if (plant.getWaterType() == SALT_WATER)
-            return BlocksTFC.isSaltWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
+        if (plant.getWaterType() == SEA_WATER)
+            return BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
         return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
     }
 

@@ -7,6 +7,6 @@
   "mixins": [
       "gregtech.IStoneTypeAccessor",
       "gregtech.StoneTypeMixin",
-      "gregtech.BlockOreMixin",
+      "gregtech.BlockOreMixin"
   ]
 }

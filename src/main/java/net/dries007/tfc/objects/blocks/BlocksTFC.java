@@ -54,7 +54,6 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.types.Rock.Type.*;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = MOD_ID)
@@ -325,7 +324,7 @@ public final class BlocksTFC
         inventoryItemBlocks.add(new ItemBlockTFC(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_MISC)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SALT_WATER.get()), CT_MISC)));
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
 
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
         normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
@@ -355,7 +354,7 @@ public final class BlocksTFC
             b.add(
                     register(r, "fluid/hot_water", new BlockFluidHotWater()),
                     register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/salt_water", new BlockFluidWater(FluidsTFC.SALT_WATER.get(), Material.WATER, true))
+                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true))
             );
             for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids())
             {
@@ -807,9 +806,9 @@ public final class BlocksTFC
         return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
     }
 
-    public static boolean isSaltWater(IBlockState current)
+    public static boolean isSeaWater(IBlockState current)
     {
-        return current == FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
+        return current == FluidsTFC.SEA_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isFreshWaterOrIce(IBlockState current)

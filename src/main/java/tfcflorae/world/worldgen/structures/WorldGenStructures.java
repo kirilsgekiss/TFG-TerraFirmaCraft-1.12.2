@@ -32,7 +32,7 @@ public class WorldGenStructures implements IWorldGenerator
 
             if (ConfigTFCF.General.STRUCTURES.activateStructureGeneration)
             {
-				if (!(world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.LAKE || b == BiomesTFC.RIVER || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
+				if (!(world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.LAKE || b == BiomesTFC.RIVER || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
 				{
 					if (data.isInitialized() && data.getRainfall() >= 100f && random.nextInt(ConfigTFCF.General.STRUCTURES.spawnChanceRuins) == 0)
 					{

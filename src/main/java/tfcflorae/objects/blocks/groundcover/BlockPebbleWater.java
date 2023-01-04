@@ -41,7 +41,6 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
@@ -49,7 +48,7 @@ import net.dries007.tfc.objects.items.rock.ItemRock;
 
 import tfcflorae.util.OreDictionaryHelper;
 
-import static net.dries007.tfc.world.classic.ChunkGenTFC.SALT_WATER;
+import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
@@ -107,8 +106,8 @@ public class BlockPebbleWater extends BlockFluidTFC implements IItemSize
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
-        if (this.getFluid() == SALT_WATER)
-            return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && worldIn.getBlockState(pos.down()).isFullBlock() && BlocksTFC.isSaltWater(worldIn.getBlockState(pos)) && BlocksTFC.isSaltWater(worldIn.getBlockState(pos.up())) && !worldIn.isAirBlock(pos.up());
+        if (this.getFluid() == SEA_WATER)
+            return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && worldIn.getBlockState(pos.down()).isFullBlock() && BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) && !worldIn.isAirBlock(pos.up());
         else if (this.getFluid() == WATER)
             return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && worldIn.getBlockState(pos.down()).isFullBlock() && BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up())) && !worldIn.isAirBlock(pos.up());
         else

@@ -137,7 +137,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((BlocksTFC.isGround(down) || BlocksTFCF.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SALT_WATER.getBlock()) && b1 == BiomesTFC.MANGROVE)
+                if ((BlocksTFC.isGround(down) || BlocksTFCF.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == BiomesTFC.MANGROVE)
                 {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.MANGROVE).isValidLocation(avgTemperature, rainfall, density))
                     if (15f <= avgTemperature && 40f >= avgTemperature && 200f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8)

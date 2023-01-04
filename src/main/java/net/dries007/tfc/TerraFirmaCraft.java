@@ -50,8 +50,6 @@ import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
 
 import static net.dries007.tfc.TerraFirmaCraft.DEPENDENCIES;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static net.dries007.tfc.util.forge.ForgeRule.*;
-import static net.dries007.tfc.util.skills.SmithingSkill.Type.GENERAL;
 
 @SuppressWarnings("FieldMayBeFinal")
 @Mod.EventBusSubscriber

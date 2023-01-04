@@ -292,9 +292,9 @@ public class StructureGenerator extends WorldGenerator
 		final Biome b2 = world.getBiome(x2);
 		final Biome b3 = world.getBiome(x3);
 
-		if ((world.getBlockState(x1).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b1 == BiomesTFC.OCEAN || b1 == BiomesTFC.DEEP_OCEAN || b1 == BiomesTFC.LAKE || b1 == BiomesTFC.RIVER || b1 == BiomesTFC.BEACH || b1 == BiomesTFC.GRAVEL_BEACH) ||
-		(world.getBlockState(x2).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b2 == BiomesTFC.OCEAN || b2 == BiomesTFC.DEEP_OCEAN || b2 == BiomesTFC.LAKE || b2 == BiomesTFC.RIVER || b2 == BiomesTFC.BEACH || b2 == BiomesTFC.GRAVEL_BEACH) ||
-		(world.getBlockState(x3).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b3 == BiomesTFC.OCEAN || b3 == BiomesTFC.DEEP_OCEAN || b3 == BiomesTFC.LAKE || b3 == BiomesTFC.RIVER || b3 == BiomesTFC.BEACH || b3 == BiomesTFC.GRAVEL_BEACH))
+		if ((world.getBlockState(x1).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b1 == BiomesTFC.OCEAN || b1 == BiomesTFC.DEEP_OCEAN || b1 == BiomesTFC.LAKE || b1 == BiomesTFC.RIVER || b1 == BiomesTFC.BEACH || b1 == BiomesTFC.GRAVEL_BEACH) ||
+		(world.getBlockState(x2).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b2 == BiomesTFC.OCEAN || b2 == BiomesTFC.DEEP_OCEAN || b2 == BiomesTFC.LAKE || b2 == BiomesTFC.RIVER || b2 == BiomesTFC.BEACH || b2 == BiomesTFC.GRAVEL_BEACH) ||
+		(world.getBlockState(x3).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b3 == BiomesTFC.OCEAN || b3 == BiomesTFC.DEEP_OCEAN || b3 == BiomesTFC.LAKE || b3 == BiomesTFC.RIVER || b3 == BiomesTFC.BEACH || b3 == BiomesTFC.GRAVEL_BEACH))
 			return false;
 
 		return true;
@@ -314,7 +314,7 @@ public class StructureGenerator extends WorldGenerator
 		BlockPos pos = new BlockPos(x, y - 1, z);
 
 		//Not accepted positions
-		if (world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock())
+		if (world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock())
         {	
 			y = -99;
 		}

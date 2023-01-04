@@ -279,7 +279,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 		BlockPos pos = new BlockPos(x, y, z);
 
 		//Not accepted positions
-		if (world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SALT_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock())
+		if (world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock())
         {	
 			y = -99;
 		}

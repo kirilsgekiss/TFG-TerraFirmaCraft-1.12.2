@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -844,20 +845,20 @@ public final class BlocksTFCF
         }*/
 
         // Normal Corals
-        plantCoral.add(register(r, "coral/tube/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/brain/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/bubble/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fire/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/horn/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/tube/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/brain/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/bubble/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fire/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/horn/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {
             
-            BlockCoral brainNormal = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubbleNormal = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fireNormal = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral hornNormal = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tubeNormal = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral brainNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral bubbleNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral fireNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral hornNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral tubeNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
 
             plantCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
             plantCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
@@ -873,19 +874,19 @@ public final class BlocksTFCF
         }
 
         // Fan Corals
-        plantCoral.add(register(r, "coral/fan/tube/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/brain/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/bubble/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/fire/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/horn/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/tube/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/brain/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/bubble/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/fire/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/horn/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {
-            BlockCoral brainFan = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubbleFan = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fireFan = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral hornFan = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tubeFan = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral brainFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral bubbleFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral fireFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral hornFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral tubeFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
 
             plantCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
             plantCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
@@ -933,7 +934,7 @@ public final class BlocksTFCF
         }
 
         {
-            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new BlockWaterGlowPlant(FluidsTFC.SALT_WATER.get()), CT_FLORA));
+            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new BlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
         }
         allGlowWaterPlants = plantGlowWater.build();
         for (BlockWaterGlowPlant plantGlowWaterBlock : allGlowWaterPlants)
@@ -982,19 +983,19 @@ public final class BlocksTFCF
             {
                 if (plant.getPlantType() == Plant.PlantType.WATER)
                 {
-                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockWaterPlantTFCF(FluidsTFC.FRESH_WATER.get(), plant), CT_FLORA));
+                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockWaterPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.WATER_SEA)
                 {
-                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockWaterPlantTFCF(FluidsTFC.SALT_WATER.get(), plant), CT_FLORA));
+                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockWaterPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.TALL_WATER)
                 {
-                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallWaterPlantTFCF(FluidsTFC.FRESH_WATER.get(), plant), CT_FLORA));
+                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallWaterPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.TALL_WATER_SEA)
                 {
-                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallWaterPlantTFCF(FluidsTFC.SALT_WATER.get(), plant), CT_FLORA));
+                    plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallWaterPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.HANGING && (
                     plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) || 

@@ -364,7 +364,7 @@ public final class CommonEventHandler
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSaltWater(waterState);
+                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSeaWater(waterState);
                 if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
                 {
                     //Simulated so client will check if he would drink before updating stats
@@ -756,7 +756,7 @@ public final class CommonEventHandler
             {
                 // Prevents squids spawning outside of salt water (eg: oceans)
                 Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
-                if (FluidsTFC.SALT_WATER.get() != fluid)
+                if (FluidsTFC.SEA_WATER.get() != fluid)
                 {
                     event.setResult(Event.Result.DENY);
                 }
