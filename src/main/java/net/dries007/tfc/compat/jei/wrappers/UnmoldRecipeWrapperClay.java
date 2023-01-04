@@ -17,7 +17,7 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.dries007.tfc.objects.items.ceramics.ItemMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 
 public class UnmoldRecipeWrapperClay implements IRecipeWrapper
 {
@@ -26,11 +26,11 @@ public class UnmoldRecipeWrapperClay implements IRecipeWrapper
 
     public UnmoldRecipeWrapperClay(Material material, OrePrefix orePrefix)
     {
-        mold = new ItemStack(ItemMold.get(orePrefix));
+        mold = new ItemStack(ItemClayMold.get(orePrefix));
         IFluidHandler cap = mold.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (cap instanceof IMaterialHandler)
         {
-            cap.fill(new FluidStack(material.getFluid(), ItemMold.get(orePrefix).moldCapacity), true);
+            cap.fill(new FluidStack(material.getFluid(), ItemClayMold.get(orePrefix).moldCapacity), true);
         }
         output = OreDictUnifier.get(orePrefix, material);
     }

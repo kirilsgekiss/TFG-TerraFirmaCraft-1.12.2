@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import net.dries007.tfc.objects.items.ceramics.ItemSmallVessel;
+import net.dries007.tfc.objects.items.ceramics.fired.ItemSmallVessel;
 
 @ParametersAreNonnullByDefault
 public class HeatRecipeVessel extends HeatRecipe

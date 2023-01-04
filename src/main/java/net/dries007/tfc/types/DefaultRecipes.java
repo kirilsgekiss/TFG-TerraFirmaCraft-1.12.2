@@ -17,8 +17,8 @@ import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
-import net.dries007.tfc.objects.items.ceramics.ItemMold;
-import net.dries007.tfc.objects.items.ceramics.ItemUnfiredMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
+import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -276,7 +276,7 @@ public final class DefaultRecipes
             if (extendedOrePrefix.isHasMold())
             {
                 int amount = extendedOrePrefix.getOrePrefix() == OrePrefix.ingot ? 2 : 1;
-                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredMold.get(extendedOrePrefix.getOrePrefix()), amount), extendedOrePrefix.getKnappingRecipe()).setRegistryName(extendedOrePrefix.getOrePrefix().name() + "_mold"));
+                event.getRegistry().register(new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemUnfiredClayMold.get(extendedOrePrefix.getOrePrefix()), amount), extendedOrePrefix.getKnappingRecipe()).setRegistryName(extendedOrePrefix.getOrePrefix().name() + "_mold"));
             }
         }
 
@@ -477,8 +477,8 @@ public final class DefaultRecipes
         {
             if (extendedOrePrefix.isHasMold())
             {
-                ItemUnfiredMold unfiredMold = ItemUnfiredMold.get(extendedOrePrefix.getOrePrefix());
-                ItemMold firedMold = ItemMold.get(extendedOrePrefix.getOrePrefix());
+                ItemUnfiredClayMold unfiredMold = ItemUnfiredClayMold.get(extendedOrePrefix.getOrePrefix());
+                ItemClayMold firedMold = ItemClayMold.get(extendedOrePrefix.getOrePrefix());
 
                 r.register(new HeatRecipeSimple(IIngredient.of(unfiredMold), new ItemStack(firedMold), 1599f).setRegistryName("fired_mold_" + extendedOrePrefix.getOrePrefix().name));
             }

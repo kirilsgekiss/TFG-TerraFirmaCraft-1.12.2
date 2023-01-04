@@ -13,7 +13,7 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 
-import tfcflorae.objects.items.ceramics.ItemEarthenwareMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 
 public class UnmoldRecipeWrapperEarthenware implements IRecipeWrapper
 {

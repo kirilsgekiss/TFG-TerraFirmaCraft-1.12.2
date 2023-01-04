@@ -61,9 +61,9 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of((Item) woodenBucketSweetSyrup), () -> new ItemHeatHandler(null, 2.1f, 480));*/
 
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(Items.CLAY_BALL), () -> new ItemHeatHandler(null, 1, 1599));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.EARTHENWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.KAOLINITE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.STONEWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.EARTHENWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.KAOLINITE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.STONEWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlockLogTFCF.get(TFCRegistries.TREES.getValue(TreesTFCF.EUCALYPTUS))), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.STRAW), () -> new ItemHeatHandler(null, 1, 30));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFCF.TWIG), () -> new ItemHeatHandler(null, 1, 50));

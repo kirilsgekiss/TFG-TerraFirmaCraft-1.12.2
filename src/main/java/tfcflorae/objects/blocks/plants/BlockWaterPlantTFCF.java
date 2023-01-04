@@ -9,6 +9,8 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import git.jbredwards.fluidlogged_api.api.block.BlockWaterloggedPlant;
+import git.jbredwards.fluidlogged_api.api.block.IFluidloggable;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.PropertyInteger;
@@ -49,12 +51,14 @@ import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
+import org.jetbrains.annotations.NotNull;
 import tfcflorae.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 @ParametersAreNonnullByDefault
-public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemSize, IPlantable
+@MethodsReturnNonnullByDefault
+public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemSize, IPlantable, IFluidloggable
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     /*
@@ -99,7 +103,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
 
     @SuppressWarnings("deprecation")
     @Override
-    @Nonnull
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(AGE, meta);
@@ -113,7 +116,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
 
     @SuppressWarnings("deprecation")
     @Override
-    @Nonnull
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
         return state.withProperty(DAYPERIOD, getDayPeriod()).withProperty(growthStageProperty, plant.getStageForMonth());
@@ -125,14 +127,12 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         return BlocksTFC.isGround(state) || (state.getBlock() == BlockTallWaterPlantTFCF.get(plant));
     }
 
-    @Nonnull
     @Override
     public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
     {
         return true;
     }
 
-    @Nonnull
     @Override
     public boolean isReplaceable(IBlockAccess world, BlockPos pos)
     {
@@ -140,7 +140,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     }
 
     @SuppressWarnings("deprecation")
-    @Nonnull
     @Override
     public boolean isOpaqueCube(IBlockState state)
     {
@@ -148,13 +147,13 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     }
 
     @SuppressWarnings("deprecation")
-    @Nonnull
     @Override
     public boolean isFullCube(IBlockState state)
     {
         return false;
     }
 
+    @SuppressWarnings("deprecation")
 	@Override
 	public boolean isBlockNormalCube(IBlockState blockState)
     {
@@ -163,13 +162,11 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
 
     @SuppressWarnings("deprecation")
     @Override
-    @Nonnull
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
     {
         return BlockFaceShape.UNDEFINED;
     }
 
-    @Nonnull
     @Override
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getRenderLayer()
@@ -229,8 +226,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         }
     }
 
-    @SuppressWarnings("deprecation")
-    @Nonnull
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
@@ -311,7 +306,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         }
     }
 
-    @Nonnull
     @Override
     public BlockStateContainer getBlockState()
     {
@@ -319,7 +313,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     }
 
     @Override
-    @Nonnull
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
@@ -330,14 +323,12 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         return plant;
     }
 
-    @Nonnull
     @Override
     public Size getSize(ItemStack stack)
     {
         return Size.TINY; // Store anywhere
     }
 
-    @Nonnull
     @Override
     public Weight getWeight(ItemStack stack)
     {
@@ -387,7 +378,6 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
 
     @SuppressWarnings("deprecation")
     @Override
-    @Nonnull
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
         return PLANT_AABB.offset(state.getOffset(source, pos));
@@ -418,13 +408,11 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         return getDefaultState();
     }
 
-    @Nonnull
     public Plant.EnumPlantTypeTFC getPlantTypeTFC()
     {
         return plant.getEnumPlantTypeTFC();
     }
 
-    @Nonnull
     protected BlockStateContainer createPlantBlockState()
     {
         return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE);
@@ -435,8 +423,7 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
 
-    @Nonnull
-	@Override
+    @Override
 	@SideOnly(Side.CLIENT)
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
     {
@@ -458,4 +445,9 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     {
 		return state.getBlock() instanceof BlockWaterPlantTFCF && super.canCollideCheck(state, fullHit);
 	}
+
+    @Override
+    public boolean isFluidloggable(@Nonnull IBlockState state, @Nonnull World world, @Nonnull BlockPos pos) {
+        return true;
+    }
 }

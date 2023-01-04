@@ -74,20 +74,6 @@ public class ClientRegisterEventsTFCF
     public static void registerModels(ModelRegistryEvent event)
     {
         // ITEMS
-
-        if (ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
-        {
-            ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_EARTHENWARE_JUG, 0, new ModelResourceLocation(ItemsTFCF.FIRED_EARTHENWARE_JUG.getRegistryName(), "inventory"));
-        }
-        if (ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
-        {
-            ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_KAOLINITE_JUG, 0, new ModelResourceLocation(ItemsTFCF.FIRED_KAOLINITE_JUG.getRegistryName(), "inventory"));
-        }
-        if (ConfigTFCF.General.WORLD.enableAllStonewareClay)
-        {
-            ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_STONEWARE_JUG, 0, new ModelResourceLocation(ItemsTFCF.FIRED_STONEWARE_JUG.getRegistryName(), "inventory"));
-        }
-
         for (Item item : ItemsTFCF.getAllSimpleItems())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
@@ -97,24 +83,7 @@ public class ClientRegisterEventsTFCF
         for (ItemFruitDoor item : ItemsTFCF.getAllFruitDoors())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
-        for (EnumDyeColor color : EnumDyeColor.values())
-        {
-            if (ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
-            {
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.UNFIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.UNFIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.FIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
-            }
-            if (ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
-            {
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.UNFIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.UNFIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.FIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
-            }
-            if (ConfigTFCF.General.WORLD.enableAllStonewareClay)
-            {
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.UNFIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.UNFIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
-                ModelLoader.setCustomModelResourceLocation(ItemsTFCF.FIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFCF.FIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
-            }
-        }
+
 
         for (ItemArmorTFCF item : ItemsTFCF.getAllArmorItems())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
@@ -236,82 +205,6 @@ public class ClientRegisterEventsTFCF
         ModelLoader.setCustomStateMapper(BlocksTFCF.CEYLON_CINNAMON_LOG, new StateMap.Builder().ignore(StatePropertiesTFCF.CAN_GROW).build());
         ModelLoader.setCustomStateMapper(BlocksTFCF.CEYLON_CINNAMON_LEAVES, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build());
         ModelLoader.setCustomStateMapper(BlocksTFCF.CEYLON_CINNAMON_SAPLING, new StateMap.Builder().ignore(BlockSaplingTFC.STAGE).build());
-
-        // Ceramic Molds
-        for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
-        {
-            if (extendedOrePrefix.isHasMold())
-            {
-                ItemEarthenwareMold earthenwareMold = ItemEarthenwareMold.get(extendedOrePrefix.getOrePrefix());
-                ItemKaoliniteMold kaoliniteMold = ItemKaoliniteMold.get(extendedOrePrefix.getOrePrefix());
-                ItemStonewareMold stonewareMold = ItemStonewareMold.get(extendedOrePrefix.getOrePrefix());
-
-                ModelBakery.registerItemVariants(earthenwareMold, new ModelResourceLocation(earthenwareMold.getRegistryName().toString() +  "_eathenware_empty"));
-                ModelBakery.registerItemVariants(kaoliniteMold, new ModelResourceLocation(kaoliniteMold.getRegistryName().toString() +  "_kaolinite_empty"));
-                ModelBakery.registerItemVariants(stonewareMold, new ModelResourceLocation(stonewareMold.getRegistryName().toString() +  "_stoneware_empty"));
-
-                ModelBakery.registerItemVariants(earthenwareMold, new ModelResourceLocation(earthenwareMold.getRegistryName().toString() +  "_eathenware_filled"));
-                ModelBakery.registerItemVariants(kaoliniteMold, new ModelResourceLocation(kaoliniteMold.getRegistryName().toString() +  "_kaolinite_filled"));
-                ModelBakery.registerItemVariants(stonewareMold, new ModelResourceLocation(stonewareMold.getRegistryName().toString() +  "_stoneware_filled"));
-
-                ModelLoader.setCustomMeshDefinition(earthenwareMold, new ItemMeshDefinition()
-                {
-                    @Override
-                    @Nonnull
-                    public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack)
-                    {
-                        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                        if (cap instanceof IMaterialHandler)
-                        {
-                            Material material = ((IMaterialHandler) cap).getMaterial();
-                            if (material != null)
-                            {
-                                return new ModelResourceLocation(earthenwareMold.getRegistryName().toString() + "_earthenware_filled");
-                            }
-                        }
-                        return new ModelResourceLocation(earthenwareMold.getRegistryName().toString() + "_earthenware_empty");
-                    }
-                });
-
-                ModelLoader.setCustomMeshDefinition(kaoliniteMold, new ItemMeshDefinition()
-                {
-                    @Override
-                    @Nonnull
-                    public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack)
-                    {
-                        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                        if (cap instanceof IMaterialHandler)
-                        {
-                            Material material = ((IMaterialHandler) cap).getMaterial();
-                            if (material != null)
-                            {
-                                return new ModelResourceLocation(kaoliniteMold.getRegistryName().toString() + "_kaolinite_filled");
-                            }
-                        }
-                        return new ModelResourceLocation(kaoliniteMold.getRegistryName().toString() + "_kaolinite_empty");
-                    }
-                });
-
-                ModelLoader.setCustomMeshDefinition(stonewareMold, new ItemMeshDefinition()
-                {
-                    @Override
-                    @Nonnull
-                    public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack)
-                    {
-                        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                        if (cap instanceof IMaterialHandler)
-                        {
-                            Material material = ((IMaterialHandler) cap).getMaterial();
-                            if (material != null)
-                            {
-                                return new ModelResourceLocation(stonewareMold.getRegistryName().toString() + "_stoneware_filled");
-                            }
-                        }
-                        return new ModelResourceLocation(stonewareMold.getRegistryName().toString() + "_stoneware_empty");
-                    }
-                });
-            }
-        }
     }
 
     @SuppressWarnings("deprecation")
@@ -333,25 +226,6 @@ public class ClientRegisterEventsTFCF
             tintIndex > 0 ? -1 : ((ItemArmorTFCF)stack.getItem()).getColor(stack),
             ItemsTFCF.getAllArmorItems().toArray(new ItemArmorTFCF[0]));
 
-        if (ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
-        {
-            itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFCF.UNFIRED_EARTHENWARE_VESSEL_GLAZED, ItemsTFCF.FIRED_EARTHENWARE_VESSEL_GLAZED);
-        }
-        if (ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
-        {
-            itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFCF.UNFIRED_KAOLINITE_VESSEL_GLAZED, ItemsTFCF.FIRED_KAOLINITE_VESSEL_GLAZED);
-        }
-        if (ConfigTFCF.General.WORLD.enableAllStonewareClay)
-        {
-            itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFCF.UNFIRED_STONEWARE_VESSEL_GLAZED, ItemsTFCF.FIRED_STONEWARE_VESSEL_GLAZED);
-        }
-
-        if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
-        {
-        }
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
@@ -403,6 +277,7 @@ public class ClientRegisterEventsTFCF
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
             BlocksTFCF.getAllCreepingPlantBlocks().toArray(new BlockCreepingPlantTFCF[0]));*/
 
+        /*
         for (Item item : ItemsTFCF.getAllCeramicMoldItems())
         {
             // Colorize item molds
@@ -422,7 +297,7 @@ public class ClientRegisterEventsTFCF
                 }
                 return 0xFFFFFF;
             }, item);
-        }
+        }*/
     }
 
     @SideOnly(Side.CLIENT)

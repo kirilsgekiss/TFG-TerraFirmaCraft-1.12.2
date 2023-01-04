@@ -19,15 +19,14 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.gui.*;
 import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
 import net.dries007.tfc.objects.container.*;
 import net.dries007.tfc.objects.items.ItemQuiver;
-import net.dries007.tfc.objects.items.ceramics.ItemMold;
-import net.dries007.tfc.objects.items.ceramics.ItemSmallVessel;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
+import net.dries007.tfc.objects.items.ceramics.fired.ItemSmallVessel;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.util.Helpers;
@@ -77,7 +76,7 @@ public class TFCGuiHandler implements IGuiHandler
             case SMALL_VESSEL_LIQUID:
                 return new ContainerLiquidTransfer(player.inventory, stack.getItem() instanceof ItemSmallVessel ? stack : player.getHeldItemOffhand());
             case MOLD:
-                return new ContainerLiquidTransfer(player.inventory, stack.getItem() instanceof ItemMold ? stack : player.getHeldItemOffhand());
+                return new ContainerLiquidTransfer(player.inventory, stack.getItem() instanceof ItemClayMold ? stack : player.getHeldItemOffhand());
             case FIRE_PIT:
                 //noinspection ConstantConditions
                 return new ContainerFirePit(player.inventory, Helpers.getTE(world, pos, TEFirePit.class));
@@ -149,7 +148,7 @@ public class TFCGuiHandler implements IGuiHandler
             case SMALL_VESSEL_LIQUID:
                 return new GuiLiquidTransfer(container, player, player.getHeldItemMainhand().getItem() instanceof ItemSmallVessel);
             case MOLD:
-                return new GuiLiquidTransfer(container, player, player.getHeldItemMainhand().getItem() instanceof ItemMold);
+                return new GuiLiquidTransfer(container, player, player.getHeldItemMainhand().getItem() instanceof ItemClayMold);
             case FIRE_PIT:
                 return new GuiFirePit(container, player.inventory, Helpers.getTE(world, pos, TEFirePit.class));
             case BARREL:

@@ -10,7 +10,6 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.objects.recipes.UnmoldRecipe;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -32,7 +31,7 @@ import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.recipes.RecipeUtils;
-import tfcflorae.objects.items.ceramics.ItemEarthenwareMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 
 import static net.dries007.tfc.api.capability.heat.CapabilityItemHeat.ITEM_HEAT_CAPABILITY;
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;

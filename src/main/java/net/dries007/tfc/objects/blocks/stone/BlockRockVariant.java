@@ -15,6 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.TFCSounds;
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockGrassPath;
@@ -812,7 +813,7 @@ public class BlockRockVariant extends Block implements IItemSize {
             case SPARSE_SILTY_EARTHENWARE_CLAY_GRASS:
             case SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS:
             case SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS:
-                return ItemsTFCF.EARTHENWARE_CLAY;
+                return ItemsTFC.EARTHENWARE_CLAY;
             case KAOLINITE_CLAY:
             case SANDY_KAOLINITE_CLAY_LOAM:
             case COARSE_SANDY_KAOLINITE_CLAY_LOAM:
@@ -854,7 +855,7 @@ public class BlockRockVariant extends Block implements IItemSize {
             case SPARSE_SILTY_KAOLINITE_CLAY_GRASS:
             case SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS:
             case SPARSE_KAOLINITE_CLAY_HUMUS_GRASS:
-                return ItemsTFCF.KAOLINITE_CLAY;
+                return ItemsTFC.KAOLINITE_CLAY;
             case STONEWARE_CLAY:
             case SANDY_STONEWARE_CLAY_LOAM:
             case COARSE_SANDY_STONEWARE_CLAY_LOAM:
@@ -896,7 +897,7 @@ public class BlockRockVariant extends Block implements IItemSize {
             case SPARSE_SILTY_STONEWARE_CLAY_GRASS:
             case SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS:
             case SPARSE_STONEWARE_CLAY_HUMUS_GRASS:
-                return ItemsTFCF.STONEWARE_CLAY;
+                return ItemsTFC.STONEWARE_CLAY;
             default:
                 return super.getItemDropped(state, rand, fortune);
             case GRASS:

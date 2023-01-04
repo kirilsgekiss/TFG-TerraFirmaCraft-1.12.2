@@ -13,7 +13,7 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 
-import tfcflorae.objects.items.ceramics.ItemKaoliniteMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 
 public class UnmoldRecipeWrapperKaolinite implements IRecipeWrapper
 {

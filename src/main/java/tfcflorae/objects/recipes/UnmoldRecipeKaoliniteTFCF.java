@@ -31,7 +31,7 @@ import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.recipes.RecipeUtils;
-import tfcflorae.objects.items.ceramics.ItemKaoliniteMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 
 import static net.dries007.tfc.api.capability.heat.CapabilityItemHeat.ITEM_HEAT_CAPABILITY;
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;

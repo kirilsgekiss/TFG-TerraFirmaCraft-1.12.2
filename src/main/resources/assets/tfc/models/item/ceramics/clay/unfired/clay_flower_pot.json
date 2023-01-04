@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tfc:items/ceramics/clay/unfired/clay_flower_pot"
+  }
+}
