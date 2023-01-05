@@ -5,6 +5,7 @@
 
 package net.dries007.tfc;
 
+import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.types.DefaultRecipes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -112,7 +113,7 @@ public final class TerraFirmaCraft
     {
         log.debug("If you can see this, debug logging is working :)");
 
-        // TFCMetaItem.init();
+        TFCMetaItem.init();
 
         // No need to sync config here, forge magic
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new TFCGuiHandler());
@@ -200,6 +201,8 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        DefaultRecipes.registerVanillaRecipes();
+
         DefaultRecipes.registerAnvilRecipes();
         DefaultRecipes.registerWeldingRecipes();
 

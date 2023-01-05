@@ -10,12 +10,17 @@ import java.util.stream.Collectors;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
+import gregtech.api.recipes.GTRecipeHandler;
+import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
+import mezz.jei.api.ingredients.IIngredientBlacklist;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
@@ -55,6 +60,8 @@ import net.dries007.tfc.objects.recipes.SaltingRecipe;
 import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
+
+import static gregtech.api.recipes.RecipeMaps.MACERATOR_RECIPES;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
@@ -123,6 +130,21 @@ public final class TFCJEIPlugin implements IModPlugin
     public void register(IModRegistry registry)
     {
         REGISTRY = registry;
+
+        // Hide TFC Ores in HEI
+        IIngredientBlacklist blacklist = registry.getJeiHelpers().getIngredientBlacklist();
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
 
         // Recipe Catalysts
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.QUERN), QUERN_UID);

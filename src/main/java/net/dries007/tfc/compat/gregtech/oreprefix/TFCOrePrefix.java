@@ -23,7 +23,7 @@ public class TFCOrePrefix {
     public static final OrePrefix toolHeadPropick = new OrePrefix("toolHeadPropick", M * 3, null, TFCMaterialIconType.toolHeadPropick, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix toolHeadChisel = new OrePrefix("toolHeadChisel", M * 2, null, TFCMaterialIconType.toolHeadChisel, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix toolHeadJavelin = new OrePrefix("toolHeadJavelin", M * 3, null, TFCMaterialIconType.toolHeadJavelin, ENABLE_UNIFICATION, hasToolProperty);
-    public static final OrePrefix tuyere = new OrePrefix("toolHeadTuyere", M * 6, null, TFCMaterialIconType.toolHeadTuyere, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix tuyere = new OrePrefix("toolHeadTuyere", M * 6, null, TFCMaterialIconType.toolHeadTuyere, ENABLE_UNIFICATION, hasNoCraftingToolProperty);
     public static final OrePrefix oreChunk = new OrePrefix("oreChunk", -1, null, TFCMaterialIconType.oreChunk, ENABLE_UNIFICATION, hasOreProperty);
 
     public static final OrePrefix ingotDouble = new OrePrefix("ingotDouble", M * 2, null, MaterialIconType.ingotDouble, ENABLE_UNIFICATION, hasTFCProperty);
