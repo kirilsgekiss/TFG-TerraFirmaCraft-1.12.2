@@ -1,7 +1,6 @@
 package net.dries007.tfc.compat.gregtech.materials;
 
 import gregtech.api.GregTechAPI;
-import gregtech.api.fluids.fluidType.FluidTypes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
@@ -240,6 +239,7 @@ public class TFCMaterialHandler {
         NaquadahEnriched.setProperty(PropertyKey.ORE, new OreProperty());
         Glowstone.setProperty(PropertyKey.ORE, new OreProperty(1, 1, true));
 
+        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(3f, 1f, 5, 1, false));
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
 
         Bismuth.addFlags(GENERATE_PLATE);

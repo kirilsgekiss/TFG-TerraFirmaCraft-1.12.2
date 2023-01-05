@@ -1,4 +1,4 @@
-package net.dries007.tfc.mixins.gregtech;
+package net.dries007.tfc.mixins.gregtech.stonetypes;
 
 import gregtech.api.unification.ore.StoneType;
 import gregtech.api.util.GTControlledRegistry;

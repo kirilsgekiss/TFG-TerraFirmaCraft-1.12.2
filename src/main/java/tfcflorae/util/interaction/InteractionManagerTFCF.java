@@ -27,7 +27,6 @@ import net.dries007.tfc.util.interaction.*;
 import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.devices.BlockStickBundle;
-import tfcflorae.objects.te.TEPowder;
 import tfcflorae.util.OreDictionaryHelper;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
@@ -255,20 +254,5 @@ public final class InteractionManagerTFCF
     {
         USE_ACTIONS.put(predicate, minorAction);
         RIGHT_CLICK_ACTIONS.put(predicate, minorAction);
-    }
-
-    private EnumActionResult placeBlock(World world, BlockPos pos, EnumFacing facing)
-    {
-        TEPowder tile = Helpers.getTE(world, pos, TEPowder.class);
-        if (tile != null && !tile.getFace(facing))
-        {
-            if (!world.isRemote)
-            {
-                tile.setFace(facing, true);
-                world.playSound(null, pos.offset(facing), SoundEvents.BLOCK_GRAVEL_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
-            return EnumActionResult.SUCCESS;
-        }
-        return EnumActionResult.FAIL;
     }
 }

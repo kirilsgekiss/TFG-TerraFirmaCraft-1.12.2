@@ -13,6 +13,7 @@ import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.items.MetaItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
@@ -50,7 +51,6 @@ import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.objects.items.rock.ItemRockKnife;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
 import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
@@ -166,7 +166,7 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), WELDING_UID);
             }
         }
-        TFCRegistries.ROCK_CATEGORIES.forEach(category -> registry.addRecipeCatalyst(new ItemStack(ItemRockKnife.get(category)), SCRAPING_UID));
+        registry.addRecipeCatalyst(MetaItems.KNIFE.getStackForm(), SCRAPING_UID);
 
         // Wrappers
 

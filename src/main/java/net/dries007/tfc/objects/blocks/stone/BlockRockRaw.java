@@ -28,8 +28,6 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
-import net.dries007.tfc.objects.Gem;
-import net.dries007.tfc.objects.items.ItemGem;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -129,7 +127,7 @@ public class BlockRockRaw extends BlockRockVariant
         // Raw rocks drop random gems
         if (RANDOM.nextDouble() < ConfigTFC.General.MISC.stoneGemDropChance)
         {
-            drops.add(ItemGem.get(Gem.getRandomDropGem(RANDOM), Gem.Grade.randomGrade(RANDOM), 1));
+            //drops.add(ItemGem.get(Gem.getRandomDropGem(RANDOM), Gem.Grade.randomGrade(RANDOM), 1));
         }
     }
 

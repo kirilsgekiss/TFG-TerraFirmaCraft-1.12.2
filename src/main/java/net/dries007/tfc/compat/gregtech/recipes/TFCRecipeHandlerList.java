@@ -5,5 +5,6 @@ public class TFCRecipeHandlerList {
     public static void register()
     {
         TFCOreRecipeHandler.register();
+        TFCToolsRecipeHandler.register();
     }
 }

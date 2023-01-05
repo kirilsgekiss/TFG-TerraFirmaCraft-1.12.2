@@ -34,12 +34,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.objects.Gem;
 import net.dries007.tfc.objects.blocks.devices.BlockSluice;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.items.ItemGem;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
@@ -84,6 +81,7 @@ public class TESluice extends TEBase implements ITickable
                     }
                     else if (Constants.RNG.nextDouble() < ConfigTFC.Devices.SLUICE.gemChance)
                     {
+                        /*
                         ChunkDataTFC chunkData = getChunkData(false);
                         if (chunkData != null)
                         {
@@ -99,7 +97,7 @@ public class TESluice extends TEBase implements ITickable
                             Gem.Grade grade = Gem.Grade.randomGrade(Constants.RNG);
                             Helpers.spawnItemStack(world, getFrontWaterPos(), ItemGem.get(dropGem, grade, 1));
                             chunkData.addWork(3);
-                        }
+                        }*/
                     }
                     consumeSoil();
                 }

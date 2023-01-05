@@ -46,7 +46,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockDoorTFC;
@@ -59,7 +58,6 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
 import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.objects.items.rock.ItemRockToolHead;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.objects.items.wood.ItemDoorTFC;
 import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
@@ -243,9 +241,6 @@ public final class ItemsTFC
 
     public static final ItemTFC HALTER = getNull();
 
-    @GameRegistry.ObjectHolder("powder/salt")
-    public static final ItemPowder SALT = getNull();
-
     @GameRegistry.ObjectHolder("quiver")
     public static final ItemQuiver QUIVER = getNull();
 
@@ -287,17 +282,10 @@ public final class ItemsTFC
     public static final Item WOOD_ASH = getNull();
 
     private static ImmutableList<Item> allSimpleItems;
-    private static ImmutableList<ItemGem> allGemItems;
 
     public static ImmutableList<Item> getAllSimpleItems()
     {
         return allSimpleItems;
-    }
-
-
-    public static ImmutableList<ItemGem> getAllGemItems()
-    {
-        return allGemItems;
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -344,19 +332,14 @@ public final class ItemsTFC
         simpleItems.add(register(r, "stick_bundle", new ItemMisc(Size.VERY_LARGE, Weight.MEDIUM, "log_wood", "stick_bundle"), CT_WOOD));
         simpleItems.add(register(r, "wood_ash", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_WOOD));
 
+        /*
         for (RockCategory cat : TFCRegistries.ROCK_CATEGORIES.getValuesCollection())
         {
             for (Rock.ToolType type : Rock.ToolType.values())
             {
-                simpleItems.add(register(r, "stone/" + type.name().toLowerCase() + "/" + cat.getRegistryName().getPath(), type.create(cat), CT_ROCK_ITEMS));
-                simpleItems.add(register(r, "stone/" + type.name().toLowerCase() + "_head/" + cat.getRegistryName().getPath(), new ItemRockToolHead(cat, type), CT_ROCK_ITEMS));
+                //simpleItems.add(register(r, "stone/" + type.name().toLowerCase() + "/" + cat.getRegistryName().getPath(), type.create(cat), CT_ROCK_ITEMS));
             }
-        }
-
-        for (Powder powder : Powder.values())
-        {
-            simpleItems.add(register(r, "powder/" + powder.name().toLowerCase(), new ItemPowder(powder), CT_MISC));
-        }
+        }*/
 
         // METAL
         {

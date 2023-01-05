@@ -25,7 +25,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.objects.CreativeTabsTFC;
-import net.dries007.tfc.objects.Powder;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
@@ -289,7 +288,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
     private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
-    private static ImmutableList<BlockRockVariant> allBlockRockVariantsTFCF = Helpers.getNull();
     private static ImmutableList<BlockWallTFCF> allWallBlocks = Helpers.getNull();
     private static ImmutableList<BlockStairsTFCF> allStairBlocks = Helpers.getNull();
     private static ImmutableList<BlockSlabTFC.Half> allSlabBlocksTFC = Helpers.getNull();
@@ -326,7 +324,7 @@ public final class BlocksTFCF
     private static ImmutableList<BlockJoshuaTreeFlower> allJoshuaTreeFlowerBlocks = Helpers.getNull();
     private static ImmutableList<BlockJoshuaTreeLog> allJoshuaTreeLogBlocks = Helpers.getNull();
     private static ImmutableList<BlockJoshuaTreeSapling> allJoshuaTreeSaplingBlocks = Helpers.getNull();
-    private static ImmutableList<BlockPowder> allPowders;
+
     //private static ImmutableList<MultiBlockBase> allMultiBlocks = Helpers.getNull();
 
     public static String[] bamboo = {"arrow_bamboo", "black_bamboo", "blue_bamboo", "dragon_bamboo", "golden_bamboo", "narrow_leaf_bamboo", "red_bamboo", "temple_bamboo", "thorny_bamboo", "timber_bamboo", "tinwa_bamboo", "weavers_bamboo"};
@@ -475,11 +473,6 @@ public final class BlocksTFCF
     public static ImmutableList<BlockBerryBush> getAllBerryBushBlocks()
     {
         return allBerryBushBlocks;
-    }
-
-    public static ImmutableList<BlockRockVariant> getAllBlockRockVariantsTFCF()
-    {
-        return allBlockRockVariantsTFCF;
     }
 
     public static ImmutableList<BlockWallTFCF> getAllWallBlocks()
@@ -657,11 +650,6 @@ public final class BlocksTFCF
         return allJoshuaTreeSaplingBlocks;
     }
 
-    public static ImmutableList<BlockPowder> getAllPowders()
-    {
-        return allPowders;
-    }
-
 
     /*public static ImmutableList<MultiBlockBase> getAllMultiBlocks()
     {
@@ -727,7 +715,6 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
         ImmutableList.Builder<BlockLightstone> blockLightstone = ImmutableList.builder();
         ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
-        ImmutableList.Builder<BlockPowder> blockPowder = ImmutableList.builder();
         //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
 
         normalItemBlocks.add(new ItemBlockDryer(register(r, "devices/dryer", new BlockDryer(), CT_MISC)));
@@ -1131,17 +1118,6 @@ public final class BlocksTFCF
         for (BlockLightstone lightstone : allLightstoneBlocks)
         {
             normalItemBlocks.add(new ItemBlockTFC(lightstone));
-        }
-
-        {
-            for (Powder powder : Powder.values())
-            {
-                if (powder == Powder.SULFUR)
-                {
-                    blockPowder.add(register(r, "powder/" + powder.name().toLowerCase(), new BlockPowder(powder), CT_ROCK_BLOCKS));
-                }
-            }
-            allPowders = blockPowder.build();
         }
 
         if (ConfigTFCF.General.WORLD.enableGroundcoverRock)
@@ -1662,7 +1638,6 @@ public final class BlocksTFCF
         register(TEStickBundle.class, "stick_bundle");
         register(TECondenser.class, "condenser");
         register(TEAlembic.class, "alembic");
-        register(TEPowder.class, "powder");
         register(TESaguaroCactus.class, "saguaro_cactus");
     }
 

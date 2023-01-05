@@ -134,7 +134,7 @@ public class EntityWildebeestTFC extends EntityAnimalMammal implements IHuntable
         EntityAnimalTFC.addWildPreyAI(this, speedMult);
         EntityAnimalTFC.addCommonPreyAI(this, speedMult);
 
-        this.tasks.addTask(3, new EntityAITempt(this, 1.1D, ItemsTFC.SALT, false));
+        // this.tasks.addTask(3, new EntityAITempt(this, 1.1D, ItemsTFC.SALT, false)); // todo
 
         this.tasks.addTask(5, new EntityAIFollowParent(this, 1.0D));
         this.tasks.addTask(6, new EntityAIEatGrass(this));

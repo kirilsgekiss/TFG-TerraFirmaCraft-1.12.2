@@ -713,31 +713,6 @@ public final class ItemsTFCF
     // Normal Items
     @GameRegistry.ObjectHolder("tools/walking_Stick")
     public static final ItemWalkingStick WALKING_STICK = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/axe/flint")
-    public static final ItemAxeTFCF FLINT_AXE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/hammer/flint")
-    public static final ItemHammerTFCF FLINT_HAMMER = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/hoe/flint")
-    public static final ItemHoeTFCF FLINT_HOE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/javelin/flint")
-    public static final ItemJavelinTFCF FLINT_JAVELIN = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/knife/flint")
-    public static final ItemKnifeTFCF FLINT_KNIFE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/shovel/flint")
-    public static final ItemShovelTFCF FLINT_SHOVEL = Helpers.getNull();
-
-    @GameRegistry.ObjectHolder("tools/flint/axe_head/flint")
-    public static final ItemMiscTFCF FLINT_AXE_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/hammer_head/flint")
-    public static final ItemMiscTFCF FLINT_HAMMER_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/hoe_head/flint")
-    public static final ItemMiscTFCF FLINT_HOE_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/javelin_head/flint")
-    public static final ItemMiscTFCF FLINT_JAVELIN_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/knife_head/flint")
-    public static final ItemMiscTFCF FLINT_KNIFE_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("tools/flint/shovel_head/flint")
-    public static final ItemMiscTFCF FLINT_SHOVEL_HEAD = Helpers.getNull();
 
     /*@GameRegistry.ObjectHolder("tools/bows/shortbow/shortbow")
     public static final ItemBowTFCF SHORTBOW = Helpers.getNull();
@@ -1678,14 +1653,6 @@ public final class ItemsTFCF
 
         // Tools
         simpleItems.add(register(r, "tools/walking_stick", new ItemWalkingStick(ToolMaterial.WOOD, 1f, 1.5f, 0.02f, 96, "stick_wood", "walking_stick"), CT_MISC));
-
-        // Toolheads
-        simpleItems.add(register(r, "tools/flint/axe_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_axe"), CT_ROCK_ITEMS));
-        simpleItems.add(register(r, "tools/flint/hammer_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_hammer"), CT_ROCK_ITEMS));
-        simpleItems.add(register(r, "tools/flint/hoe_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_hoe"), CT_ROCK_ITEMS));
-        simpleItems.add(register(r, "tools/flint/javelin_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_javelin"), CT_ROCK_ITEMS));
-        simpleItems.add(register(r, "tools/flint/knife_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_knife"), CT_ROCK_ITEMS));
-        simpleItems.add(register(r, "tools/flint/shovel_head/flint", new ItemMiscTFCF(Size.SMALL, Weight.LIGHT, "flint_head", "flint_head_shovel"), CT_ROCK_ITEMS));
 
         // Bows
         /*itemBows.add(register(r, "tools/bows/shortbow/shortbow", new ItemBowTFCF(Size.VERY_SMALL, Weight.LIGHT, 250, 0, "bow", "bow_shortbow", "bow_wooden_shortbow"), CT_MISC));
