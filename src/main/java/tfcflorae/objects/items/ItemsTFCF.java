@@ -6,7 +6,9 @@ import java.util.Map;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
-import net.dries007.tfc.objects.items.ItemSlabTFC;
+import net.dries007.tfc.objects.items.*;
+import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -27,20 +29,16 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
-import net.dries007.tfc.objects.items.ItemMisc;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.items.ItemSlabTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.*;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import tfcflorae.objects.items.ceramics.*;
 import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;
 import tfcflorae.objects.items.food.*;
@@ -48,14 +46,7 @@ import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.rock.ItemMud;
 import tfcflorae.objects.items.rock.ItemFiredMudBrick;
 import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
-import tfcflorae.objects.items.tools.ItemAxeTFCF;
-import tfcflorae.objects.items.tools.ItemHammerTFCF;
-import tfcflorae.objects.items.tools.ItemHoeTFCF;
-import tfcflorae.objects.items.tools.ItemJavelinTFCF;
-import tfcflorae.objects.items.tools.ItemKnifeTFCF;
-import tfcflorae.objects.items.tools.ItemShovelTFCF;
 import tfcflorae.objects.items.tools.ItemWalkingStick;
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.agriculture.*;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.ConfigTFCF;
@@ -1902,7 +1893,7 @@ public final class ItemsTFCF
         simpleItems.add(register(r, "wood/fruit_tree/lumber/cassia_cinnamon", cassiaLumber, CT_WOOD));
         OreDictionary.registerOre("lumberCassiaCinnamon", cassiaLumber);
         
-        simpleItems.add(register(r, "wood/fruit_tree/boat/cassia_cinnamon", new ItemBoatTFCF(TreesTFCF.CASSIA_CINNAMON_TREE), CT_WOOD));
+        simpleItems.add(register(r, "wood/fruit_tree/boat/cassia_cinnamon", new ItemBoatTFC(DefaultTrees.CASSIA_CINNAMON_TREE), CT_WOOD));
 
         // Ceylon cinnamon
         ItemMisc ceylonPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
@@ -1914,7 +1905,7 @@ public final class ItemsTFCF
         simpleItems.add(register(r, "wood/fruit_tree/lumber/ceylon_cinnamon", ceylonLumber, CT_WOOD));
         OreDictionary.registerOre("lumberCeylonCinnamon", ceylonLumber);
         
-        simpleItems.add(register(r, "wood/fruit_tree/boat/ceylon_cinnamon", new ItemBoatTFCF(TreesTFCF.CEYLON_CINNAMON_TREE), CT_WOOD));
+        simpleItems.add(register(r, "wood/fruit_tree/boat/ceylon_cinnamon", new ItemBoatTFC(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
 
         for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
         {

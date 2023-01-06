@@ -2,6 +2,7 @@ package net.dries007.tfc.objects.items.ceramics;
 
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -14,7 +15,6 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
@@ -63,12 +63,11 @@ public class ItemClayKaolinite extends ItemTFCF implements IItemSize
         ItemStack stack = player.getHeldItem(hand);
         if (!world.isRemote && !player.isSneaking() && stack.getCount() > 4)
         {
-            GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.KAOLINITE_CLAY);
+            TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.KAOLINITE_CLAY);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
-    @Nonnull
     public void onRightClick(PlayerInteractEvent.RightClickItem event)
     {
         EnumHand hand = event.getHand();
@@ -79,7 +78,7 @@ public class ItemClayKaolinite extends ItemTFCF implements IItemSize
             ItemStack stack = player.getHeldItem(hand);
             if (!world.isRemote && !player.isSneaking() && stack.getCount() > 4)
             {
-                GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.KAOLINITE_CLAY);
+                TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.KAOLINITE_CLAY);
             }
         }
     }

@@ -9,15 +9,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.IGrowingPlant;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
-import net.dries007.tfc.util.Helpers;
-
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.types.TreesTFCF;
 
 public class BlockBambooSapling extends BlockSaplingTFC implements IGrowingPlant
 {

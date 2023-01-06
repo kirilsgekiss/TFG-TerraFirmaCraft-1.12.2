@@ -9,7 +9,6 @@ import net.dries007.tfc.util.fuel.Fuel;
 import net.dries007.tfc.util.fuel.FuelManager;
 
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
 public class FuelsTFCF

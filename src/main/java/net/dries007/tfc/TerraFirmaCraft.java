@@ -203,6 +203,7 @@ public final class TerraFirmaCraft
     {
         DefaultRecipes.registerVanillaRecipes();
 
+        DefaultRecipes.registerKnappingRecipes();
         DefaultRecipes.registerAnvilRecipes();
         DefaultRecipes.registerWeldingRecipes();
 

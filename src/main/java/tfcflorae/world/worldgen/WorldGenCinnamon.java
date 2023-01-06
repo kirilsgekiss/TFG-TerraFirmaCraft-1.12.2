@@ -3,6 +3,7 @@ package tfcflorae.world.worldgen;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -27,7 +28,6 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.types.TreesTFCF;
 
 public class WorldGenCinnamon extends WorldGenerator
 {
@@ -64,12 +64,12 @@ public class WorldGenCinnamon extends WorldGenerator
         if (gen == 0 && rain > 250 && temp > 20 && density > 0.3f && world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && (BlocksTFC.isGround(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down()))))
         {
             //return generateCinnamon(world, rand, pos, TreesTFCF.CEYLON_CINNAMON_TREE, BlocksTFCF.CASSIA_CINNAMON_LOG.getDefaultState());
-            return generateCinnamonVariant(world, rand, pos, TreesTFCF.CEYLON_CINNAMON_TREE, TreesTFCF.GEN_CASSIA_CINNAMON);
+            return generateCinnamonVariant(world, rand, pos, DefaultTrees.CEYLON_CINNAMON_TREE, DefaultTrees.GEN_CASSIA_CINNAMON);
         }
         if (gen == 1 && rain > 250 && temp > 20 && density > 0.3f && world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && (BlocksTFC.isGround(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down()))))
         {
             //return generateCinnamon(world, rand, pos, TreesTFCF.CEYLON_CINNAMON_TREE, BlocksTFCF.CEYLON_CINNAMON_LOG.getDefaultState());
-            return generateCinnamonVariant(world, rand, pos, TreesTFCF.CEYLON_CINNAMON_TREE, TreesTFCF.GEN_CASSIA_CINNAMON);
+            return generateCinnamonVariant(world, rand, pos, DefaultTrees.CEYLON_CINNAMON_TREE, DefaultTrees.GEN_CASSIA_CINNAMON);
         }
         return false;
     }

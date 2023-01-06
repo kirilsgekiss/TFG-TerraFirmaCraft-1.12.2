@@ -10,14 +10,11 @@ import net.minecraftforge.registries.IForgeRegistryModifiable;
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.IAction;
 import crafttweaker.api.item.IItemStack;
-import stanhebben.zenscript.annotations.ZenMethod;
 
 import net.dries007.tfc.api.recipes.knapping.KnappingRecipe;
 import net.dries007.tfc.api.recipes.knapping.KnappingRecipeSimple;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.registries.TFCRegistries;
-
-import tfcflorae.api.knapping.KnappingTypes;
 
 public class KnappingHelperTFCF
 {
@@ -101,33 +98,33 @@ public class KnappingHelperTFCF
     public static KnappingType getType(String type) {
         switch (type) {
             case "PineappleLeather":
-                return KnappingTypes.PINEAPPLE_LEATHER;
+                return KnappingType.PINEAPPLE_LEATHER;
             case "BurlapCloth":
-                return KnappingTypes.BURLAP_CLOTH;
+                return KnappingType.BURLAP_CLOTH;
             case "WoolCloth":
-                return KnappingTypes.WOOL_CLOTH;
+                return KnappingType.WOOL_CLOTH;
             case "SilkCloth":
-                return KnappingTypes.SILK_CLOTH;
+                return KnappingType.SILK_CLOTH;
             case "SisalCloth":
-                return KnappingTypes.SISAL_CLOTH;
+                return KnappingType.SISAL_CLOTH;
             case "CottonCloth":
-                return KnappingTypes.COTTON_CLOTH;
+                return KnappingType.COTTON_CLOTH;
             case "LinenCloth":
-                return KnappingTypes.LINEN_CLOTH;
+                return KnappingType.LINEN_CLOTH;
             case "HempCloth":
-                return KnappingTypes.HEMP_CLOTH;
+                return KnappingType.HEMP_CLOTH;
             case "YuccaCanvas":
-                return KnappingTypes.YUCCA_CANVAS;
+                return KnappingType.YUCCA_CANVAS;
             case "Mud":
-                return KnappingTypes.MUD;
+                return KnappingType.MUD;
             case "EarthenwareClay":
-                return KnappingTypes.EARTHENWARE_CLAY;
+                return KnappingType.EARTHENWARE_CLAY;
             case "KaoliniteClay":
-                return KnappingTypes.KAOLINITE_CLAY;
+                return KnappingType.KAOLINITE_CLAY;
             case "StonewareClay":
-                return KnappingTypes.STONEWARE_CLAY;
+                return KnappingType.STONEWARE_CLAY;
             case "Flint":
-                return KnappingTypes.FLINT;
+                return KnappingType.FLINT;
         }
         return null;
     }

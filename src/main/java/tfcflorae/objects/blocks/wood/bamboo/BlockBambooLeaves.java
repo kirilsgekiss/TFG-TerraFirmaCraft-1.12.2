@@ -24,7 +24,6 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.objects.blocks.BlocksTFCF;
 

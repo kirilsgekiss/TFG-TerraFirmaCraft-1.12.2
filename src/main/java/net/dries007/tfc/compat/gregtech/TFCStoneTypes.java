@@ -10,7 +10,6 @@ import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.objects.blocks.stone.BlockRockRaw;
 import net.dries007.tfc.types.DefaultRocks;
 import net.minecraft.block.SoundType;
-import tfcflorae.types.RockTypesTFCF;
 
 public class TFCStoneTypes {
 
@@ -42,20 +41,20 @@ public class TFCStoneTypes {
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.QUARTZITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(6, "tfc_soapstone", SoundType.STONE, TFCOrePrefix.oreSoapstone, Materials.Soapstone,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SOAPSTONE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SOAPSTONE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SOAPSTONE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SOAPSTONE), Type.RAW).getDefaultState(), true);
 
         new StoneType(7, "tfc_rocksalt", SoundType.STONE, TFCOrePrefix.oreRockSalt, Materials.RockSalt,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.ROCKSALT), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.ROCKSALT), Type.RAW).getDefaultState(), true);
 
         new StoneType(8, "tfc_breccia", SoundType.STONE, TFCOrePrefix.oreBreccia, TFCMaterials.Breccia,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.BRECCIA), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.BRECCIA), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.BRECCIA), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.BRECCIA), Type.RAW).getDefaultState(), true);
 
         new StoneType(9, "tfc_catlinite", SoundType.STONE, TFCOrePrefix.oreCatlinite, TFCMaterials.Catlinite,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.CATLINITE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.CATLINITE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.CATLINITE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.CATLINITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(10, "tfc_chalk", SoundType.STONE, TFCOrePrefix.oreChalk, TFCMaterials.Chalk,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.CHALK), Type.RAW).getDefaultState(),
@@ -90,40 +89,40 @@ public class TFCStoneTypes {
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.GNEISS), Type.RAW).getDefaultState(), true);
 
         new StoneType(18, "tfc_soapstone", SoundType.STONE, TFCOrePrefix.oreKomatiite, TFCMaterials.Komatiite,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.KOMATIITE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.KOMATIITE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.KOMATIITE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.KOMATIITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(19, "tfc_limestone", SoundType.STONE, TFCOrePrefix.oreLimestone, TFCMaterials.Limestone,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.LIMESTONE), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.LIMESTONE), Type.RAW).getDefaultState(), true);
 
         new StoneType(20, "tfc_mudstone", SoundType.STONE, TFCOrePrefix.oreMudstone, TFCMaterials.Mudstone,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.MUDSTONE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.MUDSTONE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.MUDSTONE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.MUDSTONE), Type.RAW).getDefaultState(), true);
 
         new StoneType(21, "tfc_novaculite", SoundType.STONE, TFCOrePrefix.oreNovaculite, TFCMaterials.Novaculite,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.NOVACULITE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.NOVACULITE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.NOVACULITE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.NOVACULITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(22, "tfc_peridotite", SoundType.STONE, TFCOrePrefix.orePeridotite, TFCMaterials.Peridotite,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.PERIDOTITE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.PERIDOTITE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PERIDOTITE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PERIDOTITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(23, "tfc_phyllite", SoundType.STONE, TFCOrePrefix.orePhyllite, TFCMaterials.Phyllite,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PHYLLITE), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PHYLLITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(24, "tfc_porphyry", SoundType.STONE, TFCOrePrefix.orePorphyry, TFCMaterials.Porphyry,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.PORPHYRY), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.PORPHYRY), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PORPHYRY), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.PORPHYRY), Type.RAW).getDefaultState(), true);
 
         new StoneType(25, "tfc_rhyolite", SoundType.STONE, TFCOrePrefix.oreRhyolite, TFCMaterials.Rhyolite,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.RHYOLITE), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.RHYOLITE), Type.RAW).getDefaultState(), true);
 
         new StoneType(26, "tfc_sandstone", SoundType.STONE, TFCOrePrefix.oreSandstone, TFCMaterials.Sandstone,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SANDSTONE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SANDSTONE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SANDSTONE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SANDSTONE), Type.RAW).getDefaultState(), true);
 
         new StoneType(27, "tfc_schist", SoundType.STONE, TFCOrePrefix.oreSchist, TFCMaterials.Schist,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SCHIST), Type.RAW).getDefaultState(),
@@ -134,8 +133,8 @@ public class TFCStoneTypes {
                 state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SHALE), Type.RAW).getDefaultState(), true);
 
         new StoneType(29, "tfc_siltstone", SoundType.STONE, TFCOrePrefix.oreSiltstone, TFCMaterials.Siltstone,
-                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SILTSTONE), Type.RAW).getDefaultState(),
-                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(RockTypesTFCF.SILTSTONE), Type.RAW).getDefaultState(), true);
+                () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SILTSTONE), Type.RAW).getDefaultState(),
+                state -> state.getBlock() instanceof BlockRockRaw && state == BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SILTSTONE), Type.RAW).getDefaultState(), true);
 
         new StoneType(30, "tfc_slate", SoundType.STONE, TFCOrePrefix.oreSlate, TFCMaterials.Slate,
                 () -> BlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.SLATE), Type.RAW).getDefaultState(),

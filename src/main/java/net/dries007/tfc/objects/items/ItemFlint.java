@@ -1,7 +1,8 @@
-package tfcflorae.objects.items;
+package net.dries007.tfc.objects.items;
 
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -15,7 +16,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.ItemTFC;
 
-import tfcflorae.client.GuiHandler;
+import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 public class ItemFlint extends ItemTFCF implements IItemSize
@@ -63,12 +64,11 @@ public class ItemFlint extends ItemTFCF implements IItemSize
         ItemStack stack = player.getHeldItem(hand);
         if (!world.isRemote && !player.isSneaking() && stack.getCount() > 1)
         {
-            GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.FLINT);
+            TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
-    @Nonnull
     public void onRightClick(PlayerInteractEvent.RightClickItem event)
     {
         EnumHand hand = event.getHand();
@@ -79,7 +79,7 @@ public class ItemFlint extends ItemTFCF implements IItemSize
             ItemStack stack = player.getHeldItem(hand);
             if (!world.isRemote && !player.isSneaking() && stack.getCount() > 1)
             {
-                GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.FLINT);
+                TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
             }
         }
     }

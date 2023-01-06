@@ -2,6 +2,7 @@ package tfcflorae.world.worldgen;
 
 import java.util.*;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +15,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeFlower;
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.world.worldgen.structures.StructureGeneratorCorals;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -169,7 +169,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                     {
                         if (15f <= avgTemperature && 40f >= avgTemperature && 65f <= rainfall && 150f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL)
                         {
-                            BlockJoshuaTreeFlower.get(TFCRegistries.TREES.getValue(TreesTFCF.JOSHUA_TREE)).generatePlant(world, blockPos, random, 8);
+                            BlockJoshuaTreeFlower.get(TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE)).generatePlant(world, blockPos, random, 8);
                             //TFCFlorae.getLog().warn("TFCFlorae: Joshua Tree attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                         }
                     }

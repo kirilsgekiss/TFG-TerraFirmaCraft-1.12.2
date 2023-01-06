@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -31,7 +32,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.te.TECrate;
 
 /**
@@ -219,7 +219,7 @@ public class BlockCrate extends Block implements IItemSize
                 }
                 else
                 {
-                    GuiHandler.openGui(worldIn, pos, playerIn, GuiHandler.Type.CRATE);
+                    TFCGuiHandler.openGui(worldIn, pos, playerIn, TFCGuiHandler.Type.CRATE);
                 }
             }
         }

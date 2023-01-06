@@ -3,6 +3,7 @@ package tfcflorae.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.client.model.ModelChest;
@@ -20,7 +21,6 @@ import net.dries007.tfc.util.agriculture.FruitTree;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitChestTFCF;
 import tfcflorae.objects.te.TEFruitChest;
-import tfcflorae.types.TreesTFCF;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
@@ -69,15 +69,15 @@ public class TESRFruitChestTFCF extends TileEntitySpecialRenderer<TEFruitChest>
             TRAP_DOUBLE_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(TFCFLORAE_MODID, "textures/entity/chests/chest_trap_double/" + BlocksTFCF.bamboo[i] + ".png"));
         }
 
-        SINGLE_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest/cassia_cinnamon.png"));
-        DOUBLE_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_double/cassia_cinnamon.png"));
-        TRAP_SINGLE_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap/cassia_cinnamon.png"));
-        TRAP_DOUBLE_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/cassia_cinnamon.png"));
+        SINGLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest/cassia_cinnamon.png"));
+        DOUBLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_double/cassia_cinnamon.png"));
+        TRAP_SINGLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap/cassia_cinnamon.png"));
+        TRAP_DOUBLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/cassia_cinnamon.png"));
 
-        SINGLE_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest/ceylon_cinnamon.png"));
-        DOUBLE_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_double/ceylon_cinnamon.png"));
-        TRAP_SINGLE_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap/ceylon_cinnamon.png"));
-        TRAP_DOUBLE_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/ceylon_cinnamon.png"));
+        SINGLE_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest/ceylon_cinnamon.png"));
+        DOUBLE_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_double/ceylon_cinnamon.png"));
+        TRAP_SINGLE_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap/ceylon_cinnamon.png"));
+        TRAP_DOUBLE_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/ceylon_cinnamon.png"));
     }
 
     private final ModelChest simpleChest = new ModelChest();

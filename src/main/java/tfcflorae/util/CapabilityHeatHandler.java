@@ -1,5 +1,6 @@
 package tfcflorae.util;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,6 @@ import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.fluids.FluidsTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.types.TreesTFCF;
 
 public class CapabilityHeatHandler
 {
@@ -63,7 +63,7 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.EARTHENWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.KAOLINITE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.STONEWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlockLogTFCF.get(TFCRegistries.TREES.getValue(TreesTFCF.EUCALYPTUS))), () -> new ItemHeatHandler(null, 1, 1599));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlockLogTFCF.get(TFCRegistries.TREES.getValue(DefaultTrees.EUCALYPTUS))), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.STRAW), () -> new ItemHeatHandler(null, 1, 30));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFCF.TWIG), () -> new ItemHeatHandler(null, 1, 50));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFCF.DRIFTWOOD), () -> new ItemHeatHandler(null, 1, 60));

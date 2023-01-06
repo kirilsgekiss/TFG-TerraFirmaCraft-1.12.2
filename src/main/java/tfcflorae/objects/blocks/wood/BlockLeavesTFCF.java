@@ -7,6 +7,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.ImmutableList;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -60,7 +61,6 @@ import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillType;
 import tfcflorae.objects.entity.animal.EntitySilkMoth;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
@@ -284,7 +284,7 @@ public class BlockLeavesTFCF extends BlockLeaves implements IGrowingPlant
 		if(!worldIn.isRemote)
         {
             int dayTime = (int) CalendarTFC.CALENDAR_TIME.getTicks();
-            if (dayTime >= 12000 && dayTime <= 23000 && (fruitTree == SeasonalTrees.YELLOW_MULBERRY || fruitTree == SeasonalTrees.ORANGE_MULBERRY || fruitTree == SeasonalTrees.RED_MULBERRY || state == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(TreesTFCF.MULBERRY))) && 
+            if (dayTime >= 12000 && dayTime <= 23000 && (fruitTree == SeasonalTrees.YELLOW_MULBERRY || fruitTree == SeasonalTrees.ORANGE_MULBERRY || fruitTree == SeasonalTrees.RED_MULBERRY || state == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY))) &&
                 (state.getValue(LEAF_STATE) != EnumLeafState.WINTER || state.getValue(LEAF_STATE) != EnumLeafState.AUTUMN) && state.getValue(DECAYABLE) == true)
             {
                 int bound = 900;

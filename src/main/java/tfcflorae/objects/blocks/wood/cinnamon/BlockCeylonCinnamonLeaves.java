@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +20,6 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.objects.blocks.BlocksTFCF;
 
@@ -27,7 +27,7 @@ public class BlockCeylonCinnamonLeaves extends BlockLeavesTFC
 {
     public BlockCeylonCinnamonLeaves()
     {
-        super(TreesTFCF.CEYLON_CINNAMON_TREE);
+        super(DefaultTrees.CEYLON_CINNAMON_TREE);
         setSoundType(SoundType.PLANT);
         setDefaultState(blockState.getBaseState().withProperty(DECAYABLE, true));
         OreDictionaryHelper.register(this, "tree", "leaves");

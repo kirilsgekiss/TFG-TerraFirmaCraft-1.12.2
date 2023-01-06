@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ClickType;
@@ -27,7 +28,6 @@ import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -51,7 +51,7 @@ public class ItemBag extends ItemTFCF
         ItemStack stack = playerIn.getHeldItem(handIn);
         if (!worldIn.isRemote && !playerIn.isSneaking())
         {
-            GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.BAG);
+            TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.BAG);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }

@@ -15,7 +15,7 @@ public class ClientEvents
 {
     public static void preInit()
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityBoatTFCF.class, RenderBoatTFCF::new);
+        //RenderingRegistry.registerEntityRenderingHandler(EntityBoatTFCF.class, RenderBoatTFCF::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySilkMoth.class, RendererSilkMoth.FACTORY);
     }
 }

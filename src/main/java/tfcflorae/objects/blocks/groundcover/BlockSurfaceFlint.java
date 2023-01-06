@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -35,7 +36,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
@@ -215,12 +215,11 @@ public class BlockSurfaceFlint extends BlockBush
         ItemStack stack = player.getHeldItem(hand);
         if (!world.isRemote && !player.isSneaking() && stack.getCount() > 0)
         {
-            GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.FLINT);
+            TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
-    @Nonnull
     public void onRightClick(PlayerInteractEvent.RightClickItem event)
     {
         EnumHand hand = event.getHand();
@@ -230,7 +229,7 @@ public class BlockSurfaceFlint extends BlockBush
             World world = event.getWorld();
             if (!world.isRemote && !player.isSneaking())
             {
-                GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.FLINT);
+                TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
             }
         }
     }

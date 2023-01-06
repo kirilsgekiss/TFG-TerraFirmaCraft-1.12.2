@@ -3,6 +3,7 @@ package tfcflorae.objects.entity;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,11 +23,8 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.ItemBoatTFCF;
-import tfcflorae.types.TreesTFCF;
-import tfcflorae.util.agriculture.SeasonalTrees;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -76,10 +74,10 @@ public class EntityBoatTFCF extends EntityBoat
         }
 
         if (this.dataManager.get(WOOD_NAME) == "cassia_cinnamon")
-            return TreesTFCF.CASSIA_CINNAMON_TREE;
+            return DefaultTrees.CASSIA_CINNAMON_TREE;
 
         if (this.dataManager.get(WOOD_NAME) == "ceylon_cinnamon")
-            return TreesTFCF.CEYLON_CINNAMON_TREE;
+            return DefaultTrees.CEYLON_CINNAMON_TREE;
 
         return null;
     }

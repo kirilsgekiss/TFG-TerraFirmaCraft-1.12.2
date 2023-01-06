@@ -2,6 +2,7 @@ package tfcflorae.objects.blocks.wood.cinnamon;
 
 import java.util.Random;
 
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -12,14 +13,12 @@ import net.dries007.tfc.api.util.IGrowingPlant;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.types.TreesTFCF;
-import tfcflorae.world.worldgen.WorldGenCinnamon;
 
 public class BlockCassiaCinnamonSapling extends BlockSaplingTFC implements IGrowingPlant
 {
     public BlockCassiaCinnamonSapling()
     {
-        super(TreesTFCF.CASSIA_CINNAMON_TREE);
+        super(DefaultTrees.CASSIA_CINNAMON_TREE);
         setSoundType(SoundType.WOOD);
     }
 

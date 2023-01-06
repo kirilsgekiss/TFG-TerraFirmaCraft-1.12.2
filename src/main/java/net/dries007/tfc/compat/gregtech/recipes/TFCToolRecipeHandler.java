@@ -30,6 +30,7 @@ public class TFCToolRecipeHandler {
     }
 
     public static void processStick(OrePrefix stickPrefix, Material material, ToolProperty property) {
+
         // Sticks + Rods = Tongs
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapedRecipe(String.format("tongs_%s", material),
@@ -39,7 +40,6 @@ public class TFCToolRecipeHandler {
                     'K', new ItemStack(Items.STICK),
                     'F', new UnificationEntry(OrePrefix.stick, material));
         }
-
 
         // Stick + Head = Chisel
         if (material.hasProperty(PropertyKey.INGOT)) {

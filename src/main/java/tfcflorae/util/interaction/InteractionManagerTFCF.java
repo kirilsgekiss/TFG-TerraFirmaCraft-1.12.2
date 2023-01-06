@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +25,6 @@ import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.interaction.*;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.devices.BlockStickBundle;
 import tfcflorae.util.OreDictionaryHelper;
@@ -40,122 +40,7 @@ public final class InteractionManagerTFCF
 
     //static
     {
-        // Pineapple Leather knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "knife"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.PINEAPPLE_LEATHER);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
 
-        // Burlap Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.BURLAP_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Wool Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothWool"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.WOOL_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Silk Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.SILK_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Sisal Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.SISAL_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Cotton Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.COTTON_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Linen Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.LINEN_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Hemp Cloth knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.HEMP_CLOTH);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
-
-        // Yucca Canvas knapping
-        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca"), ((worldIn, playerIn, handIn) -> {
-            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
-            {
-                if (!worldIn.isRemote)
-                {
-                    GuiHandler.openGui(worldIn, playerIn, GuiHandler.Type.YUCCA_CANVAS);
-                }
-                return EnumActionResult.SUCCESS;
-            }
-            return EnumActionResult.FAIL;
-        }));
 
         USE_ACTIONS.put(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "stickBundle"), (stack, player, worldIn, pos, hand, direction, hitX, hitY, hitZ) -> {
             if (direction == EnumFacing.DOWN)
@@ -164,7 +49,7 @@ public final class InteractionManagerTFCF
                 Block block = state.getBlock();
                 if (!block.isReplaceable(worldIn, pos)) pos = pos.down();
                 BlockPos posDown = pos.down();
-                //ItemStack itemStack = player.getHeldItem(hand);
+                // ItemStack itemStack = player.getHeldItem(hand);
 
                 if (player.canPlayerEdit(pos, direction, stack) && player.canPlayerEdit(posDown, direction, stack))
                 {

@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import mcp.*;
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -38,7 +39,6 @@ import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.util.Helpers;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.types.TreesTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
@@ -191,7 +191,7 @@ public class BlockJoshuaTreeLog extends Block
         if (BlockLogTFC.get(wood) != null)
             return BlockLogTFC.get(wood).getItemDropped(state, rand, fortune);
         else
-            return BlockLogTFC.get(TFCRegistries.TREES.getValue(TreesTFCF.JOSHUA_TREE)).getItemDropped(state, rand, fortune);
+            return BlockLogTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE)).getItemDropped(state, rand, fortune);
     }
 
     /**

@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.client.ClientEvents;
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.LootTablesTFCF;
 import tfcflorae.objects.entity.EntitiesTFCF;
 import tfcflorae.proxy.CommonProxy;
@@ -74,7 +73,7 @@ public class TFCFlorae
         //ClassAdder.addClasses(event.getModConfigurationDirectory());
         logger = event.getModLog();
 
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        //NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         network = NetworkRegistry.INSTANCE.newSimpleChannel(TFCFLORAE_MODID);
         int id = 0;
 
@@ -102,7 +101,7 @@ public class TFCFlorae
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+        //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         OreDictionaryHelper.init();
         LootTablesTFCF.init();
         CapabilityHeatHandler.init();

@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.SoundType;
@@ -32,7 +33,6 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.inventory.capability.TFCInventoryLargeChest;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.te.TEFruitChest;
 import tfcflorae.util.OreDictionaryHelper;
 
@@ -138,7 +138,7 @@ public class BlockFruitChestTFCF extends BlockChest implements IItemSize
     {
         if (!worldIn.isRemote)
         {
-            GuiHandler.openGui(worldIn, pos, playerIn, GuiHandler.Type.CHEST);
+            TFCGuiHandler.openGui(worldIn, pos, playerIn, TFCGuiHandler.Type.CHEST);
         }
         return true;
     }

@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -20,7 +21,6 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
 
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
@@ -103,7 +103,7 @@ public class ItemMud extends ItemTFCF implements IRockObject
         ItemStack stack = player.getHeldItem(hand);
         if (!world.isRemote && !player.isSneaking() && stack.getCount() > 2)
         {
-            GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.MUD);
+            TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.MUD);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
@@ -119,7 +119,7 @@ public class ItemMud extends ItemTFCF implements IRockObject
             ItemStack stack = player.getHeldItem(hand);
             if (!world.isRemote && !player.isSneaking() && stack.getCount() > 2)
             {
-                GuiHandler.openGui(world, player.getPosition(), player, GuiHandler.Type.MUD);
+                TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.MUD);
             }
         }
     }

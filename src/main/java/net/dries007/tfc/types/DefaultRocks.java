@@ -15,6 +15,7 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("WeakerAccess")
 @Mod.EventBusSubscriber(modid = MOD_ID)
@@ -46,6 +47,16 @@ public final class DefaultRocks
     public static final ResourceLocation SCHIST = new ResourceLocation(MOD_ID, "schist");
     public static final ResourceLocation GNEISS = new ResourceLocation(MOD_ID, "gneiss");
     public static final ResourceLocation MARBLE = new ResourceLocation(MOD_ID, "marble");
+    public static final ResourceLocation BRECCIA = new ResourceLocation(MOD_ID, "breccia");
+    public static final ResourceLocation PORPHYRY = new ResourceLocation(MOD_ID, "porphyry");
+    public static final ResourceLocation PERIDOTITE = new ResourceLocation(MOD_ID, "peridotite");
+    public static final ResourceLocation MUDSTONE = new ResourceLocation(MOD_ID, "mudstone");
+    public static final ResourceLocation SANDSTONE = new ResourceLocation(MOD_ID, "sandstone");
+    public static final ResourceLocation SILTSTONE = new ResourceLocation(MOD_ID, "siltstone");
+    public static final ResourceLocation CATLINITE = new ResourceLocation(MOD_ID, "catlinite");
+    public static final ResourceLocation NOVACULITE = new ResourceLocation(MOD_ID, "novaculite");
+    public static final ResourceLocation SOAPSTONE = new ResourceLocation(MOD_ID, "soapstone");
+    public static final ResourceLocation KOMATIITE = new ResourceLocation(MOD_ID, "komatiite");
 
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
@@ -83,7 +94,17 @@ public final class DefaultRocks
             new Rock(PHYLLITE, METAMORPHIC, false),
             new Rock(SCHIST, METAMORPHIC, false),
             new Rock(GNEISS, METAMORPHIC, false),
-            new Rock(MARBLE, METAMORPHIC, true)
+            new Rock(MARBLE, METAMORPHIC, true),
+            new Rock(BRECCIA, IGNEOUS_INTRUSIVE, false),
+            new Rock(PORPHYRY, IGNEOUS_INTRUSIVE, false),
+            new Rock(PERIDOTITE, IGNEOUS_EXTRUSIVE, false),
+            new Rock(MUDSTONE, SEDIMENTARY, false),
+            new Rock(SANDSTONE, SEDIMENTARY, false),
+            new Rock(SILTSTONE, SEDIMENTARY, false),
+            new Rock(CATLINITE, METAMORPHIC, false),
+            new Rock(NOVACULITE, METAMORPHIC, false),
+            new Rock(SOAPSTONE, METAMORPHIC, false),
+            new Rock(KOMATIITE, METAMORPHIC, false)
         );
     }
 }

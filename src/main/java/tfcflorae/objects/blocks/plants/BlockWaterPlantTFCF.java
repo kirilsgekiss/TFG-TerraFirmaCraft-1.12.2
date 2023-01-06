@@ -259,7 +259,7 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     {
         if (!this.canBlockStay(worldIn, pos, state))
         {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
+            // this.dropBlockAsItem(worldIn, pos, state, 0);
             worldIn.setBlockState(pos, plant.getWaterType());
         }
     }

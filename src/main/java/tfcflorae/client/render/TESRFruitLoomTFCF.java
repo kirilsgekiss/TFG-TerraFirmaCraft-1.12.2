@@ -3,6 +3,7 @@ package tfcflorae.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.types.DefaultTrees;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -19,7 +20,6 @@ import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.te.TEFruitLoom;
-import tfcflorae.types.TreesTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
@@ -53,9 +53,9 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             PLANKS_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + BlocksTFCF.bamboo[i] + ".png"));
         }
 
-        PLANKS_TEXTURES_TREE.put(TreesTFCF.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
 
-        PLANKS_TEXTURES_TREE.put(TreesTFCF.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
     }
 
     @Override

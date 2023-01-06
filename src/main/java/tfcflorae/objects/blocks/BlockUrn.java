@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -29,9 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.client.GuiHandler;
 import tfcflorae.objects.te.TEUrn;
 
 /**
@@ -219,7 +218,7 @@ public class BlockUrn extends Block implements IItemSize
                 }
                 else
                 {
-                    GuiHandler.openGui(worldIn, pos, playerIn, GuiHandler.Type.URN);
+                    TFCGuiHandler.openGui(worldIn, pos, playerIn, TFCGuiHandler.Type.URN);
                 }
             }
         }
