@@ -14,7 +14,7 @@ import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 public final class DataLayer
 {
     public static final DataLayer ERROR = new DataLayer(-1, null, "ERROR", Integer.MIN_VALUE, Float.NaN);
-    private static final DataLayer[] LAYERS = new DataLayer[256];
+    public static DataLayer[] LAYERS = new DataLayer[256];
 
     public static final DataLayer SEISMIC_STABLE = newIntDataLayer(110, "Stable", 0);
     public static final DataLayer SEISMIC_UNSTABLE = newIntDataLayer(111, "Unstable", 1);
@@ -31,6 +31,19 @@ public final class DataLayer
     public static final DataLayer PH_NEUTRAL = newIntDataLayer(132, "Neutral", 2);
     public static final DataLayer PH_ALKALINE_LOW = newIntDataLayer(133, "Low Alkalinity", 3);
     public static final DataLayer PH_ALKALINE_HIGH = newIntDataLayer(134, "High Alkalinity", 4);
+    public static final DataLayer PH_ALKALINE_VERY_HIGH = newIntDataLayer(135, "Very High Alkalinity", 5);
+
+	/*public static final DataLayer AMERICAS = newIntDataLayer(248, "Americas", 0);
+	public static final DataLayer EUROPE = newIntDataLayer(249, "Europe", 1);
+	public static final DataLayer AFRICA = newIntDataLayer(250, "Africa", 2);
+	public static final DataLayer ASIA = newIntDataLayer(251, "Asia", 3);
+
+	public static final DataLayer RIVER0 = newIntDataLayer(253, "River0", 1);
+	public static final DataLayer RIVER1 = newIntDataLayer(254, "River1", 2);
+	public static final DataLayer RIVER2 = newIntDataLayer(255, "River2", 3);
+
+	public static final int[] REGION_ARRAY = new int[] {AMERICAS.valueInt, AFRICA.valueInt, EUROPE.valueInt, ASIA.valueInt};
+	public static final int[] RIVER_ARRAY = new int[] {RIVER0.valueInt, RIVER1.valueInt, RIVER2.valueInt};*/
 
     public static DataLayer get(int i)
     {

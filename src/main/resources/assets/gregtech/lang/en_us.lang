@@ -1,6 +1,6 @@
 # GTCEu
 
-# Локализация новых материалов
+# Локализация материалов
 material.unknown=Unknown
 material.pig_iron=Pig Iron
 material.high_carbon_steel=High Carbon Steel
@@ -35,10 +35,19 @@ material.shale=Shale
 material.siltstone=Siltstone
 material.slate=Slate
 material.soapstone=Soapstone
-
 material.banded_iron=Oxide Iron (III)
 
-# Локализация новой руды
+# Локализация орПрефиксов
+item.material.oreprefix.ingotDouble=%s Ingot Double
+item.material.oreprefix.ingotTriple=%s Ingot Triple
+item.material.oreprefix.ingotHex=%s Ingot Hex
+item.material.oreprefix.oreChunk=%s Chunk
+item.material.oreprefix.toolHeadKnife=%s Knife Head
+item.material.oreprefix.toolHeadPropick=%s Propick Head
+item.material.oreprefix.toolHeadChisel=%s Chisel Head
+item.material.oreprefix.toolHeadJavelin=%s Javelin Head
+item.material.oreprefix.tuyere=%s Tuyere
+
 item.material.oreprefix.oreBreccia=Breccia %s Ore
 item.material.oreprefix.oreCatlinite=Catlinite %s Ore
 item.material.oreprefix.oreChalk=Chalk %s Ore
@@ -66,8 +75,3 @@ item.material.oreprefix.oreSiltstone=Siltstone %s Ore
 item.material.oreprefix.oreSlate=Slate %s Ore
 item.material.oreprefix.oreSoapstone=Soapstone %s Ore
 
-# Локализация кусков руды
-item.material.oreprefix.oreChunk=%s Chunk
-
-# Локализация ножей
-item.material.oreprefix.toolHeadKnife=%s Knife Head

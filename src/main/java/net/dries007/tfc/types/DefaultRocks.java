@@ -10,11 +10,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.objects.ToolMaterialsTFC;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("WeakerAccess")
 @Mod.EventBusSubscriber(modid = MOD_ID)
@@ -46,16 +47,26 @@ public final class DefaultRocks
     public static final ResourceLocation SCHIST = new ResourceLocation(MOD_ID, "schist");
     public static final ResourceLocation GNEISS = new ResourceLocation(MOD_ID, "gneiss");
     public static final ResourceLocation MARBLE = new ResourceLocation(MOD_ID, "marble");
+    public static final ResourceLocation BRECCIA = new ResourceLocation(MOD_ID, "breccia");
+    public static final ResourceLocation PORPHYRY = new ResourceLocation(MOD_ID, "porphyry");
+    public static final ResourceLocation PERIDOTITE = new ResourceLocation(MOD_ID, "peridotite");
+    public static final ResourceLocation MUDSTONE = new ResourceLocation(MOD_ID, "mudstone");
+    public static final ResourceLocation SANDSTONE = new ResourceLocation(MOD_ID, "sandstone");
+    public static final ResourceLocation SILTSTONE = new ResourceLocation(MOD_ID, "siltstone");
+    public static final ResourceLocation CATLINITE = new ResourceLocation(MOD_ID, "catlinite");
+    public static final ResourceLocation NOVACULITE = new ResourceLocation(MOD_ID, "novaculite");
+    public static final ResourceLocation SOAPSTONE = new ResourceLocation(MOD_ID, "soapstone");
+    public static final ResourceLocation KOMATIITE = new ResourceLocation(MOD_ID, "komatiite");
 
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
     public static void onPreRegisterRockCategory(TFCRegistryEvent.RegisterPreBlock<RockCategory> event)
     {
         event.getRegistry().registerAll(
-            new RockCategory(IGNEOUS_INTRUSIVE, ToolMaterialsTFC.IGNEOUS_INTRUSIVE, true, true, true, -0.4f, 0f, 1.6F, 10F, true),
-            new RockCategory(IGNEOUS_EXTRUSIVE, ToolMaterialsTFC.IGNEOUS_EXTRUSIVE, true, true, true, -0.5f, 0f, 1.6F, 10F, true),
-            new RockCategory(SEDIMENTARY, ToolMaterialsTFC.SEDIMENTARY, true, false, false, 0.3f, 5f, 1.4F, 10F, false),
-            new RockCategory(METAMORPHIC, ToolMaterialsTFC.METAMORPHIC, true, true, false, 0.2f, 0f, 1.5F, 10F, false)
+            new RockCategory(IGNEOUS_INTRUSIVE, true, true, true, -0.4f, 0f, 1.6F, 10F, true),
+            new RockCategory(IGNEOUS_EXTRUSIVE, true, true, true, -0.5f, 0f, 1.6F, 10F, true),
+            new RockCategory(SEDIMENTARY, true, false, false, 0.3f, 5f, 1.4F, 10F, false),
+            new RockCategory(METAMORPHIC, true, true, false, 0.2f, 0f, 1.5F, 10F, false)
         );
     }
 
@@ -83,7 +94,17 @@ public final class DefaultRocks
             new Rock(PHYLLITE, METAMORPHIC, false),
             new Rock(SCHIST, METAMORPHIC, false),
             new Rock(GNEISS, METAMORPHIC, false),
-            new Rock(MARBLE, METAMORPHIC, true)
+            new Rock(MARBLE, METAMORPHIC, true),
+            new Rock(BRECCIA, IGNEOUS_INTRUSIVE, false),
+            new Rock(PORPHYRY, IGNEOUS_INTRUSIVE, false),
+            new Rock(PERIDOTITE, IGNEOUS_EXTRUSIVE, false),
+            new Rock(MUDSTONE, SEDIMENTARY, false),
+            new Rock(SANDSTONE, SEDIMENTARY, false),
+            new Rock(SILTSTONE, SEDIMENTARY, false),
+            new Rock(CATLINITE, METAMORPHIC, false),
+            new Rock(NOVACULITE, METAMORPHIC, false),
+            new Rock(SOAPSTONE, METAMORPHIC, false),
+            new Rock(KOMATIITE, METAMORPHIC, false)
         );
     }
 }

@@ -20,7 +20,6 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
     private final float caveGenMod;
     private final float caveFreqMod;
 
-    private final Item.ToolMaterial toolMaterial;
     private final boolean layer1;
     private final boolean layer2;
     private final boolean layer3;
@@ -32,17 +31,15 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
      * A rock category.
      *
      * @param name         The resource location of the rock.
-     * @param toolMaterial The tool material used for stone tools made of this rock
      * @param caveGenMod   a modifier for cave generation. Default 0, range -0.5 <> 0.5
      * @param caveFreqMod  another modifier for cave generation. Default 0, sedimentary uses +5
      * @param hardness     How hard this type is (how slower is to break blocks)
      * @param resistance   How resistant to explosion this type is
      * @param hasAnvil     if this rock should be able to create a stone anvil
      */
-    public RockCategory(@Nonnull ResourceLocation name, @Nonnull Item.ToolMaterial toolMaterial, boolean layer1, boolean layer2, boolean layer3, float caveGenMod, float caveFreqMod, float hardness, float resistance, boolean hasAnvil)
+    public RockCategory(@Nonnull ResourceLocation name, boolean layer1, boolean layer2, boolean layer3, float caveGenMod, float caveFreqMod, float hardness, float resistance, boolean hasAnvil)
     {
         setRegistryName(name);
-        this.toolMaterial = toolMaterial;
         this.caveGenMod = caveGenMod;
         this.caveFreqMod = caveFreqMod;
         this.layer1 = layer1;
@@ -51,12 +48,6 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
         this.hasAnvil = hasAnvil;
         this.hardness = hardness;
         this.resistance = resistance;
-    }
-
-    @Nonnull
-    public Item.ToolMaterial getToolMaterial()
-    {
-        return toolMaterial;
     }
 
     public float getCaveGenMod()

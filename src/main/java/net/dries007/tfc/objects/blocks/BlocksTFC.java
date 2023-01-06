@@ -27,7 +27,9 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -322,7 +324,7 @@ public final class BlocksTFC
         inventoryItemBlocks.add(new ItemBlockTFC(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_MISC)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SALT_WATER.get()), CT_MISC)));
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
 
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
         normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
@@ -350,9 +352,9 @@ public final class BlocksTFC
             // Apparently this is the way we're supposed to do things even though the fluid registry defaults. So we'll do it this way.
             Builder<BlockFluidBase> b = ImmutableList.builder();
             b.add(
-                register(r, "fluid/hot_water", new BlockFluidHotWater()),
-                register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
-                register(r, "fluid/salt_water", new BlockFluidWater(FluidsTFC.SALT_WATER.get(), Material.WATER, true))
+                    register(r, "fluid/hot_water", new BlockFluidHotWater()),
+                    register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true))
             );
             for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids())
             {
@@ -372,11 +374,11 @@ public final class BlocksTFC
 
         {
             Builder<BlockRockVariant> b = ImmutableList.builder();
-            for (Rock.Type type : Rock.Type.values())
+            for (Rock.Type type : values())
             {
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 {
-                    if (type != Rock.Type.ANVIL)
+                    if (type != ANVIL)
                     {
                         b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
                     }
@@ -390,11 +392,11 @@ public final class BlocksTFC
             allBlockRockVariants = b.build();
             allBlockRockVariants.forEach(x ->
             {
-                if (x.getType() == Rock.Type.SAND)
+                if (x.getType() == SAND)
                 {
                     normalItemBlocks.add(new ItemBlockHeat(x, 1, 600));
                 }
-                else if (x.getType() != Rock.Type.SPIKE && x.getType() != Rock.Type.ANVIL)
+                else if (x.getType() != SPIKE && x.getType() != ANVIL)
                 {
                     normalItemBlocks.add(new ItemBlockTFC(x));
                 }
@@ -405,7 +407,7 @@ public final class BlocksTFC
             // Add resultingState to the registered collapsable blocks.
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
             {
-                for (Rock.Type type : Rock.Type.values())
+                for (Rock.Type type : values())
                 {
                     FallingBlockManager.Specification spec = type.getFallingSpecification();
                     switch (type)
@@ -603,6 +605,10 @@ public final class BlocksTFC
             }
 
             allCropBlocks = b.build();
+            /*for (BlockCropTFC blockCropWater : allCropBlocks)
+            {
+                normalItemBlocks.add(new ItemBlockCropWaterTFC((BlockCropTFC) blockCropWater));
+            }*/
         }
 
         {
@@ -614,6 +620,10 @@ public final class BlocksTFC
             }
 
             allDeadCropBlocks = b.build();
+            /*for (BlockCropDead blockCropWaterDead : allDeadCropBlocks)
+            {
+                normalItemBlocks.add(new ItemBlockCropDeadWaterTFC((BlockCropDead) blockCropWaterDead));
+            }*/
         }
 
         {
@@ -656,10 +666,22 @@ public final class BlocksTFC
             Builder<BlockFlowerPotTFC> pots = ImmutableList.builder();
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
-                if (plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
-                    b.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));
-                if (plant.canBePotted())
-                    pots.add(register(r, "flowerpot/" + plant.getRegistryName().getPath(), new BlockFlowerPotTFC(plant)));
+                if (plant.getPlantType() != Plant.PlantType.WATER ||
+                        plant.getPlantType() != Plant.PlantType.WATER_SEA ||
+                        plant.getPlantType() != Plant.PlantType.TALL_WATER ||
+                        plant.getPlantType() != Plant.PlantType.TALL_WATER_SEA ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA) ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS))
+                {
+                    if (plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
+                        b.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));
+                    if (plant.canBePotted())
+                        pots.add(register(r, "flowerpot/" + plant.getRegistryName().getPath(), new BlockFlowerPotTFC(plant)));
+                }
             }
             allPlantBlocks = b.build();
             allFlowerPots = pots.build();
@@ -757,9 +779,10 @@ public final class BlocksTFC
         {
             TerraFirmaCraft.getLog().info("The below warnings about unintended overrides are normal. The override is intended. ;)");
             event.getRegistry().registerAll(
-                new BlockIceTFC(FluidRegistry.WATER).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
-                new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow")
+                    new BlockIceTFC(FluidRegistry.WATER).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
+                    new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow")
             );
+
         }
 
         if (ConfigTFC.General.OVERRIDES.enableTorchOverride)
@@ -770,38 +793,235 @@ public final class BlocksTFC
 
     public static boolean isWater(IBlockState current)
     {
-        return current == Blocks.WATER.getDefaultState();
+        return current.getMaterial() == Material.WATER;
     }
 
-    public static boolean isSaltWater(IBlockState current)
+    public static boolean isVanillaWater(IBlockState current)
     {
-        return current == FluidsTFC.SALT_WATER.get().getBlock().getDefaultState();
+        return current == FluidRegistry.WATER.getBlock().getDefaultState();
+    }
+
+    public static boolean isFreshWater(IBlockState current)
+    {
+        return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
+    }
+
+    public static boolean isSeaWater(IBlockState current)
+    {
+        return current == FluidsTFC.SEA_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isFreshWaterOrIce(IBlockState current)
     {
-        return current.getBlock() == Blocks.ICE || isWater(current);
+        return current.getBlock() == Blocks.ICE || isVanillaWater(current);
     }
 
     public static boolean isRawStone(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+
         Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == RAW;
+        return type == RAW ||
+                type == COBBLE ||
+                type == SMOOTH ||
+                type == MOSSY_RAW;
     }
 
     public static boolean isClay(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == CLAY || type == CLAY_GRASS;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == CLAY ||
+                type == CLAY_GRASS ||
+                type == MUD ||
+                type == SANDY_CLAY_LOAM ||
+                type == SANDY_CLAY ||
+                type == CLAY_LOAM ||
+                type == SILTY_CLAY_LOAM ||
+                type == SILTY_CLAY ||
+                type == COARSE_SANDY_CLAY_LOAM ||
+                type == COARSE_SANDY_CLAY ||
+                type == COARSE_CLAY_LOAM ||
+                type == COARSE_CLAY ||
+                type == COARSE_SILTY_CLAY ||
+                type == COARSE_SILTY_CLAY_LOAM ||
+                type == SANDY_CLAY_LOAM_GRASS ||
+                type == SANDY_CLAY_LOAM_PODZOL ||
+                type == SANDY_CLAY_GRASS ||
+                type == SANDY_CLAY_PODZOL ||
+                type == CLAY_LOAM_GRASS ||
+                type == CLAY_LOAM_PODZOL ||
+                type == CLAY_PODZOL ||
+                type == SILTY_CLAY_GRASS ||
+                type == SILTY_CLAY_PODZOL ||
+                type == SILTY_CLAY_LOAM_GRASS ||
+                type == SILTY_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_GRASS ||
+                type == DRY_CLAY_LOAM_GRASS ||
+                type == DRY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_LOAM_GRASS ||
+                type == CLAY_HUMUS ||
+                type == CLAY_HUMUS_GRASS ||
+                type == DRY_CLAY_HUMUS_GRASS ||
+                type == KAOLINITE_CLAY ||
+                type == SANDY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+                type == SANDY_KAOLINITE_CLAY ||
+                type == COARSE_SANDY_KAOLINITE_CLAY ||
+                type == KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY ||
+                type == COARSE_SILTY_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+                type == KAOLINITE_CLAY_HUMUS ||
+                type == KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_PODZOL ||
+                type == KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_CLAY_GRASS ||
+                type == SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_GRASS ||
+                type == SPARSE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILTY_CLAY_GRASS ||
+                type == SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                type == SPARSE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == STONEWARE_CLAY ||
+                type == SANDY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+                type == SANDY_STONEWARE_CLAY ||
+                type == COARSE_SANDY_STONEWARE_CLAY ||
+                type == STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY ||
+                type == COARSE_SILTY_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+                type == STONEWARE_CLAY_HUMUS ||
+                type == STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_PODZOL ||
+                type == STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_LOAM_PODZOL ||
+                type == STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_GRASS ||
+                type == SILTY_STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                type == DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == EARTHENWARE_CLAY ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == SANDY_EARTHENWARE_CLAY ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY ||
+                type == EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == EARTHENWARE_CLAY_HUMUS ||
+                type == EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_PODZOL ||
+                type == EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isDirt(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == DIRT;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == DIRT ||
+                type == MUD ||
+                type == ROOTED_DIRT ||
+                type == ROOTED_LOAMY_SAND ||
+                type == ROOTED_SANDY_LOAM ||
+                type == ROOTED_LOAM ||
+                type == ROOTED_SILT_LOAM ||
+                type == ROOTED_SILT ||
+                type == ROOTED_HUMUS ||
+                type == BOG_IRON ||
+                type == COARSE_DIRT ||
+                type == LOAMY_SAND ||
+                type == SANDY_LOAM ||
+                type == LOAM ||
+                type == SILT_LOAM ||
+                type == SILT ||
+                type == COARSE_LOAMY_SAND ||
+                type == COARSE_SANDY_LOAM ||
+                type == COARSE_LOAM ||
+                type == COARSE_SILT_LOAM ||
+                type == COARSE_SILT ||
+                type == COARSE_HUMUS;
     }
 
     public static boolean isSand(IBlockState current)
@@ -812,35 +1032,519 @@ public final class BlocksTFC
     }
 
     // todo: change to property of type? (soil & stone maybe?)
-
     public static boolean isSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return true;
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == GRASS || type == DRY_GRASS || type == DIRT || type == CLAY || type == CLAY_GRASS;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == GRASS ||
+                type == DRY_GRASS ||
+                type == DIRT ||
+                type == CLAY ||
+                type == CLAY_GRASS ||
+                type == ROOTED_DIRT ||
+                type == ROOTED_LOAMY_SAND ||
+                type == ROOTED_SANDY_LOAM ||
+                type == ROOTED_LOAM ||
+                type == ROOTED_SILT_LOAM ||
+                type == ROOTED_SILT ||
+                type == ROOTED_HUMUS ||
+                type == COARSE_DIRT ||
+                type == MUD ||
+                type == BOG_IRON ||
+                type == BOG_IRON_GRASS ||
+                type == DRY_BOG_IRON_GRASS ||
+                type == SPARSE_BOG_IRON_GRASS ||
+                type == BOG_IRON_PODZOL ||
+                type == LOAMY_SAND ||
+                type == SANDY_LOAM ||
+                type == LOAM ||
+                type == SILT_LOAM ||
+                type == SILT ||
+                type == SANDY_CLAY_LOAM ||
+                type == SANDY_CLAY ||
+                type == CLAY_LOAM ||
+                type == SILTY_CLAY_LOAM ||
+                type == SILTY_CLAY ||
+                type == COARSE_LOAMY_SAND ||
+                type == COARSE_SANDY_LOAM ||
+                type == COARSE_SANDY_CLAY_LOAM ||
+                type == COARSE_SANDY_CLAY ||
+                type == COARSE_LOAM ||
+                type == COARSE_CLAY_LOAM ||
+                type == COARSE_CLAY ||
+                type == COARSE_SILTY_CLAY ||
+                type == COARSE_SILTY_CLAY_LOAM ||
+                type == COARSE_SILT_LOAM ||
+                type == COARSE_SILT ||
+                type == PODZOL ||
+                type == LOAMY_SAND_GRASS ||
+                type == LOAMY_SAND_PODZOL ||
+                type == SANDY_LOAM_GRASS ||
+                type == SANDY_LOAM_PODZOL ||
+                type == SANDY_CLAY_LOAM_GRASS ||
+                type == SANDY_CLAY_LOAM_PODZOL ||
+                type == SANDY_CLAY_GRASS ||
+                type == SANDY_CLAY_PODZOL ||
+                type == LOAM_GRASS ||
+                type == LOAM_PODZOL ||
+                type == CLAY_LOAM_GRASS ||
+                type == CLAY_LOAM_PODZOL ||
+                type == CLAY_PODZOL ||
+                type == SILTY_CLAY_GRASS ||
+                type == SILTY_CLAY_PODZOL ||
+                type == SILTY_CLAY_LOAM_GRASS ||
+                type == SILTY_CLAY_LOAM_PODZOL ||
+                type == SILT_LOAM_GRASS ||
+                type == SILT_LOAM_PODZOL ||
+                type == SILT_GRASS ||
+                type == SILT_PODZOL ||
+                type == DRY_LOAMY_SAND_GRASS ||
+                type == DRY_SANDY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_GRASS ||
+                type == DRY_LOAM_GRASS ||
+                type == DRY_CLAY_LOAM_GRASS ||
+                type == DRY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_LOAM_GRASS ||
+                type == DRY_SILT_LOAM_GRASS ||
+                type == DRY_SILT_GRASS ||
+                type == HUMUS ||
+                type == COARSE_HUMUS ||
+                type == HUMUS_GRASS ||
+                type == DRY_HUMUS_GRASS ||
+                type == CLAY_HUMUS ||
+                type == CLAY_HUMUS_GRASS ||
+                type == DRY_CLAY_HUMUS_GRASS ||
+                type == KAOLINITE_CLAY ||
+                type == SANDY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+                type == SANDY_KAOLINITE_CLAY ||
+                type == COARSE_SANDY_KAOLINITE_CLAY ||
+                type == KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY ||
+                type == COARSE_SILTY_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+                type == KAOLINITE_CLAY_HUMUS ||
+                type == KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_PODZOL ||
+                type == KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_GRASS ||
+                type == SPARSE_CLAY_GRASS ||
+                type == SPARSE_LOAMY_SAND_GRASS ||
+                type == SPARSE_SANDY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_GRASS ||
+                type == SPARSE_LOAM_GRASS ||
+                type == SPARSE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILTY_CLAY_GRASS ||
+                type == SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILT_LOAM_GRASS ||
+                type == SPARSE_SILT_GRASS ||
+                type == SPARSE_HUMUS_GRASS ||
+                type == SPARSE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == STONEWARE_CLAY ||
+                type == SANDY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+                type == SANDY_STONEWARE_CLAY ||
+                type == COARSE_SANDY_STONEWARE_CLAY ||
+                type == STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY ||
+                type == COARSE_SILTY_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+                type == STONEWARE_CLAY_HUMUS ||
+                type == STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_PODZOL ||
+                type == STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_LOAM_PODZOL ||
+                type == STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_GRASS ||
+                type == SILTY_STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                type == DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == EARTHENWARE_CLAY ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == SANDY_EARTHENWARE_CLAY ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY ||
+                type == EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == EARTHENWARE_CLAY_HUMUS ||
+                type == EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_PODZOL ||
+                type == EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isGrowableSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return false;
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == GRASS || type == DRY_GRASS || type == DIRT || type == CLAY || type == CLAY_GRASS;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == GRASS ||
+                type == DRY_GRASS ||
+                type == DIRT ||
+                type == CLAY ||
+                type == CLAY_GRASS ||
+                type == ROOTED_DIRT ||
+                type == ROOTED_LOAMY_SAND ||
+                type == ROOTED_SANDY_LOAM ||
+                type == ROOTED_LOAM ||
+                type == ROOTED_SILT_LOAM ||
+                type == ROOTED_SILT ||
+                type == ROOTED_HUMUS ||
+                type == COARSE_DIRT ||
+                type == MUD ||
+                type == BOG_IRON ||
+                type == BOG_IRON_GRASS ||
+                type == DRY_BOG_IRON_GRASS ||
+                type == SPARSE_BOG_IRON_GRASS ||
+                type == BOG_IRON_PODZOL ||
+                type == LOAMY_SAND ||
+                type == SANDY_LOAM ||
+                type == LOAM ||
+                type == SILT_LOAM ||
+                type == SILT ||
+                type == SANDY_CLAY_LOAM ||
+                type == SANDY_CLAY ||
+                type == CLAY_LOAM ||
+                type == SILTY_CLAY_LOAM ||
+                type == SILTY_CLAY ||
+                type == COARSE_LOAMY_SAND ||
+                type == COARSE_SANDY_LOAM ||
+                type == COARSE_SANDY_CLAY_LOAM ||
+                type == COARSE_SANDY_CLAY ||
+                type == COARSE_LOAM ||
+                type == COARSE_CLAY_LOAM ||
+                type == COARSE_CLAY ||
+                type == COARSE_SILTY_CLAY ||
+                type == COARSE_SILTY_CLAY_LOAM ||
+                type == COARSE_SILT_LOAM ||
+                type == COARSE_SILT ||
+                type == PODZOL ||
+                type == LOAMY_SAND_GRASS ||
+                type == LOAMY_SAND_PODZOL ||
+                type == SANDY_LOAM_GRASS ||
+                type == SANDY_LOAM_PODZOL ||
+                type == SANDY_CLAY_LOAM_GRASS ||
+                type == SANDY_CLAY_LOAM_PODZOL ||
+                type == SANDY_CLAY_GRASS ||
+                type == SANDY_CLAY_PODZOL ||
+                type == LOAM_GRASS ||
+                type == LOAM_PODZOL ||
+                type == CLAY_LOAM_GRASS ||
+                type == CLAY_LOAM_PODZOL ||
+                type == CLAY_PODZOL ||
+                type == SILTY_CLAY_GRASS ||
+                type == SILTY_CLAY_PODZOL ||
+                type == SILTY_CLAY_LOAM_GRASS ||
+                type == SILTY_CLAY_LOAM_PODZOL ||
+                type == SILT_LOAM_GRASS ||
+                type == SILT_LOAM_PODZOL ||
+                type == SILT_GRASS ||
+                type == SILT_PODZOL ||
+                type == DRY_LOAMY_SAND_GRASS ||
+                type == DRY_SANDY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_GRASS ||
+                type == DRY_LOAM_GRASS ||
+                type == DRY_CLAY_LOAM_GRASS ||
+                type == DRY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_LOAM_GRASS ||
+                type == DRY_SILT_LOAM_GRASS ||
+                type == DRY_SILT_GRASS ||
+                type == HUMUS ||
+                type == COARSE_HUMUS ||
+                type == HUMUS_GRASS ||
+                type == DRY_HUMUS_GRASS ||
+                type == CLAY_HUMUS ||
+                type == CLAY_HUMUS_GRASS ||
+                type == DRY_CLAY_HUMUS_GRASS ||
+                type == KAOLINITE_CLAY ||
+                type == SANDY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+                type == SANDY_KAOLINITE_CLAY ||
+                type == COARSE_SANDY_KAOLINITE_CLAY ||
+                type == KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY ||
+                type == COARSE_SILTY_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+                type == KAOLINITE_CLAY_HUMUS ||
+                type == KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_PODZOL ||
+                type == KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_GRASS ||
+                type == SPARSE_CLAY_GRASS ||
+                type == SPARSE_LOAMY_SAND_GRASS ||
+                type == SPARSE_SANDY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_GRASS ||
+                type == SPARSE_LOAM_GRASS ||
+                type == SPARSE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILTY_CLAY_GRASS ||
+                type == SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILT_LOAM_GRASS ||
+                type == SPARSE_SILT_GRASS ||
+                type == SPARSE_HUMUS_GRASS ||
+                type == SPARSE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == STONEWARE_CLAY ||
+                type == SANDY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+                type == SANDY_STONEWARE_CLAY ||
+                type == COARSE_SANDY_STONEWARE_CLAY ||
+                type == STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY ||
+                type == COARSE_SILTY_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+                type == STONEWARE_CLAY_HUMUS ||
+                type == STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_PODZOL ||
+                type == STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_LOAM_PODZOL ||
+                type == STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_GRASS ||
+                type == SILTY_STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                type == DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == EARTHENWARE_CLAY ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == SANDY_EARTHENWARE_CLAY ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY ||
+                type == EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == EARTHENWARE_CLAY_HUMUS ||
+                type == EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_PODZOL ||
+                type == EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isSoilOrGravel(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return true;
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == GRASS || type == DRY_GRASS || type == DIRT || type == GRAVEL;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == GRASS ||
+                type == DRY_GRASS ||
+                type == DIRT ||
+                type == GRAVEL ||
+                type == CLAY ||
+                type == ROOTED_DIRT ||
+                type == ROOTED_LOAMY_SAND ||
+                type == ROOTED_SANDY_LOAM ||
+                type == ROOTED_LOAM ||
+                type == ROOTED_SILT_LOAM ||
+                type == ROOTED_SILT ||
+                type == ROOTED_HUMUS ||
+                type == COARSE_DIRT ||
+                type == MUD ||
+                type == BOG_IRON ||
+                type == BOG_IRON_GRASS ||
+                type == DRY_BOG_IRON_GRASS ||
+                type == SPARSE_BOG_IRON_GRASS ||
+                type == BOG_IRON_PODZOL ||
+                type == LOAMY_SAND ||
+                type == SANDY_LOAM ||
+                type == LOAM ||
+                type == SILT_LOAM ||
+                type == SILT ||
+                type == COARSE_LOAMY_SAND ||
+                type == COARSE_SANDY_LOAM ||
+                type == COARSE_LOAM ||
+                type == COARSE_SILT_LOAM ||
+                type == COARSE_SILT ||
+                type == PODZOL ||
+                type == LOAMY_SAND_GRASS ||
+                type == LOAMY_SAND_PODZOL ||
+                type == SANDY_LOAM_GRASS ||
+                type == SANDY_LOAM_PODZOL ||
+                type == LOAM_GRASS ||
+                type == LOAM_PODZOL ||
+                type == SILT_LOAM_GRASS ||
+                type == SILT_LOAM_PODZOL ||
+                type == SILT_GRASS ||
+                type == SILT_PODZOL ||
+                type == DRY_LOAMY_SAND_GRASS ||
+                type == DRY_SANDY_LOAM_GRASS ||
+                type == DRY_LOAM_GRASS ||
+                type == DRY_SILT_LOAM_GRASS ||
+                type == DRY_SILT_GRASS ||
+                type == HUMUS ||
+                type == COARSE_HUMUS ||
+                type == HUMUS_GRASS ||
+                type == DRY_HUMUS_GRASS ||
+                type == SPARSE_GRASS ||
+                type == SPARSE_LOAMY_SAND_GRASS ||
+                type == SPARSE_SANDY_LOAM_GRASS ||
+                type == SPARSE_LOAM_GRASS ||
+                type == SPARSE_SILT_LOAM_GRASS ||
+                type == SPARSE_SILT_GRASS ||
+                type == SPARSE_HUMUS_GRASS;
     }
 
     public static boolean isGrass(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeatGrass) return true;
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+
         Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
         return type.isGrass;
     }
@@ -848,15 +1552,266 @@ public final class BlocksTFC
     public static boolean isDryGrass(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == DRY_GRASS;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == DRY_GRASS ||
+                type == DRY_BOG_IRON_GRASS ||
+                type == DRY_LOAMY_SAND_GRASS ||
+                type == DRY_SANDY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_GRASS ||
+                type == DRY_LOAM_GRASS ||
+                type == DRY_CLAY_LOAM_GRASS ||
+                type == DRY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_LOAM_GRASS ||
+                type == DRY_SILT_LOAM_GRASS ||
+                type == DRY_SILT_GRASS ||
+                type == DRY_HUMUS_GRASS ||
+                type == DRY_CLAY_HUMUS_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                type == DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     public static boolean isGround(IBlockState current)
     {
         if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
-        return type == GRASS || type == DRY_GRASS || type == DIRT || type == GRAVEL || type == RAW || type == SAND;
+
+        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        return type == GRASS ||
+                type == DRY_GRASS ||
+                type == DIRT ||
+                type == GRAVEL ||
+                type == RAW ||
+                type == SAND ||
+                type == ROOTED_DIRT ||
+                type == ROOTED_LOAMY_SAND ||
+                type == ROOTED_SANDY_LOAM ||
+                type == ROOTED_LOAM ||
+                type == ROOTED_SILT_LOAM ||
+                type == ROOTED_SILT ||
+                type == ROOTED_HUMUS ||
+                type == COARSE_DIRT ||
+                type == MUD ||
+                type == BOG_IRON ||
+                type == BOG_IRON_GRASS ||
+                type == DRY_BOG_IRON_GRASS ||
+                type == SPARSE_BOG_IRON_GRASS ||
+                type == BOG_IRON_PODZOL ||
+                type == LOAMY_SAND ||
+                type == SANDY_LOAM ||
+                type == LOAM ||
+                type == SILT_LOAM ||
+                type == SILT ||
+                type == SANDY_CLAY_LOAM ||
+                type == SANDY_CLAY ||
+                type == CLAY_LOAM ||
+                type == SILTY_CLAY_LOAM ||
+                type == SILTY_CLAY ||
+                type == COARSE_LOAMY_SAND ||
+                type == COARSE_SANDY_LOAM ||
+                type == COARSE_SANDY_CLAY_LOAM ||
+                type == COARSE_SANDY_CLAY ||
+                type == COARSE_LOAM ||
+                type == COARSE_CLAY_LOAM ||
+                type == COARSE_CLAY ||
+                type == COARSE_SILTY_CLAY ||
+                type == COARSE_SILTY_CLAY_LOAM ||
+                type == COARSE_SILT_LOAM ||
+                type == COARSE_SILT ||
+                type == PODZOL ||
+                type == LOAMY_SAND_GRASS ||
+                type == LOAMY_SAND_PODZOL ||
+                type == SANDY_LOAM_GRASS ||
+                type == SANDY_LOAM_PODZOL ||
+                type == SANDY_CLAY_LOAM_GRASS ||
+                type == SANDY_CLAY_LOAM_PODZOL ||
+                type == SANDY_CLAY_GRASS ||
+                type == SANDY_CLAY_PODZOL ||
+                type == LOAM_GRASS ||
+                type == LOAM_PODZOL ||
+                type == CLAY_LOAM_GRASS ||
+                type == CLAY_LOAM_PODZOL ||
+                type == CLAY_PODZOL ||
+                type == SILTY_CLAY_GRASS ||
+                type == SILTY_CLAY_PODZOL ||
+                type == SILTY_CLAY_LOAM_GRASS ||
+                type == SILTY_CLAY_LOAM_PODZOL ||
+                type == SILT_LOAM_GRASS ||
+                type == SILT_LOAM_PODZOL ||
+                type == SILT_GRASS ||
+                type == SILT_PODZOL ||
+                type == DRY_LOAMY_SAND_GRASS ||
+                type == DRY_SANDY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_CLAY_GRASS ||
+                type == DRY_LOAM_GRASS ||
+                type == DRY_CLAY_LOAM_GRASS ||
+                type == DRY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_GRASS ||
+                type == DRY_SILTY_CLAY_LOAM_GRASS ||
+                type == DRY_SILT_LOAM_GRASS ||
+                type == DRY_SILT_GRASS ||
+                type == HUMUS ||
+                type == COARSE_HUMUS ||
+                type == HUMUS_GRASS ||
+                type == DRY_HUMUS_GRASS ||
+                type == CLAY_HUMUS ||
+                type == CLAY_HUMUS_GRASS ||
+                type == DRY_CLAY_HUMUS_GRASS ||
+                type == KAOLINITE_CLAY ||
+                type == SANDY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SANDY_KAOLINITE_CLAY_LOAM ||
+                type == SANDY_KAOLINITE_CLAY ||
+                type == COARSE_SANDY_KAOLINITE_CLAY ||
+                type == KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY ||
+                type == COARSE_SILTY_KAOLINITE_CLAY ||
+                type == SILTY_KAOLINITE_CLAY_LOAM ||
+                type == COARSE_SILTY_KAOLINITE_CLAY_LOAM ||
+                type == KAOLINITE_CLAY_HUMUS ||
+                type == KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SANDY_KAOLINITE_CLAY_PODZOL ||
+                type == KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_PODZOL ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == DRY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_GRASS ||
+                type == SPARSE_CLAY_GRASS ||
+                type == SPARSE_LOAMY_SAND_GRASS ||
+                type == SPARSE_SANDY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_CLAY_GRASS ||
+                type == SPARSE_LOAM_GRASS ||
+                type == SPARSE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILTY_CLAY_GRASS ||
+                type == SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                type == SPARSE_SILT_LOAM_GRASS ||
+                type == SPARSE_SILT_GRASS ||
+                type == SPARSE_HUMUS_GRASS ||
+                type == SPARSE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                type == SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                type == SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+                type == STONEWARE_CLAY ||
+                type == SANDY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_STONEWARE_CLAY_LOAM ||
+                type == SANDY_STONEWARE_CLAY ||
+                type == COARSE_SANDY_STONEWARE_CLAY ||
+                type == STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY_LOAM ||
+                type == COARSE_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY ||
+                type == COARSE_SILTY_STONEWARE_CLAY ||
+                type == SILTY_STONEWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_STONEWARE_CLAY_LOAM ||
+                type == STONEWARE_CLAY_HUMUS ||
+                type == STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_STONEWARE_CLAY_GRASS ||
+                type == SANDY_STONEWARE_CLAY_PODZOL ||
+                type == STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_LOAM_PODZOL ||
+                type == STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_GRASS ||
+                type == SILTY_STONEWARE_CLAY_PODZOL ||
+                type == SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                type == DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == DRY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                type == DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == STONEWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+                type == EARTHENWARE_CLAY ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY_LOAM ||
+                type == SANDY_EARTHENWARE_CLAY ||
+                type == COARSE_SANDY_EARTHENWARE_CLAY ||
+                type == EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == COARSE_SILTY_EARTHENWARE_CLAY_LOAM ||
+                type == EARTHENWARE_CLAY_HUMUS ||
+                type == EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SANDY_EARTHENWARE_CLAY_PODZOL ||
+                type == EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_PODZOL ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SILTY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                type == SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                type == SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
     private static <T extends Block> T register(IForgeRegistry<Block> r, String name, T block, CreativeTabs ct)

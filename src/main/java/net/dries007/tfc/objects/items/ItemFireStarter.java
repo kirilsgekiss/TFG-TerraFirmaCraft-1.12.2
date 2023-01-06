@@ -222,7 +222,7 @@ public class ItemFireStarter extends ItemTFC
                         kindling += entity.getItem().getCount();
                         stuffToUse.add(entity);
                     }
-                    else if (log == null && OreDictionaryHelper.doesStackMatchOre(entity.getItem(), "logWood"))
+                    else if (log == null && (OreDictionaryHelper.doesStackMatchOre(entity.getItem(), "logWood") || OreDictionaryHelper.doesStackMatchOre(entity.getItem(), "driftwood") || OreDictionaryHelper.doesStackMatchOre(entity.getItem(), "twig")))
                     {
                         log = entity;
                     }

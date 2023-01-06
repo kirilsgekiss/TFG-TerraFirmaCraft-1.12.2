@@ -1,7 +1,7 @@
 package net.dries007.tfc.compat.tfc;
 
 import gregtech.api.unification.ore.OrePrefix;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,17 +24,17 @@ public final class TFGUtils {
             new TFCOrePrefixExtended(OrePrefix.plateDouble, 288),
             new TFCOrePrefixExtended(OrePrefix.toolHeadSword, 288, new String[]{"XXX  ", "XX   ", "X   X", "X  XX", " XXXX"}),
             new TFCOrePrefixExtended(OrePrefix.toolHeadPickaxe, 432, new String[]{"XXXXX", "X   X", " XXX ", "XXXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadAxe, 432, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadShovel, 144, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadHoe, 144, new String[]{"X   X", "X   X", "X   X", "X   X", "XX XX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadAxe, 432, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}, new String[]{" X   ", "XXXX ", "XXXXX", "XXXX ", " X   "}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadShovel, 144, new String[]{"X XXX", "    X", "     ", "    X", "X XXX"}, new String[]{"XXX", "XXX", "XXX", "XXX", " X "}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadHoe, 144, new String[]{"X   X", "X   X", "X   X", "X   X", "XX XX"}, new String[]{"XXXXX", "   XX"}),
             new TFCOrePrefixExtended(OrePrefix.toolHeadSaw, 288, new String[]{"XXXXX", "     ", "  XXX", "XXXXX"}),
-            new TFCOrePrefixExtended(OrePrefix.toolHeadHammer, 864, new String[]{"     ", "     ", "XX XX", "XXXXX"}),
+            new TFCOrePrefixExtended(OrePrefix.toolHeadHammer, 864, new String[]{"     ", "     ", "XX XX", "XXXXX"}, new String[]{"XXXXX", "XXXXX", "  X  "}),
             new TFCOrePrefixExtended(OrePrefix.toolHeadSense, 432, new String[]{"XXXXX", "X    ", "    X", "  XXX", "XXXXX"}),
-            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadKnife, 144, new String[]{"XX X", "X  X", "X  X", "X  X", "X  X"}),
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadKnife, 144, new String[]{"XX X", "X  X", "X  X", "X  X", "X  X"}, new String[]{"X ", "XX", "XX", "XX", "XX"}),
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadPropick, 432, new String[]{"XXXXX", "    X", " XXX ", " XXXX", "XXXXX"}),
             new TFCOrePrefixExtended(TFCOrePrefix.toolHeadChisel, 288, new String[]{"X X", "X X", "X X", "X X", "X X"}),
-            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadJavelin, 432, new String[]{"XX   ", "X    ", "     ", "X   X", "XX XX"}),
-            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadTuyere, 864)
+            new TFCOrePrefixExtended(TFCOrePrefix.toolHeadJavelin, 432, new String[]{"XX   ", "X    ", "     ", "X   X", "XX XX"}, new String[]{"XXX  ", "XXXX ", "XXXXX", " XXX ", "  X  "}),
+            new TFCOrePrefixExtended(TFCOrePrefix.tuyere, 864)
     );
 
     public static final List<TFCMaterialExtended> TFC_MATERIAL_REGISTRY = Arrays.asList
@@ -80,5 +80,9 @@ public final class TFGUtils {
     public static boolean isAtLeast(int value, int requiredInclusive)
     {
         return value >= requiredInclusive;
+    }
+    public static boolean isAtMost(int value, int requiredInclusive)
+    {
+        return value <= requiredInclusive;
     }
 }

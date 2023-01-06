@@ -18,6 +18,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
@@ -45,7 +46,7 @@ public class BlockStairsTFC extends BlockStairs
         super(BlockRockVariant.get(rock, type).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
-            ROCK_TABLE.put(rock, new EnumMap<>(Rock.Type.class));
+            ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
         ROCK_TABLE.get(rock).put(type, this);
 
         Block baseBlock = BlockRockVariant.get(rock, type);

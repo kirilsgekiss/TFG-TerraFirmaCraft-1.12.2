@@ -18,6 +18,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
@@ -26,11 +27,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
+import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.Constants;
+import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
+import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.util.agriculture.Crop;
+import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -137,17 +144,92 @@ public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, 
     @Override
     public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player)
     {
-        if (!worldIn.isRemote && player != null)
+        Month currentMonth = CalendarTFC.CALENDAR_TIME.getMonthOfYear();
+        int currentStage = state.getValue(growthStageProperty);
+        int expectedStage = plant.getStageForMonth(currentMonth);
+        int age = state.getValue(AGE);
+
+        if (!worldIn.isRemote)
         {
             ItemStack stack = player.getHeldItemMainhand();
             if (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1)
             {
                 for (int i = 1; worldIn.getBlockState(pos.up(i)).getBlock() == this; ++i)
                 {
-                    if (Constants.RNG.nextDouble() <= (worldIn.getBlockState(pos.up(i)).getValue(AGE) + 1) / 4.0D) //+25% change for each age
+                    /*if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY))
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.STRAW, 1));
+                        if (age == 3 && (currentStage == 1 || expectedStage == 1))
+                        {
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_BARLEY, 1 + Constants.RNG.nextInt(2)));
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.BARLEY), Constants.RNG.nextInt(2)));
+                        }
+                        else
+                        {
+                            if (Constants.RNG.nextDouble() <= (age + 1) / 4.0D) //+25% change for each age
+                            {
+                                spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.STRAW, 1));
+                                int chance = Constants.RNG.nextInt(2);
+                                if (chance == 0)
+                                {
+                                    spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.BARLEY), 1));
+                                }
+                            }
+                        }
                     }
+                    else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                    {
+                        if (age == 3 && (currentStage == 1 || expectedStage == 1))
+                        {
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_WHEAT, 1 + Constants.RNG.nextInt(2)));
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.WHEAT), Constants.RNG.nextInt(2)));
+                        }
+                        else
+                        {
+                            if (Constants.RNG.nextDouble() <= (age + 1) / 4.0D) //+25% change for each age
+                            {
+                                spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.STRAW, 1));
+                                int chance = Constants.RNG.nextInt(2);
+                                if (chance == 0)
+                                {
+                                    spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.WHEAT), 1));
+                                }
+                            }
+                        }
+                    }
+                    else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE))
+                    {
+                        if (age == 3 && (currentStage == 1 || expectedStage == 1))
+                        {
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_RICE, 1 + Constants.RNG.nextInt(2)));
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.RICE), Constants.RNG.nextInt(2)));
+                        }
+                        else
+                        {
+                            if (Constants.RNG.nextDouble() <= (age + 1) / 4.0D) //+25% change for each age
+                            {
+                                spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.STRAW, 1));
+                                int chance = Constants.RNG.nextInt(2);
+                                if (chance == 0)
+                                {
+                                    spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.RICE), 1));
+                                }
+                            }
+                        }
+                    }
+                    else*/
+                    {
+                        if (Constants.RNG.nextDouble() <= (age + 1) / 4.0D) //+25% change for each age
+                        {
+                            spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.STRAW, 1));
+                        }
+                    }
+                }
+            }
+            else if (stack.getItem() == Items.SHEARS)
+            {
+                for (int i = 1; worldIn.getBlockState(pos.up(i)).getBlock() == this; ++i)
+                {
+                    spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
                 }
             }
         }

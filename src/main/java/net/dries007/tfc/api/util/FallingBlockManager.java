@@ -32,7 +32,7 @@ import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.worldtracker.CapabilityWorldTracker;
 import net.dries007.tfc.api.capability.worldtracker.CollapseData;
 import net.dries007.tfc.api.capability.worldtracker.WorldTracker;
-import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
@@ -142,7 +142,7 @@ public class FallingBlockManager
 
     public static boolean hasSupportingSideBlock(IBlockState state)
     {
-        return state.isNormalCube() || SIDE_SUPPORTS.contains(state) || state.getBlock() instanceof BlockRockVariant && (((BlockRockVariant) state.getBlock()).getType() == Rock.Type.FARMLAND || ((BlockRockVariant) state.getBlock()).getType() == Rock.Type.PATH);
+        return state.isNormalCube() || SIDE_SUPPORTS.contains(state) || state.getBlock() instanceof BlockRockVariant && (((BlockRockVariant) state.getBlock()).getType() == Type.FARMLAND || ((BlockRockVariant) state.getBlock()).getType() == Type.PATH);
     }
 
     public static boolean shouldFall(World world, BlockPos posToFallFrom, BlockPos originalPos, IBlockState originalState, boolean ignoreSupportChecks)

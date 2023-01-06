@@ -35,6 +35,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
+import net.dries007.tfc.api.types.Rock.*;
+import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.plants.BlockMushroomTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
@@ -53,6 +55,8 @@ import net.dries007.tfc.world.classic.worldgen.WorldGenTrees;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 
+import tfcflorae.util.RegenWildCropsTFCF;
+
 /**
  * Seasonally regenerates rocks, sticks, snow, plants, crops and bushes.
  */
@@ -64,6 +68,7 @@ public class WorldRegenHandler
 
     private static final RegenRocksSticks ROCKS_GEN = new RegenRocksSticks();
     private static final RegenWildCrops CROPS_GEN = new RegenWildCrops();
+    private static final RegenWildCropsTFCF CROPSTFCF_GEN = new RegenWildCropsTFCF();
     private static final WorldGenBerryBushes BUSH_GEN = new WorldGenBerryBushes();
     public static final WorldGenPlantTFC PLANT_GEN = new WorldGenPlantTFC();
     private static final Random RANDOM = new Random();
@@ -134,14 +139,14 @@ public class WorldRegenHandler
                             PLANT_GEN.generate(event.world, RANDOM, blockMushroomPos);
                         }
                         CROPS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                        CROPSTFCF_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                        BUSH_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                         int worldX = pos.x << 4;
                         int worldZ = pos.z << 4;
                         BlockPos blockpos = new BlockPos(worldX, 0, worldZ);
                         Biome biome = event.world.getBiome(blockpos.add(16, 0, 16));
-                        removePredators(event.world, pos);
                         regenPredators(event.world, biome, worldX + 8, worldZ + 8, 16, 16, RANDOM);
 
-                        // notably missing: berry bushes
                         chunkDataTFC.resetLastUpdateYear();
                     }
                     chunk.markDirty();
@@ -149,18 +154,6 @@ public class WorldRegenHandler
                 }
             }
         }
-    }
-
-    private static void removePredators(World world, ChunkPos pos)
-    {
-        for (ClassInheritanceMultiMap<Entity> target : world.getChunk(pos.x, pos.z).getEntityLists())
-            target.forEach(entity -> {
-                if (entity instanceof IPredator || entity instanceof IHuntable && !entity.hasCustomName())
-                {
-                    entity.setDropItemsWhenDead(false);
-                    entity.setDead();
-                }
-            });
     }
 
     private static void removeCropsAndMushrooms(World world, ChunkPos pos)
@@ -180,7 +173,7 @@ public class WorldRegenHandler
                     {
                         BlockRockVariant soilRock = (BlockRockVariant) soil.getBlock();
                         //Stop removing dead crops from farmland please!
-                        if (soilRock.getType() != Rock.Type.FARMLAND)
+                        if (soilRock.getType() != Type.FARMLAND)
                         {
                             world.removeTileEntity(topPos);
                             world.setBlockToAir(topPos);

@@ -25,10 +25,9 @@ import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
-import net.dries007.tfc.objects.Gem;
-import net.dries007.tfc.objects.items.ItemGem;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -39,11 +38,12 @@ public class BlockRockRaw extends BlockRockVariant
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
-    public BlockRockRaw(Rock.Type type, Rock rock)
+    public BlockRockRaw(Type type, Rock rock)
     {
         super(type, rock);
 
         FallingBlockManager.Specification spec = new FallingBlockManager.Specification(type.getFallingSpecification()); // Copy as each raw stone has an unique resultingState
+//        spec.setResultingState(BlockRockVariant.get(rock, Type.COBBLE).getDefaultState());
         FallingBlockManager.registerFallable(this, spec);
 
         setDefaultState(getBlockState().getBaseState().withProperty(CAN_FALL, true));
@@ -102,7 +102,7 @@ public class BlockRockRaw extends BlockRockVariant
             if (!worldIn.isRemote)
             {
                 // Create a stone anvil
-                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Rock.Type.ANVIL);
+                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
                 if (anvil instanceof BlockStoneAnvil)
                 {
                     worldIn.setBlockState(pos, anvil.getDefaultState());
@@ -127,7 +127,7 @@ public class BlockRockRaw extends BlockRockVariant
         // Raw rocks drop random gems
         if (RANDOM.nextDouble() < ConfigTFC.General.MISC.stoneGemDropChance)
         {
-            drops.add(ItemGem.get(Gem.getRandomDropGem(RANDOM), Gem.Grade.randomGrade(RANDOM), 1));
+            //drops.add(ItemGem.get(Gem.getRandomDropGem(RANDOM), Gem.Grade.randomGrade(RANDOM), 1));
         }
     }
 

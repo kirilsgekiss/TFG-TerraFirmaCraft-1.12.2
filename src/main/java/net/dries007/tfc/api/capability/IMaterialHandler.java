@@ -7,6 +7,8 @@ package net.dries007.tfc.api.capability;
 
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
+import net.dries007.tfc.objects.items.ceramics.fired.ItemSmallVessel;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -14,10 +16,10 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import javax.annotation.Nullable;
 
 /**
- * This is an interface for objects that implement both {@link IFluidHandler} and {@link IItemHeat}. Anything that wants to behave similar to an {@link net.dries007.tfc.objects.items.ceramics.ItemMold} should implement this interface on the capability object, and return this instance when queried.
+ * This is an interface for objects that implement both {@link IFluidHandler} and {@link IItemHeat}. Anything that wants to behave similar to an {@link ItemClayMold} should implement this interface on the capability object, and return this instance when queried.
  * Currently provided by:
- * {@link net.dries007.tfc.objects.items.ceramics.ItemMold}
- * {@link net.dries007.tfc.objects.items.ceramics.ItemSmallVessel}
+ * {@link ItemClayMold}
+ * {@link ItemSmallVessel}
  */
 public interface IMaterialHandler extends IFluidHandler, INBTSerializable<NBTTagCompound>, IItemHeat {
 

@@ -21,6 +21,7 @@ import net.minecraftforge.registries.ForgeRegistry;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.NBTBuilder;
@@ -41,6 +42,7 @@ public final class ChunkDataTFC
     static
     {
         Arrays.fill(EMPTY.drainageLayer, DataLayer.ERROR);
+        //Arrays.fill(EMPTY.phLayer, DataLayer.ERROR);
         Arrays.fill(EMPTY.stabilityLayer, DataLayer.ERROR);
         Arrays.fill(EMPTY.seaLevelOffset, -1);
     }
@@ -98,6 +100,16 @@ public final class ChunkDataTFC
         return get(world, pos).getDrainageLayer(pos.getX() & 15, pos.getZ() & 15).valueInt;
     }
 
+     /*public static int getRegion(World world, BlockPos pos)
+    {
+        return get(world, pos).getRegionLayer(pos.getX() & 15, pos.getZ() & 15);
+    }
+
+    public static int getRiver(World world, BlockPos pos)
+    {
+        return get(world, pos).getRiverLayer(pos.getX() & 15, pos.getZ() & 15);
+    }*/
+
     public static int getSeaLevelOffset(World world, BlockPos pos)
     {
         return get(world, pos).getSeaLevelOffset(pos.getX() & 15, pos.getZ() & 15);
@@ -141,8 +153,11 @@ public final class ChunkDataTFC
         System.arraycopy(rockLayer2, 0, this.rockLayer2, 0, 256);
         System.arraycopy(rockLayer3, 0, this.rockLayer3, 0, 256);
         System.arraycopy(stabilityLayer, 0, this.stabilityLayer, 0, 256);
+        //System.arraycopy(phLayer, 0, this.phLayer, 0, 256);
         System.arraycopy(drainageLayer, 0, this.drainageLayer, 0, 256);
         System.arraycopy(seaLevelOffset, 0, this.seaLevelOffset, 0, 256);
+        /*System.arraycopy(regionLayer, 0, this.regionLayer, 0, 256);
+        System.arraycopy(riverLayer, 0, this.riverLayer, 0, 256);*/
 
         this.rainfall = rainfall;
         this.regionalTemp = regionalTemp;
@@ -216,10 +231,25 @@ public final class ChunkDataTFC
         return getStabilityLayer(x, z).valueInt == 0;
     }
 
+    /*public int getPH(int x, int z)
+    {
+        return getPHLayer(x, z).valueInt;
+    }*/
+
     public int getDrainage(int x, int z)
     {
         return getDrainageLayer(x, z).valueInt;
     }
+
+    /*public int getRegion(int x, int z)
+    {
+        return getRegionLayer(x, z);
+    }
+
+    public int getRiver(int x, int z)
+    {
+        return getRiverLayer(x, z);
+    }*/
 
     public Rock getRockHeight(BlockPos pos)
     {
@@ -348,10 +378,25 @@ public final class ChunkDataTFC
         return stabilityLayer[z << 4 | x];
     }
 
+    /*public DataLayer getPHLayer(int x, int z)
+    {
+        return phLayer[z << 4 | x];
+    }*/
+
     public DataLayer getDrainageLayer(int x, int z)
     {
         return drainageLayer[z << 4 | x];
     }
+
+    /*public int getRegionLayer(int x, int z)
+    {
+        return regionLayer[z << 4 | x];
+    }
+
+    public int getRiverLayer(int x, int z)
+    {
+        return riverLayer[z << 3 | x];
+    }*/
 
     public Rock getRockLayerHeight(int x, int y, int z)
     {
@@ -393,7 +438,11 @@ public final class ChunkDataTFC
             root.setTag("seaLevelOffset", new NBTTagIntArray(instance.seaLevelOffset));
 
             root.setTag("stabilityLayer", write(instance.stabilityLayer));
+            //root.setTag("phLayer", write(instance.phLayer));
             root.setTag("drainageLayer", write(instance.drainageLayer));
+
+            /*root.setTag("regionLayer", new NBTTagIntArray(instance.regionLayer));
+            root.setTag("riverLayer", new NBTTagIntArray(instance.riverLayer));*/
 
             root.setInteger("fishPopulation", instance.fishPopulation);
 
@@ -423,7 +472,11 @@ public final class ChunkDataTFC
                 System.arraycopy(root.getIntArray("seaLevelOffset"), 0, instance.seaLevelOffset, 0, 256);
 
                 read(instance.stabilityLayer, root.getByteArray("stabilityLayer"));
+                //read(instance.phLayer, root.getByteArray("phLayer"));
                 read(instance.drainageLayer, root.getByteArray("drainageLayer"));
+
+                /*System.arraycopy(root.getIntArray("regionLayer"), 0, instance.regionLayer, 0, 256);
+                System.arraycopy(root.getIntArray("riverLayer"), 0, instance.riverLayer, 0, 256);*/
 
                 instance.fishPopulation = root.getInteger("fishPopulation");
 

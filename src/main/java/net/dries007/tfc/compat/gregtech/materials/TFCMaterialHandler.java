@@ -186,7 +186,7 @@ public class TFCMaterialHandler {
                 .color(0x686567)
                 .build();
 
-        SiltStone = new Material.Builder(32121, "siltstone")
+        Siltstone = new Material.Builder(32121, "siltstone")
                 .dust()
                 .color(0xA98D79)
                 .build();
@@ -200,14 +200,17 @@ public class TFCMaterialHandler {
 
         // GTCEu
 
+        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(5f, 1f, 5, 1, false));
+        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
+
         for (Material material : GregTechAPI.MATERIAL_REGISTRY)
         {
             if (material.hasProperty(PropertyKey.TOOL))
             {
                 ToolProperty toolProperty = material.getProperty(PropertyKey.TOOL);
 
-                toolProperty.setToolSpeed(toolProperty.getToolSpeed() * 2);
-                toolProperty.setToolDurability(toolProperty.getToolEnchantability() * 7);
+                toolProperty.setToolSpeed(toolProperty.getToolSpeed() * 3);
+                toolProperty.setToolDurability(toolProperty.getToolDurability() * 7);
             }
         }
 
@@ -239,10 +242,7 @@ public class TFCMaterialHandler {
         NaquadahEnriched.setProperty(PropertyKey.ORE, new OreProperty());
         Glowstone.setProperty(PropertyKey.ORE, new OreProperty(1, 1, true));
 
-        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
-        SaltWater.setMaterialRGB(0xFF1F5099);
         Bismuth.addFlags(GENERATE_PLATE);
-
         // TFC
 
         // All TFC Materials has USABLE_MATERIALS

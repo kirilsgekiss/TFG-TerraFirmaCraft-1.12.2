@@ -8,7 +8,7 @@ package net.dries007.tfc;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialHandler;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefixHandler;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefixHandler;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.gregtech.recipes.TFCRecipeHandlerList;
 import net.minecraft.block.Block;
@@ -99,6 +99,8 @@ import net.dries007.tfc.api.capability.worldtracker.WorldTracker;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.api.util.IGrowingPlant;
+import net.dries007.tfc.api.types.Rock.*;
+import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.network.PacketCalendarUpdate;
 import net.dries007.tfc.network.PacketPlayerDataUpdate;
 import net.dries007.tfc.network.PacketSimpleMessage;
@@ -362,7 +364,7 @@ public final class CommonEventHandler
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSaltWater(waterState);
+                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSeaWater(waterState);
                 if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
                 {
                     //Simulated so client will check if he would drink before updating stats
@@ -402,12 +404,12 @@ public final class CommonEventHandler
             if (block instanceof BlockRockVariant)
             {
                 BlockRockVariant blockRock = (BlockRockVariant) block;
-                if (blockRock.getType() == Rock.Type.GRASS || blockRock.getType() == Rock.Type.DIRT)
+                if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DIRT)
                 {
                     if (!world.isRemote)
                     {
                         world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Rock.Type.FARMLAND).getDefaultState());
+                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
                     }
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -754,7 +756,7 @@ public final class CommonEventHandler
             {
                 // Prevents squids spawning outside of salt water (eg: oceans)
                 Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
-                if (FluidsTFC.SALT_WATER.get() != fluid)
+                if (FluidsTFC.SEA_WATER.get() != fluid)
                 {
                     event.setResult(Event.Result.DENY);
                 }
@@ -1055,11 +1057,11 @@ public final class CommonEventHandler
         {
             if (event.getNewState().getBlock() == Blocks.STONE)
             {
-                event.setNewState(BlockRockVariant.get(Rock.BASALT, Rock.Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
+                event.setNewState(BlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
             }
             if (event.getNewState().getBlock() == Blocks.COBBLESTONE)
             {
-                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Rock.Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
+                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
             }
         }
     }

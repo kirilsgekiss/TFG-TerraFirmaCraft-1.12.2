@@ -15,6 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -32,11 +33,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
+import net.dries007.tfc.objects.blocks.stone.farmland.*;
+import tfcflorae.objects.blocks.plants.BlockWaterPlantTFCF;
+
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.api.util.IGrowingPlant;
-import net.dries007.tfc.objects.blocks.stone.BlockFarmlandTFC;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
+import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
@@ -46,8 +52,10 @@ import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
+import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
+
 @ParametersAreNonnullByDefault
-public abstract class BlockCropTFC extends BlockBush implements IGrowingPlant
+public abstract class BlockCropTFC extends BlockBush
 {
     // stage properties
     public static final PropertyInteger STAGE_8 = PropertyInteger.create("stage", 0, 7);
@@ -63,14 +71,14 @@ public abstract class BlockCropTFC extends BlockBush implements IGrowingPlant
 
     // model boxes
     private static final AxisAlignedBB[] CROPS_AABB = new AxisAlignedBB[] {
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.125D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.25D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.375D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.5D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.625D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.75D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.875D, 0.875D),
-        new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D)
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.125D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.25D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.375D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.5D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.625D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.75D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.875D, 0.875D),
+            new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D)
     };
 
     // binary flags for state and metadata conversion
@@ -242,7 +250,8 @@ public abstract class BlockCropTFC extends BlockBush implements IGrowingPlant
                     }
                 }
 
-                long growthTicks = (long) (crop.getGrowthTicks() * ConfigTFC.General.FOOD.cropGrowthTimeModifier);
+                long growthTicks = (long) ((crop.getGrowthTicks() * ConfigTFC.General.FOOD.cropGrowthTimeModifier) * growthTimeModifier(worldIn, pos));
+
                 int fullGrownStages = 0;
                 while (te.getTicksSinceUpdate() > growthTicks)
                 {
@@ -277,6 +286,44 @@ public abstract class BlockCropTFC extends BlockBush implements IGrowingPlant
         }
     }
 
+    public float growthTimeModifier (World worldIn, BlockPos pos)
+    {
+        IBlockState stateFarmland = worldIn.getBlockState(pos.down());
+
+        if (stateFarmland.getBlock() instanceof BlockHumusFarmland)
+        {
+            return 0.3f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockLoamFarmland)
+        {
+            return 0.5f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockSandyLoamFarmland)
+        {
+            return 0.8f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockFarmlandTFC)
+        {
+            return 1f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockSiltLoamFarmland)
+        {
+            return 1.2f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockLoamySandFarmland)
+        {
+            return 1.5f;
+        }
+        else if (stateFarmland.getBlock() instanceof BlockSiltFarmland)
+        {
+            return 1.7f;
+        }
+        else
+        {
+            return 1f;
+        }
+    }
+
     public abstract void grow(World worldIn, BlockPos pos, IBlockState state, Random random);
 
     public void die(World worldIn, BlockPos pos, IBlockState state, Random random)
@@ -302,25 +349,58 @@ public abstract class BlockCropTFC extends BlockBush implements IGrowingPlant
         return EnumPlantType.Crop;
     }
 
-    public abstract PropertyInteger getStageProperty();
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        Material material = worldIn.getBlockState(pos.down(2)).getMaterial();
+
+        if (crop == Crop.RICE)
+        {
+            return super.canPlaceBlockAt(worldIn, pos) && this.canBlockStay(worldIn, pos, worldIn.getBlockState(pos)) && material != Material.WATER;
+        }
+        else
+        {
+            return super.canPlaceBlockAt(worldIn, pos);
+        }
+    }
 
     @Override
-    public GrowthStatus getGrowingStatus(IBlockState state, World world, BlockPos pos)
+    protected boolean canSustainBush(IBlockState state)
     {
-        float temp = ClimateTFC.getActualTemp(world, pos);
-        float rainfall = ChunkDataTFC.getRainfall(world, pos);
-        if (state.getValue(getStageProperty()) >= crop.getMaxStage())
+        if (crop == Crop.RICE)
         {
-            return GrowthStatus.FULLY_GROWN;
+            return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
         }
-        else if (!crop.isValidConditions(temp, rainfall) || !world.canSeeSky(pos))
+        else
         {
-            return GrowthStatus.NOT_GROWING;
+            return super.canSustainBush(state);
         }
-        else if (crop.isValidForGrowth(temp, rainfall))
-        {
-            return GrowthStatus.GROWING;
-        }
-        return GrowthStatus.CAN_GROW;
     }
+
+    @Override
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (crop == Crop.RICE)
+        {
+            IBlockState soil = worldIn.getBlockState(pos.down());
+
+            if (soil.getBlock() instanceof BlockWaterPlantTFCF || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
+            if (state.getBlock() == this)
+            {
+                IBlockState stateDown = worldIn.getBlockState(pos.down());
+                Material material = stateDown.getMaterial();
+                return ((soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || ((material == Material.WATER && stateDown.getValue(BlockLiquid.LEVEL) == 0 && stateDown == WATER) || material == Material.ICE || (material == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC))));
+            }
+            else
+            {
+                return this.canSustainBush(soil);
+            }
+        }
+        else
+        {
+            return super.canBlockStay(worldIn, pos, state);
+        }
+    }
+
+    public abstract PropertyInteger getStageProperty();
 }

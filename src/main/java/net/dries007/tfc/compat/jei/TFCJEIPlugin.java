@@ -10,18 +10,24 @@ import java.util.stream.Collectors;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
+import gregtech.api.recipes.GTRecipeHandler;
+import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.items.MetaItems;
+import mezz.jei.api.ingredients.IIngredientBlacklist;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -51,30 +57,53 @@ import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.objects.items.rock.ItemRockKnife;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
+import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
+import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
+import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
+import tfcflorae.TFCFlorae;
+import tfcflorae.objects.items.rock.ItemMud;
+
+import static gregtech.api.recipes.RecipeMaps.MACERATOR_RECIPES;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
 {
+    public static final String CRAFTING_UID = "minecraft.crafting";
     public static final String ALLOY_UID = TerraFirmaCraft.MOD_ID + ".alloy";
     public static final String ANVIL_UID = TerraFirmaCraft.MOD_ID + ".anvil";
     public static final String BARREL_UID = TerraFirmaCraft.MOD_ID + ".barrel";
     public static final String BLAST_FURNACE_UID = TerraFirmaCraft.MOD_ID + ".blast_furnace";
     public static final String BLOOMERY_UID = TerraFirmaCraft.MOD_ID + ".bloomery";
-    public static final String CASTING_UID = TerraFirmaCraft.MOD_ID + ".casting";
     public static final String CHISEL_UID = TerraFirmaCraft.MOD_ID + ".chisel";
     public static final String HEAT_UID = TerraFirmaCraft.MOD_ID + ".heat";
     public static final String KNAP_CLAY_UID = TerraFirmaCraft.MOD_ID + ".knap.clay";
     public static final String KNAP_FIRECLAY_UID = TerraFirmaCraft.MOD_ID + ".knap.fireclay";
     public static final String KNAP_LEATHER_UID = TerraFirmaCraft.MOD_ID + ".knap.leather";
     public static final String KNAP_STONE_UID = TerraFirmaCraft.MOD_ID + ".knap.stone";
+    public static final String KNAP_PINEAPPLE_LEATHER_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.pineapple_leather";
+    public static final String KNAP_BURLAP_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.burlap_cloth";
+    public static final String KNAP_WOOL_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.wool_cloth";
+    public static final String KNAP_SILK_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.silk_cloth";
+    public static final String KNAP_SISAL_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.sisal_cloth";
+    public static final String KNAP_COTTON_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.cotton_cloth";
+    public static final String KNAP_LINEN_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.linen_cloth";
+    public static final String KNAP_HEMP_CLOTH_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.hemp_cloth";
+    public static final String KNAP_YUCCA_CANVAS_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.yucca_canvas";
+    public static final String KNAP_MUD_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.mud";
+    public static final String KNAP_EARTHENWARE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.earthenware_clay";
+    public static final String KNAP_KAOLINITE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.kaolinite_clay";
+    public static final String KNAP_STONEWARE_CLAY_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.stoneware_clay";
+    public static final String KNAP_FLINT_UID = TFCFlorae.TFCFLORAE_MODID + ".knap.flint";
     public static final String METAL_HEAT_UID = TerraFirmaCraft.MOD_ID + ".metal_heat";
     public static final String LOOM_UID = TerraFirmaCraft.MOD_ID + ".loom";
     public static final String QUERN_UID = TerraFirmaCraft.MOD_ID + ".quern";
     public static final String WELDING_UID = TerraFirmaCraft.MOD_ID + ".welding";
     public static final String SCRAPING_UID = TerraFirmaCraft.MOD_ID + ".scraping";
-    public static final String UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".unmold";
+    public static final String CLAY_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".clay.unmold";
+    public static final String EARTHENWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".earthenware.unmold";
+    public static final String KAOLINITE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".kaolinite.unmold";
+    public static final String STONEWARE_UNMOLD_UID = TerraFirmaCraft.MOD_ID + ".stoneware.unmold";
 
     private static IModRegistry REGISTRY;
 
@@ -97,25 +126,63 @@ public final class TFCJEIPlugin implements IModPlugin
         registry.addRecipeCategories(new BarrelCategory(registry.getJeiHelpers().getGuiHelper(), BARREL_UID));
         registry.addRecipeCategories(new BlastFurnaceCategory(registry.getJeiHelpers().getGuiHelper(), BLAST_FURNACE_UID));
         registry.addRecipeCategories(new BloomeryCategory(registry.getJeiHelpers().getGuiHelper(), BLOOMERY_UID));
-        registry.addRecipeCategories(new CastingCategory(registry.getJeiHelpers().getGuiHelper(), CASTING_UID));
         registry.addRecipeCategories(new ChiselCategory(registry.getJeiHelpers().getGuiHelper(), CHISEL_UID));
         registry.addRecipeCategories(new HeatCategory(registry.getJeiHelpers().getGuiHelper(), HEAT_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_CLAY_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_FIRECLAY_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_LEATHER_UID));
         registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_STONE_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_PINEAPPLE_LEATHER_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_BURLAP_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_WOOL_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_SILK_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_SISAL_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_COTTON_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_LINEN_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_HEMP_CLOTH_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_YUCCA_CANVAS_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_MUD_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_EARTHENWARE_CLAY_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_KAOLINITE_CLAY_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_STONEWARE_CLAY_UID));
+        registry.addRecipeCategories(new KnappingCategory(registry.getJeiHelpers().getGuiHelper(), KNAP_FLINT_UID));
         registry.addRecipeCategories(new LoomCategory(registry.getJeiHelpers().getGuiHelper(), LOOM_UID));
         registry.addRecipeCategories(new MetalHeatingCategory(registry.getJeiHelpers().getGuiHelper(), METAL_HEAT_UID));
         registry.addRecipeCategories(new QuernCategory(registry.getJeiHelpers().getGuiHelper(), QUERN_UID));
         registry.addRecipeCategories(new WeldingCategory(registry.getJeiHelpers().getGuiHelper(), WELDING_UID));
         registry.addRecipeCategories(new ScrapingCategory(registry.getJeiHelpers().getGuiHelper(), SCRAPING_UID));
-        registry.addRecipeCategories(new UnmoldCategory(registry.getJeiHelpers().getGuiHelper(), UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldClayCategory(registry.getJeiHelpers().getGuiHelper(), CLAY_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldEarthenwareCategory(registry.getJeiHelpers().getGuiHelper(), EARTHENWARE_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldKaoliniteCategory(registry.getJeiHelpers().getGuiHelper(), KAOLINITE_UNMOLD_UID));
+        registry.addRecipeCategories(new UnmoldStonewareCategory(registry.getJeiHelpers().getGuiHelper(), STONEWARE_UNMOLD_UID));
     }
 
     @Override
     public void register(IModRegistry registry)
     {
         REGISTRY = registry;
+
+        // Hide TFC Ores in HEI
+        IIngredientBlacklist blacklist = registry.getJeiHelpers().getIngredientBlacklist();
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
+
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));
 
         // Recipe Catalysts
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.QUERN), QUERN_UID);
@@ -138,12 +205,16 @@ public final class TFCJEIPlugin implements IModPlugin
         for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
             registry.addRecipeCatalyst(new ItemStack(ItemRock.get(rock)), KNAP_STONE_UID);
         }
-        for (Item barrelItem : BlocksTFC.getAllBarrelItemBlocks()) {
-            registry.addRecipeCatalyst(new ItemStack(barrelItem), BARREL_UID);
+        for (ItemStack stack : OreDictionary.getOres("barrel")) {
+            registry.addRecipeCatalyst(stack, BARREL_UID);
         }
         for (ItemStack stack : OreDictionary.getOres("workbench"))
         {
-            registry.addRecipeCatalyst(stack, UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, CRAFTING_UID);
+            registry.addRecipeCatalyst(stack, CLAY_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, EARTHENWARE_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, KAOLINITE_UNMOLD_UID);
+            registry.addRecipeCatalyst(stack, STONEWARE_UNMOLD_UID);
         }
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLOOMERY), BLOOMERY_UID);
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLAST_FURNACE), BLAST_FURNACE_UID);
@@ -155,9 +226,7 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), WELDING_UID);
             }
         }
-        registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), CASTING_UID);
-        registry.addRecipeCatalyst(new ItemStack(ItemsTFC.FIRED_VESSEL), CASTING_UID);
-        TFCRegistries.ROCK_CATEGORIES.forEach(category -> registry.addRecipeCatalyst(new ItemStack(ItemRockKnife.get(category)), SCRAPING_UID));
+        registry.addRecipeCatalyst(MetaItems.KNIFE.getStackForm(), SCRAPING_UID);
 
         // Wrappers
 
@@ -217,6 +286,175 @@ public final class TFCJEIPlugin implements IModPlugin
             .collect(Collectors.toList());
 
         registry.addRecipes(clayknapRecipes, KNAP_CLAY_UID);
+
+        // Knapping Pineapple Leather
+        List<KnappingRecipeWrapper> leatherPineappleRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.PINEAPPLE_LEATHER)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(leatherPineappleRecipes, KNAP_PINEAPPLE_LEATHER_UID);
+        NonNullList<ItemStack> leatherPineapple = OreDictionary.getOres("leatherPineapple");
+        for(ItemStack itemStack : leatherPineapple)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_PINEAPPLE_LEATHER_UID);
+        }
+
+        // Knapping Burlap Cloth
+        List<KnappingRecipeWrapper> clothBurlapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.BURLAP_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothBurlapRecipes, KNAP_BURLAP_CLOTH_UID);
+        NonNullList<ItemStack> clothBurlap = OreDictionary.getOres("clothBurlap");
+        for(ItemStack itemStack : clothBurlap)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_BURLAP_CLOTH_UID);
+        }
+
+        // Knapping Wool Cloth
+        List<KnappingRecipeWrapper> clothWoolRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.WOOL_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothWoolRecipes, KNAP_WOOL_CLOTH_UID);
+        NonNullList<ItemStack> clothWool = OreDictionary.getOres("clothWool");
+        for(ItemStack itemStack : clothWool)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_WOOL_CLOTH_UID);
+        }
+
+        // Knapping Silk Cloth
+        List<KnappingRecipeWrapper> clothSilkRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.SILK_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothSilkRecipes, KNAP_SILK_CLOTH_UID);
+        NonNullList<ItemStack> clothSilk = OreDictionary.getOres("clothSilk");
+        for(ItemStack itemStack : clothSilk)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_SILK_CLOTH_UID);
+        }
+
+        // Knapping Sisal Cloth
+        List<KnappingRecipeWrapper> clothSisalRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.SISAL_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothSisalRecipes, KNAP_SISAL_CLOTH_UID);
+        NonNullList<ItemStack> clothSisal = OreDictionary.getOres("clothSisal");
+        for(ItemStack itemStack : clothSisal)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_SISAL_CLOTH_UID);
+        }
+
+        // Knapping Cotton Cloth
+        List<KnappingRecipeWrapper> clothCottonRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.COTTON_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothCottonRecipes, KNAP_COTTON_CLOTH_UID);
+        NonNullList<ItemStack> clothCotton = OreDictionary.getOres("clothCotton");
+        for(ItemStack itemStack : clothCotton)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_COTTON_CLOTH_UID);
+        }
+
+        // Knapping Linen Cloth
+        List<KnappingRecipeWrapper> clothLinenRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.LINEN_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothLinenRecipes, KNAP_LINEN_CLOTH_UID);
+        NonNullList<ItemStack> oresLinen = OreDictionary.getOres("clothLinen");
+        for(ItemStack itemStack : oresLinen)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_LINEN_CLOTH_UID);
+        }
+
+        // Knapping Hemp Cloth
+        List<KnappingRecipeWrapper> clothHempRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.HEMP_CLOTH)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clothHempRecipes, KNAP_HEMP_CLOTH_UID);
+        NonNullList<ItemStack> oresHemp = OreDictionary.getOres("clothHemp");
+        for(ItemStack itemStack : oresHemp)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_HEMP_CLOTH_UID);
+        }
+
+        // Knapping Yucca Canvas
+        List<KnappingRecipeWrapper> canvasYuccaRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.YUCCA_CANVAS)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(canvasYuccaRecipes, KNAP_YUCCA_CANVAS_UID);
+        NonNullList<ItemStack> oresYucca = OreDictionary.getOres("canvasYucca");
+        for(ItemStack itemStack : oresYucca)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_YUCCA_CANVAS_UID);
+        }
+
+        // Knapping Mud
+        List<KnappingRecipeWrapper> mudKnapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.MUD)
+                .flatMap(recipe -> TFCRegistries.ROCKS.getValuesCollection().stream().map(rock -> new KnappingRecipeWrapper.Mud(recipe, registry.getJeiHelpers().getGuiHelper(), rock)))
+                //.map(recipe -> new KnappingRecipeWrapperTFCF(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(mudKnapRecipes, KNAP_MUD_UID);
+        NonNullList<ItemStack> oresMud = OreDictionary.getOres("mud");
+        for(Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+        {
+            registry.addRecipeCatalyst(new ItemStack(ItemMud.get(rock)), KNAP_MUD_UID);
+        }
+
+        // Knapping Earthenware Clay
+        List<KnappingRecipeWrapper> clayEarthenwareKnapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.EARTHENWARE_CLAY)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clayEarthenwareKnapRecipes, KNAP_EARTHENWARE_CLAY_UID);
+        NonNullList<ItemStack> oresEarthenware = OreDictionary.getOres("clayEarthenware");
+        for(ItemStack itemStack : oresEarthenware)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_EARTHENWARE_CLAY_UID);
+        }
+
+        // Knapping Kaolinite Clay
+        List<KnappingRecipeWrapper> clayKaoliniteKnapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.KAOLINITE_CLAY)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clayKaoliniteKnapRecipes, KNAP_KAOLINITE_CLAY_UID);
+        NonNullList<ItemStack> oresKaolinite = OreDictionary.getOres("clayKaolinite");
+        for(ItemStack itemStack : oresKaolinite)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_KAOLINITE_CLAY_UID);
+        }
+
+        // Knapping Stoneware Clay
+        List<KnappingRecipeWrapper> clayStonewareKnapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.STONEWARE_CLAY)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(clayStonewareKnapRecipes, KNAP_STONEWARE_CLAY_UID);
+        NonNullList<ItemStack> oresStoneware = OreDictionary.getOres("clayStoneware");
+        for(ItemStack itemStack : oresStoneware)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_STONEWARE_CLAY_UID);
+        }
+
+        // Knapping Flint
+        List<KnappingRecipeWrapper> flintKnapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
+                .filter(recipe -> recipe.getType() == KnappingType.FLINT)
+                .map(recipe -> new KnappingRecipeWrapper(recipe, registry.getJeiHelpers().getGuiHelper()))
+                .collect(Collectors.toList());
+        registry.addRecipes(flintKnapRecipes, KNAP_FLINT_UID);
+        NonNullList<ItemStack> oresFlint = OreDictionary.getOres("flint");
+        for(ItemStack itemStack : oresFlint)
+        {
+            registry.addRecipeCatalyst(itemStack, KNAP_FLINT_UID);
+        }
 
         // Fire Clay Knapping
         List<KnappingRecipeWrapper> fireclayknapRecipes = TFCRegistries.KNAPPING.getValuesCollection().stream()
@@ -297,29 +535,37 @@ public final class TFCJEIPlugin implements IModPlugin
 
         registry.addRecipes(chiselList, CHISEL_UID);
 
-        // Register metal related stuff (put everything here for performance + sorted registration)
-        List<UnmoldRecipeWrapper> unmoldList = new ArrayList<>();
-        List<CastingRecipeWrapper> castingList = new ArrayList<>();
+        List<UnmoldRecipeWrapperClay> unmoldListClay = new ArrayList<>();
+        List<UnmoldRecipeWrapperEarthenware> unmoldListEarthenware = new ArrayList<>();
+        List<UnmoldRecipeWrapperKaolinite> unmoldListKaolinite = new ArrayList<>();
+        List<UnmoldRecipeWrapperStoneware> unmoldListStoneware = new ArrayList<>();
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
             for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
                 if (material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) && extendedOrePrefix.isHasMold() && material != TFCMaterials.Unknown) {
                     if (material.hasProperty(PropertyKey.TOOL)) {
-                        unmoldList.add(new UnmoldRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListClay.add(new UnmoldRecipeWrapperClay(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenware(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaolinite(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListStoneware.add(new UnmoldRecipeWrapperStoneware(material, extendedOrePrefix.getOrePrefix()));
                     }
                     else if (extendedOrePrefix.getOrePrefix() == OrePrefix.ingot) {
-                        unmoldList.add(new UnmoldRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListClay.add(new UnmoldRecipeWrapperClay(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListEarthenware.add(new UnmoldRecipeWrapperEarthenware(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListKaolinite.add(new UnmoldRecipeWrapperKaolinite(material, extendedOrePrefix.getOrePrefix()));
+                        unmoldListStoneware.add(new UnmoldRecipeWrapperStoneware(material, extendedOrePrefix.getOrePrefix()));
                     }
-                    castingList.add(new CastingRecipeWrapper(material, extendedOrePrefix.getOrePrefix()));
                 }
             }
         }
 
-        registry.addRecipes(unmoldList, UNMOLD_UID);
-        registry.addRecipes(castingList, CASTING_UID);
+        registry.addRecipes(unmoldListClay, CLAY_UNMOLD_UID);
+        registry.addRecipes(unmoldListEarthenware, EARTHENWARE_UNMOLD_UID);
+        registry.addRecipes(unmoldListKaolinite, KAOLINITE_UNMOLD_UID);
+        registry.addRecipes(unmoldListStoneware, STONEWARE_UNMOLD_UID);
 
         // Click areas
-        registry.addRecipeClickArea(GuiKnapping.class, 97, 44, 22, 15, KNAP_CLAY_UID, KNAP_FIRECLAY_UID, KNAP_LEATHER_UID, KNAP_STONE_UID);
+        registry.addRecipeClickArea(GuiKnapping.class, 97, 44, 22, 15, KNAP_CLAY_UID, KNAP_FIRECLAY_UID, KNAP_LEATHER_UID, KNAP_MUD_UID, KNAP_EARTHENWARE_CLAY_UID, KNAP_KAOLINITE_CLAY_UID, KNAP_STONEWARE_CLAY_UID, KNAP_FLINT_UID);
         registry.addRecipeClickArea(GuiAnvilTFC.class, 26, 24, 9, 14, ANVIL_UID, WELDING_UID);
         registry.addRecipeClickArea(GuiBarrel.class, 92, 21, 9, 14, BARREL_UID);
         registry.addRecipeClickArea(GuiCrucible.class, 139, 100, 10, 15, ALLOY_UID);

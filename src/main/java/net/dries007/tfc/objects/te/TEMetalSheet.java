@@ -8,9 +8,7 @@ package net.dries007.tfc.objects.te;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.compat.gregtech.TFCOrePrefix;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;

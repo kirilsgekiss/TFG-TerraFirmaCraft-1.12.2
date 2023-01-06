@@ -8,6 +8,9 @@ package net.dries007.tfc.world.classic.biomes;
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.minecraft.block.BlockHardenedClay;
+import net.minecraft.block.BlockStainedHardenedClay;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -16,7 +19,7 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-
+import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -145,6 +148,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
         ChunkDataTFC data = ChunkDataTFC.get(world, chunkPos);
         if (!data.isInitialized()) return;
 
+        Biome b = world.getBiome(chunkPos);
         final float avgTemperature = ClimateTFC.getAvgTemp(world, chunkPos);
         final float rainfall = ChunkDataTFC.getRainfall(world, chunkPos);
         final float floraDensity = data.getFloraDensity(); // Use for various plant based decoration (tall grass, those vanilla jungle shrub things, etc.)
@@ -164,7 +168,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                     for (float i = rng.nextInt(Math.round(mushroomCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                     {
                         BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                        plantGen.generate(world, rng, blockPos);
+                        IBlockState blockPosState = world.getBlockState(blockPos.down());
+                        if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                        {
+                            plantGen.generate(world, rng, blockPos);
+                        }
                     }
                 }
             }
@@ -174,14 +182,18 @@ public class BiomeDecoratorTFC extends BiomeDecorator
         {
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
-                if (plant.getPlantType() == Plant.PlantType.CACTUS && plant.isValidTempForWorldGen(avgTemperature) && plant.isValidRain(rainfall))
+                if (plant.getPlantType() == Plant.PlantType.CACTUS && plant.isValidTempForWorldGen(avgTemperature) && plant.isValidRain(rainfall) && plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS))
                 {
                     plantGen.setGeneratedPlant(plant);
 
                     for (int i = rng.nextInt(Math.round((cactusCount + 32) / floraDiversity)); i < (1 + floraDensity) * 3; i++)
                     {
                         BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                        plantGen.generate(world, rng, blockPos);
+                        IBlockState blockPosState = world.getBlockState(blockPos.down());
+                        if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                        {
+                            plantGen.generate(world, rng, blockPos);
+                        }
                     }
 
                 }
@@ -202,7 +214,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (int i = rng.nextInt(Math.round(floatingCount / floraDiversity)); i < floraDensity * lilyPadPerChunk; i++)
                             {
                                 BlockPos blockPos = world.getPrecipitationHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -211,7 +227,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (int i = rng.nextInt(Math.round((floatingSeaCount + 64) / floraDiversity)); i < floraDensity * lilyPadPerChunk; i++)
                             {
                                 BlockPos blockPos = world.getPrecipitationHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                         }
                     }
@@ -234,7 +254,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (int i = rng.nextInt(Math.round(reedCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -244,7 +268,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (int i = rng.nextInt(Math.round(reedSeaCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                         }
                     }
@@ -261,14 +289,18 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                     plantGen.setGeneratedPlant(plant);
                     switch (plant.getPlantType())
                     {
-                        case WATER:
+                        /*case WATER:
                         case TALL_WATER:
                         case EMERGENT_TALL_WATER:
                         {
                             for (int i = rng.nextInt(Math.round(waterCount / floraDiversity)); i < floraDensity * waterPlantsPerChunk; i++)
                             {
                                 BlockPos blockPos = world.getPrecipitationHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -279,25 +311,41 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (int i = rng.nextInt(Math.round(waterSeaCount / floraDiversity)); i < floraDensity * waterPlantsPerChunk; i++)
                             {
                                 BlockPos blockPos = world.getPrecipitationHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
-                        }
+                        }*/
+                        /*
                         case EPIPHYTE:
                         {
-                            for (float i = rng.nextInt(Math.round(epiphyteCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
+                            if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM))
                             {
-                                BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                for (float i = rng.nextInt(Math.round(epiphyteCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
+                                {
+                                    BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
+                                    IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                    if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                    {
+                                        plantGen.generate(world, rng, blockPos);
+                                    }
+                                }
                             }
                             break;
-                        }
+                        }*/
                         case CREEPING:
                         {
                             for (float i = rng.nextInt(Math.round((creepingCount + 32) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -306,7 +354,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (float i = rng.nextInt(Math.round(hangingCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -315,7 +367,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (float i = rng.nextInt(Math.round((tallCount + 8) / floraDiversity)); i < (1 + floraDensity) * 3; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
@@ -324,7 +380,11 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (float i = rng.nextInt(Math.round((standardCount + 32) / floraDiversity)); i < (1 + floraDensity) * 3; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                         }
                     }
@@ -347,17 +407,28 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                             for (float i = rng.nextInt(Math.round((desertCount + 16) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
                             break;
                         }
                         case DRY:
                         case DRY_TALL_PLANT:
                         {
-                            for (float i = rng.nextInt(Math.round((dryCount + 16) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
+                            if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.CHAPARRAL_SHRUB) && (b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
                             {
-                                BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                for (float i = rng.nextInt(Math.round((dryCount + 16) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
+                                {
+                                    BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
+                                    IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                    if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                    {
+                                        plantGen.generate(world, rng, blockPos);
+                                    }
+                                }
                             }
                         }
                     }
@@ -376,20 +447,38 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                     {
                         case SHORT_GRASS:
                         {
+                            /*if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) ||
+                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) ||
+                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            {*/
                             for (int i = rng.nextInt(Math.round(grassCount / floraDiversity)); i < (3 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
+                            //}
                             break;
                         }
                         case TALL_GRASS:
                         {
+                            /*if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) ||
+                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) ||
+                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            {*/
                             for (int i = rng.nextInt(Math.round((tallGrassCount + 8) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {
                                 BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
-                                plantGen.generate(world, rng, blockPos);
+                                IBlockState blockPosState = world.getBlockState(blockPos.down());
+                                if (!(blockPosState instanceof BlockHardenedClay || blockPosState instanceof BlockStainedHardenedClay))
+                                {
+                                    plantGen.generate(world, rng, blockPos);
+                                }
                             }
+                            //}
                         }
                     }
                 }

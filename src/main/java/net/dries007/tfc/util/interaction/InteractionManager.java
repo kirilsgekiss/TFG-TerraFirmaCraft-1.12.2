@@ -76,6 +76,123 @@ public final class InteractionManager
             return EnumActionResult.FAIL;
         }));
 
+        // Pineapple Leather knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "knife"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.PINEAPPLE_LEATHER);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Burlap Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.BURLAP_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Wool Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothWool"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.WOOL_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Silk Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.SILK_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Sisal Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.SISAL_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Cotton Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.COTTON_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Linen Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.LINEN_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Hemp Cloth knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.HEMP_CLOTH);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
+        // Yucca Canvas knapping
+        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca"), ((worldIn, playerIn, handIn) -> {
+            if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
+            {
+                if (!worldIn.isRemote)
+                {
+                    TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.YUCCA_CANVAS);
+                }
+                return EnumActionResult.SUCCESS;
+            }
+            return EnumActionResult.FAIL;
+        }));
+
         putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "bowl"), ((worldIn, playerIn, handIn) -> {
             // Offhand must contain a knife - avoids opening the salad gui whenever you empty a bowl form eating
             if (OreDictionaryHelper.doesStackMatchOre(playerIn.getHeldItem(handIn == EnumHand.MAIN_HAND ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND), "knife"))

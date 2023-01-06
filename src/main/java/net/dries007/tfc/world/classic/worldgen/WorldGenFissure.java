@@ -17,6 +17,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
@@ -60,7 +61,7 @@ public class WorldGenFissure implements IWorldGenerator
             return;
         }
 
-        final IBlockState rock = BlockRockVariant.get(getRock3(world, start), Rock.Type.RAW).getDefaultState();
+        final IBlockState rock = BlockRockVariant.get(getRock3(world, start), Type.RAW).getDefaultState();
 
         int depth = 2 + random.nextInt(3);
         int radius = 1 + random.nextInt(2);

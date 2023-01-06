@@ -7,7 +7,6 @@ package net.dries007.tfc.objects.te;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -34,13 +33,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.Gem;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.objects.blocks.devices.BlockSluice;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.items.ItemGem;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
@@ -50,7 +46,7 @@ public class TESluice extends TEBase implements ITickable
 
     public static boolean isValidFluid(Fluid fluid)
     {
-        return fluid == FluidRegistry.WATER || fluid == FluidsTFC.SALT_WATER.get();
+        return fluid == FluidRegistry.WATER || fluid == FluidsTFC.SEA_WATER.get();
     }
 
     private int soil;
@@ -85,6 +81,7 @@ public class TESluice extends TEBase implements ITickable
                     }
                     else if (Constants.RNG.nextDouble() < ConfigTFC.Devices.SLUICE.gemChance)
                     {
+                        /*
                         ChunkDataTFC chunkData = getChunkData(false);
                         if (chunkData != null)
                         {
@@ -100,7 +97,7 @@ public class TESluice extends TEBase implements ITickable
                             Gem.Grade grade = Gem.Grade.randomGrade(Constants.RNG);
                             Helpers.spawnItemStack(world, getFrontWaterPos(), ItemGem.get(dropGem, grade, 1));
                             chunkData.addWork(3);
-                        }
+                        }*/
                     }
                     consumeSoil();
                 }
@@ -127,7 +124,7 @@ public class TESluice extends TEBase implements ITickable
                         if (stack.getItem() instanceof ItemBlock && ((ItemBlock) stack.getItem()).getBlock() instanceof BlockRockVariant)
                         {
                             BlockRockVariant rockBlock = (BlockRockVariant) ((ItemBlock) stack.getItem()).getBlock();
-                            if (rockBlock.getType() == Rock.Type.SAND || rockBlock.getType() == Rock.Type.GRAVEL)
+                            if (rockBlock.getType() == Type.SAND || rockBlock.getType() == Type.GRAVEL)
                             {
                                 soil += 20; // Overflows to not consume an stack until a full soil worth is consumed
                                 stack.shrink(1);

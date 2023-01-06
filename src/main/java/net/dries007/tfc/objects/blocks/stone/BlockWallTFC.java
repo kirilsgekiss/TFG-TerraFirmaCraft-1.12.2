@@ -16,6 +16,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -36,7 +37,7 @@ public class BlockWallTFC extends BlockWall
         super(modelBlock);
 
         if (!TABLE.containsKey(modelBlock.rock))
-            TABLE.put(modelBlock.rock, new EnumMap<>(Rock.Type.class));
+            TABLE.put(modelBlock.rock, new EnumMap<>(Type.class));
         TABLE.get(modelBlock.rock).put(modelBlock.type, this);
 
         parent = modelBlock;

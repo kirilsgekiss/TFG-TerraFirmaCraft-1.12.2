@@ -9,6 +9,7 @@ import java.util.function.Function;
 
 import net.minecraft.item.ItemStack;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.IRockObject;
 

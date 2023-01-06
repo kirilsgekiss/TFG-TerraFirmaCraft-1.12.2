@@ -8,7 +8,7 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.items.ceramics.ItemMold;
+import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -90,9 +90,9 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             ItemStack stack = inv.getStackInSlot(slot);
             if (!stack.isEmpty())
             {
-                if (stack.getItem() instanceof ItemMold)
+                if (stack.getItem() instanceof ItemClayMold)
                 {
-                    ItemMold moldItem = ((ItemMold) stack.getItem());
+                    ItemClayMold moldItem = ((ItemClayMold) stack.getItem());
                     IFluidHandler cap = stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
                     if (cap instanceof IMaterialHandler)
                     {
@@ -137,9 +137,9 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             ItemStack stack = inv.getStackInSlot(slot);
             if (!stack.isEmpty())
             {
-                if (stack.getItem() instanceof ItemMold)
+                if (stack.getItem() instanceof ItemClayMold)
                 {
-                    ItemMold tmp = ((ItemMold) stack.getItem());
+                    ItemClayMold tmp = ((ItemClayMold) stack.getItem());
                     if (tmp.getOrePrefix().equals(this.resultOrePrefix) && moldStack == null)
                     {
                         moldStack = stack;
@@ -180,7 +180,7 @@ public class UnmoldRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements I
             ItemStack stack = inv.getStackInSlot(slot);
             if (!stack.isEmpty())
             {
-                if (stack.getItem() instanceof ItemMold)
+                if (stack.getItem() instanceof ItemClayMold)
                 {
                     // No need to check for the mold, as it has already been checked earlier
                     EntityPlayer player = ForgeHooks.getCraftingPlayer();

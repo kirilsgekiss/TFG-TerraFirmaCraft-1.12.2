@@ -11,6 +11,7 @@ import java.util.Map;
 import net.minecraft.block.BlockButtonStone;
 import net.minecraft.block.SoundType;
 
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 
 public class BlockButtonStoneTFC extends BlockButtonStone

@@ -28,7 +28,9 @@ public class GuiKnapping extends GuiContainerTFC
     private static final ResourceLocation BG_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping.png");
 
     private final ResourceLocation buttonTexture;
-    private final KnappingType type;
+
+    private KnappingType type = null;
+    private ResourceLocation backgroundTexture;
 
     public GuiKnapping(Container container, EntityPlayer player, KnappingType type, ResourceLocation buttonTexture)
     {
@@ -36,6 +38,15 @@ public class GuiKnapping extends GuiContainerTFC
         this.buttonTexture = buttonTexture;
         this.type = type;
         ySize = 184; // Bigger than normal gui
+    }
+
+    public GuiKnapping(Container container, EntityPlayer player, KnappingType type, ResourceLocation buttonTexture, ResourceLocation bgTexture)
+    {
+        super(container, player.inventory, BG_TEXTURE);
+        this.buttonTexture = buttonTexture;
+        this.type = type;
+        ySize = 184; // Bigger than normal gui
+        backgroundTexture = bgTexture;
     }
 
     @Override
@@ -99,10 +110,30 @@ public class GuiKnapping extends GuiContainerTFC
             ((ContainerKnapping) inventorySlots).requiresReset = false;
         }
         super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
-        if (type == KnappingType.CLAY || type == KnappingType.FIRE_CLAY)
+        if (
+                type == KnappingType.CLAY ||
+                type == KnappingType.FIRE_CLAY ||
+                type == KnappingType.MUD ||
+                type == KnappingType.EARTHENWARE_CLAY ||
+                type == KnappingType.KAOLINITE_CLAY ||
+                type == KnappingType.STONEWARE_CLAY
+        )
         {
             GlStateManager.color(1, 1, 1, 1);
-            mc.getTextureManager().bindTexture(type == KnappingType.CLAY ? TFCGuiHandler.CLAY_DISABLED_TEXTURE : TFCGuiHandler.FIRE_CLAY_DISABLED_TEXTURE);
+
+            if (type == KnappingType.CLAY)
+                mc.getTextureManager().bindTexture(TFCGuiHandler.CLAY_DISABLED_TEXTURE);
+            else if (type == KnappingType.FIRE_CLAY)
+                mc.getTextureManager().bindTexture(TFCGuiHandler.FIRE_CLAY_DISABLED_TEXTURE);
+            else if (type == KnappingType.MUD)
+                mc.getTextureManager().bindTexture(backgroundTexture);
+            else if (type == KnappingType.EARTHENWARE_CLAY)
+                mc.getTextureManager().bindTexture(TFCGuiHandler.EARTHENWARE_CLAY_DISABLED_TEXTURE);
+            else if (type == KnappingType.KAOLINITE_CLAY)
+                mc.getTextureManager().bindTexture(TFCGuiHandler.KAOLINITE_CLAY_DISABLED_TEXTURE);
+            else if (type == KnappingType.STONEWARE_CLAY)
+                mc.getTextureManager().bindTexture(TFCGuiHandler.STONEWARE_CLAY_DISABLED_TEXTURE);
+
             for (GuiButton button : buttonList)
             {
                 if (!button.visible)

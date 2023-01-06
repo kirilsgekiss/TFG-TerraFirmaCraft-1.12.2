@@ -29,6 +29,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.TerraFirmaCraft;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.client.TFCGuiHandler;
@@ -244,7 +245,7 @@ public class BlockStoneAnvil extends BlockRockVariant
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(BlockRockRaw.get(rock, Rock.Type.RAW));
+        return new ItemStack(BlockRockRaw.get(rock, Type.RAW));
     }
 
     @Override

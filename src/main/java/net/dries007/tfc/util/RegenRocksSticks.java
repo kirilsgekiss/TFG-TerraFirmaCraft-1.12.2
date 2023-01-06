@@ -8,6 +8,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 
 import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.plants.BlockShortGrassTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;

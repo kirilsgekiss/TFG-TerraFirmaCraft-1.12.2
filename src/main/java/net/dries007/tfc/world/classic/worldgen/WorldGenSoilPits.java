@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
+import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
@@ -70,12 +71,12 @@ public class WorldGenSoilPits implements IWorldGenerator
                     final IBlockState current = world.getBlockState(pos);
                     if (BlocksTFC.isDirt(current))
                     {
-                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Rock.Type.CLAY).getDefaultState(), 2);
+                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY).getDefaultState(), 2);
                         flag = true;
                     }
                     else if (BlocksTFC.isGrass(current))
                     {
-                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Rock.Type.CLAY_GRASS).getDefaultState(), 2);
+                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY_GRASS).getDefaultState(), 2);
                         flag = true;
                     }
                 }

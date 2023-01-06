@@ -14,6 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -29,17 +30,21 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-
+import tfcflorae.objects.blocks.plants.BlockWaterPlantTFCF;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.api.util.IGrowingPlant;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 
+import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
+
 @ParametersAreNonnullByDefault
-public class BlockCropDead extends BlockBush implements IGrowingPlant
+public class BlockCropDead extends BlockBush
 {
     /* true if the crop spawned in the wild, means it ignores growth conditions i.e. farmland */
     public static final PropertyBool MATURE = PropertyBool.create("mature");
@@ -150,10 +155,29 @@ public class BlockCropDead extends BlockBush implements IGrowingPlant
     }
 
     @Override
-    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {
-        IBlockState soil = world.getBlockState(pos.down());
-        return soil.getBlock().canSustainPlant(soil, world, pos.down(), EnumFacing.UP, this);
+        if (crop == Crop.RICE)
+        {
+            IBlockState soil = worldIn.getBlockState(pos.down());
+
+            if (soil.getBlock() instanceof BlockWaterPlantTFCF || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
+            if (state.getBlock() == this)
+            {
+                IBlockState stateDown = worldIn.getBlockState(pos.down());
+                Material material = stateDown.getMaterial();
+                return ((soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || ((material == Material.WATER && stateDown.getValue(BlockLiquid.LEVEL) == 0 && stateDown == WATER) || material == Material.ICE || (material == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC))));
+            }
+            else
+            {
+                return this.canSustainBush(soil);
+            }
+        }
+        else
+        {
+            IBlockState soil = worldIn.getBlockState(pos.down());
+            return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), EnumFacing.UP, this);
+        }
     }
 
     @Override
@@ -172,8 +196,28 @@ public class BlockCropDead extends BlockBush implements IGrowingPlant
     }
 
     @Override
-    public GrowthStatus getGrowingStatus(IBlockState state, World world, BlockPos pos)
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
-        return GrowthStatus.DEAD;
+        if (crop == Crop.RICE)
+        {
+            return super.canPlaceBlockAt(worldIn, pos) && this.canBlockStay(worldIn, pos, worldIn.getBlockState(pos));
+        }
+        else
+        {
+            return super.canPlaceBlockAt(worldIn, pos);
+        }
+    }
+
+    @Override
+    protected boolean canSustainBush(IBlockState state)
+    {
+        if (crop == Crop.RICE)
+        {
+            return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
+        }
+        else
+        {
+            return super.canSustainBush(state);
+        }
     }
 }
