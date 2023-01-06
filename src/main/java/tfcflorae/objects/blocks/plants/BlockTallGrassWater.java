@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.lang.model.util.ElementScanner6;
 
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.IGrowable;
@@ -196,7 +197,7 @@ public class BlockTallGrassWater extends BlockShortGrassTFCF implements IGrowabl
         if (!worldIn.isRemote && player != null)
         {
             ItemStack stack = player.getHeldItemMainhand();
-            if (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1)
+            if (OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolKnife"))
             {
                 for (int i = 1; worldIn.getBlockState(pos.up(i)).getBlock() == this; ++i)
                 {
