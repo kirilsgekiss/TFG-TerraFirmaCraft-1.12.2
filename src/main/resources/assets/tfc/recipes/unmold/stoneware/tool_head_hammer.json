@@ -1,0 +1,12 @@
+{
+  "type": "tfc:unmold_recipe",
+
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/stoneware/fired/mold/toolheadhammer"
+    }
+  ],
+  "result": "toolHeadHammer",
+
+  "chance": 1
+}

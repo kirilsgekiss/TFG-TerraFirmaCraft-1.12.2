@@ -1,0 +1,12 @@
+{
+  "type": "tfc:unmold_recipe",
+
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/kaolinite/fired/mold/toolheadsword"
+    }
+  ],
+  "result": "toolHeadSword",
+
+  "chance": 1
+}

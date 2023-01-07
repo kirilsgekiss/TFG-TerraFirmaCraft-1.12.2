@@ -1,0 +1,12 @@
+{
+  "type": "tfc:unmold_recipe",
+
+  "ingredients": [
+    {
+      "item": "tfc:ceramics/clay/fired/mold/ingot"
+    }
+  ],
+  "result": "ingot",
+
+  "chance": 1
+}
