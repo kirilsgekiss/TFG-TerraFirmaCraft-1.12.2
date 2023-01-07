@@ -71,7 +71,6 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
     public ItemStack getOutputItem(final IMaterialHandler moldHandler)
     {
         ItemStack output = OreDictUnifier.get(resultOrePrefix, moldHandler.getMaterial());
-        System.out.println(output);
 
         IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
         if (heat != null)

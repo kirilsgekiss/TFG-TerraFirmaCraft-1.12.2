@@ -241,7 +241,6 @@ public class UnmoldRecipeEarthenware extends IForgeRegistryEntry.Impl<IRecipe> i
     public ItemStack getOutputItem(final IMaterialHandler moldHandler)
     {
         ItemStack output = OreDictUnifier.get(type, moldHandler.getMaterial());
-        System.out.println(output);
 
         IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
         if (heat != null)
