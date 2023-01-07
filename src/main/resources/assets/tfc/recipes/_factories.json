@@ -12,6 +12,9 @@
     "salting": "net.dries007.tfc.objects.recipes.SaltingRecipe$Factory",
     "sandwich": "net.dries007.tfc.objects.recipes.SandwichRecipe$Factory",
     "no_container_item_shaped": "net.dries007.tfc.objects.recipes.NoContainerItemShapedRecipe$Factory",
-    "unmold_recipe": "net.dries007.tfc.objects.recipes.UnmoldRecipeClay$Factory"
+    "unmold_clay_recipe": "net.dries007.tfc.objects.recipes.UnmoldRecipeClay$Factory",
+    "unmold_earthenware_recipe": "net.dries007.tfc.objects.recipes.UnmoldRecipeEarthenware$Factory",
+    "unmold_kaolinite_recipe": "net.dries007.tfc.objects.recipes.UnmoldRecipeKaolinite$Factory",
+    "unmold_stoneware_recipe": "net.dries007.tfc.objects.recipes.UnmoldRecipeStoneware$Factory"
   }
 }
