@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Tree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneComparator;
 import net.minecraft.block.SoundType;
@@ -43,6 +44,9 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.te.TEBarrel;
 import net.dries007.tfc.util.Helpers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Barrel block. Can be filled with fluids (10 B), and one item stack. Performs barrel recipes.
  * Sealed state is stored in block state and cached in TE, synced when updated via custom packet
@@ -55,6 +59,25 @@ public class BlockBarrel extends Block implements IItemSize
 {
     public static final PropertyBool SEALED = PropertyBool.create("sealed");
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
+
+    private static final Map<Tree, BlockBarrel> MAP = new HashMap<>();
+
+    public static BlockBarrel get(Tree wood)
+    {
+        return MAP.get(wood);
+    }
+
+    public Tree wood;
+
+    public BlockBarrel(Tree wood)
+    {
+        super(Material.WOOD);
+        if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
+        this.wood = wood;
+        setSoundType(SoundType.WOOD);
+        setHardness(2F);
+        setDefaultState(blockState.getBaseState().withProperty(SEALED, false));
+    }
 
     /**
      * Used to toggle the barrel seal state and update the tile entity, in the correct order
@@ -76,14 +99,6 @@ public class BlockBarrel extends Block implements IItemSize
                 tile.onSealed();
             }
         }
-    }
-
-    public BlockBarrel()
-    {
-        super(Material.WOOD);
-        setSoundType(SoundType.WOOD);
-        setHardness(2F);
-        setDefaultState(blockState.getBaseState().withProperty(SEALED, false));
     }
 
     @Nonnull

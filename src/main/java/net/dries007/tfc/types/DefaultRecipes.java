@@ -25,14 +25,14 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlockStairsTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
+import net.dries007.tfc.objects.blocks.stone.BlockWoodPressurePlateTFC;
+import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
+import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -84,7 +84,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.fuel.FuelManager;
-import tfcflorae.api.registries.TFCFRegistries;
+import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
 
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -95,7 +95,6 @@ import static net.dries007.tfc.util.forge.ForgeRule.*;
 import static net.dries007.tfc.util.skills.SmithingSkill.Type.*;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class DefaultRecipes
 {
@@ -193,7 +192,7 @@ public final class DefaultRecipes
         for (Tree tree : TFCRegistries.TREES)
         {
             // Log -> Lumber
-            ModHandler.addShapelessRecipe(String.format("log_to_lumber_%s", tree),
+            ModHandler.addShapelessRecipe(String.format("lumber_%s", tree),
                     new ItemStack(ItemLumberTFC.get(tree), 8),
                     new ItemStack(BlockLogTFC.get(tree)),
                     MetaItems.SAW);
@@ -207,7 +206,7 @@ public final class DefaultRecipes
                     .buildAndRegister();
 
             // Lumber -> Planks
-            ModHandler.addShapedRecipe(String.format("lumber_to_planks_%s", tree),
+            ModHandler.addShapedRecipe(String.format("plank_%s", tree),
                     new ItemStack(BlockPlanksTFC.get(tree)), "XX", "XX",
                     'X', new ItemStack(ItemLumberTFC.get(tree))
             );
@@ -230,7 +229,7 @@ public final class DefaultRecipes
                     .buildAndRegister();
 
             // Planks -> Slabs
-            ModHandler.addShapedRecipe(String.format("planks_to_slabs_%s", tree),
+            ModHandler.addShapedRecipe(String.format("wood_slab_%s", tree),
                     new ItemStack(BlockSlabTFC.Half.get(tree), 6), "XXX",
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
@@ -244,7 +243,7 @@ public final class DefaultRecipes
                     .buildAndRegister();
 
             // Planks -> Stairs
-            ModHandler.addShapedRecipe(String.format("planks_to_stairs_%s", tree),
+            ModHandler.addShapedRecipe(String.format("wood_stairs_%s", tree),
                     new ItemStack(BlockStairsTFC.get(tree), 6), "X  ", "XX ", "XXX",
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
@@ -257,13 +256,129 @@ public final class DefaultRecipes
                     .EUt(7)
                     .buildAndRegister();
 
-            // Planks -> Wood Pressure Plates
+            // Lumber -> Wood Pressure Plates
+            ModHandler.addShapedRecipe(String.format("wood_pressure_plate_%s", tree),
+                    new ItemStack(BlockWoodPressurePlateTFC.get(tree)), "XXY",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', OreDictUnifier.get(OrePrefix.spring, Materials.Iron)
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 2)
+                    .input(OrePrefix.spring, Materials.Iron)
+                    .notConsumable(new IntCircuitIngredient(4))
+                    .output(BlockWoodPressurePlateTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Lumber -> Wood Buttons
+            ModHandler.addShapedRecipe(String.format("wood_button_%s", tree),
+                    new ItemStack(BlockButtonWoodTFC.get(tree)), "XY",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', OreDictUnifier.get(OrePrefix.springSmall, Materials.Iron)
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree))
+                    .input(OrePrefix.springSmall, Materials.Iron)
+                    .notConsumable(new IntCircuitIngredient(5))
+                    .output(BlockButtonWoodTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
 
             // Planks -> Fences
+            ModHandler.addShapedRecipe(String.format("wood_fence_%s", tree),
+                    new ItemStack(BlockFenceTFC.get(tree)), "XYX", "XYX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', Items.STICK
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 4)
+                    .input(Items.STICK, 2)
+                    .notConsumable(new IntCircuitIngredient(1))
+                    .output(BlockFenceTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
 
             // Planks -> Gates
+            ModHandler.addShapedRecipe(String.format("wood_gate_%s", tree),
+                    new ItemStack(BlockFenceGateTFC.get(tree)), "YXY", "YXY",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', Items.STICK
+            );
 
-            //
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 2)
+                    .input(Items.STICK, 4)
+                    .notConsumable(new IntCircuitIngredient(2))
+                    .output(BlockFenceGateTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Log -> Gates
+            ModHandler.addShapedRecipe(String.format("log_gate_%s", tree),
+                    new ItemStack(BlockFenceGateLog.get(tree)), "YXY", "YXY",
+                    'X', new ItemStack(BlockLogTFC.get(tree)),
+                    'Y', Items.STICK
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockLogTFC.get(tree), 2)
+                    .input(Items.STICK, 4)
+                    .notConsumable(new IntCircuitIngredient(2))
+                    .output(BlockFenceGateLog.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Bookshelf's
+            ModHandler.addShapedRecipe(String.format("bookshelf_%s", tree),
+                    new ItemStack(BlockBookshelfTFC.get(tree)), "XXX", "YYY", "XXX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', Items.BOOK
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 6)
+                    .input(Items.BOOK, 3)
+                    .notConsumable(new IntCircuitIngredient(10))
+                    .output(BlockBookshelfTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Lumber -> Trapdoors
+            ModHandler.addShapedRecipe(String.format("wood_trapdoor_%s", tree),
+                    new ItemStack(BlockTrapDoorWoodTFC.get(tree)), "XXX", "XXX",
+                    'X', new ItemStack(ItemLumberTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 6)
+                    .notConsumable(new IntCircuitIngredient(9))
+                    .output(BlockTrapDoorWoodTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Workbenches
+            ModHandler.addShapedRecipe(String.format("workbench_%s", tree),
+                    new ItemStack(BlockTrapDoorWoodTFC.get(tree)), "XX", "XX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 4)
+                    .notConsumable(new IntCircuitIngredient(11))
+                    .output(BlockWorkbenchTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
 
             // Chest
             ModHandler.addShapedRecipe(String.format("chest_%s", tree),
@@ -290,6 +405,69 @@ public final class DefaultRecipes
                     .input(Blocks.TRIPWIRE)
                     .notConsumable(new IntCircuitIngredient(12))
                     .output(BlockChestTFC.getTrap(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Looms
+            ModHandler.addShapedRecipe(String.format("loom_%s", tree),
+                    new ItemStack(BlockLoom.get(tree)), "XXX", "XYX", "X X",
+                    'X', new ItemStack(ItemLumberTFC.get(tree)),
+                    'Y', Items.STICK
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 7)
+                    .input(Items.STICK)
+                    .notConsumable(new IntCircuitIngredient(13))
+                    .output(BlockLoom.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Barrels
+            ModHandler.addShapedRecipe(String.format("barrel_%s", tree),
+                    new ItemStack(BlockBarrel.get(tree)), "X X", "X X", "XXX",
+                    'X', new ItemStack(ItemLumberTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 7)
+                    .notConsumable(new IntCircuitIngredient(15))
+                    .output(BlockBarrel.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Boats
+            ModHandler.addShapedRecipe(String.format("boat_%s", tree),
+                    new ItemStack(ItemBoatTFC.get(tree)), "XXX", "YZY", "YYY",
+                    'X', OreDictUnifier.get(OrePrefix.screw, Materials.Iron),
+                    'Y', new ItemStack(ItemLumberTFC.get(tree)),
+                    'Z', MetaItems.STICKY_RESIN
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 5)
+                    .input(MetaItems.STICKY_RESIN)
+                    .input(OrePrefix.screw, Materials.Iron, 3)
+                    .notConsumable(new IntCircuitIngredient(16))
+                    .output(ItemBoatTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Supports
+            ModHandler.addShapedRecipe(String.format("support_%s", tree),
+                    new ItemStack(BlockSupport.get(tree)), "ZX ", " X ", " X ",
+                    'X', BlockLogTFC.get(tree),
+                    'Z', MetaItems.SAW
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockLogTFC.get(tree), 3)
+                    .notConsumable(new IntCircuitIngredient(7))
+                    .output(BlockSupport.get(tree), 8)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();

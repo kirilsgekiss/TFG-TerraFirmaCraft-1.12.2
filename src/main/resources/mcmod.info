@@ -2,13 +2,15 @@
   {
     "modid": "tfc",
     "name": "TerraFirmaCraft",
-    "description": "A 1.12+ port for the 1.7.10 classic TerraFirmaCraft",
+    "description": "A 1.12.2 tfc port for compat with GTCEu",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "logoFile": "/assets/tfc/textures/gui/logo.png",
     "url": "https://tng.terrafirmacraft.com/Main_Page",
     "updateJson": "https://mc.dries007.net/terrafirmacraft.json",
     "authorList": [
+      "Exception",
+      "Xikaro",
       "Dries007",
       "AlcatrazEscapee",
       "Bunsan",
