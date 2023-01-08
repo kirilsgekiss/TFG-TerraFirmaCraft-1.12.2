@@ -8,6 +8,7 @@ package net.dries007.tfc.types;
 import gregtech.api.GregTechAPI;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ModHandler;
+import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
@@ -15,18 +16,24 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
-import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
+import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockStairsTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
+import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -77,6 +84,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.fuel.FuelManager;
+import tfcflorae.api.registries.TFCFRegistries;
 import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
 
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -91,10 +99,17 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class DefaultRecipes
 {
-    public static void registerVanillaRecipes()
+    public static void register()
     {
         fixStoneToolsRecipes();
         fixFlintToolsRecipes();
+
+        registerKnappingRecipes();
+        registerAnvilRecipes();
+        registerWeldingRecipes();
+
+        registerWoodRecipes();
+        // registerFruitTreeRecipes();
     }
 
     private static void fixStoneToolsRecipes()
@@ -171,8 +186,114 @@ public final class DefaultRecipes
                 MetaItems.KNIFE.getStackForm(Materials.Flint),
                 new UnificationEntry(TFCOrePrefix.toolHeadKnife, Materials.Flint),
                 new ItemStack(Items.STICK));
+    }
 
+    public static void registerWoodRecipes()
+    {
+        for (Tree tree : TFCRegistries.TREES)
+        {
+            // Log -> Lumber
+            ModHandler.addShapelessRecipe(String.format("log_to_lumber_%s", tree),
+                    new ItemStack(ItemLumberTFC.get(tree), 8),
+                    new ItemStack(BlockLogTFC.get(tree)),
+                    MetaItems.SAW);
 
+            CUTTER_RECIPES.recipeBuilder()
+                    .input(BlockLogTFC.get(tree))
+                    .output(ItemLumberTFC.get(tree), 16)
+                    .output(OrePrefix.dust, Materials.Wood, 2)
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Lumber -> Planks
+            ModHandler.addShapedRecipe(String.format("lumber_to_planks_%s", tree),
+                    new ItemStack(BlockPlanksTFC.get(tree)), "XX", "XX",
+                    'X', new ItemStack(ItemLumberTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 4)
+                    .notConsumable(new IntCircuitIngredient(3))
+                    .output(BlockPlanksTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Planks -> Lumber
+            CUTTER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree))
+                    .output(ItemLumberTFC.get(tree), 4)
+                    .output(OrePrefix.dust, Materials.Wood, 2)
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Planks -> Slabs
+            ModHandler.addShapedRecipe(String.format("planks_to_slabs_%s", tree),
+                    new ItemStack(BlockSlabTFC.Half.get(tree), 6), "XXX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 6)
+                    .notConsumable(new IntCircuitIngredient(6))
+                    .output(BlockSlabTFC.Half.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Planks -> Stairs
+            ModHandler.addShapedRecipe(String.format("planks_to_stairs_%s", tree),
+                    new ItemStack(BlockStairsTFC.get(tree), 6), "X  ", "XX ", "XXX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree), 6)
+                    .notConsumable(new IntCircuitIngredient(7))
+                    .output(BlockStairsTFC.get(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Planks -> Wood Pressure Plates
+
+            // Planks -> Fences
+
+            // Planks -> Gates
+
+            //
+
+            // Chest
+            ModHandler.addShapedRecipe(String.format("chest_%s", tree),
+                    new ItemStack(BlockChestTFC.getBasic(tree)), "XXX", "X X", "XXX",
+                    'X', new ItemStack(ItemLumberTFC.get(tree))
+                    );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemLumberTFC.get(tree), 8)
+                    .notConsumable(new IntCircuitIngredient(12))
+                    .output(BlockChestTFC.getBasic(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Trapped Chest
+            ModHandler.addShapelessRecipe(String.format("trapped_chest_%s", tree),
+                    new ItemStack(BlockChestTFC.getTrap(tree)),
+                    new ItemStack(BlockChestTFC.getBasic(tree)),
+                    new ItemStack(Blocks.TRIPWIRE));
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockChestTFC.getBasic(tree))
+                    .input(Blocks.TRIPWIRE)
+                    .notConsumable(new IntCircuitIngredient(12))
+                    .output(BlockChestTFC.getTrap(tree))
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+        }
     }
 
     @SubscribeEvent

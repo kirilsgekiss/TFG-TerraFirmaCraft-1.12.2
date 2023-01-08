@@ -201,11 +201,7 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        DefaultRecipes.registerVanillaRecipes();
-
-        DefaultRecipes.registerKnappingRecipes();
-        DefaultRecipes.registerAnvilRecipes();
-        DefaultRecipes.registerWeldingRecipes();
+        DefaultRecipes.register();
 
         FuelManager.postInit();
         JsonConfigRegistry.INSTANCE.postInit();
