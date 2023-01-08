@@ -78,6 +78,10 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
         Arrays.fill(this.cachedRecipes, null);
     }
 
+    public float getTemperature() {
+        return temperature;
+    }
+
     public void acceptHeat(float temperature)
     {
         if (temperature > targetTemperature)

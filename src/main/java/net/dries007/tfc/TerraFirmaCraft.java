@@ -6,6 +6,7 @@
 package net.dries007.tfc;
 
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
+import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.types.DefaultRecipes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -195,7 +196,7 @@ public final class TerraFirmaCraft
         CapabilityItemHeat.init();
         CapabilityMetalItem.init();
 
-        FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "net.dries007.tfc.compat.waila.TOPPlugin");
+        TOPCompatibility.registerCompatibility();
     }
 
     @Mod.EventHandler
