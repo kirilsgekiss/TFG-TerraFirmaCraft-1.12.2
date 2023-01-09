@@ -168,9 +168,6 @@ public class ClientRegisterEventsTFCF
         for (BlockFenceGateLog gate : BlocksTFCF.getAllFenceGateLogBlocks())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFenceGateLog.POWERED).build());
 
-        for (Block block : BlocksTFCF.getAllWallBlocks())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWall.VARIANT).build());
-
         for (BlockFruitSlab.Half block : BlocksTFCF.getAllFruitSlabBlocks())
         {
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());

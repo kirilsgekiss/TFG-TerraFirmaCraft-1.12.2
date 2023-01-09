@@ -28,10 +28,10 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 @ParametersAreNonnullByDefault
 public class BlockStairsTFC extends BlockStairs
 {
-    private static final Map<Rock, EnumMap<Rock.Type, BlockStairsTFC>> ROCK_TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, BlockStairsTFC>> ROCK_TABLE = new HashMap<>();
     private static final Map<Tree, BlockStairsTFC> WOOD_MAP = new HashMap<>();
 
-    public static BlockStairsTFC get(Rock rock, Rock.Type type)
+    public static BlockStairsTFC get(Rock rock, Type type)
     {
         return ROCK_TABLE.get(rock).get(type);
     }
@@ -41,7 +41,7 @@ public class BlockStairsTFC extends BlockStairs
         return WOOD_MAP.get(wood);
     }
 
-    public BlockStairsTFC(Rock rock, Rock.Type type)
+    public BlockStairsTFC(Rock rock, Type type)
     {
         super(BlockRockVariant.get(rock, type).getDefaultState());
 

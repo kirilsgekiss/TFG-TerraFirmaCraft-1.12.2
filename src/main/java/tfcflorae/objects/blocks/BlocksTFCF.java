@@ -44,7 +44,6 @@ import tfcflorae.objects.blocks.wood.*;
 import tfcflorae.objects.blocks.wood.bamboo.*;
 import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
-import tfcflorae.objects.blocks.blocktype.*;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import tfcflorae.objects.blocks.devices.*;
 import tfcflorae.objects.fluids.FluidsTFCF;
@@ -287,8 +286,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
     private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
-    private static ImmutableList<BlockWallTFCF> allWallBlocks = Helpers.getNull();
-    private static ImmutableList<BlockStairsTFCF> allStairBlocks = Helpers.getNull();
     private static ImmutableList<BlockSlabTFC.Half> allSlabBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockStairsTFC> allStairBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockPlanksTFC> allPlanksTFC = Helpers.getNull();
@@ -470,16 +467,6 @@ public final class BlocksTFCF
     public static ImmutableList<BlockBerryBush> getAllBerryBushBlocks()
     {
         return allBerryBushBlocks;
-    }
-
-    public static ImmutableList<BlockWallTFCF> getAllWallBlocks()
-    {
-        return allWallBlocks;
-    }
-
-    public static ImmutableList<BlockStairsTFCF> getAllStairBlocks()
-    {
-        return allStairBlocks;
     }
 
     public static ImmutableList<BlockSlabTFC.Half> getAllSlabBlocksTFC()
@@ -685,8 +672,6 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
         ImmutableList.Builder<BlockBerryBush> cropBerryBushBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
-        ImmutableList.Builder<BlockWallTFCF> blockWallTFCF = ImmutableList.builder();
-        ImmutableList.Builder<BlockStairsTFCF> blockStairsTFC = new Builder<>();
         ImmutableList.Builder<BlockSurfaceRock> surfaceRock = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceFlint> surfaceFlint = ImmutableList.builder();
@@ -1158,53 +1143,6 @@ public final class BlocksTFCF
             allSurfaceTwig = surfaceTwig.build();
             allSurfaceTwig.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
-
-        {
-            // Walls
-            /*
-            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockWallTFCF.add(register(r,
-                            "wall/" + rockTFCF.name().toLowerCase() + "/"
-                                    + rock.getRegistryName().getPath().toLowerCase(),
-                            new BlockWallTFCF(BlockRockVariant.get(rock, rockTFCF)), CT_DECORATIONS));*/
-
-            // Stairs
-            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockStairsTFC.add(register(r, "stairs/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockStairsTFCF(rock, rockTFCF), CT_DECORATIONS));
-
-            // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
-            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    register(r, "double_slab/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Double(rock, rockTFCF));
-
-            // Slabs
-            for (Type rockTFCF : new Type[] {Type.MUD_BRICKS})
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockSlabTFC.add(register(r, "slab/" + (rockTFCF.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Half(rock, rockTFCF), CT_DECORATIONS));
-
-            allWallBlocks = blockWallTFCF.build();
-            allStairBlocks = blockStairsTFC.build();
-            allWallBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allStairBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-        }
-
-        // TFC Stairs
-        for (Rock.Type type : new Rock.Type[] { Type.RAW })
-            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                blockStairTFC.add(register(r, "stairs/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockStairsTFC(rock, type), CT_DECORATIONS));
-
-        // TFC Double Slabs
-        // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
-        for (Rock.Type type : new Rock.Type[] { Type.RAW })
-            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                register(r, "double_slab/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Double(rock, type));
-
-        // TFC Slabs
-        for (Rock.Type type : new Rock.Type[] { Type.RAW })
-            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                blockSlabTFC.add(register(r, "slab/" + (type.name() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockSlabTFC.Half(rock, type), CT_DECORATIONS));
 
         for (SeasonalTrees fruitTree : SeasonalTrees.values())
         {

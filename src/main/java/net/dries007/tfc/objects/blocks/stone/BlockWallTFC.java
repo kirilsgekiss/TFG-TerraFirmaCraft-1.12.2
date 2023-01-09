@@ -23,9 +23,9 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 //todo: actually by-pass the variant? or would it be worth adding a mossy texture for nice looking walls
 public class BlockWallTFC extends BlockWall
 {
-    private static final Map<Rock, EnumMap<Rock.Type, BlockWallTFC>> TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, BlockWallTFC>> TABLE = new HashMap<>();
 
-    public static BlockWallTFC get(Rock rock, Rock.Type type)
+    public static BlockWallTFC get(Rock rock, Type type)
     {
         return TABLE.get(rock).get(type);
     }
