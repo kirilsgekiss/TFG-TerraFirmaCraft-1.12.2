@@ -69,6 +69,11 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
         this.alloy = new Alloy(ConfigTFC.Devices.CRUCIBLE.tank);
     }
 
+    public float getTemperature()
+    {
+        return temperature;
+    }
+
     @Override
     public int getSlotLimit(int slot)
     {

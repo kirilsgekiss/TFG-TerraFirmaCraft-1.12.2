@@ -1,6 +1,5 @@
 package net.dries007.tfc.compat.top.providers;
 
-import gregtech.api.unification.material.Material;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;

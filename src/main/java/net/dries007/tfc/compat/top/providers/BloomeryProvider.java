@@ -1,46 +1,41 @@
-/*
- * Work under Copyright. Licensed under the EUPL.
- * See the project README.md and LICENSE.txt for more information.
- */
+package net.dries007.tfc.compat.top.providers;
 
-package net.dries007.tfc.compat.waila.providers;
-
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.Nonnull;
-
-import com.google.common.collect.ImmutableList;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.World;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.IProbeInfoProvider;
+import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
 import net.dries007.tfc.api.recipes.BloomeryRecipe;
-import net.dries007.tfc.compat.waila.interfaces.IWailaBlock;
 import net.dries007.tfc.objects.blocks.devices.BlockBloomery;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.te.TEBloom;
 import net.dries007.tfc.objects.te.TEBloomery;
 import net.dries007.tfc.util.calendar.ICalendar;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
-public class BloomeryProvider implements IWailaBlock
-{
-    @Nonnull
+import java.util.List;
+
+public class BloomeryProvider implements IProbeInfoProvider {
     @Override
-    public List<String> getTooltip(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull NBTTagCompound nbt)
-    {
-        List<String> currentTooltip = new ArrayList<>();
-        IBlockState state = world.getBlockState(pos);
-        TileEntity tileEntity = world.getTileEntity(pos);
+    public String getID() {
+        return TerraFirmaCraft.MOD_ID + ":bloomery";
+    }
+
+    @Override
+    public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
+        IBlockState state = world.getBlockState(data.getPos());
+        TileEntity tileEntity = world.getTileEntity(data.getPos());
         if (tileEntity instanceof TEBloomery)
         {
             TEBloomery bloomery = (TEBloomery) tileEntity;
@@ -54,15 +49,15 @@ public class BloomeryProvider implements IWailaBlock
                     case NONE:
                         break;
                     case TICKS:
-                        currentTooltip.add(new TextComponentTranslation("waila.tfc.devices.ticks_remaining", remainingTicks).getFormattedText());
+                        probeInfo.text(new TextComponentTranslation("waila.tfc.devices.ticks_remaining", remainingTicks).getFormattedText());
                         break;
                     case MINECRAFT_HOURS:
                         long remainingHours = Math.round(remainingTicks / (float) ICalendar.TICKS_IN_HOUR);
-                        currentTooltip.add(new TextComponentTranslation("waila.tfc.devices.hours_remaining", remainingHours).getFormattedText());
+                        probeInfo.text(new TextComponentTranslation("waila.tfc.devices.hours_remaining", remainingHours).getFormattedText());
                         break;
                     case REAL_MINUTES:
                         long remainingMinutes = Math.round(remainingTicks / 1200.0f);
-                        currentTooltip.add(new TextComponentTranslation("waila.tfc.devices.minutes_remaining", remainingMinutes).getFormattedText());
+                        probeInfo.text(new TextComponentTranslation("waila.tfc.devices.minutes_remaining", remainingMinutes).getFormattedText());
                         break;
                 }
                 if (recipe != null)
@@ -72,7 +67,7 @@ public class BloomeryProvider implements IWailaBlock
                     if (cap instanceof IForgeableMeasurableMetal)
                     {
                         IForgeableMeasurableMetal forgeCap = ((IForgeableMeasurableMetal) cap);
-                        currentTooltip.add(new TextComponentTranslation("waila.tfc.bloomery.output", forgeCap.getMetalAmount(), new TextComponentTranslation(forgeCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
+                        probeInfo.text(new TextComponentTranslation("waila.tfc.bloomery.output", forgeCap.getMetalAmount(), new TextComponentTranslation(forgeCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
                     }
                 }
             }
@@ -81,8 +76,8 @@ public class BloomeryProvider implements IWailaBlock
                 int ores = bloomery.getOreStacks().size();
                 int fuel = bloomery.getFuelStacks().size();
                 int max = BlockBloomery.getChimneyLevels(world, bloomery.getInternalBlock()) * 8;
-                currentTooltip.add(new TextComponentTranslation("waila.tfc.bloomery.ores", ores, max).getFormattedText());
-                currentTooltip.add(new TextComponentTranslation("waila.tfc.bloomery.fuel", fuel, max).getFormattedText());
+                probeInfo.text(new TextComponentTranslation("waila.tfc.bloomery.ores", ores, max).getFormattedText());
+                probeInfo.text(new TextComponentTranslation("waila.tfc.bloomery.fuel", fuel, max).getFormattedText());
             }
         }
         else if (tileEntity instanceof TEBloom)
@@ -96,17 +91,9 @@ public class BloomeryProvider implements IWailaBlock
                 if (forgeCap instanceof IForgeableMeasurableMetal)
                 {
                     IForgeableMeasurableMetal bloomCap = ((IForgeableMeasurableMetal) forgeCap);
-                    currentTooltip.add(new TextComponentTranslation("waila.tfc.metal.output", bloomCap.getMetalAmount(), new TextComponentTranslation(bloomCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
+                    probeInfo.text(new TextComponentTranslation("waila.tfc.metal.output", bloomCap.getMetalAmount(), new TextComponentTranslation(bloomCap.getMaterial().getUnlocalizedName()).getFormattedText()).getFormattedText());
                 }
             }
         }
-        return currentTooltip;
-    }
-
-    @Nonnull
-    @Override
-    public List<Class<?>> getLookupClass()
-    {
-        return ImmutableList.of(TEBloom.class, TEBloomery.class);
     }
 }
