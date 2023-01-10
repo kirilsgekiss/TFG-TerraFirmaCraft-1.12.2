@@ -10,11 +10,10 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.te.TEInventory;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
-import tfcflorae.objects.recipes.DryingRecipe;
+import net.dries007.tfc.objects.recipes.DryingRecipe;
 import tfcflorae.util.HelpersTFCF;
 
 @ParametersAreNonnullByDefault

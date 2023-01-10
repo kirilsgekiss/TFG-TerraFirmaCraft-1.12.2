@@ -1,7 +1,8 @@
-package tfcflorae.objects.recipes;
+package net.dries007.tfc.objects.recipes;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -11,7 +12,7 @@ import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.compat.jei.IJEISimpleRecipe;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 
-import tfcflorae.api.registries.TFCFRegistries;
+import net.dries007.tfc.api.registries.TFCRegistries;
 
 public class DryingRecipe extends IForgeRegistryEntry.Impl<DryingRecipe> implements IJEISimpleRecipe
 {
@@ -22,7 +23,7 @@ public class DryingRecipe extends IForgeRegistryEntry.Impl<DryingRecipe> impleme
     @Nullable
     public static DryingRecipe get(ItemStack item)
     {
-        return TFCFRegistries.DRYING.getValuesCollection().stream().filter(x -> x.isValidInput(item)).findFirst().orElse(null);
+        return TFCRegistries.DRYING.getValuesCollection().stream().filter(x -> x.isValidInput(item)).findFirst().orElse(null);
     }
 
     public static int getDuration(DryingRecipe recipe)

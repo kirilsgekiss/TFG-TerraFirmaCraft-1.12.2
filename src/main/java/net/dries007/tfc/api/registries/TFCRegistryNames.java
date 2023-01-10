@@ -8,6 +8,7 @@ package net.dries007.tfc.api.registries;
 import net.minecraft.util.ResourceLocation;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 /**
  * The names are separate from the instances TFCRegistries so they can be used without loading the class prematurely.
@@ -32,4 +33,7 @@ public final class TFCRegistryNames
     public static final ResourceLocation CHISEL_RECIPE = new ResourceLocation(MOD_ID, "chisel_recipe");
     public static final ResourceLocation BLOOMERY_RECIPE = new ResourceLocation(MOD_ID, "bloomery_recipe");
     public static final ResourceLocation BLAST_FURNACE_RECIPE = new ResourceLocation(MOD_ID, "blast_furnace_recipe");
+    public static final ResourceLocation ALEMBIC_RECIPE = new ResourceLocation(TFCFLORAE_MODID, "alembic_recipe");
+    public static final ResourceLocation DRYING_RECIPE = new ResourceLocation(TFCFLORAE_MODID, "drying_recipe");
+    public static final ResourceLocation STICK_BUNDLE_RECIPE = new ResourceLocation(TFCFLORAE_MODID, "stick_bundle_recipe");
 }

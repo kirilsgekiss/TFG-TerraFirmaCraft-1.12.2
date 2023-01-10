@@ -31,7 +31,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.api.stateproperty.StatePropertiesTFCF.*;
+import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;
 
 public class BlockCassiaCinnamonLog extends Block
 {

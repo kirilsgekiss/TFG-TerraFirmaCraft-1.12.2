@@ -3,10 +3,9 @@ package net.dries007.tfc.compat.jei.wrappers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 
-import net.dries007.tfc.compat.jei.wrappers.SimpleRecipeWrapper;
 import net.dries007.tfc.util.calendar.ICalendar;
 
-import tfcflorae.objects.recipes.DryingRecipe;
+import net.dries007.tfc.objects.recipes.DryingRecipe;
 
 public class DryingRecipeWrapper extends SimpleRecipeWrapper
 {

@@ -57,10 +57,8 @@ import net.dries007.tfc.objects.recipes.SaltingRecipe;
 import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
-import tfcflorae.api.registries.TFCFRegistries;
 import net.dries007.tfc.compat.jei.categories.DryingRecipeCategory;
 import net.dries007.tfc.compat.jei.categories.StickBundleRecipeCategory;
-import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.rock.ItemMud;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -482,14 +480,14 @@ public final class TFCJEIPlugin implements IModPlugin
             registry.addRecipes(heatMetalList, METAL_HEAT_UID);
 
             // Wraps all dry recipes
-            List<SimpleRecipeWrapper> dryList = TFCFRegistries.DRYING.getValuesCollection()
+            List<SimpleRecipeWrapper> dryList = TFCRegistries.DRYING.getValuesCollection()
                     .stream()
                     .map(DryingRecipeWrapper::new)
                     .collect(Collectors.toList());
             registry.addRecipes(dryList, DRY_UID);
 
             // Wraps all bundle recipes
-            List<SimpleRecipeWrapper> stickbundleList = TFCFRegistries.STICK_BUNDLE.getValuesCollection()
+            List<SimpleRecipeWrapper> stickbundleList = TFCRegistries.STICK_BUNDLE.getValuesCollection()
                     .stream()
                     .map(StickBundleRecipeWrapper::new)
                     .collect(Collectors.toList());

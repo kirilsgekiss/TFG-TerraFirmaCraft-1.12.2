@@ -8,15 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.te.TEInventory;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
-import tfcflorae.TFCFlorae;
-import tfcflorae.objects.recipes.StickBundleRecipe;
+import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import tfcflorae.util.HelpersTFCF;
 
 @ParametersAreNonnullByDefault

@@ -8,6 +8,9 @@ package net.dries007.tfc.api.registries;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import net.dries007.tfc.objects.recipes.AlembicRecipe;
+import net.dries007.tfc.objects.recipes.DryingRecipe;
+import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -47,6 +50,9 @@ public class TFCRegistries
     public static final IForgeRegistry<BlastFurnaceRecipe> BLAST_FURNACE = GameRegistry.findRegistry(BlastFurnaceRecipe.class);
 
     public static final IForgeRegistry<Plant> PLANTS = GameRegistry.findRegistry(Plant.class);
+    public static final IForgeRegistry<AlembicRecipe> ALEMBIC = GameRegistry.findRegistry(AlembicRecipe.class);
+    public static final IForgeRegistry<DryingRecipe> DRYING = GameRegistry.findRegistry(DryingRecipe.class);
+    public static final IForgeRegistry<StickBundleRecipe> STICK_BUNDLE = GameRegistry.findRegistry(StickBundleRecipe.class);
 
     static
     {

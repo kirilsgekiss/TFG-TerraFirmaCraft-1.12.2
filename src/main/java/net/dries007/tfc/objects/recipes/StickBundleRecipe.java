@@ -1,4 +1,4 @@
-package tfcflorae.objects.recipes;
+package net.dries007.tfc.objects.recipes;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,7 +11,7 @@ import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.compat.jei.IJEISimpleRecipe;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 
-import tfcflorae.api.registries.TFCFRegistries;
+import net.dries007.tfc.api.registries.TFCRegistries;
 
 public class StickBundleRecipe extends IForgeRegistryEntry.Impl<StickBundleRecipe> implements IJEISimpleRecipe
 {
@@ -22,7 +22,7 @@ public class StickBundleRecipe extends IForgeRegistryEntry.Impl<StickBundleRecip
     @Nullable
     public static StickBundleRecipe get(ItemStack item)
     {
-        return TFCFRegistries.STICK_BUNDLE.getValuesCollection().stream().filter(x -> x.isValidInput(item)).findFirst().orElse(null);
+        return TFCRegistries.STICK_BUNDLE.getValuesCollection().stream().filter(x -> x.isValidInput(item)).findFirst().orElse(null);
     }
 
     public static int getDuration(StickBundleRecipe recipe)

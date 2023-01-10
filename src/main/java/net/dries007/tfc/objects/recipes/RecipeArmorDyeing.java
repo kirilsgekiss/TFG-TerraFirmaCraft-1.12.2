@@ -1,4 +1,4 @@
-package tfcflorae.objects.recipes;
+package net.dries007.tfc.objects.recipes;
 
 import java.util.List;
 

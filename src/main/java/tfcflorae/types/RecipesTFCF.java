@@ -38,9 +38,8 @@ import net.minecraftforge.registries.IForgeRegistryModifiable;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.objects.recipes.StickBundleRecipe;
+import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.objects.fluids.FluidsTFC.FRESH_WATER;

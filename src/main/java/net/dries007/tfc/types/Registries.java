@@ -8,6 +8,9 @@ package net.dries007.tfc.types;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import net.dries007.tfc.objects.recipes.AlembicRecipe;
+import net.dries007.tfc.objects.recipes.DryingRecipe;
+import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -57,6 +60,9 @@ public final class Registries
         newRegistry(CHISEL_RECIPE, ChiselRecipe.class, false);
         newRegistry(BLOOMERY_RECIPE, BloomeryRecipe.class, false);
         newRegistry(BLAST_FURNACE_RECIPE, BlastFurnaceRecipe.class, false);
+        newRegistry(ALEMBIC_RECIPE, AlembicRecipe.class, false);
+        newRegistry(DRYING_RECIPE, DryingRecipe.class, false);
+        newRegistry(STICK_BUNDLE_RECIPE, StickBundleRecipe.class, false);
     }
 
     /**

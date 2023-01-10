@@ -25,7 +25,7 @@ import net.dries007.tfc.objects.items.ItemMisc;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.api.stateproperty.StatePropertiesTFCF.*;
+import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;
 
 public class BlockBambooLog extends Block
 {

@@ -1,10 +1,11 @@
-package tfcflorae.objects.recipes;
+package net.dries007.tfc.objects.recipes;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.api.registries.TFCRegistries;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -13,18 +14,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.Helpers;
-
-import tfcflorae.api.registries.TFCFRegistries;
 
 public class AlembicRecipe extends IForgeRegistryEntry.Impl<AlembicRecipe>
 {
     @Nullable
     public static AlembicRecipe get(ItemStack stack, FluidStack fluidStack)
     {
-        return TFCFRegistries.ALEMBIC.getValuesCollection().stream().filter(x -> x.isValidInput(fluidStack) && x.getDuration() != 0).findFirst().orElse(null);
+        return TFCRegistries.ALEMBIC.getValuesCollection().stream().filter(x -> x.isValidInput(fluidStack) && x.getDuration() != 0).findFirst().orElse(null);
     }
 
     /**
@@ -33,7 +31,7 @@ public class AlembicRecipe extends IForgeRegistryEntry.Impl<AlembicRecipe>
      */
     public static boolean isAlembicFluid(FluidStack fluidStack)
     {
-        return TFCFRegistries.ALEMBIC.getValuesCollection().stream().filter(x -> x.inputFluid.testIgnoreCount(fluidStack)).findFirst().orElse(null) != null;
+        return TFCRegistries.ALEMBIC.getValuesCollection().stream().filter(x -> x.inputFluid.testIgnoreCount(fluidStack)).findFirst().orElse(null) != null;
     }
 
     protected final IIngredient<FluidStack> inputFluid;
