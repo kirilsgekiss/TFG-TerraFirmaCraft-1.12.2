@@ -95,7 +95,7 @@ dependencies {
 
     // deobfCompile 'curse.maven:dramatictrees-637540:4059721'
 
-    compile 'curse.maven:crafttweaker-239197:3935788'
+    compileOnly 'curse.maven:crafttweaker-239197:3935788'
     compileOnly files('libs/groovyscript-0.1.0.jar')
 
     // dead

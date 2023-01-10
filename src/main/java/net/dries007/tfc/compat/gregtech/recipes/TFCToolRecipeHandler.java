@@ -11,10 +11,10 @@ import gregtech.api.unification.material.properties.ToolProperty;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
+import gregtech.common.items.ToolItems;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
-import net.dries007.tfc.mixins.gregtech.recipes.IToolRecipeHandlerInvoker;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -23,65 +23,10 @@ import static gregtech.api.unification.material.properties.PropertyKey.GEM;
 public class TFCToolRecipeHandler {
     public static void register()
     {
-        // OrePrefix.stick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processStick);
         // TFCOrePrefix.toolHeadKnife.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processKnifeHead);
         // TFCOrePrefix.toolHeadPropick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processPropickHead);
         // TFCOrePrefix.toolHeadChisel.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processChiselHead);
         // TFCOrePrefix.toolHeadJavelin.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processJavelinHead);
-    }
-
-    public static void processStick(OrePrefix stickPrefix, Material material, ToolProperty property) {
-
-        // Sticks + Rods = Tongs
-        if (material.hasProperty(PropertyKey.INGOT)) {
-            ModHandler.addShapedRecipe(String.format("tongs_%s", material),
-                    TFCToolItems.TONGS.get(material),
-                    "F F", " S ", "K K",
-                    'S', new UnificationEntry(OrePrefix.screw, material),
-                    'K', new ItemStack(Items.STICK),
-                    'F', new UnificationEntry(OrePrefix.stick, material));
-        }
-
-        // Stick + Head = Chisel
-        if (material.hasProperty(PropertyKey.INGOT)) {
-            ModHandler.addShapelessRecipe(String.format("chisel_%s", material),
-                    TFCToolItems.CHISEL.get(material),
-                    new UnificationEntry(TFCOrePrefix.toolHeadChisel, material),
-                    new ItemStack(Items.STICK));
-        }
-
-        // Stick + Head = Propick
-        if (material.hasProperty(PropertyKey.INGOT)) {
-            ModHandler.addShapelessRecipe(String.format("propick_%s", material),
-                    TFCToolItems.PROPICK.get(material),
-                    new UnificationEntry(TFCOrePrefix.toolHeadPropick, material),
-                    new ItemStack(Items.STICK));
-        }
-
-        // Stick + Head = Javelin
-        if (material.hasProperty(PropertyKey.INGOT)) {
-            ModHandler.addShapelessRecipe(String.format("javelin_%s", material),
-                    TFCToolItems.JAVELIN.get(material),
-                    new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material),
-                    new ItemStack(Items.STICK));
-        }
-
-        /*
-        // Stick + Head = Knife
-        if (material.hasProperty(PropertyKey.INGOT)) {
-            ModHandler.addShapelessRecipe(String.format("knife_%s", material),
-                    TFCToolItems.KNIFE.get(material),
-                    new UnificationEntry(TFCOrePrefix.toolHeadKnife, material),
-                    new ItemStack(Items.STICK));
-        }
-
-        // Stick + Head = Sense
-        if (material.hasProperty(PropertyKey.INGOT) && material != Materials.Stone) {
-            ModHandler.addShapelessRecipe(String.format("sense_%s", material),
-                    MetaItems.SENSE.get(material),
-                    new UnificationEntry(OrePrefix.toolHeadSense, material),
-                    new ItemStack(Items.STICK));
-        }*/
     }
 
     /*

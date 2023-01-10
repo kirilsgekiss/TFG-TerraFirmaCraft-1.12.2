@@ -10,6 +10,6 @@
     "gregtech.stonetypes.BlockOreMixin",
     "gregtech.recipes.PartsRecipeHandlerMixin",
     "gregtech.recipes.ToolRecipeHandlerMixin",
-    "gregtech.recipes.IToolRecipeHandlerInvoker"
+    "gregtech.recipes.MaterialRecipeHandlerMixin"
   ]
 }

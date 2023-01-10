@@ -100,96 +100,38 @@ public final class DefaultRecipes
 {
     public static void register()
     {
-        //fixStoneToolsRecipes();
-        //fixFlintToolsRecipes();
+        fixStoneToolsRecipes();
+        fixFlintToolsRecipes();
+
+        registerWoodRecipes();
+        // registerFruitTreeRecipes();
 
         registerKnappingRecipes();
         registerAnvilRecipes();
         registerWeldingRecipes();
-
-        registerWoodRecipes();
-        // registerFruitTreeRecipes();
     }
 
-    private static void fixStoneToolsRecipes()
-    {
-        // Disable some stone recipes (Head -> Any)
-        ModHandler.removeRecipeByName("gregtech:toolheadsword_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:toolheadpickaxe_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:toolheadfile_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:toolheadsaw_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:tool.drill.lv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.drill.mv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.drill.hv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.drill.ev_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.drill.iv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.chainsaw.lv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.chainsaw.mv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.chainsaw.hv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.wrench.lv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.wrench.mv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:tool.wrench.hv_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:toolheadsense_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:tool.buzzsaw_stone_unit");
-        ModHandler.removeRecipeByName("gregtech:toolheadscrewdriver_stone_wood");
-        ModHandler.removeRecipeByName("gregtech:tool.screwdriver.lv_stone_unit");
-
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadFile, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSaw, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
-
-        GTRecipeHandler.removeRecipesByInputs(EXTRACTOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(EXTRACTOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(EXTRACTOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
-
-        GTRecipeHandler.removeRecipesByInputs(ARC_FURNACE_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone)}, new FluidStack[]{new FluidStack(Materials.Oxygen.getFluid(), 56)});
-        GTRecipeHandler.removeRecipesByInputs(ARC_FURNACE_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone)}, new FluidStack[]{new FluidStack(Materials.Oxygen.getFluid(), 56)});
-        GTRecipeHandler.removeRecipesByInputs(ARC_FURNACE_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone)}, new FluidStack[]{new FluidStack(Materials.Oxygen.getFluid(), 56)});
-
-        // Disable some stone recipes (Any -> Head)
-        ModHandler.removeRecipeByName("gregtech:drill_head_stone");
-        ModHandler.removeRecipeByName("gregtech:chainsaw_head_stone");
-        ModHandler.removeRecipeByName("gregtech:wrench_head_stone");
-        ModHandler.removeRecipeByName("gregtech:buzzsaw_head_stone");
-        ModHandler.removeRecipeByName("gregtech:screwdriver_head_stone");
-
-        GTRecipeHandler.removeRecipesByInputs(LATHE_RECIPES, OreDictUnifier.get(OrePrefix.gear, Materials.Stone));
-    }
-
-    private static void fixFlintToolsRecipes()
-    {
-        // Disable some stone recipes (Head -> Any)
-        ModHandler.removeRecipeByName("gregtech:toolheadsword_flint_wood");
-        ModHandler.removeRecipeByName("gregtech:toolheadpickaxe_flint_wood");
-
+    private static void fixStoneToolsRecipes() {
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));
-
-        // Disable some stone recipes (Any -> Head)
-
-        // Enable some flint recipes
-        /*
-        ModHandler.addShapelessRecipe(String.format("knife_%s", Materials.Flint),
-                TFCToolItems.KNIFE.getStackForm(Materials.Flint),
-                new UnificationEntry(TFCOrePrefix.toolHeadKnife, Materials.Flint),
-                new ItemStack(Items.STICK));*/
     }
 
-    public static void registerWoodRecipes()
-    {
+    private static void fixFlintToolsRecipes() {
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadFile, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSaw, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Stone));
+    }
+
+    public static void registerWoodRecipes() {
         for (Tree tree : TFCRegistries.TREES)
         {
             // Log -> Lumber

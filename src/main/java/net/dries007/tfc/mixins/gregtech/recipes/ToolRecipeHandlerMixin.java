@@ -1,45 +1,138 @@
 package net.dries007.tfc.mixins.gregtech.recipes;
 
-import gregtech.api.recipes.RecipeMaps;
-import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.info.MaterialFlags;
 import gregtech.api.unification.material.properties.ToolProperty;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.common.items.MetaItems;
+import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.items.ToolItems;
 import gregtech.loaders.recipe.handlers.ToolRecipeHandler;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static gregtech.api.unification.material.info.MaterialFlags.NO_WORKING;
-import static gregtech.api.unification.material.properties.PropertyKey.GEM;
+import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 
 @Mixin(value = ToolRecipeHandler.class, remap = false)
 public class ToolRecipeHandlerMixin {
 
     /**
-    * Disable all flint tool recipes
+    * Fix flint tool recipes for TFG modpack
     * */
-    /*
     @Inject(method = "registerFlintToolRecipes", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void onRegisterFlintToolRecipes(CallbackInfo ci) {
+        Material material = Materials.Flint;
+
+        UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
+        UnificationEntry toolHeadHammer = new UnificationEntry(TFCOrePrefix.toolHeadHammer, material);
+        UnificationEntry toolHeadShovel = new UnificationEntry(TFCOrePrefix.toolHeadShovel, material);
+        UnificationEntry toolHeadAxe = new UnificationEntry(TFCOrePrefix.toolHeadAxe, material);
+        UnificationEntry toolHeadHoe = new UnificationEntry(TFCOrePrefix.toolHeadHoe, material);
+        UnificationEntry toolHeadKnife = new UnificationEntry(TFCOrePrefix.toolHeadKnife, material);
+        UnificationEntry toolHeadJavelin = new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material);
+
+        ModHandler.addShapelessRecipe(String.format("hammer_%s", material), ToolItems.HARD_HAMMER.get(material), toolHeadHammer, stick);
+        ModHandler.addShapelessRecipe(String.format("axe_%s", material), ToolItems.AXE.get(material), toolHeadAxe, stick);
+        ModHandler.addShapelessRecipe(String.format("hoe_%s", material), ToolItems.HOE.get(material), toolHeadHoe, stick);
+        ModHandler.addShapelessRecipe(String.format("shovel_%s", material), ToolItems.SHOVEL.get(material), toolHeadShovel, stick);
+        ModHandler.addShapelessRecipe(String.format("knife_%s", material), ToolItems.KNIFE.get(material), toolHeadKnife, stick);
+        ModHandler.addShapelessRecipe(String.format("javelin_%s", material), TFCToolItems.JAVELIN.get(material), toolHeadJavelin, stick);
+
         ci.cancel();
-    }*/
+    }
 
     /**
-     * Disable all material(ingot, plate etc) + sticks tool recipes
+     * Fix tool recipes for TFG modpack
      * */
-    /*
-    @Inject(method = "processSimpleToolHead", at = @At(value = "INVOKE", target = "Lgregtech/loaders/recipe/handlers/ToolRecipeHandler;addSimpleToolRecipe(Lgregtech/api/unification/ore/OrePrefix;Lgregtech/api/unification/material/Material;Lgregtech/api/items/toolitem/ToolMetaItem$MetaToolValueItem;Lgregtech/api/unification/stack/UnificationEntry;Lgregtech/api/unification/stack/UnificationEntry;Z[Ljava/lang/Object;)V"), remap = false, cancellable = true)
-    private static void onProcessSimpleToolHead(OrePrefix toolPrefix, Material material, ToolMetaItem.MetaToolValueItem toolItem, boolean mirrored, Object[] recipe, CallbackInfo ci) {
+    @Inject(method = "processTool", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private static void onProcessTool(OrePrefix prefix, Material material, ToolProperty property, CallbackInfo ci) {
+        UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
+        UnificationEntry plate = new UnificationEntry(OrePrefix.plate, material);
+        UnificationEntry screw = new UnificationEntry(OrePrefix.screw, material);
+        UnificationEntry metalStick = new UnificationEntry(OrePrefix.stick, material);
+
+        UnificationEntry toolHeadSword = new UnificationEntry(TFCOrePrefix.toolHeadSword, material);
+        UnificationEntry toolHeadPickaxe = new UnificationEntry(TFCOrePrefix.toolHeadPickaxe, material);
+        UnificationEntry toolHeadShovel = new UnificationEntry(TFCOrePrefix.toolHeadShovel, material);
+        UnificationEntry toolHeadAxe = new UnificationEntry(TFCOrePrefix.toolHeadAxe, material);
+        UnificationEntry toolHeadHoe = new UnificationEntry(TFCOrePrefix.toolHeadHoe, material);
+        UnificationEntry toolHeadSense = new UnificationEntry(TFCOrePrefix.toolHeadSense, material);
+        UnificationEntry toolHeadFile = new UnificationEntry(TFCOrePrefix.toolHeadFile, material);
+        UnificationEntry toolHeadHammer = new UnificationEntry(TFCOrePrefix.toolHeadHammer, material);
+        UnificationEntry toolHeadSaw = new UnificationEntry(TFCOrePrefix.toolHeadSaw, material);
+        UnificationEntry toolHeadKnife = new UnificationEntry(TFCOrePrefix.toolHeadKnife, material);
+        UnificationEntry toolHeadPropick = new UnificationEntry(TFCOrePrefix.toolHeadPropick, material);
+        UnificationEntry toolHeadChisel = new UnificationEntry(TFCOrePrefix.toolHeadChisel, material);
+        UnificationEntry toolHeadJavelin = new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material);
+
+        if (material.hasFlag(MaterialFlags.GENERATE_PLATE) && material != Materials.Stone) {
+            addToolRecipe(material, ToolItems.MINING_HAMMER, true, "PPf", "PPS", "PPh", 'P', plate, 'S', stick);
+            addToolRecipe(material, ToolItems.SPADE, false, "fPh", "PSP", " S ", 'P', plate, 'S', stick);
+            addToolRecipe(material, ToolItems.WRENCH, false, "PhP", " P ", " P ", 'P', plate);
+            addToolRecipe(material, TFCToolItems.TONGS, true, "F F", " S ", "K K", 'S', screw, 'K', stick, 'F', metalStick);
+
+            ModHandler.addShapelessRecipe(String.format("saw_%s", material), ToolItems.SAW.get(material), toolHeadSaw, stick);
+            ModHandler.addShapelessRecipe(String.format("pickaxe_%s", material), ToolItems.PICKAXE.get(material), toolHeadPickaxe, stick);
+            ModHandler.addShapelessRecipe(String.format("sense_%s", material), ToolItems.SCYTHE.get(material), toolHeadSense, stick);
+            ModHandler.addShapelessRecipe(String.format("sword_%s", material), ToolItems.SWORD.get(material), toolHeadSword, stick);
+            ModHandler.addShapelessRecipe(String.format("hammer_%s", material), ToolItems.HARD_HAMMER.get(material), toolHeadHammer, stick);
+            ModHandler.addShapelessRecipe(String.format("file_%s", material), ToolItems.FILE.get(material), toolHeadFile, stick);
+            ModHandler.addShapelessRecipe(String.format("propick_%s", material), TFCToolItems.PROPICK.get(material), toolHeadPropick, stick);
+            ModHandler.addShapelessRecipe(String.format("chisel_%s", material), TFCToolItems.CHISEL.get(material), toolHeadChisel, stick);
+
+            ModHandler.addShapelessRecipe(String.format("axe_%s", material), ToolItems.AXE.get(material), toolHeadAxe, stick);
+            ModHandler.addShapelessRecipe(String.format("hoe_%s", material), ToolItems.HOE.get(material), toolHeadHoe, stick);
+            ModHandler.addShapelessRecipe(String.format("shovel_%s", material), ToolItems.SHOVEL.get(material), toolHeadShovel, stick);
+            ModHandler.addShapelessRecipe(String.format("knife_%s", material), ToolItems.KNIFE.get(material), toolHeadKnife, stick);
+            ModHandler.addShapelessRecipe(String.format("javelin_%s", material), TFCToolItems.JAVELIN.get(material), toolHeadJavelin, stick);
+        }
+
+        if (material.hasFlag(MaterialFlags.GENERATE_ROD)) {
+            UnificationEntry rod = new UnificationEntry(OrePrefix.stick, material);
+            if (material.hasFlag(MaterialFlags.GENERATE_PLATE)) {
+                addToolRecipe(material, ToolItems.BUTCHERY_KNIFE, false, "PPf", "PP ", "Sh ", 'P', plate, 'S', rod);
+                if (material.hasFlag(MaterialFlags.GENERATE_BOLT_SCREW)) {
+                    addToolRecipe(material, ToolItems.WIRE_CUTTER, false, "PfP", "hPd", "STS", 'P', plate, 'T', new UnificationEntry(OrePrefix.screw, material), 'S', rod);
+                }
+            }
+
+            addToolRecipe(material, ToolItems.SCREWDRIVER, true, " fS", " Sh", "W  ", 'S', rod, 'W', stick);
+            addToolRecipe(material, ToolItems.CROWBAR, true, "hDS", "DSD", "SDf", 'S', rod, 'D', new UnificationEntry(OrePrefix.dye, MarkerMaterials.Color.Blue));
+        }
+
         ci.cancel();
-    }*/
+    }
+
+    /**
+     * Add stone tool recipes
+     * */
+    @Inject(method = "registerCustomToolRecipes", at = @At(value = "TAIL"), remap = false, cancellable = true)
+    private static void onRegisterCustomToolRecipes(CallbackInfo ci) {
+        registerStoneToolRecipes();
+    }
+
+    private static void registerStoneToolRecipes() {
+        Material material = Materials.Stone;
+
+        UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
+        UnificationEntry toolHeadShovel = new UnificationEntry(TFCOrePrefix.toolHeadShovel, material);
+        UnificationEntry toolHeadAxe = new UnificationEntry(TFCOrePrefix.toolHeadAxe, material);
+        UnificationEntry toolHeadHoe = new UnificationEntry(TFCOrePrefix.toolHeadHoe, material);
+        UnificationEntry toolHeadKnife = new UnificationEntry(TFCOrePrefix.toolHeadKnife, material);
+        UnificationEntry toolHeadJavelin = new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material);
+
+        ModHandler.addShapelessRecipe(String.format("axe_%s", material), ToolItems.AXE.get(material), toolHeadAxe, stick);
+        ModHandler.addShapelessRecipe(String.format("hoe_%s", material), ToolItems.HOE.get(material), toolHeadHoe, stick);
+        ModHandler.addShapelessRecipe(String.format("shovel_%s", material), ToolItems.SHOVEL.get(material), toolHeadShovel, stick);
+        ModHandler.addShapelessRecipe(String.format("knife_%s", material), ToolItems.KNIFE.get(material), toolHeadKnife, stick);
+        ModHandler.addShapelessRecipe(String.format("javelin_%s", material), TFCToolItems.JAVELIN.get(material), toolHeadJavelin, stick);
+    }
 
     /**
      * Allow to make gem axe heads in laser engraver
