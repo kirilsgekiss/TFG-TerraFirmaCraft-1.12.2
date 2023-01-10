@@ -2,70 +2,67 @@ package tfcflorae.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
-
-import net.dries007.tfc.objects.blocks.*;
-import net.dries007.tfc.objects.te.*;
+import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.api.types.IFruitTree;
+import net.dries007.tfc.api.types.Plant;
+import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.Type;
+import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.objects.CreativeTabsTFC;
+import net.dries007.tfc.objects.blocks.BlockFireBrick;
+import net.dries007.tfc.objects.blocks.BlockLargeVessel;
+import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockStairsTFC;
+import net.dries007.tfc.objects.blocks.agriculture.*;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockLargeVessel;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.types.DefaultTrees;
+import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.agriculture.FruitTree;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.CreativeTabsTFC;
-import net.dries007.tfc.objects.blocks.agriculture.*;
-import net.dries007.tfc.objects.blocks.wood.*;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
-import net.dries007.tfc.objects.items.itemblock.*;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
-import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.agriculture.FruitTree;
-import net.dries007.tfc.util.Helpers;
-
+import net.minecraftforge.registries.IForgeRegistry;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
+import tfcflorae.objects.blocks.devices.BlockDryer;
+import tfcflorae.objects.blocks.devices.BlockStickBundle;
 import tfcflorae.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.objects.blocks.plants.BlockPlant.*;
+import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.blocks.wood.*;
-import tfcflorae.objects.blocks.wood.bamboo.*;
+import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLeaves;
+import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
+import tfcflorae.objects.blocks.wood.bamboo.BlockBambooSapling;
 import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import tfcflorae.objects.blocks.devices.*;
-import tfcflorae.objects.fluids.FluidsTFCF;
-import tfcflorae.objects.items.food.*;
-import tfcflorae.objects.items.itemblock.ItemBlockCaveMushroom;
-import tfcflorae.objects.items.itemblock.ItemBlockCondenser;
-import tfcflorae.objects.items.itemblock.ItemBlockCrate;
-import tfcflorae.objects.items.itemblock.ItemBlockDryer;
-import tfcflorae.objects.items.itemblock.ItemBlockSaguaroCactus;
-import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
-import tfcflorae.objects.items.itemblock.ItemBlockTallGrassWater;
-import tfcflorae.objects.items.itemblock.ItemBlockUrn;
-import tfcflorae.objects.items.itemblock.ItemBlockUrnLoot;
+import tfcflorae.objects.items.food.ItemBlockRot;
+import tfcflorae.objects.items.food.PotionEffectToHave;
+import tfcflorae.objects.items.itemblock.*;
 import tfcflorae.types.PlantsTFCF;
-import net.dries007.tfc.api.types.Rock.Type;
-import tfcflorae.util.agriculture.*;
+import tfcflorae.util.agriculture.BerryBushTFCF;
+import tfcflorae.util.agriculture.CropTFCF;
+import tfcflorae.util.agriculture.FoodDataTFCF;
+import tfcflorae.util.agriculture.SeasonalTrees;
 
-import static net.dries007.tfc.api.types.Rock.Type.*;
+import static net.dries007.tfc.api.types.Rock.Type.DIRT;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
-
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SuppressWarnings("unused")
@@ -282,7 +279,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockFruitWorkbench> allFruitWorkbench = Helpers.getNull();
     private static ImmutableList<BlockFruitChestTFCF> allFruitChestBlocks = Helpers.getNull();
     private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFluidBase> allFluidBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
     private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
@@ -459,11 +455,6 @@ public final class BlocksTFCF
         return allDeadCrops;
     }
 
-    public static ImmutableList<BlockFluidBase> getAllFluidBlocks()
-    {
-        return allFluidBlocks;
-    }
-
     public static ImmutableList<BlockBerryBush> getAllBerryBushBlocks()
     {
         return allBerryBushBlocks;
@@ -635,12 +626,11 @@ public final class BlocksTFCF
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
         // This is called here because it needs to wait until Metal registry has fired
-        FluidsTFCF.registerFluids();
+        FluidsTFC.registerFluids();
         IForgeRegistry<Block> r = event.getRegistry();
 
         ImmutableList.Builder<ItemBlock> normalItemBlocks = ImmutableList.builder();
         ImmutableList.Builder<Block> inventoryItemBlocks = ImmutableList.builder();
-        ImmutableList.Builder<BlockFluidBase> fluids = ImmutableList.builder();
         ImmutableList.Builder<Block> itemBambooLog = ImmutableList.builder();
         ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
         ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
@@ -1351,52 +1341,6 @@ public final class BlocksTFCF
                     normalItemBlocks.add(new ItemBlockTFC(blockJoshuaTreeSapling));
                 }
             }
-        }
-
-        {
-            fluids.add(
-                register(r, "fluid/distilled_water", new BlockFluidTFC(FluidsTFCF.DISTILLED_WATER.get(), Material.WATER, false)),
-                register(r, "fluid/waste", new BlockFluidTFC(FluidsTFCF.WASTE.get(), Material.WATER, false)),
-                register(r, "fluid/base_potash_liquor", new BlockFluidTFC(FluidsTFCF.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
-                register(r, "fluid/sweet_sap", new BlockFluidTFC(FluidsTFCF.SWEET_SAP.get(), Material.WATER, false)),
-                register(r, "fluid/sweet_syrup", new BlockFluidTFC(FluidsTFCF.SWEET_SYRUP.get(), Material.WATER, false)),
-                register(r, "fluid/resin", new BlockFluidTFC(FluidsTFCF.RESIN.get(), Material.WATER, false)),
-                register(r, "fluid/kino", new BlockFluidTFC(FluidsTFCF.KINO.get(), Material.WATER, false)),
-                register(r, "fluid/salammoniac", new BlockFluidTFC(FluidsTFCF.SALAMMONIAC.get(), Material.WATER, false))
-            );
-            for (FluidWrapper wrapper : FluidsTFCF.getAllFermentedAlcoholsFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllAlcoholsFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllBeerFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllTeaFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllCoffeeFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllJuiceBerryFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllJuiceFruitFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            for (FluidWrapper wrapper : FluidsTFCF.getAllMiscFluids())
-            {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
-            }
-            allFluidBlocks = fluids.build();
         }
 
         allInventoryItemBlocks = inventoryItemBlocks.build();

@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
@@ -345,28 +346,64 @@ public final class BlocksTFC
             BlockDecorativeStone.ALABASTER_RAW.put(dyeColor, raw);
         }
 
+        // Apparently this is the way we're supposed to do things even though the fluid registry defaults. So we'll do it this way.
+        Builder<BlockFluidBase> fluids = ImmutableList.builder();
         {
-            // Apparently this is the way we're supposed to do things even though the fluid registry defaults. So we'll do it this way.
-            Builder<BlockFluidBase> b = ImmutableList.builder();
-            b.add(
+            fluids.add(
                     register(r, "fluid/hot_water", new BlockFluidHotWater()),
                     register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true))
+                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true)),
+                    register(r, "fluid/distilled_water", new BlockFluidTFC(FluidsTFC.DISTILLED_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/waste", new BlockFluidTFC(FluidsTFC.WASTE.get(), Material.WATER, false)),
+                    register(r, "fluid/base_potash_liquor", new BlockFluidTFC(FluidsTFC.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_sap", new BlockFluidTFC(FluidsTFC.SWEET_SAP.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_syrup", new BlockFluidTFC(FluidsTFC.SWEET_SYRUP.get(), Material.WATER, false)),
+                    register(r, "fluid/resin", new BlockFluidTFC(FluidsTFC.RESIN.get(), Material.WATER, false)),
+                    register(r, "fluid/kino", new BlockFluidTFC(FluidsTFC.KINO.get(), Material.WATER, false)),
+                    register(r, "fluid/salammoniac", new BlockFluidTFC(FluidsTFC.SALAMMONIAC.get(), Material.WATER, false))
             );
-            for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids())
-            {
-                b.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER)));
-            }
             for (FluidWrapper wrapper : FluidsTFC.getAllOtherFiniteFluids())
             {
-                b.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllFermentedAlcoholsFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllBeerFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllTeaFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllCoffeeFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllJuiceBerryFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllJuiceFruitFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+            }
+            for (FluidWrapper wrapper : FluidsTFC.getAllMiscFluids())
+            {
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
             for (EnumDyeColor color : EnumDyeColor.values())
             {
                 FluidWrapper wrapper = FluidsTFC.getFluidFromDye(color);
-                b.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            allFluidBlocks = b.build();
+            allFluidBlocks = fluids.build();
         }
 
         {
