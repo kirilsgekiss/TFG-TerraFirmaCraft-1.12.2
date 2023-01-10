@@ -15,7 +15,6 @@ import tfcflorae.proxy.CommonProxy;
 import tfcflorae.util.CapabilityHeatHandler;
 import tfcflorae.util.HelpersTFCF;
 import tfcflorae.util.OreDictionaryHelper;
-import tfcflorae.util.fuel.FuelsTFCF;
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
 @Mod(modid = TFCFlorae.TFCFLORAE_MODID, name = TFCFlorae.NAME, version = TFCFlorae.VERSION, dependencies = TFCFlorae.DEPENDENCIES, certificateFingerprint = TFCFlorae.SIGNING_KEY)
@@ -101,7 +100,6 @@ public class TFCFlorae
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        FuelsTFCF.postInit();
         proxy.postInit(event);
     }
 }
