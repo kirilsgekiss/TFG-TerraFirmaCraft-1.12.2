@@ -23,6 +23,8 @@ import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
+import net.dries007.tfc.objects.items.devices.ItemCalendarClock;
+import net.dries007.tfc.objects.items.devices.ItemFloraDensity;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.dries007.tfc.objects.items.metal.ItemLamp;
@@ -96,6 +98,11 @@ public final class ItemsTFC
     public static final ItemMisc WOOL_CLOTH = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_cloth")
     public static final ItemMisc SILK_CLOTH = getNull();
+
+    @GameRegistry.ObjectHolder("devices/flora_density_meter")
+    public static final ItemFloraDensity FLORA_DENSITY_METER = Helpers.getNull();
+    @GameRegistry.ObjectHolder("devices/season_clock")
+    public static final ItemCalendarClock CALENDAR_CLOCK = Helpers.getNull();
 
     // Armor
     @GameRegistry.ObjectHolder("armor/helmet/pineapple_leather")
@@ -583,6 +590,10 @@ public final class ItemsTFC
         simpleItems.add(register(r, "crop/product/jute", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/jute_fiber", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/burlap_cloth", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
+
+        simpleItems.add(register(r, "devices/flora_density_meter", new ItemFloraDensity(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
+        simpleItems.add(register(r, "devices/season_clock", new ItemCalendarClock(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
+
 
         // Pottery
         {

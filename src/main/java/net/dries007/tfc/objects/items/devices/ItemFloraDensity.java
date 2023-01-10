@@ -1,9 +1,9 @@
-package tfcflorae.objects.items.devices;
+package net.dries007.tfc.objects.items.devices;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.minecraft.client.resources.I18n;
+import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +13,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
@@ -21,17 +22,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-public class ItemCalendarClock extends ItemTFCF
+public class ItemFloraDensity extends ItemTFC
 {
     private final Size size;
     private final Weight weight;
 
-    public ItemCalendarClock(Size size, Weight weight, Object... oreNameParts) 
+    public ItemFloraDensity(Size size, Weight weight, Object... oreNameParts) 
     {
         this(size, weight);
         this.setMaxStackSize(1);
@@ -44,7 +45,7 @@ public class ItemCalendarClock extends ItemTFCF
                 OreDictionaryHelper.register(this, obj);
         }
 
-        this.addPropertyOverride(new ResourceLocation("calendar"), new IItemPropertyGetter()
+        this.addPropertyOverride(new ResourceLocation("floraDensity"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
             double rotation;
@@ -71,9 +72,12 @@ public class ItemCalendarClock extends ItemTFCF
                 {
                     double d0;
 
-                    if (worldIn.provider.isSurfaceWorld())
+                    if (worldIn.provider.isSurfaceWorld() && entityIn != null)
                     {
-                        d0 = (double)CalendarTFC.CALENDAR_TIME.getTotalDays() / (CalendarTFC.CALENDAR_TIME.getDaysInMonth() * CalendarTFC.CALENDAR_TIME.getTotalMonths());
+                        BlockPos playerPos = entityIn.getPosition();
+                        ChunkDataTFC data = ChunkDataTFC.get(worldIn, playerPos);
+
+                        d0 = (double)data.getFloraDensity();
                     }
                     else
                     {
@@ -102,13 +106,13 @@ public class ItemCalendarClock extends ItemTFCF
         });
     }
 
-    public ItemCalendarClock(Size size, Weight weight)
+    public ItemFloraDensity(Size size, Weight weight)
     {
         this.size = size;
         this.weight = weight;
         this.setMaxStackSize(1);
 
-        this.addPropertyOverride(new ResourceLocation("calendar"), new IItemPropertyGetter()
+        this.addPropertyOverride(new ResourceLocation("floraDensity"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
             double rotation;
@@ -137,7 +141,7 @@ public class ItemCalendarClock extends ItemTFCF
 
                     if (worldIn.provider.isSurfaceWorld())
                     {
-                        d0 = (double)CalendarTFC.CALENDAR_TIME.getTotalDays() / (CalendarTFC.CALENDAR_TIME.getDaysInMonth() * CalendarTFC.CALENDAR_TIME.getTotalMonths());
+                        d0 = (double)ChunkDataTFC.get(worldIn, entityIn.getPosition()).getFloraDensity();
                     }
                     else
                     {
@@ -184,13 +188,18 @@ public class ItemCalendarClock extends ItemTFCF
     @Nonnull
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, @Nonnull EnumHand hand)
     {
-        String season, day, date;
+        if (player != null)
+        {
+            BlockPos playerPos = player.getPosition();
+            ChunkDataTFC data = ChunkDataTFC.get(worldIn, playerPos);
+            float floraDensity = data.getFloraDensity();
 
-        season = I18n.format("tfc.tooltip.season", CalendarTFC.CALENDAR_TIME.getSeasonDisplayName());
-        day = I18n.format("tfc.tooltip.day", CalendarTFC.CALENDAR_TIME.getDisplayDayName());
-        date = I18n.format("tfc.tooltip.date", CalendarTFC.CALENDAR_TIME.getTimeAndDate());
-
-        player.sendStatusMessage(new TextComponentString(season + ", " + day + ", " + date), true);
-        return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
+            if (player.isSneaking())
+                player.sendStatusMessage(new TextComponentString("The flora density at this location is " + (Math.round(floraDensity * 100) / 100)), true);
+            else
+                player.sendStatusMessage(new TextComponentString("The flora density percentage at this location is " + (((Math.round(floraDensity * 100) / 100) / 1.0F) * 100) + "%"), true);
+            return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
+        }
+        else return new ActionResult<>(EnumActionResult.FAIL, player.getHeldItem(hand));
     }
 }

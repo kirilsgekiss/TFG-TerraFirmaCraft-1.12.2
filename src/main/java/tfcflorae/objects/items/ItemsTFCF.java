@@ -40,7 +40,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import tfcflorae.objects.items.devices.*;
+import net.dries007.tfc.objects.items.devices.*;
 import tfcflorae.objects.items.food.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.rock.ItemMud;
@@ -1063,11 +1063,6 @@ public final class ItemsTFCF
     @GameRegistry.ObjectHolder("wooden_bucket_sugar")
     public static final ItemMiscTFCF WOODEN_BUCKET_SUGAR = Helpers.getNull();
 
-    @GameRegistry.ObjectHolder("devices/flora_density_meter")
-    public static final ItemFloraDensity FLORA_DENSITY_METER = Helpers.getNull();
-    @GameRegistry.ObjectHolder("devices/season_clock")
-    public static final ItemCalendarClock CALENDAR_CLOCK = Helpers.getNull();
-
     private static ImmutableList<Item> allSimpleItems;
     //private static ImmutableList<ItemBowTFCF> allItemBows;
     private static ImmutableList<Item> allFoodItems;
@@ -1748,10 +1743,6 @@ public final class ItemsTFCF
         simpleItems.add(register(r, "crop/product/dirty_linen_net", new ItemMiscTFCF(Size.VERY_SMALL, Weight.VERY_LIGHT, "net", "net_linen_dirty"), CT_MISC));
         simpleItems.add(register(r, "crop/product/dirty_papyrus_net", new ItemMiscTFCF(Size.VERY_SMALL, Weight.VERY_LIGHT, "net", "net_papyrus_dirty"), CT_MISC));
         simpleItems.add(register(r, "crop/product/dirty_hemp_net", new ItemMiscTFCF(Size.VERY_SMALL, Weight.VERY_LIGHT, "net", "net_hemp_dirty"), CT_MISC));
-
-
-        simpleItems.add(register(r, "devices/flora_density_meter", new ItemFloraDensity(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
-        simpleItems.add(register(r, "devices/season_clock", new ItemCalendarClock(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
 
         // Cassia cinnamon
         ItemMisc cassiaPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
