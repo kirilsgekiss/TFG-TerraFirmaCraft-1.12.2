@@ -1,4 +1,4 @@
-package tfcflorae.objects.container;
+package net.dries007.tfc.objects.container;
 
 import javax.annotation.Nullable;
 

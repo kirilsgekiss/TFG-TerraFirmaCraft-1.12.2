@@ -27,12 +27,11 @@ import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.client.button.IButtonTooltip;
-import net.dries007.tfc.client.gui.GuiContainerTE;
 import net.dries007.tfc.network.PacketGuiButton;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.client.FluidSpriteCache;
 
-import tfcflorae.objects.container.ContainerCondenser;
+import net.dries007.tfc.objects.container.ContainerCondenser;
 import net.dries007.tfc.objects.te.TECondenser;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

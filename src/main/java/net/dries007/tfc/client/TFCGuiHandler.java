@@ -32,7 +32,6 @@ import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.container.*;
 import tfcflorae.objects.items.ItemBag;
 import tfcflorae.objects.items.ItemSack;
 import net.dries007.tfc.objects.items.rock.ItemMud;

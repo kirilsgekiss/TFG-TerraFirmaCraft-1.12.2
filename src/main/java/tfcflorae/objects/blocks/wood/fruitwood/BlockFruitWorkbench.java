@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import mcp.MethodsReturnNonnullByDefault;
 
 import tfcflorae.util.OreDictionaryHelper;
-import tfcflorae.objects.container.ContainerFruitWorkbench;
+import net.dries007.tfc.objects.container.ContainerFruitWorkbench;
 
 public class BlockFruitWorkbench extends BlockWorkbench
 {
