@@ -10,17 +10,14 @@ import java.util.stream.Collectors;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
-import gregtech.api.recipes.GTRecipeHandler;
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.common.items.MetaItems;
+import gregtech.common.items.ToolItems;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
-import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
@@ -63,8 +60,6 @@ import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.items.rock.ItemMud;
-
-import static gregtech.api.recipes.RecipeMaps.MACERATOR_RECIPES;
 
 @JEIPlugin
 public final class TFCJEIPlugin implements IModPlugin
@@ -162,28 +157,6 @@ public final class TFCJEIPlugin implements IModPlugin
     {
         REGISTRY = registry;
 
-        // Hide TFC Ores in HEI
-        IIngredientBlacklist blacklist = registry.getJeiHelpers().getIngredientBlacklist();
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
-
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));
-
         // Recipe Catalysts
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.QUERN), QUERN_UID);
         registry.addRecipeCatalyst(new ItemStack(BlocksTFC.FIREPIT), HEAT_UID);
@@ -226,7 +199,7 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), WELDING_UID);
             }
         }
-        registry.addRecipeCatalyst(MetaItems.KNIFE.getStackForm(), SCRAPING_UID);
+        registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Neutronium), SCRAPING_UID);
 
         // Wrappers
 
@@ -596,5 +569,65 @@ public final class TFCJEIPlugin implements IModPlugin
         // ContainerInventoryCrafting - Add ability to transfer recipe items
         IRecipeTransferRegistry transferRegistry = registry.getRecipeTransferRegistry();
         transferRegistry.addRecipeTransferHandler(ContainerInventoryCrafting.class, VanillaRecipeCategoryUid.CRAFTING, 1, 9, 10, 36);
+
+        // Hide some stuff
+        IIngredientBlacklist blacklist = registry.getJeiHelpers().getIngredientBlacklist();
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.WOODEN_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.WOODEN_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.WOODEN_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.WOODEN_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.WOODEN_HOE));
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.STONE_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.STONE_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.STONE_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.STONE_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.STONE_HOE));
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.IRON_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.IRON_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.IRON_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.IRON_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.IRON_HOE));
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_HOE));
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.GOLDEN_HOE));
+
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_SWORD));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_PICKAXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_AXE));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_SHOVEL));
+        blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_HOE));
+
+        /*
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
+
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));*/
     }
 }

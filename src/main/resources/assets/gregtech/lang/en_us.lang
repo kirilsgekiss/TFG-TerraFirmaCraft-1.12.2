@@ -1,6 +1,6 @@
 # GTCEu
 
-# Локализация материалов
+# Материалы
 material.unknown=Unknown
 material.pig_iron=Pig Iron
 material.high_carbon_steel=High Carbon Steel
@@ -10,6 +10,7 @@ material.high_carbon_blue_steel=High Carbon Blue Steel
 material.weak_steel=Weak Steel
 material.weak_red_steel=Weak Red Steel
 material.weak_blue_steel=Weak Blue Steel
+material.sea_water=Sea Water
 
 material.breccia=Breccia
 material.catlinite=Catlinite
@@ -37,7 +38,7 @@ material.slate=Slate
 material.soapstone=Soapstone
 material.banded_iron=Oxide Iron (III)
 
-# Локализация орПрефиксов
+# ОрПрефиксы
 item.material.oreprefix.ingotDouble=%s Ingot Double
 item.material.oreprefix.ingotTriple=%s Ingot Triple
 item.material.oreprefix.ingotHex=%s Ingot Hex
@@ -46,7 +47,7 @@ item.material.oreprefix.toolHeadKnife=%s Knife Head
 item.material.oreprefix.toolHeadPropick=%s Propick Head
 item.material.oreprefix.toolHeadChisel=%s Chisel Head
 item.material.oreprefix.toolHeadJavelin=%s Javelin Head
-item.material.oreprefix.tuyere=%s Tuyere
+item.material.oreprefix.toolHeadSense=%s Sense Head
 
 item.material.oreprefix.oreBreccia=Breccia %s Ore
 item.material.oreprefix.oreCatlinite=Catlinite %s Ore
@@ -74,4 +75,11 @@ item.material.oreprefix.oreShale=Shale %s Ore
 item.material.oreprefix.oreSiltstone=Siltstone %s Ore
 item.material.oreprefix.oreSlate=Slate %s Ore
 item.material.oreprefix.oreSoapstone=Soapstone %s Ore
+
+# Инструменты
+item.gt.tool.tongs.name=%s Tongs
+item.gt.tool.chisel.name=%s Chisel
+item.gt.tool.propick.name=%s Propick
+item.gt.tool.javelin.name=%s Javelin
+item.gt.tool.tuyere.name=%s Tuyere
 

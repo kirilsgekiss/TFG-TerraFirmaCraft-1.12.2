@@ -12,6 +12,7 @@ import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.mixins.gregtech.recipes.IToolRecipeHandlerInvoker;
 import net.minecraft.init.Items;
@@ -22,11 +23,11 @@ import static gregtech.api.unification.material.properties.PropertyKey.GEM;
 public class TFCToolRecipeHandler {
     public static void register()
     {
-        OrePrefix.stick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processStick);
-        TFCOrePrefix.toolHeadKnife.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processKnifeHead);
-        TFCOrePrefix.toolHeadPropick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processPropickHead);
-        TFCOrePrefix.toolHeadChisel.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processChiselHead);
-        TFCOrePrefix.toolHeadJavelin.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processJavelinHead);
+        // OrePrefix.stick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processStick);
+        // TFCOrePrefix.toolHeadKnife.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processKnifeHead);
+        // TFCOrePrefix.toolHeadPropick.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processPropickHead);
+        // TFCOrePrefix.toolHeadChisel.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processChiselHead);
+        // TFCOrePrefix.toolHeadJavelin.addProcessingHandler(PropertyKey.TOOL, TFCToolRecipeHandler::processJavelinHead);
     }
 
     public static void processStick(OrePrefix stickPrefix, Material material, ToolProperty property) {
@@ -34,7 +35,7 @@ public class TFCToolRecipeHandler {
         // Sticks + Rods = Tongs
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapedRecipe(String.format("tongs_%s", material),
-                    TFCMetaItems.TONGS.getStackForm(material),
+                    TFCToolItems.TONGS.get(material),
                     "F F", " S ", "K K",
                     'S', new UnificationEntry(OrePrefix.screw, material),
                     'K', new ItemStack(Items.STICK),
@@ -44,7 +45,7 @@ public class TFCToolRecipeHandler {
         // Stick + Head = Chisel
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapelessRecipe(String.format("chisel_%s", material),
-                    TFCMetaItems.CHISEL.getStackForm(material),
+                    TFCToolItems.CHISEL.get(material),
                     new UnificationEntry(TFCOrePrefix.toolHeadChisel, material),
                     new ItemStack(Items.STICK));
         }
@@ -52,7 +53,7 @@ public class TFCToolRecipeHandler {
         // Stick + Head = Propick
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapelessRecipe(String.format("propick_%s", material),
-                    TFCMetaItems.PROPICK.getStackForm(material),
+                    TFCToolItems.PROPICK.get(material),
                     new UnificationEntry(TFCOrePrefix.toolHeadPropick, material),
                     new ItemStack(Items.STICK));
         }
@@ -60,15 +61,16 @@ public class TFCToolRecipeHandler {
         // Stick + Head = Javelin
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapelessRecipe(String.format("javelin_%s", material),
-                    TFCMetaItems.JAVELIN.getStackForm(material),
+                    TFCToolItems.JAVELIN.get(material),
                     new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material),
                     new ItemStack(Items.STICK));
         }
 
+        /*
         // Stick + Head = Knife
         if (material.hasProperty(PropertyKey.INGOT)) {
             ModHandler.addShapelessRecipe(String.format("knife_%s", material),
-                    MetaItems.KNIFE.getStackForm(material),
+                    TFCToolItems.KNIFE.get(material),
                     new UnificationEntry(TFCOrePrefix.toolHeadKnife, material),
                     new ItemStack(Items.STICK));
         }
@@ -76,12 +78,13 @@ public class TFCToolRecipeHandler {
         // Stick + Head = Sense
         if (material.hasProperty(PropertyKey.INGOT) && material != Materials.Stone) {
             ModHandler.addShapelessRecipe(String.format("sense_%s", material),
-                    MetaItems.SENSE.getStackForm(material),
+                    MetaItems.SENSE.get(material),
                     new UnificationEntry(OrePrefix.toolHeadSense, material),
                     new ItemStack(Items.STICK));
-        }
+        }*/
     }
 
+    /*
     private static void processKnifeHead(OrePrefix toolPrefix, Material material, ToolProperty property) {
         int voltageMultiplier = IToolRecipeHandlerInvoker.invokeGetVoltageMultiplier(material);
 
@@ -105,8 +108,9 @@ public class TFCToolRecipeHandler {
                         .EUt(2 * voltageMultiplier)
                         .buildAndRegister();
         }
-    }
+    }*/
 
+    /*
     private static void processPropickHead(OrePrefix toolPrefix, Material material, ToolProperty property) {
         int voltageMultiplier = IToolRecipeHandlerInvoker.invokeGetVoltageMultiplier(material);
 
@@ -130,8 +134,9 @@ public class TFCToolRecipeHandler {
                         .EUt(2 * voltageMultiplier)
                         .buildAndRegister();
         }
-    }
+    }*/
 
+    /*
     private static void processChiselHead(OrePrefix toolPrefix, Material material, ToolProperty property) {
         int voltageMultiplier = IToolRecipeHandlerInvoker.invokeGetVoltageMultiplier(material);
 
@@ -155,8 +160,9 @@ public class TFCToolRecipeHandler {
                         .EUt(2 * voltageMultiplier)
                         .buildAndRegister();
         }
-    }
+    }*/
 
+    /*
     private static void processJavelinHead(OrePrefix toolPrefix, Material material, ToolProperty property) {
         int voltageMultiplier = IToolRecipeHandlerInvoker.invokeGetVoltageMultiplier(material);
 
@@ -180,5 +186,5 @@ public class TFCToolRecipeHandler {
                         .EUt(2 * voltageMultiplier)
                         .buildAndRegister();
         }
-    }
+    }*/
 }

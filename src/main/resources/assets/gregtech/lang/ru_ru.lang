@@ -1,6 +1,6 @@
 # GTCEu
 
-# Локализация материалов
+# Материалы
 material.unknown=Неизвестный металл
 material.pig_iron=Чугун
 material.high_carbon_steel=Высокоуглеродная сталь
@@ -10,6 +10,7 @@ material.high_carbon_blue_steel=Высокоуглеродная синяя ст
 material.weak_steel=Слабая сталь
 material.weak_red_steel=Слабая красная сталь
 material.weak_blue_steel=Слабая синяя сталь
+material.sea_water=Морская вода
 
 material.breccia=Брекчия
 material.catlinite=Катлинит
@@ -38,7 +39,7 @@ material.soapstone=Мыльный камень
 
 material.banded_iron=Оксид железа (III)
 
-# Локализация орПрефиксов
+# ОрПрефиксы
 item.material.oreprefix.ingotDouble=%s (Двойной слиток)
 item.material.oreprefix.ingotTriple=%s (Тройной слиток)
 item.material.oreprefix.ingotHex=%s (Шестрирной слиток)
@@ -47,7 +48,7 @@ item.material.oreprefix.toolHeadKnife=%s (Оголовье ножа)
 item.material.oreprefix.toolHeadPropick=%s (Оголовье геологического молота)
 item.material.oreprefix.toolHeadChisel=%s (Оголовье стамески)
 item.material.oreprefix.toolHeadJavelin=%s (Оголовье копья)
-item.material.oreprefix.tuyere=%s (Фурма)
+item.material.oreprefix.toolHeadSense=%s (Оголовье косы)
 
 item.material.oreprefix.oreBreccia=%s (Брекчиевая руда)
 item.material.oreprefix.oreCatlinite=%s (Катлинитовая руда)
@@ -75,3 +76,10 @@ item.material.oreprefix.oreShale=%s (Сланцевая руда)
 item.material.oreprefix.oreSiltstone=%s (Алевролитовая руда)
 item.material.oreprefix.oreSlate=%s (Шиферная руда)
 item.material.oreprefix.oreSoapstone=%s (Мыльно-каменная руда)
+
+# Инструменты
+item.gt.tool.tongs.name=Щипцы (%s)
+item.gt.tool.chisel.name=Стамеска (%s)
+item.gt.tool.propick.name=Геологическая кирка (%s)
+item.gt.tool.javelin.name=Копье (%s)
+item.gt.tool.tuyere.name=Фурма (%s)

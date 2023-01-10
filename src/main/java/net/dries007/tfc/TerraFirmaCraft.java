@@ -6,6 +6,7 @@
 package net.dries007.tfc;
 
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.types.DefaultRecipes;
 import org.apache.logging.log4j.LogManager;
@@ -114,6 +115,7 @@ public final class TerraFirmaCraft
     {
         log.debug("If you can see this, debug logging is working :)");
 
+        TFCToolItems.init();
         TFCMetaItem.init();
 
         // No need to sync config here, forge magic

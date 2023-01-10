@@ -200,8 +200,8 @@ public class TFCMaterialHandler {
 
         // GTCEu
 
-        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(5f, 1f, 5, 1, false));
-        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1, false));
+        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(5f, 1f, 5, 1));
+        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY)
         {

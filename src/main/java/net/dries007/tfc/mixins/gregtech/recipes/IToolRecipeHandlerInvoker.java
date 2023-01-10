@@ -7,9 +7,10 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(value = ToolRecipeHandler.class, remap = false)
 public interface IToolRecipeHandlerInvoker {
+    /*
     @Invoker
     public static int invokeGetVoltageMultiplier(Material material)
     {
         throw new AssertionError();
-    }
+    }*/
 }

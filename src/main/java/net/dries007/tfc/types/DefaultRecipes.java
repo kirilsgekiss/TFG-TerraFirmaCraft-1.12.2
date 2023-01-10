@@ -6,6 +6,7 @@
 package net.dries007.tfc.types;
 
 import gregtech.api.GregTechAPI;
+import gregtech.api.items.toolitem.ItemGTTool;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
@@ -16,7 +17,9 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
+import gregtech.common.items.ToolItems;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
@@ -100,8 +103,8 @@ public final class DefaultRecipes
 {
     public static void register()
     {
-        fixStoneToolsRecipes();
-        fixFlintToolsRecipes();
+        //fixStoneToolsRecipes();
+        //fixFlintToolsRecipes();
 
         registerKnappingRecipes();
         registerAnvilRecipes();
@@ -134,14 +137,14 @@ public final class DefaultRecipes
         ModHandler.removeRecipeByName("gregtech:toolheadscrewdriver_stone_wood");
         ModHandler.removeRecipeByName("gregtech:tool.screwdriver.lv_stone_unit");
 
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadFile, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSaw, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
@@ -171,9 +174,9 @@ public final class DefaultRecipes
         ModHandler.removeRecipeByName("gregtech:toolheadsword_flint_wood");
         ModHandler.removeRecipeByName("gregtech:toolheadpickaxe_flint_wood");
 
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Flint));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Flint));
-        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Flint));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Flint));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Flint));
+        GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));
@@ -181,10 +184,11 @@ public final class DefaultRecipes
         // Disable some stone recipes (Any -> Head)
 
         // Enable some flint recipes
+        /*
         ModHandler.addShapelessRecipe(String.format("knife_%s", Materials.Flint),
-                MetaItems.KNIFE.getStackForm(Materials.Flint),
+                TFCToolItems.KNIFE.getStackForm(Materials.Flint),
                 new UnificationEntry(TFCOrePrefix.toolHeadKnife, Materials.Flint),
-                new ItemStack(Items.STICK));
+                new ItemStack(Items.STICK));*/
     }
 
     public static void registerWoodRecipes()
@@ -195,7 +199,7 @@ public final class DefaultRecipes
             ModHandler.addShapelessRecipe(String.format("lumber_%s", tree),
                     new ItemStack(ItemLumberTFC.get(tree), 8),
                     new ItemStack(BlockLogTFC.get(tree)),
-                    MetaItems.SAW);
+                    ToolItems.SAW);
 
             CUTTER_RECIPES.recipeBuilder()
                     .input(BlockLogTFC.get(tree))
@@ -461,7 +465,7 @@ public final class DefaultRecipes
             ModHandler.addShapedRecipe(String.format("support_%s", tree),
                     new ItemStack(BlockSupport.get(tree)), "ZX ", " X ", " X ",
                     'X', BlockLogTFC.get(tree),
-                    'Z', MetaItems.SAW
+                    'Z', ToolItems.SAW
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
@@ -955,7 +959,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "double_ingot_to_sword_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadSword, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadSword, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             WEAPONS,
                             HIT_LAST, BEND_SECOND_LAST, BEND_THIRD_LAST));
@@ -964,7 +968,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "triple_ingot_to_pickaxe_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, BEND_NOT_LAST, DRAW_NOT_LAST));
@@ -973,7 +977,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_axe_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadAxe, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadAxe, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, BEND_NOT_LAST, DRAW_NOT_LAST));
@@ -982,7 +986,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_shovel_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(OrePrefix.ingot, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadShovel, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadShovel, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, HIT_NOT_LAST));
@@ -991,7 +995,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_saw_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotDouble, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadSaw, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadSaw, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             HIT_LAST, HIT_SECOND_LAST));
@@ -1000,7 +1004,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_hammer_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadHammer, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadHammer, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             TOOLS,
                             PUNCH_LAST, SHRINK_NOT_LAST));
@@ -1009,7 +1013,7 @@ public final class DefaultRecipes
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_sense_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotTriple, material)),
-                            OreDictUnifier.get(OrePrefix.toolHeadSense, material),
+                            OreDictUnifier.get(TFCOrePrefix.toolHeadSense, material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             WEAPONS,
                             HIT_LAST, DRAW_SECOND_LAST, BEND_THIRD_LAST));
@@ -1051,13 +1055,14 @@ public final class DefaultRecipes
                             HIT_LAST, HIT_SECOND_LAST, DRAW_THIRD_LAST));
 
                     // Ingot 6x -> TUYERE
+                    /*
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_tuyere_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
-                            OreDictUnifier.get(TFCOrePrefix.tuyere, material),
+                            TFCToolItems.TUYERE.get(material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             GENERAL,
-                            BEND_LAST, BEND_SECOND_LAST));
+                            BEND_LAST, BEND_SECOND_LAST));*/
                 }
             }
         }
@@ -1169,14 +1174,14 @@ public final class DefaultRecipes
                 new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Stone, 2), "X  X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("stone_knife_head_1"),
                 new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Stone, 2), "X   X", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("stone_knife_head_2"),
                 new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Stone, 2), " X X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("stone_knife_head_3"),
-                new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(OrePrefix.toolHeadHoe, Materials.Stone, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName("stone_hoe_head_1"),
-                new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(OrePrefix.toolHeadHoe, Materials.Stone, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName("stone_hoe_head_2"),
+                new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(TFCOrePrefix.toolHeadHoe, Materials.Stone, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName("stone_hoe_head_1"),
+                new KnappingRecipeStone(KnappingType.STONE, rockIn -> OreDictUnifier.get(TFCOrePrefix.toolHeadHoe, Materials.Stone, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName("stone_hoe_head_2"),
 
                 new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Flint, 2), "X  X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("flint_knife_head_1"),
                 new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Flint, 2), "X   X", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("flint_knife_head_2"),
                 new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(TFCOrePrefix.toolHeadKnife, Materials.Flint, 2), " X X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName("flint_knife_head_3"),
-                new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(OrePrefix.toolHeadHoe, Materials.Flint, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName("flint_hoe_head_1"),
-                new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(OrePrefix.toolHeadHoe, Materials.Flint, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName("flint_hoe_head_2")
+                new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(TFCOrePrefix.toolHeadHoe, Materials.Flint, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName("flint_hoe_head_1"),
+                new KnappingRecipeSimple(KnappingType.FLINT, true, OreDictUnifier.get(TFCOrePrefix.toolHeadHoe, Materials.Flint, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName("flint_hoe_head_2")
         );
 
         // Clay Items
