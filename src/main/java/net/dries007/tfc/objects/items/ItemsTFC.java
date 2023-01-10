@@ -12,6 +12,7 @@ import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.objects.ArmorMaterialTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
@@ -30,6 +31,7 @@ import net.dries007.tfc.util.Helpers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSnow;
@@ -94,6 +96,80 @@ public final class ItemsTFC
     public static final ItemMisc WOOL_CLOTH = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_cloth")
     public static final ItemMisc SILK_CLOTH = getNull();
+
+    // Armor
+    @GameRegistry.ObjectHolder("armor/helmet/pineapple_leather")
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/pineapple_leather")
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/pineapple_leather")
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/pineapple_leather")
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/burlap_cloth")
+    public static final ItemArmorTFC BURLAP_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/burlap_cloth")
+    public static final ItemArmorTFC BURLAP_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/burlap_cloth")
+    public static final ItemArmorTFC BURLAP_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/burlap_cloth")
+    public static final ItemArmorTFC BURLAP_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/wool_cloth")
+    public static final ItemArmorTFC WOOL_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/wool_cloth")
+    public static final ItemArmorTFC WOOL_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/wool_cloth")
+    public static final ItemArmorTFC WOOL_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/wool_cloth")
+    public static final ItemArmorTFC WOOL_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/silk_cloth")
+    public static final ItemArmorTFC SILK_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/silk_cloth")
+    public static final ItemArmorTFC SILK_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/silk_cloth")
+    public static final ItemArmorTFC SILK_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/silk_cloth")
+    public static final ItemArmorTFC SILK_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/sisal_cloth")
+    public static final ItemArmorTFC SISAL_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/sisal_cloth")
+    public static final ItemArmorTFC SISAL_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/sisal_cloth")
+    public static final ItemArmorTFC SISAL_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/sisal_cloth")
+    public static final ItemArmorTFC SISAL_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/cotton_cloth")
+    public static final ItemArmorTFC COTTON_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/cotton_cloth")
+    public static final ItemArmorTFC COTTON_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/cotton_cloth")
+    public static final ItemArmorTFC COTTON_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/cotton_cloth")
+    public static final ItemArmorTFC COTTON_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/linen_cloth")
+    public static final ItemArmorTFC LINEN_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/linen_cloth")
+    public static final ItemArmorTFC LINEN_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/linen_cloth")
+    public static final ItemArmorTFC LINEN_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/linen_cloth")
+    public static final ItemArmorTFC LINEN_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/hemp_cloth")
+    public static final ItemArmorTFC HEMP_CLOTH_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/hemp_cloth")
+    public static final ItemArmorTFC HEMP_CLOTH_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/hemp_cloth")
+    public static final ItemArmorTFC HEMP_CLOTH_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/hemp_cloth")
+    public static final ItemArmorTFC HEMP_CLOTH_BOOTS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/helmet/yucca_canvas")
+    public static final ItemArmorTFC YUCCA_CANVAS_HELMET = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/chestplate/yucca_canvas")
+    public static final ItemArmorTFC YUCCA_CANVAS_CHESTPLATE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/leggings/yucca_canvas")
+    public static final ItemArmorTFC YUCCA_CANVAS_LEGGINGS = Helpers.getNull();
+    @GameRegistry.ObjectHolder("armor/boots/yucca_canvas")
+    public static final ItemArmorTFC YUCCA_CANVAS_BOOTS = Helpers.getNull();
 
     @GameRegistry.ObjectHolder("ceramics/clay/unfired/fire_brick")
     public static final ItemPottery UNFIRED_FIRE_BRICK = getNull();
@@ -282,11 +358,13 @@ public final class ItemsTFC
     public static final Item WOOD_ASH = getNull();
 
     private static ImmutableList<Item> allSimpleItems;
+    private static ImmutableList<ItemArmorTFC> allArmorItems;
 
     public static ImmutableList<Item> getAllSimpleItems()
     {
         return allSimpleItems;
     }
+    public static ImmutableList<ItemArmorTFC> getAllArmorItems() { return allArmorItems; }
 
     @SuppressWarnings("ConstantConditions")
     @SubscribeEvent
@@ -510,6 +588,58 @@ public final class ItemsTFC
         {
             simpleItems.add(register(r, "storage/unfired/urn", new ItemUnfiredUrn(), CT_POTTERY));
         }
+
+        // Armors
+        ImmutableList.Builder<ItemArmorTFC> armorItems = ImmutableList.builder();
+        {
+        armorItems.add(register(r, "armor/helmet/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        armorItems.add(register(r, "armor/helmet/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+        armorItems.add(register(r, "armor/chestplate/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+        armorItems.add(register(r, "armor/leggings/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+        armorItems.add(register(r, "armor/boots/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
+
+        allArmorItems = armorItems.build();
+        }
+
 
 
         // All simple foods (not meals) just use ItemFood and are registered here

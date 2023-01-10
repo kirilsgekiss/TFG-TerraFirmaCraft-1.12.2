@@ -12,6 +12,7 @@ import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
+import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -56,6 +57,7 @@ import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
+import tfcflorae.objects.items.ItemsTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -83,6 +85,10 @@ public final class ClientRegisterEvents
         // Simple Items
         for (Item item : ItemsTFC.getAllSimpleItems())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
+
+        for (ItemArmorTFC item : ItemsTFC.getAllArmorItems())
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
+
 
         // Dye color Items
         for (EnumDyeColor color : EnumDyeColor.values())
@@ -391,6 +397,10 @@ public final class ClientRegisterEvents
     public static void registerColorHandlerItems(ColorHandlerEvent.Item event)
     {
         ItemColors itemColors = event.getItemColors();
+
+        itemColors.registerItemColorHandler((stack, tintIndex) ->
+                        tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
+                ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFC[0]));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),

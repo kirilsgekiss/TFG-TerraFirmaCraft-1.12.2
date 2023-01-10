@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.client.ClientEvents;
-import tfcflorae.objects.LootTablesTFCF;
 import tfcflorae.proxy.CommonProxy;
 import tfcflorae.util.CapabilityHeatHandler;
 import tfcflorae.util.HelpersTFCF;
@@ -101,7 +100,6 @@ public class TFCFlorae
     {
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         OreDictionaryHelper.init();
-        LootTablesTFCF.init();
         CapabilityHeatHandler.init();
 		proxy.init(event);
     }

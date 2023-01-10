@@ -7,20 +7,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.Lists;
 
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.DyeUtils;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import tfcflorae.objects.ArmorMaterialsTFCF;
-import tfcflorae.objects.items.ItemArmorTFCF;
+import net.dries007.tfc.objects.items.ItemArmorTFC;
 
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
@@ -42,9 +37,9 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
 
             if (!itemStack1.isEmpty())
             {
-                if (itemStack1.getItem() instanceof ItemArmorTFCF)
+                if (itemStack1.getItem() instanceof ItemArmorTFC)
                 {
-                    ItemArmorTFCF itemArmor = (ItemArmorTFCF)itemStack1.getItem();
+                    ItemArmorTFC itemArmor = (ItemArmorTFC)itemStack1.getItem();
                     itemStack = itemStack1;
                 }
                 else
@@ -71,7 +66,7 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
         int[] aint = new int[3];
         int i = 0;
         int j = 0;
-        ItemArmorTFCF itemArmor = null;
+        ItemArmorTFC itemArmor = null;
 
         for (int k = 0; k < inv.getSizeInventory(); ++k)
         {
@@ -79,9 +74,9 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
 
             if (!itemStack1.isEmpty())
             {
-                if (itemStack1.getItem() instanceof ItemArmorTFCF)
+                if (itemStack1.getItem() instanceof ItemArmorTFC)
                 {
-                    itemArmor = (ItemArmorTFCF)itemStack1.getItem();
+                    itemArmor = (ItemArmorTFC)itemStack1.getItem();
                     itemStack = itemStack1.copy();
                     itemStack.setCount(1);
                     if (itemArmor.hasColor(itemStack1))

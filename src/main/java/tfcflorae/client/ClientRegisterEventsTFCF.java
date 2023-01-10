@@ -37,7 +37,7 @@ import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
-import tfcflorae.objects.items.ItemArmorTFCF;
+import net.dries007.tfc.objects.items.ItemArmorTFC;
 import tfcflorae.objects.items.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.ConfigTFCF;
@@ -71,8 +71,6 @@ public class ClientRegisterEventsTFCF
 
 
 
-        for (ItemArmorTFCF item : ItemsTFCF.getAllArmorItems())
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
         // BLOCKS
 
@@ -201,9 +199,7 @@ public class ClientRegisterEventsTFCF
             }
         }, ItemsTFCF.getAllArmorItems().toArray(new ItemArmorTFCF[0]));*/
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
-            tintIndex > 0 ? -1 : ((ItemArmorTFCF)stack.getItem()).getColor(stack),
-            ItemsTFCF.getAllArmorItems().toArray(new ItemArmorTFCF[0]));
+
 
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->

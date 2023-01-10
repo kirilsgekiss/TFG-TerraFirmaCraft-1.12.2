@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
+import net.dries007.tfc.objects.LootTablesTFC;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
@@ -38,7 +39,6 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
-import tfcflorae.objects.LootTablesTFCF;
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
@@ -274,7 +274,7 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     @Nullable
     protected ResourceLocation getLootTable()
     {
-        return LootTablesTFCF.ANIMALS_SILK_MOTH;
+        return LootTablesTFC.ANIMALS_SILK_MOTH;
     }
 
     protected boolean hasEggs()

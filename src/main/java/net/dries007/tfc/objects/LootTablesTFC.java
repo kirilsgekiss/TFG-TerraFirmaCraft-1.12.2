@@ -62,6 +62,7 @@ public class LootTablesTFC
     public static ResourceLocation ANIMALS_WILDEBEEST;
     public static ResourceLocation ANIMALS_YAK;
     public static ResourceLocation ANIMALS_ZEBU;
+    public static ResourceLocation ANIMALS_SILK_MOTH;
 
     public static void init()
     {
@@ -106,6 +107,7 @@ public class LootTablesTFC
         ANIMALS_WILDEBEEST = register("animals/wildebeest");
         ANIMALS_YAK = register("animals/yak");
         ANIMALS_ZEBU = register("animals/zebu");
+        ANIMALS_SILK_MOTH = register("animals/silk_moth");
 
         // Loot function for skill drop multiplier
         LootFunctionManager.registerFunction(new ApplySimpleSkill.Serializer(new ResourceLocation(MOD_ID, "apply_skill")));
