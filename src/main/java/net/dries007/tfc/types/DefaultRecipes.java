@@ -17,6 +17,7 @@ import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import gregtech.common.items.ToolItems;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
@@ -994,14 +995,13 @@ public final class DefaultRecipes
                             HIT_LAST, HIT_SECOND_LAST, DRAW_THIRD_LAST));
 
                     // Ingot 6x -> TUYERE
-                    /*
                     r.register(new AnvilRecipe(
                             new ResourceLocation(MOD_ID, "ingot_to_tuyere_" + material.getUnlocalizedName()),
                             IIngredient.of(OreDictUnifier.get(TFCOrePrefix.ingotHex, material)),
                             TFCToolItems.TUYERE.get(material),
                             material.getProperty(TFCPropertyKey.TFC).getMaterialTier(),
                             GENERAL,
-                            BEND_LAST, BEND_SECOND_LAST));*/
+                            BEND_LAST, BEND_SECOND_LAST));
                 }
             }
         }

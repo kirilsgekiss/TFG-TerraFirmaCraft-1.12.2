@@ -202,6 +202,10 @@ public class TFCMaterialHandler {
 
         Stone.setProperty(PropertyKey.TOOL, new ToolProperty(5f, 1f, 5, 1));
         Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
+        Bismuth.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
+        BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
+        BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
+        BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
 
         for (Material material : GregTechAPI.MATERIAL_REGISTRY)
         {

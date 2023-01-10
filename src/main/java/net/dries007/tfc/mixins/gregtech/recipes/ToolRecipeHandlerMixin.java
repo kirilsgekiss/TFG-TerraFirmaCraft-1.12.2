@@ -30,14 +30,12 @@ public class ToolRecipeHandlerMixin {
         Material material = Materials.Flint;
 
         UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
-        UnificationEntry toolHeadHammer = new UnificationEntry(TFCOrePrefix.toolHeadHammer, material);
         UnificationEntry toolHeadShovel = new UnificationEntry(TFCOrePrefix.toolHeadShovel, material);
         UnificationEntry toolHeadAxe = new UnificationEntry(TFCOrePrefix.toolHeadAxe, material);
         UnificationEntry toolHeadHoe = new UnificationEntry(TFCOrePrefix.toolHeadHoe, material);
         UnificationEntry toolHeadKnife = new UnificationEntry(TFCOrePrefix.toolHeadKnife, material);
         UnificationEntry toolHeadJavelin = new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material);
 
-        ModHandler.addShapelessRecipe(String.format("hammer_%s", material), ToolItems.HARD_HAMMER.get(material), toolHeadHammer, stick);
         ModHandler.addShapelessRecipe(String.format("axe_%s", material), ToolItems.AXE.get(material), toolHeadAxe, stick);
         ModHandler.addShapelessRecipe(String.format("hoe_%s", material), ToolItems.HOE.get(material), toolHeadHoe, stick);
         ModHandler.addShapelessRecipe(String.format("shovel_%s", material), ToolItems.SHOVEL.get(material), toolHeadShovel, stick);
@@ -121,12 +119,14 @@ public class ToolRecipeHandlerMixin {
         Material material = Materials.Stone;
 
         UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
+        UnificationEntry toolHeadHammer = new UnificationEntry(TFCOrePrefix.toolHeadHammer, material);
         UnificationEntry toolHeadShovel = new UnificationEntry(TFCOrePrefix.toolHeadShovel, material);
         UnificationEntry toolHeadAxe = new UnificationEntry(TFCOrePrefix.toolHeadAxe, material);
         UnificationEntry toolHeadHoe = new UnificationEntry(TFCOrePrefix.toolHeadHoe, material);
         UnificationEntry toolHeadKnife = new UnificationEntry(TFCOrePrefix.toolHeadKnife, material);
         UnificationEntry toolHeadJavelin = new UnificationEntry(TFCOrePrefix.toolHeadJavelin, material);
 
+        ModHandler.addShapelessRecipe(String.format("hammer_%s", material), ToolItems.HARD_HAMMER.get(material), toolHeadHammer, stick);
         ModHandler.addShapelessRecipe(String.format("axe_%s", material), ToolItems.AXE.get(material), toolHeadAxe, stick);
         ModHandler.addShapelessRecipe(String.format("hoe_%s", material), ToolItems.HOE.get(material), toolHeadHoe, stick);
         ModHandler.addShapelessRecipe(String.format("shovel_%s", material), ToolItems.SHOVEL.get(material), toolHeadShovel, stick);

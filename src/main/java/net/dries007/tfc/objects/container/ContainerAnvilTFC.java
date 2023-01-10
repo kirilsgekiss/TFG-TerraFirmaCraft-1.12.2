@@ -146,7 +146,7 @@ public class ContainerAnvilTFC extends ContainerTE<TEAnvilTFC> implements IButto
         {
             // Fallback to the held item if it is a hammer
             stack = player.inventory.mainInventory.get(player.inventory.currentItem);
-            if (!stack.isEmpty() && OreDictionaryHelper.doesStackMatchOre(stack, "hammer"))
+            if (!stack.isEmpty() && OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolHardHammer"))
             {
                 stack.damageItem(1, player);
                 return true;
