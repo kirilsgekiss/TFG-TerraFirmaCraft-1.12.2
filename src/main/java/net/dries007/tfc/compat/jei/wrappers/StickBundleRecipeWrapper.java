@@ -1,4 +1,4 @@
-package tfcflorae.compat.jei.wrappers;
+package net.dries007.tfc.compat.jei.wrappers;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
@@ -24,8 +24,8 @@ public class StickBundleRecipeWrapper extends SimpleRecipeWrapper
         float x = 60f;
         float y = 4f;
         String text = (StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_HOUR < 48) ?
-        StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_HOUR + " " + I18n.format("tfcflorae.tooltip.hours") :
-        StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_DAY + " " + I18n.format("tfcflorae.tooltip.days");
+        StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_HOUR + " " + I18n.format("tfc.tooltip.hours") :
+        StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_DAY + " " + I18n.format("tfc.tooltip.days");
 
         //String text = StickBundleRecipe.getDuration(recipe) / ICalendar.TICKS_IN_HOUR + " " + I18n.format("tfcflorae.tooltip.hours");
         x = x - minecraft.fontRenderer.getStringWidth(text) / 2.0f;

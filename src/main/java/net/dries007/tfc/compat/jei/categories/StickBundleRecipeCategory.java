@@ -1,4 +1,4 @@
-package tfcflorae.compat.jei.category;
+package net.dries007.tfc.compat.jei.categories;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.dries007.tfc.compat.jei.BaseRecipeCategory;
 import net.dries007.tfc.compat.jei.wrappers.SimpleRecipeWrapper;
 
 @ParametersAreNonnullByDefault
-public class DryingRecipeCategory extends BaseRecipeCategory<SimpleRecipeWrapper>
+public class StickBundleRecipeCategory extends BaseRecipeCategory<SimpleRecipeWrapper>
 {
     private static final ResourceLocation ICONS = new ResourceLocation(TerraFirmaCraft.MOD_ID, "textures/gui/icons/jei.png");
 
@@ -26,7 +26,7 @@ public class DryingRecipeCategory extends BaseRecipeCategory<SimpleRecipeWrapper
     private final IDrawableStatic arrow;
     private final IDrawableAnimated arrowAnimated;
 
-    public DryingRecipeCategory(IGuiHelper helper, String id)
+    public StickBundleRecipeCategory(IGuiHelper helper, String id)
     {
         super(helper.createBlankDrawable(120, 38), id);
         arrow = helper.createDrawable(ICONS, 0, 14, 22, 16);
