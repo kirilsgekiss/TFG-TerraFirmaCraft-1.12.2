@@ -36,7 +36,7 @@ import tfcflorae.client.gui.*;
 import tfcflorae.objects.container.*;
 import tfcflorae.objects.items.ItemBag;
 import tfcflorae.objects.items.ItemSack;
-import tfcflorae.objects.items.rock.ItemMud;
+import net.dries007.tfc.objects.items.rock.ItemMud;
 import net.dries007.tfc.objects.te.TECondenser;
 import net.dries007.tfc.objects.te.TECrate;
 import net.dries007.tfc.objects.te.TEUrn;

@@ -29,6 +29,7 @@ import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.dries007.tfc.objects.items.metal.ItemLamp;
 import net.dries007.tfc.objects.items.metal.ItemMetalTrapdoor;
+import net.dries007.tfc.objects.items.rock.*;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -60,8 +61,6 @@ import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.objects.items.food.ItemSandwich;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
-import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
-import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.objects.items.wood.ItemDoorTFC;
 import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
@@ -387,11 +386,21 @@ public final class ItemsTFC
         //register(r, "metal/bucket/blue_steel", new ItemMetalBucket(Metal.BLUE_STEEL, Metal.ItemType.BUCKET), CT_METAL); //not a simple item, use a custom model
         //register(r, "metal/bucket/red_steel", new ItemMetalBucket(Metal.RED_STEEL, Metal.ItemType.BUCKET), CT_METAL); //not a simple item, use a custom model
 
+        // Rock Type Items
         {
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 simpleItems.add(register(r, "rock/" + rock.getRegistryName().getPath().toLowerCase(), new ItemRock(rock), CT_ROCK_ITEMS));
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 simpleItems.add(register(r, "brick/" + rock.getRegistryName().getPath().toLowerCase(), new ItemBrickTFC(rock), CT_ROCK_ITEMS));
+
+            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+            {
+                ItemMud mud = new ItemMud(rock);
+                ItemUnfiredMudBrick unfiredMudBrick = new ItemUnfiredMudBrick(mud, rock);
+                simpleItems.add(register(r, "mud/mud_ball/" + rock.getRegistryName().getPath().toLowerCase(), mud, CT_ROCK_ITEMS));
+                simpleItems.add(register(r, "mud/unfired/mud_brick/" + rock.getRegistryName().getPath().toLowerCase(), unfiredMudBrick, CT_ROCK_ITEMS));
+                simpleItems.add(register(r, "mud/fired/mud_brick/" + rock.getRegistryName().getPath().toLowerCase(), new ItemFiredMudBrick(unfiredMudBrick), CT_ROCK_ITEMS));
+            }
         }
 
         BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));

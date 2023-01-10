@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.rock;
+package net.dries007.tfc.objects.items.rock;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.dries007.tfc.client.TFCGuiHandler;
+import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -24,11 +25,11 @@ import net.dries007.tfc.api.util.IRockObject;
 import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemMud extends ItemTFCF implements IRockObject
+public class ItemMud extends ItemTFC implements IRockObject
 {
     private static final Map<Rock, ItemMud> MAP = new HashMap<>();
 
@@ -54,8 +55,8 @@ public class ItemMud extends ItemTFCF implements IRockObject
     public ItemMud(Rock rock)
     {
         this.rock = rock;
-        this.textureForegroundLocation = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/knapping/mud_button/" + rock + ".png");
-        this.textureBackgroundLocation = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/knapping/mud_button_disabled/" + rock + ".png");
+        this.textureForegroundLocation = new ResourceLocation(MOD_ID, "textures/gui/knapping/mud_button/" + rock + ".png");
+        this.textureBackgroundLocation = new ResourceLocation(MOD_ID, "textures/gui/knapping/mud_button_disabled/" + rock + ".png");
         if (MAP.put(rock, this) != null) throw new IllegalStateException("There can only be one.");
         setMaxDamage(0);
         OreDictionaryHelper.register(this, "mud");

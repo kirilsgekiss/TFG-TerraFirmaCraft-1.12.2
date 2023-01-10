@@ -59,7 +59,7 @@ import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
 import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
 import net.dries007.tfc.compat.jei.categories.DryingRecipeCategory;
 import net.dries007.tfc.compat.jei.categories.StickBundleRecipeCategory;
-import tfcflorae.objects.items.rock.ItemMud;
+import net.dries007.tfc.objects.items.rock.ItemMud;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 

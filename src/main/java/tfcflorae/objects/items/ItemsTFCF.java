@@ -40,12 +40,8 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import net.dries007.tfc.objects.items.devices.*;
 import tfcflorae.objects.items.food.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
-import tfcflorae.objects.items.rock.ItemMud;
-import tfcflorae.objects.items.rock.ItemFiredMudBrick;
-import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
 import tfcflorae.objects.items.tools.ItemWalkingStick;
 import tfcflorae.util.agriculture.*;
 import tfcflorae.util.OreDictionaryHelper;
@@ -1539,18 +1535,6 @@ public final class ItemsTFCF
 
         for (BlockLogTFCF log : BlocksTFCF.getAllNormalTreeLog())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new ItemBlockTFC(log), CT_WOOD));
-
-        // Rock Type Items
-        {
-            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-            {
-                ItemMud mud = new ItemMud(rock);
-                ItemUnfiredMudBrick unfiredMudBrick = new ItemUnfiredMudBrick(mud, rock);
-                simpleItems.add(register(r, "mud/mud_ball/" + rock.getRegistryName().getPath().toLowerCase(), mud, CT_ROCK_ITEMS));
-                simpleItems.add(register(r, "mud/unfired/mud_brick/" + rock.getRegistryName().getPath().toLowerCase(), unfiredMudBrick, CT_ROCK_ITEMS));
-                simpleItems.add(register(r, "mud/fired/mud_brick/" + rock.getRegistryName().getPath().toLowerCase(), new ItemFiredMudBrick(unfiredMudBrick), CT_ROCK_ITEMS));
-            }
-        }
 
         // Tools
         simpleItems.add(register(r, "tools/walking_stick", new ItemWalkingStick(ToolMaterial.WOOD, 1f, 1.5f, 0.02f, 96, "stick_wood", "walking_stick"), CT_MISC));

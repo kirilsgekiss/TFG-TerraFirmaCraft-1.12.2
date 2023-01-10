@@ -6,7 +6,6 @@
 package net.dries007.tfc.types;
 
 import gregtech.api.GregTechAPI;
-import gregtech.api.items.toolitem.ItemGTTool;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
@@ -15,11 +14,9 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
 import gregtech.common.items.ToolItems;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
@@ -88,7 +85,7 @@ import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.fuel.FuelManager;
 import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
-import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
+import net.dries007.tfc.objects.items.rock.ItemUnfiredMudBrick;
 
 import static gregtech.api.recipes.RecipeMaps.*;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
