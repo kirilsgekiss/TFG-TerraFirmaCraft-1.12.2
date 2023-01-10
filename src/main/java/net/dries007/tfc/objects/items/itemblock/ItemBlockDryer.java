@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.itemblock;
+package net.dries007.tfc.objects.items.itemblock;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.SoundType;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import tfcflorae.objects.blocks.devices.BlockDryer;
+import net.dries007.tfc.objects.blocks.devices.BlockDryer;
 import net.dries007.tfc.objects.te.TEDryer;
 
 public class ItemBlockDryer extends ItemBlock

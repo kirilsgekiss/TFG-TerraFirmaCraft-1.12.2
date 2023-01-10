@@ -208,8 +208,8 @@ public final class TFCJEIPlugin implements IModPlugin
                 }
             }
             registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Neutronium), SCRAPING_UID);
-            registry.addRecipeCatalyst(new ItemStack(BlocksTFCF.DRYER), DRY_UID);
-            registry.addRecipeCatalyst(new ItemStack(BlocksTFCF.STICK_BUNDLE), STICK_BUNDLE_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.DRYER), DRY_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.STICK_BUNDLE), STICK_BUNDLE_UID);
         }
         // Wrappers
         {

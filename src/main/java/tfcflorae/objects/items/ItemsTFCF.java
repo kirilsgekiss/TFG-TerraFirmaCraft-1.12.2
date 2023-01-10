@@ -6,6 +6,7 @@ import java.util.Map;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.*;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.types.DefaultTrees;
@@ -42,7 +43,7 @@ import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
 import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;
 import tfcflorae.objects.items.food.*;
-import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.rock.ItemMud;
 import tfcflorae.objects.items.rock.ItemFiredMudBrick;
 import tfcflorae.objects.items.rock.ItemUnfiredMudBrick;
@@ -2001,7 +2002,7 @@ public final class ItemsTFCF
         TFCFlorae.getLog().info("The below warnings about unintended overrides are normal. The overrides are intended - deal with it. ;)");
         event.getRegistry().registerAll(
             new ItemFlint(Size.VERY_SMALL, Weight.VERY_LIGHT).setRegistryName(Items.FLINT.getRegistryName()).setTranslationKey("flint"),
-            new ItemBlockStickBundle(BlocksTFCF.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
+            new ItemBlockStickBundle(BlocksTFC.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
         );
     }
 

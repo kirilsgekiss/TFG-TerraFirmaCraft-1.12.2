@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.devices;
+package net.dries007.tfc.objects.blocks.devices;
 
 import java.util.Random;
 import javax.annotation.Nonnull;
@@ -37,7 +37,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.objects.items.itemblock.ItemBlockDryer;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
 import tfcflorae.objects.recipes.DryingRecipe;
 import net.dries007.tfc.objects.te.TEDryer;
 

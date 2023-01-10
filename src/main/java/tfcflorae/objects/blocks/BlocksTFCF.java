@@ -17,7 +17,6 @@ import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockLargeVessel;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.types.DefaultPlants;
@@ -40,8 +39,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.devices.BlockDryer;
-import tfcflorae.objects.blocks.devices.BlockStickBundle;
 import tfcflorae.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
@@ -70,10 +67,6 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 @GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class BlocksTFCF
 {
-    @GameRegistry.ObjectHolder("devices/dryer")
-    public static final BlockDryer DRYER = Helpers.getNull();
-    @GameRegistry.ObjectHolder("devices/stick_bundle")
-    public static final BlockStickBundle STICK_BUNDLE = Helpers.getNull();
 
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/large_vessel")
     public static final BlockLargeVessel FIRED_EARTHENWARE_LARGE_VESSEL = getNull();
@@ -678,9 +671,6 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockLightstone> blockLightstone = ImmutableList.builder();
         ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
         //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
-
-        normalItemBlocks.add(new ItemBlockDryer(register(r, "devices/dryer", new BlockDryer(), CT_MISC)));
-        normalItemBlocks.add(new ItemBlockStickBundle(register(r, "devices/stick_bundle", new BlockStickBundle(), CT_MISC)));
 
         /*
         for (Metal metal : TFCRegistries.METALS.getValuesCollection())

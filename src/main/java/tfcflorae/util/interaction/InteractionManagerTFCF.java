@@ -5,28 +5,25 @@ import java.util.Map;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
 
-import net.dries007.tfc.client.TFCGuiHandler;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.interaction.*;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.devices.BlockStickBundle;
+import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
 import tfcflorae.util.OreDictionaryHelper;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
@@ -60,9 +57,9 @@ public final class InteractionManagerTFCF
                     {
                         if (!worldIn.isRemote)
                         {
-                            worldIn.setBlockState(pos, BlocksTFCF.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
-                            worldIn.setBlockState(posDown, BlocksTFCF.STICK_BUNDLE.getDefaultState(), 10);
-                            SoundType soundtype = BlocksTFCF.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
+                            worldIn.setBlockState(pos, BlocksTFC.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
+                            worldIn.setBlockState(posDown, BlocksTFC.STICK_BUNDLE.getDefaultState(), 10);
+                            SoundType soundtype = BlocksTFC.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
                             worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
                             //itemStack.shrink(1);
                             stack.shrink(1);

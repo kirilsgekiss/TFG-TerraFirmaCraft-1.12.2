@@ -1,13 +1,13 @@
-package tfcflorae.objects.items.itemblock;
+package net.dries007.tfc.objects.items.itemblock;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -17,9 +17,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.devices.BlockStickBundle;
+import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
 
 @ParametersAreNonnullByDefault
 public class ItemBlockStickBundle extends ItemBlockTFC
@@ -56,9 +55,9 @@ public class ItemBlockStickBundle extends ItemBlockTFC
 				boolean canPutBlockDown = stateDown.getBlock().isReplaceable(worldIn, posDown) || worldIn.isAirBlock(posDown);
 				if (canPutBlock && canPutBlockDown)
                 {
-					worldIn.setBlockState(pos, BlocksTFCF.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
-					worldIn.setBlockState(posDown, BlocksTFCF.STICK_BUNDLE.getDefaultState(), 10);
-					SoundType soundtype = BlocksTFCF.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
+					worldIn.setBlockState(pos, BlocksTFC.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
+					worldIn.setBlockState(posDown, BlocksTFC.STICK_BUNDLE.getDefaultState(), 10);
+					SoundType soundtype = BlocksTFC.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
 					worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 					itemstack.shrink(1);
 					return EnumActionResult.SUCCESS;

@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
@@ -29,6 +30,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
@@ -43,7 +46,6 @@ import net.dries007.tfc.objects.blocks.plants.BlockFloatingWaterTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.blocks.stone.*;
 import net.dries007.tfc.objects.blocks.wood.*;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.items.itemblock.*;
 import net.dries007.tfc.objects.te.*;
@@ -70,6 +72,10 @@ public final class BlocksTFC
     public static final BlockDecorativeStone ALABASTER_POLISHED_PLAIN = getNull();
     @GameRegistry.ObjectHolder("alabaster/raw/plain")
     public static final BlockDecorativeStone ALABASTER_RAW_PLAIN = getNull();
+    @GameRegistry.ObjectHolder("devices/stick_bundle")
+    public static final BlockStickBundle STICK_BUNDLE = Helpers.getNull();
+    @GameRegistry.ObjectHolder("devices/dryer")
+    public static final BlockDryer DRYER = Helpers.getNull();
 
     public static final BlockDebug DEBUG = getNull();
     public static final BlockPeat PEAT = getNull();
@@ -317,6 +323,9 @@ public final class BlocksTFC
         normalItemBlocks.add(new ItemBlockTFC(register(r, "quern", new BlockQuern(), CT_MISC)));
         normalItemBlocks.add(new ItemBlockCrucible(register(r, "crucible", new BlockCrucible(), CT_MISC)));
         normalItemBlocks.add(new ItemBlockTFC(register(r, "blast_furnace", new BlockBlastFurnace(), CT_MISC)));
+        normalItemBlocks.add(new ItemBlockDryer(register(r, "devices/dryer", new BlockDryer(), CT_MISC)));
+        normalItemBlocks.add(new ItemBlockStickBundle(register(r, "devices/stick_bundle", new BlockStickBundle(), CT_MISC)));
+
         inventoryItemBlocks.add(new ItemBlockTFC(register(r, "bellows", new BlockBellows(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockTFC(register(r, "bloomery", new BlockBloomery(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockTFC(register(r, "nest_box", new BlockNestBox(), CT_MISC)));

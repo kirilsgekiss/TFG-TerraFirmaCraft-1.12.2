@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.devices;
+package net.dries007.tfc.objects.blocks.devices;
 
 import java.util.Objects;
 import java.util.Random;
@@ -39,7 +39,7 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.Helpers;
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.recipes.StickBundleRecipe;
 import net.dries007.tfc.objects.te.TEStickBundle;
 
