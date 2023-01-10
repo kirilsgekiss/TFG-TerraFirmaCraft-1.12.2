@@ -33,7 +33,7 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.inventory.capability.TFCInventoryLargeChest;
 
-import tfcflorae.objects.te.TEFruitChest;
+import net.dries007.tfc.objects.te.TEFruitChest;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault

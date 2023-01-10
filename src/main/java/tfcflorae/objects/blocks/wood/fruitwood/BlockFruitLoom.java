@@ -31,7 +31,7 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.te.TEFruitLoom;
+import net.dries007.tfc.objects.te.TEFruitLoom;
 
 import static net.minecraft.block.BlockHorizontal.FACING;
 import static net.minecraft.block.material.Material.WOOD;

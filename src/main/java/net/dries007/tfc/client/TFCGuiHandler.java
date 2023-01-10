@@ -37,9 +37,9 @@ import tfcflorae.objects.container.*;
 import tfcflorae.objects.items.ItemBag;
 import tfcflorae.objects.items.ItemSack;
 import tfcflorae.objects.items.rock.ItemMud;
-import tfcflorae.objects.te.TECondenser;
-import tfcflorae.objects.te.TECrate;
-import tfcflorae.objects.te.TEUrn;
+import net.dries007.tfc.objects.te.TECondenser;
+import net.dries007.tfc.objects.te.TECrate;
+import net.dries007.tfc.objects.te.TEUrn;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 

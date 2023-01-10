@@ -1,29 +1,22 @@
 package tfcflorae.objects.items.itemblock;
 
-import java.util.EnumMap;
 import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
 
-import crafttweaker.api.block.IBlock;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.util.Helpers;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.plants.BlockSaguaroCactus;
-import tfcflorae.objects.te.TESaguaroCactus;
+import net.dries007.tfc.objects.te.TESaguaroCactus;
 
 public class ItemBlockSaguaroCactus extends ItemBlockTFC
 {

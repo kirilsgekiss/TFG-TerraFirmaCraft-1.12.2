@@ -12,7 +12,7 @@ import net.dries007.tfc.objects.container.IButtonHandler;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
 import tfcflorae.objects.blocks.BlockCrate;
-import tfcflorae.objects.te.TECrate;
+import net.dries007.tfc.objects.te.TECrate;
 
 public class ContainerCrate extends ContainerTE<TECrate> implements IButtonHandler
 {

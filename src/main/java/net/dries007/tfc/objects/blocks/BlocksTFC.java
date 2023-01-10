@@ -95,6 +95,7 @@ public final class BlocksTFC
     public static final BlockGravel AGGREGATE = getNull();
     public static final Block FIRE_BRICKS = getNull();
 
+
     // All these are for use in model registration. Do not use for block lookups.
     // Use the static get methods in the classes instead.
     private static ImmutableList<ItemBlock> allNormalItemBlocks;
@@ -765,8 +766,20 @@ public final class BlocksTFC
         register(TEMetalSheet.class, "metal_sheet");
         register(TEQuern.class, "quern");
         register(TELargeVessel.class, "large_vessel");
+        register(TELargeStonewareVessel.class, "large_stoneware_vessel");
+        register(TELargeKaoliniteVessel.class, "large_kaolinite_vessel");
+        register(TELargeEarthenwareVessel.class, "large_earthenware_vessel");
         register(TEPowderKeg.class, "powderkeg");
         register(TESluice.class, "sluice");
+        register(TEFruitChest.class, "fruit_chest");
+        register(TEFruitLoom.class, "fruit_loom");
+        register(TEUrn.class, "urn");
+        register(TECrate.class, "crate");
+        register(TEDryer.class, "dryer");
+        register(TEStickBundle.class, "stick_bundle");
+        register(TECondenser.class, "condenser");
+        register(TEAlembic.class, "alembic");
+        register(TESaguaroCactus.class, "saguaro_cactus");
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)

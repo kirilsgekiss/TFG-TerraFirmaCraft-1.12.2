@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.dries007.tfc.client.button.GuiButtonTFC;
 import net.dries007.tfc.client.button.IButtonTooltip;
 
-import tfcflorae.objects.te.TEUrn;
+import net.dries007.tfc.objects.te.TEUrn;
 
 import static net.dries007.tfc.client.gui.GuiLargeVessel.LARGE_VESSEL_BACKGROUND;
 

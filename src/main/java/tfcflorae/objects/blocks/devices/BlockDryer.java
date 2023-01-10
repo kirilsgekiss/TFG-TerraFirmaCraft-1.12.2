@@ -36,12 +36,10 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.items.itemblock.ItemBlockDryer;
 import tfcflorae.objects.recipes.DryingRecipe;
-import tfcflorae.objects.te.TEDryer;
+import net.dries007.tfc.objects.te.TEDryer;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

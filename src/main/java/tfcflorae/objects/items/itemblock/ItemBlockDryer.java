@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import tfcflorae.objects.blocks.devices.BlockDryer;
-import tfcflorae.objects.te.TEDryer;
+import net.dries007.tfc.objects.te.TEDryer;
 
 public class ItemBlockDryer extends ItemBlock
 {

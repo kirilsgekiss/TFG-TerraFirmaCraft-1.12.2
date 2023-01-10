@@ -35,11 +35,11 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.te.TECondenser;
+import net.dries007.tfc.objects.te.TECondenser;
 import tfcflorae.util.OreDictionaryHelper;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
-import static tfcflorae.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
+import static net.dries007.tfc.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
 
 public class ItemBlockCondenser extends ItemBlockTFC
 {

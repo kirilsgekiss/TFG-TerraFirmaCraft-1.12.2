@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
 import net.dries007.tfc.objects.blocks.*;
+import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -57,7 +58,6 @@ import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.itemblock.ItemBlockTallGrassWater;
 import tfcflorae.objects.items.itemblock.ItemBlockUrn;
 import tfcflorae.objects.items.itemblock.ItemBlockUrnLoot;
-import tfcflorae.objects.te.*;
 import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 import tfcflorae.util.agriculture.*;
@@ -1543,27 +1543,6 @@ public final class BlocksTFCF
 
         allNormalItemBlocks = normalItemBlocks.build();
 
-        if (ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
-        {
-            register(TELargeEarthenwareVessel.class, "large_earthenware_vessel");
-        }
-        if (ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
-        {
-            register(TELargeKaoliniteVessel.class, "large_kaolinite_vessel");
-        }
-        if (ConfigTFCF.General.WORLD.enableAllStonewareClay)
-        {
-            register(TELargeStonewareVessel.class, "large_stoneware_vessel");
-        }
-        register(TEFruitChest.class, "fruit_chest");
-        register(TEFruitLoom.class, "fruit_loom");
-        register(TEUrn.class, "urn");
-        register(TECrate.class, "crate");
-        register(TEDryer.class, "dryer");
-        register(TEStickBundle.class, "stick_bundle");
-        register(TECondenser.class, "condenser");
-        register(TEAlembic.class, "alembic");
-        register(TESaguaroCactus.class, "saguaro_cactus");
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)

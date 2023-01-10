@@ -1,4 +1,4 @@
-package tfcflorae.objects.te;
+package net.dries007.tfc.objects.te;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -33,14 +33,14 @@ import static net.dries007.tfc.objects.blocks.BlockLargeVessel.SEALED;
  * @see BlockLargeVessel
  */
 @ParametersAreNonnullByDefault
-public class TECrate extends TEInventory implements IItemHandlerSidedCallback
+public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerSidedCallback
 {
     private boolean sealed;
     private long sealedTick, sealedCalendarTick;
 
-    public TECrate()
+    public TELargeKaoliniteVessel()
     {
-        super(new LargeVesselItemStackHandler(15));
+        super(new LargeVesselItemStackHandler(9));
     }
 
     /**

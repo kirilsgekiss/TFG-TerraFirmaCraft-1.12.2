@@ -31,7 +31,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.objects.te.TEUrn;
+import net.dries007.tfc.objects.te.TEUrn;
 
 /**
  * Urn is an inventory that preserves the contents when sealed

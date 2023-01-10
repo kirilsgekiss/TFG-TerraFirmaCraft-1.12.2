@@ -1,4 +1,4 @@
-package tfcflorae.objects.te;
+package net.dries007.tfc.objects.te;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -20,27 +20,25 @@ import net.dries007.tfc.api.capability.food.FoodTrait;
 import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.objects.blocks.BlockLargeVessel;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.objects.te.TEInventory;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 
-import static net.dries007.tfc.objects.blocks.BlockLargeVessel.SEALED;
+import tfcflorae.objects.blocks.BlockUrn;
 
-/**
- * @see BlockLargeVessel
- */
+import static tfcflorae.objects.blocks.BlockUrn.SEALED;
+
 @ParametersAreNonnullByDefault
-public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerSidedCallback
+public class TEUrn extends TEInventory implements IItemHandlerSidedCallback
 {
     private boolean sealed;
     private long sealedTick, sealedCalendarTick;
 
-    public TELargeKaoliniteVessel()
+    public TEUrn()
     {
-        super(new LargeVesselItemStackHandler(9));
+        super(new UrnItemStackHandler(12));
     }
 
     /**
@@ -200,9 +198,9 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
         return nbt;
     }
 
-    private static class LargeVesselItemStackHandler extends ItemStackHandler
+    private static class UrnItemStackHandler extends ItemStackHandler
     {
-        private LargeVesselItemStackHandler(int slots)
+        private UrnItemStackHandler(int slots)
         {
             super(slots);
         }

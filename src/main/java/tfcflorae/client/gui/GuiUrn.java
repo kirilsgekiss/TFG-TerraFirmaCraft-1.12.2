@@ -17,7 +17,7 @@ import net.dries007.tfc.client.gui.GuiContainerTE;
 import net.dries007.tfc.network.PacketGuiButton;
 
 import tfcflorae.client.gui.button.GuiButtonUrn;
-import tfcflorae.objects.te.TEUrn;
+import net.dries007.tfc.objects.te.TEUrn;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

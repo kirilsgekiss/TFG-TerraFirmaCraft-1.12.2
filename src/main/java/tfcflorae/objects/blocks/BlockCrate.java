@@ -32,7 +32,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.te.TECrate;
+import net.dries007.tfc.objects.te.TECrate;
 
 /**
  * Crate is an inventory that preserves the contents when sealed

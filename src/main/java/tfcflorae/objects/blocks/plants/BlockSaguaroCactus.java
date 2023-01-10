@@ -1,70 +1,39 @@
 package tfcflorae.objects.blocks.plants;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.ibm.icu.impl.CalendarAstronomer.Horizon;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.EnumFaceDirection;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IShearable;
 
-import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
-import net.dries007.tfc.objects.blocks.property.ITallPlant.EnumBlockPart;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
-import net.dries007.tfc.util.agriculture.Crop;
-import net.dries007.tfc.util.calendar.CalendarTFC;
-import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.objects.te.TESaguaroCactus;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.objects.te.TESaguaroCactus;
 
 @ParametersAreNonnullByDefault
 public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITallPlant

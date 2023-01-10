@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import tfcflorae.objects.te.TEDryer;
+import net.dries007.tfc.objects.te.TEDryer;
 
 public class TESRDryer extends TileEntitySpecialRenderer<TEDryer>
 {

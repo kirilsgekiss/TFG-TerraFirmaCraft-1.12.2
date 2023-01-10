@@ -20,7 +20,7 @@ import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitChestTFCF;
-import tfcflorae.objects.te.TEFruitChest;
+import net.dries007.tfc.objects.te.TEFruitChest;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

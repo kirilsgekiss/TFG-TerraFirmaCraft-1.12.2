@@ -13,8 +13,8 @@ import net.dries007.tfc.objects.container.ContainerTE;
 import net.dries007.tfc.objects.container.IButtonHandler;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
-import tfcflorae.objects.te.TECondenser;
-import static tfcflorae.objects.te.TECondenser.*;
+import net.dries007.tfc.objects.te.TECondenser;
+import static net.dries007.tfc.objects.te.TECondenser.*;
 
 public class ContainerCondenser extends ContainerTE<TECondenser> implements IButtonHandler
 {

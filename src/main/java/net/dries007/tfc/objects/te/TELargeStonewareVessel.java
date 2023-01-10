@@ -1,4 +1,4 @@
-package tfcflorae.objects.te;
+package net.dries007.tfc.objects.te;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

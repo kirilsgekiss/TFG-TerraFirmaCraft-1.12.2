@@ -39,10 +39,9 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.Helpers;
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.recipes.StickBundleRecipe;
-import tfcflorae.objects.te.TEStickBundle;
+import net.dries007.tfc.objects.te.TEStickBundle;
 
 public class BlockStickBundle extends Block implements IItemSize, ITallPlant
 {
