@@ -1,4 +1,4 @@
-package tfcflorae.objects.entity.animal;
+package net.dries007.tfc.objects.entity.animal;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
+import net.dries007.tfc.objects.entity.EntitiesTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -33,19 +34,16 @@ import net.dries007.tfc.api.capability.egg.IEgg;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.objects.entity.animal.AnimalGroupingRules;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import tfcflorae.objects.LootTablesTFCF;
-import tfcflorae.objects.entity.EntitiesTFCF;
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;
 
 public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
 {
@@ -55,7 +53,7 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     private static final double DEATH_CHANCE = 5;
     private static final int DAYS_TO_HATCH = 1;
     private static final int TICKS_TO_LAY_EGG = 2500;
-    private static final DataParameter<Long> LAID = EntityDataManager.createKey(EntitySilkMoth.class, EntitiesTFCF.getLongDataSerializer());
+    private static final DataParameter<Long> LAID = EntityDataManager.createKey(EntitySilkMoth.class, EntitiesTFC.getLongDataSerializer());
 
 	private BlockPos rotationPos = new BlockPos(0,0,0);
     private BlockPos spawnPosition;
@@ -180,23 +178,23 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     {
         if (this.getGender() == Gender.MALE)
         {
-            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.male_egg");
+            return new TextComponentTranslation(MOD_ID + ".tooltip.animal.product.male_egg");
         }
         else if (this.getAge() == Age.OLD)
         {
-            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.old", getAnimalName());
+            return new TextComponentTranslation(MOD_ID + ".tooltip.animal.product.old", getAnimalName());
         }
         else if (this.getAge() == Age.CHILD)
         {
-            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.young", getAnimalName());
+            return new TextComponentTranslation(MOD_ID + ".tooltip.animal.product.young", getAnimalName());
         }
         else if (getFamiliarity() <= 0.15f)
         {
-            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.low_familiarity", getAnimalName());
+            return new TextComponentTranslation(MOD_ID + ".tooltip.animal.product.low_familiarity", getAnimalName());
         }
         else if (!hasEggs())
         {
-            return new TextComponentTranslation(TFCFLORAE_MODID + ".tooltip.animal.product.no_egg", getAnimalName());
+            return new TextComponentTranslation(MOD_ID + ".tooltip.animal.product.no_egg", getAnimalName());
         }
         return null;
     }

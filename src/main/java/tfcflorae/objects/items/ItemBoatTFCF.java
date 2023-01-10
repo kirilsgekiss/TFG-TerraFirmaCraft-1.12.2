@@ -22,7 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import tfcflorae.objects.entity.EntityBoatTFCF;
+import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 import mcp.MethodsReturnNonnullByDefault;
 
 import net.dries007.tfc.api.capability.size.Size;
@@ -152,7 +152,7 @@ public class ItemBoatTFCF extends ItemTFCF
             {
                 Block block = worldIn.getBlockState(raytraceresult.getBlockPos()).getBlock();
                 boolean flag1 = block == Blocks.WATER || block == Blocks.FLOWING_WATER;
-                EntityBoatTFCF entityboat = new EntityBoatTFCF(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
+                EntityBoatFruitTFC entityboat = new EntityBoatFruitTFC(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
                 entityboat.setBoatType(EntityBoat.Type.OAK); // not sure if required
                 if (wood != null)
                     entityboat.setWood(wood);

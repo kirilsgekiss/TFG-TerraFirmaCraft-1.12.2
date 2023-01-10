@@ -564,7 +564,7 @@ public final class FluidsTFC {
             SALAMMONIAC = registerFluid(new Fluid("salammoniac", STILL, FLOW, 0xFFF4F4F4));
 
         }
-        
+
         DrinkableProperty milkProperty = player -> {
             if (player.getFoodStats() instanceof IFoodStatsTFC) {
                 IFoodStatsTFC foodStats = (IFoodStatsTFC) player.getFoodStats();

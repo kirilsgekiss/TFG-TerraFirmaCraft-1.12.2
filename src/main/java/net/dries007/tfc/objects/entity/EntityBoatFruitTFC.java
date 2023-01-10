@@ -1,4 +1,4 @@
-package tfcflorae.objects.entity;
+package net.dries007.tfc.objects.entity;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -18,7 +18,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import mcp.MethodsReturnNonnullByDefault;
 
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
@@ -28,16 +27,16 @@ import tfcflorae.objects.items.ItemBoatTFCF;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class EntityBoatTFCF extends EntityBoat
+public class EntityBoatFruitTFC extends EntityBoat
 {
-    private static final DataParameter<String> WOOD_NAME = EntityDataManager.createKey(EntityBoatTFCF.class, DataSerializers.STRING);
+    private static final DataParameter<String> WOOD_NAME = EntityDataManager.createKey(EntityBoatFruitTFC.class, DataSerializers.STRING);
 
-    public EntityBoatTFCF(World worldIn)
+    public EntityBoatFruitTFC(World worldIn)
     {
         super(worldIn);
     }
 
-    public EntityBoatTFCF(World worldIn, double x, double y, double z)
+    public EntityBoatFruitTFC(World worldIn, double x, double y, double z)
     {
         super(worldIn, x, y, z);
     }

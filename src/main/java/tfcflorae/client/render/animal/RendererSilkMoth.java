@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 import tfcflorae.client.model.animal.ModelSilkMoth;
-import tfcflorae.objects.entity.animal.EntitySilkMoth;
+import net.dries007.tfc.objects.entity.animal.EntitySilkMoth;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

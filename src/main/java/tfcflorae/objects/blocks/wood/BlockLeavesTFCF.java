@@ -59,7 +59,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillType;
-import tfcflorae.objects.entity.animal.EntitySilkMoth;
+import net.dries007.tfc.objects.entity.animal.EntitySilkMoth;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.util.agriculture.SeasonalTrees;

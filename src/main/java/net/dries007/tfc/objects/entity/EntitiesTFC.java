@@ -29,7 +29,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class EntitiesTFC
 {
-    @GameRegistry.ObjectHolder("tfc:long")
+    @GameRegistry.ObjectHolder(MOD_ID + ":long")
     public static final DataSerializerEntry LONG_DATA_SERIALIZER_ENTRY = Helpers.getNull();
 
     private static final DataSerializer<Long> LONG_DATA_SERIALIZER = new DataSerializer<Long>()
@@ -76,6 +76,7 @@ public class EntitiesTFC
         register("falling_block", EntityFallingBlockTFC.class);
         register("thrown_javelin", EntityThrownJavelin.class);
         register("boat", EntityBoatTFC.class);
+        register("fruit_boat", EntityBoatFruitTFC.class);
         registerLiving("sheeptfc", EntitySheepTFC.class, 0xFFFFFF, 0xFF6347);
         registerLiving("cowtfc", EntityCowTFC.class, 0xA52A2A, 0xFFFFFF);
         registerLiving("grizzlybeartfc", EntityGrizzlyBearTFC.class, 0xB22222, 0xDEB887);
@@ -116,6 +117,7 @@ public class EntitiesTFC
         registerLiving("blackbeartfc", EntityBlackBearTFC.class, 0x000000, 0xa18f6c);
         registerLiving("cougartfc", EntityCougarTFC.class, 0x817a00, 0xdcd889);
         registerLiving("coyotetfc", EntityCoyoteTFC.class, 0xb7bc88, 0xdac213);
+        registerLiving("silkmothtfcf", EntitySilkMoth.class, 0xDBDBD8, 0xF8F8F3);
     }
 
     private static void register(String name, Class<? extends Entity> cls)

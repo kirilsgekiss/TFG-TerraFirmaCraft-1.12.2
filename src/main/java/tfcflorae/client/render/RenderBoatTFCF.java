@@ -17,13 +17,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 
-import tfcflorae.objects.entity.EntityBoatTFCF;
+import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderBoatTFCF extends Render<EntityBoatTFCF>
+public class RenderBoatTFCF extends Render<EntityBoatFruitTFC>
 {
     private final ModelBase modelBoat = new ModelBoat();
 
@@ -34,7 +34,7 @@ public class RenderBoatTFCF extends Render<EntityBoatTFCF>
     }
 
     @Override
-    public void doRender(EntityBoatTFCF entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(EntityBoatFruitTFC entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);
@@ -63,7 +63,7 @@ public class RenderBoatTFCF extends Render<EntityBoatTFCF>
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
     @Override
-    protected ResourceLocation getEntityTexture(EntityBoatTFCF entity)
+    protected ResourceLocation getEntityTexture(EntityBoatFruitTFC entity)
     {
         final IFruitTree wood = entity.getWood();
         if (wood != null)
@@ -90,7 +90,7 @@ public class RenderBoatTFCF extends Render<EntityBoatTFCF>
     }
 
     @Override
-    public void renderMultipass(EntityBoatTFCF entityIn, double x, double y, double z, float entityYaw, float partialTicks)
+    public void renderMultipass(EntityBoatFruitTFC entityIn, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);

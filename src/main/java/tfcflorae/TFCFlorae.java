@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.client.ClientEvents;
 import tfcflorae.objects.LootTablesTFCF;
-import tfcflorae.objects.entity.EntitiesTFCF;
 import tfcflorae.proxy.CommonProxy;
 import tfcflorae.util.CapabilityHeatHandler;
 import tfcflorae.util.HelpersTFCF;
@@ -87,7 +86,6 @@ public class TFCFlorae
                 TFCPHCompatAdded = true;
         }
 
-        EntitiesTFCF.preInit();
         proxy.preInit(event);
 
         if (event.getSide().isClient())
