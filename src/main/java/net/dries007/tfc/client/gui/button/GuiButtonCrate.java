@@ -1,4 +1,4 @@
-package tfcflorae.client.gui.button;
+package net.dries007.tfc.client.gui.button;
 
 import javax.annotation.Nonnull;
 
@@ -8,17 +8,17 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.dries007.tfc.client.button.GuiButtonTFC;
 import net.dries007.tfc.client.button.IButtonTooltip;
 
-import net.dries007.tfc.objects.te.TEUrn;
+import net.dries007.tfc.objects.te.TECrate;
 
 import static net.dries007.tfc.client.gui.GuiLargeVessel.LARGE_VESSEL_BACKGROUND;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
-public class GuiButtonUrn extends GuiButtonTFC implements IButtonTooltip
+public class GuiButtonCrate extends GuiButtonTFC implements IButtonTooltip
 {
-    private final TEUrn tile;
+    private final TECrate tile;
 
-    public GuiButtonUrn(TEUrn tile, int buttonId, int guiTop, int guiLeft)
+    public GuiButtonCrate(TECrate tile, int buttonId, int guiTop, int guiLeft)
     {
         super(buttonId, guiLeft + 123, guiTop + 35, 20, 20, "");
         this.tile = tile;
@@ -27,7 +27,7 @@ public class GuiButtonUrn extends GuiButtonTFC implements IButtonTooltip
     @Override
     public String getTooltip()
     {
-        return TFCFLORAE_MODID + ".tooltip." + (tile.isSealed() ? "urn_unseal" : "urn_seal");
+        return TFCFLORAE_MODID + ".tooltip." + (tile.isSealed() ? "crate_unseal" : "crate_seal");
     }
 
     @Override

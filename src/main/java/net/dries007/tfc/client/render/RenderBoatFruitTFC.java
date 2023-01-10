@@ -1,4 +1,4 @@
-package tfcflorae.client.render;
+package net.dries007.tfc.client.render;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,11 +23,11 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderBoatTFCF extends Render<EntityBoatFruitTFC>
+public class RenderBoatFruitTFC extends Render<EntityBoatFruitTFC>
 {
     private final ModelBase modelBoat = new ModelBoat();
 
-    public RenderBoatTFCF(RenderManager renderManagerIn)
+    public RenderBoatFruitTFC(RenderManager renderManagerIn)
     {
         super(renderManagerIn);
         this.shadowSize = 0.5F;

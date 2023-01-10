@@ -1,4 +1,4 @@
-package tfcflorae.client.render;
+package net.dries007.tfc.client.render;
 
 import java.util.HashMap;
 import java.util.Map;

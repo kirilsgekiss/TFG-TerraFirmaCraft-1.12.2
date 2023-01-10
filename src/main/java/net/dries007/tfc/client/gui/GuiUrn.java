@@ -1,4 +1,4 @@
-package tfcflorae.client.gui;
+package net.dries007.tfc.client.gui;
 
 import java.io.IOException;
 
@@ -13,10 +13,9 @@ import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.client.button.IButtonTooltip;
-import net.dries007.tfc.client.gui.GuiContainerTE;
 import net.dries007.tfc.network.PacketGuiButton;
 
-import tfcflorae.client.gui.button.GuiButtonUrn;
+import net.dries007.tfc.client.gui.button.GuiButtonUrn;
 import net.dries007.tfc.objects.te.TEUrn;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;

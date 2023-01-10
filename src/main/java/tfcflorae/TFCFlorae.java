@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-import tfcflorae.client.ClientEvents;
 import tfcflorae.proxy.CommonProxy;
 import tfcflorae.util.CapabilityHeatHandler;
 import tfcflorae.util.HelpersTFCF;
@@ -86,11 +85,6 @@ public class TFCFlorae
         }
 
         proxy.preInit(event);
-
-        if (event.getSide().isClient())
-        {
-            ClientEvents.preInit();
-        }
 
         HelpersTFCF.insertWhitelistFluids();
     }

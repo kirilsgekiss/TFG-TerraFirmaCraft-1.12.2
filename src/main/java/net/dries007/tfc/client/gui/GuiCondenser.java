@@ -1,4 +1,4 @@
-package tfcflorae.client.gui;
+package net.dries007.tfc.client.gui;
 
 import java.io.IOException;
 import java.util.ArrayList;

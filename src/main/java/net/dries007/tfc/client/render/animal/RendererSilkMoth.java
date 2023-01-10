@@ -1,4 +1,4 @@
-package tfcflorae.client.render.animal;
+package net.dries007.tfc.client.render.animal;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-import tfcflorae.client.model.animal.ModelSilkMoth;
+import net.dries007.tfc.client.model.animal.ModelSilkMoth;
 import net.dries007.tfc.objects.entity.animal.EntitySilkMoth;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;

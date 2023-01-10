@@ -32,7 +32,6 @@ import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import tfcflorae.TFCFlorae;
-import tfcflorae.client.gui.*;
 import tfcflorae.objects.container.*;
 import tfcflorae.objects.items.ItemBag;
 import tfcflorae.objects.items.ItemSack;
@@ -288,7 +287,7 @@ public class TFCGuiHandler implements IGuiHandler
                 return new GuiKnapping(container, player, KnappingType.YUCCA_CANVAS, YUCCA_CANVAS_TEXTURE);
             case MUD:
                 ItemStack stackMud = player.getHeldItemMainhand();
-                stackMud = tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stackMud, "mud") ? stackMud : player.getHeldItemOffhand();
+                stackMud = OreDictionaryHelper.doesStackMatchOre(stackMud, "mud") ? stackMud : player.getHeldItemOffhand();
                 ItemMud mud = (ItemMud)(stackMud.getItem());
                 return new GuiKnapping(container, player, KnappingType.MUD, mud.getForegroundTexture(), mud.getBackgroundTexture());
             case EARTHENWARE_CLAY:

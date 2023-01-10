@@ -1,4 +1,4 @@
-package tfcflorae.client.gui;
+package net.dries007.tfc.client.gui;
 
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -12,12 +12,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GuiSack extends GuiContainer
+public class GuiBag extends GuiContainer
 {
     protected final ResourceLocation background;
     protected final InventoryPlayer playerInv;
 
-    public GuiSack(Container container, InventoryPlayer playerInv, ResourceLocation background)
+    public GuiBag(Container container, InventoryPlayer playerInv, ResourceLocation background)
     {
         super(container);
         this.playerInv = playerInv;

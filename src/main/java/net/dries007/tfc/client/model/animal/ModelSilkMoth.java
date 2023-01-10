@@ -1,4 +1,4 @@
-package tfcflorae.client.model.animal;
+package net.dries007.tfc.client.model.animal;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

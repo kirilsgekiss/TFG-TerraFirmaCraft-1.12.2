@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import net.dries007.tfc.client.render.RenderBoatFruitTFC;
+import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -90,6 +92,7 @@ public class ClientEvents
         RenderingRegistry.registerEntityRenderingHandler(EntityDonkeyTFC.class, RenderAbstractHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityMuleTFC.class, RenderAbstractHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBoatTFC.class, RenderBoatTFC::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBoatFruitTFC.class, RenderBoatFruitTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityPolarBearTFC.class, RenderPolarBearTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityParrotTFC.class, RenderParrotTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLlamaTFC.class, RenderLlamaTFC::new);
@@ -118,6 +121,7 @@ public class ClientEvents
         RenderingRegistry.registerEntityRenderingHandler(EntityBlackBearTFC.class, RenderBlackBearTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityCougarTFC.class, RenderCougarTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityCoyoteTFC.class, RenderCoyoteTFC::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySilkMoth.class, RendererSilkMoth.FACTORY);
     }
 
     @SideOnly(Side.CLIENT)

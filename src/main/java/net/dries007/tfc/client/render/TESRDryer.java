@@ -1,4 +1,4 @@
-package tfcflorae.client.render;
+package net.dries007.tfc.client.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

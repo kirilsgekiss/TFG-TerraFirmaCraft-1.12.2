@@ -335,6 +335,9 @@ public final class ClientRegisterEvents
         ClientRegistry.bindTileEntitySpecialRenderer(TECrucible.class, new TESRCrucible());
         ClientRegistry.bindTileEntitySpecialRenderer(TEFirePit.class, new TESRFirePit());
         ClientRegistry.bindTileEntitySpecialRenderer(TESluice.class, new TESRSluice());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEDryer.class, new TESRDryer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitLoom.class, new TESRFruitLoomTFCF());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitChest.class, new TESRFruitChestTFCF());
     }
 
     @SubscribeEvent
