@@ -1,4 +1,4 @@
-package net.dries007.tfc.mixins.gregtech.stonetypes;
+package net.dries007.tfc.mixins.gregtech;
 
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.stack.MaterialStack;

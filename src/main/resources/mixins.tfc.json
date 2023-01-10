@@ -7,7 +7,7 @@
   "mixins": [
     "gregtech.stonetypes.IStoneTypeAccessor",
     "gregtech.stonetypes.StoneTypeMixin",
-    "gregtech.stonetypes.BlockOreMixin",
+    "gregtech.BlockOreMixin",
     "gregtech.recipes.PartsRecipeHandlerMixin",
     "gregtech.recipes.ToolRecipeHandlerMixin",
     "gregtech.recipes.MaterialRecipeHandlerMixin"

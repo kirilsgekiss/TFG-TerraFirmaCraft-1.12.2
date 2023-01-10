@@ -93,7 +93,7 @@ public class ToolRecipeHandlerMixin {
             ModHandler.addShapelessRecipe(String.format("javelin_%s", material), TFCToolItems.JAVELIN.get(material), toolHeadJavelin, stick);
         }
 
-        if (material.hasFlag(MaterialFlags.GENERATE_ROD)) {
+        if (material.hasFlag(MaterialFlags.GENERATE_ROD) && material != Materials.Stone) {
             UnificationEntry rod = new UnificationEntry(OrePrefix.stick, material);
             if (material.hasFlag(MaterialFlags.GENERATE_PLATE)) {
                 addToolRecipe(material, ToolItems.BUTCHERY_KNIFE, false, "PPf", "PP ", "Sh ", 'P', plate, 'S', rod);

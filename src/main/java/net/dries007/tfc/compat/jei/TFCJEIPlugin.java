@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
+import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
@@ -18,6 +19,7 @@ import gregtech.common.items.ToolItems;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
@@ -600,25 +602,22 @@ public final class TFCJEIPlugin implements IModPlugin
         blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_SHOVEL));
         blacklist.addIngredientToBlacklist(new ItemStack(Items.DIAMOND_HOE));
 
-        /*
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
+
         blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSword, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadFile, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPickaxe, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSense, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadFile, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadSaw, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
+        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
         blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadDrill, Materials.Stone));
         blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadChainsaw, Materials.Stone));
         blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadWrench, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Stone));
         blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Stone));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Stone));
-
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSword, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(OrePrefix.toolHeadSense, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadPropick, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadChisel, Materials.Flint));
-        blacklist.addIngredientToBlacklist(OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Flint));*/
     }
 }
