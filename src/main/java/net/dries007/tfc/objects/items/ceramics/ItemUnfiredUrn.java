@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.ceramics;
+package net.dries007.tfc.objects.items.ceramics;
 
 import javax.annotation.Nonnull;
 

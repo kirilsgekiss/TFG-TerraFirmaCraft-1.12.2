@@ -9,10 +9,7 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.CreativeTabsTFC;
-import net.dries007.tfc.objects.blocks.BlockFireBrick;
-import net.dries007.tfc.objects.blocks.BlockLargeVessel;
-import net.dries007.tfc.objects.blocks.BlockSlabTFC;
-import net.dries007.tfc.objects.blocks.BlockStairsTFC;
+import net.dries007.tfc.objects.blocks.*;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
@@ -68,19 +65,7 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 public final class BlocksTFCF
 {
 
-    @GameRegistry.ObjectHolder("ceramics/earthenware/fired/large_vessel")
-    public static final BlockLargeVessel FIRED_EARTHENWARE_LARGE_VESSEL = getNull();
-    @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/large_vessel")
-    public static final BlockLargeVessel FIRED_KAOLINITE_LARGE_VESSEL = getNull();
-    @GameRegistry.ObjectHolder("ceramics/stoneware/fired/large_vessel")
-    public static final BlockLargeVessel FIRED_STONEWARE_LARGE_VESSEL = getNull();
 
-    @GameRegistry.ObjectHolder("storage/urn")
-    public static final BlockUrn FIRED_URN = getNull();
-    @GameRegistry.ObjectHolder("storage/urn_loot")
-    public static final BlockUrnLoot URN_LOOT = getNull();
-    @GameRegistry.ObjectHolder("storage/crate")
-    public static final BlockCrate CRATE = getNull();
 
     @GameRegistry.ObjectHolder("groundcover/bone")
     public static final BlockSurfaceBones BONES = Helpers.getNull();
@@ -704,21 +689,7 @@ public final class BlocksTFCF
         normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_clay_block", new BlockEarthenwareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_clay_block", new BlockKaoliniteClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_clay_block", new BlockStonewareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-
-        normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new BlockUrn(), CT_POTTERY)));
-        normalItemBlocks.add(new ItemBlockUrnLoot(register(r, "storage/urn_loot", new BlockUrnLoot(), CT_POTTERY)));
-        normalItemBlocks.add(new ItemBlockCrate(register(r, "storage/crate", new BlockCrate(), CT_DECORATIONS)));
 
         /*normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/tube/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
         normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/brain/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));

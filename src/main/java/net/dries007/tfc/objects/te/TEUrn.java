@@ -22,13 +22,10 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
-import net.dries007.tfc.objects.te.TEInventory;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 
-import tfcflorae.objects.blocks.BlockUrn;
-
-import static tfcflorae.objects.blocks.BlockUrn.SEALED;
+import static net.dries007.tfc.objects.blocks.BlockUrn.SEALED;
 
 @ParametersAreNonnullByDefault
 public class TEUrn extends TEInventory implements IItemHandlerSidedCallback

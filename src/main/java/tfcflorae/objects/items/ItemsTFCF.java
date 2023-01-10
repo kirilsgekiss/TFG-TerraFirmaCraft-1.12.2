@@ -40,7 +40,6 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import tfcflorae.objects.items.ceramics.ItemUnfiredUrn;
 import tfcflorae.objects.items.devices.*;
 import tfcflorae.objects.items.food.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
@@ -1621,11 +1620,6 @@ public final class ItemsTFCF
         for (CropTFCF crop : CropTFCF.values())
         {
             simpleItems.add(register(r, "crop/seeds/" + crop.name().toLowerCase(), new ItemSeedsTFC(crop), CT_FOOD));
-        }
-
-        // Pottery
-        {
-            simpleItems.add(register(r, "storage/unfired/urn", new ItemUnfiredUrn(), CT_POTTERY));
         }
 
         for (BlockLogTFCF log : BlocksTFCF.getAllNormalTreeLog())

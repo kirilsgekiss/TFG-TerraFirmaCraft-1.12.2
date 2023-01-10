@@ -506,6 +506,12 @@ public final class ItemsTFC
         simpleItems.add(register(r, "crop/product/jute_fiber", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/burlap_cloth", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
 
+        // Pottery
+        {
+            simpleItems.add(register(r, "storage/unfired/urn", new ItemUnfiredUrn(), CT_POTTERY));
+        }
+
+
         // All simple foods (not meals) just use ItemFood and are registered here
         for (Food food : Food.values())
         {

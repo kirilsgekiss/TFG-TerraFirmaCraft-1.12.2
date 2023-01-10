@@ -53,7 +53,6 @@ import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.items.ItemArmorTFCF;
 import tfcflorae.objects.items.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.objects.items.ceramics.*;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import tfcflorae.api.stateproperty.StatePropertiesTFCF;

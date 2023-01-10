@@ -32,6 +32,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
+import tfcflorae.objects.items.itemblock.ItemBlockCrate;
+import tfcflorae.objects.items.itemblock.ItemBlockUrn;
+import tfcflorae.objects.items.itemblock.ItemBlockUrnLoot;
 import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
@@ -65,6 +68,12 @@ public final class BlocksTFC
 {
     @GameRegistry.ObjectHolder("ceramics/fired/large_vessel")
     public static final BlockLargeVessel FIRED_LARGE_VESSEL = getNull();
+    @GameRegistry.ObjectHolder("ceramics/earthenware/fired/large_vessel")
+    public static final BlockLargeVessel FIRED_EARTHENWARE_LARGE_VESSEL = getNull();
+    @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/large_vessel")
+    public static final BlockLargeVessel FIRED_KAOLINITE_LARGE_VESSEL = getNull();
+    @GameRegistry.ObjectHolder("ceramics/stoneware/fired/large_vessel")
+    public static final BlockLargeVessel FIRED_STONEWARE_LARGE_VESSEL = getNull();
 
     @GameRegistry.ObjectHolder("alabaster/bricks/plain")
     public static final BlockDecorativeStone ALABASTER_BRICKS_PLAIN = getNull();
@@ -76,6 +85,13 @@ public final class BlocksTFC
     public static final BlockStickBundle STICK_BUNDLE = Helpers.getNull();
     @GameRegistry.ObjectHolder("devices/dryer")
     public static final BlockDryer DRYER = Helpers.getNull();
+
+    @GameRegistry.ObjectHolder("storage/urn")
+    public static final BlockUrn FIRED_URN = getNull();
+    @GameRegistry.ObjectHolder("storage/urn_loot")
+    public static final BlockUrnLoot URN_LOOT = getNull();
+    @GameRegistry.ObjectHolder("storage/crate")
+    public static final BlockCrate CRATE = getNull();
 
     public static final BlockDebug DEBUG = getNull();
     public static final BlockPeat PEAT = getNull();
@@ -339,6 +355,22 @@ public final class BlocksTFC
         normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/raw/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
+
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_clay_block", new BlockEarthenwareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_clay_block", new BlockKaoliniteClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_clay_block", new BlockStonewareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+        normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new BlockUrn(), CT_POTTERY)));
+        normalItemBlocks.add(new ItemBlockUrnLoot(register(r, "storage/urn_loot", new BlockUrnLoot(), CT_POTTERY)));
+        normalItemBlocks.add(new ItemBlockCrate(register(r, "storage/crate", new BlockCrate(), CT_DECORATIONS)));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {

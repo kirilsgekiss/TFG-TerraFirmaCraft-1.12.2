@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks;
+package net.dries007.tfc.objects.blocks;
 
 import java.util.Random;
 import javax.annotation.Nonnull;
@@ -20,9 +20,9 @@ import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockStonewareClay extends Block implements IItemSize
+public class BlockEarthenwareClay extends Block implements IItemSize
 {
-    public BlockStonewareClay()
+    public BlockEarthenwareClay()
     {
         super(Material.CLAY);
         setSoundType(SoundType.GROUND);
@@ -40,7 +40,7 @@ public class BlockStonewareClay extends Block implements IItemSize
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemsTFC.STONEWARE_CLAY;
+        return ItemsTFC.EARTHENWARE_CLAY;
     }
 
     @Nonnull

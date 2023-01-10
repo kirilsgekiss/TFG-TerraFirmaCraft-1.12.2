@@ -11,7 +11,7 @@ import net.dries007.tfc.objects.container.ContainerTE;
 import net.dries007.tfc.objects.container.IButtonHandler;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
-import tfcflorae.objects.blocks.BlockUrn;
+import net.dries007.tfc.objects.blocks.BlockUrn;
 import net.dries007.tfc.objects.te.TEUrn;
 
 public class ContainerUrn extends ContainerTE<TEUrn> implements IButtonHandler

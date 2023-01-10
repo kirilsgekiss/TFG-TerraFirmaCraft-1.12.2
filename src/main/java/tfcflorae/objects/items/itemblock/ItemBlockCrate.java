@@ -5,7 +5,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.blocks.BlockCrate;
+import net.dries007.tfc.objects.blocks.BlockCrate;
 
 @ParametersAreNonnullByDefault
 public class ItemBlockCrate extends ItemBlockTFC implements IItemSize
