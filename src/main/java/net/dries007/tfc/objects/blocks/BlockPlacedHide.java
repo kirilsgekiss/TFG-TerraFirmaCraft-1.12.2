@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.items.toolitem.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -153,13 +154,13 @@ public class BlockPlacedHide extends Block
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack stack = playerIn.getHeldItem(hand);
-        if (OreDictionaryHelper.doesStackMatchOre(stack, "knife"))
+        if (OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolKnife"))
         {
             if (!worldIn.isRemote)
             {
                 // Account for the distance between the hitbox and where the hide is rendered
                 Vec3d point = calculatePoint(playerIn.getLookVec(), new Vec3d(hitX, hitY, hitZ));
-                stack.damageItem(1, playerIn);
+                ToolHelper.damageItemWhenCrafting(stack, playerIn);
                 TEPlacedHide tile = Helpers.getTE(worldIn, pos, TEPlacedHide.class);
                 if (tile != null)
                 {

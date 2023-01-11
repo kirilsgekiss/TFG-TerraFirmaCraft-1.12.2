@@ -83,3 +83,11 @@ item.gt.tool.propick.name=%s Propick
 item.gt.tool.javelin.name=%s Javelin
 item.gt.tool.tuyere.name=%s Tuyere
 
+# Предметы
+metaitem.shape.extruder.sense.name=Extruder Shape (Sense Head)
+metaitem.shape.extruder.knife.name=Extruder Shape (Knife Head)
+metaitem.shape.extruder.propick.name=Extruder Shape (Propick Head)
+metaitem.shape.extruder.chisel.name=Extruder Shape (Chisel Head)
+metaitem.shape.extruder.javelin.name=Extruder Shape (Javelin Head)
+
+

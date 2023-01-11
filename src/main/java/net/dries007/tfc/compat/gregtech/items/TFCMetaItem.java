@@ -8,6 +8,6 @@ public class TFCMetaItem {
     {
         // Items
         TFCMetaItem = new TFCMetaItems();
-        TFCMetaItem.setRegistryName("tfc_meta_item");
+        TFCMetaItem.setRegistryName("meta_item");
     }
 }

@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.ImmutableList;
+import gregtech.api.items.toolitem.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -83,7 +84,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
     @Override
     public boolean isItemValid(int slot, ItemStack stack)
     {
-        return OreDictionaryHelper.doesStackMatchOre(stack, "tuyere");
+        return OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolTuyere");
     }
 
     @SuppressWarnings("unused")
@@ -297,7 +298,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
                                     ItemStack tuyereStack = inventory.getStackInSlot(0);
                                     if (!tuyereStack.isEmpty())
                                     {
-                                        Helpers.damageItem(tuyereStack);
+                                        ToolHelper.damageItem(tuyereStack, null);
                                     }
                                     return true;
                                 }

@@ -14,6 +14,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.items.toolitem.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -155,13 +156,13 @@ public class EntitySheepTFC extends EntityAnimalMammal implements IShearable, IL
     public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        if (OreDictionaryHelper.doesStackMatchOre(stack, "knife"))
+        if (OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolKnife"))
         {
             if (!world.isRemote)
             {
                 if (isReadyForAnimalProduct())
                 {
-                    stack.damageItem(1, player);
+                    ToolHelper.damageItem(stack, player);
                     ItemStack woolStack = new ItemStack(ItemsTFC.WOOL, 1);
                     Helpers.spawnItemStack(player.world, new BlockPos(posX, posY, posZ), woolStack);
                     playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);

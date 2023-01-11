@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.container;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.items.toolitem.ToolHelper;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
@@ -131,7 +132,7 @@ public class ContainerAnvilTFC extends ContainerTE<TEAnvilTFC> implements IButto
         stack = slot.getStack();
         if (!stack.isEmpty())
         {
-            stack.damageItem(1, player);
+            ToolHelper.damageItemWhenCrafting(stack, player);
             if (stack.getCount() <= 0)
             {
                 slot.putStack(ItemStack.EMPTY);
@@ -148,7 +149,7 @@ public class ContainerAnvilTFC extends ContainerTE<TEAnvilTFC> implements IButto
             stack = player.inventory.mainInventory.get(player.inventory.currentItem);
             if (!stack.isEmpty() && OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolHammer"))
             {
-                stack.damageItem(1, player);
+                ToolHelper.damageItemWhenCrafting(stack, player);
                 return true;
             }
             else

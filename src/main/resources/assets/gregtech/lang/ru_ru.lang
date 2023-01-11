@@ -83,3 +83,10 @@ item.gt.tool.chisel.name=Стамеска (%s)
 item.gt.tool.propick.name=Геологическая кирка (%s)
 item.gt.tool.javelin.name=Копье (%s)
 item.gt.tool.tuyere.name=Фурма (%s)
+
+# Предметы
+metaitem.shape.extruder.sense.name=Extruder Shape (Оголовье косы)
+metaitem.shape.extruder.knife.name=Extruder Shape (Оголовье ножа)
+metaitem.shape.extruder.propick.name=Extruder Shape (Оголовье геологической кирки)
+metaitem.shape.extruder.chisel.name=Extruder Shape (Оголовье стамески)
+metaitem.shape.extruder.javelin.name=Extruder Shape (Оголовье копья)

@@ -192,6 +192,7 @@ public class BlockLogTFC extends BlockLog implements IItemSize
     @Override
     public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest)
     {
+        /*
         ItemStack stack = ItemStack.EMPTY;
         IPlayerData cap = player.getCapability(CapabilityPlayerData.CAPABILITY, null);
         if (cap != null)
@@ -226,7 +227,7 @@ public class BlockLogTFC extends BlockLog implements IItemSize
         {
             // Don't drop anything if broken by hand
             return world.setBlockState(pos, Blocks.AIR.getDefaultState(), world.isRemote ? 11 : 3);
-        }
+        }*/ // todo enhance this (because it has gt)
         return super.removedByPlayer(state, world, pos, player, willHarvest);
     }
 

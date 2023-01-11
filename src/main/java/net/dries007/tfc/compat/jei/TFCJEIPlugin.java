@@ -207,7 +207,7 @@ public final class TFCJEIPlugin implements IModPlugin
                     registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), WELDING_UID);
                 }
             }
-            registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Neutronium), SCRAPING_UID);
+            registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Iron), SCRAPING_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.DRYER), DRY_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.STICK_BUNDLE), STICK_BUNDLE_UID);
         }
