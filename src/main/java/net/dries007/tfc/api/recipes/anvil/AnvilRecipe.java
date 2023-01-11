@@ -114,7 +114,7 @@ public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implement
     {
         NonNullList<IIngredient<ItemStack>> list = NonNullList.create();
         list.add(ingredient);
-        list.add(IIngredient.of("craftingToolHardHammer"));
+        list.add(IIngredient.of("craftingToolHammer"));
         return list;
     }
 

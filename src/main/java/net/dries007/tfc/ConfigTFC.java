@@ -658,12 +658,12 @@ public final class ConfigTFC
             @Config.Comment("This controls the time it takes to mine rock blocks. 1.0 = Like vanilla, 10.0 = Classic TFC")
             @Config.RangeDouble(min = 1, max = 1000)
             @Config.LangKey("config." + MOD_ID + ".general.misc.rockMiningTimeModifier")
-            public double rockMiningTimeModifier = 10.0;
+            public double rockMiningTimeModifier = 1.0;
 
             @Config.Comment("This controls the time it takes to mine log blocks. 1.0 = Like vanilla, 7.5 = Classic TFC")
             @Config.RangeDouble(min = 1, max = 1000)
             @Config.LangKey("config." + MOD_ID + ".general.misc.logMiningTimeModifier")
-            public double logMiningTimeModifier = 7.5;
+            public double logMiningTimeModifier = 5.5;
         }
     }
 

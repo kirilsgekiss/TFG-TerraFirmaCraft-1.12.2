@@ -200,20 +200,16 @@ public class TFCMaterialHandler {
 
         // GTCEu
 
-        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(5f, 1f, 5, 1));
-        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
-        Bismuth.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
-        BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
-        BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
-        BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(7f, 1f, 85, 1));
+        Stone.setProperty(PropertyKey.TOOL, new ToolProperty(1.0f, 1f, 6, 1));
+        Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.5f, 2f, 88, 2));
+        BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.8f, 2f, 174, 2));
+        Bismuth.setProperty(PropertyKey.TOOL, new ToolProperty(2.0f, 2f, 192, 2));
+        BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(2.2f, 2f, 212, 2));
+        BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(6.0f, 3f, 784, 3));
 
-        for (Material material : GregTechAPI.MATERIAL_REGISTRY)
-        {
-            if (material.hasProperty(PropertyKey.TOOL))
-            {
+        for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
+            if (material.hasProperty(PropertyKey.TOOL)) {
                 ToolProperty toolProperty = material.getProperty(PropertyKey.TOOL);
-
-                toolProperty.setToolSpeed(toolProperty.getToolSpeed() * 3);
                 toolProperty.setToolDurability(toolProperty.getToolDurability() * 7);
             }
         }

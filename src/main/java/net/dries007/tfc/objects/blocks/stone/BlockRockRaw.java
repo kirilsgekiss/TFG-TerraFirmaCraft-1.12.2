@@ -97,7 +97,7 @@ public class BlockRockRaw extends BlockRockVariant
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack stack = playerIn.getHeldItemMainhand();
-        if (ConfigTFC.General.OVERRIDES.enableStoneAnvil && OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolHardHammer") && !worldIn.isBlockNormalCube(pos.up(), true))
+        if (ConfigTFC.General.OVERRIDES.enableStoneAnvil && OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolHammer") && !worldIn.isBlockNormalCube(pos.up(), true))
         {
             if (!worldIn.isRemote)
             {

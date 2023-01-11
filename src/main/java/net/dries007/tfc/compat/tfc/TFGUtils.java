@@ -1,10 +1,16 @@
 package net.dries007.tfc.compat.tfc;
 
+import gregtech.api.items.metaitem.MetaItem;
+import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.items.MetaItems;
+import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import static gregtech.api.unification.material.Materials.*;
 import static net.dries007.tfc.compat.gregtech.materials.TFCMaterials.*;
