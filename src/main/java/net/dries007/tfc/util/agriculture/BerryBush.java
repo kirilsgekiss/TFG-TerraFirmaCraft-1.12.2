@@ -13,6 +13,7 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.world.classic.worldgen.WorldGenBerryBushes;
+import tfcflorae.objects.items.ItemsTFCF;
 
 import static net.dries007.tfc.api.types.IBerryBush.Size.*;
 
@@ -28,7 +29,12 @@ public enum BerryBush implements IBerryBush
     RASPBERRY(Food.RASPBERRY, Month.JUNE, 2, 5f, 20f, 100f, 400f, 0.8f, LARGE, true),
     SNOW_BERRY(Food.SNOW_BERRY, Month.JULY, 2, -5f, 18f, 100f, 400f, 0.8f, SMALL, false),
     STRAWBERRY(Food.STRAWBERRY, Month.MARCH, 3, 5f, 28f, 100f, 400f, 0.8f, SMALL, false),
-    WINTERGREEN_BERRY(Food.WINTERGREEN_BERRY, Month.AUGUST, 2, -5f, 17f, 100f, 400f, 0.8f, SMALL, false);
+    WINTERGREEN_BERRY(Food.WINTERGREEN_BERRY, Month.AUGUST, 2, -5f, 17f, 100f, 400f, 0.8f, SMALL, false),
+    ALLSPICE(Food.ALLSPICE, Month.AUGUST, 2, 0f, 35f, 100f, 400f, 0.8f,LARGE, false),
+    CLOVE(Food.CLOVE, Month.AUGUST, 2, 0f, 35f, 100f, 400f, 0.8f, LARGE, false),
+    CURRY_LEAF(Food.CURRY_LEAF, Month.AUGUST, 2, 5f, 45f, 100f, 400f, 0.8f, LARGE, false),
+    STAR_ANISE(Food.STAR_ANISE, Month.AUGUST, 2, 0f, 25f, 100f, 400f, 0.8f, LARGE, false);
+
 
     static
     {

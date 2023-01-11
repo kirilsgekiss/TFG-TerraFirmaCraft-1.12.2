@@ -10,6 +10,7 @@ import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.*;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.types.DefaultTrees;
+import net.dries007.tfc.util.agriculture.FoodDataTFCF;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -27,7 +28,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
 import net.dries007.tfc.objects.items.ItemSlabTFC;
@@ -383,14 +383,6 @@ public final class ItemsTFCF
     public static final ItemFoodTFCF ROASTED_WALNUT_NUT = Helpers.getNull();
 
     // Foods
-    @GameRegistry.ObjectHolder("food/allspice")
-    public static final ItemFoodTFCF ALLSPICE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/clove")
-    public static final ItemFoodTFCF CLOVE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/curry_leaf")
-    public static final ItemFoodTFCF CURRY_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/star_anise")
-    public static final ItemFoodTFCF STAR_ANISE = Helpers.getNull();
     @GameRegistry.ObjectHolder("food/liquorice_root")
     public static final ItemFoodTFCF LIQUORICE_ROOT = Helpers.getNull();
     @GameRegistry.ObjectHolder("food/cassia_cinnamon_bark")
@@ -1399,9 +1391,6 @@ public final class ItemsTFCF
 
         //simpleItems.add(register(r, "food/dried/black_pepper", new ItemFoodTFCF(FoodDataTFCF.DRIED_BLACK_PEPPER, "dried_black_pepper"), CT_FOOD));
         //simpleItems.add(register(r, "food/ground_black_pepper", new ItemFoodTFCF(FoodDataTFCF.GROUND_BLACK_PEPPER, "ground_black_pepper"), CT_FOOD));
-        simpleItems.add(register(r, "food/allspice", new ItemFoodTFCF(FoodDataTFCF.ALLSPICE, "allspice", "crop_allspice", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/clove", new ItemFoodTFCF(FoodDataTFCF.CLOVE, "clove", "crop_clove", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/curry_leaf", new ItemFoodTFCF(FoodDataTFCF.CURRY_LEAF, "curry_leaf", "crop_curry_leaf"), CT_FOOD));
         simpleItems.add(register(r, "food/liquorice_root", new ItemFoodTFCF(FoodDataTFCF.LIQUORICE_ROOT, "liquorice_root", "crop_liquorice_root", "category_vegetable"), CT_FOOD));
         simpleItems.add(register(r, "food/cassia_cinnamon_bark", new ItemFoodTFCF(FoodDataTFCF.CASSIA_CINNAMON_BARK, "cassia_cinnamon_bark", "crop_cinnamon"), CT_FOOD));
         simpleItems.add(register(r, "food/ground_cassia_cinnamon", new ItemFoodTFCF(FoodDataTFCF.GROUND_CASSIA_CINNAMON, "ground_cassia_cinnamon", "powder_cassia_cinnamon", "dust_cinnamon", "powder_cinnamon", "food_groundcinnamon"), CT_FOOD));

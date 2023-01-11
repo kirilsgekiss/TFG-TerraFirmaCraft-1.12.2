@@ -3,13 +3,11 @@ package tfcflorae.util.agriculture;
 import net.minecraft.item.Item;
 
 import net.dries007.tfc.api.capability.food.FoodData;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
-import net.dries007.tfc.util.agriculture.Food;
 
 import tfcflorae.objects.items.*;
 import tfcflorae.objects.items.food.*;
 
-import static tfcflorae.util.agriculture.FoodDataTFCF.*;
+import static net.dries007.tfc.util.agriculture.FoodDataTFCF.*;
 
 /**
  * This is an easy way to wrap all the TFC fruits with our data

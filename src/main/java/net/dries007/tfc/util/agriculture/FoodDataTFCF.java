@@ -1,4 +1,4 @@
-package tfcflorae.util.agriculture;
+package net.dries007.tfc.util.agriculture;
 
 import net.dries007.tfc.api.capability.food.FoodData;
 
@@ -170,10 +170,6 @@ public class FoodDataTFCF
 
     public static final FoodData COFFEA_CHERRIES = new FoodData(4, 0.5f, 0.5f, 0f, 1f, 0f, 0f, 0f, 1.9f);
     public static final FoodData DRIED_COFFEA_CHERRIES = new FoodData(4, 0f, 0.5f, 0f, 1f, 0f, 0f, 0f, 0.5f);
-    public static final FoodData ALLSPICE = new FoodData(4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.5f);
-    public static final FoodData CLOVE = new FoodData(4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.5f);
-    public static final FoodData CURRY_LEAF = new FoodData(4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.8f);
-    public static final FoodData STAR_ANISE = new FoodData(4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.5f);
     public static final FoodData LIQUORICE_ROOT = new FoodData(4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.2f);
     public static final FoodData CASSIA_CINNAMON_BARK = new FoodData(4, 0f, 0.5f, 0f, 1f, 0f, 0f, 0f, 0.3f);
     public static final FoodData GROUND_CASSIA_CINNAMON = new FoodData(4, 0f, 0.5f, 0f, 1f, 0f, 0f, 0f, 0.2f);

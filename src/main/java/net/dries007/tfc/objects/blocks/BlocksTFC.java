@@ -155,7 +155,7 @@ public final class BlocksTFC
     private static ImmutableList<BlockFruitTreeBranch> allFruitTreeBranchBlocks;
     private static ImmutableList<BlockFruitTreeLeaves> allFruitTreeLeavesBlocks;
 
-    private static ImmutableList<BlockBerryBush> allBerryBushBlocks;
+    private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
 
     public static ImmutableList<ItemBlock> getAllNormalItemBlocks()
     {
@@ -723,13 +723,13 @@ public final class BlocksTFC
             allFruitTreeLeavesBlocks = fLeaves.build();
 
             Builder<BlockBerryBush> fBerry = ImmutableList.builder();
-
-            for (BerryBush bush : BerryBush.values())
             {
-                fBerry.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new BlockBerryBush(bush), CT_FOOD));
-            }
+                for (BerryBush bush : BerryBush.values()) {
+                    fBerry.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new BlockBerryBush(bush), CT_FOOD));
+                }
 
-            allBerryBushBlocks = fBerry.build();
+                allBerryBushBlocks = fBerry.build();
+            }
 
             //Add ItemBlocks
             allFruitTreeSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));

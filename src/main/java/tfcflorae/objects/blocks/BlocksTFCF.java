@@ -14,7 +14,6 @@ import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockLargeVessel;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.types.DefaultTrees;
@@ -49,9 +48,8 @@ import tfcflorae.objects.items.food.ItemBlockRot;
 import tfcflorae.objects.items.food.PotionEffectToHave;
 import tfcflorae.objects.items.itemblock.*;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.util.agriculture.BerryBushTFCF;
 import tfcflorae.util.agriculture.CropTFCF;
-import tfcflorae.util.agriculture.FoodDataTFCF;
+import net.dries007.tfc.util.agriculture.FoodDataTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
@@ -259,7 +257,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
-    private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
     private static ImmutableList<BlockSlabTFC.Half> allSlabBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockStairsTFC> allStairBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockPlanksTFC> allPlanksTFC = Helpers.getNull();
@@ -433,10 +430,6 @@ public final class BlocksTFCF
         return allDeadCrops;
     }
 
-    public static ImmutableList<BlockBerryBush> getAllBerryBushBlocks()
-    {
-        return allBerryBushBlocks;
-    }
 
     public static ImmutableList<BlockSlabTFC.Half> getAllSlabBlocksTFC()
     {
@@ -638,7 +631,6 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockFruitLoom> fruitLoom = ImmutableList.builder();
         ImmutableList.Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
-        ImmutableList.Builder<BlockBerryBush> cropBerryBushBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceRock> surfaceRock = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
@@ -1012,15 +1004,6 @@ public final class BlocksTFCF
             }
         }
 
-        Builder<BlockBerryBush> fBerry = ImmutableList.builder();
-
-        for (BerryBushTFCF bush : BerryBushTFCF.values())
-        {
-            fBerry.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new BlockBerryBush(bush), CT_FOOD));
-        }
-
-        allBerryBushBlocks = fBerry.build();
-        allBerryBushBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         allCropBlocks = cropBlocks.build();
         allDeadCrops = deadCrops.build();
 
