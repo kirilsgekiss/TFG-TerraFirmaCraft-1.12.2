@@ -90,4 +90,7 @@ metaitem.shape.extruder.propick.name=Extruder Shape (Propick Head)
 metaitem.shape.extruder.chisel.name=Extruder Shape (Chisel Head)
 metaitem.shape.extruder.javelin.name=Extruder Shape (Javelin Head)
 
+# Поведение
+item.gt.tool.behavior.in_world_chiseling=In World Chiseling (See HEI for recipes)
+
 

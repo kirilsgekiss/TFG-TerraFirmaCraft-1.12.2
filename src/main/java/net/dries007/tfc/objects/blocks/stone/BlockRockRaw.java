@@ -30,6 +30,7 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import net.minecraftforge.oredict.OreDictionary;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -43,10 +44,13 @@ public class BlockRockRaw extends BlockRockVariant
         super(type, rock);
 
         FallingBlockManager.Specification spec = new FallingBlockManager.Specification(type.getFallingSpecification()); // Copy as each raw stone has an unique resultingState
-//        spec.setResultingState(BlockRockVariant.get(rock, Type.COBBLE).getDefaultState());
+        // spec.setResultingState(BlockRockVariant.get(rock, Type.COBBLE).getDefaultState());
         FallingBlockManager.registerFallable(this, spec);
 
         setDefaultState(getBlockState().getBaseState().withProperty(CAN_FALL, true));
+
+        OreDictionaryHelper.register(this, "raw", rock);
+        OreDictionaryHelper.register(this, "raw", rock.getRockCategory());
     }
 
     @Override

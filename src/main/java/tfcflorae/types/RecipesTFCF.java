@@ -560,14 +560,6 @@ public final class RecipesTFCF
                 TFCFlorae.logger.info("Removed barrel recipe tfc:{}", name);
             }
         }
-
-        for(Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-        {
-            event.getRegistry().registerAll(
-                    new BarrelRecipe(IIngredient.of(FluidsTFC.HOT_WATER.get(), 200), IIngredient.of(BlockRockVariant.get(rock, Rock.Type.RAW)), new FluidStack(FluidsTFC.FRESH_WATER.get(), 50), new ItemStack(BlockRockVariant.get(rock, Rock.Type.MOSSY_RAW), 1), 8* ICalendar.TICKS_IN_HOUR).setRegistryName(TFCFLORAE_MODID, "mossy_raw_"+rock.getRegistryName().getPath())
-            );
-        }
-
         r.registerAll(
 
                 new BarrelRecipe(IIngredient.of(FluidsTFC.SALAMMONIAC.get(), 300), IIngredient.of(ItemAnimalHide.get(ItemAnimalHide.HideType.PREPARED, ItemAnimalHide.HideSize.SMALL)), null, new ItemStack(Items.LEATHER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("leather_small_hide_salmiak"),

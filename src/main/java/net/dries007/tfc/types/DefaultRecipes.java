@@ -10,6 +10,7 @@ import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
@@ -17,6 +18,7 @@ import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import gregtech.common.items.ToolItems;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
@@ -137,19 +139,101 @@ public final class DefaultRecipes
 
     public static void registerStoneRecipes()
     {
+        IForgeRegistry<BarrelRecipe> barrelRecipes = TFCRegistries.BARREL;
+        IForgeRegistry<ChiselRecipe> chiselRecipes = TFCRegistries.CHISEL;
+        IForgeRegistry<QuernRecipe> quernRecipes = TFCRegistries.QUERN;
+
         for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
         {
+            // Rock -> Flux
+            if (rock.isFluxStone()) {
+                ModHandler.addShapelessRecipe(String.format("flux_%s", rock),
+                        TFCMetaItems.FLUX.getStackForm(2),
+                        OreDictUnifier.get("rockFlux"),
+                        ToolItems.HARD_HAMMER);
+
+                quernRecipes.register(
+                        new QuernRecipe(IIngredient.of("rockFlux"), TFCMetaItems.FLUX.getStackForm(2)).setRegistryName(MOD_ID, "flux_" + rock)
+                );
+
+                MACERATOR_RECIPES.recipeBuilder()
+                        .input("rockFlux")
+                        .output(TFCMetaItems.FLUX, 2)
+                        .duration(32)
+                        .EUt(7)
+                        .buildAndRegister();
+            }
+
             // Rock -> Cobblestone
             ModHandler.addShapedRecipe(String.format("cobblestone_%s", rock),
                     new ItemStack(BlockRockVariant.get(rock, Type.COBBLE)), "XX", "XX",
                     'X', new ItemStack(ItemRock.get(rock))
             );
 
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemRock.get(rock), 4)
+                    .notConsumable(new IntCircuitIngredient(1))
+                    .output(BlockRockVariant.get(rock, Type.COBBLE))
+                    .duration(32)
+                    .EUt(7)
+                    .buildAndRegister();
+
             // Rock -> Brick
             ModHandler.addShapelessRecipe(String.format("brick_%s", rock),
                     new ItemStack(ItemBrickTFC.get(rock)),
                     new ItemStack(ItemRock.get(rock)),
                     TFCToolItems.CHISEL);
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(ItemRock.get(rock))
+                    .notConsumable(new IntCircuitIngredient(2))
+                    .output(ItemBrickTFC.get(rock))
+                    .duration(32)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Rock Ground Cover -> Rock (NOT NEEDED, I THINK)
+            /*
+            ModHandler.addShapelessRecipe(String.format("rock_%s_hammer", rock),
+                    new ItemStack(ItemRock.get(rock), 4),
+                    new ItemStack(BlockSurfaceRock.get(rock)),
+                    ToolItems.HARD_HAMMER
+            );
+
+            FORGE_HAMMER_RECIPES.recipeBuilder()
+                    .input(BlockSurfaceRock.get(rock))
+                    .output(ItemRock.get(rock), 4)
+                    .duration(32)
+                    .EUt(8)
+                    .buildAndRegister();
+            */
+
+            // Raw -> Raw Stairs
+            ModHandler.addShapedRecipe(String.format("rock_stairs_%s", rock),
+                    new ItemStack(BlockStairsTFC.get(rock, Type.RAW), 8), "X  ", "XX ", "XXX",
+                    'X', new ItemStack(BlockRockVariant.get(rock, Type.RAW))
+            );
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.RAW), 6)
+                    .notConsumable(new IntCircuitIngredient(7))
+                    .output(BlockStairsTFC.get(rock, Type.RAW), 8)
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
+
+            // Raw -> Raw Slabs
+            ModHandler.addShapedRecipe(String.format("rock_slab_%s", rock),
+                    new ItemStack(BlockSlabTFC.Half.get(rock, Type.RAW), 6), "XXX",
+                    'X', new ItemStack(BlockRockVariant.get(rock, Type.RAW))
+            );
+
+            CUTTER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.RAW))
+                    .output(BlockSlabTFC.Half.get(rock, Type.RAW), 2)
+                    .duration(200)
+                    .EUt(7)
+                    .buildAndRegister();
 
             // Raw -> Raw
             ROCK_BREAKER_RECIPES.recipeBuilder()
@@ -160,12 +244,54 @@ public final class DefaultRecipes
                     .buildAndRegister();
 
             // Raw -> Mossy Raw
+            barrelRecipes.register(
+                    new BarrelRecipe(IIngredient.of(FluidsTFC.HOT_WATER.get(), 200), IIngredient.of(BlockRockVariant.get(rock, Rock.Type.RAW)), new FluidStack(FluidsTFC.FRESH_WATER.get(), 50), new ItemStack(BlockRockVariant.get(rock, Rock.Type.MOSSY_RAW), 1), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName(MOD_ID, "mossy_raw_" + rock)
+            );
+
             CHEMICAL_BATH_RECIPES.recipeBuilder()
                     .input(BlockRockVariant.get(rock, Type.RAW))
-                    .fluidInputs(Materials.Water.getFluid(36))
+                    .fluidInputs(new FluidStack(FluidRegistry.getFluid("hot_water"), 200))
+                    .fluidOutputs(new FluidStack(FluidRegistry.getFluid("fresh_water"), 50))
                     .output(BlockRockVariant.get(rock, Type.MOSSY_RAW))
                     .duration(2000)
                     .EUt(32)
+                    .buildAndRegister();
+
+            // Raw -> Cobblestone
+            FORGE_HAMMER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.RAW))
+                    .output(BlockRockVariant.get(rock, Type.COBBLE))
+                    .duration(32)
+                    .EUt(8)
+                    .buildAndRegister();
+
+            // Raw -> Smooth
+            chiselRecipes.register(
+                    new ChiselRecipe(BlockRockVariant.get(rock, Type.RAW), BlockRockVariant.get(rock, Type.SMOOTH).getDefaultState()).setRegistryName("smooth_" + rock)
+            );
+
+            LASER_ENGRAVER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.RAW))
+                    .notConsumable(MetaItems.GLASS_LENSES.get(MarkerMaterials.Color.Orange))
+                    .output(BlockRockVariant.get(rock, Type.SMOOTH))
+                    .duration(300)
+                    .EUt(30)
+                    .buildAndRegister();
+
+            // Cobblestone -> Gravel
+            FORGE_HAMMER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.COBBLE))
+                    .output(BlockRockVariant.get(rock, Type.GRAVEL))
+                    .duration(32)
+                    .EUt(8)
+                    .buildAndRegister();
+
+            // Gravel -> Sand
+            FORGE_HAMMER_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.GRAVEL))
+                    .output(BlockRockVariant.get(rock, Type.SAND))
+                    .duration(32)
+                    .EUt(8)
                     .buildAndRegister();
         }
     }
@@ -216,24 +342,23 @@ public final class DefaultRecipes
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
 
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(BlockPlanksTFC.get(tree), 3)
-                    .notConsumable(new IntCircuitIngredient(6))
-                    .output(BlockSlabTFC.Half.get(tree), 6)
+            CUTTER_RECIPES.recipeBuilder()
+                    .input(BlockPlanksTFC.get(tree))
+                    .output(BlockSlabTFC.Half.get(tree), 2)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
 
             // Planks -> Stairs
             ModHandler.addShapedRecipe(String.format("wood_stairs_%s", tree),
-                    new ItemStack(BlockStairsTFC.get(tree), 6), "X  ", "XX ", "XXX",
+                    new ItemStack(BlockStairsTFC.get(tree), 8), "X  ", "XX ", "XXX",
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(BlockPlanksTFC.get(tree), 6)
                     .notConsumable(new IntCircuitIngredient(7))
-                    .output(BlockStairsTFC.get(tree), 6)
+                    .output(BlockStairsTFC.get(tree), 8)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -734,14 +859,6 @@ public final class DefaultRecipes
     @SuppressWarnings("ConstantConditions")
     public static void onRegisterChiselRecipeEvent(RegistryEvent.Register<ChiselRecipe> event)
     {
-        // Rock smoothing
-        for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-        {
-            Block rawRock = BlockRockVariant.get(rock, Type.RAW);
-            IBlockState smoothRock = BlockRockVariant.get(rock, Type.SMOOTH).getDefaultState();
-            event.getRegistry().register(new ChiselRecipe(rawRock, smoothRock).setRegistryName("smooth_" + rock.getRegistryName().getPath()));
-        }
-
         // Alabaster smoothing
         for (EnumDyeColor color : EnumDyeColor.values())
         {

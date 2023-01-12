@@ -3,6 +3,6 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "tfc:items/ceramics/earthenware/fired/mold/toolheadjavelin/empty",
-    "layer1": "tfc:items/ceramics/earthenware/fired/mold/toolheadjavelin/pattern"
+    "layer1": "tfc:items/ceramics/clay/fired/mold/toolheadjavelin/pattern"
   }
 }

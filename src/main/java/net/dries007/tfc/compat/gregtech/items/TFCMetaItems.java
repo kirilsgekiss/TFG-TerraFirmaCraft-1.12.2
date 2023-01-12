@@ -28,6 +28,7 @@ public class TFCMetaItems extends StandardMetaItem {
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_JAVELIN;
 
     public static MetaItem<?>.MetaValueItem WOODEN_BUCKET_WITH_SALT;
+    public static MetaItem<?>.MetaValueItem FLUX;
 
     @Override
     public void registerSubItems() {
@@ -47,5 +48,6 @@ public class TFCMetaItems extends StandardMetaItem {
         SHAPE_EXTRUDER_JAVELIN = addItem(13, "shape.extruder.javelin").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.Steel, M * 4)));
 
         WOODEN_BUCKET_WITH_SALT = addItem(14, "wooden.bucket.with.salt").setMaxStackSize(1);
+        FLUX = addItem(15, "flux").addOreDict("dustFlux");
     }
 }

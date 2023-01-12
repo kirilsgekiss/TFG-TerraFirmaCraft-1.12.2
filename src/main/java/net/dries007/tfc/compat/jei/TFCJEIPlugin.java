@@ -17,6 +17,7 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.ToolItems;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
@@ -208,6 +209,7 @@ public final class TFCJEIPlugin implements IModPlugin
                 }
             }
             registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Iron), SCRAPING_UID);
+            registry.addRecipeCatalyst(TFCToolItems.CHISEL.get(Materials.Iron), CHISEL_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.DRYER), DRY_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.STICK_BUNDLE), STICK_BUNDLE_UID);
         }

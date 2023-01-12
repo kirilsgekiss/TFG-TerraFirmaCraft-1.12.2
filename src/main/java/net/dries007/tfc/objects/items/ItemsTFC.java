@@ -365,12 +365,18 @@ public final class ItemsTFC
 
     private static ImmutableList<Item> allSimpleItems;
     private static ImmutableList<ItemArmorTFC> allArmorItems;
+    private static ImmutableList<ItemClayMold> allClayMolds;
+    private static ImmutableList<ItemEarthenwareMold> allEarthenwareMolds;
+    private static ImmutableList<ItemKaoliniteMold> allKaoliniteMolds;
+    private static ImmutableList<ItemStonewareMold> allStonewareMolds;
 
-    public static ImmutableList<Item> getAllSimpleItems()
-    {
-        return allSimpleItems;
-    }
+    public static ImmutableList<Item> getAllSimpleItems() { return allSimpleItems; }
     public static ImmutableList<ItemArmorTFC> getAllArmorItems() { return allArmorItems; }
+    public static ImmutableList<ItemClayMold> getAllClayMolds() { return allClayMolds; }
+    public static ImmutableList<ItemEarthenwareMold> getAllEarthenwareMolds() { return allEarthenwareMolds; }
+    public static ImmutableList<ItemKaoliniteMold> getAllKaoliniteMolds() { return allKaoliniteMolds; };
+    public static ImmutableList<ItemStonewareMold> getAllStonewareMolds() { return allStonewareMolds; };
+
 
     @SuppressWarnings("ConstantConditions")
     @SubscribeEvent
@@ -378,6 +384,11 @@ public final class ItemsTFC
     {
         IForgeRegistry<Item> r = event.getRegistry();
         Builder<Item> simpleItems = ImmutableList.builder();
+
+        Builder<ItemClayMold> clayMolds = ImmutableList.builder();
+        Builder<ItemEarthenwareMold> earthenwareMolds = ImmutableList.builder();
+        Builder<ItemKaoliniteMold> kaoliniteMolds = ImmutableList.builder();
+        Builder<ItemStonewareMold> stonewareMolds = ImmutableList.builder();
 
         simpleItems.add(register(r, "wand", new ItemDebug(), CT_MISC));
         simpleItems.add(register(r, "mortar", new ItemMisc(Size.TINY, Weight.VERY_LIGHT, "mortar"), CT_MISC));
@@ -426,15 +437,6 @@ public final class ItemsTFC
         simpleItems.add(register(r, "stick_bundle", new ItemMisc(Size.VERY_LARGE, Weight.MEDIUM, "log_wood", "stick_bundle"), CT_WOOD));
         simpleItems.add(register(r, "wood_ash", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_WOOD));
 
-        /*
-        for (RockCategory cat : TFCRegistries.ROCK_CATEGORIES.getValuesCollection())
-        {
-            for (Rock.ToolType type : Rock.ToolType.values())
-            {
-                //simpleItems.add(register(r, "stone/" + type.name().toLowerCase() + "/" + cat.getRegistryName().getPath(), type.create(cat), CT_ROCK_ITEMS));
-            }
-        }*/
-
         // METAL
         {
             for (Material material : GregTechAPI.MATERIAL_REGISTRY)
@@ -463,7 +465,7 @@ public final class ItemsTFC
             {
                 if (extendedOrePrefix.isHasMold())
                 {
-                    register(r, "ceramics/clay/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemClayMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY);
+                    clayMolds.add(register(r, "ceramics/clay/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemClayMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
                     simpleItems.add(register(r, "ceramics/clay/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredClayMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
                 }
@@ -501,7 +503,7 @@ public final class ItemsTFC
             {
                 if (extendedOrePrefix.isHasMold())
                 {
-                    register(r, "ceramics/earthenware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemEarthenwareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY);
+                    earthenwareMolds.add(register(r, "ceramics/earthenware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemEarthenwareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
                     simpleItems.add(register(r, "ceramics/earthenware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredEarthenwareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
                 }
@@ -533,7 +535,7 @@ public final class ItemsTFC
             {
                 if (extendedOrePrefix.isHasMold())
                 {
-                    register(r, "ceramics/kaolinite/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemKaoliniteMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY);
+                    kaoliniteMolds.add(register(r, "ceramics/kaolinite/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemKaoliniteMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
                     simpleItems.add(register(r, "ceramics/kaolinite/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredKaoliniteMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
                 }
@@ -565,7 +567,7 @@ public final class ItemsTFC
             {
                 if (extendedOrePrefix.isHasMold())
                 {
-                    register(r, "ceramics/stoneware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemStonewareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY);
+                    stonewareMolds.add(register(r, "ceramics/stoneware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemStonewareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
                     simpleItems.add(register(r, "ceramics/stoneware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredStonewareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
                 }
@@ -728,6 +730,11 @@ public final class ItemsTFC
 
         allSimpleItems = simpleItems.build();
 
+        allClayMolds = clayMolds.build();
+        allEarthenwareMolds = earthenwareMolds.build();
+        allKaoliniteMolds = kaoliniteMolds.build();
+        allStonewareMolds = stonewareMolds.build();
+
         OreDictionaryHelper.init();
     }
 
@@ -746,13 +753,6 @@ public final class ItemsTFC
         {
             event.getRegistry().register(new ItemBlockTorch(Blocks.TORCH).setRegistryName("minecraft", "torch"));
         }
-    }
-
-    public static void init()
-    {/*
-        for (Metal metal : TFCRegistries.METALS.getValuesCollection())
-            if (metal.getToolMetal() != null)
-                metal.getToolMetal().setRepairItem(new ItemStack(ItemMetal.get(metal, Metal.ItemType.SCRAP)));*/
     }
 
     private static void registerPottery(Builder<Item> items, IForgeRegistry<Item> r, String nameUnfired, String nameFired)

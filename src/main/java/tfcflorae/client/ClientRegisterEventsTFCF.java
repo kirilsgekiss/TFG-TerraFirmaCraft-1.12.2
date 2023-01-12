@@ -252,27 +252,7 @@ public class ClientRegisterEventsTFCF
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
             BlocksTFCF.getAllCreepingPlantBlocks().toArray(new BlockCreepingPlantTFCF[0]));*/
 
-        /*
-        for (Item item : ItemsTFCF.getAllCeramicMoldItems())
-        {
-            // Colorize item molds
-            itemColors.registerItemColorHandler((stack, tintIndex) -> {
-                if (tintIndex != 1) return 0xFFFFFF;
 
-                IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-                if (cap != null)
-                {
-                    if (cap instanceof IMaterialHandler)
-                    {
-                        Material material = ((IMaterialHandler) cap).getMaterial();
-                        if (material != null) {
-                            return material.getMaterialRGB();
-                        }
-                    }
-                }
-                return 0xFFFFFF;
-            }, item);
-        }*/
     }
 
     @SideOnly(Side.CLIENT)

@@ -57,7 +57,6 @@ import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
-import tfcflorae.objects.items.ItemsTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -446,22 +445,31 @@ public final class ClientRegisterEvents
             return 0xFFFFFF;
         }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemFood).toArray(Item[]::new));
 
-        // Colorize item molds
-        itemColors.registerItemColorHandler((stack, tintIndex) -> {
-            if (tintIndex != 1) return 0xFFFFFF;
+        // Colorize clay molds
+        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllClayMolds().toArray(new Item[0]));
 
-            IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-            if (cap != null)
-            {
-                if (cap instanceof IMaterialHandler)
-                {
-                    Material material = ((IMaterialHandler) cap).getMaterial();
-                    if (material != null) {
-                        return material.getMaterialRGB();
-                    }
+        // Colorize earthenware molds
+        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllEarthenwareMolds().toArray(new Item[0]));
+
+        // Colorize kaolinite molds
+        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllKaoliniteMolds().toArray(new Item[0]));
+
+        // Colorize stoneware molds
+        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllStonewareMolds().toArray(new Item[0]));
+    }
+
+    private static int getColorForMold(ItemStack stack, int tintIndex) {
+        if (tintIndex != 1) return 0xFFFFFF;
+
+        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+        if (cap != null) {
+            if (cap instanceof IMaterialHandler) {
+                Material material = ((IMaterialHandler) cap).getMaterial();
+                if (material != null) {
+                    return material.getMaterialRGB();
                 }
             }
-            return 0xFFFFFF;
-        }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemClayMold).toArray(Item[]::new));
+        }
+        return 0xFFFFFF;
     }
 }

@@ -5,12 +5,15 @@
 
 package net.dries007.tfc.client.gui.overlay;
 
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.InWorldChiselingBehavior;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -102,12 +105,11 @@ public interface IHighlightHandler
             //noinspection ConstantConditions
             if (lookingAt != null)
             {
-                /*
                 // Handle Chisel first
-                if (event.getPlayer().getHeldItemMainhand().getItem() instanceof ItemMetalChisel)
+                if (event.getPlayer().getHeldItemMainhand().getItem() == TFCToolItems.CHISEL)
                 {
                     // Get the state that the chisel would turn the block into if it clicked
-                    IBlockState newState = ItemMetalChisel.getChiselResultState(player, player.world, lookingAt, traceResult.sideHit, (float) traceResult.hitVec.x - lookingAt.getX(), (float) traceResult.hitVec.y - lookingAt.getY(), (float) traceResult.hitVec.z - lookingAt.getZ());
+                    IBlockState newState = InWorldChiselingBehavior.getChiselResultState(player, player.world, lookingAt, traceResult.sideHit, (float) traceResult.hitVec.x - lookingAt.getX(), (float) traceResult.hitVec.y - lookingAt.getY(), (float) traceResult.hitVec.z - lookingAt.getZ());
                     if (newState != null)
                     {
                         AxisAlignedBB box = IHighlightHandler.getBox(player, lookingAt, event.getPartialTicks()).grow(0.001);
@@ -140,7 +142,7 @@ public interface IHighlightHandler
                         // Cancel drawing this block's bounding box
                         event.setCanceled(true);
                     }
-                }*/
+                }
             }
         }
     }

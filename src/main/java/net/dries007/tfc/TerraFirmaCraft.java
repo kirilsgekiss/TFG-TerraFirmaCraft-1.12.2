@@ -68,7 +68,7 @@ public final class TerraFirmaCraft
     public static final String MOD_ID = "tfc";
     public static final String MOD_NAME = "TerraFirmaCraft: GregTech Edition";
     public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required:forge@[14.23.5.2847,);after:gregtech;after:jei@[4.14.2,)";
+    public static final String DEPENDENCIES = "required:forge@[14.23.5.2847,);after:gregtech[2.5.0-beta,);after:jei@[4.14.2,)";
 
     @Mod.Instance
     private static TerraFirmaCraft INSTANCE = null;
@@ -164,7 +164,6 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        ItemsTFC.init();
         LootTablesTFC.init();
         CapabilityFood.init();
         TFCTriggers.init();

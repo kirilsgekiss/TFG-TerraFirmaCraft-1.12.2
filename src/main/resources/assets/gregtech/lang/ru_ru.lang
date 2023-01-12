@@ -90,3 +90,6 @@ metaitem.shape.extruder.knife.name=Extruder Shape (Оголовье ножа)
 metaitem.shape.extruder.propick.name=Extruder Shape (Оголовье геологической кирки)
 metaitem.shape.extruder.chisel.name=Extruder Shape (Оголовье стамески)
 metaitem.shape.extruder.javelin.name=Extruder Shape (Оголовье копья)
+
+# Поведение
+item.gt.tool.behavior.in_world_chiseling=Обработка блоков в мире (Смотрите рецепты в HEI)

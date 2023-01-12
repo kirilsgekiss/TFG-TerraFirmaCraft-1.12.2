@@ -3,6 +3,6 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "tfc:items/ceramics/stoneware/fired/mold/toolheadhammer/empty",
-    "layer1": "tfc:items/ceramics/stoneware/fired/mold/toolheadhammer/pattern"
+    "layer1": "tfc:items/ceramics/clay/fired/mold/toolheadhammer/pattern"
   }
 }

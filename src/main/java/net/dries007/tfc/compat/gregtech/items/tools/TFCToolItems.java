@@ -8,6 +8,7 @@ import gregtech.api.items.toolitem.*;
 import gregtech.common.items.ToolItems;
 import gregtech.core.sound.GTSoundEvents;
 import net.dries007.tfc.TerraFirmaCraft;
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.InWorldChiselingBehavior;
 
 public final class TFCToolItems {
 
@@ -32,7 +33,7 @@ public final class TFCToolItems {
                 .toolClasses("tuyere"));
 
         CHISEL = ToolItems.register(ItemGTTool.Builder.of(GTValues.MODID, "chisel")
-                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F))
+                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F).behaviors(InWorldChiselingBehavior.INSTANCE))
                 .oreDict("craftingToolChisel")
                 .sound(GTSoundEvents.SOFT_MALLET_TOOL) // todo
                 .toolClasses("chisel"));

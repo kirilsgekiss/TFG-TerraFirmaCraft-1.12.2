@@ -3,6 +3,6 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "tfc:items/ceramics/earthenware/fired/mold/toolheadchisel/empty",
-    "layer1": "tfc:items/ceramic/earthenware/fired/mold/toolheadchisel/pattern"
+    "layer1": "tfc:items/ceramic/clay/fired/mold/toolheadchisel/pattern"
   }
 }
