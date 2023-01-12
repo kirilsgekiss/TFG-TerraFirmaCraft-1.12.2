@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.GTValues.M;
@@ -31,7 +32,7 @@ public class MaterialRecipeHandlerMixin {
      * Disable 2x ingot -> plate recipe generation (@Redirect doesn't working or I am stupid)
      * */
     @Inject(method = "processIngot", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private static void onProcessIngot(OrePrefix ingotPrefix, Material material, IngotProperty property)
+    private static void onProcessIngot(OrePrefix ingotPrefix, Material material, IngotProperty property, CallbackInfo ci)
     {
         if (material.hasFlag(MORTAR_GRINDABLE)) {
             ModHandler.addShapedRecipe(String.format("mortar_grind_%s", material),
@@ -133,6 +134,8 @@ public class MaterialRecipeHandlerMixin {
                 }
             }
         }
+
+        ci.cancel();
     }
 }
 

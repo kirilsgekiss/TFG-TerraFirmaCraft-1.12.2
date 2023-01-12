@@ -210,7 +210,7 @@ public class OreDictionaryHelper
     {
         if (!OreDictionary.doesOreNameExist(name))
         {
-            TFCFlorae.getLog().warn("doesStackMatchOre called with non-existing name. stack: {} name: {}", stack, name);
+            // TFCFlorae.getLog().warn("doesStackMatchOre called with non-existing name. stack: {} name: {}", stack, name);
             return false;
         }
         if (stack.isEmpty()) return false;

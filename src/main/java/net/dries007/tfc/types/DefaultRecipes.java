@@ -33,6 +33,8 @@ import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
+import net.dries007.tfc.objects.items.rock.ItemBrickTFC;
+import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.objects.items.wood.ItemLumberTFC;
 import net.minecraft.block.Block;
@@ -104,6 +106,7 @@ public final class DefaultRecipes
         fixStoneToolsRecipes();
         fixFlintToolsRecipes();
 
+        registerStoneRecipes();
         registerWoodRecipes();
         // registerFruitTreeRecipes();
 
@@ -132,8 +135,43 @@ public final class DefaultRecipes
         GTRecipeHandler.removeRecipesByInputs(MACERATOR_RECIPES, OreDictUnifier.get(TFCOrePrefix.toolHeadJavelin, Materials.Stone));
     }
 
+    public static void registerStoneRecipes()
+    {
+        for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+        {
+            // Rock -> Cobblestone
+            ModHandler.addShapedRecipe(String.format("cobblestone_%s", rock),
+                    new ItemStack(BlockRockVariant.get(rock, Type.COBBLE)), "XX", "XX",
+                    'X', new ItemStack(ItemRock.get(rock))
+            );
+
+            // Rock -> Brick
+            ModHandler.addShapelessRecipe(String.format("brick_%s", rock),
+                    new ItemStack(ItemBrickTFC.get(rock)),
+                    new ItemStack(ItemRock.get(rock)),
+                    TFCToolItems.CHISEL);
+
+            // Raw -> Raw
+            ROCK_BREAKER_RECIPES.recipeBuilder()
+                    .notConsumable(new ItemStack(BlockRockVariant.get(rock, Type.RAW)))
+                    .output(BlockRockVariant.get(rock, Type.RAW))
+                    .duration(32)
+                    .EUt(32)
+                    .buildAndRegister();
+
+            // Raw -> Mossy Raw
+            CHEMICAL_BATH_RECIPES.recipeBuilder()
+                    .input(BlockRockVariant.get(rock, Type.RAW))
+                    .fluidInputs(Materials.Water.getFluid(36))
+                    .output(BlockRockVariant.get(rock, Type.MOSSY_RAW))
+                    .duration(2000)
+                    .EUt(32)
+                    .buildAndRegister();
+        }
+    }
+
     public static void registerWoodRecipes() {
-        for (Tree tree : TFCRegistries.TREES)
+        for (Tree tree : TFCRegistries.TREES.getValuesCollection())
         {
             // Log -> Lumber
             ModHandler.addShapelessRecipe(String.format("lumber_%s", tree),
@@ -179,9 +217,9 @@ public final class DefaultRecipes
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(BlockPlanksTFC.get(tree), 6)
+                    .input(BlockPlanksTFC.get(tree), 3)
                     .notConsumable(new IntCircuitIngredient(6))
-                    .output(BlockSlabTFC.Half.get(tree))
+                    .output(BlockSlabTFC.Half.get(tree), 6)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -195,7 +233,7 @@ public final class DefaultRecipes
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(BlockPlanksTFC.get(tree), 6)
                     .notConsumable(new IntCircuitIngredient(7))
-                    .output(BlockStairsTFC.get(tree))
+                    .output(BlockStairsTFC.get(tree), 6)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -312,8 +350,9 @@ public final class DefaultRecipes
 
             // Workbenches
             ModHandler.addShapedRecipe(String.format("workbench_%s", tree),
-                    new ItemStack(BlockTrapDoorWoodTFC.get(tree)), "XX", "XX",
-                    'X', new ItemStack(BlockPlanksTFC.get(tree))
+                    new ItemStack(BlockWorkbenchTFC.get(tree)), "YY", "XX",
+                    'X', new ItemStack(BlockPlanksTFC.get(tree)),
+                    'Y', new ItemStack(Items.FLINT)
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
