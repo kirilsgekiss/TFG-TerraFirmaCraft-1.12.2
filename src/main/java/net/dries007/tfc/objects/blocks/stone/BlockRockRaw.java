@@ -9,6 +9,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyBool;
@@ -126,12 +127,11 @@ public class BlockRockRaw extends BlockRockVariant
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        // TODO
         super.getDrops(drops, world, pos, state, fortune);
         // Raw rocks drop random gems
         if (RANDOM.nextDouble() < ConfigTFC.General.MISC.stoneGemDropChance)
         {
-            //drops.add(ItemGem.get(Gem.getRandomDropGem(RANDOM), Gem.Grade.randomGrade(RANDOM), 1));
+            drops.add(TFGUtils.getRandomGem());
         }
     }
 
