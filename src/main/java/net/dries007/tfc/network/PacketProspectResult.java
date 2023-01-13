@@ -5,6 +5,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.events.ProspectEvent;
 
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -18,25 +19,15 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketProspectResult implements IMessage
 {
-    @Override
-    public void fromBytes(ByteBuf byteBuf) {
-
-    }
-
-    @Override
-    public void toBytes(ByteBuf byteBuf) {
-
-    }
-    /*
     private BlockPos pos;
-    private Type type;
+    private PropickBehavior.ProspectResult.Type type;
     private ItemStack vein;
 
     @SuppressWarnings("unused")
     @Deprecated
     public PacketProspectResult() {}
 
-    public PacketProspectResult(BlockPos pos, Type type, ItemStack vein)
+    public PacketProspectResult(BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein)
     {
         this.pos = pos;
         this.type = type;
@@ -47,9 +38,9 @@ public class PacketProspectResult implements IMessage
     public void fromBytes(ByteBuf buf)
     {
         pos = BlockPos.fromLong(buf.readLong());
-        type = Type.valueOf(buf.readByte());
+        type = PropickBehavior.ProspectResult.Type.valueOf(buf.readByte());
 
-        if (type != Type.NOTHING)
+        if (type != PropickBehavior.ProspectResult.Type.NOTHING)
         {
             vein = ByteBufUtils.readItemStack(buf);
         }
@@ -61,7 +52,7 @@ public class PacketProspectResult implements IMessage
         buf.writeLong(pos.toLong());
         buf.writeByte(type.ordinal());
 
-        if (type != Type.NOTHING)
+        if (type != PropickBehavior.ProspectResult.Type.NOTHING)
         {
             ByteBufUtils.writeItemStack(buf, vein);
         }
@@ -77,7 +68,7 @@ public class PacketProspectResult implements IMessage
                 if (player != null)
                 {
                     ITextComponent text = new TextComponentTranslation(message.type.translation);
-                    if (message.type != Type.NOTHING)
+                    if (message.type != PropickBehavior.ProspectResult.Type.NOTHING)
                     {
                         text.appendText(" ").appendSibling(new TextComponentTranslation(message.vein.getTranslationKey() + ".name"));
                     }
@@ -89,5 +80,5 @@ public class PacketProspectResult implements IMessage
             });
             return null;
         }
-    }*/
+    }
 }
