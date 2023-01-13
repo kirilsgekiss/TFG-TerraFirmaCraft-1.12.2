@@ -150,10 +150,10 @@ public final class BlocksTFC
     private static ImmutableList<BlockSupport> allSupportBlocks;
     private static ImmutableList<BlockFlowerPotTFC> allFlowerPots;
 
-    private static ImmutableList<BlockFruitTreeSapling> allFruitTreeSaplingBlocks;
-    private static ImmutableList<BlockFruitTreeTrunk> allFruitTreeTrunkBlocks;
-    private static ImmutableList<BlockFruitTreeBranch> allFruitTreeBranchBlocks;
-    private static ImmutableList<BlockFruitTreeLeaves> allFruitTreeLeavesBlocks;
+    private static ImmutableList<BlockFruitTreeSapling> allFruitTreeSaplingBlocks = Helpers.getNull();
+    private static ImmutableList<BlockFruitTreeTrunk> allFruitTreeTrunkBlocks = Helpers.getNull();
+    private static ImmutableList<BlockFruitTreeBranch> allFruitTreeBranchBlocks = Helpers.getNull();
+    private static ImmutableList<BlockFruitTreeLeaves> allFruitTreeLeavesBlocks = Helpers.getNull();
 
     private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
 
@@ -673,8 +673,8 @@ public final class BlocksTFC
             allTrapDoorMetalBlocks = metalTrapdoors.build();
         }
 
+        Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
         {
-            Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
 
             for (Crop crop : Crop.values())
             {
@@ -688,8 +688,8 @@ public final class BlocksTFC
             }*/
         }
 
+        Builder<BlockCropDead> deadCrops = ImmutableList.builder();
         {
-            Builder<BlockCropDead> deadCrops = ImmutableList.builder();
 
             for (Crop crop : Crop.values())
             {

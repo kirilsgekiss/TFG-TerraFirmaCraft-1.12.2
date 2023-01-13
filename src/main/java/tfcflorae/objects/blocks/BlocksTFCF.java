@@ -48,7 +48,6 @@ import tfcflorae.objects.items.food.ItemBlockRot;
 import tfcflorae.objects.items.food.PotionEffectToHave;
 import tfcflorae.objects.items.itemblock.*;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.util.agriculture.CropTFCF;
 import net.dries007.tfc.util.agriculture.FoodDataTFCF;
 import tfcflorae.util.agriculture.SeasonalTrees;
 
@@ -986,26 +985,6 @@ public final class BlocksTFCF
             }
         }
 
-        {
-            Builder<BlockCropTFC> b = ImmutableList.builder();
-
-            for (CropTFCF crop : CropTFCF.values())
-            {
-                cropBlocks.add(register(r, "crop/" + crop.name().toLowerCase(), crop.createGrowingBlock()));
-            }
-        }
-
-        {
-            Builder<BlockCropDead> b = ImmutableList.builder();
-
-            for (CropTFCF crop : CropTFCF.values())
-            {
-                deadCrops.add(register(r, "dead_crop/" + crop.name().toLowerCase(), crop.createDeadBlock()));
-            }
-        }
-
-        allCropBlocks = cropBlocks.build();
-        allDeadCrops = deadCrops.build();
 
         /*for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
         {

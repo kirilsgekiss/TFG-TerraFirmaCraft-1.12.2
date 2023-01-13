@@ -12,10 +12,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.util.agriculture.Crop;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockHardenedClay;
-import net.minecraft.block.BlockStainedHardenedClay;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -56,7 +55,6 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.types.PlantsTFCF;
-import tfcflorae.util.agriculture.CropTFCF;
 
 @ParametersAreNonnullByDefault
 public class BlockPlantTFC extends BlockBush implements IItemSize
@@ -208,11 +206,11 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
                     if (chance == 0)
                     {
                         spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.GINGER, 1 + Constants.RNG.nextInt(2)));
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(CropTFCF.GINGER), Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), Constants.RNG.nextInt(2)));
                     }
                     else if (chance == 1)
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(CropTFCF.GINGER), 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), 1 + Constants.RNG.nextInt(2)));
                     }
                 }
                 else
@@ -220,7 +218,7 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
                     int chance = Constants.RNG.nextInt(2);
                     if (chance == 0)
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(CropTFCF.GINGER), Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), Constants.RNG.nextInt(2)));
                     }
                 }
             }

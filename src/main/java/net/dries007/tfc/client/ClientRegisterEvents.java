@@ -15,6 +15,7 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
+import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.minecraft.block.*;
@@ -65,6 +66,7 @@ import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
+import tfcflorae.objects.blocks.BlocksTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -404,6 +406,9 @@ public final class ClientRegisterEvents
         // Foliage Color
         // todo: do something different for conifers - they should have a different color mapping through the seasons
         IBlockColor foliageColor = GrassColorHandler::computeGrassColor;
+
+        for (BlockCropDead block : BlocksTFC.getAllDeadCropBlocks())
+            blockColors.registerBlockColorHandler((state, world, os, tintIndex) -> 0xCC7400, block);
 
         blockColors.registerBlockColorHandler(grassColor, BlocksTFC.PEAT_GRASS);
         blockColors.registerBlockColorHandler(grassColor, BlocksTFC.getAllBlockRockVariants().stream()

@@ -20,7 +20,6 @@ import net.dries007.tfc.util.agriculture.Crop;
 
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
-import tfcflorae.util.agriculture.CropTFCF;
 
 public class InteractionInjectTFCF
 {
@@ -40,10 +39,6 @@ public class InteractionInjectTFCF
             for (Crop crop : Crop.values())
                 if (itemSeed == ItemSeedsTFC.get(crop))
                     seedCrop = crop;
-            if (seedCrop == null)
-                for(CropTFCF crop : CropTFCF.values())
-                    if (itemSeed == ItemSeedsTFC.get(crop))
-                        seedCrop = crop;
 
             if (seedCrop == null)
             {

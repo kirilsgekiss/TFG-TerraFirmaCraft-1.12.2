@@ -2,6 +2,7 @@ package tfcflorae.client;
 
 import com.google.common.base.Strings;
 
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
@@ -136,9 +137,6 @@ public class ClientRegisterEventsTFCF
 
         for (BlockLogTFCF Logs : BlocksTFCF.getAllNormalTreeLog())
             ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockLogTFCF.PLACED).build());
-
-        for (Block block : BlocksTFCF.getAllCropBlocks())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(WILD).build());
 
         for (BlockFruitDoor door : BlocksTFCF.getAllFruitDoors())
             ModelLoader.setCustomStateMapper(door, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
@@ -288,8 +286,6 @@ public class ClientRegisterEventsTFCF
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllFruitLeaves().toArray(new Block[0]));
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllNormalTreeLeaves().toArray(new Block[0]));
 
-        for (BlockCropDead block : BlocksTFCF.getAllDeadCrops())
-            blockColors.registerBlockColorHandler((state, world, os, tintIndex) -> 0xCC7400, block);
             
         for (Block block : BlocksTFCF.getAllBambooLeaves())
             blockColors.registerBlockColorHandler(foliageColor, block);
