@@ -2,7 +2,6 @@ package tfcflorae.client;
 
 import com.google.common.base.Strings;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
@@ -24,13 +23,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.client.GrassColorHandler;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.groundcover.*;
+import net.dries007.tfc.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
@@ -38,14 +36,12 @@ import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
-import net.dries007.tfc.objects.items.ItemArmorTFC;
 import tfcflorae.objects.items.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.api.stateproperty.StatePropertiesTFC;
 
-import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 @SideOnly(Side.CLIENT)

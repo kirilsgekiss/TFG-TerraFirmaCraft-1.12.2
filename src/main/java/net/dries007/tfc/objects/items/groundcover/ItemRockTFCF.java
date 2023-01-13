@@ -1,7 +1,5 @@
-package tfcflorae.objects.items.groundcover;
+package net.dries007.tfc.objects.items.groundcover;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -15,15 +13,10 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.blocks.groundcover.BlockSurfaceRock;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceRock;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

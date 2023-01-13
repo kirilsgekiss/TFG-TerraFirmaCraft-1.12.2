@@ -2,26 +2,10 @@ package tfcflorae.world.worldgen.cave;
 
 import java.util.*;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.groundcover.BlockLightstone;
-import tfcflorae.types.PlantsTFCF;
-import net.dries007.tfc.Constants;
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGenLightstones implements IWorldGenerator
 {

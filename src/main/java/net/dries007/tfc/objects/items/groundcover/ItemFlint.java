@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.groundcover;
+package net.dries007.tfc.objects.items.groundcover;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -11,21 +11,17 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.blocks.groundcover.BlockTwig;
+import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceFlint;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemTwig extends ItemBlockTFC
+public class ItemFlint extends ItemBlockTFC
 {
-    public ItemTwig(BlockTwig block)
+    public ItemFlint(BlockSurfaceFlint block)
     {
         super(block);
-        OreDictionaryHelper.register(this, "wood");
-        OreDictionaryHelper.register(this, "wood_twig");
-        OreDictionaryHelper.register(this, "twig");
-        OreDictionaryHelper.register(this, "wood_stick");
-        OreDictionaryHelper.register(this, "stick");
+        OreDictionaryHelper.register(this, "flint");
     }
 
     @Nonnull

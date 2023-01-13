@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.groundcover;
+package net.dries007.tfc.objects.items.groundcover;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -11,7 +11,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.blocks.groundcover.BlockSurfaceSeashells;
+import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceSeashells;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault

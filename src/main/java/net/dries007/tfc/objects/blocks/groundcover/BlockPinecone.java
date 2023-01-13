@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.groundcover;
+package net.dries007.tfc.objects.blocks.groundcover;
 
 import java.util.Random;
 
@@ -15,8 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -32,47 +30,22 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockSurfaceBones extends BlockBush
+public class BlockPinecone extends BlockBush
 {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    Item[] drops = {Items.BONE, Items.BONE};
-    int[] chance = {90, 10};
-    int[] amount = {2, 2};
-    int index = 0;
-
-    public BlockSurfaceBones()
+    public BlockPinecone()
     {
-        super(Material.GROUND);
-        setSoundType(SoundType.STONE);
+        super(Material.WOOD);
+        setSoundType(SoundType.WOOD);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "bone");
-        OreDictionaryHelper.register(this, "bones");
-    }
-
-    private Item getWeightedDrop(int chance, int index, int currentNumber)
-    {
-        this.index = index;
-        if(chance <= currentNumber)
-            return drops[index];
-        else
-            return getWeightedDrop(chance, index + 1, currentNumber + this.chance[index + 1]);
+        OreDictionaryHelper.register(this, "pinecone");
     }
 
     @Override
     public int quantityDropped(Random random)
     {
-        int dropAmount = random.nextInt(amount[index]);
-
-        return dropAmount + 1;
-    }
-
-    @Nonnull
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        int chance = rand.nextInt(100) + 1;
-        return getWeightedDrop(chance, 0, this.chance[0]);
+        return 1;
     }
 
     @Override
@@ -197,7 +170,7 @@ public class BlockSurfaceBones extends BlockBush
 
         if (state.getBlock() == this)
         {
-            return (BlocksTFC.isGround(soil) || BlocksTFCF.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil));
+            return (BlocksTFC.isGround(soil) || BlocksTFCF.isGround(soil)) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil));
         }
         return this.canSustainBush(soil);
     }

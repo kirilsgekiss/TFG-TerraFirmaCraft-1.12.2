@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.groundcover;
+package net.dries007.tfc.objects.blocks.groundcover;
 
 import java.util.Random;
 
@@ -15,6 +15,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -28,35 +29,32 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockSurfaceSeashells extends BlockBush
+public class BlockSurfaceBones extends BlockBush
 {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    int[] chance = {38, 5, 38, 5, 5, 5, 3, 1};
-    int[] amount = {2, 1, 2, 1, 1, 1, 1, 1};
+    Item[] drops = {Items.BONE, Items.BONE};
+    int[] chance = {90, 10};
+    int[] amount = {2, 2};
     int index = 0;
 
-    public BlockSurfaceSeashells()
+    public BlockSurfaceBones()
     {
         super(Material.GROUND);
         setSoundType(SoundType.STONE);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "seashell");
-        OreDictionaryHelper.register(this, "seashells");
+        OreDictionaryHelper.register(this, "bone");
+        OreDictionaryHelper.register(this, "bones");
     }
 
     private Item getWeightedDrop(int chance, int index, int currentNumber)
     {
         this.index = index;
         if(chance <= currentNumber)
-        {
-            Item[] drops = {ItemsTFCF.CLAM, ItemsTFCF.LIVE_CLAM, ItemsTFCF.SCALLOP, ItemsTFCF.LIVE_SCALLOP, ItemsTFCF.LIVE_STARFISH, ItemsTFCF.CONCH, ItemsTFCF.PEARL, ItemsTFCF.BLACK_PEARL};
             return drops[index];
-        }
         else
             return getWeightedDrop(chance, index + 1, currentNumber + this.chance[index + 1]);
     }

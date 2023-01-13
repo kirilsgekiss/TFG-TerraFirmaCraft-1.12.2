@@ -17,7 +17,7 @@ import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.groundcover.BlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 
 public class WorldGenStructuresCorals implements IWorldGenerator
 {

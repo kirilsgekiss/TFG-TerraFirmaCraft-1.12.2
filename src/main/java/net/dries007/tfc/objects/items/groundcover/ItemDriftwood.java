@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.groundcover;
+package net.dries007.tfc.objects.items.groundcover;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -11,17 +11,19 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import tfcflorae.objects.blocks.groundcover.BlockPinecone;
+import net.dries007.tfc.objects.blocks.groundcover.BlockDriftwood;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemPinecone extends ItemBlockTFC
+public class ItemDriftwood extends ItemBlockTFC
 {
-    public ItemPinecone(BlockPinecone block)
+    public ItemDriftwood(BlockDriftwood block)
     {
         super(block);
-        OreDictionaryHelper.register(this, "pinecone");
+        OreDictionaryHelper.register(this, "wood");
+        OreDictionaryHelper.register(this, "wood_driftwood");
+        OreDictionaryHelper.register(this, "driftwood");
     }
 
     @Nonnull

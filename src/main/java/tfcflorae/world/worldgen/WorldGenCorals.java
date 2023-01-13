@@ -1,39 +1,27 @@
 package tfcflorae.world.worldgen;
 
-import scala.reflect.internal.Trees.Return;
-
 import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.groundcover.BlockCoral;
-import tfcflorae.objects.blocks.groundcover.BlockCoralBlock;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
 
 @ParametersAreNonnullByDefault
 public class WorldGenCorals implements IWorldGenerator

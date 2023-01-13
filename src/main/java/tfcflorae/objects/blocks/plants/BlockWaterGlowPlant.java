@@ -40,7 +40,7 @@ import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.groundcover.*;
+import net.dries007.tfc.objects.blocks.groundcover.*;
 
 @ParametersAreNonnullByDefault
 public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPlantable

@@ -1,7 +1,6 @@
 package tfcflorae.world.worldgen.groundcover;
 
 import java.util.Random;
-import javax.annotation.Nullable;
 
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -10,13 +9,12 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.groundcover.BlockSurfaceRock;
+import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceRock;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.objects.blocks.BlocksTFCF;
 

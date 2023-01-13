@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.groundcover;
+package net.dries007.tfc.objects.blocks.groundcover;
 
 import java.util.Random;
 
@@ -30,16 +30,20 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockPinecone extends BlockBush
+public class BlockTwig extends BlockBush
 {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    public BlockPinecone()
+    public BlockTwig()
     {
         super(Material.WOOD);
         setSoundType(SoundType.WOOD);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "pinecone");
+        OreDictionaryHelper.register(this, "wood");
+        OreDictionaryHelper.register(this, "wood_twig");
+        OreDictionaryHelper.register(this, "twig");
+        OreDictionaryHelper.register(this, "wood_stick");
+        OreDictionaryHelper.register(this, "stick");
     }
 
     @Override

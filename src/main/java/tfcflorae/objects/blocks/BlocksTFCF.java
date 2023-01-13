@@ -35,7 +35,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.groundcover.*;
+import net.dries007.tfc.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.blocks.wood.*;
