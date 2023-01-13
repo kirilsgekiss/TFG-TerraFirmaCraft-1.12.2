@@ -11,6 +11,7 @@ import net.dries007.tfc.objects.items.*;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.dries007.tfc.util.agriculture.FoodDataTFCF;
+import net.dries007.tfc.util.agriculture.Fruits;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -43,7 +44,6 @@ import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
 import tfcflorae.objects.items.food.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.tools.ItemWalkingStick;
-import tfcflorae.util.agriculture.*;
 import tfcflorae.util.OreDictionaryHelper;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
@@ -1076,9 +1076,9 @@ public final class ItemsTFCF
         return allFruitDoors; 
     }
 
-    private static Map<FruitsTFCF, Item> driedFruits = new HashMap<>();
+    private static Map<Fruits, Item> driedFruits = new HashMap<>();
 
-    public static Item getDriedFruit(FruitsTFCF fruit)
+    public static Item getDriedFruit(Fruits fruit)
     {
         return driedFruits.get(fruit);
     }
@@ -1167,23 +1167,23 @@ public final class ItemsTFCF
         simpleItems.add(register(r, "food/vanilla", new ItemFoodTFCF(FoodDataTFCF.VANILLA, "vanilla", "category_fruit"), CT_FOOD));
         */
 
-        // Normal Tree Fruits
-        simpleItems.add(register(r, "food/baobab_fruit", new ItemFoodTFCF(FoodDataTFCF.BAOBAB_FRUIT, "baobab_fruit", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/barrel_cactus_fruit", new ItemFoodTFCF(FoodDataTFCF.BARREL_CACTUS_FRUIT, "barrel_cactus_fruit", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/hawthorn", new ItemFoodTFCF(FoodDataTFCF.HAWTHORN, "hawthorn", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/juniper", new ItemFoodTFCF(FoodDataTFCF.JUNIPER, "juniper", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/osage_orange", new ItemFoodTFCF(FoodDataTFCF.OSAGE_ORANGE, "osage_orange", "citrus", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/pink_ivory_drupe", new ItemFoodTFCF(FoodDataTFCF.PINK_IVORY_DRUPE, "pink_ivory_drupe", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/riberry", new ItemFoodTFCF(FoodDataTFCF.RIBERRY, "riberry", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/rowan_berry", new ItemFoodTFCF(FoodDataTFCF.ROWAN_BERRY, "rowan_berry", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/sky_fruit", new ItemFoodTFCF(FoodDataTFCF.SKY_FRUIT, "sky_fruit", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/yew_berry", new ItemFoodTFCF(FoodDataTFCF.YEW_BERRY, new PotionEffectToHave(MobEffects.POISON, 610, 1, 3), new PotionEffectToHave(MobEffects.NAUSEA, 610, 1, 1), "yew_berry", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/roasted/yew_berry", new ItemFoodTFCF(FoodDataTFCF.ROASTED_YEW_BERRY, "roasted_yew_berry", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/mulberry", new ItemFoodTFCF(FoodDataTFCF.MULBERRY, "mulberry", "category_fruit"), CT_FOOD));
-        simpleItems.add(register(r, "food/glowberry", new ItemFoodTFCF(FoodDataTFCF.GLOWBERRY, new PotionEffectToHave(MobEffects.GLOWING, 300, 1, 3), new PotionEffectToHave(MobEffects.LUCK, 150, 2, 6), "glowberry", "category_fruit"), CT_FOOD));
+//        // Normal Tree Fruits
+//        simpleItems.add(register(r, "food/baobab_fruit", new ItemFoodTFCF(FoodDataTFCF.BAOBAB_FRUIT, "baobab_fruit", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/barrel_cactus_fruit", new ItemFoodTFCF(FoodDataTFCF.BARREL_CACTUS_FRUIT, "barrel_cactus_fruit", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/hawthorn", new ItemFoodTFCF(FoodDataTFCF.HAWTHORN, "hawthorn", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/juniper", new ItemFoodTFCF(FoodDataTFCF.JUNIPER, "juniper", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/osage_orange", new ItemFoodTFCF(FoodDataTFCF.OSAGE_ORANGE, "osage_orange", "citrus", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/pink_ivory_drupe", new ItemFoodTFCF(FoodDataTFCF.PINK_IVORY_DRUPE, "pink_ivory_drupe", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/riberry", new ItemFoodTFCF(FoodDataTFCF.RIBERRY, "riberry", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/rowan_berry", new ItemFoodTFCF(FoodDataTFCF.ROWAN_BERRY, "rowan_berry", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/sky_fruit", new ItemFoodTFCF(FoodDataTFCF.SKY_FRUIT, "sky_fruit", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/yew_berry", new ItemFoodTFCF(FoodDataTFCF.YEW_BERRY, new PotionEffectToHave(MobEffects.POISON, 610, 1, 3), new PotionEffectToHave(MobEffects.NAUSEA, 610, 1, 1), "yew_berry", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/roasted/yew_berry", new ItemFoodTFCF(FoodDataTFCF.ROASTED_YEW_BERRY, "roasted_yew_berry", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/mulberry", new ItemFoodTFCF(FoodDataTFCF.MULBERRY, "mulberry", "category_fruit"), CT_FOOD));
+//        simpleItems.add(register(r, "food/glowberry", new ItemFoodTFCF(FoodDataTFCF.GLOWBERRY, new PotionEffectToHave(MobEffects.GLOWING, 300, 1, 3), new PotionEffectToHave(MobEffects.LUCK, 150, 2, 6), "glowberry", "category_fruit"), CT_FOOD));
 
         // Dried Berries & Fruits
-        for (FruitsTFCF fruit : FruitsTFCF.values())
+        for (Fruits fruit : Fruits.values())
         {
             if (TFCFlorae.FirmaLifeAdded)
             {

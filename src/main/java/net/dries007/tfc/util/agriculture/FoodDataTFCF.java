@@ -88,22 +88,6 @@ public class FoodDataTFCF
     public static final FoodData PISTACHIO = new FoodData(4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2f);
     */
 
-    // Normal Trees Fruits
-    public static final FoodData BAOBAB_FRUIT = new FoodData(4, 1f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.6f);
-    public static final FoodData BARREL_CACTUS_FRUIT = new FoodData(4, 1f, 0.5f, 0f, 1.2f, 0f, 0f, 0f, 1.7f);
-    public static final FoodData HAWTHORN = new FoodData(4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.8f);
-    public static final FoodData JUNIPER = new FoodData(4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.8f);
-    public static final FoodData OSAGE_ORANGE = new FoodData(4, 10f, 0.5f, 0f, 0.5f, 0f, 0f, 0f, 2.2f);
-    public static final FoodData PINK_IVORY_DRUPE = new FoodData(4, 5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 2.8f);
-    public static final FoodData RIBERRY = new FoodData(4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4.9f);
-    public static final FoodData ROWAN_BERRY = new FoodData(4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4.9f);
-    public static final FoodData SKY_FRUIT = new FoodData(4, 5f, 0.2f, 0f, 0.75f, 0f, 0f, 0f, 2f);
-    public static final FoodData WILD_CHERRY = new FoodData(4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4f);
-    public static final FoodData YEW_BERRY = new FoodData(4, 5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 4.9f);
-    public static final FoodData ROASTED_YEW_BERRY = new FoodData(4, 0f, 2f, 0f, 1.1f, 0f, 0f, 0f, 2.6f);
-    public static final FoodData MULBERRY = new FoodData(4, 4.5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 4.9f);
-    public static final FoodData GLOWBERRY = new FoodData(2, 7.5f, 0.25f, 0f, 1f, 0f, 0f, 0f, 4.9f);
-
     // Normal Trees Nuts
     public static final FoodData ACORN = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
     public static final FoodData BEECHNUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);

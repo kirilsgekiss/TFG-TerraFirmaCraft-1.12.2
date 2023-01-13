@@ -89,7 +89,7 @@ public enum Food
     TOBACCO_LEAF(OTHER,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.8f),
 
 
-
+    // Normal Tree Fruits
     BANANA(FRUIT, 4, 0.2f, 0f, 0f, 0f, 1f, 0f, 0f, 2f),
     CHERRY(FRUIT, 4, 0.2f, 5f, 0f, 0f, 1f, 0f, 0f, 4f),
     GREEN_APPLE(FRUIT, 4, 0.5f, 0f, 0f, 0f, 1f, 0f, 0f, 2.5f, "apple"),
@@ -99,6 +99,28 @@ public enum Food
     PEACH(FRUIT, 4, 0.5f, 10f, 0f, 0f, 0.5f, 0f, 0f, 2.8f),
     PLUM(FRUIT, 4, 0.5f, 5f, 0f, 0f, 0.75f, 0f, 0f, 2.8f),
     RED_APPLE(FRUIT, 4, 0.5f, 0f, 0f, 0f, 1f, 0f, 0f, 1.7f, "apple"),
+    BAOBAB_FRUIT(FRUIT,4, 1f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.6f),
+    BARREL_CACTUS_FRUIT(FRUIT,4, 1f, 0.5f, 0f, 1.2f, 0f, 0f, 0f, 1.7f),
+    HAWTHORN(FRUIT,4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.8f),
+    JUNIPER(FRUIT,4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 1.8f),
+    OSAGE_ORANGE(FRUIT,4, 10f, 0.5f, 0f, 0.5f, 0f, 0f, 0f, 2.2f),
+    PINK_IVORY_DRUPE(FRUIT,4, 5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 2.8f),
+    RIBERRY(FRUIT,4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4.9f),
+    ROWAN_BERRY(FRUIT,4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4.9f),
+    SKY_FRUIT(FRUIT,4, 5f, 0.2f, 0f, 0.75f, 0f, 0f, 0f, 2f),
+    WILD_CHERRY(FRUIT,4, 5f, 0.2f, 0f, 1f, 0f, 0f, 0f, 4f),
+    YEW_BERRY(FRUIT,4, 5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 4.9f),
+    ROASTED_YEW_BERRY(FRUIT,4, 0f, 2f, 0f, 1.1f, 0f, 0f, 0f, 2.6f),
+    MULBERRY(FRUIT,4, 4.5f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 4.9f),
+    GLOWBERRY(FRUIT,2, 7.5f, 0.25f, 0f, 1f, 0f, 0f, 0f, 4.9f),
+
+
+
+
+
+
+
+
     BARLEY_GRAIN(GRAIN, 4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.25f, "grain_barley", "grain"),
     BARLEY_FLOUR(GRAIN, 4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.5f, "flour_barley", "flour"),
     BLACKBERRY(FRUIT, 4, 0.2f, 5f, 0f, 0f, 0.75f, 0f, 0f, 4.9f),
