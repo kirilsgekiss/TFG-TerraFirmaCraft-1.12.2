@@ -9,16 +9,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import mcp.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -42,7 +39,6 @@ import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
-import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.IGrowingPlant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
@@ -56,7 +52,7 @@ import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.util.OreDictionaryHelper;
-import tfcflorae.util.agriculture.SeasonalTrees;
+import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

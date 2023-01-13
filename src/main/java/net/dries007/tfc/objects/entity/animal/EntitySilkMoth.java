@@ -41,7 +41,7 @@ import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.util.agriculture.SeasonalTrees;
+import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;
 

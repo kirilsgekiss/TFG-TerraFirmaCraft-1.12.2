@@ -24,7 +24,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.IFruitTree;
 
 import tfcflorae.util.OreDictionaryHelper;
-import tfcflorae.util.agriculture.SeasonalTrees;
+import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
