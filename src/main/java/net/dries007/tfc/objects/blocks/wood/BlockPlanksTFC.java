@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import gregtech.client.model.IModelSupplier;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -15,6 +16,7 @@ import net.minecraft.init.Blocks;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import net.minecraftforge.client.event.TextureStitchEvent;
 
 public class BlockPlanksTFC extends Block
 {

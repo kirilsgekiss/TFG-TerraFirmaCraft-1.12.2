@@ -52,6 +52,7 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
     private final float maxDensity;
     private final float burnTemp;
     private final int burnTicks;
+    private final int color;
 
     /* This is open to be replaced, i.e. for dynamic trees */
     private ITreeGenerator generator;
@@ -103,6 +104,31 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
         this.canMakeTannin = canMakeTannin;
         this.burnTemp = burnTemp;
         this.burnTicks = burnTicks;
+        this.color = 0xFFFFFF;
+
+        this.generator = generator;
+        setRegistryName(name);
+    }
+
+    public Tree(@Nonnull ResourceLocation name, @Nonnull ITreeGenerator generator, float minTemp, float maxTemp, float minRain, float maxRain, float minDensity, float maxDensity, float dominance, int maxGrowthRadius, int maxHeight, int maxDecayDistance, boolean isConifer, @Nullable ITreeGenerator bushGenerator, boolean canMakeTannin, float minGrowthTime, float burnTemp, int burnTicks, int color)
+    {
+        this.minTemp = minTemp;
+        this.maxTemp = maxTemp;
+        this.minRain = minRain;
+        this.maxRain = maxRain;
+        this.dominance = dominance;
+        this.maxGrowthRadius = maxGrowthRadius;
+        this.maxHeight = maxHeight;
+        this.maxDecayDistance = maxDecayDistance;
+        this.isConifer = isConifer;
+        this.minGrowthTime = minGrowthTime;
+        this.minDensity = minDensity;
+        this.maxDensity = maxDensity;
+        this.bushGenerator = bushGenerator;
+        this.canMakeTannin = canMakeTannin;
+        this.burnTemp = burnTemp;
+        this.burnTicks = burnTicks;
+        this.color = color;
 
         this.generator = generator;
         setRegistryName(name);
@@ -193,6 +219,7 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
     {
         return burnTicks;
     }
+    public int getColor() { return color; }
 
     @SideOnly(Side.CLIENT)
     public void addInfo(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
@@ -236,6 +263,7 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
         private float minGrowthTime;
         private float burnTemp;
         private int burnTicks;
+        private int color;
 
         public Builder(@Nonnull ResourceLocation name, float minRain, float maxRain, float minTemp, float maxTemp, @Nonnull ITreeGenerator gen)
         {
@@ -257,6 +285,7 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
             this.maxDensity = 2f;
             this.burnTemp = 675;
             this.burnTicks = 1500;
+            this.color = 0xFFFFFF;
         }
 
         public Builder setRadius(int maxGrowthRadius)
@@ -327,9 +356,15 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
             return this;
         }
 
+        public Builder setColor(int color)
+        {
+            this.color = color;
+            return this;
+        }
+
         public Tree build()
         {
-            return new Tree(name, gen, minTemp, maxTemp, minRain, maxRain, minDensity, maxDensity, dominance, maxGrowthRadius, maxHeight, maxDecayDistance, isConifer, bushGenerator, canMakeTannin, minGrowthTime, burnTemp, burnTicks);
+            return new Tree(name, gen, minTemp, maxTemp, minRain, maxRain, minDensity, maxDensity, dominance, maxGrowthRadius, maxHeight, maxDecayDistance, isConifer, bushGenerator, canMakeTannin, minGrowthTime, burnTemp, burnTicks, color);
         }
     }
 }

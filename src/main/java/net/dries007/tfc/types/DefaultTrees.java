@@ -201,12 +201,12 @@ public final class DefaultTrees
     public static final ITreeGenerator GEN_TALL_SINGLE = new TreeGenRandom(3, 3, 1);
 
     // Seasonal & Fruit-bearing Trees
-    public static final Tree ASH_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "ash"), 60f, 140f, -6f, 12f, GEN_NORMAL).setBushes().setBurnInfo(696f, 1250).build();
-    public static final Tree ASPEN_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "aspen"), 70f, 280f, -10f, 16f, GEN_ASPEN).setGrowthTime(8).setDensity(0.25f, 1f).setBurnInfo(611f, 1000).build();
-    public static final Tree BIRCH_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "birch"), 20f, 180f, -15f, 7f, GEN_TALL).setRadius(1).setTannin().setBurnInfo(652f, 1750).build();
-    public static final Tree CHESTNUT_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "chestnut"), 160f, 320f, 11f, 35f, GEN_NORMAL).setTannin().setBushes().setBurnInfo(651f, 1500).build();
-    public static final Tree HICKORY_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "hickory"), 80f, 250f, 7f, 29f, GEN_TALL).setGrowthTime(10).setBushes().setTannin().setBurnInfo(762f, 2000).build();
-    public static final Tree MAPLE_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "maple"), 140f, 360f, 3f, 20f, GEN_MEDIUM).setDominance(6.3f).setRadius(1).setTannin().setBurnInfo(745f, 2000).build();
+    public static final Tree ASH_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "ash"), 60f, 140f, -6f, 12f, GEN_NORMAL).setBushes().setBurnInfo(696f, 1250).setColor(0xAE604E).build();
+    public static final Tree ASPEN_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "aspen"), 70f, 280f, -10f, 16f, GEN_ASPEN).setGrowthTime(8).setDensity(0.25f, 1f).setBurnInfo(611f, 1000).setColor(0x373727).build();
+    public static final Tree BIRCH_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "birch"), 20f, 180f, -15f, 7f, GEN_TALL).setRadius(1).setTannin().setBurnInfo(652f, 1750).setColor(0x897658).build();
+    public static final Tree CHESTNUT_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "chestnut"), 160f, 320f, 11f, 35f, GEN_NORMAL).setTannin().setBushes().setBurnInfo(651f, 1500).setColor(0x642C1E).build();
+    public static final Tree HICKORY_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "hickory"), 80f, 250f, 7f, 29f, GEN_TALL).setGrowthTime(10).setBushes().setTannin().setBurnInfo(762f, 2000).setColor(0x4E3418).build();
+    public static final Tree MAPLE_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "maple"), 140f, 360f, 3f, 20f, GEN_MEDIUM).setDominance(6.3f).setRadius(1).setTannin().setBurnInfo(745f, 2000).setColor(0xC3782F).build();
     public static final Tree OAK_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "oak"), 180f, 430f, -8f, 12f, GEN_TALL).setHeight(16).setGrowthTime(10).setBushes().setTannin().setBurnInfo(728f, 2250).build();
     public static final Tree SYCAMORE_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "sycamore"), 120f, 290f, 17f, 33f, GEN_MEDIUM).setGrowthTime(8).setBushes().setDensity(0.25f, 2f).setBurnInfo(653f, 1750).build();
     public static final Tree WHITE_CEDAR_TREE = new Tree.Builder(new ResourceLocation(TerraFirmaCraft.MOD_ID, "white_cedar"), 10f, 240f, -8f, 17f, GEN_TALL_SINGLE).setHeight(16).setBushes().setBurnInfo(625f, 1500).build();

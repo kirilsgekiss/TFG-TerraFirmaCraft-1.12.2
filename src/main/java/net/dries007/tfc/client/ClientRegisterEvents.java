@@ -9,20 +9,28 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
+import gregtech.client.model.SimpleStateMapper;
+import gregtech.common.blocks.BlockOre;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
+import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.minecraft.block.*;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -66,6 +74,27 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
 public final class ClientRegisterEvents
 {
+    public static final IBlockColor planksBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
+            tintIndex == 1 ? ((BlockPlanksTFC) state.getBlock()).wood.getColor() : 0xFFFFFF;
+
+    public static final IItemColor planksItemColors = (stack, tintIndex) ->
+            tintIndex == 1 ? ((BlockPlanksTFC) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
+
+    public static final IItemColor moldItemColors = (stack, tintIndex) -> {
+        if (tintIndex != 1) return 0xFFFFFF;
+
+        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+        if (cap != null) {
+            if (cap instanceof IMaterialHandler) {
+                Material material = ((IMaterialHandler) cap).getMaterial();
+                if (material != null) {
+                    return material.getMaterialRGB();
+                }
+            }
+        }
+        return 0xFFFFFF;
+    };
+
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
     public static void registerModels(ModelRegistryEvent event)
@@ -212,7 +241,22 @@ public final class ClientRegisterEvents
 
         // Item Blocks
         for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
+        {
+            // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
+            if (item.getBlock() instanceof BlockPlanksTFC)
+            {
+                // Change model location for item
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation("tfc:wood/planks/pattern", "normal"));
+
+                // Change model location for block
+                ModelLoader.setCustomStateMapper(item.getBlock(), new SimpleStateMapper(new ModelResourceLocation("tfc:wood/planks/pattern", "normal")));
+            }
+            else
+            {
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
+            }
+        }
+
 
         for (ItemBlock item : BlocksTFC.getAllInventoryItemBlocks())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
@@ -345,6 +389,15 @@ public final class ClientRegisterEvents
     {
         BlockColors blockColors = event.getBlockColors();
 
+        for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
+        {
+            if (item.getBlock() instanceof BlockPlanksTFC)
+            {
+                blockColors.registerBlockColorHandler(planksBlockColors, item.getBlock());
+            }
+        }
+
+
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
 
@@ -400,6 +453,15 @@ public final class ClientRegisterEvents
     {
         ItemColors itemColors = event.getItemColors();
 
+        // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
+        for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
+        {
+            if (item.getBlock() instanceof BlockPlanksTFC)
+            {
+                itemColors.registerItemColorHandler(planksItemColors, item);
+            }
+        }
+
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
                 ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFC[0]));
@@ -446,30 +508,17 @@ public final class ClientRegisterEvents
         }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemFood).toArray(Item[]::new));
 
         // Colorize clay molds
-        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllClayMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllClayMolds().toArray(new Item[0]));
 
         // Colorize earthenware molds
-        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllEarthenwareMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllEarthenwareMolds().toArray(new Item[0]));
 
         // Colorize kaolinite molds
-        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllKaoliniteMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllKaoliniteMolds().toArray(new Item[0]));
 
         // Colorize stoneware molds
-        itemColors.registerItemColorHandler(ClientRegisterEvents::getColorForMold, ItemsTFC.getAllStonewareMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllStonewareMolds().toArray(new Item[0]));
     }
 
-    private static int getColorForMold(ItemStack stack, int tintIndex) {
-        if (tintIndex != 1) return 0xFFFFFF;
 
-        IFluidHandler cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (cap != null) {
-            if (cap instanceof IMaterialHandler) {
-                Material material = ((IMaterialHandler) cap).getMaterial();
-                if (material != null) {
-                    return material.getMaterialRGB();
-                }
-            }
-        }
-        return 0xFFFFFF;
-    }
 }
