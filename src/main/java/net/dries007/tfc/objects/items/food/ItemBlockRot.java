@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.food;
+package net.dries007.tfc.objects.items.food;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

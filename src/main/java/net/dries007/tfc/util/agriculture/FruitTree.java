@@ -23,8 +23,6 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.world.classic.worldgen.WorldGenFruitTrees;
-import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.objects.items.food.ItemFoodTFCF;
 
 public enum FruitTree implements IFruitTree
 {

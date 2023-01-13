@@ -8,6 +8,9 @@ import com.google.common.collect.ImmutableList.Builder;
 
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.*;
+import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
+import net.dries007.tfc.objects.items.food.ItemSandwichTFCF;
+import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.dries007.tfc.util.agriculture.FoodDataTFCF;
@@ -41,7 +44,6 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
-import tfcflorae.objects.items.food.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import tfcflorae.objects.items.tools.ItemWalkingStick;
 import tfcflorae.util.OreDictionaryHelper;

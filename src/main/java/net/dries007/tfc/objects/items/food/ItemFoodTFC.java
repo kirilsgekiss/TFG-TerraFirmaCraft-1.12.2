@@ -5,6 +5,7 @@
 
 package net.dries007.tfc.objects.items.food;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
@@ -27,6 +28,7 @@ import net.dries007.tfc.util.agriculture.Food;
 public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
 {
     private static final Map<Food, ItemFoodTFC> MAP = new HashMap<>();
+    ArrayList<PotionEffectToHave> PotionEffects = new ArrayList<PotionEffectToHave>();
 
     public static ItemFoodTFC get(Food food)
     {
@@ -39,6 +41,7 @@ public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
     }
 
     protected final Food food;
+    public FoodData data;
 
     public ItemFoodTFC(@Nonnull Food food)
     {
@@ -59,6 +62,8 @@ public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
             }
         }
     }
+
+   
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)

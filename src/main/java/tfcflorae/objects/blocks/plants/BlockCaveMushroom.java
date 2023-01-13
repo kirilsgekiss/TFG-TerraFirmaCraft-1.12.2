@@ -50,9 +50,8 @@ import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.plants.BlockCaveMushroom;
-import tfcflorae.objects.items.food.ItemFoodTFCF;
-import tfcflorae.objects.items.food.PotionEffectToHave;
+import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
+import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
