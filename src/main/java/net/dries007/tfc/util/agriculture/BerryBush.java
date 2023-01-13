@@ -13,22 +13,21 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.world.classic.worldgen.WorldGenBerryBushes;
-import tfcflorae.objects.items.ItemsTFCF;
 
 import static net.dries007.tfc.api.types.IBerryBush.Size.*;
 
 public enum BerryBush implements IBerryBush
 {
-    BLACKBERRY(Food.BLACKBERRY, Month.MAY, 4, 7f, 20f, 100f, 400f, 0.8f, LARGE, true),
-    BLUEBERRY(Food.BLUEBERRY, Month.JUNE, 3, 7f, 25f, 100f, 400f, 0.8f, LARGE, false),
+    BLACKBERRY(Food.BLACK_BERRY, Month.MAY, 4, 7f, 20f, 100f, 400f, 0.8f, LARGE, true),
+    BLUEBERRY(Food.BLUE_BERRY, Month.JUNE, 3, 7f, 25f, 100f, 400f, 0.8f, LARGE, false),
     BUNCH_BERRY(Food.BUNCH_BERRY, Month.JUNE, 3, 15f, 30f, 100f, 400f, 0.8f, SMALL, false),
     CLOUD_BERRY(Food.CLOUD_BERRY, Month.JUNE, 2, 3f, 17f, 100f, 400f, 0.8f, MEDIUM, false),
-    CRANBERRY(Food.CRANBERRY, Month.AUGUST, 3, 1f, 19f, 100f, 400f, 0.8f, MEDIUM, false),
-    ELDERBERRY(Food.ELDERBERRY, Month.JULY, 2, 10f, 29f, 100f, 400f, 0.8f, LARGE, false),
-    GOOSEBERRY(Food.GOOSEBERRY, Month.MARCH, 4, 5f, 27f, 100f, 400f, 0.8f, MEDIUM, false),
-    RASPBERRY(Food.RASPBERRY, Month.JUNE, 2, 5f, 20f, 100f, 400f, 0.8f, LARGE, true),
+    CRANBERRY(Food.CRAN_BERRY, Month.AUGUST, 3, 1f, 19f, 100f, 400f, 0.8f, MEDIUM, false),
+    ELDERBERRY(Food.ELDER_BERRY, Month.JULY, 2, 10f, 29f, 100f, 400f, 0.8f, LARGE, false),
+    GOOSEBERRY(Food.GOOSE_BERRY, Month.MARCH, 4, 5f, 27f, 100f, 400f, 0.8f, MEDIUM, false),
+    RASPBERRY(Food.RASP_BERRY, Month.JUNE, 2, 5f, 20f, 100f, 400f, 0.8f, LARGE, true),
     SNOW_BERRY(Food.SNOW_BERRY, Month.JULY, 2, -5f, 18f, 100f, 400f, 0.8f, SMALL, false),
-    STRAWBERRY(Food.STRAWBERRY, Month.MARCH, 3, 5f, 28f, 100f, 400f, 0.8f, SMALL, false),
+    STRAWBERRY(Food.STRAW_BERRY, Month.MARCH, 3, 5f, 28f, 100f, 400f, 0.8f, SMALL, false),
     WINTERGREEN_BERRY(Food.WINTERGREEN_BERRY, Month.AUGUST, 2, -5f, 17f, 100f, 400f, 0.8f, SMALL, false),
     ALLSPICE(Food.ALLSPICE, Month.AUGUST, 2, 0f, 35f, 100f, 400f, 0.8f,LARGE, false),
     CLOVE(Food.CLOVE, Month.AUGUST, 2, 0f, 35f, 100f, 400f, 0.8f, LARGE, false),
