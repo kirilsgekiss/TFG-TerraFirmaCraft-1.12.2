@@ -49,7 +49,7 @@ import tfcflorae.objects.items.food.PotionEffectToHave;
 import tfcflorae.objects.items.itemblock.*;
 import tfcflorae.types.PlantsTFCF;
 import net.dries007.tfc.util.agriculture.FoodDataTFCF;
-import tfcflorae.util.agriculture.SeasonalTrees;
+import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;

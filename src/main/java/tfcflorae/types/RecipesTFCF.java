@@ -12,7 +12,6 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.inventory.ingredient.IngredientFluidItem;
@@ -40,7 +39,7 @@ import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.objects.recipes.StickBundleRecipe;
-import tfcflorae.util.agriculture.SeasonalTrees;
+import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.objects.fluids.FluidsTFC.FRESH_WATER;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
