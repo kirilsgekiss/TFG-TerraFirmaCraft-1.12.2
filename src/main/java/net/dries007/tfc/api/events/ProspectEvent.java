@@ -2,6 +2,7 @@ package net.dries007.tfc.api.events;
 
 
 
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -15,11 +16,9 @@ import net.minecraftforge.fml.relauncher.Side;
  */
 public abstract class ProspectEvent extends Event
 {
-
-    /*
     public static class Server extends ProspectEvent
     {
-        public Server(EntityPlayer player, BlockPos pos, Type type, ItemStack vein)
+        public Server(EntityPlayer player, BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein)
         {
             super(Side.SERVER, player, pos, type, vein);
         }
@@ -27,7 +26,7 @@ public abstract class ProspectEvent extends Event
 
     public static class Client extends ProspectEvent
     {
-        public Client(EntityPlayer player, BlockPos pos, Type type, ItemStack vein)
+        public Client(EntityPlayer player, BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein)
         {
             super(Side.CLIENT, player, pos, type, vein);
         }
@@ -36,10 +35,10 @@ public abstract class ProspectEvent extends Event
     private Side side;
     private EntityPlayer player;
     private BlockPos pos;
-    private Type type;
+    private PropickBehavior.ProspectResult.Type type;
     private ItemStack vein;
 
-    protected ProspectEvent(Side side, EntityPlayer player, BlockPos pos, Type type, ItemStack vein)
+    protected ProspectEvent(Side side, EntityPlayer player, BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein)
     {
         this.side = side;
         this.player = player;
@@ -63,7 +62,7 @@ public abstract class ProspectEvent extends Event
         return pos;
     }
 
-    public Type getResultType()
+    public PropickBehavior.ProspectResult.Type getResultType()
     {
         return type;
     }
@@ -71,5 +70,5 @@ public abstract class ProspectEvent extends Event
     public ItemStack getVein()
     {
         return vein;
-    }*/
+    }
 }

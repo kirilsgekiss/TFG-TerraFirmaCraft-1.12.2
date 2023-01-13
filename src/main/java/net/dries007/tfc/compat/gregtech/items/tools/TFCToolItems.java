@@ -9,6 +9,8 @@ import gregtech.common.items.ToolItems;
 import gregtech.core.sound.GTSoundEvents;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.InWorldChiselingBehavior;
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.JavelinBehavior;
+import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
 
 public final class TFCToolItems {
 
@@ -39,13 +41,13 @@ public final class TFCToolItems {
                 .toolClasses("chisel"));
 
         PROPICK = ToolItems.register(ItemGTTool.Builder.of(GTValues.MODID, "propick")
-                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F))
+                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F).behaviors(PropickBehavior.INSTANCE))
                 .oreDict("craftingToolPropick")
                 .sound(GTSoundEvents.SOFT_MALLET_TOOL) // todo
                 .toolClasses("propick"));
 
         JAVELIN = ToolItems.register(ItemGTTool.Builder.of(GTValues.MODID, "javelin")
-                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F))
+                .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F).behaviors(JavelinBehavior.INSTANCE))
                 .oreDict("craftingToolJavelin")
                 .sound(GTSoundEvents.SOFT_MALLET_TOOL) // todo
                 .toolClasses("javelin"));

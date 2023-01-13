@@ -246,10 +246,10 @@ public final class ClientRegisterEvents
             if (item.getBlock() instanceof BlockPlanksTFC)
             {
                 // Change model location for item
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation("tfc:wood/planks/pattern", "normal"));
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal"));
 
                 // Change model location for block
-                ModelLoader.setCustomStateMapper(item.getBlock(), new SimpleStateMapper(new ModelResourceLocation("tfc:wood/planks/pattern", "normal")));
+                ModelLoader.setCustomStateMapper(item.getBlock(), new SimpleStateMapper(new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal")));
             }
             else
             {

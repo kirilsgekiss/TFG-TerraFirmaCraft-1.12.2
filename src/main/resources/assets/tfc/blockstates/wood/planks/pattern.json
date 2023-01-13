@@ -2,11 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "uvlock": true,
-    "model": "gregtech:overlay_model_all_overlay",
+    "model": "gregtech:tinted_cube_all",
     "textures": {
-      "base": "missingno",
-      "overlay": "tfc:blocks/wood/planks/pattern",
-      "particle": "tfc:blocks/wood/planks/pattern"
+      "all": "tfc:blocks/wood/planks/pattern"
     }
   },
   "variants": {

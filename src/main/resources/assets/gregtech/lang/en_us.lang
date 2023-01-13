@@ -92,5 +92,6 @@ metaitem.shape.extruder.javelin.name=Extruder Shape (Javelin Head)
 
 # Поведение
 item.gt.tool.behavior.in_world_chiseling=In World Chiseling (See HEI for recipes)
+item.gt.tool.behavior.prospecting=Can prospect ores. Radius: %s
 
 
