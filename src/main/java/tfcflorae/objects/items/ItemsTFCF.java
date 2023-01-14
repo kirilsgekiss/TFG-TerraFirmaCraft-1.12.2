@@ -11,6 +11,8 @@ import net.dries007.tfc.objects.items.*;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
 import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
+import net.dries007.tfc.objects.items.wood.ItemFruitBoat;
+import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
 import net.dries007.tfc.types.DefaultTrees;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.agriculture.Fruits;
@@ -930,7 +932,7 @@ public final class ItemsTFCF
             simpleItems.add(register(r, "wood/lumber/" + BlocksTFCF.bamboo[i], bambooLumber, CT_WOOD));
             OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + BlocksTFCF.bamboo[i]), bambooLumber);
             
-            simpleItems.add(register(r, "wood/boat/" + BlocksTFCF.bamboo[i], new ItemBoatTFCF(BlocksTFCF.bambooTrees[i]), CT_WOOD));
+            simpleItems.add(register(r, "wood/boat/" + BlocksTFCF.bamboo[i], new ItemFruitBoat(BlocksTFCF.bambooTrees[i]), CT_WOOD));
         }
 
         /*for (SeasonalTrees fruitTree : SeasonalTrees.values())
@@ -969,7 +971,7 @@ public final class ItemsTFCF
             simpleItems.add(register(r, "wood/fruit_tree/lumber/" + name, lumber, CT_WOOD));
             OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + name.substring(0,1).toLowerCase() + name.substring(1).toLowerCase()), lumber);
 
-            simpleItems.add(register(r, "wood/fruit_tree/boat/" + name, new ItemBoatTFCF(fruitTree), CT_WOOD));
+            simpleItems.add(register(r, "wood/fruit_tree/boat/" + name, new ItemFruitBoat(fruitTree), CT_WOOD));
         }
 
         for (BlockFruitDoor blockDoor : BlocksTFCF.getAllFruitDoors())

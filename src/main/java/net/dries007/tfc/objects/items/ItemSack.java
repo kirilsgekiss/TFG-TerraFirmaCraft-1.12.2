@@ -1,4 +1,4 @@
-package tfcflorae.objects.items;
+package net.dries007.tfc.objects.items;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,12 +28,13 @@ import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
+import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class ItemBag extends ItemTFCF
+public class ItemSack extends ItemTFCF
 {
-    public ItemBag(Object... oreNameParts) 
+    public ItemSack(Object... oreNameParts) 
     {
         for (Object obj : oreNameParts)
         {
@@ -51,7 +52,7 @@ public class ItemBag extends ItemTFCF
         ItemStack stack = playerIn.getHeldItem(handIn);
         if (!worldIn.isRemote && !playerIn.isSneaking())
         {
-            TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.BAG);
+            TFCGuiHandler.openGui(worldIn, playerIn, TFCGuiHandler.Type.SACK);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
@@ -95,7 +96,7 @@ public class ItemBag extends ItemTFCF
     @Override
     public Size getSize(ItemStack stack)
     {
-        return Size.LARGE; // Can't be stored in itself
+        return Size.HUGE; // Can't be stored in itself
     }
 
     @Nonnull
@@ -109,15 +110,15 @@ public class ItemBag extends ItemTFCF
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt)
     {
-        return new BagCapability(nbt);
+        return new SackCapability(nbt);
     }
 
     // Extends ItemStackHandler for ease of use. Duplicates most of ItemHeatHandler functionality
-    public class BagCapability extends ItemStackHandler implements ICapabilityProvider, ISlotCallback
+    public class SackCapability extends ItemStackHandler implements ICapabilityProvider, ISlotCallback
     {
-        BagCapability(@Nullable NBTTagCompound nbt)
+        SackCapability(@Nullable NBTTagCompound nbt)
         {
-            super(8);
+            super(4);
 
             if (nbt != null)
             {
@@ -139,10 +140,29 @@ public class ItemBag extends ItemTFCF
             return hasCapability(capability, facing) ? (T) this : null;
         }
 
+        @Override
+        public void setStackInSlot(int slot, @Nonnull ItemStack stack)
+        {
+            IFood cap = stack.getCapability(CapabilityFood.CAPABILITY, null);
+            if (cap != null)
+            {
+                CapabilityFood.applyTrait(cap, FoodTrait.PRESERVED);
+            }
+            super.setStackInSlot(slot, stack);
+        }
+
         @Nonnull
         @Override
         public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
         {
+            if (!simulate)
+            {
+                IFood cap = stack.getCapability(CapabilityFood.CAPABILITY, null);
+                if (cap != null)
+                {
+                    CapabilityFood.applyTrait(cap, FoodTrait.PRESERVED);
+                }
+            }
             return super.insertItem(slot, stack, simulate);
         }
 
@@ -150,7 +170,13 @@ public class ItemBag extends ItemTFCF
         @Nonnull
         public ItemStack extractItem(int slot, int amount, boolean simulate)
         {
-            return super.extractItem(slot, amount, simulate).copy();
+            ItemStack stack = super.extractItem(slot, amount, simulate).copy();
+            IFood cap = stack.getCapability(CapabilityFood.CAPABILITY, null);
+            if (cap != null)
+            {
+                CapabilityFood.removeTrait(cap, FoodTrait.PRESERVED);
+            }
+            return stack;
         }
 
         @Override
@@ -159,7 +185,7 @@ public class ItemBag extends ItemTFCF
             IItemSize size = CapabilityItemSize.getIItemSize(stack);
             if (size != null)
             {
-                return size.getSize(stack).isSmallerThan(Size.LARGE);
+                return size.getSize(stack).isSmallerThan(Size.HUGE);
             }
             return false;
         }

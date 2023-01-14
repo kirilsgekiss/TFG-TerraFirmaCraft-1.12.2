@@ -23,7 +23,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemBoatTFCF;
+import net.dries007.tfc.objects.items.wood.ItemFruitBoat;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -116,12 +116,12 @@ public class EntityBoatFruitTFC extends EntityBoat
         IFruitTree wood = getWood();
         if (wood != null)
         {
-            return ItemBoatTFCF.get(wood);
+            return ItemFruitBoat.get(wood);
         }
         Tree tree = getTree();
         if (tree != null)
         {
-            return ItemBoatTFCF.get(tree);
+            return ItemFruitBoat.get(tree);
         }
         return super.getItemBoat();
     }

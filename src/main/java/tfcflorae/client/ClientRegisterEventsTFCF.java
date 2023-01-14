@@ -36,7 +36,7 @@ import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
 import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;
 import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
-import tfcflorae.objects.items.ItemFruitDoor;
+import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;

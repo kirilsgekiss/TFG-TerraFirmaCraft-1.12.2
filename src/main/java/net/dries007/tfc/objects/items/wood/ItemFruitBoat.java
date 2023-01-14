@@ -1,4 +1,4 @@
-package tfcflorae.objects.items;
+package net.dries007.tfc.objects.items.wood;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,20 +29,21 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
+import tfcflorae.objects.items.ItemTFCF;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemBoatTFCF extends ItemTFCF
+public class ItemFruitBoat extends ItemTFCF
 {
-    private static final Map<IFruitTree, ItemBoatTFCF> MAP = new HashMap<>();
-    private static final Map<Tree, ItemBoatTFCF> MAP_TREE = new HashMap<>();
+    private static final Map<IFruitTree, ItemFruitBoat> MAP = new HashMap<>();
+    private static final Map<Tree, ItemFruitBoat> MAP_TREE = new HashMap<>();
 
-    public static ItemBoatTFCF get(IFruitTree wood)
+    public static ItemFruitBoat get(IFruitTree wood)
     {
         return MAP.get(wood);
     }
     
-    public static ItemBoatTFCF get(Tree tree)
+    public static ItemFruitBoat get(Tree tree)
     {
         return MAP_TREE.get(tree);
     }
@@ -50,14 +51,14 @@ public class ItemBoatTFCF extends ItemTFCF
     private final IFruitTree wood;
     private final Tree tree;
 
-    public ItemBoatTFCF(IFruitTree wood)
+    public ItemFruitBoat(IFruitTree wood)
     {
         this.wood = wood;
         this.tree = null;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
     }
     
-    public ItemBoatTFCF(Tree tree)
+    public ItemFruitBoat(Tree tree)
     {
         this.tree = tree;
         this.wood = null;
