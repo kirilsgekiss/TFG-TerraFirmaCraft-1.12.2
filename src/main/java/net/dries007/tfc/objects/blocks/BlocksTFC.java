@@ -582,7 +582,7 @@ public final class BlocksTFC
 
             allBarrelItemBlocks = barrelItems.build();
 
-            //logs are special
+            // logs are special
             allLeafBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allFenceGateBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
 
