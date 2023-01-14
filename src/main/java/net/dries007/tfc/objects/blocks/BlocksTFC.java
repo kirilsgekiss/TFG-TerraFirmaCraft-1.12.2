@@ -35,7 +35,7 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockCrate;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrn;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrnLoot;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
@@ -747,12 +747,12 @@ public final class BlocksTFC
                         plant.getPlantType() != Plant.PlantType.WATER_SEA ||
                         plant.getPlantType() != Plant.PlantType.TALL_WATER ||
                         plant.getPlantType() != Plant.PlantType.TALL_WATER_SEA ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) ||
-                        plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS))
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) ||
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA) ||
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE) ||
+                        plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SAGUARO_CACTUS))
                 {
                     if (plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
                         b.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));

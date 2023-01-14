@@ -24,7 +24,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.ConfigTFCF;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 
 @ParametersAreNonnullByDefault
 public class WorldGeneratorPlants implements IWorldGenerator
@@ -150,7 +150,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case WATER_SEA:
                         {
-                            if (floraDensity >= 0.2f && floraDensity <= 0.6f && (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.RED_ALGAE) || plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.RED_SEA_WHIP) || plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SEA_ANEMONE)))
+                            if (floraDensity >= 0.2f && floraDensity <= 0.6f && (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.RED_ALGAE) || plant == TFCRegistries.PLANTS.getValue(DefaultPlants.RED_SEA_WHIP) || plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SEA_ANEMONE)))
                             {
                                 for (int i = rng.nextInt(Math.round(waterSeaCount / floraDiversity)); i < floraDensity * waterSeaAlgaeCountConfig; i++)
                                 {
@@ -162,7 +162,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            else if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.RED_ALGAE) || plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.RED_SEA_WHIP) || plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SEA_ANEMONE))
+                            else if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.RED_ALGAE) || plant != TFCRegistries.PLANTS.getValue(DefaultPlants.RED_SEA_WHIP) || plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SEA_ANEMONE))
                             {
                                 for (int i = rng.nextInt(Math.round(waterSeaCount / floraDiversity)); i < (5 + floraDensity) * waterSeaCountConfig; i++)
                                 {
@@ -178,7 +178,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case TALL_WATER_SEA:
                         {
-                            if (floraDensity >= 0.2f && plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SEAGRASS))
+                            if (floraDensity >= 0.2f && plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SEAGRASS))
                             {
                                 for (int i = rng.nextInt(Math.round(waterSeaCount / floraDiversity)); i < (5 + floraDensity) * waterTallSeaCountConfig; i++)
                                 {
@@ -190,7 +190,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SEAGRASS))
+                            else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SEAGRASS))
                             {
                                 for (int i = rng.nextInt(Math.round(waterSeaCount / floraDiversity)); i < (5 + floraDensity) * waterSeaCountConfig; i++)
                                 {
@@ -206,7 +206,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case EPIPHYTE:
                         {
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.MONSTERA_EPIPHYTE))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MONSTERA_EPIPHYTE))
                             {
                                 for (float i = rng.nextInt(Math.round(epiphyteCount / floraDiversity)); i < (5 + floraDensity + floraDiversity) * epiphyteCountConfig; i++)
                                 {
@@ -225,9 +225,9 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case HANGING:
                         {
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) || 
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) || 
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE) || 
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA))
                             {
                                 for (float i = rng.nextInt(Math.round((hangingCount + floraDensity) / floraDiversity)); i < (3 + floraDensity + floraDiversity) * hangingCountConfig; i++)
                                 {
@@ -242,7 +242,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) && (b == BiomesTFC.SWAMPLAND || b == BiomesTFC.LAKE || b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
+                            else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) && (b == BiomesTFC.SWAMPLAND || b == BiomesTFC.LAKE || b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
                             {
                                 for (float i = rng.nextInt(Math.round(hangingCount / floraDiversity)); i < (2 + floraDensity) * beardedMossConfig; i++)
                                 {
@@ -273,12 +273,12 @@ public class WorldGeneratorPlants implements IWorldGenerator
                             if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.FOXGLOVE) ||
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.ROSE) ||
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAPPHIRE_TOWER) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HYDRANGEA) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LILAC) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.PEONY) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SUNFLOWER) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HIBISCUS) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.MARIGOLD))
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HYDRANGEA) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LILAC) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.PEONY) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SUNFLOWER) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HIBISCUS) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MARIGOLD))
                             {
                                 for (float i = rng.nextInt(Math.round((tallCount + 2) / floraDiversity)); i < (2 + floraDensity + floraDiversity) * tallCountConfig; i++)
                                 {
@@ -297,7 +297,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case DRY:
                         {
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.CHAPARRAL_SHRUB))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.CHAPARRAL_SHRUB))
                             {
                                 for (float i = rng.nextInt(Math.round((dryCount + 8) / floraDiversity)); i < (3 + floraDensity) * tallGrassCountConfig; i++)
                                 {
@@ -358,15 +358,15 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TULIP_PINK) ||
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TULIP_RED) ||
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TULIP_WHITE) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.CHAMOMILE) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LAVANDULA) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LILY_OF_THE_VALLEY) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.ANTHURIUM) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BLUE_GINGER) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.DESERT_FLAME) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HELICONIA) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.KANGAROO_PAW) ||
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SILVER_SPURFLOWER))
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.CHAMOMILE) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LAVANDULA) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LILY_OF_THE_VALLEY) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.ANTHURIUM) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BLUE_GINGER) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.DESERT_FLAME) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HELICONIA) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.KANGAROO_PAW) ||
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SILVER_SPURFLOWER))
                             {
                                 for (float i = rng.nextInt(Math.round(standardCount / floraDiversity)); i < (3 + floraDensity + floraDiversity) * standardCountConfig; i++)
                                 {
@@ -398,9 +398,9 @@ public class WorldGeneratorPlants implements IWorldGenerator
                     {
                         case SHORT_GRASS:
                         {
-                            /*if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) || 
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) || 
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            /*if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY) || 
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE) || 
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                             {*/
                                 for (int i = rng.nextInt(Math.round(grassCount / floraDiversity)); i < (5 + floraDensity) * grassCountConfig; i++)
                                 {
@@ -436,9 +436,9 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             /*}
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) || 
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) || 
-                                plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY) || 
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE) || 
+                                plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                             {
                                 if (floraDensity <= Math.abs(0.2f - (rng.nextGaussian() / 20)) && b == BiomesTFC.FIELDS)
                                 {
@@ -469,7 +469,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                         }
                         case TALL_GRASS:
                         {
-                            if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS))
+                            if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS))
                             {
                                 for (int i = rng.nextInt(Math.round((tallGrassCount + 8) / floraDiversity)); i < (3 + floraDensity) * tallGrassCountConfig; i++)
                                 {
@@ -496,7 +496,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS) && b == BiomesTFC.MARSH)
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && b == BiomesTFC.MARSH)
                             {
                                 for (int k = rng.nextInt(Math.round(grassCount / floraDiversity)); k < (5 + floraDensity) * grassCountConfig; k++)
                                 {
@@ -508,7 +508,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS) && (b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && (b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE))
                             {
                                 for (int k = rng.nextInt(Math.round(grassCount / floraDiversity)); k < (3 + floraDensity) * tallGrassCountConfig; k++)
                                 {

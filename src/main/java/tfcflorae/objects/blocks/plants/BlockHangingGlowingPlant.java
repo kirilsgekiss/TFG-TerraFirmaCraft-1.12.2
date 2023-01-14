@@ -45,7 +45,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.items.ItemsTFCF;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -73,7 +73,7 @@ public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowa
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
     {
-        if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) && state.getValue(AGE) >= 3)
+        if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) && state.getValue(AGE) >= 3)
             return 14;
         else
             return 0;
@@ -320,7 +320,7 @@ public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowa
         {
             SimpleSkill skill = CapabilityPlayerData.getSkill(playerIn, SkillType.AGRICULTURE);
 
-            if (skill != null && worldIn.getBlockState(pos).getValue(AGE) >= 3 && plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE))
+            if (skill != null && worldIn.getBlockState(pos).getValue(AGE) >= 3 && plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
             {
                 if (!worldIn.isRemote)
                 {

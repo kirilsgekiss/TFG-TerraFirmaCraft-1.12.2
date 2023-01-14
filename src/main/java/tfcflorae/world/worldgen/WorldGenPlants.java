@@ -17,7 +17,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.*;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 
 @ParametersAreNonnullByDefault
 public class WorldGenPlants extends WorldGenerator
@@ -35,10 +35,10 @@ public class WorldGenPlants extends WorldGenerator
         {
             case HANGING:
             {
-                if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA))
+                if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA))
                 {
                     BlockHangingPlantTFCF plantBlock = BlockHangingPlantTFCF.get(plant);
                     IBlockState state = plantBlock.getDefaultState();
@@ -135,7 +135,7 @@ public class WorldGenPlants extends WorldGenerator
             }
             case TALL_GRASS:
             {
-                if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS))
+                if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS))
                 {
                     BlockTallGrassTFC plantBlock = BlockTallGrassTFC.get(plant);
                     IBlockState state = plantBlock.getDefaultState();
@@ -159,7 +159,7 @@ public class WorldGenPlants extends WorldGenerator
                         }
                     }
                 }
-                if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS))
+                if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS))
                 {
                     BlockTallGrassWater plantBlock = BlockTallGrassWater.get(plant);
                     IBlockState state = plantBlock.getDefaultState();

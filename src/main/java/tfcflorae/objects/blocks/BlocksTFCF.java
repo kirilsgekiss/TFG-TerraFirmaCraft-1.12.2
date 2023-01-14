@@ -47,7 +47,7 @@ import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
@@ -889,13 +889,13 @@ public final class BlocksTFCF
                     plantWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallWaterPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.HANGING && (
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE)))
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE)))
                 {
-                    if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE))
+                    if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
                     {
                         plantHangingGlowingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockHangingGlowingPlant(plant), CT_FLORA));
                         plantHangingGlowingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingGlowingCreepingPlant(plant), CT_FLORA));
@@ -907,9 +907,9 @@ public final class BlocksTFCF
                     }
                 }
                 else if (plant.getPlantType() == Plant.PlantType.CREEPING && (
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.TACKWEED) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.TAKAKIA) || 
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.IVY) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TACKWEED) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TAKAKIA) || 
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.IVY) || 
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MORNING_GLORY) || 
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MOSS) || 
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.REINDEER_LICHEN)))
@@ -917,12 +917,12 @@ public final class BlocksTFCF
                     plantCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockCreepingPlantTFCF(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.TALL_GRASS && (
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS)))
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS)))
                 {
                     plantTallGrassWaterBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockTallGrassWater(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.CACTUS && (
-                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS)))
+                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAGUARO_CACTUS)))
                 {
                     plantSaguaroCactusBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockSaguaroCactus(plant), CT_FLORA));
                 }

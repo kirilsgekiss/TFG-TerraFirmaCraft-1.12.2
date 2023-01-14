@@ -151,7 +151,7 @@ public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, 
             {
                 for (int i = 1; worldIn.getBlockState(pos.up(i)).getBlock() == this; ++i)
                 {
-                    /*if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY))
+                    /*if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY))
                     {
                         if (age == 3 && (currentStage == 1 || expectedStage == 1))
                         {
@@ -171,7 +171,7 @@ public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, 
                             }
                         }
                     }
-                    else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                    else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                     {
                         if (age == 3 && (currentStage == 1 || expectedStage == 1))
                         {
@@ -191,7 +191,7 @@ public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, 
                             }
                         }
                     }
-                    else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE))
+                    else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE))
                     {
                         if (age == 3 && (currentStage == 1 || expectedStage == 1))
                         {

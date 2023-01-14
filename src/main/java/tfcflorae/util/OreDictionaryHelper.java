@@ -23,7 +23,7 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.api.types.Rock.Type;
 
 public class OreDictionaryHelper 
@@ -106,8 +106,8 @@ public class OreDictionaryHelper
         OreDictionary.registerOre("baleSisalFiber", new ItemStack(BlocksTFCF.SISAL_FIBER_BALE));
         OreDictionary.registerOre("baleYucca", new ItemStack(BlocksTFCF.YUCCA_BALE));
         OreDictionary.registerOre("baleYuccaFiber", new ItemStack(BlocksTFCF.YUCCA_FIBER_BALE));
-        OreDictionary.registerOre("glue", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(PlantsTFCF.RESIN))));
-        OreDictionary.registerOre("slimeball", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(PlantsTFCF.RESIN))));
+        OreDictionary.registerOre("glue", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("slimeball", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
 
         // Flint
         OreDictionary.registerOre("flint", new ItemStack(Items.FLINT));

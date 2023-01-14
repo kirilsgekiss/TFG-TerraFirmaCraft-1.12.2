@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.plants.BlockTallGrassWater;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -111,7 +111,7 @@ public class WorldGenWildCrops implements IWorldGenerator
                 if (crop == Crop.RICE)
                 {
                     // Can't be arsed to make this any different. If it works, it works, hurray for that.
-                    Plant plant = TFCRegistries.PLANTS.getValue(PlantsTFCF.SAWGRASS);
+                    Plant plant = TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS);
                     BlockTallGrassWater plantBlock = BlockTallGrassWater.get(plant);
                     IBlockState state = plantBlock.getDefaultState();
                     IBlockState water = plant.getWaterType();

@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import tfcflorae.ConfigTFCF;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
@@ -91,11 +91,11 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                             case 0:
                             {
                                 if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.LIANA)))
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA)))
                                 {
                                     int y1 = rng.nextInt((WorldTypeTFC.SEALEVEL - 5) - WorldTypeTFC.ROCKLAYER2) + WorldTypeTFC.ROCKLAYER2;
                                     BlockPos chunkBlockPos = new BlockPos(chunkX << 4, y1, chunkZ << 4);
@@ -116,10 +116,10 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                             case 1:
                             {
                                 if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.BEARDED_MOSS) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.HANGING_VINE) || 
-                                    plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.JUNGLE_VINE)))
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
+                                    plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE)))
                                 {
                                     int y1 = rng.nextInt((WorldTypeTFC.SEALEVEL - 5) - WorldTypeTFC.ROCKLAYER2) + WorldTypeTFC.ROCKLAYER2;
                                     BlockPos chunkBlockPos = new BlockPos(chunkX << 4, y1, chunkZ << 4);
@@ -144,9 +144,9 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                     case CREEPING:
                     {
                         if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
-                            plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.TACKWEED) || 
-                            plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.TAKAKIA) || 
-                            plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.IVY) || 
+                            plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TACKWEED) || 
+                            plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TAKAKIA) || 
+                            plant == TFCRegistries.PLANTS.getValue(DefaultPlants.IVY) || 
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MORNING_GLORY) || 
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MOSS) || 
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.REINDEER_LICHEN)))

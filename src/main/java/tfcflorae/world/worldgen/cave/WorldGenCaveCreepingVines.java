@@ -17,7 +17,7 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.*;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 
 @ParametersAreNonnullByDefault
 public class WorldGenCaveCreepingVines extends WorldGenerator
@@ -32,7 +32,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
 	@Override
     public boolean generate(World worldIn, Random rng, BlockPos pos)
     {
-        if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.GLOW_VINE))
+        if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
         {
             BlockHangingGlowingCreepingPlant plantBlock = BlockHangingGlowingCreepingPlant.get(plant);
             IBlockState state = plantBlock.getDefaultState();

@@ -19,7 +19,7 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import net.dries007.tfc.types.PlantsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -182,7 +182,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
         {
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
-                if (plant.getPlantType() == Plant.PlantType.CACTUS && plant.isValidTempForWorldGen(avgTemperature) && plant.isValidRain(rainfall) && plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SAGUARO_CACTUS))
+                if (plant.getPlantType() == Plant.PlantType.CACTUS && plant.isValidTempForWorldGen(avgTemperature) && plant.isValidRain(rainfall) && plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SAGUARO_CACTUS))
                 {
                     plantGen.setGeneratedPlant(plant);
 
@@ -322,7 +322,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                         /*
                         case EPIPHYTE:
                         {
-                            if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.SPORE_BLOSSOM))
+                            if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.SPORE_BLOSSOM))
                             {
                                 for (float i = rng.nextInt(Math.round(epiphyteCount / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                                 {
@@ -418,7 +418,7 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                         case DRY:
                         case DRY_TALL_PLANT:
                         {
-                            if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.CHAPARRAL_SHRUB) && (b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
+                            if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.CHAPARRAL_SHRUB) && (b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
                             {
                                 for (float i = rng.nextInt(Math.round((dryCount + 16) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                                 {
@@ -447,9 +447,9 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                     {
                         case SHORT_GRASS:
                         {
-                            /*if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) ||
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) ||
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            /*if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY) ||
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE) ||
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                             {*/
                             for (int i = rng.nextInt(Math.round(grassCount / floraDiversity)); i < (3 + floraDensity) * 5; i++)
                             {
@@ -465,9 +465,9 @@ public class BiomeDecoratorTFC extends BiomeDecorator
                         }
                         case TALL_GRASS:
                         {
-                            /*if (plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY) ||
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE) ||
-                                plant != TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                            /*if (plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY) ||
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE) ||
+                                plant != TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                             {*/
                             for (int i = rng.nextInt(Math.round((tallGrassCount + 8) / floraDiversity)); i < (1 + floraDensity) * 5; i++)
                             {

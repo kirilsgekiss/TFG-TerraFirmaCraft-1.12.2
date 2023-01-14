@@ -64,7 +64,7 @@ public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable
         {
             if (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1)
             {
-                /*if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_BARLEY))
+                /*if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_BARLEY))
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {
@@ -84,7 +84,7 @@ public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable
                         }
                     }
                 }
-                else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_WHEAT))
+                else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_WHEAT))
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {
@@ -104,7 +104,7 @@ public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable
                         }
                     }
                 }
-                else if (plant == TFCRegistries.PLANTS.getValue(PlantsTFCF.WILD_RICE))
+                else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.WILD_RICE))
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {

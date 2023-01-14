@@ -539,7 +539,7 @@ public final class RecipesTFCF
             }
         }*/
     }
-    
+
 
     @SubscribeEvent
     public static void onRegisterKnappingRecipeEvent(RegistryEvent.Register<KnappingRecipe> event)
@@ -818,7 +818,7 @@ public final class RecipesTFCF
 
                 // Mushrooms
                 new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini_specific"),
-                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(PlantsTFCF.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita_specific"),
+                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita_specific"),
                 new HeatRecipeSimple(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini"),
                 new HeatRecipeSimple(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita"),
                 new HeatRecipeSimple(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFCF.ROASTED_BLACK_POWDERPUFF), 200, 480).setRegistryName("roasted_black_powderpuff"),
@@ -1232,7 +1232,7 @@ public final class RecipesTFCF
                     new OvenRecipe(IIngredient.of("epiphyteSulphurShelf"), new ItemStack(ItemsTFCF.ROASTED_SULPHUR_SHELF), 2 * hour).setRegistryName("roasted_sulphur_shelf_oven"),
                     new OvenRecipe(IIngredient.of("epiphyteTurkeyTail"), new ItemStack(ItemsTFCF.ROASTED_TURKEY_TAIL), 2 * hour).setRegistryName("roasted_turkey_tail_oven"),
                     new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven_specific"),
-                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(PlantsTFCF.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven_specific"),
+                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven_specific"),
                     new OvenRecipe(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven"),
                     new OvenRecipe(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven"),
                     new OvenRecipe(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFCF.ROASTED_BLACK_POWDERPUFF), 2 * hour).setRegistryName("roasted_black_powderpuff_oven"),
