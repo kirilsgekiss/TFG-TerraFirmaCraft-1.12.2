@@ -41,9 +41,7 @@ import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
 import net.dries007.tfc.command.*;
 import net.dries007.tfc.network.*;
 import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.advancements.TFCTriggers;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.proxy.IProxy;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.fuel.FuelManager;
@@ -166,7 +164,6 @@ public final class TerraFirmaCraft
     {
         LootTablesTFC.init();
         CapabilityFood.init();
-        TFCTriggers.init();
 
         if (event.getSide().isClient())
         {
