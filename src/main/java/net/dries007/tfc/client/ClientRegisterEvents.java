@@ -22,6 +22,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -257,12 +258,14 @@ public final class ClientRegisterEvents
             }
             else if (item.getBlock() instanceof BlockLoom)
             {
+
                 // Change model location for item
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
 
                 // Change model location for block
                 for (IBlockState blockState : item.getBlock().getBlockState().getValidStates())
                 {
+
                     ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(item.getBlock()), item.getBlock().getMetaFromState(blockState), new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
                 }
 
