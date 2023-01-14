@@ -22,6 +22,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -63,6 +64,7 @@ import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
+import org.jetbrains.annotations.NotNull;
 import tfcflorae.objects.blocks.BlocksTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -258,18 +260,17 @@ public final class ClientRegisterEvents
             }
             else if (item.getBlock() instanceof BlockLoom)
             {
-
                 // Change model location for item
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
-
-                // Change model location for block
-                for (IBlockState blockState : item.getBlock().getBlockState().getValidStates())
-                {
-
-                    ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(item.getBlock()), item.getBlock().getMetaFromState(blockState), new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
-                }
-
-            } else
+                ModelLoader.setCustomStateMapper(item.getBlock(), new DefaultStateMapper() {
+                    @NotNull
+                    protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                    {
+                        return new ModelResourceLocation(new ResourceLocation("tfc:wood/loom/pattern"), this.getPropertyString(state.getProperties()));
+                    }
+                });
+            }
+            else
             {
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
             }
