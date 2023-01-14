@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfcflorae:items/ceramics/stoneware/unfired/stoneware_brick"
+    "layer0": "tfc:items/ceramics/stoneware/unfired/stoneware_brick"
   }
 }

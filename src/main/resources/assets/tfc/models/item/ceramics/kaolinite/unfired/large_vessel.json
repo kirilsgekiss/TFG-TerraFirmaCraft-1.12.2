@@ -2,10 +2,10 @@
   "__comment": "Designed by CtrlAltDavid with Cubik Studio - https://cubik.studio",
   "parent": "block/block",
   "textures": {
-    "particle": "tfcflorae:blocks/ceramics/kaolinite/large_vessel_side_clay",
-    "top": "tfcflorae:blocks/ceramics/kaolinite/large_vessel_top_clay",
-    "side": "tfcflorae:blocks/ceramics/kaolinite/large_vessel_side_clay",
-    "bottom": "tfcflorae:blocks/ceramics/kaolinite/large_vessel_bottom_clay"
+    "particle": "tfc:blocks/ceramics/kaolinite/large_vessel_side_clay",
+    "top": "tfc:blocks/ceramics/kaolinite/large_vessel_top_clay",
+    "side": "tfc:blocks/ceramics/kaolinite/large_vessel_side_clay",
+    "bottom": "tfc:blocks/ceramics/kaolinite/large_vessel_bottom_clay"
   },
   "elements": [
     {
