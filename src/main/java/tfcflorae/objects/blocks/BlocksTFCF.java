@@ -2,6 +2,7 @@ package tfcflorae.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import net.dries007.tfc.api.capability.food.FoodData;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Plant;
@@ -18,6 +19,7 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.types.DefaultTrees;
 import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -48,7 +50,6 @@ import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import tfcflorae.objects.items.itemblock.*;
 import tfcflorae.types.PlantsTFCF;
-import net.dries007.tfc.util.agriculture.FoodDataTFCF;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
@@ -837,11 +838,11 @@ public final class BlocksTFCF
         {
             //Builder<BlockCaveMushroom> plantCaveMushroom = ImmutableList.builder();
 
-            BlockCaveMushroom blueshroom = new BlockCaveMushroom(0.3F, FoodDataTFCF.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
-            BlockCaveMushroom glowshroom = new BlockCaveMushroom(0.5F, FoodDataTFCF.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
-            BlockCaveMushroom magma_shroom = new BlockCaveMushroom(0.2F, FoodDataTFCF.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
-            BlockCaveMushroom poison_shroom = new BlockCaveMushroom(0.1F, FoodDataTFCF.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
-            BlockCaveMushroom sulphur_shroom = new BlockCaveMushroom(0.1F, FoodDataTFCF.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
+            BlockCaveMushroom blueshroom = new BlockCaveMushroom(0.3F, FoodData.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
+            BlockCaveMushroom glowshroom = new BlockCaveMushroom(0.5F, FoodData.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
+            BlockCaveMushroom magma_shroom = new BlockCaveMushroom(0.2F, FoodData.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
+            BlockCaveMushroom poison_shroom = new BlockCaveMushroom(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
+            BlockCaveMushroom sulphur_shroom = new BlockCaveMushroom(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
 
             normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
             normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
@@ -850,11 +851,11 @@ public final class BlocksTFCF
             normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/sulphur_shroom", sulphur_shroom, CT_FLORA)));
 
             /*
-            plantCaveMushroom.add(register(r, "plants/blueshroom", new BlockCaveMushroom(0.3F, FoodDataTFCF.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/glowshroom", new BlockCaveMushroom(0.5F, FoodDataTFCF.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/magma_shroom", new BlockCaveMushroom(0.2F, FoodDataTFCF.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/poison_shroom", new BlockCaveMushroom(0.1F, FoodDataTFCF.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/sulphur_shroom", new BlockCaveMushroom(0.1F, FoodDataTFCF.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+            plantCaveMushroom.add(register(r, "plants/blueshroom", new BlockCaveMushroom(0.3F, Food.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable"), CT_FLORA));
+            plantCaveMushroom.add(register(r, "plants/glowshroom", new BlockCaveMushroom(0.5F, Food.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable"), CT_FLORA));
+            plantCaveMushroom.add(register(r, "plants/magma_shroom", new BlockCaveMushroom(0.2F, Food.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+            plantCaveMushroom.add(register(r, "plants/poison_shroom", new BlockCaveMushroom(0.1F, Food.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+            plantCaveMushroom.add(register(r, "plants/sulphur_shroom", new BlockCaveMushroom(0.1F, Food.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable"), CT_FLORA));
             */
         }
 

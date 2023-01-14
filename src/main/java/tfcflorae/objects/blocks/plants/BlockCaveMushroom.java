@@ -9,6 +9,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFence;
@@ -60,7 +62,7 @@ public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize
     ArrayList<PotionEffectToHave> PotionEffects = new ArrayList<PotionEffectToHave>();
     public FoodData data;
 
-    private static final Map<BlockCaveMushroom, ItemFoodTFCF> MAP = new HashMap<>();
+    private static final Map<BlockCaveMushroom, ItemFoodTFC> MAP = new HashMap<>();
 
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     /*
@@ -123,7 +125,7 @@ public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize
         return new FoodHeatHandler(null, data, 1.0F, 200.0F);
     }
 
-    public static ItemFoodTFCF get(ItemFoodTFCF food)
+    public static ItemFoodTFC get(ItemFoodTFC food)
     {
         return MAP.get(food);
     }

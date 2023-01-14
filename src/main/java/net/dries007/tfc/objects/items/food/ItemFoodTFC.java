@@ -40,41 +40,35 @@ public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
         return MAP.get(food);
     }
 
-    public static ItemStack get(ItemTFCF food, int amount)
-    {
-        return new ItemStack(MAP.get(food), amount);
-    }
-
     public static ItemStack get(Food food, int amount)
     {
         return new ItemStack(MAP.get(food), amount);
     }
 
     protected final Food food;
-    public FoodData data;
 
-    public ItemFoodTFC(@Nonnull Food food, Object... objs)
+    public ItemFoodTFC(@Nonnull Food food) //, Object... objs
     {
         super(0, 0, food.getCategory() == Food.Category.MEAT || food.getCategory() == Food.Category.COOKED_MEAT);
         this.food = food;
-        this.setMaxDamage(0);
+//        this.setMaxDamage(0);
         if (MAP.put(food, this) != null)
         {
             throw new IllegalStateException("There can only be one.");
         }
 
-        for (Object obj : objs)
-        {
-            if(obj instanceof PotionEffectToHave)
-            {
-                PotionEffectToHave Effect = (PotionEffectToHave)obj;
-                PotionEffects.add(Effect);
-            }
-            else if (obj instanceof Object[])
-                tfcflorae.util.OreDictionaryHelper.register(this, (Object[]) obj);
-            else
-                tfcflorae.util.OreDictionaryHelper.register(this, obj);
-        }
+//        for (Object obj : objs)
+//        {
+//            if(obj instanceof PotionEffectToHave)
+//            {
+//                PotionEffectToHave Effect = (PotionEffectToHave)obj;
+//                PotionEffects.add(Effect);
+//            }
+//            else if (obj instanceof Object[])
+//                tfcflorae.util.OreDictionaryHelper.register(this, (Object[]) obj);
+//            else
+//                tfcflorae.util.OreDictionaryHelper.register(this, obj);
+//        }
 
         // Use "category" here as to not conflict with actual items, i.e. grain
         OreDictionaryHelper.register(this, "category", food.getCategory());

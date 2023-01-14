@@ -18,6 +18,16 @@ public class FoodData implements INBTSerializable<NBTTagCompound>
     public static final FoodData GOLDEN_CARROT = new FoodData(1, 0, 0, 0, 0, 2.5f, 0, 0, 0);
     public static final FoodData RAW_EGG = new FoodData(1, 0, 0, 0, 0, 0, 0, 0, 1.3f);
     public static final FoodData MILK = new FoodData(0, 0, 0, 0, 0, 0, 0, 1.0f, 0);
+    public static final FoodData DRIED_FRUIT_DECAY = new FoodData(4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f);
+    public static final FoodData UNCRACKED_NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
+    public static final FoodData NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
+    public static final FoodData ROASTED_NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
+    // raw Mushrooms
+    public static final FoodData RAW_BLUESHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
+    public static final FoodData RAW_GLOWSHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
+    public static final FoodData RAW_MAGMA_SHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
+    public static final FoodData RAW_POISON_SHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
+    public static final FoodData RAW_SULPHUR_SHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
 
     private final float[] nutrients; // Nutritional values
     private int hunger; // Hunger. In TFC (for now) this is almost always 4
