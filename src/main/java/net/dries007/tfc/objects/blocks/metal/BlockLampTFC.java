@@ -41,8 +41,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.objects.advancements.TFCTriggers;
-import net.dries007.tfc.objects.blocks.BlockTorchTFC;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.te.TELamp;
 import net.dries007.tfc.util.Helpers;
@@ -247,13 +245,6 @@ public class BlockLampTFC extends Block implements ILightableBlock
                 {
                     FluidUtil.interactWithFluidHandler(playerIn, hand, fluidHandler);
                     tel.markDirty();
-                }
-            }
-            else if (BlockTorchTFC.canLight(stack))
-            {
-                if (lightWithFuel(worldIn, pos, state, tel))
-                {
-                    TFCTriggers.LIT_TRIGGER.trigger((EntityPlayerMP) playerIn, state.getBlock()); // Trigger lit block
                 }
             }
         }

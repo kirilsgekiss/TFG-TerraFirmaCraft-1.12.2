@@ -28,7 +28,6 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.advancements.TFCTriggers;
 import net.dries007.tfc.objects.blocks.BlockFireBrick;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.metal.BlockCladdingTFC;
@@ -148,7 +147,6 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
                 ItemStack held = playerIn.getHeldItem(hand);
                 if (te.canIgnite() && ItemFireStarter.onIgnition(held))
                 {
-                    TFCTriggers.LIT_TRIGGER.trigger((EntityPlayerMP) playerIn, state.getBlock()); // Trigger lit block
                     worldIn.setBlockState(pos, state.withProperty(LIT, true));
                     //te.onIgnite();
                     return true;

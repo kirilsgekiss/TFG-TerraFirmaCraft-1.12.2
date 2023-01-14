@@ -46,7 +46,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.particle.TFCParticles;
-import net.dries007.tfc.objects.advancements.TFCTriggers;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemFireStarter;
@@ -267,7 +266,6 @@ public class BlockFirePit extends Block implements IBellowsConsumerBlock, ILight
             {
                 if (ItemFireStarter.onIgnition(held))
                 {
-                    TFCTriggers.LIT_TRIGGER.trigger((EntityPlayerMP) player, state.getBlock()); // Trigger lit block
                     worldIn.setBlockState(pos, state.withProperty(LIT, true));
                     return true;
                 }
