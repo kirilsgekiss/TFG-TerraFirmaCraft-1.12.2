@@ -1223,8 +1223,7 @@ public final class RecipesTFCF
     {
         IForgeRegistry<LoomRecipe> r = event.getRegistry();
 
-        r.registerAll();
-
+        r.registerAll(
                 new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "yucca_canvas"), IIngredient.of(ItemsTFCF.YUCCA_STRING, 12), new ItemStack(ItemsTFCF.YUCCA_CANVAS), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/yucca.png")),
                 new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "cotton_cloth"), IIngredient.of(ItemsTFCF.COTTON_YARN, 12), new ItemStack(ItemsTFCF.COTTON_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/cotton.png")),
                 new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "hemp_cloth"), IIngredient.of(ItemsTFCF.HEMP_STRING, 12), new ItemStack(ItemsTFCF.HEMP_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/hemp.png")),
