@@ -42,6 +42,8 @@ import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
 public class StructureGenerator extends WorldGenerator
 {
 	private String structureName;
@@ -57,7 +59,7 @@ public class StructureGenerator extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.MOD_ID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(MOD_ID, structureName));
 		int variation = 3;
 
 		if (template == null)

@@ -36,6 +36,8 @@ import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.BlocksTFCF;
 
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
 public class StructureGeneratorCorals extends WorldGenerator
 {
 	private String structureName;
@@ -51,7 +53,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.MOD_ID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(MOD_ID, structureName));
 		final Biome b = world.getBiome(position);
 		int variation = 3;
 
