@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/breccia",
-      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/breccia",
-      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/breccia"
+      "dirt": "tfc:blocks/stonetypes/sandy_loam/breccia",
+      "particle": "tfc:blocks/stonetypes/sandy_loam/breccia",
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/breccia"
     }
   },
   "variants": {

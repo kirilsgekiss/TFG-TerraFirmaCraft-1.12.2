@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/rhyolite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/rhyolite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/rhyolite"
+      "dirt": "tfc:blocks/stonetypes/humus/rhyolite",
+      "particle": "tfc:blocks/stonetypes/humus/rhyolite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/rhyolite"
     }
   },
   "variants": {

@@ -10,7 +10,9 @@
   },
   "variants": {
     "normal": [
-      {}
+      {
+        "model": "stone_pressure_plate_up"
+      }
     ],
     "powered": {
       "false": {

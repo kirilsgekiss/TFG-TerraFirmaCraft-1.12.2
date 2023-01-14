@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/quartzite",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/quartzite",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/quartzite"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/quartzite",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/quartzite",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/quartzite"
     }
   },
   "variants": {

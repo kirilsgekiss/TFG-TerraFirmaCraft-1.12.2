@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/silt/marble",
-      "particle": "tfcflorae:blocks/stonetypes/silt/marble",
-      "top": "tfcflorae:blocks/stonetypes/silt_farmland/marble"
+      "dirt": "tfc:blocks/stonetypes/silt/marble",
+      "particle": "tfc:blocks/stonetypes/silt/marble",
+      "top": "tfc:blocks/stonetypes/silt_farmland/marble"
     }
   },
   "variants": {

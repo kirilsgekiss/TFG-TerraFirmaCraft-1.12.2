@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/shale",
-      "particle": "tfcflorae:blocks/stonetypes/humus/shale",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/shale"
+      "dirt": "tfc:blocks/stonetypes/humus/shale",
+      "particle": "tfc:blocks/stonetypes/humus/shale",
+      "top": "tfc:blocks/stonetypes/humus_farmland/shale"
     }
   },
   "variants": {

@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/coarse_sandy_stoneware_clay/wackestone"
+      "all": "tfc:blocks/stonetypes/coarse_sandy_stoneware_clay/wackestone"
     }
   },
   "variants": {

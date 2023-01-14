@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/conglomerate",
-      "particle": "tfcflorae:blocks/stonetypes/humus/conglomerate",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/conglomerate"
+      "dirt": "tfc:blocks/stonetypes/humus/conglomerate",
+      "particle": "tfc:blocks/stonetypes/humus/conglomerate",
+      "top": "tfc:blocks/stonetypes/humus_farmland/conglomerate"
     }
   },
   "variants": {

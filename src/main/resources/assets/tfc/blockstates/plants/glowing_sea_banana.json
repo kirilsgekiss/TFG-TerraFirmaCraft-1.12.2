@@ -5,7 +5,7 @@
         "down": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana"
+        "model": "tfc:plants/glowing_sea_banana"
       }
     },
     {
@@ -13,7 +13,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana",
+        "model": "tfc:plants/glowing_sea_banana",
         "x": 270,
         "y": 90
       }
@@ -23,7 +23,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana",
+        "model": "tfc:plants/glowing_sea_banana",
         "x": 270
       }
     },
@@ -32,7 +32,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana",
+        "model": "tfc:plants/glowing_sea_banana",
         "x": 270,
         "y": 180
       }
@@ -42,7 +42,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana",
+        "model": "tfc:plants/glowing_sea_banana",
         "x": 180
       }
     },
@@ -51,7 +51,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "tfcflorae:plants/glowing_sea_banana",
+        "model": "tfc:plants/glowing_sea_banana",
         "x": 270,
         "y": 270
       }

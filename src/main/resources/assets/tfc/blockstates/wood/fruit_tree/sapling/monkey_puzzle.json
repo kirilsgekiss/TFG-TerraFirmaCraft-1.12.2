@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross",
+    "textures": {
+      "cross": "tfc:blocks/wood/fruit_tree/sapling/monkey_puzzle",
+      "layer0": "tfc:blocks/wood/fruit_tree/sapling/monkey_puzzle"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": {
+      "model": "builtin/generated",
+      "transform": "forge:default-item"
+    }
+  }
+}

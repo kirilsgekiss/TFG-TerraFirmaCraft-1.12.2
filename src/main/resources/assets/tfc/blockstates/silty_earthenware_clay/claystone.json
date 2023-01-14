@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/silty_earthenware_clay/claystone"
+      "all": "tfc:blocks/stonetypes/silty_earthenware_clay/claystone"
     }
   },
   "variants": {

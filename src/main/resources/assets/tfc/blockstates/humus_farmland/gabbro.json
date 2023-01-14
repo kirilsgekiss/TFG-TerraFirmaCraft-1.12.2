@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/gabbro",
-      "particle": "tfcflorae:blocks/stonetypes/humus/gabbro",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/gabbro"
+      "dirt": "tfc:blocks/stonetypes/humus/gabbro",
+      "particle": "tfc:blocks/stonetypes/humus/gabbro",
+      "top": "tfc:blocks/stonetypes/humus_farmland/gabbro"
     }
   },
   "variants": {

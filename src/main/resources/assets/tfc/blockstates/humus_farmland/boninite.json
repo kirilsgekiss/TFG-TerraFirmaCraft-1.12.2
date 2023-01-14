@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/boninite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/boninite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/boninite"
+      "dirt": "tfc:blocks/stonetypes/humus/boninite",
+      "particle": "tfc:blocks/stonetypes/humus/boninite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/boninite"
     }
   },
   "variants": {

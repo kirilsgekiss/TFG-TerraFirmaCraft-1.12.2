@@ -10,7 +10,9 @@
   },
   "variants": {
     "normal": [
-      {}
+      {
+        "model": "button_inventory"
+      }
     ],
     "powered": {
       "false": {},

@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/mud/schist"
+      "all": "tfc:blocks/stonetypes/mud/schist"
     }
   },
   "variants": {

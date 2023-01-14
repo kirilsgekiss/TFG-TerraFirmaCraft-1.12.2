@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loam/mudstone",
-      "particle": "tfcflorae:blocks/stonetypes/loam/mudstone",
-      "top": "tfcflorae:blocks/stonetypes/loam_farmland/mudstone"
+      "dirt": "tfc:blocks/stonetypes/loam/mudstone",
+      "particle": "tfc:blocks/stonetypes/loam/mudstone",
+      "top": "tfc:blocks/stonetypes/loam_farmland/mudstone"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loam/jaspillite",
-      "particle": "tfcflorae:blocks/stonetypes/loam/jaspillite",
-      "top": "tfcflorae:blocks/stonetypes/loam_farmland/jaspillite"
+      "dirt": "tfc:blocks/stonetypes/loam/jaspillite",
+      "particle": "tfc:blocks/stonetypes/loam/jaspillite",
+      "top": "tfc:blocks/stonetypes/loam_farmland/jaspillite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/schist",
-      "particle": "tfcflorae:blocks/stonetypes/humus/schist",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/schist"
+      "dirt": "tfc:blocks/stonetypes/humus/schist",
+      "particle": "tfc:blocks/stonetypes/humus/schist",
+      "top": "tfc:blocks/stonetypes/humus_farmland/schist"
     }
   },
   "variants": {

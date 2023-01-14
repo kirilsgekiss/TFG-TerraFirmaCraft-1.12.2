@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/granite",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/granite",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/granite"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/granite",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/granite",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/granite"
     }
   },
   "variants": {

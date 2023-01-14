@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/peridotite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/peridotite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/peridotite"
+      "dirt": "tfc:blocks/stonetypes/humus/peridotite",
+      "particle": "tfc:blocks/stonetypes/humus/peridotite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/peridotite"
     }
   },
   "variants": {

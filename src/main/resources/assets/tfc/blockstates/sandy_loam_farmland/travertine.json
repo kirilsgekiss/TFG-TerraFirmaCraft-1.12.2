@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/travertine",
-      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/travertine",
-      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/travertine"
+      "dirt": "tfc:blocks/stonetypes/sandy_loam/travertine",
+      "particle": "tfc:blocks/stonetypes/sandy_loam/travertine",
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/travertine"
     }
   },
   "variants": {

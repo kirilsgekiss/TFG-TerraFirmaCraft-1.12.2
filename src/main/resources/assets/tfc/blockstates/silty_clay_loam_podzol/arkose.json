@@ -4,13 +4,13 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/silty_clay_loam/arkose",
-      "particle": "tfcflorae:blocks/podzol_top",
-      "top": "tfcflorae:blocks/podzol_top",
-      "north": "tfcflorae:blocks/podzol_side",
-      "south": "tfcflorae:blocks/podzol_side",
-      "east": "tfcflorae:blocks/podzol_side",
-      "west": "tfcflorae:blocks/podzol_side"
+      "all": "tfc:blocks/stonetypes/silty_clay_loam/arkose",
+      "particle": "tfc:blocks/podzol_top",
+      "top": "tfc:blocks/podzol_top",
+      "north": "tfc:blocks/podzol_side",
+      "south": "tfc:blocks/podzol_side",
+      "east": "tfc:blocks/podzol_side",
+      "west": "tfc:blocks/podzol_side"
     }
   },
   "variants": {
@@ -20,7 +20,7 @@
     "north": {
       "true": {
         "textures": {
-          "north": "tfcflorae:blocks/podzol_top"
+          "north": "tfc:blocks/podzol_top"
         }
       },
       "false": {}
@@ -28,7 +28,7 @@
     "south": {
       "true": {
         "textures": {
-          "south": "tfcflorae:blocks/podzol_top"
+          "south": "tfc:blocks/podzol_top"
         }
       },
       "false": {}
@@ -36,7 +36,7 @@
     "east": {
       "true": {
         "textures": {
-          "east": "tfcflorae:blocks/podzol_top"
+          "east": "tfc:blocks/podzol_top"
         }
       },
       "false": {}
@@ -44,7 +44,7 @@
     "west": {
       "true": {
         "textures": {
-          "west": "tfcflorae:blocks/podzol_top"
+          "west": "tfc:blocks/podzol_top"
         }
       },
       "false": {}

@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/sandy_clay/rocksalt"
+      "all": "tfc:blocks/stonetypes/sandy_clay/rocksalt"
     }
   },
   "variants": {

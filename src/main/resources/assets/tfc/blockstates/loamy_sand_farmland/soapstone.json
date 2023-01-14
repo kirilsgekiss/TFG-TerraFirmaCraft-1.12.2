@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/soapstone",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/soapstone",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/soapstone"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/soapstone",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/soapstone",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/soapstone"
     }
   },
   "variants": {

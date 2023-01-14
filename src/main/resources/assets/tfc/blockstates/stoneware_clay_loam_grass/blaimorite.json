@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/stoneware_clay_loam/blaimorite",
+      "all": "tfc:blocks/stonetypes/stoneware_clay_loam/blaimorite",
       "particle": "tfc:blocks/grass_top",
       "top": "tfc:blocks/grass_top",
       "north": "tfc:blocks/grass_side",

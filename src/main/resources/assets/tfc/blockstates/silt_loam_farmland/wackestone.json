@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/silty_loam/wackestone",
-      "particle": "tfcflorae:blocks/stonetypes/silty_loam/wackestone",
-      "top": "tfcflorae:blocks/stonetypes/silt_loam_farmland/wackestone"
+      "dirt": "tfc:blocks/stonetypes/silty_loam/wackestone",
+      "particle": "tfc:blocks/stonetypes/silty_loam/wackestone",
+      "top": "tfc:blocks/stonetypes/silt_loam_farmland/wackestone"
     }
   },
   "variants": {

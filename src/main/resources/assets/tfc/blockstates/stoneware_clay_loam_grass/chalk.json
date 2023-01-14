@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/stoneware_clay_loam/chalk",
+      "all": "tfc:blocks/stonetypes/stoneware_clay_loam/chalk",
       "particle": "tfc:blocks/grass_top",
       "top": "tfc:blocks/grass_top",
       "north": "tfc:blocks/grass_side",

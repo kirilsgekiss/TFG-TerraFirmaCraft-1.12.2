@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "tfc:ceramics/kaolinite/large_vessel_sealed"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "sealed": {
+      "true": {
+        "model": "tfc:ceramics/kaolinite/large_vessel_sealed"
+      },
+      "false": {
+        "model": "tfc:ceramics/kaolinite/large_vessel"
+      }
+    }
+  }
+}
