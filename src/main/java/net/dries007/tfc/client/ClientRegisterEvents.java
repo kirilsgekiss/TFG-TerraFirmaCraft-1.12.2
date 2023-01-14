@@ -13,7 +13,7 @@ import gregtech.client.model.SimpleStateMapper;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
-import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
+import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
@@ -55,9 +55,6 @@ import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
 import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.blocks.stone.*;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.te.*;
@@ -78,8 +75,14 @@ public final class ClientRegisterEvents
     public static final IBlockColor planksBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
             tintIndex == 0 ? ((BlockPlanksTFC) state.getBlock()).wood.getColor() : 0xFFFFFF;
 
+    public static final IBlockColor loomBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
+            tintIndex == 0 ? ((BlockLoom) state.getBlock()).wood.getColor() : 0xFFFFFF;
+
     public static final IItemColor planksItemColors = (stack, tintIndex) ->
             tintIndex == 0 ? ((BlockPlanksTFC) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
+
+    public static final IItemColor loomItemColors = (stack, tintIndex) ->
+            tintIndex == 0 ? ((BlockLoom) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
 
     public static final IItemColor moldItemColors = (stack, tintIndex) -> {
         if (tintIndex != 1) return 0xFFFFFF;
@@ -252,7 +255,18 @@ public final class ClientRegisterEvents
                 // Change model location for block
                 ModelLoader.setCustomStateMapper(item.getBlock(), new SimpleStateMapper(new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal")));
             }
-            else
+            else if (item.getBlock() instanceof BlockLoom)
+            {
+                // Change model location for item
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
+
+                // Change model location for block
+                for (IBlockState blockState : item.getBlock().getBlockState().getValidStates())
+                {
+                    ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(item.getBlock()), item.getBlock().getMetaFromState(blockState), new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
+                }
+
+            } else
             {
                 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
             }
@@ -390,11 +404,16 @@ public final class ClientRegisterEvents
     {
         BlockColors blockColors = event.getBlockColors();
 
+        // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
         for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
         {
             if (item.getBlock() instanceof BlockPlanksTFC)
             {
                 blockColors.registerBlockColorHandler(planksBlockColors, item.getBlock());
+            }
+            else if (item.getBlock() instanceof BlockLoom)
+            {
+                blockColors.registerBlockColorHandler(loomBlockColors, item.getBlock());
             }
         }
 
@@ -462,6 +481,10 @@ public final class ClientRegisterEvents
             if (item.getBlock() instanceof BlockPlanksTFC)
             {
                 itemColors.registerItemColorHandler(planksItemColors, item);
+            }
+            else if (item.getBlock() instanceof BlockLoom)
+            {
+                itemColors.registerItemColorHandler(loomItemColors, item);
             }
         }
 

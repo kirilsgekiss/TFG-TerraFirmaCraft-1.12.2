@@ -5,9 +5,6 @@
 
 package net.dries007.tfc.client.render;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -17,25 +14,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.te.TELoom;
+
+import java.awt.*;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 public class TESRLoom extends TESRBase<TELoom>
 {
-    private static final Map<Tree, ResourceLocation> PLANKS_TEXTURES = new HashMap<>();
-
-    static
-    {
-        for (Tree wood : TFCRegistries.TREES.getValuesCollection())
-        {
-            //noinspection ConstantConditions
-            PLANKS_TEXTURES.put(wood, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + wood.getRegistryName().getPath() + ".png"));
-        }
-    }
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/pattern.png");
 
     @Override
     public void render(TELoom te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
@@ -47,11 +35,17 @@ public class TESRLoom extends TESRBase<TELoom>
 
         double tileZ = te.getAnimPos();
 
+        int hex = te.getWood().getColor();
+
+        int red = new Color(hex).getRed();
+        int green = new Color(hex).getGreen();
+        int blue = new Color(hex).getBlue();
+
         try
         {
             GlStateManager.pushMatrix();
-            GlStateManager.color(1, 1, 1, 1);
-            this.bindTexture(PLANKS_TEXTURES.get(te.getWood()));
+            GlStateManager.color(red / 255f, green / 255f, blue / 255f, 1);
+            this.bindTexture(TEXTURE_LOCATION);
 
             GlStateManager.disableLighting();
 
