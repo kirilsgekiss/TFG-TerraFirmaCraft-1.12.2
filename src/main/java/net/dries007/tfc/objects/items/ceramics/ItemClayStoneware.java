@@ -3,6 +3,7 @@ package net.dries007.tfc.objects.items.ceramics;
 import javax.annotation.Nonnull;
 
 import net.dries007.tfc.client.TFCGuiHandler;
+import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -15,10 +16,9 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
-import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-public class ItemClayStoneware extends ItemTFCF implements IItemSize
+public class ItemClayStoneware extends ItemTFC implements IItemSize
 {
     private final Size size;
     private final Weight weight;

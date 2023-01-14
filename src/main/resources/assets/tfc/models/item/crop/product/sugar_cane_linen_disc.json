@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tfc:items/crop/product/sugar_cane_linen_disc"
+  }
+}

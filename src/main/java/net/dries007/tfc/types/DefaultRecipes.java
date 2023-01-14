@@ -98,7 +98,7 @@ import static net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags.UNUSAB
 import static net.dries007.tfc.objects.fluids.FluidsTFC.*;
 import static net.dries007.tfc.util.forge.ForgeRule.*;
 import static net.dries007.tfc.util.skills.SmithingSkill.Type.*;
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class DefaultRecipes
@@ -1246,7 +1246,7 @@ public final class DefaultRecipes
 
         // Mud Bricks Knapping
         {
-            r.register(new KnappingRecipeStone(KnappingType.MUD, rockIn -> new ItemStack(ItemUnfiredMudBrick.get(rockIn), 3), "XXXXX", "     ", "XXXXX", "     ", "XXXXX").setRegistryName(TFCFLORAE_MODID, "knapping_mud_brick"));
+            r.register(new KnappingRecipeStone(KnappingType.MUD, rockIn -> new ItemStack(ItemUnfiredMudBrick.get(rockIn), 3), "XXXXX", "     ", "XXXXX", "     ", "XXXXX").setRegistryName(MOD_ID, "knapping_mud_brick"));
         }
 
         // Stone + Flint Tool Heads

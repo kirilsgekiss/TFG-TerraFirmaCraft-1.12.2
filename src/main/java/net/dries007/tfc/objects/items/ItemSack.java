@@ -28,11 +28,10 @@ import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 
-import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class ItemSack extends ItemTFCF
+public class ItemSack extends ItemTFC
 {
     public ItemSack(Object... oreNameParts) 
     {

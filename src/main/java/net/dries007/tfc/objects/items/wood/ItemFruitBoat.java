@@ -7,6 +7,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
@@ -29,11 +30,10 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
-import tfcflorae.objects.items.ItemTFCF;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemFruitBoat extends ItemTFCF
+public class ItemFruitBoat extends ItemTFC
 {
     private static final Map<IFruitTree, ItemFruitBoat> MAP = new HashMap<>();
     private static final Map<Tree, ItemFruitBoat> MAP_TREE = new HashMap<>();

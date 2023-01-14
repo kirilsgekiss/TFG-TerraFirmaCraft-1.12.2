@@ -22,7 +22,7 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.te.TEFruitLoom;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
@@ -45,7 +45,7 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             String name = fruitTree.getName().toLowerCase();
             
             //noinspection ConstantConditions
-            PLANKS_TEXTURES.put(fruitTree, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/" + name + ".png"));
+            PLANKS_TEXTURES.put(fruitTree, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + name + ".png"));
         }
 
         for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
@@ -53,9 +53,9 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             PLANKS_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + BlocksTFCF.bamboo[i] + ".png"));
         }
 
-        PLANKS_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/cassia_cinnamon.png"));
 
-        PLANKS_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
+        PLANKS_TEXTURES_TREE.put(DefaultTrees.CEYLON_CINNAMON_TREE, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/ceylon_cinnamon.png"));
     }
 
     @Override

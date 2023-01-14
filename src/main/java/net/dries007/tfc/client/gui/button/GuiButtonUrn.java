@@ -12,7 +12,7 @@ import net.dries007.tfc.objects.te.TEUrn;
 
 import static net.dries007.tfc.client.gui.GuiLargeVessel.LARGE_VESSEL_BACKGROUND;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class GuiButtonUrn extends GuiButtonTFC implements IButtonTooltip
 {
@@ -27,7 +27,7 @@ public class GuiButtonUrn extends GuiButtonTFC implements IButtonTooltip
     @Override
     public String getTooltip()
     {
-        return TFCFLORAE_MODID + ".tooltip." + (tile.isSealed() ? "urn_unseal" : "urn_seal");
+        return MOD_ID + ".tooltip." + (tile.isSealed() ? "urn_unseal" : "urn_seal");
     }
 
     @Override

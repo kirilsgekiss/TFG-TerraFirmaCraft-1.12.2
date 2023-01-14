@@ -27,7 +27,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
-import tfcflorae.objects.items.ItemTFCF;
 
 @ParametersAreNonnullByDefault
 public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC

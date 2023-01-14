@@ -50,26 +50,26 @@ public class TFCGuiHandler implements IGuiHandler
     public static final ResourceLocation QUIVER_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/quiver_inventory.png");
     public static final ResourceLocation CLAY_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/clay_button_disabled.png");
     public static final ResourceLocation FIRE_CLAY_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/clay_button_fire_disabled.png");
-    public static final ResourceLocation SACK_INVENTORY_BACKGROUND = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/sack_inventory.png");
-    public static final ResourceLocation BAG_INVENTORY_BACKGROUND = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/bag_inventory.png");
-    public static final ResourceLocation PINEAPPLE_LEATHER_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/pineapple_leather_button.png");
-    public static final ResourceLocation BURLAP_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/burlap.png");
-    public static final ResourceLocation WOOL_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/wool.png");
-    public static final ResourceLocation SILK_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/silk.png");
-    public static final ResourceLocation SISAL_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/sisal.png");
-    public static final ResourceLocation COTTON_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/cotton.png");
-    public static final ResourceLocation LINEN_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/linen.png");
-    public static final ResourceLocation HEMP_CLOTH_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/hemp.png");
-    public static final ResourceLocation YUCCA_CANVAS_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/blocks/devices/loom/product/yucca.png");
-    public static final ResourceLocation MUD_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/mud_button.png");
-    public static final ResourceLocation MUD_DISABLED_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/mud_button_disabled.png");
-    public static final ResourceLocation EARTHENWARE_CLAY_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/earthenware_clay_button.png");
-    public static final ResourceLocation EARTHENWARE_CLAY_DISABLED_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/earthenware_clay_button_disabled.png");
-    public static final ResourceLocation KAOLINITE_CLAY_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/kaolinite_clay_button.png");
-    public static final ResourceLocation KAOLINITE_CLAY_DISABLED_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/kaolinite_clay_button_disabled.png");
-    public static final ResourceLocation STONEWARE_CLAY_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/stoneware_clay_button.png");
-    public static final ResourceLocation STONEWARE_CLAY_DISABLED_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/stoneware_clay_button_disabled.png");
-    public static final ResourceLocation FLINT_TEXTURE = new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, "textures/gui/knapping/flint_button.png");
+    public static final ResourceLocation SACK_INVENTORY_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/sack_inventory.png");
+    public static final ResourceLocation BAG_INVENTORY_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/bag_inventory.png");
+    public static final ResourceLocation PINEAPPLE_LEATHER_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/pineapple_leather_button.png");
+    public static final ResourceLocation BURLAP_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/burlap.png");
+    public static final ResourceLocation WOOL_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/wool.png");
+    public static final ResourceLocation SILK_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/silk.png");
+    public static final ResourceLocation SISAL_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/sisal.png");
+    public static final ResourceLocation COTTON_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png");
+    public static final ResourceLocation LINEN_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/linen.png");
+    public static final ResourceLocation HEMP_CLOTH_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/hemp.png");
+    public static final ResourceLocation YUCCA_CANVAS_TEXTURE = new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/yucca.png");
+    public static final ResourceLocation MUD_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/mud_button.png");
+    public static final ResourceLocation MUD_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/mud_button_disabled.png");
+    public static final ResourceLocation EARTHENWARE_CLAY_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/earthenware_clay_button.png");
+    public static final ResourceLocation EARTHENWARE_CLAY_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/earthenware_clay_button_disabled.png");
+    public static final ResourceLocation KAOLINITE_CLAY_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/kaolinite_clay_button.png");
+    public static final ResourceLocation KAOLINITE_CLAY_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/kaolinite_clay_button_disabled.png");
+    public static final ResourceLocation STONEWARE_CLAY_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/stoneware_clay_button.png");
+    public static final ResourceLocation STONEWARE_CLAY_DISABLED_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/stoneware_clay_button_disabled.png");
+    public static final ResourceLocation FLINT_TEXTURE = new ResourceLocation(MOD_ID, "textures/gui/knapping/flint_button.png");
 
     // use this instead of player.openGui() -> avoids magic numbers
     public static void openGui(World world, BlockPos pos, EntityPlayer player, Type type)

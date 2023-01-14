@@ -24,7 +24,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
-import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 public class ItemCalendarClock extends ItemTFC

@@ -14,12 +14,10 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.ItemTFC;
 
-import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
-public class ItemFlint extends ItemTFCF implements IItemSize
+public class ItemFlint extends ItemTFC implements IItemSize
 {
     private final Size size;
     private final Weight weight;

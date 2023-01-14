@@ -19,7 +19,7 @@ import net.dries007.tfc.api.types.Tree;
 
 import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -69,18 +69,18 @@ public class RenderBoatFruitTFC extends Render<EntityBoatFruitTFC>
         if (wood != null)
         {
             //noinspection ConstantConditions
-            return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/" + wood.getName().toLowerCase() + ".png");
+            return new ResourceLocation(MOD_ID, "textures/entity/boat/" + wood.getName().toLowerCase() + ".png");
         }
 
         final Tree tree = entity.getTree();
         if (tree != null)
         {
             //noinspection ConstantConditions
-            return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/" + tree.getRegistryName().getPath().toLowerCase() + ".png");
+            return new ResourceLocation(MOD_ID, "textures/entity/boat/" + tree.getRegistryName().getPath().toLowerCase() + ".png");
         }
 
         // Fallback
-        return new ResourceLocation(TFCFLORAE_MODID, "textures/entity/boat/oak.png");
+        return new ResourceLocation(MOD_ID, "textures/entity/boat/oak.png");
     }
 
     @Override

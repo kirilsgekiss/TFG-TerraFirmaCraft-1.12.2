@@ -22,7 +22,6 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
 
-import tfcflorae.objects.items.ItemTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;

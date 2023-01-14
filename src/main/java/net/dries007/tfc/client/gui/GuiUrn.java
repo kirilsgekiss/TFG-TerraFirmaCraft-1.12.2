@@ -18,11 +18,11 @@ import net.dries007.tfc.network.PacketGuiButton;
 import net.dries007.tfc.client.gui.button.GuiButtonUrn;
 import net.dries007.tfc.objects.te.TEUrn;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class GuiUrn extends GuiContainerTE<TEUrn>
 {
-    public static final ResourceLocation URN_BACKGROUND = new ResourceLocation(TFCFLORAE_MODID, "textures/gui/urn.png");
+    public static final ResourceLocation URN_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/urn.png");
     private final String translationKey;
 
     public GuiUrn(Container container, InventoryPlayer playerInv, TEUrn tile, String translationKey)

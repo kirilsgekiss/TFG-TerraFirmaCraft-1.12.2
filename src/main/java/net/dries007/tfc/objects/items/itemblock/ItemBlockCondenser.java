@@ -38,7 +38,7 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.objects.te.TECondenser;
 import tfcflorae.util.OreDictionaryHelper;
 
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
 
 public class ItemBlockCondenser extends ItemBlockTFC
@@ -120,20 +120,20 @@ public class ItemBlockCondenser extends ItemBlockTFC
             {
                 if (inventory.isEmpty())
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_empty"));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(MOD_ID + ".tooltip.condenser_empty"));
                 }
                 else
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_item", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(MOD_ID + ".tooltip.condenser_item", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
                 }
             }
             else
             {
-                tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_fluid", fluidStack.amount, fluidStack.getLocalizedName()));
+                tooltip.add(TextFormatting.BLUE + I18n.format(MOD_ID + ".tooltip.condenser_fluid", fluidStack.amount, fluidStack.getLocalizedName()));
 
                 if (!inventory.isEmpty())
                 {
-                    tooltip.add(TextFormatting.BLUE + I18n.format(TFCFLORAE_MODID + ".tooltip.condenser_item_in_fluid", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
+                    tooltip.add(TextFormatting.BLUE + I18n.format(MOD_ID + ".tooltip.condenser_item_in_fluid", inventory.getCount(), inventory.getItem().getItemStackDisplayName(inventory)));
                 }
             }
         }
