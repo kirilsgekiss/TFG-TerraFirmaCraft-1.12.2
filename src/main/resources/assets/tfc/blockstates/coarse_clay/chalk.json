@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_clay/chalk"
+      "all": "tfcflorae:blocks/stonetypes/coarse_clay/chalk"
     }
   },
   "variants": {

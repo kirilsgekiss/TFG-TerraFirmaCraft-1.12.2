@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/blaimorite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/blaimorite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/blaimorite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/blaimorite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/blaimorite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/blaimorite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/siltstone",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/siltstone",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/siltstone"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/siltstone",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/siltstone",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/siltstone"
     }
   },
   "variants": {

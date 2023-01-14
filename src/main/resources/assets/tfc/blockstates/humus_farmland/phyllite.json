@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/phyllite",
-      "particle": "tfc:blocks/stonetypes/humus/phyllite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/phyllite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/phyllite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/phyllite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/phyllite"
     }
   },
   "variants": {

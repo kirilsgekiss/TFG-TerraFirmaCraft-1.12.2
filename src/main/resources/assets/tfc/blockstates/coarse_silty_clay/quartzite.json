@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_silty_clay/quartzite"
+      "all": "tfcflorae:blocks/stonetypes/coarse_silty_clay/quartzite"
     }
   },
   "variants": {

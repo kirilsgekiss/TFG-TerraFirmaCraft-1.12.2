@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/basalt",
-      "particle": "tfc:blocks/stonetypes/humus/basalt",
-      "top": "tfc:blocks/stonetypes/humus_farmland/basalt"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/basalt",
+      "particle": "tfcflorae:blocks/stonetypes/humus/basalt",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/basalt"
     }
   },
   "variants": {

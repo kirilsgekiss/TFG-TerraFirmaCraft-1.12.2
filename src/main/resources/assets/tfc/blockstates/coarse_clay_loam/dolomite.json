@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_clay_loam/dolomite"
+      "all": "tfcflorae:blocks/stonetypes/coarse_clay_loam/dolomite"
     }
   },
   "variants": {

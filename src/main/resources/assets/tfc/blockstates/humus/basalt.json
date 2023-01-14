@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/humus/basalt"
+      "all": "tfcflorae:blocks/stonetypes/humus/basalt"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loamy_sand/conglomerate",
-      "particle": "tfc:blocks/stonetypes/loamy_sand/conglomerate",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/conglomerate"
+      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/conglomerate",
+      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/conglomerate",
+      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/conglomerate"
     }
   },
   "variants": {

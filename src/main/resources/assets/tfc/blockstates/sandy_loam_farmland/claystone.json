@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/claystone",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/claystone",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/claystone"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/claystone",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/claystone",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/claystone"
     }
   },
   "variants": {

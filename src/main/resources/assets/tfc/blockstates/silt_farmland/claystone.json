@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/claystone",
-      "particle": "tfc:blocks/stonetypes/silt/claystone",
-      "top": "tfc:blocks/stonetypes/silt_farmland/claystone"
+      "dirt": "tfcflorae:blocks/stonetypes/silt/claystone",
+      "particle": "tfcflorae:blocks/stonetypes/silt/claystone",
+      "top": "tfcflorae:blocks/stonetypes/silt_farmland/claystone"
     }
   },
   "variants": {

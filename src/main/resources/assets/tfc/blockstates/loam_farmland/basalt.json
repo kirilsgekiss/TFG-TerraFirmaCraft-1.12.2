@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/basalt",
-      "particle": "tfc:blocks/stonetypes/loam/basalt",
-      "top": "tfc:blocks/stonetypes/loam_farmland/basalt"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/basalt",
+      "particle": "tfcflorae:blocks/stonetypes/loam/basalt",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/basalt"
     }
   },
   "variants": {

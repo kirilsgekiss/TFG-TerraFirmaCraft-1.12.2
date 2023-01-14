@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/andesite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/andesite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/andesite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/andesite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/andesite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/andesite"
     }
   },
   "variants": {

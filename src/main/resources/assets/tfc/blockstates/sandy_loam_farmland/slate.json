@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/slate",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/slate",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/slate"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/slate",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/slate",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/slate"
     }
   },
   "variants": {

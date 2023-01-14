@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/catlinite",
-      "particle": "tfc:blocks/stonetypes/humus/catlinite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/catlinite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/catlinite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/catlinite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/catlinite"
     }
   },
   "variants": {

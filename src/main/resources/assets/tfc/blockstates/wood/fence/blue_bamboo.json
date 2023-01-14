@@ -9,9 +9,7 @@
   },
   "variants": {
     "normal": [
-      {
-        "model": "fence_inventory"
-      }
+      {}
     ],
     "inventory": {
       "model": "fence_inventory"

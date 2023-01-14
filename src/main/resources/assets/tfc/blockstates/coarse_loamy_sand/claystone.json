@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_loamy_sand/claystone"
+      "all": "tfcflorae:blocks/stonetypes/coarse_loamy_sand/claystone"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/carbonatite",
-      "particle": "tfc:blocks/stonetypes/loam/carbonatite",
-      "top": "tfc:blocks/stonetypes/loam_farmland/carbonatite"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/carbonatite",
+      "particle": "tfcflorae:blocks/stonetypes/loam/carbonatite",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/carbonatite"
     }
   },
   "variants": {

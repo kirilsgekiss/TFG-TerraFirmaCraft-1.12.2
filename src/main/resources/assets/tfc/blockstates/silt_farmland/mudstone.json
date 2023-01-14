@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/mudstone",
-      "particle": "tfc:blocks/stonetypes/silt/mudstone",
-      "top": "tfc:blocks/stonetypes/silt_farmland/mudstone"
+      "dirt": "tfcflorae:blocks/stonetypes/silt/mudstone",
+      "particle": "tfcflorae:blocks/stonetypes/silt/mudstone",
+      "top": "tfcflorae:blocks/stonetypes/silt_farmland/mudstone"
     }
   },
   "variants": {

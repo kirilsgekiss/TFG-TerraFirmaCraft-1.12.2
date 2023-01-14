@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/peridotite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/peridotite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/peridotite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/peridotite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/peridotite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/peridotite"
     }
   },
   "variants": {

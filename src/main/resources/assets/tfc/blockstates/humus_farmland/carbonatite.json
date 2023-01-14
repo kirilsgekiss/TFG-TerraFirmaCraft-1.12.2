@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/carbonatite",
-      "particle": "tfc:blocks/stonetypes/humus/carbonatite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/carbonatite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/carbonatite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/carbonatite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/carbonatite"
     }
   },
   "variants": {

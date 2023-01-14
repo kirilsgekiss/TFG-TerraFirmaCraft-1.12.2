@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loamy_sand/porphyry",
-      "particle": "tfc:blocks/stonetypes/loamy_sand/porphyry",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/porphyry"
+      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/porphyry",
+      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/porphyry",
+      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/porphyry"
     }
   },
   "variants": {

@@ -1036,8 +1036,8 @@ public final class ItemsTFCF
 
     private static <T extends Item> T register(IForgeRegistry<Item> r, String name, T item, CreativeTabs ct)
     {
-        item.setRegistryName(MOD_ID, name);
-        item.setTranslationKey(MOD_ID + "." + name.replace('/', '.'));
+        item.setRegistryName(TFCFLORAE_MODID, name);
+        item.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         item.setCreativeTab(ct);
         r.register(item);
         return item;

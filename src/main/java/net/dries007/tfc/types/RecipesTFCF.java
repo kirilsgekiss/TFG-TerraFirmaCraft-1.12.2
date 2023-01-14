@@ -42,7 +42,6 @@ import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.objects.fluids.FluidsTFC.FRESH_WATER;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
@@ -1224,22 +1223,17 @@ public final class RecipesTFCF
     {
         IForgeRegistry<LoomRecipe> r = event.getRegistry();
 
-
         r.registerAll();
 
-                /*
-                new LoomRecipe(new ResourceLocation(MOD_ID, "yucca_canvas"), IIngredient.of(ItemsTFCF.YUCCA_STRING, 12), new ItemStack(ItemsTFCF.YUCCA_CANVAS), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/yucca.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "cotton_cloth"), IIngredient.of(ItemsTFCF.COTTON_YARN, 12), new ItemStack(ItemsTFCF.COTTON_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "hemp_cloth"), IIngredient.of(ItemsTFCF.HEMP_STRING, 12), new ItemStack(ItemsTFCF.HEMP_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/hemp.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "linen_cloth"), IIngredient.of(ItemsTFCF.LINEN_STRING, 12), new ItemStack(ItemsTFCF.LINEN_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/linen.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "sisal_cloth"), IIngredient.of(ItemsTFCF.SISAL_STRING, 12), new ItemStack(ItemsTFCF.SISAL_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/sisal.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_cotton"), IIngredient.of(ItemsTFCF.COTTON_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_linen"), IIngredient.of(ItemsTFCF.LINEN_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-                new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_silk"), IIngredient.of(ItemsTFC.SILK_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png"))
-        */
-
-
-
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "yucca_canvas"), IIngredient.of(ItemsTFCF.YUCCA_STRING, 12), new ItemStack(ItemsTFCF.YUCCA_CANVAS), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/yucca.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "cotton_cloth"), IIngredient.of(ItemsTFCF.COTTON_YARN, 12), new ItemStack(ItemsTFCF.COTTON_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/cotton.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "hemp_cloth"), IIngredient.of(ItemsTFCF.HEMP_STRING, 12), new ItemStack(ItemsTFCF.HEMP_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/hemp.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "linen_cloth"), IIngredient.of(ItemsTFCF.LINEN_STRING, 12), new ItemStack(ItemsTFCF.LINEN_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/linen.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "sisal_cloth"), IIngredient.of(ItemsTFCF.SISAL_STRING, 12), new ItemStack(ItemsTFCF.SISAL_CLOTH), 12, new ResourceLocation(TFCFLORAE_MODID, "textures/blocks/devices/loom/product/sisal.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "wool_block_cotton"), IIngredient.of(ItemsTFCF.COTTON_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "wool_block_linen"), IIngredient.of(ItemsTFCF.LINEN_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+                new LoomRecipe(new ResourceLocation(TFCFLORAE_MODID, "wool_block_silk"), IIngredient.of(ItemsTFC.SILK_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png"))
+        );
     }
 
 

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/claystone",
-      "particle": "tfc:blocks/stonetypes/humus/claystone",
-      "top": "tfc:blocks/stonetypes/humus_farmland/claystone"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/claystone",
+      "particle": "tfcflorae:blocks/stonetypes/humus/claystone",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/claystone"
     }
   },
   "variants": {

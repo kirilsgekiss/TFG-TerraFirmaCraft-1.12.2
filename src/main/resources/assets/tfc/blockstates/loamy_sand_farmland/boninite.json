@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loamy_sand/boninite",
-      "particle": "tfc:blocks/stonetypes/loamy_sand/boninite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/boninite"
+      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/boninite",
+      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/boninite",
+      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/boninite"
     }
   },
   "variants": {

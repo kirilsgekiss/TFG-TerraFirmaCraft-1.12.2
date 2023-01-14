@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/dacite",
-      "particle": "tfc:blocks/stonetypes/humus/dacite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/dacite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/dacite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/dacite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/dacite"
     }
   },
   "variants": {

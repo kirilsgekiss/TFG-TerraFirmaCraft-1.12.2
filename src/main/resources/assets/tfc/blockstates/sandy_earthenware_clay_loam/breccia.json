@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/sandy_earthenware_clay_loam/breccia"
+      "all": "tfcflorae:blocks/stonetypes/sandy_earthenware_clay_loam/breccia"
     }
   },
   "variants": {

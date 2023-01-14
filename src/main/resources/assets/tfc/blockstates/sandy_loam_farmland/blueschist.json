@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/blueschist",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/blueschist",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/blueschist"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/blueschist",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/blueschist",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/blueschist"
     }
   },
   "variants": {

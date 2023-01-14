@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam",
-      "particle": "tfc:blocks/stonetypes/loam",
-      "top": "tfc:blocks/stonetypes/loam_farmland"
+      "dirt": "tfcflorae:blocks/stonetypes/loam",
+      "particle": "tfcflorae:blocks/stonetypes/loam",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland"
     }
   },
   "variants": {

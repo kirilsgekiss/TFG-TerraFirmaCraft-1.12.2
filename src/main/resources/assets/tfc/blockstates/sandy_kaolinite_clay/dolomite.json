@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/sandy_kaolinite_clay/dolomite"
+      "all": "tfcflorae:blocks/stonetypes/sandy_kaolinite_clay/dolomite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/arkose",
-      "particle": "tfc:blocks/stonetypes/humus/arkose",
-      "top": "tfc:blocks/stonetypes/humus_farmland/arkose"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/arkose",
+      "particle": "tfcflorae:blocks/stonetypes/humus/arkose",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/arkose"
     }
   },
   "variants": {

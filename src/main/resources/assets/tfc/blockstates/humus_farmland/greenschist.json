@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/greenschist",
-      "particle": "tfc:blocks/stonetypes/humus/greenschist",
-      "top": "tfc:blocks/stonetypes/humus_farmland/greenschist"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/greenschist",
+      "particle": "tfcflorae:blocks/stonetypes/humus/greenschist",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/greenschist"
     }
   },
   "variants": {

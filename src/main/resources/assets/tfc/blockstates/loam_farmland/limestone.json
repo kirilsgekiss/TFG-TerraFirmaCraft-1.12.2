@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/limestone",
-      "particle": "tfc:blocks/stonetypes/loam/limestone",
-      "top": "tfc:blocks/stonetypes/loam_farmland/limestone"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/limestone",
+      "particle": "tfcflorae:blocks/stonetypes/loam/limestone",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/limestone"
     }
   },
   "variants": {

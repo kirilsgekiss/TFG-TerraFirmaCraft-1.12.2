@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/chert",
-      "particle": "tfc:blocks/stonetypes/loam/chert",
-      "top": "tfc:blocks/stonetypes/loam_farmland/chert"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/chert",
+      "particle": "tfcflorae:blocks/stonetypes/loam/chert",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/chert"
     }
   },
   "variants": {

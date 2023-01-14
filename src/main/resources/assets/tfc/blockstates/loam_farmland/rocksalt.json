@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/rocksalt",
-      "particle": "tfc:blocks/stonetypes/loam/rocksalt",
-      "top": "tfc:blocks/stonetypes/loam_farmland/rocksalt"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/rocksalt",
+      "particle": "tfcflorae:blocks/stonetypes/loam/rocksalt",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/rocksalt"
     }
   },
   "variants": {

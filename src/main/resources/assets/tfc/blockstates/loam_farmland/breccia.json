@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/breccia",
-      "particle": "tfc:blocks/stonetypes/loam/breccia",
-      "top": "tfc:blocks/stonetypes/loam_farmland/breccia"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/breccia",
+      "particle": "tfcflorae:blocks/stonetypes/loam/breccia",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/breccia"
     }
   },
   "variants": {

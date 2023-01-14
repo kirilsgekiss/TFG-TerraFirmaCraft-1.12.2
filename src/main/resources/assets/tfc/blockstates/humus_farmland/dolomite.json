@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/dolomite",
-      "particle": "tfc:blocks/stonetypes/humus/dolomite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/dolomite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/dolomite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/dolomite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/dolomite"
     }
   },
   "variants": {

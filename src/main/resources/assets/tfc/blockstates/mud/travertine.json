@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/mud/travertine"
+      "all": "tfcflorae:blocks/stonetypes/mud/travertine"
     }
   },
   "variants": {

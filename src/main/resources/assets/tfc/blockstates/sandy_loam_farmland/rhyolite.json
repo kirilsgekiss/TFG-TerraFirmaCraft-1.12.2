@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/rhyolite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/rhyolite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/rhyolite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/rhyolite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/rhyolite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/rhyolite"
     }
   },
   "variants": {

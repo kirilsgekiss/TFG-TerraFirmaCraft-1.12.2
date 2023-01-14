@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silty_loam/novaculite",
-      "particle": "tfc:blocks/stonetypes/silty_loam/novaculite",
-      "top": "tfc:blocks/stonetypes/silt_loam_farmland/novaculite"
+      "dirt": "tfcflorae:blocks/stonetypes/silty_loam/novaculite",
+      "particle": "tfcflorae:blocks/stonetypes/silty_loam/novaculite",
+      "top": "tfcflorae:blocks/stonetypes/silt_loam_farmland/novaculite"
     }
   },
   "variants": {

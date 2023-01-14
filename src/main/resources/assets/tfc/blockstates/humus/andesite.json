@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/humus/andesite"
+      "all": "tfcflorae:blocks/stonetypes/humus/andesite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/mylonite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/mylonite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/mylonite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/mylonite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/mylonite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/mylonite"
     }
   },
   "variants": {

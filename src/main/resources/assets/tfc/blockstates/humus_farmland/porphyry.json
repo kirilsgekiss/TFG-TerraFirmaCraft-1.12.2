@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/porphyry",
-      "particle": "tfc:blocks/stonetypes/humus/porphyry",
-      "top": "tfc:blocks/stonetypes/humus_farmland/porphyry"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/porphyry",
+      "particle": "tfcflorae:blocks/stonetypes/humus/porphyry",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/porphyry"
     }
   },
   "variants": {

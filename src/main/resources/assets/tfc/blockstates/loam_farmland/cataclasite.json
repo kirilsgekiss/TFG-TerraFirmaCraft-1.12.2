@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/cataclasite",
-      "particle": "tfc:blocks/stonetypes/loam/cataclasite",
-      "top": "tfc:blocks/stonetypes/loam_farmland/cataclasite"
+      "dirt": "tfcflorae:blocks/stonetypes/loam/cataclasite",
+      "particle": "tfcflorae:blocks/stonetypes/loam/cataclasite",
+      "top": "tfcflorae:blocks/stonetypes/loam_farmland/cataclasite"
     }
   },
   "variants": {

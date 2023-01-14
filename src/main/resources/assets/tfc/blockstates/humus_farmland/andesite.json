@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/andesite",
-      "particle": "tfc:blocks/stonetypes/humus/andesite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/andesite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/andesite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/andesite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/andesite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/travertine",
-      "particle": "tfc:blocks/stonetypes/humus/travertine",
-      "top": "tfc:blocks/stonetypes/humus_farmland/travertine"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/travertine",
+      "particle": "tfcflorae:blocks/stonetypes/humus/travertine",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/travertine"
     }
   },
   "variants": {

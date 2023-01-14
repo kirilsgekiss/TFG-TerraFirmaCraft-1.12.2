@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loamy_sand/novaculite",
-      "particle": "tfc:blocks/stonetypes/loamy_sand/novaculite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/novaculite"
+      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/novaculite",
+      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/novaculite",
+      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/novaculite"
     }
   },
   "variants": {

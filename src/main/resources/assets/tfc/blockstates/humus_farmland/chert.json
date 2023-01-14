@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/chert",
-      "particle": "tfc:blocks/stonetypes/humus/chert",
-      "top": "tfc:blocks/stonetypes/humus_farmland/chert"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/chert",
+      "particle": "tfcflorae:blocks/stonetypes/humus/chert",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/chert"
     }
   },
   "variants": {

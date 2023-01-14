@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/mud/novaculite"
+      "all": "tfcflorae:blocks/stonetypes/mud/novaculite"
     }
   },
   "variants": {

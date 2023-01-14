@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/schist",
-      "particle": "tfc:blocks/stonetypes/silt/schist",
-      "top": "tfc:blocks/stonetypes/silt_farmland/schist"
+      "dirt": "tfcflorae:blocks/stonetypes/silt/schist",
+      "particle": "tfcflorae:blocks/stonetypes/silt/schist",
+      "top": "tfcflorae:blocks/stonetypes/silt_farmland/schist"
     }
   },
   "variants": {

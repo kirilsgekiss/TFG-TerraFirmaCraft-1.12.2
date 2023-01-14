@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_sandy_kaolinite_clay/foidolite"
+      "all": "tfcflorae:blocks/stonetypes/coarse_sandy_kaolinite_clay/foidolite"
     }
   },
   "variants": {

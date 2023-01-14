@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_stoneware_clay_humus/phyllite"
+      "all": "tfcflorae:blocks/stonetypes/coarse_stoneware_clay_humus/phyllite"
     }
   },
   "variants": {

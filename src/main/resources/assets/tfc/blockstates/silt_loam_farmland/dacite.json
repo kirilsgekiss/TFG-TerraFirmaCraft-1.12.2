@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silty_loam/dacite",
-      "particle": "tfc:blocks/stonetypes/silty_loam/dacite",
-      "top": "tfc:blocks/stonetypes/silt_loam_farmland/dacite"
+      "dirt": "tfcflorae:blocks/stonetypes/silty_loam/dacite",
+      "particle": "tfcflorae:blocks/stonetypes/silty_loam/dacite",
+      "top": "tfcflorae:blocks/stonetypes/silt_loam_farmland/dacite"
     }
   },
   "variants": {

@@ -54,7 +54,6 @@ import static net.dries007.tfc.api.types.Rock.Type.DIRT;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
@@ -2746,8 +2745,8 @@ public final class BlocksTFCF
 
     public static Block registerWoodBlock(IForgeRegistry<Block> r, String name, Block block)
     {
-        block.setRegistryName(MOD_ID, name);
-        block.setTranslationKey(MOD_ID + "." + name.replace('/', '.'));
+        block.setRegistryName(TFCFLORAE_MODID, name);
+        block.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         block.setCreativeTab(CreativeTabsTFC.CT_DECORATIONS);
         r.register(block);
         return block;
@@ -2761,14 +2760,14 @@ public final class BlocksTFCF
 
     private static <T extends Block> T register(IForgeRegistry<Block> r, String name, T block)
     {
-        block.setRegistryName(MOD_ID, name);
-        block.setTranslationKey(MOD_ID + "." + name.replace('/', '.'));
+        block.setRegistryName(TFCFLORAE_MODID, name);
+        block.setTranslationKey(TFCFLORAE_MODID + "." + name.replace('/', '.'));
         r.register(block);
         return block;
     }
 
     private static <T extends TileEntity> void register(Class<T> te, String name)
     {
-        TileEntity.register(MOD_ID + ":" + name, te);
+        TileEntity.register(TFCFLORAE_MODID + ":" + name, te);
     }
 }

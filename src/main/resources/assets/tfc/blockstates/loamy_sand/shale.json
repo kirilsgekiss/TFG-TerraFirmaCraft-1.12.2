@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/loamy_sand/shale"
+      "all": "tfcflorae:blocks/stonetypes/loamy_sand/shale"
     }
   },
   "variants": {

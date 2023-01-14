@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/mud/gneiss"
+      "all": "tfcflorae:blocks/stonetypes/mud/gneiss"
     }
   },
   "variants": {

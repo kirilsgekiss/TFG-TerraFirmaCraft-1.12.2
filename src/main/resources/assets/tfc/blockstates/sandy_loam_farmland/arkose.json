@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/arkose",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/arkose",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/arkose"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/arkose",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/arkose",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/arkose"
     }
   },
   "variants": {

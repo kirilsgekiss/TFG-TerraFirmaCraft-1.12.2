@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/kaolinite_clay/mudstone"
+      "all": "tfcflorae:blocks/stonetypes/kaolinite_clay/mudstone"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/wackestone",
-      "particle": "tfc:blocks/stonetypes/humus/wackestone",
-      "top": "tfc:blocks/stonetypes/humus_farmland/wackestone"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/wackestone",
+      "particle": "tfcflorae:blocks/stonetypes/humus/wackestone",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/wackestone"
     }
   },
   "variants": {

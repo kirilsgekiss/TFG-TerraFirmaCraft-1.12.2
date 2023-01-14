@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_silty_kaolinite_clay/peridotite"
+      "all": "tfcflorae:blocks/stonetypes/coarse_silty_kaolinite_clay/peridotite"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/catlinite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/catlinite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/catlinite"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/catlinite",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/catlinite",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/catlinite"
     }
   },
   "variants": {

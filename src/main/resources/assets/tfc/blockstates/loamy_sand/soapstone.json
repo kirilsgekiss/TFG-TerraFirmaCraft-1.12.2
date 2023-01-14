@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/loamy_sand/soapstone"
+      "all": "tfcflorae:blocks/stonetypes/loamy_sand/soapstone"
     }
   },
   "variants": {

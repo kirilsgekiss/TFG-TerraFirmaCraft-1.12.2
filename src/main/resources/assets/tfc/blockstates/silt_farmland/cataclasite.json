@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/cataclasite",
-      "particle": "tfc:blocks/stonetypes/silt/cataclasite",
-      "top": "tfc:blocks/stonetypes/silt_farmland/cataclasite"
+      "dirt": "tfcflorae:blocks/stonetypes/silt/cataclasite",
+      "particle": "tfcflorae:blocks/stonetypes/silt/cataclasite",
+      "top": "tfcflorae:blocks/stonetypes/silt_farmland/cataclasite"
     }
   },
   "variants": {

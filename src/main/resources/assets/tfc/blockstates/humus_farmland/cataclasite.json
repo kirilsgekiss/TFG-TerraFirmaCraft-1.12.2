@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/cataclasite",
-      "particle": "tfc:blocks/stonetypes/humus/cataclasite",
-      "top": "tfc:blocks/stonetypes/humus_farmland/cataclasite"
+      "dirt": "tfcflorae:blocks/stonetypes/humus/cataclasite",
+      "particle": "tfcflorae:blocks/stonetypes/humus/cataclasite",
+      "top": "tfcflorae:blocks/stonetypes/humus_farmland/cataclasite"
     }
   },
   "variants": {

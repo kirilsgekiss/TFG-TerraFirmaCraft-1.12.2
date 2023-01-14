@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/mud/dolomite"
+      "all": "tfcflorae:blocks/stonetypes/mud/dolomite"
     }
   },
   "variants": {

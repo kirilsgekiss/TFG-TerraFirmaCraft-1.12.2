@@ -3,7 +3,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/ceramics/stoneware/stoneware_clay_block"
+      "all": "tfcflorae:blocks/ceramics/stoneware/stoneware_clay_block"
     }
   },
   "variants": {

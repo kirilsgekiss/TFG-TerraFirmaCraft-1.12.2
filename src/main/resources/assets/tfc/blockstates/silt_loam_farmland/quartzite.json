@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silty_loam/quartzite",
-      "particle": "tfc:blocks/stonetypes/silty_loam/quartzite",
-      "top": "tfc:blocks/stonetypes/silt_loam_farmland/quartzite"
+      "dirt": "tfcflorae:blocks/stonetypes/silty_loam/quartzite",
+      "particle": "tfcflorae:blocks/stonetypes/silty_loam/quartzite",
+      "top": "tfcflorae:blocks/stonetypes/silt_loam_farmland/quartzite"
     }
   },
   "variants": {

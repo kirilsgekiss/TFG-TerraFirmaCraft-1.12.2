@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/gneiss",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/gneiss",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/gneiss"
+      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/gneiss",
+      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/gneiss",
+      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/gneiss"
     }
   },
   "variants": {
