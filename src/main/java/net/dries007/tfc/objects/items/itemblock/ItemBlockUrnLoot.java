@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.itemblock;
+package net.dries007.tfc.objects.items.itemblock;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -11,12 +11,12 @@ import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
-import net.dries007.tfc.objects.blocks.BlockUrn;
+import net.dries007.tfc.objects.blocks.BlockUrnLoot;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockUrn extends ItemBlockTFC implements IItemSize
+public class ItemBlockUrnLoot extends ItemBlockTFC implements IItemSize
 {
-    public ItemBlockUrn(BlockUrn block)
+    public ItemBlockUrnLoot(BlockUrnLoot block)
     {
         super(block);
     }

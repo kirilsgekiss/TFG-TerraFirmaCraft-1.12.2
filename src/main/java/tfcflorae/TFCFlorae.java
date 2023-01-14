@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.proxy.CommonProxy;
-import tfcflorae.util.CapabilityHeatHandler;
+import net.dries007.tfc.util.CapabilityHeatHandler;
 import tfcflorae.util.HelpersTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 

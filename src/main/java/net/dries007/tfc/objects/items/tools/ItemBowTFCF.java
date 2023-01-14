@@ -1,4 +1,4 @@
-package tfcflorae.objects.items.tools;
+package net.dries007.tfc.objects.items.tools;
 
 import javax.annotation.Nonnull;
 

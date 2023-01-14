@@ -1,4 +1,4 @@
-package tfcflorae.util;
+package net.dries007.tfc.util;
 
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.init.Items;
