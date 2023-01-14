@@ -1,7 +1,5 @@
 package tfcflorae.world.worldgen;
 
-import scala.reflect.internal.Trees.Return;
-
 import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -19,9 +17,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGenPlants extends WorldGenerator

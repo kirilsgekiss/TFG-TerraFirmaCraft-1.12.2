@@ -54,7 +54,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 
 @ParametersAreNonnullByDefault
 public class BlockPlantTFC extends BlockBush implements IItemSize

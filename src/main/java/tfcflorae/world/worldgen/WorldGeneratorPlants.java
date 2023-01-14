@@ -17,22 +17,14 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.types.PlantsTFCF;
-import tfcflorae.world.worldgen.cave.WorldGenCaveCreepingVines;
-import tfcflorae.world.worldgen.cave.WorldGenCaveMoss;
-import tfcflorae.world.worldgen.cave.WorldGenCaveMushrooms;
-import tfcflorae.world.worldgen.cave.WorldGenCaveVines;
+import net.dries007.tfc.types.PlantsTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGeneratorPlants implements IWorldGenerator

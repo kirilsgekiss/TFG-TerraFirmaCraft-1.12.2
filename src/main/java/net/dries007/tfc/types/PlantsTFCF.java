@@ -1,4 +1,4 @@
-package tfcflorae.types;
+package net.dries007.tfc.types;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;

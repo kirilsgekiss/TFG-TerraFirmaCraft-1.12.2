@@ -13,7 +13,7 @@ import net.dries007.tfc.types.DefaultPlants;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.wood.BlockLogTFCF;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 
 public class CapabilityHeatHandler
 {

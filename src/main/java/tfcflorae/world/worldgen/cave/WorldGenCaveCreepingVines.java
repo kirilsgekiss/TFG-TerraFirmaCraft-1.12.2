@@ -17,7 +17,7 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGenCaveCreepingVines extends WorldGenerator

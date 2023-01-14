@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import tfcflorae.objects.blocks.plants.BlockTallGrassWater;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;

@@ -35,7 +35,7 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockCrate;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrn;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrnLoot;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;

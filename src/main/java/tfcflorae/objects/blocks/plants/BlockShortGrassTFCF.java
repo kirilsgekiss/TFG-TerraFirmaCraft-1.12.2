@@ -24,19 +24,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
 import net.dries007.tfc.Constants;
-import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.items.ItemsTFC;
-import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 
-import tfcflorae.TFCFlorae;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.types.PlantsTFCF;
 
 @ParametersAreNonnullByDefault
 public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable

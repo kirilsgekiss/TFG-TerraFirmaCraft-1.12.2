@@ -23,7 +23,7 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import tfcflorae.types.PlantsTFCF;
+import net.dries007.tfc.types.PlantsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 
 public class OreDictionaryHelper 
