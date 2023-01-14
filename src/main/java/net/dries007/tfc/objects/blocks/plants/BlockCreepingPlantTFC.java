@@ -31,6 +31,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockCreepingPlantTFC extends BlockPlantTFC
@@ -60,7 +61,9 @@ public class BlockCreepingPlantTFC extends BlockPlantTFC
     public BlockCreepingPlantTFC(Plant plant)
     {
         super(plant);
-        if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+// !       if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+
+        plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
     }
 
     @Override
@@ -87,6 +90,12 @@ public class BlockCreepingPlantTFC extends BlockPlantTFC
     protected boolean canSustainBush(IBlockState state)
     {
         return true;
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
     }
 
     @Override

@@ -84,7 +84,7 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
     public BlockPlantTFC(Plant plant)
     {
         super(plant.getMaterial());
-        if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+//        if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 
         plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
 
@@ -416,7 +416,7 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
         return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE);
     }
 
-    int getDayPeriod()
+    public int getDayPeriod()
     {
         return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
@@ -444,6 +444,9 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
+                return BlocksTFC.isSand(state) || BlocksTFC.isSoilOrGravel(state) || BlocksTFC.isSoil(state) || BlocksTFC.isGround(state) || BlocksTFCF.isSoilOrGravel(state) || BlocksTFCF.isSoil(state) || BlocksTFCF.isGround(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+            case CREEPING:
+            case HANGING:
                 return BlocksTFC.isSand(state) || BlocksTFC.isSoilOrGravel(state) || BlocksTFC.isSoil(state) || BlocksTFC.isGround(state) || BlocksTFCF.isSoilOrGravel(state) || BlocksTFCF.isSoil(state) || BlocksTFCF.isGround(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
             default:
                 return BlocksTFC.isSoil(state) || BlocksTFCF.isSoil(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;

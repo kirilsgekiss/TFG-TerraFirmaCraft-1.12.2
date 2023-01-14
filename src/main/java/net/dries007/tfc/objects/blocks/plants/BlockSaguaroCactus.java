@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,11 +32,10 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.Helpers;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
 import net.dries007.tfc.objects.te.TESaguaroCactus;
 
 @ParametersAreNonnullByDefault
-public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITallPlant
+public class BlockSaguaroCactus extends BlockPlantTFC implements IGrowable, ITallPlant
 {
     public static final PropertyDirection HORIZONTAL_DIRECTION  = PropertyDirection.create("facing");
     public static final PropertyBool HORIZONTAL  = PropertyBool.create("horizontal");

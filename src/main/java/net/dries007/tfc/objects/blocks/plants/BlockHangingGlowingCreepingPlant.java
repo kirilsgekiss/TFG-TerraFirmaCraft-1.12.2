@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,65 +9,63 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockFence;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.api.capability.size.Weight;
+import net.minecraftforge.items.ItemHandlerHelper;
+import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
+import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
-import net.dries007.tfc.util.calendar.ICalendar;
+import net.dries007.tfc.objects.te.TETickCounter;
+import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.skills.SimpleSkill;
+import net.dries007.tfc.util.skills.Skill;
+import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
+import tfcflorae.objects.items.ItemsTFCF;
+import net.dries007.tfc.types.DefaultPlants;
 import tfcflorae.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implements IGrowable
+public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFC implements IGrowable
 {
     private static final PropertyBool BOTTOM = PropertyBool.create("bottom");
-    private static final Map<Plant, BlockHangingCreepingPlantTFCF> MAP = new HashMap<>();
+    private static final Map<Plant, BlockHangingGlowingCreepingPlant> MAP = new HashMap<>();
 
-    public static BlockHangingCreepingPlantTFCF get(Plant plant)
+    public static BlockHangingGlowingCreepingPlant get(Plant plant)
     {
-        return BlockHangingCreepingPlantTFCF.MAP.get(plant);
+        return BlockHangingGlowingCreepingPlant.MAP.get(plant);
     }
 
-    public BlockHangingCreepingPlantTFCF(Plant plant)
+    public BlockHangingGlowingCreepingPlant(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 
         plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
+    }
+
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+    {
+        if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) && state.getValue(AGE) >= 3)
+            return 14;
+        else
+            return 0;
     }
 
     @Override
@@ -91,9 +89,9 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
-        worldIn.setBlockState(pos.down(), this.getDefaultState());
+        worldIn.setBlockState(pos.down(), this.getDefaultState(), 2);
         IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth()).withProperty(BOTTOM, false);
-        worldIn.setBlockState(pos, iblockstate);
+        worldIn.setBlockState(pos, iblockstate, 2);
         iblockstate.neighborChanged(worldIn, pos.down(), this, pos);
     }
 
@@ -195,7 +193,7 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
                 }
                 else if (j < 3)
                 {
-                    worldIn.setBlockState(pos, state.withProperty(AGE, j + 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)));
+                    worldIn.setBlockState(pos, state.withProperty(AGE, j + 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)), 2);
                 }
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
@@ -213,7 +211,7 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
                 }
                 else if (j > 0)
                 {
-                    worldIn.setBlockState(pos, state.withProperty(AGE, j - 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)));
+                    worldIn.setBlockState(pos, state.withProperty(AGE, j - 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)), 2);
                 }
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
@@ -252,9 +250,9 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
 
                 if (rand.nextDouble() < 0.5D && worldIn.isAirBlock(sidePos) && worldIn.isAirBlock(sidePos.down()))
                 {
-                    worldIn.setBlockState(sidePos.down(), this.getDefaultState());
+                    worldIn.setBlockState(sidePos.down(), this.getDefaultState(), 2);
                     IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth());
-                    worldIn.setBlockState(pos, iblockstate);
+                    worldIn.setBlockState(pos, iblockstate, 2);
                     iblockstate.neighborChanged(worldIn, sidePos.down(), this, pos);
                     break;
                 }
@@ -287,9 +285,9 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
 
             if (rand.nextDouble() < 0.01D && worldIn.isAirBlock(sidePos))
             {
-                worldIn.setBlockState(sidePos, this.getDefaultState());
+                worldIn.setBlockState(sidePos, this.getDefaultState(), 2);
                 IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth());
-                worldIn.setBlockState(pos, iblockstate);
+                worldIn.setBlockState(pos, iblockstate, 2);
                 iblockstate.neighborChanged(worldIn, sidePos, this, pos);
                 break;
             }
@@ -360,5 +358,35 @@ public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implem
                 spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
             }
         }
+    }
+
+    public static int getSkillFoodBonus(Skill skill, Random random)
+    {
+        return random.nextInt(2 + (int) (6 * skill.getTotalLevel()));
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        if (playerIn != null)
+        {
+            SimpleSkill skill = CapabilityPlayerData.getSkill(playerIn, SkillType.AGRICULTURE);
+
+            if (skill != null && worldIn.getBlockState(pos).getValue(AGE) >= 3 && plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
+            {
+                if (!worldIn.isRemote)
+                {
+                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemsTFCF.GLOWBERRY, 1 + BlockHangingGlowingPlant.getSkillFoodBonus(skill, RANDOM)));
+                    worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(AGE, 0), 2);
+                    TETickCounter te = Helpers.getTE(worldIn, pos, TETickCounter.class);
+                    if (te != null)
+                    {
+                        te.resetCounter();
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }

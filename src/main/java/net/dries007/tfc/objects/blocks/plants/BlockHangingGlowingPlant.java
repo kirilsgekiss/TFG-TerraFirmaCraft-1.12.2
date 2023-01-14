@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +43,7 @@ import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 import tfcflorae.util.OreDictionaryHelper;

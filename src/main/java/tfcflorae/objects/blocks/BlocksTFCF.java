@@ -12,6 +12,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.CreativeTabsTFC;
 import net.dries007.tfc.objects.blocks.*;
 import net.dries007.tfc.objects.blocks.agriculture.*;
+import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
@@ -37,8 +38,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.blocks.groundcover.*;
-import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.blocks.wood.*;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLeaves;
 import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
@@ -47,7 +47,6 @@ import tfcflorae.objects.blocks.wood.cinnamon.*;
 import tfcflorae.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
-import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
@@ -277,7 +276,7 @@ public final class BlocksTFCF
     private static ImmutableList<BlockHangingGlowingPlant> allHangingGlowingPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockHangingCreepingPlantTFCF> allHangingCreepingPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockCreepingPlantTFCF> allCreepingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<BlockCreepingPlantTFC> allCreepingPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockTallGrassWater> allTallGrassWaterBlocks = Helpers.getNull();
     private static ImmutableList<BlockShortGrassTFCF> allShortGrassBlocks = Helpers.getNull();
     private static ImmutableList<BlockTallGrassTFCF> allTallGrassBlocks = Helpers.getNull();
@@ -534,7 +533,7 @@ public final class BlocksTFCF
         return allHangingGlowingCreepingPlantBlocks;
     }
 
-    public static ImmutableList<BlockCreepingPlantTFCF> getAllCreepingPlantBlocks()
+    public static ImmutableList<BlockCreepingPlantTFC> getAllCreepingPlantBlocks()
     {
         return allCreepingPlantBlocks;
     }
@@ -863,7 +862,7 @@ public final class BlocksTFCF
             Builder<BlockHangingGlowingPlant> plantHangingGlowingBlock = ImmutableList.builder();
             Builder<BlockHangingCreepingPlantTFCF> plantHangingCreepingBlock = ImmutableList.builder();
             Builder<BlockHangingGlowingCreepingPlant> plantHangingGlowingCreepingBlock = ImmutableList.builder();
-            Builder<BlockCreepingPlantTFCF> plantCreepingBlock = ImmutableList.builder();
+            Builder<BlockCreepingPlantTFC> plantCreepingBlock = ImmutableList.builder();
             Builder<BlockTallGrassWater> plantTallGrassWaterBlock = ImmutableList.builder();
             Builder<BlockShortGrassTFCF> plantShortGrassBlock = ImmutableList.builder();
             Builder<BlockTallGrassTFCF> plantTallGrassBlock = ImmutableList.builder();
@@ -914,7 +913,7 @@ public final class BlocksTFCF
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MOSS) || 
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.REINDEER_LICHEN)))
                 {
-                    plantCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockCreepingPlantTFCF(plant), CT_FLORA));
+                    plantCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockCreepingPlantTFC(plant), CT_FLORA));
                 }
                 else if (plant.getPlantType() == Plant.PlantType.TALL_GRASS && (
                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS)))
@@ -953,7 +952,7 @@ public final class BlocksTFCF
                 normalItemBlocks.add(new ItemBlockTFC(blockHangingGlowingCreepingPlant));
             }
             allCreepingPlantBlocks = plantCreepingBlock.build();
-            for (BlockCreepingPlantTFCF blockCreepingPlant : allCreepingPlantBlocks)
+            for (BlockCreepingPlantTFC blockCreepingPlant : allCreepingPlantBlocks)
             {
                 normalItemBlocks.add(new ItemBlockTFC(blockCreepingPlant));
             }
