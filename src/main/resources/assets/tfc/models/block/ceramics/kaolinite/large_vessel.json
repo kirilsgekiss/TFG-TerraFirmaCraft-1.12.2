@@ -2,9 +2,9 @@
   "__comment": "Designed by CtrlAltDavid with Cubik Studio - https://cubik.studio",
   "parent": "block/block",
   "textures": {
-    "particle": "tfcflorae:blocks/ceramics/earthenware/large_vessel_side",
-    "side": "tfcflorae:blocks/ceramics/earthenware/large_vessel_side",
-    "bottom": "tfcflorae:blocks/ceramics/earthenware/large_vessel_bottom"
+    "particle": "tfc:blocks/ceramics/kaolinite/large_vessel_side",
+    "side": "tfc:blocks/ceramics/kaolinite/large_vessel_side",
+    "bottom": "tfc:blocks/ceramics/kaolinite/large_vessel_bottom"
   },
   "elements": [
     {

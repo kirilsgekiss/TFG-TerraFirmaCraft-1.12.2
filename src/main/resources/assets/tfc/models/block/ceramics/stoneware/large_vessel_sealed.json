@@ -2,10 +2,10 @@
   "__comment": "Designed by CtrlAltDavid with Cubik Studio - https://cubik.studio",
   "parent": "block/block",
   "textures": {
-    "particle": "tfcflorae:blocks/ceramics/earthenware/large_vessel_side",
-    "top": "tfcflorae:blocks/ceramics/earthenware/large_vessel_top",
-    "side": "tfcflorae:blocks/ceramics/earthenware/large_vessel_side",
-    "bottom": "tfcflorae:blocks/ceramics/earthenware/large_vessel_bottom"
+    "particle": "tfc:blocks/ceramics/stoneware/large_vessel_side",
+    "top": "tfc:blocks/ceramics/stoneware/large_vessel_top",
+    "side": "tfc:blocks/ceramics/stoneware/large_vessel_side",
+    "bottom": "tfc:blocks/ceramics/stoneware/large_vessel_bottom"
   },
   "elements": [
     {

@@ -2,9 +2,10 @@
   "__comment": "Designed by CtrlAltDavid with Cubik Studio - https://cubik.studio",
   "parent": "block/block",
   "textures": {
-    "particle": "tfcflorae:blocks/ceramics/stoneware/large_vessel_side",
-    "side": "tfcflorae:blocks/ceramics/stoneware/large_vessel_side",
-    "bottom": "tfcflorae:blocks/ceramics/stoneware/large_vessel_bottom"
+    "particle": "tfc:blocks/ceramics/kaolinite/large_vessel_side",
+    "top": "tfc:blocks/ceramics/kaolinite/large_vessel_top",
+    "side": "tfc:blocks/ceramics/kaolinite/large_vessel_side",
+    "bottom": "tfc:blocks/ceramics/kaolinite/large_vessel_bottom"
   },
   "elements": [
     {
@@ -29,15 +30,6 @@
           ],
           "texture": "#bottom",
           "cullface": "down"
-        },
-        "up": {
-          "uv": [
-            4,
-            4,
-            12,
-            12
-          ],
-          "texture": "#bottom"
         }
       }
     },
@@ -64,25 +56,7 @@
           "texture": "#bottom",
           "cullface": "down"
         },
-        "up": {
-          "uv": [
-            13,
-            5,
-            3,
-            6
-          ],
-          "texture": "#side"
-        },
         "north": {
-          "uv": [
-            3,
-            6,
-            13,
-            16
-          ],
-          "texture": "#side"
-        },
-        "south": {
           "uv": [
             3,
             6,
@@ -133,24 +107,6 @@
           ],
           "texture": "#bottom",
           "cullface": "down"
-        },
-        "up": {
-          "uv": [
-            3,
-            5,
-            13,
-            6
-          ],
-          "texture": "#side"
-        },
-        "north": {
-          "uv": [
-            3,
-            6,
-            13,
-            16
-          ],
-          "texture": "#side"
         },
         "south": {
           "uv": [
@@ -204,26 +160,7 @@
           "texture": "#bottom",
           "cullface": "down"
         },
-        "up": {
-          "uv": [
-            4,
-            4,
-            12,
-            5
-          ],
-          "texture": "#side",
-          "rotation": 90
-        },
         "west": {
-          "uv": [
-            4,
-            6,
-            12,
-            16
-          ],
-          "texture": "#side"
-        },
-        "east": {
           "uv": [
             4,
             6,
@@ -257,25 +194,6 @@
           "texture": "#bottom",
           "cullface": "down"
         },
-        "up": {
-          "uv": [
-            4,
-            5,
-            12,
-            6
-          ],
-          "texture": "#side",
-          "rotation": 270
-        },
-        "west": {
-          "uv": [
-            4,
-            6,
-            12,
-            16
-          ],
-          "texture": "#side"
-        },
         "east": {
           "uv": [
             4,
@@ -284,6 +202,141 @@
             16
           ],
           "texture": "#side"
+        }
+      }
+    },
+    {
+      "__comment": "Top",
+      "from": [
+        2.5,
+        9.5,
+        2.5
+      ],
+      "to": [
+        13.5,
+        11,
+        13.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            2.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#top"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            2.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#top"
+        },
+        "north": {
+          "uv": [
+            13.5,
+            2.5,
+            2.5,
+            1
+          ],
+          "texture": "#top"
+        },
+        "south": {
+          "uv": [
+            13.5,
+            15,
+            2.5,
+            13.5
+          ],
+          "texture": "#top",
+          "rotation": 180
+        },
+        "west": {
+          "uv": [
+            1,
+            2.5,
+            2.5,
+            13.5
+          ],
+          "texture": "#top",
+          "rotation": 270
+        },
+        "east": {
+          "uv": [
+            15,
+            13.5,
+            13.5,
+            2.5
+          ],
+          "texture": "#top",
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "__comment": "Nob",
+      "from": [
+        7,
+        11,
+        7
+      ],
+      "to": [
+        9,
+        12,
+        9
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            7,
+            7,
+            9,
+            9
+          ],
+          "texture": "#top"
+        },
+        "north": {
+          "uv": [
+            7,
+            7,
+            9,
+            8
+          ],
+          "texture": "#top",
+          "rotation": 180
+        },
+        "south": {
+          "uv": [
+            7,
+            8,
+            9,
+            9
+          ],
+          "texture": "#top"
+        },
+        "west": {
+          "uv": [
+            7,
+            7,
+            8,
+            9
+          ],
+          "texture": "#top",
+          "rotation": 270
+        },
+        "east": {
+          "uv": [
+            8,
+            7,
+            9,
+            9
+          ],
+          "texture": "#top",
+          "rotation": 90
         }
       }
     }
