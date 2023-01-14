@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
 import gregtech.client.model.SimpleStateMapper;
-import gregtech.common.blocks.BlockOre;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
@@ -77,10 +76,10 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 public final class ClientRegisterEvents
 {
     public static final IBlockColor planksBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
-            tintIndex == 1 ? ((BlockPlanksTFC) state.getBlock()).wood.getColor() : 0xFFFFFF;
+            tintIndex == 0 ? ((BlockPlanksTFC) state.getBlock()).wood.getColor() : 0xFFFFFF;
 
     public static final IItemColor planksItemColors = (stack, tintIndex) ->
-            tintIndex == 1 ? ((BlockPlanksTFC) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
+            tintIndex == 0 ? ((BlockPlanksTFC) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
 
     public static final IItemColor moldItemColors = (stack, tintIndex) -> {
         if (tintIndex != 1) return 0xFFFFFF;
@@ -398,7 +397,6 @@ public final class ClientRegisterEvents
                 blockColors.registerBlockColorHandler(planksBlockColors, item.getBlock());
             }
         }
-
 
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
