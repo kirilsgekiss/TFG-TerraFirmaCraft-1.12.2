@@ -415,6 +415,7 @@ public final class ItemsTFC
         }
 
         BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
+        BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllBarrelItemBlocks().forEach(x -> registerItemBlock(r, x));
 

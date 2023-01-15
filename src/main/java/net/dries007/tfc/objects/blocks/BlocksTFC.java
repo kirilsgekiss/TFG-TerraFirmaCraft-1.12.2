@@ -123,12 +123,14 @@ public final class BlocksTFC
     // Use the static get methods in the classes instead.
     private static ImmutableList<ItemBlock> allNormalItemBlocks;
     private static ImmutableList<ItemBlock> allInventoryItemBlocks;
+    private static ImmutableList<ItemBlock> allColorizedItemBlocks;
     private static ImmutableList<ItemBlockBarrel> allBarrelItemBlocks;
 
     private static ImmutableList<BlockFluidBase> allFluidBlocks;
     private static ImmutableList<BlockRockVariant> allBlockRockVariants;
     private static ImmutableList<BlockWallTFC> allWallBlocks;
     private static ImmutableList<BlockLogTFC> allLogBlocks;
+    private static ImmutableList<BlockPlanksTFC> allPlankBlocks;
     private static ImmutableList<BlockLeavesTFC> allLeafBlocks;
     private static ImmutableList<BlockFenceGateTFC> allFenceGateBlocks;
     private static ImmutableList<BlockSaplingTFC> allSaplingBlocks;
@@ -162,9 +164,12 @@ public final class BlocksTFC
         return allNormalItemBlocks;
     }
 
-    public static ImmutableList<ItemBlock> getAllInventoryItemBlocks()
-    {
+    public static ImmutableList<ItemBlock> getAllInventoryItemBlocks() {
         return allInventoryItemBlocks;
+    }
+
+    public static ImmutableList<ItemBlock> getAllColorizedItemBlocks() {
+        return allColorizedItemBlocks;
     }
 
     public static ImmutableList<ItemBlockBarrel> getAllBarrelItemBlocks()
@@ -185,6 +190,10 @@ public final class BlocksTFC
     public static ImmutableList<BlockLogTFC> getAllLogBlocks()
     {
         return allLogBlocks;
+    }
+
+    public static ImmutableList<BlockPlanksTFC> getAllPlankBlocks() {
+        return allPlankBlocks;
     }
 
     public static ImmutableList<BlockLeavesTFC> getAllLeafBlocks()
@@ -323,6 +332,7 @@ public final class BlocksTFC
         IForgeRegistry<Block> r = event.getRegistry();
 
         Builder<ItemBlock> normalItemBlocks = ImmutableList.builder();
+        Builder<ItemBlock> colorizedItemBlocks = ImmutableList.builder();
         Builder<ItemBlock> inventoryItemBlocks = ImmutableList.builder();
 
         normalItemBlocks.add(new ItemBlockTFC(register(r, "debug", new BlockDebug(), CT_MISC)));
@@ -517,6 +527,7 @@ public final class BlocksTFC
 
         {
             Builder<BlockLogTFC> logs = ImmutableList.builder();
+            Builder<BlockPlanksTFC> planks = ImmutableList.builder();
             Builder<BlockLeavesTFC> leaves = ImmutableList.builder();
             Builder<BlockFenceGateTFC> fenceGates = ImmutableList.builder();
             Builder<BlockSaplingTFC> saplings = ImmutableList.builder();
@@ -551,7 +562,7 @@ public final class BlocksTFC
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
             {
                 // Only block in the decorations category
-                normalItemBlocks.add(new ItemBlockTFC(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new BlockPlanksTFC(wood), CT_WOOD)));
+                planks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new BlockPlanksTFC(wood), CT_WOOD));
                 // Blocks with specific block collections don't matter
                 logs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockLogTFC(wood), CT_WOOD));
                 leaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new BlockLeavesTFC(wood), CT_WOOD));
@@ -570,6 +581,7 @@ public final class BlocksTFC
             }
 
             allLogBlocks = logs.build();
+            allPlankBlocks = planks.build();
             allLeafBlocks = leaves.build();
             allFenceGateBlocks = fenceGates.build();
             allSaplingBlocks = saplings.build();
@@ -583,6 +595,9 @@ public final class BlocksTFC
             allBarrelItemBlocks = barrelItems.build();
 
             // logs are special
+            allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+
             allLeafBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allFenceGateBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
 
@@ -592,7 +607,7 @@ public final class BlocksTFC
             allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
             allChestBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allToolRackBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allLoomBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+
             allSupportBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
@@ -814,6 +829,7 @@ public final class BlocksTFC
         // todo: smoke rack (placed with any string, so event based?) + smoke blocks or will we use particles?
 
         allNormalItemBlocks = normalItemBlocks.build();
+        allColorizedItemBlocks = colorizedItemBlocks.build();
         allInventoryItemBlocks = inventoryItemBlocks.build();
 
         // Register Tile Entities

@@ -246,40 +246,35 @@ public final class ClientRegisterEvents
 
         }
 
-        // Item Blocks
-        for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
+        // Blocks
+        // Planks
+        for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
         {
-            // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
-            if (item.getBlock() instanceof BlockPlanksTFC)
-            {
-                // Change model location for item
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal"));
-
-                // Change model location for block
-                ModelLoader.setCustomStateMapper(item.getBlock(), new SimpleStateMapper(new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal")));
-            }
-            else if (item.getBlock() instanceof BlockLoom)
-            {
-                // Change model location for item
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
-                ModelLoader.setCustomStateMapper(item.getBlock(), new DefaultStateMapper() {
-                    @NotNull
-                    protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
-                    {
-                        return new ModelResourceLocation(new ResourceLocation("tfc:wood/loom/pattern"), this.getPropertyString(state.getProperties()));
-                    }
-                });
-            }
-            else
-            {
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
-            }
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(plank), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal"));
+            ModelLoader.setCustomStateMapper(plank, new SimpleStateMapper(new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal")));
+        }
+        // Looms
+        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
+        {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(loom), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
+            ModelLoader.setCustomStateMapper(loom, new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/loom/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
         }
 
+        // Item Blocks
+        for (ItemBlock itemBlock : BlocksTFC.getAllNormalItemBlocks())
+            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "normal"));
 
-        for (ItemBlock item : BlocksTFC.getAllInventoryItemBlocks())
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        // Inventory Item Blocks
+        for (ItemBlock itemBlock : BlocksTFC.getAllInventoryItemBlocks())
+            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
 
+        // Barrel Item Blocks
         for (ItemBlock item : BlocksTFC.getAllBarrelItemBlocks())
         {
             final ModelResourceLocation sealed = new ModelResourceLocation(item.getRegistryName(), "sealed=true");
@@ -408,18 +403,13 @@ public final class ClientRegisterEvents
     {
         BlockColors blockColors = event.getBlockColors();
 
-        // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
-        for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
-        {
-            if (item.getBlock() instanceof BlockPlanksTFC)
-            {
-                blockColors.registerBlockColorHandler(planksBlockColors, item.getBlock());
-            }
-            else if (item.getBlock() instanceof BlockLoom)
-            {
-                blockColors.registerBlockColorHandler(loomBlockColors, item.getBlock());
-            }
-        }
+        // Planks
+        for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
+            blockColors.registerBlockColorHandler(planksBlockColors, plank);
+
+        // Looms
+        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
+            blockColors.registerBlockColorHandler(loomBlockColors, loom);
 
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
@@ -479,18 +469,13 @@ public final class ClientRegisterEvents
     {
         ItemColors itemColors = event.getItemColors();
 
-        // todo: optimize this - iterating planksItemBlocks (make ImmutableList for this) instead of allNormalItemBlocks
-        for (ItemBlock item : BlocksTFC.getAllNormalItemBlocks())
-        {
-            if (item.getBlock() instanceof BlockPlanksTFC)
-            {
-                itemColors.registerItemColorHandler(planksItemColors, item);
-            }
-            else if (item.getBlock() instanceof BlockLoom)
-            {
-                itemColors.registerItemColorHandler(loomItemColors, item);
-            }
-        }
+        // Planks
+        for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
+            itemColors.registerItemColorHandler(planksItemColors, Item.getItemFromBlock(plank));
+
+        // Looms
+        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
+            itemColors.registerItemColorHandler(loomItemColors, Item.getItemFromBlock(loom));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
