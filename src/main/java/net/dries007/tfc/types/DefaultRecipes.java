@@ -27,7 +27,7 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.objects.blocks.BlockSlabTFC;
-import net.dries007.tfc.objects.blocks.BlockStairsTFC;
+import net.dries007.tfc.objects.blocks.stone.BlockRockStairsTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockWoodPressurePlateTFC;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
@@ -214,14 +214,14 @@ public final class DefaultRecipes
 
             // Raw -> Raw Stairs
             ModHandler.addShapedRecipe(String.format("rock_stairs_%s", rock),
-                    new ItemStack(BlockStairsTFC.get(rock, Type.RAW), 8), "X  ", "XX ", "XXX",
+                    new ItemStack(BlockRockStairsTFC.get(rock, Type.RAW), 8), "X  ", "XX ", "XXX",
                     'X', new ItemStack(BlockRockVariant.get(rock, Type.RAW))
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(BlockRockVariant.get(rock, Type.RAW), 6)
                     .notConsumable(new IntCircuitIngredient(7))
-                    .output(BlockStairsTFC.get(rock, Type.RAW), 8)
+                    .output(BlockRockStairsTFC.get(rock, Type.RAW), 8)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -354,18 +354,19 @@ public final class DefaultRecipes
                     .buildAndRegister();
 
             // Planks -> Stairs
+            /*
             ModHandler.addShapedRecipe(String.format("wood_stairs_%s", tree),
-                    new ItemStack(BlockStairsTFC.get(tree), 8), "X  ", "XX ", "XXX",
+                    new ItemStack(BlockRockStairsTFC.get(tree), 8), "X  ", "XX ", "XXX",
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(BlockPlanksTFC.get(tree), 6)
                     .notConsumable(new IntCircuitIngredient(7))
-                    .output(BlockStairsTFC.get(tree), 8)
+                    .output(BlockRockStairsTFC.get(tree), 8)
                     .duration(200)
                     .EUt(7)
-                    .buildAndRegister();
+                    .buildAndRegister();*/
 
             // Lumber -> Wood Pressure Plates
             ModHandler.addShapedRecipe(String.format("wood_pressure_plate_%s", tree),

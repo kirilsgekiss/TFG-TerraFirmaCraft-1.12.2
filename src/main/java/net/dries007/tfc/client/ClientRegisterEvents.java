@@ -12,6 +12,7 @@ import gregtech.api.unification.material.Material;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
+import net.dries007.tfc.objects.blocks.stone.BlockRockStairsTFC;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
@@ -302,6 +303,44 @@ public final class ClientRegisterEvents
                 }
             });
         }
+        // Stairs
+        for (BlockWoodStairsTFC stairs : BlocksTFC.getAllWoodStairsBlocks())
+        {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(stairs), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/stairs/pattern"), "normal"));
+
+            ModelLoader.setCustomStateMapper(stairs, new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/stairs/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
+        }
+        // Slabs
+        /*
+        for (BlockSlabTFC.Half slab : BlocksTFC.getAllSlabBlocks())
+        {
+            if (slab.isWood())
+            {
+                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(slab), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/slab/pattern"), "normal"));
+
+                ModelLoader.setCustomStateMapper(slab, new DefaultStateMapper() {
+                    @NotNull
+                    protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                    {
+                        return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/slab/pattern"), this.getPropertyString(state.getProperties()));
+                    }
+                });
+            }
+
+        }*/
+        // Fence
+        // Fence gates
+        // Fence gates log
+        // ToolRack
+        // Pressure plate
+        // Button
+
 
         // Item Blocks
         for (ItemBlock itemBlock : BlocksTFC.getAllNormalItemBlocks())
@@ -310,6 +349,7 @@ public final class ClientRegisterEvents
         // Inventory Item Blocks
         for (ItemBlock itemBlock : BlocksTFC.getAllInventoryItemBlocks())
             ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
+
 
         // BLOCKS - STATE MAPPERS //
 
@@ -452,6 +492,10 @@ public final class ClientRegisterEvents
         for (ItemBlockBarrel itemBlockBarrel : BlocksTFC.getAllBarrelItemBlocks())
             blockColors.registerBlockColorHandler(woodBlockColors, itemBlockBarrel.getBlock());
 
+        // Stairs
+        for (BlockWoodStairsTFC stairs : BlocksTFC.getAllWoodStairsBlocks())
+            blockColors.registerBlockColorHandler(woodBlockColors, stairs);
+
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
 
@@ -526,8 +570,14 @@ public final class ClientRegisterEvents
         for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
             itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(loom));
 
+        // Barrels
         for (ItemBlockBarrel itemBlockBarrel : BlocksTFC.getAllBarrelItemBlocks())
             itemColors.registerItemColorHandler(woodItemColors, itemBlockBarrel);
+
+        // Stairs
+        for (BlockWoodStairsTFC stairs : BlocksTFC.getAllWoodStairsBlocks())
+            itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(stairs));
+
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),

@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
@@ -249,6 +251,12 @@ public abstract class BlockSlabTFC extends BlockSlab
             OreDictionaryHelper.register(this, "slab");
             OreDictionaryHelper.register(this, "slab", "wood");
             OreDictionaryHelper.register(this, "slab", "wood", wood);
+        }
+
+        public boolean isWood()
+        {
+            BlockSlabTFC.Half obj = WOOD_MAP.get(TFCRegistries.TREES.getValue(DefaultTrees.ACACIA));
+            return obj != null;
         }
 
         @Override
