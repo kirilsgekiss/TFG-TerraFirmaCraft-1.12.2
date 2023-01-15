@@ -55,7 +55,7 @@ import java.util.Map;
  * @see BarrelRecipe
  */
 @ParametersAreNonnullByDefault
-public class BlockBarrelTFC extends Block implements IItemSize
+public class BlockBarrelTFC extends Block implements IItemSize, IWoodHandler
 {
     public static final PropertyBool SEALED = PropertyBool.create("sealed");
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
@@ -67,7 +67,7 @@ public class BlockBarrelTFC extends Block implements IItemSize
         return MAP.get(wood);
     }
 
-    public Tree wood;
+    private final Tree wood;
 
     public BlockBarrelTFC(Tree wood)
     {
@@ -77,6 +77,11 @@ public class BlockBarrelTFC extends Block implements IItemSize
         setSoundType(SoundType.WOOD);
         setHardness(2F);
         setDefaultState(blockState.getBaseState().withProperty(SEALED, false));
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     /**

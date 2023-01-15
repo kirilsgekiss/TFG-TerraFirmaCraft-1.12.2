@@ -16,6 +16,7 @@ import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockBarrel;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -246,7 +247,7 @@ public final class ClientRegisterEvents
                 @NotNull
                 protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
                 {
-                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/planks/pattern"), this.getPropertyString(state.getProperties()));
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), this.getPropertyString(state.getProperties()));
                 }
             });
         }
@@ -258,7 +259,7 @@ public final class ClientRegisterEvents
                 @NotNull
                 protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
                 {
-                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/workbench/pattern"), this.getPropertyString(state.getProperties()));
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/workbench/pattern"), this.getPropertyString(state.getProperties()));
                 }
             });
         }
@@ -270,7 +271,7 @@ public final class ClientRegisterEvents
                 @NotNull
                 protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
                 {
-                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/bookshelf/pattern"), this.getPropertyString(state.getProperties()));
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/bookshelf/pattern"), this.getPropertyString(state.getProperties()));
                 }
             });
         }
@@ -282,7 +283,22 @@ public final class ClientRegisterEvents
                 @NotNull
                 protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
                 {
-                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/loom/pattern"), this.getPropertyString(state.getProperties()));
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
+        }
+        // Barrel Item Blocks
+        for (ItemBlock itemBlock : BlocksTFC.getAllBarrelItemBlocks())
+        {
+            final ModelResourceLocation sealed = new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/barrel/pattern"), "sealed=true");
+            final ModelResourceLocation unsealed = new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/barrel/pattern"), "sealed=false");
+            ModelLoader.setCustomMeshDefinition(itemBlock, stack -> stack.getTagCompound() != null ? sealed : unsealed);
+
+            ModelLoader.setCustomStateMapper(itemBlock.getBlock(), new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/barrel/pattern"), this.getPropertyString(state.getProperties()));
                 }
             });
         }
@@ -294,14 +310,6 @@ public final class ClientRegisterEvents
         // Inventory Item Blocks
         for (ItemBlock itemBlock : BlocksTFC.getAllInventoryItemBlocks())
             ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
-
-        // Barrel Item Blocks
-        for (ItemBlock item : BlocksTFC.getAllBarrelItemBlocks())
-        {
-            final ModelResourceLocation sealed = new ModelResourceLocation(item.getRegistryName(), "sealed=true");
-            final ModelResourceLocation unsealed = new ModelResourceLocation(item.getRegistryName(), "sealed=false");
-            ModelLoader.setCustomMeshDefinition(item, stack -> stack.getTagCompound() != null ? sealed : unsealed);
-        }
 
         // BLOCKS - STATE MAPPERS //
 
@@ -440,6 +448,10 @@ public final class ClientRegisterEvents
         for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
             blockColors.registerBlockColorHandler(woodBlockColors, loom);
 
+        // Barrels
+        for (ItemBlockBarrel itemBlockBarrel : BlocksTFC.getAllBarrelItemBlocks())
+            blockColors.registerBlockColorHandler(woodBlockColors, itemBlockBarrel.getBlock());
+
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
 
@@ -513,6 +525,9 @@ public final class ClientRegisterEvents
         // Looms
         for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
             itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(loom));
+
+        for (ItemBlockBarrel itemBlockBarrel : BlocksTFC.getAllBarrelItemBlocks())
+            itemColors.registerItemColorHandler(woodItemColors, itemBlockBarrel);
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
