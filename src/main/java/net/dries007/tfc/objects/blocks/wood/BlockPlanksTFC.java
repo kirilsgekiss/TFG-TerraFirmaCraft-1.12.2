@@ -18,7 +18,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraftforge.client.event.TextureStitchEvent;
 
-public class BlockPlanksTFC extends Block
+public class BlockPlanksTFC extends Block implements IWoodHandler
 {
     private static final Map<Tree, BlockPlanksTFC> MAP = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class BlockPlanksTFC extends Block
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    private final Tree wood;
 
     public BlockPlanksTFC(Tree wood)
     {
@@ -41,5 +41,10 @@ public class BlockPlanksTFC extends Block
         //noinspection ConstantConditions
         OreDictionaryHelper.register(this, "plank", "wood", wood.getRegistryName().getPath());
         Blocks.FIRE.setFireInfo(this, 5, 20);
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 }

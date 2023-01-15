@@ -8,7 +8,7 @@ import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.blocks.stone.BlockRockSmooth;
-import net.dries007.tfc.objects.blocks.wood.BlockSupport;
+import net.dries007.tfc.objects.blocks.wood.BlockSupportTFC;
 import net.dries007.tfc.objects.container.ContainerEmpty;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
@@ -40,7 +40,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static gregtech.api.items.toolitem.ToolHelper.TORCH_PLACING_KEY;
 import static net.dries007.tfc.compat.gregtech.items.tools.TFCToolHelper.IN_WORLD_CHISELING_KEY;
 
 public class InWorldChiselingBehavior implements IToolBehavior {
@@ -69,7 +68,7 @@ public class InWorldChiselingBehavior implements IToolBehavior {
                 {
                     IBlockState oldState = worldIn.getBlockState(pos);
                     FallingBlockManager.Specification oldSpec = FallingBlockManager.getSpecification(oldState);
-                    if (oldSpec != null && oldSpec.isCollapsable() && !BlockSupport.isBeingSupported(worldIn, pos))
+                    if (oldSpec != null && oldSpec.isCollapsable() && !BlockSupportTFC.isBeingSupported(worldIn, pos))
                     {
                         worldIn.setBlockToAir(pos); // Set block to air before attempting a collapse mechanic
                         if (FallingBlockManager.checkCollapsingArea(worldIn, pos))

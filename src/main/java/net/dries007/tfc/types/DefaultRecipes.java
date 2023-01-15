@@ -103,7 +103,6 @@ import static net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags.UNUSAB
 import static net.dries007.tfc.objects.fluids.FluidsTFC.*;
 import static net.dries007.tfc.util.forge.ForgeRule.*;
 import static net.dries007.tfc.util.skills.SmithingSkill.Type.*;
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class DefaultRecipes
@@ -524,7 +523,7 @@ public final class DefaultRecipes
 
             // Looms
             ModHandler.addShapedRecipe(String.format("loom_%s", tree),
-                    new ItemStack(BlockLoom.get(tree)), "XXX", "XYX", "X X",
+                    new ItemStack(BlockLoomTFC.get(tree)), "XXX", "XYX", "X X",
                     'X', new ItemStack(ItemLumberTFC.get(tree)),
                     'Y', Items.STICK
             );
@@ -533,21 +532,21 @@ public final class DefaultRecipes
                     .input(ItemLumberTFC.get(tree), 7)
                     .input(Items.STICK)
                     .notConsumable(new IntCircuitIngredient(13))
-                    .output(BlockLoom.get(tree))
+                    .output(BlockLoomTFC.get(tree))
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
 
             // Barrels
             ModHandler.addShapedRecipe(String.format("barrel_%s", tree),
-                    new ItemStack(BlockBarrel.get(tree)), "X X", "X X", "XXX",
+                    new ItemStack(BlockBarrelTFC.get(tree)), "X X", "X X", "XXX",
                     'X', new ItemStack(ItemLumberTFC.get(tree))
             );
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(ItemLumberTFC.get(tree), 7)
                     .notConsumable(new IntCircuitIngredient(15))
-                    .output(BlockBarrel.get(tree))
+                    .output(BlockBarrelTFC.get(tree))
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -572,7 +571,7 @@ public final class DefaultRecipes
 
             // Supports
             ModHandler.addShapedRecipe(String.format("support_%s", tree),
-                    new ItemStack(BlockSupport.get(tree)), "ZX ", " X ", " X ",
+                    new ItemStack(BlockSupportTFC.get(tree)), "ZX ", " X ", " X ",
                     'X', BlockLogTFC.get(tree),
                     'Z', ToolItems.SAW
             );
@@ -580,7 +579,7 @@ public final class DefaultRecipes
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(BlockLogTFC.get(tree), 3)
                     .notConsumable(new IntCircuitIngredient(7))
-                    .output(BlockSupport.get(tree), 8)
+                    .output(BlockSupportTFC.get(tree), 8)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();

@@ -9,7 +9,6 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
-import gregtech.client.model.SimpleStateMapper;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
@@ -23,7 +22,6 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -65,7 +63,6 @@ import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
 import org.jetbrains.annotations.NotNull;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -75,17 +72,11 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
 public final class ClientRegisterEvents
 {
-    public static final IBlockColor planksBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
-            tintIndex == 0 ? ((BlockPlanksTFC) state.getBlock()).wood.getColor() : 0xFFFFFF;
+    public static final IBlockColor woodBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
+            tintIndex == 0 ? ((IWoodHandler) state.getBlock()).getWood().getColor() : 0xFFFFFF;
 
-    public static final IBlockColor loomBlockColors = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
-            tintIndex == 0 ? ((BlockLoom) state.getBlock()).wood.getColor() : 0xFFFFFF;
-
-    public static final IItemColor planksItemColors = (stack, tintIndex) ->
-            tintIndex == 0 ? ((BlockPlanksTFC) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
-
-    public static final IItemColor loomItemColors = (stack, tintIndex) ->
-            tintIndex == 0 ? ((BlockLoom) ((ItemBlock) stack.getItem()).getBlock()).wood.getColor() : 0xFFFFFF;
+    public static final IItemColor woodItemColors = (stack, tintIndex) ->
+            tintIndex == 0 ? ((IWoodHandler) ((ItemBlock) stack.getItem()).getBlock()).getWood().getColor() : 0xFFFFFF;
 
     public static final IItemColor moldItemColors = (stack, tintIndex) -> {
         if (tintIndex != 1) return 0xFFFFFF;
@@ -251,10 +242,40 @@ public final class ClientRegisterEvents
         for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
         {
             ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(plank), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal"));
-            ModelLoader.setCustomStateMapper(plank, new SimpleStateMapper(new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/planks/pattern"), "normal")));
+            ModelLoader.setCustomStateMapper(plank, new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/planks/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
+        }
+        // Workbenches
+        for (BlockWorkbenchTFC workbench : BlocksTFC.getAllWorkbenchBlocks())
+        {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(workbench), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/workbench/pattern"), "normal"));
+            ModelLoader.setCustomStateMapper(workbench, new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/workbench/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
+        }
+        // Bookshelfs
+        for (BlockBookshelfTFC bookshelf : BlocksTFC.getAllBookshelfBlocks())
+        {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(bookshelf), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/bookshelf/pattern"), "normal"));
+            ModelLoader.setCustomStateMapper(bookshelf, new DefaultStateMapper() {
+                @NotNull
+                protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+                {
+                    return new ModelResourceLocation(new ResourceLocation("tfc:wood/bookshelf/pattern"), this.getPropertyString(state.getProperties()));
+                }
+            });
         }
         // Looms
-        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
+        for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
         {
             ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(loom), 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/loom/pattern"), "normal"));
             ModelLoader.setCustomStateMapper(loom, new DefaultStateMapper() {
@@ -405,11 +426,19 @@ public final class ClientRegisterEvents
 
         // Planks
         for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
-            blockColors.registerBlockColorHandler(planksBlockColors, plank);
+            blockColors.registerBlockColorHandler(woodBlockColors, plank);
+
+        // Workbenches
+        for (BlockWorkbenchTFC workbench : BlocksTFC.getAllWorkbenchBlocks())
+            blockColors.registerBlockColorHandler(woodBlockColors, workbench);
+
+        // Bookshelfs
+        for (BlockBookshelfTFC bookshelf : BlocksTFC.getAllBookshelfBlocks())
+            blockColors.registerBlockColorHandler(woodBlockColors, bookshelf);
 
         // Looms
-        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
-            blockColors.registerBlockColorHandler(loomBlockColors, loom);
+        for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
+            blockColors.registerBlockColorHandler(woodBlockColors, loom);
 
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
@@ -471,11 +500,19 @@ public final class ClientRegisterEvents
 
         // Planks
         for (BlockPlanksTFC plank : BlocksTFC.getAllPlankBlocks())
-            itemColors.registerItemColorHandler(planksItemColors, Item.getItemFromBlock(plank));
+            itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(plank));
+
+        // Workbenches
+        for (BlockWorkbenchTFC workbench : BlocksTFC.getAllWorkbenchBlocks())
+            itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(workbench));
+
+        // Bookshelfs
+        for (BlockBookshelfTFC bookshelf : BlocksTFC.getAllBookshelfBlocks())
+            itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(bookshelf));
 
         // Looms
-        for (BlockLoom loom : BlocksTFC.getAllLoomBlocks())
-            itemColors.registerItemColorHandler(loomItemColors, Item.getItemFromBlock(loom));
+        for (BlockLoomTFC loom : BlocksTFC.getAllLoomBlocks())
+            itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(loom));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),

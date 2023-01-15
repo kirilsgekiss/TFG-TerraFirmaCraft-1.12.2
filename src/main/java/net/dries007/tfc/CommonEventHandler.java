@@ -113,7 +113,7 @@ import net.dries007.tfc.objects.blocks.stone.BlockRockRaw;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.stone.BlockStoneAnvil;
 import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSupport;
+import net.dries007.tfc.objects.blocks.wood.BlockSupportTFC;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemQuiver;
@@ -350,7 +350,7 @@ public final class CommonEventHandler
         if (state.getBlock() instanceof BlockAnvilTFC
             || state.getBlock() instanceof BlockStoneAnvil
             || state.getBlock() instanceof BlockQuern
-            || state.getBlock() instanceof BlockSupport)
+            || state.getBlock() instanceof BlockSupportTFC)
         {
             event.setUseBlock(Event.Result.ALLOW);
         }

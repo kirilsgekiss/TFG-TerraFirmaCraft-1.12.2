@@ -35,7 +35,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.container.ContainerWorkbenchTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockWorkbenchTFC extends BlockWorkbench
+public class BlockWorkbenchTFC extends BlockWorkbench implements IWoodHandler
 {
     private static final Map<Tree, BlockWorkbenchTFC> MAP = new HashMap<>();
 
@@ -44,14 +44,11 @@ public class BlockWorkbenchTFC extends BlockWorkbench
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    private final Tree wood;
 
     public BlockWorkbenchTFC(Tree wood)
     {
-        if (MAP.put(wood, this) != null)
-        {
-            throw new IllegalStateException("There can only be one.");
-        }
+        if (MAP.put(wood, this) != null) { throw new IllegalStateException("There can only be one."); }
         this.wood = wood;
 
         setSoundType(SoundType.WOOD);
@@ -60,6 +57,11 @@ public class BlockWorkbenchTFC extends BlockWorkbench
         OreDictionaryHelper.register(this, "workbench");
         OreDictionaryHelper.register(this, "crafting", "table", "wood");
         Blocks.FIRE.setFireInfo(this, 5, 20);
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     @SideOnly(Side.CLIENT)

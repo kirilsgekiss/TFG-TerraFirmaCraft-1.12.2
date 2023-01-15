@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockBookshelfTFC extends Block
+public class BlockBookshelfTFC extends Block implements IWoodHandler
 {
     private static final Map<Tree, BlockBookshelfTFC> MAP = new HashMap<>();
 
@@ -31,7 +31,7 @@ public class BlockBookshelfTFC extends Block
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    private final Tree wood;
 
     public BlockBookshelfTFC(Tree wood)
     {
@@ -45,6 +45,11 @@ public class BlockBookshelfTFC extends Block
         //noinspection ConstantConditions
         OreDictionaryHelper.register(this, "bookshelf", wood.getRegistryName().getPath());
         Blocks.FIRE.setFireInfo(this, 30, 20);
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     @SideOnly(Side.CLIENT)

@@ -131,6 +131,8 @@ public final class BlocksTFC
     private static ImmutableList<BlockWallTFC> allWallBlocks;
     private static ImmutableList<BlockLogTFC> allLogBlocks;
     private static ImmutableList<BlockPlanksTFC> allPlankBlocks;
+    private static ImmutableList<BlockWorkbenchTFC> allWorkbenchBlocks;
+    private static ImmutableList<BlockBookshelfTFC> allBookshelfBlocks;
     private static ImmutableList<BlockLeavesTFC> allLeafBlocks;
     private static ImmutableList<BlockFenceGateTFC> allFenceGateBlocks;
     private static ImmutableList<BlockSaplingTFC> allSaplingBlocks;
@@ -143,13 +145,13 @@ public final class BlocksTFC
     private static ImmutableList<BlockAnvilTFC> allAnvils;
     private static ImmutableList<BlockCladdingTFC> allSheets;
     private static ImmutableList<BlockLampTFC> allLamps;
-    private static ImmutableList<BlockToolRack> allToolRackBlocks;
+    private static ImmutableList<BlockToolRackTFC> allToolRackBlocks;
     private static ImmutableList<BlockCropTFC> allCropBlocks;
     private static ImmutableList<BlockCropDead> allDeadCropBlocks;
     private static ImmutableList<BlockPlantTFC> allPlantBlocks;
     private static ImmutableList<BlockPlantTFC> allGrassBlocks;
-    private static ImmutableList<BlockLoom> allLoomBlocks;
-    private static ImmutableList<BlockSupport> allSupportBlocks;
+    private static ImmutableList<BlockLoomTFC> allLoomBlocks;
+    private static ImmutableList<BlockSupportTFC> allSupportBlocks;
     private static ImmutableList<BlockFlowerPotTFC> allFlowerPots;
 
     private static ImmutableList<BlockFruitTreeSapling> allFruitTreeSaplingBlocks = Helpers.getNull();
@@ -194,6 +196,14 @@ public final class BlocksTFC
 
     public static ImmutableList<BlockPlanksTFC> getAllPlankBlocks() {
         return allPlankBlocks;
+    }
+
+    public static ImmutableList<BlockWorkbenchTFC> getAllWorkbenchBlocks() {
+        return allWorkbenchBlocks;
+    }
+
+    public static ImmutableList<BlockBookshelfTFC> getAllBookshelfBlocks() {
+        return allBookshelfBlocks;
     }
 
     public static ImmutableList<BlockLeavesTFC> getAllLeafBlocks()
@@ -261,7 +271,7 @@ public final class BlocksTFC
         return allLamps;
     }
 
-    public static ImmutableList<BlockToolRack> getAllToolRackBlocks()
+    public static ImmutableList<BlockToolRackTFC> getAllToolRackBlocks()
     {
         return allToolRackBlocks;
     }
@@ -286,12 +296,12 @@ public final class BlocksTFC
         return allGrassBlocks;
     }
 
-    public static ImmutableList<BlockLoom> getAllLoomBlocks()
+    public static ImmutableList<BlockLoomTFC> getAllLoomBlocks()
     {
         return allLoomBlocks;
     }
 
-    public static ImmutableList<BlockSupport> getAllSupportBlocks()
+    public static ImmutableList<BlockSupportTFC> getAllSupportBlocks()
     {
         return allSupportBlocks;
     }
@@ -528,26 +538,20 @@ public final class BlocksTFC
         {
             Builder<BlockLogTFC> logs = ImmutableList.builder();
             Builder<BlockPlanksTFC> planks = ImmutableList.builder();
+            Builder<BlockWorkbenchTFC> workbenches = ImmutableList.builder();
+            Builder<BlockBookshelfTFC> bookshelfs = ImmutableList.builder();
             Builder<BlockLeavesTFC> leaves = ImmutableList.builder();
             Builder<BlockFenceGateTFC> fenceGates = ImmutableList.builder();
             Builder<BlockSaplingTFC> saplings = ImmutableList.builder();
             Builder<BlockDoorTFC> doors = ImmutableList.builder();
             Builder<BlockTrapDoorWoodTFC> trapDoors = ImmutableList.builder();
             Builder<BlockChestTFC> chests = ImmutableList.builder();
-            Builder<BlockToolRack> toolRacks = ImmutableList.builder();
+            Builder<BlockToolRackTFC> toolRacks = ImmutableList.builder();
             Builder<ItemBlockBarrel> barrelItems = ImmutableList.builder();
             Builder<BlockPlantTFC> plants = ImmutableList.builder();
-            Builder<BlockLoom> looms = ImmutableList.builder();
-            Builder<BlockSupport> supports = ImmutableList.builder();
+            Builder<BlockLoomTFC> looms = ImmutableList.builder();
+            Builder<BlockSupportTFC> supports = ImmutableList.builder();
 
-            // This loop is split up to organize the ordering of the creative tab
-            // Do not optimize these loops back together
-            // All bookshelves + item blocks
-            for (Tree wood : TFCRegistries.TREES.getValuesCollection())
-                normalItemBlocks.add(new ItemBlockTFC(register(r, "wood/bookshelf/" + wood.getRegistryName().getPath(), new BlockBookshelfTFC(wood), CT_DECORATIONS)));
-            // All workbenches + item blocks
-            for (Tree wood : TFCRegistries.TREES.getValuesCollection())
-                normalItemBlocks.add(new ItemBlockTFC(register(r, "wood/workbench/" + wood.getRegistryName().getPath(), new BlockWorkbenchTFC(wood), CT_DECORATIONS)));
             // All fences + item blocks
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
                 inventoryItemBlocks.add(new ItemBlockTFC(register(r, "wood/fence/" + wood.getRegistryName().getPath(), new BlockFenceTFC(wood), CT_DECORATIONS)));
@@ -561,10 +565,10 @@ public final class BlocksTFC
             // Other blocks that don't have specific order requirements
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
             {
-                // Only block in the decorations category
-                planks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new BlockPlanksTFC(wood), CT_WOOD));
-                // Blocks with specific block collections don't matter
                 logs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockLogTFC(wood), CT_WOOD));
+                planks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new BlockPlanksTFC(wood), CT_WOOD));
+                workbenches.add(register(r, "wood/workbench/" + wood.getRegistryName().getPath(), new BlockWorkbenchTFC(wood), CT_DECORATIONS));
+                bookshelfs.add(register(r, "wood/bookshelf/" + wood.getRegistryName().getPath(), new BlockBookshelfTFC(wood), CT_DECORATIONS));
                 leaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new BlockLeavesTFC(wood), CT_WOOD));
                 fenceGates.add(register(r, "wood/fence_gate/" + wood.getRegistryName().getPath(), new BlockFenceGateTFC(wood), CT_DECORATIONS));
                 saplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new BlockSaplingTFC(wood), CT_WOOD));
@@ -573,15 +577,19 @@ public final class BlocksTFC
                 chests.add(register(r, "wood/chest/" + wood.getRegistryName().getPath(), new BlockChestTFC(BlockChestTFC.TFCBASIC, wood), CT_DECORATIONS));
                 chests.add(register(r, "wood/chest_trap/" + wood.getRegistryName().getPath(), new BlockChestTFC(BlockChestTFC.TFCTRAP, wood), CT_DECORATIONS));
 
-                toolRacks.add(register(r, "wood/tool_rack/" + wood.getRegistryName().getPath(), new BlockToolRack(wood), CT_DECORATIONS));
-                barrelItems.add(new ItemBlockBarrel(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new BlockBarrel(wood), CT_DECORATIONS)));
+                toolRacks.add(register(r, "wood/tool_rack/" + wood.getRegistryName().getPath(), new BlockToolRackTFC(wood), CT_DECORATIONS));
+                barrelItems.add(new ItemBlockBarrel(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new BlockBarrelTFC(wood), CT_DECORATIONS)));
 
-                looms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new BlockLoom(wood), CT_WOOD));
-                supports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new BlockSupport(wood), CT_WOOD));
+                looms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new BlockLoomTFC(wood), CT_WOOD));
+                supports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new BlockSupportTFC(wood), CT_WOOD));
             }
 
-            allLogBlocks = logs.build();
             allPlankBlocks = planks.build();
+            allWorkbenchBlocks = workbenches.build();
+            allBookshelfBlocks = bookshelfs.build();
+            allLoomBlocks = looms.build();
+
+            allLogBlocks = logs.build();
             allLeafBlocks = leaves.build();
             allFenceGateBlocks = fenceGates.build();
             allSaplingBlocks = saplings.build();
@@ -589,25 +597,21 @@ public final class BlocksTFC
             allTrapDoorWoodBlocks = trapDoors.build();
             allChestBlocks = chests.build();
             allToolRackBlocks = toolRacks.build();
-            allLoomBlocks = looms.build();
             allSupportBlocks = supports.build();
-
             allBarrelItemBlocks = barrelItems.build();
 
             // logs are special
             allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
 
             allLeafBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allFenceGateBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
-
             allSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockSaplingTFC(x)));
-
-            // doors are special
             allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
             allChestBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allToolRackBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-
             allSupportBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 

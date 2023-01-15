@@ -50,7 +50,7 @@ import net.dries007.tfc.client.gui.*;
 import net.dries007.tfc.compat.jei.categories.*;
 import net.dries007.tfc.compat.jei.wrappers.*;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLoom;
+import net.dries007.tfc.objects.blocks.wood.BlockLoomTFC;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
@@ -172,7 +172,7 @@ public final class TFCJEIPlugin implements IModPlugin
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.FIREPIT), HEAT_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CHARCOAL_FORGE), HEAT_UID);
             for (Tree tree : TFCRegistries.TREES.getValuesCollection()) {
-                registry.addRecipeCatalyst(new ItemStack(BlockLoom.get(tree)), LOOM_UID);
+                registry.addRecipeCatalyst(new ItemStack(BlockLoomTFC.get(tree)), LOOM_UID);
             }
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), ALLOY_UID);
             registry.addRecipeCatalyst(new ItemStack(ItemsTFC.FIRED_VESSEL), ALLOY_UID);
