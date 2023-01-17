@@ -1,4 +1,4 @@
-package net.dries007.tfc.objects.blocks.plants;
+package tfcflorae.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +30,10 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 
+import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
+
 @ParametersAreNonnullByDefault
-public class BlockShortGrassTFCF extends BlockPlantTFC implements IShearable
+public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable
 {
     private static final AxisAlignedBB GRASS_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
     private static final AxisAlignedBB SHORTER_GRASS_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.5D, 0.875D);

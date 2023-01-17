@@ -1,4 +1,4 @@
-package net.dries007.tfc.objects.blocks.plants;
+package tfcflorae.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;

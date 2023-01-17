@@ -34,7 +34,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 import net.dries007.tfc.objects.blocks.stone.farmland.*;
-import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFCF;
+import tfcflorae.objects.blocks.plants.BlockWaterPlantTFCF;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;

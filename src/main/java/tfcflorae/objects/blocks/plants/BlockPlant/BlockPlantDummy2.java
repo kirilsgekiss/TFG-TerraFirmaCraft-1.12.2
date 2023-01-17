@@ -1,14 +1,13 @@
-package net.dries007.tfc.objects.blocks.plants.BlockPlant;
+package tfcflorae.objects.blocks.plants.BlockPlant;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import net.dries007.tfc.api.types.Plant;
 
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import tfcflorae.util.OreDictionaryHelper;
 
-public class BlockPlantDummy2 extends BlockPlantTFC
+public class BlockPlantDummy2 extends BlockPlantTFCF
 {
     private static final Map<Plant, BlockPlantDummy2> MAP = new HashMap<>();
 

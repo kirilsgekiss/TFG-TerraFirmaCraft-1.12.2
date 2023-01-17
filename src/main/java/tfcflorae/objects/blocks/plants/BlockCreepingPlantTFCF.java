@@ -3,7 +3,7 @@
  * See the project README.md and LICENSE.txt for more information.
  */
 
-package net.dries007.tfc.objects.blocks.plants;
+package tfcflorae.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,8 +32,12 @@ import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
+import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy2;
+import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
+import tfcflorae.util.OreDictionaryHelper;
+
 @ParametersAreNonnullByDefault
-public class BlockCreepingPlantTFC extends BlockPlantTFC
+public class BlockCreepingPlantTFCF extends BlockPlantDummy2
 {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
@@ -50,17 +54,19 @@ public class BlockCreepingPlantTFC extends BlockPlantTFC
     private static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.875D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
     private static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
     private static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 1.0D, 1.0D);
-    private static final Map<Plant, BlockCreepingPlantTFC> MAP = new HashMap<>();
+    private static final Map<Plant, BlockCreepingPlantTFCF> MAP = new HashMap<>();
 
-    public static BlockCreepingPlantTFC get(Plant plant)
+    public static BlockCreepingPlantTFCF get(Plant plant)
     {
-        return BlockCreepingPlantTFC.MAP.get(plant);
+        return BlockCreepingPlantTFCF.MAP.get(plant);
     }
 
-    public BlockCreepingPlantTFC(Plant plant)
+    public BlockCreepingPlantTFCF(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+
+        plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
     }
 
     @Override
@@ -87,6 +93,12 @@ public class BlockCreepingPlantTFC extends BlockPlantTFC
     protected boolean canSustainBush(IBlockState state)
     {
         return true;
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
     }
 
     @Override

@@ -20,7 +20,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.plants.BlockTallGrassWater;
+import tfcflorae.objects.blocks.plants.BlockTallGrassWater;
 import net.dries007.tfc.types.DefaultPlants;
 
 import net.dries007.tfc.ConfigTFC;
