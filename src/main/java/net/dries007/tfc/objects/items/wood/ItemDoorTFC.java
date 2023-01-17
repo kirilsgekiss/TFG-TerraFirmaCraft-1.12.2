@@ -18,7 +18,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.BlockDoorTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -34,7 +34,7 @@ public class ItemDoorTFC extends ItemDoor implements IItemSize
 
     public final Tree wood;
 
-    public ItemDoorTFC(BlockDoorTFC block)
+    public ItemDoorTFC(TFCBlockWoodDoor block)
     {
         super(block);
         if (MAP.put(block.wood, this) != null) throw new IllegalStateException("There can only be one.");

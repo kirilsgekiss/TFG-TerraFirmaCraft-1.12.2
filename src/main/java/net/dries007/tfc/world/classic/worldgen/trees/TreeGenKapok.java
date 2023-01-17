@@ -22,12 +22,12 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 import static net.minecraft.block.BlockVine.*;
 
@@ -43,8 +43,8 @@ public class TreeGenKapok implements ITreeGenerator
     @Override
     public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
     {
-        trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
-        bark = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
+        trunk = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
+        bark = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
 
         int height = 12 + rand.nextInt(8);
         int branches = 2 + rand.nextInt(3);
@@ -127,7 +127,7 @@ public class TreeGenKapok implements ITreeGenerator
 
     private void checkAndPlace(World world, BlockPos pos, boolean useBark)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
             world.setBlockState(pos, useBark ? bark : trunk);
     }
 

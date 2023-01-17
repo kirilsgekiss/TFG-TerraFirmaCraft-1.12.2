@@ -36,7 +36,7 @@ import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.wood.BlockSupportTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.entity.EntityFallingBlockTFC;
 
 public class FallingBlockManager
@@ -147,7 +147,7 @@ public class FallingBlockManager
 
     public static boolean shouldFall(World world, BlockPos posToFallFrom, BlockPos originalPos, IBlockState originalState, boolean ignoreSupportChecks)
     {
-        return ConfigTFC.General.FALLABLE.enable && canFallThrough(world, posToFallFrom.down(), originalState.getMaterial()) && (ignoreSupportChecks || !BlockSupportTFC.isBeingSupported(world, originalPos));
+        return ConfigTFC.General.FALLABLE.enable && canFallThrough(world, posToFallFrom.down(), originalState.getMaterial()) && (ignoreSupportChecks || !TFCBlockWoodSupport.isBeingSupported(world, originalPos));
     }
 
     public static boolean canCollapse(World world, BlockPos pos)
@@ -299,7 +299,7 @@ public class FallingBlockManager
             int radX = (Constants.RNG.nextInt(5) + 4) / 2;
             int radY = (Constants.RNG.nextInt(3) + 2) / 2;
             int radZ = (Constants.RNG.nextInt(5) + 4) / 2;
-            for (BlockPos checking : BlockSupportTFC.getAllUnsupportedBlocksIn(world, pos.add(-radX, -radY, -radZ), pos.add(radX, radY, radZ))) //9x5x9 max
+            for (BlockPos checking : TFCBlockWoodSupport.getAllUnsupportedBlocksIn(world, pos.add(-radX, -radY, -radZ), pos.add(radX, radY, radZ))) //9x5x9 max
             {
                 // Check the area for a block collapse!
                 IBlockState state = world.getBlockState(checking);
@@ -338,7 +338,7 @@ public class FallingBlockManager
                 BlockPos posAt = pos.up(y);
                 IBlockState stateAt = world.getBlockState(posAt);
                 Specification specAt;
-                if (foundEmpty && (specAt = getSpecification(stateAt)) != null && specAt.collapsable && specAt.collapseChecker.canCollapse(world, posAt) && !BlockSupportTFC.isBeingSupported(world, posAt))
+                if (foundEmpty && (specAt = getSpecification(stateAt)) != null && specAt.collapsable && specAt.collapseChecker.canCollapse(world, posAt) && !TFCBlockWoodSupport.isBeingSupported(world, posAt))
                 {
                     // Check for a possible collapse
                     if (posAt.distanceSq(centerPoint) < radiusSquared && world.rand.nextFloat() < ConfigTFC.General.FALLABLE.propagateCollapseChance)

@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.recipes.LoomRecipe;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.BlockLoomTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLoom;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 
 @ParametersAreNonnullByDefault
@@ -47,7 +47,7 @@ public class TELoom extends TEInventory implements ITickable
         {
             if (world != null)
             {
-                cachedWood = ((BlockLoomTFC) world.getBlockState(pos).getBlock()).getWood();
+                cachedWood = ((TFCBlockLoom) world.getBlockState(pos).getBlock()).getWood();
             }
         }
         return cachedWood;

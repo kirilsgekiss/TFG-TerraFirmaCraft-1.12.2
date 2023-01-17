@@ -18,9 +18,8 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import net.dries007.tfc.objects.te.TEInventory;
 
-import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitLoom;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLoom;
 
 @ParametersAreNonnullByDefault
 public class TEFruitLoom extends TEInventory implements ITickable

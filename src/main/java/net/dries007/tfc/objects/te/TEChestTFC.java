@@ -32,7 +32,7 @@ import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
 import net.dries007.tfc.objects.container.ContainerChestTFC;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.TFCDoubleChestItemHandler;
@@ -58,7 +58,7 @@ public class TEChestTFC extends TileEntityChest implements ISlotCallback
         {
             if (world != null)
             {
-                cachedWood = ((BlockChestTFC) world.getBlockState(pos).getBlock()).wood;
+                cachedWood = ((TFCBlockChest) world.getBlockState(pos).getBlock()).wood;
             }
         }
         return cachedWood;
@@ -76,7 +76,7 @@ public class TEChestTFC extends TileEntityChest implements ISlotCallback
         if (world == null) return false;
 
         Block block = this.world.getBlockState(posIn).getBlock();
-        return block instanceof BlockChestTFC && ((BlockChestTFC) block).wood == getWood() && ((BlockChest) block).chestType == getChestType();
+        return block instanceof TFCBlockChest && ((TFCBlockChest) block).wood == getWood() && ((BlockChest) block).chestType == getChestType();
     }
 
     @Override

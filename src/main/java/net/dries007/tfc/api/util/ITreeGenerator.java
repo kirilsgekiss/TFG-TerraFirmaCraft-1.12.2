@@ -15,7 +15,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
 public interface ITreeGenerator
 {
@@ -73,6 +73,6 @@ public interface ITreeGenerator
 
         // Check the position for liquids, etc.
         IBlockState stateAt = world.getBlockState(pos);
-        return !stateAt.getMaterial().isLiquid() && (stateAt.getMaterial().isReplaceable() || stateAt.getBlock() instanceof BlockSaplingTFC);
+        return !stateAt.getMaterial().isLiquid() && (stateAt.getMaterial().isReplaceable() || stateAt.getBlock() instanceof TFCBlockSapling);
     }
 }
