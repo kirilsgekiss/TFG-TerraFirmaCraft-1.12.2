@@ -1,8 +1,8 @@
 package net.dries007.tfc.objects.blocks.wood;
 
-import gregtech.client.model.SimpleStateMapper;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -24,7 +24,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +39,8 @@ public abstract class BlockWoodSlabTFC extends BlockSlab implements IWoodHandler
     public final Block modelBlock;
     protected BlockWoodSlabTFC.Half halfSlab;
 
-    private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/slab/pattern"), "normal");
+    private static final ResourceLocation MODEL_LOCATION_HALF = new ResourceLocation(MOD_ID, "wood/slab/pattern");
+    private static final ResourceLocation MODEL_LOCATION_FULL = new ResourceLocation(MOD_ID, "wood/slab/pattern_double");
 
     private Tree wood;
 
@@ -217,10 +217,13 @@ public abstract class BlockWoodSlabTFC extends BlockSlab implements IWoodHandler
         }
 
         @SideOnly(Side.CLIENT)
-        public void onModelRegister() {
-            ModelLoader.setCustomStateMapper(this, new SimpleStateMapper(MODEL_LOCATION));
+        public void onModelRegister()
+        {
+            ModelLoader.setCustomStateMapper(this, new CustomStateMap.Builder().customPath(MODEL_LOCATION_HALF).ignore(BlockWoodSlabTFC.VARIANT).build());
+            ModelLoader.setCustomStateMapper(this.doubleSlab, new CustomStateMap.Builder().customPath(MODEL_LOCATION_FULL).ignore(BlockWoodSlabTFC.VARIANT).build());
+
             for (IBlockState state : this.getBlockState().getValidStates()) {
-                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), MODEL_LOCATION);
+                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), new ModelResourceLocation(MODEL_LOCATION_HALF, "normal"));
             }
         }
     }
