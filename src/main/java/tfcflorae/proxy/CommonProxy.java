@@ -3,6 +3,7 @@ package tfcflorae.proxy;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.world.classic.worldgen.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.IThreadListener;
@@ -18,19 +19,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
-import tfcflorae.world.worldgen.*;
-import tfcflorae.world.worldgen.cave.WorldGenLightstones;
-import tfcflorae.world.worldgen.cave.WorldGeneratorUnderground;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceBones;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceDriftwood;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceFlint;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfacePinecone;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceRocks;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceSeashells;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceTwig;
-import tfcflorae.world.worldgen.soil.*;
-import tfcflorae.world.worldgen.structures.WorldGenStructures;
-import tfcflorae.world.worldgen.structures.WorldGenStructuresCorals;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceBones;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceDriftwood;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceFlint;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfacePinecone;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceRocks;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceSeashells;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceTwig;
+import net.dries007.tfc.world.classic.worldgen.soil.*;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

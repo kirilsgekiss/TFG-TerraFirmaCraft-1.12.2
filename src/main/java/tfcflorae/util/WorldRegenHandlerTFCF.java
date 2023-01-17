@@ -18,13 +18,13 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceBones;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceDriftwood;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceFlint;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfacePinecone;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceRocks;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceSeashells;
-import tfcflorae.world.worldgen.groundcover.WorldGenSurfaceTwig;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceBones;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceDriftwood;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceFlint;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfacePinecone;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceRocks;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceSeashells;
+import net.dries007.tfc.world.classic.worldgen.groundcover.WorldGenSurfaceTwig;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

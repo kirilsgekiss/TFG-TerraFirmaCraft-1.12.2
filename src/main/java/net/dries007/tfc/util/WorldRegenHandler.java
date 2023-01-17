@@ -55,7 +55,6 @@ import net.dries007.tfc.world.classic.worldgen.WorldGenTrees;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 
-import tfcflorae.util.RegenWildCropsTFCF;
 
 /**
  * Seasonally regenerates rocks, sticks, snow, plants, crops and bushes.
@@ -68,7 +67,6 @@ public class WorldRegenHandler
 
     private static final RegenRocksSticks ROCKS_GEN = new RegenRocksSticks();
     private static final RegenWildCrops CROPS_GEN = new RegenWildCrops();
-    private static final RegenWildCropsTFCF CROPSTFCF_GEN = new RegenWildCropsTFCF();
     private static final WorldGenBerryBushes BUSH_GEN = new WorldGenBerryBushes();
     public static final WorldGenPlantTFC PLANT_GEN = new WorldGenPlantTFC();
     private static final Random RANDOM = new Random();
@@ -139,7 +137,6 @@ public class WorldRegenHandler
                             PLANT_GEN.generate(event.world, RANDOM, blockMushroomPos);
                         }
                         CROPS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
-                        CROPSTFCF_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                         BUSH_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                         int worldX = pos.x << 4;
                         int worldZ = pos.z << 4;

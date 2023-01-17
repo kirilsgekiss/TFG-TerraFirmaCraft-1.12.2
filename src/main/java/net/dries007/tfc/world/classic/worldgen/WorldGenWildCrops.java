@@ -65,24 +65,31 @@ public class WorldGenWildCrops implements IWorldGenerator
             ICrop crop = CROPS.stream().filter(x -> x.isValidConditions(temperature, rainfall)).findFirst().orElse(null);
             if (crop != null)
             {
-                if (random.nextInt(ConfigTFC.General.FOOD.cropRarity) == 0)
+                if (crop != Crop.BARLEY || 
+                    crop != Crop.MAIZE || 
+                    crop != Crop.OAT || 
+                    crop != Crop.RICE || 
+                    crop != Crop.RYE || 
+                    crop != Crop.WHEAT)
                 {
-                    BlockCropTFC cropBlock = BlockCropTFC.get(crop);
-                    int cropsInChunk = 3 + random.nextInt(5);
-                    for (int i = 0; i < cropsInChunk; i++)
+                    if ((random.nextInt(ConfigTFC.General.FOOD.cropRarity)) <= 2)
                     {
-                        final int x = (chunkX << 4) + random.nextInt(16) + 8;
-                        final int z = (chunkZ << 4) + random.nextInt(16) + 8;
-                        final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
-                        if (isValidPosition(world, pos))
+                        BlockCropTFC cropBlock = BlockCropTFC.get(crop);
+                        int cropsInChunk = 5 + random.nextInt(15);
+                        for (int i = 0; i < cropsInChunk; i++)
                         {
-                            double yearProgress = CalendarTFC.CALENDAR_TIME.getMonthOfYear().ordinal() / 11.0;
-                            int maxStage = crop.getMaxStage();
-                            int growth = (int) (yearProgress * maxStage) + 3 - random.nextInt(2);
-                            if (growth > maxStage)
-                                growth = maxStage;
-                            world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(BlockCropTFC.WILD, true), 2);
-
+                            final int x = (chunkX << 4) + random.nextInt(16) + 8;
+                            final int z = (chunkZ << 4) + random.nextInt(16) + 8;
+                            final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
+                            if (isValidPosition(world, pos))
+                            {
+                                double yearProgress = CalendarTFC.CALENDAR_TIME.getMonthOfYear().ordinal() / 11.0;
+                                int maxStage = crop.getMaxStage();
+                                int growth = (int) (yearProgress * maxStage) + 3 - random.nextInt(2);
+                                if (growth > maxStage)
+                                    growth = maxStage;
+                                world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(BlockCropTFC.WILD, true), 2);
+                            }
                         }
                     }
                 }
@@ -93,7 +100,8 @@ public class WorldGenWildCrops implements IWorldGenerator
                         crop == Crop.WHEAT)
                 {
                     BlockCropTFC cropBlock = BlockCropTFC.get(crop);
-                    for (int i = random.nextInt(Math.round(1 / floraDiversity)); i < (4 + floraDensity + floraDiversity) * (10 + random.nextInt(10)); i++)
+                    int cropsInChunk = 10 + random.nextInt(20);
+                    for (int i = random.nextInt(Math.round((ConfigTFC.General.FOOD.cropRarity / 5) / floraDiversity)); i < (3 + floraDensity) * cropsInChunk; i++)
                     {
                         BlockPos pos = world.getHeight(chunkBlockPos.add(random.nextInt(16) + 8, 0, random.nextInt(16) + 8));
 
@@ -117,7 +125,8 @@ public class WorldGenWildCrops implements IWorldGenerator
                     IBlockState water = plant.getWaterType();
 
                     BlockCropTFC cropBlock = BlockCropTFC.get(crop);
-                    for (int i = random.nextInt(Math.round(6 / floraDiversity)); i < (2 + floraDensity + floraDiversity) * (5 + random.nextInt(15)); i++)
+                    int cropsInChunk = 10 + random.nextInt(20);
+                    for (int i = random.nextInt(Math.round((ConfigTFC.General.FOOD.cropRarity / 5) / floraDiversity)); i < (3 + floraDensity) * cropsInChunk; i++)
                     {
                         BlockPos pos = world.getHeight(chunkBlockPos.add(random.nextInt(16) + 8, 0, random.nextInt(16) + 8));
 
