@@ -386,11 +386,6 @@ public final class ItemsTFC
         IForgeRegistry<Item> r = event.getRegistry();
         Builder<Item> simpleItems = ImmutableList.builder();
 
-        Builder<ItemClayMold> clayMolds = ImmutableList.builder();
-        Builder<ItemEarthenwareMold> earthenwareMolds = ImmutableList.builder();
-        Builder<ItemKaoliniteMold> kaoliniteMolds = ImmutableList.builder();
-        Builder<ItemStonewareMold> stonewareMolds = ImmutableList.builder();
-
         simpleItems.add(register(r, "wand", new ItemDebug(), CT_MISC));
         simpleItems.add(register(r, "mortar", new ItemMisc(Size.TINY, Weight.VERY_LIGHT, "mortar"), CT_MISC));
         simpleItems.add(register(r, "halter", new ItemMisc(Size.SMALL, Weight.LIGHT, "halter"), CT_MISC));
@@ -463,138 +458,141 @@ public final class ItemsTFC
             }
         }
 
-        // Ordinary clay
-        {
-            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
-            {
-                if (extendedOrePrefix.isHasMold())
-                {
-                    clayMolds.add(register(r, "ceramics/clay/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemClayMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
-                    simpleItems.add(register(r, "ceramics/clay/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredClayMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+        // Pottery
+        Builder<ItemClayMold> clayMolds = ImmutableList.builder();
+        Builder<ItemEarthenwareMold> earthenwareMolds = ImmutableList.builder();
+        Builder<ItemKaoliniteMold> kaoliniteMolds = ImmutableList.builder();
+        Builder<ItemStonewareMold> stonewareMolds = ImmutableList.builder();
+        {
+            // Ordinary
+            {
+                for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
+                    if (extendedOrePrefix.isHasMold()) {
+                        clayMolds.add(register(r, "ceramics/clay/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemClayMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
+
+                        simpleItems.add(register(r, "ceramics/clay/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredClayMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                    }
                 }
+
+                simpleItems.add(register(r, "ceramics/clay/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
+                simpleItems.add(register(r, "ceramics/clay/unfired/crucible", new ItemPottery(Size.LARGE, Weight.VERY_HEAVY), CT_POTTERY));
+
+                registerPottery(simpleItems, r, "ceramics/clay/unfired/vessel", "ceramics/clay/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
+                registerPottery(null, r, "ceramics/clay/unfired/vessel_glazed", "ceramics/clay/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
+
+                ItemPottery firedPot = new ItemPottery(Size.LARGE, Weight.LIGHT);
+                registerPottery(simpleItems, r, "ceramics/clay/unfired/pot", "ceramics/clay/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPot);
+                OreDictionaryHelper.register(firedPot, "cooking_pot");
+
+                ItemPottery firedBowl = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
+                registerPottery(simpleItems, r, "ceramics/unfired/bowl", "ceramics/clay/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowl);
+                OreDictionaryHelper.register(firedBowl, "bowl");
+
+                registerPottery(simpleItems, r, "ceramics/clay/unfired/spindle", "ceramics/clay/fired/spindle");
+                registerPottery(simpleItems, r, "ceramics/clay/unfired/fire_brick", "ceramics/clay/fired/fire_brick");
+
+                simpleItems.add(register(r, "ceramics/fire_clay", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fire_clay"), CT_MISC));
+
+                simpleItems.add(register(r, "ceramics/clay/unfired/jug", new ItemPottery(), CT_POTTERY));
+                register(r, "ceramics/clay/fired/jug", new ItemJug(), CT_POTTERY);
+                simpleItems.add(register(r, "ceramics/clay/unfired/clay_brick", new ItemPottery(), CT_POTTERY));
+                simpleItems.add(register(r, "ceramics/clay/unfired/clay_flower_pot", new ItemPottery(), CT_POTTERY));
+
             }
 
-            simpleItems.add(register(r, "ceramics/clay/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
-            simpleItems.add(register(r, "ceramics/clay/unfired/crucible", new ItemPottery(Size.LARGE, Weight.VERY_HEAVY), CT_POTTERY));
-
-            registerPottery(simpleItems, r, "ceramics/clay/unfired/vessel", "ceramics/clay/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
-            registerPottery(null, r, "ceramics/clay/unfired/vessel_glazed", "ceramics/clay/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
-
-            ItemPottery firedPot = new ItemPottery(Size.LARGE, Weight.LIGHT);
-            registerPottery(simpleItems, r, "ceramics/clay/unfired/pot", "ceramics/clay/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPot);
-            OreDictionaryHelper.register(firedPot, "cooking_pot");
-
-            ItemPottery firedBowl = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
-            registerPottery(simpleItems, r, "ceramics/unfired/bowl", "ceramics/clay/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowl);
-            OreDictionaryHelper.register(firedBowl, "bowl");
-
-            registerPottery(simpleItems, r, "ceramics/clay/unfired/spindle", "ceramics/clay/fired/spindle");
-            registerPottery(simpleItems, r, "ceramics/clay/unfired/fire_brick", "ceramics/clay/fired/fire_brick");
-
-            simpleItems.add(register(r, "ceramics/fire_clay", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fire_clay"), CT_MISC));
-
-            simpleItems.add(register(r, "ceramics/clay/unfired/jug", new ItemPottery(), CT_POTTERY));
-            register(r, "ceramics/clay/fired/jug", new ItemJug(), CT_POTTERY);
-            simpleItems.add(register(r, "ceramics/clay/unfired/clay_brick", new ItemPottery(), CT_POTTERY));
-            simpleItems.add(register(r, "ceramics/clay/unfired/clay_flower_pot", new ItemPottery(), CT_POTTERY));
-
-        }
-
-        // Earthenware Clay
-        {
-            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
+            // Earthenware
             {
-                if (extendedOrePrefix.isHasMold())
-                {
-                    earthenwareMolds.add(register(r, "ceramics/earthenware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemEarthenwareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
+                for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
+                    if (extendedOrePrefix.isHasMold()) {
+                        earthenwareMolds.add(register(r, "ceramics/earthenware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemEarthenwareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
-                    simpleItems.add(register(r, "ceramics/earthenware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredEarthenwareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                        simpleItems.add(register(r, "ceramics/earthenware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredEarthenwareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                    }
                 }
+
+                simpleItems.add(register(r, "ceramics/earthenware/earthenware_clay", new ItemClayEarthenware(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_earthenware"), CT_MISC));
+                registerPottery(simpleItems, r, "ceramics/earthenware/unfired/earthenware_brick", "ceramics/earthenware/fired/earthenware_brick");
+
+                simpleItems.add(register(r, "ceramics/earthenware/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
+
+                registerPottery(simpleItems, r, "ceramics/earthenware/unfired/vessel", "ceramics/earthenware/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
+                registerPottery(null, r, "ceramics/earthenware/unfired/vessel_glazed", "ceramics/earthenware/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
+
+                ItemPottery firedPotEarthenware = new ItemPottery(Size.LARGE, Weight.LIGHT);
+                registerPottery(simpleItems, r, "ceramics/earthenware/unfired/pot", "ceramics/earthenware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotEarthenware);
+                OreDictionaryHelper.register(firedPotEarthenware, "cooking_pot");
+
+                ItemPottery firedBowlEarthenware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
+                registerPottery(simpleItems, r, "ceramics/earthenware/unfired/bowl", "ceramics/earthenware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlEarthenware);
+                OreDictionaryHelper.register(firedBowlEarthenware, "bowl");
+
+                simpleItems.add(register(r, "ceramics/earthenware/unfired/jug", new ItemPottery(), CT_POTTERY));
+                register(r, "ceramics/earthenware/fired/jug", new ItemJug(), CT_POTTERY);
             }
 
-            simpleItems.add(register(r, "ceramics/earthenware/earthenware_clay", new ItemClayEarthenware(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_earthenware"), CT_MISC));
-            registerPottery(simpleItems, r, "ceramics/earthenware/unfired/earthenware_brick", "ceramics/earthenware/fired/earthenware_brick");
-
-            simpleItems.add(register(r, "ceramics/earthenware/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
-
-            registerPottery(simpleItems, r, "ceramics/earthenware/unfired/vessel", "ceramics/earthenware/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
-            registerPottery(null, r, "ceramics/earthenware/unfired/vessel_glazed", "ceramics/earthenware/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
-
-            ItemPottery firedPotEarthenware = new ItemPottery(Size.LARGE, Weight.LIGHT);
-            registerPottery(simpleItems, r, "ceramics/earthenware/unfired/pot", "ceramics/earthenware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotEarthenware);
-            OreDictionaryHelper.register(firedPotEarthenware, "cooking_pot");
-
-            ItemPottery firedBowlEarthenware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
-            registerPottery(simpleItems, r, "ceramics/earthenware/unfired/bowl", "ceramics/earthenware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlEarthenware);
-            OreDictionaryHelper.register(firedBowlEarthenware, "bowl");
-
-            simpleItems.add(register(r, "ceramics/earthenware/unfired/jug", new ItemPottery(), CT_POTTERY));
-            register(r, "ceramics/earthenware/fired/jug", new ItemJug(), CT_POTTERY);
-        }
-
-        // Kaolinite Clay
-        {
-            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
+            // Kaolinite
             {
-                if (extendedOrePrefix.isHasMold())
-                {
-                    kaoliniteMolds.add(register(r, "ceramics/kaolinite/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemKaoliniteMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
+                for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
+                    if (extendedOrePrefix.isHasMold()) {
+                        kaoliniteMolds.add(register(r, "ceramics/kaolinite/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemKaoliniteMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
-                    simpleItems.add(register(r, "ceramics/kaolinite/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredKaoliniteMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                        simpleItems.add(register(r, "ceramics/kaolinite/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredKaoliniteMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                    }
                 }
+
+                simpleItems.add(register(r, "ceramics/kaolinite/kaolinite_clay", new ItemClayKaolinite(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_kaolinite"), CT_MISC));
+                registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/kaolinite_brick", "ceramics/kaolinite/fired/kaolinite_brick");
+
+                simpleItems.add(register(r, "ceramics/kaolinite/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
+
+                registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/vessel", "ceramics/kaolinite/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
+                registerPottery(null, r, "ceramics/kaolinite/unfired/vessel_glazed", "ceramics/kaolinite/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
+
+                ItemPottery firedPotKaolinite = new ItemPottery(Size.LARGE, Weight.LIGHT);
+                registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/pot", "ceramics/kaolinite/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotKaolinite);
+                OreDictionaryHelper.register(firedPotKaolinite, "cooking_pot");
+
+                ItemPottery firedBowlKaolinite = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
+                registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/bowl", "ceramics/kaolinite/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlKaolinite);
+                OreDictionaryHelper.register(firedBowlKaolinite, "bowl");
+
+                simpleItems.add(register(r, "ceramics/kaolinite/unfired/jug", new ItemPottery(), CT_POTTERY));
+                register(r, "ceramics/kaolinite/fired/jug", new ItemJug(), CT_POTTERY);
             }
 
-            simpleItems.add(register(r, "ceramics/kaolinite/kaolinite_clay", new ItemClayKaolinite(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_kaolinite"), CT_MISC));
-            registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/kaolinite_brick", "ceramics/kaolinite/fired/kaolinite_brick");
-
-            simpleItems.add(register(r, "ceramics/kaolinite/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
-
-            registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/vessel", "ceramics/kaolinite/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
-            registerPottery(null, r, "ceramics/kaolinite/unfired/vessel_glazed", "ceramics/kaolinite/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
-
-            ItemPottery firedPotKaolinite = new ItemPottery(Size.LARGE, Weight.LIGHT);
-            registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/pot", "ceramics/kaolinite/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotKaolinite);
-            OreDictionaryHelper.register(firedPotKaolinite, "cooking_pot");
-
-            ItemPottery firedBowlKaolinite = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
-            registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/bowl", "ceramics/kaolinite/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlKaolinite);
-            OreDictionaryHelper.register(firedBowlKaolinite, "bowl");
-
-            simpleItems.add(register(r, "ceramics/kaolinite/unfired/jug", new ItemPottery(), CT_POTTERY));
-            register(r, "ceramics/kaolinite/fired/jug", new ItemJug(), CT_POTTERY);
-        }
-
-        // Stoneware Clay
-        {
-            for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY)
+            // Stoneware
             {
-                if (extendedOrePrefix.isHasMold())
-                {
-                    stonewareMolds.add(register(r, "ceramics/stoneware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemStonewareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
+                for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
+                    if (extendedOrePrefix.isHasMold()) {
+                        stonewareMolds.add(register(r, "ceramics/stoneware/fired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemStonewareMold(extendedOrePrefix.getOrePrefix(), extendedOrePrefix.getMetalUnits()), CT_POTTERY));
 
-                    simpleItems.add(register(r, "ceramics/stoneware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredStonewareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                        simpleItems.add(register(r, "ceramics/stoneware/unfired/mold/" + extendedOrePrefix.getOrePrefix().name, new ItemUnfiredStonewareMold(extendedOrePrefix.getOrePrefix()), CT_POTTERY));
+                    }
                 }
+
+                simpleItems.add(register(r, "ceramics/stoneware/stoneware_clay", new ItemClayStoneware(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_stoneware"), CT_MISC));
+                registerPottery(simpleItems, r, "ceramics/stoneware/unfired/stoneware_brick", "ceramics/stoneware/fired/stoneware_brick");
+
+                simpleItems.add(register(r, "ceramics/stoneware/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
+
+                registerPottery(simpleItems, r, "ceramics/stoneware/unfired/vessel", "ceramics/stoneware/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
+                registerPottery(null, r, "ceramics/stoneware/unfired/vessel_glazed", "ceramics/stoneware/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
+
+                ItemPottery firedPotStoneware = new ItemPottery(Size.LARGE, Weight.LIGHT);
+                registerPottery(simpleItems, r, "ceramics/stoneware/unfired/pot", "ceramics/stoneware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotStoneware);
+                OreDictionaryHelper.register(firedPotStoneware, "cooking_pot");
+
+                ItemPottery firedBowlStoneware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
+                registerPottery(simpleItems, r, "ceramics/stoneware/unfired/bowl", "ceramics/stoneware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlStoneware);
+                OreDictionaryHelper.register(firedBowlStoneware, "bowl");
+
+                simpleItems.add(register(r, "ceramics/stoneware/unfired/jug", new ItemPottery(), CT_POTTERY));
+                register(r, "ceramics/stoneware/fired/jug", new ItemJug(), CT_POTTERY);
             }
 
-            simpleItems.add(register(r, "ceramics/stoneware/stoneware_clay", new ItemClayStoneware(Size.VERY_SMALL, Weight.VERY_LIGHT, "clay_stoneware"), CT_MISC));
-            registerPottery(simpleItems, r, "ceramics/stoneware/unfired/stoneware_brick", "ceramics/stoneware/fired/stoneware_brick");
 
-            simpleItems.add(register(r, "ceramics/stoneware/unfired/large_vessel", new ItemUnfiredLargeVessel(), CT_POTTERY));
-
-            registerPottery(simpleItems, r, "ceramics/stoneware/unfired/vessel", "ceramics/stoneware/fired/vessel", new ItemUnfiredSmallVessel(false), new ItemSmallVessel(false));
-            registerPottery(null, r, "ceramics/stoneware/unfired/vessel_glazed", "ceramics/stoneware/fired/vessel_glazed", new ItemUnfiredSmallVessel(true), new ItemSmallVessel(true));
-
-            ItemPottery firedPotStoneware = new ItemPottery(Size.LARGE, Weight.LIGHT);
-            registerPottery(simpleItems, r, "ceramics/stoneware/unfired/pot", "ceramics/stoneware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotStoneware);
-            OreDictionaryHelper.register(firedPotStoneware, "cooking_pot");
-
-            ItemPottery firedBowlStoneware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
-            registerPottery(simpleItems, r, "ceramics/stoneware/unfired/bowl", "ceramics/stoneware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlStoneware);
-            OreDictionaryHelper.register(firedBowlStoneware, "bowl");
-
-            simpleItems.add(register(r, "ceramics/stoneware/unfired/jug", new ItemPottery(), CT_POTTERY));
-            register(r, "ceramics/stoneware/fired/jug", new ItemJug(), CT_POTTERY);
+            simpleItems.add(register(r, "storage/unfired/urn", new ItemUnfiredUrn(), CT_POTTERY));
         }
 
         for (Crop crop : Crop.values())
@@ -609,61 +607,56 @@ public final class ItemsTFC
         simpleItems.add(register(r, "devices/flora_density_meter", new ItemFloraDensity(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "devices/season_clock", new ItemCalendarClock(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
 
-
-        // Pottery
-        {
-            simpleItems.add(register(r, "storage/unfired/urn", new ItemUnfiredUrn(), CT_POTTERY));
-        }
-
         // Armors
         ImmutableList.Builder<ItemArmorTFC> armorItems = ImmutableList.builder();
         {
-        armorItems.add(register(r, "armor/helmet/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/pineapple_leather", new ItemArmorTFC(ArmorMaterialTFC.PINEAPPLE_LEATHER, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/burlap_cloth", new ItemArmorTFC(ArmorMaterialTFC.BURLAP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/wool_cloth", new ItemArmorTFC(ArmorMaterialTFC.WOOL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/silk_cloth", new ItemArmorTFC(ArmorMaterialTFC.SILK_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/sisal_cloth", new ItemArmorTFC(ArmorMaterialTFC.SISAL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/cotton_cloth", new ItemArmorTFC(ArmorMaterialTFC.COTTON_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/linen_cloth", new ItemArmorTFC(ArmorMaterialTFC.LINEN_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/hemp_cloth", new ItemArmorTFC(ArmorMaterialTFC.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        armorItems.add(register(r, "armor/helmet/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-        armorItems.add(register(r, "armor/chestplate/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-        armorItems.add(register(r, "armor/leggings/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-        armorItems.add(register(r, "armor/boots/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/yucca_canvas", new ItemArmorTFC(ArmorMaterialTFC.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-        allArmorItems = armorItems.build();
+
+            allArmorItems = armorItems.build();
         }
 
 

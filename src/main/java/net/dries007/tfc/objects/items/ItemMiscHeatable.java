@@ -9,22 +9,21 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import tfcflorae.objects.items.ItemMiscTFCF;
 
 @SuppressWarnings("WeakerAccess")
-public class ItemMiscHeatableTFCF extends ItemMiscTFCF
+public class ItemMiscHeatable extends ItemMisc
 {
 
     private float heatCapacity, meltTemp;
 
-    public ItemMiscHeatableTFCF(Size size, Weight weight, float heatCapacity, float meltTemp)
+    public ItemMiscHeatable(Size size, Weight weight, float heatCapacity, float meltTemp)
     {
         super(size, weight);
         this.heatCapacity = heatCapacity;
         this.meltTemp = meltTemp;
     }
 
-    public ItemMiscHeatableTFCF(Size size, Weight weight, float heatCapacity, float meltTemp, String oreDictionary)
+    public ItemMiscHeatable(Size size, Weight weight, float heatCapacity, float meltTemp, String oreDictionary)
     {
         super(size, weight, oreDictionary);
         this.heatCapacity = heatCapacity;

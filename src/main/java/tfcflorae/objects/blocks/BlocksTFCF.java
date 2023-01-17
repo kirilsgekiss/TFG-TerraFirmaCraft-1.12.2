@@ -51,7 +51,6 @@ import net.dries007.tfc.objects.blocks.wood.cinnamon.*;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
-import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.api.types.Rock.Type.DIRT;
@@ -284,7 +283,6 @@ public final class BlocksTFCF
     private static ImmutableList<BlockCreepingPlantTFCF> allCreepingPlantBlocks = Helpers.getNull();
     private static ImmutableList<BlockTallGrassWater> allTallGrassWaterBlocks = Helpers.getNull();
     private static ImmutableList<BlockShortGrassTFCF> allShortGrassBlocks = Helpers.getNull();
-    private static ImmutableList<BlockTallGrassTFCF> allTallGrassBlocks = Helpers.getNull();
     private static ImmutableList<BlockSaguaroCactus> allSaguaroCactusBlocks = Helpers.getNull();
     private static ImmutableList<BlockPlantDummy1> allStandardBlocks = Helpers.getNull();
     private static ImmutableList<BlockLightstone> allLightstoneBlocks = Helpers.getNull();
@@ -551,11 +549,6 @@ public final class BlocksTFCF
     public static ImmutableList<BlockShortGrassTFCF> getAllShortGrassBlocks()
     {
         return allShortGrassBlocks;
-    }
-
-    public static ImmutableList<BlockTallGrassTFCF> getAllTallGrassBlocks()
-    {
-        return allTallGrassBlocks;
     }
 
     public static ImmutableList<BlockSaguaroCactus> getAllSaguaroCactusBlocks()
@@ -870,7 +863,6 @@ public final class BlocksTFCF
             Builder<BlockCreepingPlantTFCF> plantCreepingBlock = ImmutableList.builder();
             Builder<BlockTallGrassWater> plantTallGrassWaterBlock = ImmutableList.builder();
             Builder<BlockShortGrassTFCF> plantShortGrassBlock = ImmutableList.builder();
-            Builder<BlockTallGrassTFCF> plantTallGrassBlock = ImmutableList.builder();
             Builder<BlockPlantDummy1> plantStandardBlock = ImmutableList.builder();
             Builder<BlockSaguaroCactus> plantSaguaroCactusBlock = ImmutableList.builder();
 
@@ -970,11 +962,6 @@ public final class BlocksTFCF
             for (BlockShortGrassTFCF blockShortGrassPlant : allShortGrassBlocks)
             {
                 normalItemBlocks.add(new ItemBlockTFC(blockShortGrassPlant));
-            }
-            allTallGrassBlocks = plantTallGrassBlock.build();
-            for (BlockTallGrassTFCF blockTallGrassPlant : allTallGrassBlocks)
-            {
-                normalItemBlocks.add(new ItemBlockTFC(blockTallGrassPlant));
             }
             allSaguaroCactusBlocks = plantSaguaroCactusBlock.build();
             for (BlockSaguaroCactus blockSaguaroCactusPlant : allSaguaroCactusBlocks)
