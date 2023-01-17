@@ -179,7 +179,7 @@ public final class BlocksTFC
         return allColorizedItemBlocks;
     }
 
-    public static ImmutableList<BlockBarrelTFC> getAllBarrelBlocksBlocks()
+    public static ImmutableList<BlockBarrelTFC> getAllBarrelBlocks()
     {
         return allBarrelBlocksBlocks;
     }
