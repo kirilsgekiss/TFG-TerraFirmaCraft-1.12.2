@@ -13,7 +13,7 @@ import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.wood.TFCBlockWorkbench;
+import net.dries007.tfc.objects.blocks.wood.BlockWorkbenchTFC;
 
 @ParametersAreNonnullByDefault
 public class ContainerWorkbenchTFC extends ContainerWorkbench
@@ -21,9 +21,9 @@ public class ContainerWorkbenchTFC extends ContainerWorkbench
     //todo: replace with proper workbench mechanics
     private final World world;
     private final BlockPos pos;
-    private final TFCBlockWorkbench block;
+    private final BlockWorkbenchTFC block;
 
-    public ContainerWorkbenchTFC(InventoryPlayer inv, World world, BlockPos pos, TFCBlockWorkbench block)
+    public ContainerWorkbenchTFC(InventoryPlayer inv, World world, BlockPos pos, BlockWorkbenchTFC block)
     {
         super(inv, world, pos);
         this.world = world;

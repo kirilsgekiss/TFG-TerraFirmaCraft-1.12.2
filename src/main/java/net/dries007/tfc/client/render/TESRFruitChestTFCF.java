@@ -19,7 +19,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitChest;
+import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitChestTFCF;
 import net.dries007.tfc.objects.te.TEFruitChest;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -100,9 +100,9 @@ public class TESRFruitChestTFCF extends TileEntitySpecialRenderer<TEFruitChest>
             wood = te.getWood();
             tree = te.getTree();
 
-            if (block instanceof BlockFruitChest && meta == 0)
+            if (block instanceof BlockFruitChestTFCF && meta == 0)
             {
-                ((BlockFruitChest) block).checkForSurroundingChests(te.getWorld(), te.getPos(), te.getWorld().getBlockState(te.getPos()));
+                ((BlockFruitChestTFCF) block).checkForSurroundingChests(te.getWorld(), te.getPos(), te.getWorld().getBlockState(te.getPos()));
                 meta = te.getBlockMetadata();
             }
 

@@ -12,7 +12,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitDoor;
+import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitDoor;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

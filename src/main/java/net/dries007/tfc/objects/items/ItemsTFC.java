@@ -13,7 +13,7 @@ import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.ArmorMaterialTFC;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSlab;
+import net.dries007.tfc.objects.blocks.wood.BlockWoodSlabTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
@@ -52,10 +52,10 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockSlab;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.BlockDoorTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
@@ -419,16 +419,16 @@ public final class ItemsTFC
         BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : BlocksTFC.getAllLogBlocks())
+        for (BlockLogTFC log : BlocksTFC.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new ItemBlockTFC(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())
+        for (BlockDoorTFC door : BlocksTFC.getAllDoorBlocks())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new ItemDoorTFC(door), CT_DECORATIONS));
 
-        for (BlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
+        for (BlockRockSlabTFC.Half slab : BlocksTFC.getAllRockSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
+        for (BlockWoodSlabTFC.Half slab : BlocksTFC.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Tree wood : TFCRegistries.TREES.getValuesCollection())

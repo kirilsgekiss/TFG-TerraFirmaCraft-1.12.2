@@ -22,7 +22,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLogPile;
+import net.dries007.tfc.objects.blocks.wood.BlockLogPileTFC;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -208,7 +208,7 @@ public class TELogPile extends TEInventory implements ITickable
         for (EnumFacing side : EnumFacing.values())
         {
             IBlockState state = world.getBlockState(pos.offset(side));
-            if (state.getBlock() instanceof TFCBlockLogPile)
+            if (state.getBlock() instanceof BlockLogPileTFC)
             {
                 if (state.getValue(LIT)) continue;
                 world.setBlockState(pos.offset(side), state.withProperty(LIT, true));
@@ -236,7 +236,7 @@ public class TELogPile extends TEInventory implements ITickable
             block = world.getBlockState(pos.down(j)).getBlock();
             // This is here so that the charcoal pile will collapse Bottom > Top
             // Because the pile scans Top > Bottom this is necessary to avoid floating blocks
-            if (block instanceof TFCBlockLogPile)
+            if (block instanceof BlockLogPileTFC)
             {
                 return;
             }

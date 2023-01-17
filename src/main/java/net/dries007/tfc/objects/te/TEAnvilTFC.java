@@ -36,7 +36,7 @@ import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockAnvil;
+import net.dries007.tfc.objects.blocks.stone.BlockStoneAnvil;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemStackHandlerCallback;
 import net.dries007.tfc.util.Helpers;
@@ -99,7 +99,7 @@ public class TEAnvilTFC extends TEInventory
     public boolean isStone()
     {
         IBlockState state = world.getBlockState(pos);
-        return state.getBlock() instanceof BlockRockAnvil;
+        return state.getBlock() instanceof BlockStoneAnvil;
     }
 
     public int getTier()

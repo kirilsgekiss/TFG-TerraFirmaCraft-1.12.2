@@ -22,7 +22,7 @@ import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.gui.*;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
+import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
 import net.dries007.tfc.objects.container.*;
 import net.dries007.tfc.objects.items.ItemQuiver;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
@@ -31,6 +31,7 @@ import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.items.ItemBag;
 import net.dries007.tfc.objects.items.ItemSack;
 import net.dries007.tfc.objects.items.rock.ItemMud;
@@ -141,9 +142,9 @@ public class TFCGuiHandler implements IGuiHandler
             case QUIVER:
                 return new ContainerQuiver(player.inventory, stack.getItem() instanceof ItemQuiver ? stack : player.getHeldItemOffhand());
             case CHEST:
-                if (world.getBlockState(pos).getBlock() instanceof TFCBlockChest)
+                if (world.getBlockState(pos).getBlock() instanceof BlockChestTFC)
                 {
-                    ILockableContainer chestContainer = ((TFCBlockChest) world.getBlockState(pos).getBlock()).getLockableContainer(world, pos);
+                    ILockableContainer chestContainer = ((BlockChestTFC) world.getBlockState(pos).getBlock()).getLockableContainer(world, pos);
                     if (chestContainer == null) // This is null if the chest is blocked
                     {
                         return null;

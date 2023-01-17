@@ -33,7 +33,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockSlab;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import net.dries007.tfc.objects.items.ItemSlabTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
@@ -41,9 +41,9 @@ import net.dries007.tfc.util.agriculture.FruitTree;
 import net.dries007.tfc.util.Helpers;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
-import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
+import tfcflorae.objects.blocks.wood.fruitwood.*;
+import tfcflorae.objects.blocks.wood.BlockLogTFCF;
+import tfcflorae.objects.blocks.wood.bamboo.BlockBambooLog;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.tools.ItemWalkingStick;
 import tfcflorae.util.OreDictionaryHelper;
@@ -715,7 +715,7 @@ public final class ItemsTFCF
         simpleItems.add(register(r, "crop/product/malt_spelt", new ItemMiscTFCF(Size.VERY_SMALL, Weight.VERY_LIGHT, "malt_spelt", "malt", "category_grain"), CT_FOOD));
 
 
-        for (BlockFruitLog log : BlocksTFCF.getAllNormalTreeLog())
+        for (BlockLogTFCF log : BlocksTFCF.getAllNormalTreeLog())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new ItemBlockTFC(log), CT_WOOD));
 
         // Tools
@@ -985,7 +985,7 @@ public final class ItemsTFCF
         for (BlockFruitSlab.Half slab : BlocksTFCF.getAllFruitSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (BlockRockSlab.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
+        for (BlockRockSlabTFC.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
                 simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 

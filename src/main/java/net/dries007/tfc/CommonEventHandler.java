@@ -111,9 +111,9 @@ import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockRaw;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.BlockRockAnvil;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
+import net.dries007.tfc.objects.blocks.stone.BlockStoneAnvil;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSupportTFC;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemQuiver;
@@ -328,7 +328,7 @@ public final class CommonEventHandler
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
         }
-        if (event.getState().getBlock() instanceof TFCBlockLog)
+        if (event.getState().getBlock() instanceof BlockLogTFC)
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.logMiningTimeModifier));
         }
@@ -348,9 +348,9 @@ public final class CommonEventHandler
 
         // Fire onBlockActivated for in world crafting devices
         if (state.getBlock() instanceof BlockAnvilTFC
-            || state.getBlock() instanceof BlockRockAnvil
+            || state.getBlock() instanceof BlockStoneAnvil
             || state.getBlock() instanceof BlockQuern
-            || state.getBlock() instanceof TFCBlockWoodSupport)
+            || state.getBlock() instanceof BlockSupportTFC)
         {
             event.setUseBlock(Event.Result.ALLOW);
         }

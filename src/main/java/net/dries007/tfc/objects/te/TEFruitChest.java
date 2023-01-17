@@ -28,11 +28,12 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
 import net.dries007.tfc.objects.container.ContainerChestTFC;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.TFCDoubleChestItemHandler;
 
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitChest;
+import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitChestTFCF;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -55,9 +56,9 @@ public class TEFruitChest extends TileEntityChest implements ISlotCallback
         if (cachedWood == null)
         {
             Block blockAtPos = world.getBlockState(pos).getBlock();
-            if (world != null && blockAtPos instanceof BlockFruitChest)
+            if (world != null && blockAtPos instanceof BlockFruitChestTFCF)
             {
-                cachedWood = ((BlockFruitChest) blockAtPos).wood;;
+                cachedWood = ((BlockFruitChestTFCF) blockAtPos).wood;;
             }
         }
         return cachedWood;
@@ -69,9 +70,9 @@ public class TEFruitChest extends TileEntityChest implements ISlotCallback
         if (cachedTree == null)
         {
             Block blockAtPos = world.getBlockState(pos).getBlock();
-            if (world != null && blockAtPos instanceof BlockFruitChest)
+            if (world != null && blockAtPos instanceof BlockFruitChestTFCF)
             {
-                cachedTree = ((BlockFruitChest) blockAtPos).tree;;
+                cachedTree = ((BlockFruitChestTFCF) blockAtPos).tree;;
             }
         }
         return cachedTree;
@@ -89,7 +90,7 @@ public class TEFruitChest extends TileEntityChest implements ISlotCallback
         if (world == null) return false;
 
         Block block = this.world.getBlockState(posIn).getBlock();
-        return block instanceof BlockFruitChest && (((BlockFruitChest) block).wood == getWood() || ((BlockFruitChest) block).tree == getTree()) && ((BlockChest) block).chestType == getChestType();
+        return block instanceof BlockFruitChestTFCF && (((BlockFruitChestTFCF) block).wood == getWood() || ((BlockFruitChestTFCF) block).tree == getTree()) && ((BlockChest) block).chestType == getChestType();
     }
 
     @Override

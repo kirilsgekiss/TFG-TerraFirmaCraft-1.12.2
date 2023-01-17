@@ -45,7 +45,7 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 
-import static net.dries007.tfc.objects.blocks.wood.TFCBlockBarrel.SEALED;
+import static net.dries007.tfc.objects.blocks.wood.BlockBarrelTFC.SEALED;
 
 @ParametersAreNonnullByDefault
 public class TEBarrel extends TETickableInventory implements ITickable, ICalendarTickable, IItemHandlerSidedCallback, IFluidHandlerSidedCallback, IFluidTankCallback

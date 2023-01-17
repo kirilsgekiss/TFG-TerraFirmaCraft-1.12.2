@@ -7,7 +7,10 @@ package net.dries007.tfc.objects.blocks.stone;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.compat.tfc.TFGUtils;
+import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,6 +31,7 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import net.minecraftforge.oredict.OreDictionary;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -104,7 +108,7 @@ public class BlockRockRaw extends BlockRockVariant
             {
                 // Create a stone anvil
                 BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
-                if (anvil instanceof BlockRockAnvil)
+                if (anvil instanceof BlockStoneAnvil)
                 {
                     worldIn.setBlockState(pos, anvil.getDefaultState());
                 }

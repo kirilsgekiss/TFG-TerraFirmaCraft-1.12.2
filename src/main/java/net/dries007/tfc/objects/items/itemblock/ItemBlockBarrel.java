@@ -42,7 +42,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipe;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockBarrel;
+import net.dries007.tfc.objects.blocks.wood.BlockBarrelTFC;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
 import net.dries007.tfc.objects.te.TEBarrel;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -52,7 +52,7 @@ import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import static net.dries007.tfc.objects.te.TEBarrel.BARREL_MAX_FLUID_TEMPERATURE;
 
 /**
- * Item block for {@link TFCBlockBarrel}
+ * Item block for {@link BlockBarrelTFC}
  * Only has NBT data if the barrel is sealed and has contents
  */
 @ParametersAreNonnullByDefault

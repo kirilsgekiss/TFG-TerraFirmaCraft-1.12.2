@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
+import net.dries007.tfc.objects.blocks.wood.BlockChestTFC;
 import net.dries007.tfc.objects.te.TEChestTFC;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -63,9 +63,9 @@ public class TESRChestTFC extends TileEntitySpecialRenderer<TEChestTFC>
             meta = te.getBlockMetadata();
             wood = te.getWood();
 
-            if (block instanceof TFCBlockChest && meta == 0)
+            if (block instanceof BlockChestTFC && meta == 0)
             {
-                ((TFCBlockChest) block).checkForSurroundingChests(te.getWorld(), te.getPos(), te.getWorld().getBlockState(te.getPos()));
+                ((BlockChestTFC) block).checkForSurroundingChests(te.getWorld(), te.getPos(), te.getWorld().getBlockState(te.getPos()));
                 meta = te.getBlockMetadata();
             }
 
