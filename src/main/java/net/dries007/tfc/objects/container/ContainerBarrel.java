@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-import net.dries007.tfc.objects.blocks.wood.BlockBarrelTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockBarrel;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.te.TEBarrel;
 
@@ -39,7 +39,7 @@ public class ContainerBarrel extends ContainerTE<TEBarrel> implements IButtonHan
         // Slot will always be 0, extraNBT will be empty
         if (!tile.getWorld().isRemote)
         {
-            BlockBarrelTFC.toggleBarrelSeal(tile.getWorld(), tile.getPos());
+            TFCBlockBarrel.toggleBarrelSeal(tile.getWorld(), tile.getPos());
         }
     }
 

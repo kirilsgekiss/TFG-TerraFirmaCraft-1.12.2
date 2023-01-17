@@ -3,13 +3,12 @@ package net.dries007.tfc.objects.items.itemblock;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
 public class ItemBlockSaplingTFC extends ItemBlockTFC
 {
-    public ItemBlockSaplingTFC(BlockSaplingTFC block)
+    public ItemBlockSaplingTFC(TFCBlockSapling block)
     {
         super(block);
     }

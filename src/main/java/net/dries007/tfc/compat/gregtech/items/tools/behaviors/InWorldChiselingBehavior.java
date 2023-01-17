@@ -8,7 +8,7 @@ import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.blocks.stone.BlockRockSmooth;
-import net.dries007.tfc.objects.blocks.wood.BlockSupportTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.ContainerEmpty;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
@@ -68,7 +68,7 @@ public class InWorldChiselingBehavior implements IToolBehavior {
                 {
                     IBlockState oldState = worldIn.getBlockState(pos);
                     FallingBlockManager.Specification oldSpec = FallingBlockManager.getSpecification(oldState);
-                    if (oldSpec != null && oldSpec.isCollapsable() && !BlockSupportTFC.isBeingSupported(worldIn, pos))
+                    if (oldSpec != null && oldSpec.isCollapsable() && !TFCBlockWoodSupport.isBeingSupported(worldIn, pos))
                     {
                         worldIn.setBlockToAir(pos); // Set block to air before attempting a collapse mechanic
                         if (FallingBlockManager.checkCollapsingArea(worldIn, pos))

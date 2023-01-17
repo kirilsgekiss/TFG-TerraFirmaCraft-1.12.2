@@ -46,7 +46,7 @@ import net.dries007.tfc.api.capability.food.IItemFoodTFC;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -236,7 +236,7 @@ public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize
         for (EnumFacing face : EnumFacing.values())
         {
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if (!(blockState.getBlock() instanceof BlockLeavesTFC) && (blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID))
+            if (!(blockState.getBlock() instanceof TFCBlockLeaves) && (blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID))
             {
                 return ClimateTFC.getAvgTemp(worldIn, pos) >= -13f && ClimateTFC.getAvgTemp(worldIn, pos) <= 50f && ChunkDataTFC.getRainfall(worldIn, pos) >= 250f && ChunkDataTFC.getRainfall(worldIn, pos) <= 500;
             }

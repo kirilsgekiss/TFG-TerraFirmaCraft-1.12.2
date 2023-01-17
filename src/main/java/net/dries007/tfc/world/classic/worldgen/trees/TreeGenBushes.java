@@ -17,11 +17,11 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
-import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
 import static net.minecraft.block.BlockLeaves.DECAYABLE;
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 
@@ -30,10 +30,10 @@ public class TreeGenBushes implements ITreeGenerator
     @Override
     public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
     {
-        IBlockState leaves = BlockLeavesTFC.get(tree).getDefaultState().withProperty(DECAYABLE, true);
+        IBlockState leaves = TFCBlockLeaves.get(tree).getDefaultState().withProperty(DECAYABLE, true);
 
         // Has to fake being placed, otherwise the log will just poof out of existence. todo: better fix for this.
-        checkAndPlace(BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, true).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE), world, pos);
+        checkAndPlace(TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, true).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE), world, pos);
         checkAndPlace(leaves, world, pos.add(0, 1, 0));
 
         for (EnumFacing face : EnumFacing.HORIZONTALS)
@@ -61,7 +61,7 @@ public class TreeGenBushes implements ITreeGenerator
 
         // Check the position for liquids, etc.
         if (world.getBlockState(pos).getMaterial().isLiquid() || !world.getBlockState(pos).getMaterial().isReplaceable())
-            if (!(world.getBlockState(pos) instanceof BlockSaplingTFC))
+            if (!(world.getBlockState(pos) instanceof TFCBlockSapling))
                 return false;
 
         // Check if there is sufficient light level

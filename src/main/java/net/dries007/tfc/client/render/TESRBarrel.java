@@ -26,7 +26,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.client.FluidSpriteCache;
-import net.dries007.tfc.objects.blocks.wood.BlockBarrelTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockBarrel;
 import net.dries007.tfc.objects.te.TEBarrel;
 
 public class TESRBarrel extends TileEntitySpecialRenderer<TEBarrel>
@@ -35,7 +35,7 @@ public class TESRBarrel extends TileEntitySpecialRenderer<TEBarrel>
     public void render(TEBarrel te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         IBlockState state = te.getWorld().getBlockState(te.getPos());
-        if (!(state.getBlock() instanceof BlockBarrelTFC) || state.getValue(BlockBarrelTFC.SEALED))
+        if (!(state.getBlock() instanceof TFCBlockBarrel) || state.getValue(TFCBlockBarrel.SEALED))
         {
             return;
         }

@@ -22,20 +22,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
+import net.dries007.tfc.objects.blocks.stone.BlockRockSlab;
 import net.dries007.tfc.client.GrassColorHandler;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.*;
 import tfcflorae.objects.blocks.plants.*;
 import tfcflorae.objects.blocks.plants.BlockPlant.*;
-import tfcflorae.objects.blocks.wood.fruitwood.*;
-import tfcflorae.objects.blocks.wood.BlockFenceGateLog;
-import tfcflorae.objects.blocks.wood.BlockJoshuaTreeSapling;
-import tfcflorae.objects.blocks.wood.BlockLeavesTFCF;
-import tfcflorae.objects.blocks.wood.BlockLogTFCF;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
+import net.dries007.tfc.objects.blocks.wood.TFCBlockFenceGateLog;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
 import tfcflorae.ConfigTFCF;
@@ -128,11 +128,11 @@ public class ClientRegisterEventsTFCF
         for (BlockFruitTreeLeaves leaves : BlocksTFCF.getAllFruitLeaves())
             ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build());
 
-        for (BlockLeavesTFCF leaves : BlocksTFCF.getAllNormalTreeLeaves())
-            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockLeavesTFCF.DECAYABLE).ignore(BlockLeavesTFCF.HARVESTABLE).build());
+        for (BlockFruitLeaves leaves : BlocksTFCF.getAllNormalTreeLeaves())
+            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitLeaves.DECAYABLE).ignore(BlockFruitLeaves.HARVESTABLE).build());
 
-        for (BlockLogTFCF Logs : BlocksTFCF.getAllNormalTreeLog())
-            ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockLogTFCF.PLACED).build());
+        for (BlockFruitLog Logs : BlocksTFCF.getAllNormalTreeLog())
+            ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockFruitLog.PLACED).build());
 
         for (BlockFruitDoor door : BlocksTFCF.getAllFruitDoors())
             ModelLoader.setCustomStateMapper(door, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
@@ -143,8 +143,8 @@ public class ClientRegisterEventsTFCF
         for (BlockFruitLogFenceGate gate : BlocksTFCF.getAllFruitLogFenceGates())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitLogFenceGate.POWERED).build());
 
-        for (BlockFenceGateLog gate : BlocksTFCF.getAllFenceGateLogBlocks())
-            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFenceGateLog.POWERED).build());
+        for (TFCBlockFenceGateLog gate : BlocksTFCF.getAllFenceGateLogBlocks())
+            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(TFCBlockFenceGateLog.POWERED).build());
 
         for (BlockFruitSlab.Half block : BlocksTFCF.getAllFruitSlabBlocks())
         {
@@ -155,10 +155,10 @@ public class ClientRegisterEventsTFCF
         for (Block block : BlocksTFCF.getAllFruitChestBlocks())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockChest.FACING).build());
 
-        for (BlockRockSlabTFC.Half block : BlocksTFCF.getAllSlabBlocksTFC())
+        for (BlockRockSlab.Half block : BlocksTFCF.getAllSlabBlocksTFC())
         {
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
-            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockRockSlab.VARIANT).build());
+            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockRockSlab.VARIANT).build());
         }
         for (Block block : BlocksTFCF.getAllBambooLog())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(StatePropertiesTFC.CAN_GROW).build());
@@ -167,7 +167,7 @@ public class ClientRegisterEventsTFCF
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build());
 
         for (Block block : BlocksTFCF.getAllBambooSapling())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockSaplingTFC.STAGE).build());
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockSapling.STAGE).build());
 
         /*
         ModelLoader.setCustomStateMapper(BlocksTFCF.CASSIA_CINNAMON_LOG, new StateMap.Builder().ignore(StatePropertiesTFC.CAN_GROW).build());
@@ -205,7 +205,7 @@ public class ClientRegisterEventsTFCF
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-            BlocksTFCF.getAllNormalTreeLeaves().toArray(new BlockLeavesTFCF[0])
+            BlocksTFCF.getAllNormalTreeLeaves().toArray(new BlockFruitLeaves[0])
         );
 
         /*
