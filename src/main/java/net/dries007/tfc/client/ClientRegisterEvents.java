@@ -284,9 +284,6 @@ public final class ClientRegisterEvents
             ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
             ModelLoader.setCustomStateMapper(s.doubleSlab, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
         });
-        BlocksTFC.getAllWoodSlabBlocks().forEach(s -> {
-
-        });
         BlocksTFC.getAllCropBlocks().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(WILD).build()));
         BlocksTFC.getAllFruitTreeLeavesBlocks().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build()));
         BlocksTFC.getAllBlockRockVariants().forEach(e -> {
