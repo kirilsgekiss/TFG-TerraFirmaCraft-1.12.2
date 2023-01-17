@@ -4,7 +4,7 @@
   "defaults": {
     "model": "fence_post",
     "textures": {
-      "texture": "tfc:blocks/wood/planks/locust"
+      "texture": "tfc:blocks/wood/planks/pattern"
     }
   },
   "variants": {

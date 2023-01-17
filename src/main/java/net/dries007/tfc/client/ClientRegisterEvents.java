@@ -250,10 +250,10 @@ public final class ClientRegisterEvents
         BlocksTFC.getAllWoodStairsBlocks().forEach(BlockWoodStairsTFC::onModelRegister);
         // Slabs
         BlocksTFC.getAllWoodSlabBlocks().forEach(BlockWoodSlabTFC.Half::onModelRegister); // todo
-
         // Fence
-
+        BlocksTFC.getAllFenceBlocks().forEach(BlockFenceTFC::onModelRegister);
         // Fence gates
+        BlocksTFC.getAllFenceGateBlocks().forEach(BlockFenceGateTFC::onModelRegister);
 
         // Fence gates log
         // todo ?

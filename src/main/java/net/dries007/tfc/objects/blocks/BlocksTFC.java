@@ -634,12 +634,13 @@ public final class BlocksTFC
             allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allFenceBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allFenceGateBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allWoodButtonBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allWoodPressurePlateBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
             allBarrelBlocksBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockBarrel(x)));
 
             allLeafBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allFenceGateBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
+
             allSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockSaplingTFC(x)));
             allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
             allChestBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
