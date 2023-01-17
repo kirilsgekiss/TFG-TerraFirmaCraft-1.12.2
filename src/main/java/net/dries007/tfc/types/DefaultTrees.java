@@ -14,7 +14,7 @@ import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.world.classic.worldgen.trees.*;
-import net.dries007.tfc.world.classic.worldgen.TreeGenRandom;
+import net.dries007.tfc.world.classic.worldgen.trees.TreeGenRandom;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 

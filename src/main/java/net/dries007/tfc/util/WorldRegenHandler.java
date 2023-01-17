@@ -8,6 +8,7 @@ package net.dries007.tfc.util;
 import java.util.*;
 
 import com.google.common.collect.Lists;
+import net.dries007.tfc.world.classic.worldgen.groundcover.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -65,6 +66,13 @@ import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
 public class WorldRegenHandler
 {
 
+    private static final WorldGenSurfaceBones BONE_GEN = new WorldGenSurfaceBones();
+    private static final WorldGenSurfaceDriftwood DRIFTWOOD_GEN = new WorldGenSurfaceDriftwood();
+    private static final WorldGenSurfaceFlint FLINT_GEN = new WorldGenSurfaceFlint();
+    private static final WorldGenSurfacePinecone PINECONE_GEN = new WorldGenSurfacePinecone();
+    private static final WorldGenSurfaceRocks SURFACE_ROCKS_GEN = new WorldGenSurfaceRocks();
+    private static final WorldGenSurfaceSeashells SEASHELLS_GEN = new WorldGenSurfaceSeashells();
+    private static final WorldGenSurfaceTwig TWIG_GEN = new WorldGenSurfaceTwig();
     private static final RegenRocksSticks ROCKS_GEN = new RegenRocksSticks();
     private static final RegenWildCrops CROPS_GEN = new RegenWildCrops();
     private static final WorldGenBerryBushes BUSH_GEN = new WorldGenBerryBushes();
@@ -108,9 +116,15 @@ public class WorldRegenHandler
                     {
                         if (ConfigTFC.General.WORLD_REGEN.sticksRocksModifier > 0)
                         {
-                            //Nuke any rocks and sticks in chunk.
+                            // Nuke any rocks and sticks in chunk.
                             removeAllPlacedItems(event.world, pos);
+
                             double rockModifier = ConfigTFC.General.WORLD_REGEN.sticksRocksModifier;
+
+                            SURFACE_ROCKS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                            FLINT_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                            TWIG_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                            DRIFTWOOD_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                             ROCKS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
 
                             final float density = chunkDataTFC.getFloraDensity();
@@ -123,7 +137,7 @@ public class WorldRegenHandler
                             WorldGenTrees.generateLooseSticks(RANDOM, pos.x, pos.z, event.world, stickDensity);
                         }
 
-                        //Nuke crops/mushrooms/dead crops (not sure the latter is working.
+                        // Nuke crops/mushrooms/dead crops (not sure the latter is working.
                         removeCropsAndMushrooms(event.world, pos);
                         removeSeedBags(event.world, pos);
 
@@ -138,10 +152,15 @@ public class WorldRegenHandler
                         }
                         CROPS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                         BUSH_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                        BONE_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                        PINECONE_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+                        SEASHELLS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
+
                         int worldX = pos.x << 4;
                         int worldZ = pos.z << 4;
                         BlockPos blockpos = new BlockPos(worldX, 0, worldZ);
                         Biome biome = event.world.getBiome(blockpos.add(16, 0, 16));
+
                         regenPredators(event.world, biome, worldX + 8, worldZ + 8, 16, 16, RANDOM);
 
                         chunkDataTFC.resetLastUpdateYear();
@@ -160,7 +179,7 @@ public class WorldRegenHandler
             for (int zZ = 0; zZ < 16; ++zZ)
             {
                 BlockPos topPos = world.getTopSolidOrLiquidBlock(pos.getBlock(xX, 0, zZ));
-                //If I'm not completely missing the point, then we have the top block for each in a chunk. Which is apparently not the top solid block ffs.
+                // If I'm not completely missing the point, then we have the top block for each in a chunk. Which is apparently not the top solid block ffs.
                 IBlockState topState = world.getBlockState(topPos);
                 Block topBlock = topState.getBlock();
                 if (!topState.getMaterial().isLiquid() && (topBlock instanceof BlockCropDead || topBlock instanceof BlockMushroomTFC))
@@ -179,7 +198,7 @@ public class WorldRegenHandler
                 }
             }
         }
-        //Remove all the crops
+        // Remove all the crops
         Map<BlockPos, TileEntity> teTargets = world.getChunk(pos.x, pos.z).getTileEntityMap();
         List<BlockPos> removals = new ArrayList<>();
         teTargets.forEach((tePos, te) -> {

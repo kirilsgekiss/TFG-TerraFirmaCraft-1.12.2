@@ -1,4 +1,4 @@
-package net.dries007.tfc.world.classic.worldgen;
+package net.dries007.tfc.world.classic.worldgen.trees;
 
 import java.util.Random;
 
