@@ -13,7 +13,6 @@ import net.dries007.tfc.objects.CreativeTabsTFC;
 import net.dries007.tfc.objects.blocks.*;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.plants.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockStairsTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockWoodStairsTFC;
@@ -256,7 +255,7 @@ public final class BlocksTFCF
     private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
-    private static ImmutableList<BlockSlabTFC.Half> allSlabBlocksTFC = Helpers.getNull();
+    private static ImmutableList<BlockRockSlabTFC.Half> allSlabBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockWoodStairsTFC> allStairBlocksTFC = Helpers.getNull();
     private static ImmutableList<BlockPlanksTFC> allPlanksTFC = Helpers.getNull();
     private static ImmutableList<BlockSurfaceRock> allSurfaceRocks = Helpers.getNull();
@@ -430,7 +429,7 @@ public final class BlocksTFCF
     }
 
 
-    public static ImmutableList<BlockSlabTFC.Half> getAllSlabBlocksTFC()
+    public static ImmutableList<BlockRockSlabTFC.Half> getAllSlabBlocksTFC()
     {
         return allSlabBlocksTFC;
     }
@@ -638,7 +637,7 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockDriftwood> surfaceDriftwood = ImmutableList.builder();
         ImmutableList.Builder<BlockTwig> surfaceTwig = ImmutableList.builder();
         ImmutableList.Builder<BlockPinecone> surfacePinecone = ImmutableList.builder();
-        ImmutableList.Builder<BlockSlabTFC.Half> blockSlabTFC = new Builder<>();
+        ImmutableList.Builder<BlockRockSlabTFC.Half> blockSlabTFC = new Builder<>();
         ImmutableList.Builder<BlockWoodStairsTFC> blockStairTFC = new Builder<>();
         ImmutableList.Builder<BlockPlanksTFC> planksTFC = ImmutableList.builder();
         ImmutableList.Builder<BlockPebbleWater> pebbleWater = ImmutableList.builder();
@@ -1163,8 +1162,8 @@ public final class BlocksTFCF
         fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/cassia_cinnamon", new BlockFruitToolRack(), CT_DECORATIONS));
         fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/cassia_cinnamon", new BlockFruitTrapDoor(), CT_DECORATIONS));
         fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/cassia_cinnamon", new BlockFruitWorkbench(), CT_DECORATIONS));
-        register(r, "wood/fruit_tree/double_slab/cassia_cinnamon", new BlockSlabTFC.Double(DefaultTrees.CASSIA_CINNAMON_TREE));
-        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/cassia_cinnamon", new BlockSlabTFC.Half(DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
+        register(r, "wood/fruit_tree/double_slab/cassia_cinnamon", new BlockRockSlabTFC.Double(DefaultTrees.CASSIA_CINNAMON_TREE));
+        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/cassia_cinnamon", new BlockRockSlabTFC.Half(DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
         blockStairTFC.add(register(r, "wood/fruit_tree/stairs/cassia_cinnamon", new BlockWoodStairsTFC(DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
         fruitChests.add(register(r, "wood/fruit_tree/chest/cassia_cinnamon", new BlockFruitChestTFCF(BlockFruitChestTFCF.TFCBASIC, DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
         fruitChests.add(register(r, "wood/fruit_tree/chest_trap/cassia_cinnamon", new BlockFruitChestTFCF(BlockFruitChestTFCF.TFCTRAP, DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
@@ -1185,8 +1184,8 @@ public final class BlocksTFCF
         fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/ceylon_cinnamon", new BlockFruitToolRack(), CT_DECORATIONS));
         fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/ceylon_cinnamon", new BlockFruitTrapDoor(), CT_DECORATIONS));
         fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/ceylon_cinnamon", new BlockFruitWorkbench(), CT_DECORATIONS));
-        register(r, "wood/fruit_tree/double_slab/ceylon_cinnamon", new BlockSlabTFC.Double(DefaultTrees.CEYLON_CINNAMON_TREE));
-        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/ceylon_cinnamon", new BlockSlabTFC.Half(DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
+        register(r, "wood/fruit_tree/double_slab/ceylon_cinnamon", new BlockRockSlabTFC.Double(DefaultTrees.CEYLON_CINNAMON_TREE));
+        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/ceylon_cinnamon", new BlockRockSlabTFC.Half(DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
         blockStairTFC.add(register(r, "wood/fruit_tree/stairs/ceylon_cinnamon", new BlockWoodStairsTFC(DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
         fruitChests.add(register(r, "wood/fruit_tree/chest/ceylon_cinnamon", new BlockFruitChestTFCF(BlockFruitChestTFCF.TFCBASIC, DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
         fruitChests.add(register(r, "wood/fruit_tree/chest_trap/ceylon_cinnamon", new BlockFruitChestTFCF(BlockFruitChestTFCF.TFCTRAP, DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
@@ -1217,8 +1216,8 @@ public final class BlocksTFCF
             fruitToolRack.add(register(r, "wood/tool_rack/" + bamboo[i], new BlockFruitToolRack(), CT_DECORATIONS));
             fruitTrapdoors.add(register(r, "wood/trapdoor/" + bamboo[i], new BlockFruitTrapDoor(), CT_DECORATIONS));
             fruitWorkbench.add(register(r, "wood/workbench/" + bamboo[i], new BlockFruitWorkbench(), CT_DECORATIONS));
-            register(r, "wood/double_slab/" + bamboo[i], new BlockSlabTFC.Double(bambooTrees[i]));
-            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockSlabTFC.Half(bambooTrees[i]), CT_DECORATIONS));
+            register(r, "wood/double_slab/" + bamboo[i], new BlockRockSlabTFC.Double(bambooTrees[i]));
+            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockRockSlabTFC.Half(bambooTrees[i]), CT_DECORATIONS));
             blockStairTFC.add(register(r, "wood/stairs/" + bamboo[i], new BlockWoodStairsTFC(bambooTrees[i]), CT_DECORATIONS));
 
             fruitChests.add(register(r, "wood/chest/" + bamboo[i], new BlockFruitChestTFCF(BlockFruitChestTFCF.TFCBASIC, bambooTrees[i]), CT_DECORATIONS));

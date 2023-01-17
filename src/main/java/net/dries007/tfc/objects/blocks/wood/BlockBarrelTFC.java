@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneComparator;
 import net.minecraft.block.SoundType;
@@ -18,9 +19,12 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
@@ -30,6 +34,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -43,9 +48,12 @@ import net.dries007.tfc.api.recipes.barrel.BarrelRecipe;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.te.TEBarrel;
 import net.dries007.tfc.util.Helpers;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 /**
  * Barrel block. Can be filled with fluids (10 B), and one item stack. Performs barrel recipes.
@@ -55,8 +63,10 @@ import java.util.Map;
  * @see BarrelRecipe
  */
 @ParametersAreNonnullByDefault
-public class BlockBarrelTFC extends Block implements IItemSize, IWoodHandler
+public class BlockBarrelTFC extends Block implements IItemSize, IHasModel, IWoodHandler
 {
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/barrel/pattern");
+
     public static final PropertyBool SEALED = PropertyBool.create("sealed");
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
 
@@ -364,5 +374,21 @@ public class BlockBarrelTFC extends Block implements IItemSize, IWoodHandler
     public int getComparatorInputOverride(IBlockState state, World world, BlockPos pos)
     {
         return state.getValue(SEALED) ? 15 : 0;
+    }
+
+    @Override
+    public void onModelRegister() {
+        final ModelResourceLocation sealed = new ModelResourceLocation(MODEL_LOCATION, "sealed=true");
+        final ModelResourceLocation unsealed = new ModelResourceLocation(MODEL_LOCATION, "sealed=false");
+
+        ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
+            @NotNull
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+            {
+                return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
+            }
+        });
+
+        ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(this), stack -> stack.getTagCompound() != null ? sealed : unsealed);
     }
 }

@@ -26,7 +26,7 @@ import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
-import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockStairsTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockWoodPressurePlateTFC;
 import net.dries007.tfc.objects.blocks.wood.*;
@@ -228,13 +228,13 @@ public final class DefaultRecipes
 
             // Raw -> Raw Slabs
             ModHandler.addShapedRecipe(String.format("rock_slab_%s", rock),
-                    new ItemStack(BlockSlabTFC.Half.get(rock, Type.RAW), 6), "XXX",
+                    new ItemStack(BlockRockSlabTFC.Half.get(rock, Type.RAW), 6), "XXX",
                     'X', new ItemStack(BlockRockVariant.get(rock, Type.RAW))
             );
 
             CUTTER_RECIPES.recipeBuilder()
                     .input(BlockRockVariant.get(rock, Type.RAW))
-                    .output(BlockSlabTFC.Half.get(rock, Type.RAW), 2)
+                    .output(BlockRockSlabTFC.Half.get(rock, Type.RAW), 2)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -342,13 +342,13 @@ public final class DefaultRecipes
 
             // Planks -> Slabs
             ModHandler.addShapedRecipe(String.format("wood_slab_%s", tree),
-                    new ItemStack(BlockSlabTFC.Half.get(tree), 6), "XXX",
+                    new ItemStack(BlockRockSlabTFC.Half.get(tree), 6), "XXX",
                     'X', new ItemStack(BlockPlanksTFC.get(tree))
             );
 
             CUTTER_RECIPES.recipeBuilder()
                     .input(BlockPlanksTFC.get(tree))
-                    .output(BlockSlabTFC.Half.get(tree), 2)
+                    .output(BlockRockSlabTFC.Half.get(tree), 2)
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();
@@ -386,7 +386,7 @@ public final class DefaultRecipes
 
             // Lumber -> Wood Buttons
             ModHandler.addShapedRecipe(String.format("wood_button_%s", tree),
-                    new ItemStack(BlockButtonWoodTFC.get(tree)), "XY",
+                    new ItemStack(BlockWoodButtonTFC.get(tree)), "XY",
                     'X', new ItemStack(BlockPlanksTFC.get(tree)),
                     'Y', OreDictUnifier.get(OrePrefix.springSmall, Materials.Iron)
             );
@@ -395,7 +395,7 @@ public final class DefaultRecipes
                     .input(ItemLumberTFC.get(tree))
                     .input(OrePrefix.springSmall, Materials.Iron)
                     .notConsumable(new IntCircuitIngredient(5))
-                    .output(BlockButtonWoodTFC.get(tree))
+                    .output(BlockWoodButtonTFC.get(tree))
                     .duration(200)
                     .EUt(7)
                     .buildAndRegister();

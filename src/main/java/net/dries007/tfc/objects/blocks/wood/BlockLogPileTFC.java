@@ -20,7 +20,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -46,7 +45,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class BlockLogPile extends Block implements ILightableBlock
+public class BlockLogPileTFC extends Block implements ILightableBlock
 {
     private static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
 
@@ -66,7 +65,7 @@ public class BlockLogPile extends Block implements ILightableBlock
 
     private static boolean isValidCoverBlock(IBlockState offsetState, World world, BlockPos pos, EnumFacing side)
     {
-        if (offsetState.getBlock() instanceof BlockLogPile || offsetState.getBlock() == BlocksTFC.CHARCOAL_PILE)
+        if (offsetState.getBlock() instanceof BlockLogPileTFC || offsetState.getBlock() == BlocksTFC.CHARCOAL_PILE)
         {
             return true;
         }
@@ -77,7 +76,7 @@ public class BlockLogPile extends Block implements ILightableBlock
         return !offsetState.getMaterial().getCanBurn() && (offsetState.getBlockFaceShape(world, pos, side) == BlockFaceShape.SOLID) || offsetState.isSideSolid(world, pos, side);
     }
 
-    public BlockLogPile()
+    public BlockLogPileTFC()
     {
         super(Material.WOOD);
 
@@ -112,7 +111,7 @@ public class BlockLogPile extends Block implements ILightableBlock
                 IBlockState offsetState = worldIn.getBlockState(offsetPos);
                 if (isValidCoverBlock(offsetState, worldIn, offsetPos, side.getOpposite()))
                 {
-                    if (offsetState.getBlock() instanceof BlockLogPile && !offsetState.getValue(LIT))
+                    if (offsetState.getBlock() instanceof BlockLogPileTFC && !offsetState.getValue(LIT))
                     {
                         worldIn.setBlockState(offsetPos, offsetState.withProperty(LIT, true));
                     }

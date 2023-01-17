@@ -11,22 +11,28 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
+import net.minecraft.item.Item;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,9 +40,14 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.container.ContainerWorkbenchTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import org.jetbrains.annotations.NotNull;
 
-public class BlockWorkbenchTFC extends BlockWorkbench implements IWoodHandler
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
+public class BlockWorkbenchTFC extends BlockWorkbench implements IHasModel, IWoodHandler
 {
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/workbench/pattern");
+
     private static final Map<Tree, BlockWorkbenchTFC> MAP = new HashMap<>();
 
     public static BlockWorkbenchTFC get(Tree wood)
@@ -141,6 +152,21 @@ public class BlockWorkbenchTFC extends BlockWorkbench implements IWoodHandler
         public String getGuiID()
         {
             return "minecraft:crafting_table";
+        }
+    }
+
+    @Override
+    public void onModelRegister() {
+        ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
+            @NotNull
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
+            {
+                return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
+            }
+        });
+
+        for (IBlockState state : this.getBlockState().getValidStates()) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), new ModelResourceLocation(MODEL_LOCATION, "normal"));
         }
     }
 

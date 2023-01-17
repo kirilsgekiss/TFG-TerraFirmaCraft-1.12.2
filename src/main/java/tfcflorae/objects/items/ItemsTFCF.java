@@ -33,7 +33,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import net.dries007.tfc.objects.items.ItemSlabTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
@@ -985,7 +985,7 @@ public final class ItemsTFCF
         for (BlockFruitSlab.Half slab : BlocksTFCF.getAllFruitSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (BlockSlabTFC.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
+        for (BlockRockSlabTFC.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
                 simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 

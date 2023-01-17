@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import net.dries007.tfc.client.GrassColorHandler;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
@@ -156,10 +156,10 @@ public class ClientRegisterEventsTFCF
         for (Block block : BlocksTFCF.getAllFruitChestBlocks())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockChest.FACING).build());
 
-        for (BlockSlabTFC.Half block : BlocksTFCF.getAllSlabBlocksTFC())
+        for (BlockRockSlabTFC.Half block : BlocksTFCF.getAllSlabBlocksTFC())
         {
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockSlabTFC.VARIANT).build());
-            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockSlabTFC.VARIANT).build());
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
+            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockRockSlabTFC.VARIANT).build());
         }
         for (Block block : BlocksTFCF.getAllBambooLog())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(StatePropertiesTFC.CAN_GROW).build());

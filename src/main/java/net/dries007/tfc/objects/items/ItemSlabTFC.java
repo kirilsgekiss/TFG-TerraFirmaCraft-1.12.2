@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.items;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.wood.BlockWoodSlabTFC;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 
@@ -15,14 +16,19 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlockSlabTFC;
+import net.dries007.tfc.objects.blocks.BlockRockSlabTFC;
 import tfcflorae.objects.blocks.wood.fruitwood.BlockFruitSlab;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class ItemSlabTFC extends ItemSlab implements IItemSize
 {
-    public ItemSlabTFC(BlockSlabTFC.Half slab, BlockSlabTFC.Half slab1, BlockSlabTFC.Double doubleSlab)
+    public ItemSlabTFC(BlockRockSlabTFC.Half slab, BlockRockSlabTFC.Half slab1, BlockRockSlabTFC.Double doubleSlab)
+    {
+        super(slab, slab1, doubleSlab);
+    }
+
+    public ItemSlabTFC(BlockWoodSlabTFC.Half slab, BlockWoodSlabTFC.Half slab1, BlockWoodSlabTFC.Double doubleSlab)
     {
         super(slab, slab1, doubleSlab);
     }

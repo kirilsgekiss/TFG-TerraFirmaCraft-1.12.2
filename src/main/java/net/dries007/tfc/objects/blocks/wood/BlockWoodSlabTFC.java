@@ -1,18 +1,9 @@
-/*
- * Work under Copyright. Licensed under the EUPL.
- * See the project README.md and LICENSE.txt for more information.
- */
+package net.dries007.tfc.objects.blocks.wood;
 
-package net.dries007.tfc.objects.blocks;
-
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.types.DefaultTrees;
+import gregtech.client.model.SimpleStateMapper;
+import mcp.MethodsReturnNonnullByDefault;
+import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
@@ -20,57 +11,63 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.wood.BlockPlanksTFC;
-import net.dries007.tfc.util.OreDictionaryHelper;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public abstract class BlockSlabTFC extends BlockSlab
-{
-    public static final PropertyEnum<Variant> VARIANT = PropertyEnum.create("variant", Variant.class);
+public abstract class BlockWoodSlabTFC extends BlockSlab implements IWoodHandler {
+
+    public static final PropertyEnum<BlockWoodSlabTFC.Variant> VARIANT = PropertyEnum.create("variant", BlockWoodSlabTFC.Variant.class);
     public final Block modelBlock;
-    protected Half halfSlab;
+    protected BlockWoodSlabTFC.Half halfSlab;
 
-    private BlockSlabTFC(Rock rock, Type type)
-    {
-        this(BlockRockVariant.get(rock, type));
-        Block c = BlockRockVariant.get(rock, type);
-        //noinspection ConstantConditions
-        setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));
-        useNeighborBrightness = true;
-    }
+    private static final ModelResourceLocation MODEL_LOCATION = new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/slab/pattern"), "normal");
 
-    private BlockSlabTFC(Tree wood)
+    private Tree wood;
+
+    private BlockWoodSlabTFC(Tree wood)
     {
         this(BlockPlanksTFC.get(wood));
         Block c = BlockPlanksTFC.get(wood);
+        this.wood = wood;
         //noinspection ConstantConditions
         setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));
         useNeighborBrightness = true;
         Blocks.FIRE.setFireInfo(this, 5, 20);
     }
 
-    private BlockSlabTFC(Block block)
+    private BlockWoodSlabTFC(Block block)
     {
         super(block.getDefaultState().getMaterial());
         IBlockState state = blockState.getBaseState();
         if (!isDouble()) state = state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
-        setDefaultState(state.withProperty(VARIANT, Variant.DEFAULT));
+        setDefaultState(state.withProperty(VARIANT, BlockWoodSlabTFC.Variant.DEFAULT));
         this.modelBlock = block;
         setLightOpacity(255);
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     @Override
@@ -88,14 +85,14 @@ public abstract class BlockSlabTFC extends BlockSlab
     @Override
     public Comparable<?> getTypeForItem(ItemStack stack)
     {
-        return Variant.DEFAULT;
+        return BlockWoodSlabTFC.Variant.DEFAULT;
     }
 
     @SuppressWarnings("deprecation")
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, Variant.DEFAULT);
+        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, BlockWoodSlabTFC.Variant.DEFAULT);
 
         if (!this.isDouble())
         {
@@ -169,30 +166,12 @@ public abstract class BlockSlabTFC extends BlockSlab
         }
     }
 
-    public static class Double extends BlockSlabTFC
+    public static class Double extends BlockWoodSlabTFC
     {
-        private static final Map<Rock, EnumMap<Type, Double>> ROCK_TABLE = new HashMap<>();
         private static final Map<Tree, Double> WOOD_MAP = new HashMap<>();
-
-        public static Double get(Rock rock, Type type)
-        {
-            return ROCK_TABLE.get(rock).get(type);
-        }
-
         public static Double get(Tree wood)
         {
             return WOOD_MAP.get(wood);
-        }
-
-        public Double(Rock rock, Type type)
-        {
-            super(rock, type);
-
-            if (!ROCK_TABLE.containsKey(rock))
-                ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
-                ROCK_TABLE.get(rock).put(type, this);
-
-            // No oredict, because no item.
         }
 
         public Double(Tree wood)
@@ -209,37 +188,15 @@ public abstract class BlockSlabTFC extends BlockSlab
         }
     }
 
-    public static class Half extends BlockSlabTFC
+    public static class Half extends BlockWoodSlabTFC
     {
-        private static final Map<Rock, EnumMap<Rock.Type, Half>> ROCK_TABLE = new HashMap<>();
         private static final Map<Tree, Half> WOOD_MAP = new HashMap<>();
-
-        public static Half get(Rock rock, Rock.Type type)
-        {
-            return ROCK_TABLE.get(rock).get(type);
-        }
-
         public static Half get(Tree wood)
         {
             return WOOD_MAP.get(wood);
         }
 
         public final Double doubleSlab;
-
-        public Half(Rock rock, Rock.Type type)
-        {
-            super(rock, type);
-
-            if (!ROCK_TABLE.containsKey(rock))
-                ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
-                ROCK_TABLE.get(rock).put(type, this);
-
-            doubleSlab = Double.get(rock, type);
-            doubleSlab.halfSlab = this;
-            halfSlab = this;
-            OreDictionaryHelper.register(this, "slab");
-            OreDictionaryHelper.registerRockType(this, type, "slab");
-        }
 
         public Half(Tree wood)
         {
@@ -253,16 +210,18 @@ public abstract class BlockSlabTFC extends BlockSlab
             OreDictionaryHelper.register(this, "slab", "wood", wood);
         }
 
-        public boolean isWood()
-        {
-            BlockSlabTFC.Half obj = WOOD_MAP.get(TFCRegistries.TREES.getValue(DefaultTrees.ACACIA));
-            return obj != null;
-        }
-
         @Override
         public boolean isDouble()
         {
             return false;
+        }
+
+        @SideOnly(Side.CLIENT)
+        public void onModelRegister() {
+            ModelLoader.setCustomStateMapper(this, new SimpleStateMapper(MODEL_LOCATION));
+            for (IBlockState state : this.getBlockState().getValidStates()) {
+                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), MODEL_LOCATION);
+            }
         }
     }
 }
