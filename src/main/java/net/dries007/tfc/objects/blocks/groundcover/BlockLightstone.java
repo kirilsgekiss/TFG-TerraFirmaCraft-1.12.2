@@ -33,7 +33,7 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockLightstone extends BlockBush implements IItemSize

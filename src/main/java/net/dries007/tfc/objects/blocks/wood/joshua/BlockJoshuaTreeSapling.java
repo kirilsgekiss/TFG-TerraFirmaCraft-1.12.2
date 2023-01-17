@@ -38,7 +38,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockJoshuaTreeSapling extends BlockBush implements IGrowable, IGrowingPlant

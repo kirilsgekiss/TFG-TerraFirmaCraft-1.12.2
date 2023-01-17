@@ -17,7 +17,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockEarthenwareClay extends Block implements IItemSize

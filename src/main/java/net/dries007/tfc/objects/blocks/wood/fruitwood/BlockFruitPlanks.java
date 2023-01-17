@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 
 import net.dries007.tfc.api.types.IFruitTree;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 public class BlockFruitPlanks extends Block

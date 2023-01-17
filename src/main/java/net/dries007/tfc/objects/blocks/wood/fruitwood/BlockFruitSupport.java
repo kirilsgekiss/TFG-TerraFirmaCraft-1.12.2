@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.ConfigTFC;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockFruitSupport extends Block

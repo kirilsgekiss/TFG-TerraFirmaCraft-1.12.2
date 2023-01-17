@@ -13,6 +13,12 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Multimap;
+import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
+import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.types.DefaultPlants;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -26,6 +32,7 @@ import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlockDecorativeStone;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
+import tfcflorae.objects.blocks.BlocksTFCF;
 
 /**
  * This is not the best example of good coding practice, but I do think it works rather well.
@@ -70,7 +77,7 @@ public class OreDictionaryHelper
         register(new Thing(thing, meta), parts);
     }
 
-    public static void registerRockType(Block thing, Rock.Type type, Object... prefixParts)
+    public static void registerRockType(Block thing, Type type, Object... prefixParts)
     {
         registerRockType(new Thing(thing), type, prefixParts);
     }
@@ -85,6 +92,125 @@ public class OreDictionaryHelper
         done = true;
         MAP.forEach((t, s) -> OreDictionary.registerOre(s, t.toItemStack()));
         MAP.clear(); // No need to keep this stuff around
+
+        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.BURLAP_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.WOOL_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.SILK_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.BURLAP_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.WOOL_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.SILK_CLOTH));
+
+        //OreDictionary.registerOre("stickBunch", new ItemStack(ItemsTFC.STICK_BUNCH));
+        //OreDictionary.registerOre("stickBundle", new ItemStack(ItemsTFC.STICK_BUNCH));
+        OreDictionary.registerOre("thatch", new ItemStack(Blocks.HAY_BLOCK));
+        OreDictionary.registerOre("bale", new ItemStack(Blocks.HAY_BLOCK));
+        OreDictionary.registerOre("baleHay", new ItemStack(Blocks.HAY_BLOCK));
+        OreDictionary.registerOre("baleCotton", new ItemStack(BlocksTFCF.COTTON_BALE));
+        OreDictionary.registerOre("baleCottonYarn", new ItemStack(BlocksTFCF.COTTON_YARN_BALE));
+        OreDictionary.registerOre("baleFlax", new ItemStack(BlocksTFCF.FLAX_BALE));
+        OreDictionary.registerOre("baleFlaxFiber", new ItemStack(BlocksTFCF.FLAX_FIBER_BALE));
+        OreDictionary.registerOre("baleHemp", new ItemStack(BlocksTFCF.HEMP_BALE));
+        OreDictionary.registerOre("baleHempFiber", new ItemStack(BlocksTFCF.HEMP_FIBER_BALE));
+        OreDictionary.registerOre("baleJute", new ItemStack(BlocksTFCF.JUTE_BALE));
+        OreDictionary.registerOre("baleJuteFiber", new ItemStack(BlocksTFCF.JUTE_FIBER_BALE));
+        OreDictionary.registerOre("baleLinen", new ItemStack(BlocksTFCF.LINEN_BALE));
+        OreDictionary.registerOre("baleLinenString", new ItemStack(BlocksTFCF.LINEN_STRING_BALE));
+        OreDictionary.registerOre("balePapyrusFiber", new ItemStack(BlocksTFCF.PAPYRUS_FIBER_BALE));
+        OreDictionary.registerOre("baleSilkString", new ItemStack(BlocksTFCF.SILK_STRING_BALE));
+        OreDictionary.registerOre("baleSisalFiber", new ItemStack(BlocksTFCF.SISAL_FIBER_BALE));
+        OreDictionary.registerOre("baleYucca", new ItemStack(BlocksTFCF.YUCCA_BALE));
+        OreDictionary.registerOre("baleYuccaFiber", new ItemStack(BlocksTFCF.YUCCA_FIBER_BALE));
+        OreDictionary.registerOre("glue", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("slimeball", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+
+        // Flint
+        OreDictionary.registerOre("flint", new ItemStack(Items.FLINT));
+        OreDictionary.registerOre("itemFlint", new ItemStack(Items.FLINT));
+
+        // Corals
+        BlockCoral.TUBE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralTube", new ItemStack(blockCoral)));
+        BlockCoral.BRAIN_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralBrain", new ItemStack(blockCoral)));
+        BlockCoral.BUBBLE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralBubble", new ItemStack(blockCoral)));
+        BlockCoral.FIRE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFire", new ItemStack(blockCoral)));
+        BlockCoral.HORN_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralHorn", new ItemStack(blockCoral)));
+
+        BlockCoral.TUBE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.BRAIN_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.BUBBLE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.FIRE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.HORN_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+
+        OreDictionary.registerOre("coralTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_DEAD));
+        OreDictionary.registerOre("coralBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_DEAD));
+        OreDictionary.registerOre("coralBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_DEAD));
+        OreDictionary.registerOre("coralFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_DEAD));
+        OreDictionary.registerOre("coralHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_DEAD));
+
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_DEAD));
+
+        BlockCoral.TUBE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanTube", new ItemStack(blockCoral)));
+        BlockCoral.BRAIN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanBrain", new ItemStack(blockCoral)));
+        BlockCoral.BUBBLE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanBubble", new ItemStack(blockCoral)));
+        BlockCoral.FIRE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanFire", new ItemStack(blockCoral)));
+        BlockCoral.HORN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanHorn", new ItemStack(blockCoral)));
+
+        BlockCoral.TUBE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.BRAIN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.BUBBLE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.FIRE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+        BlockCoral.HORN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
+
+        OreDictionary.registerOre("coralFanTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_FAN_DEAD));
+
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_FAN_DEAD));
+
+        BlockCoralBlock.TUBE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanTube", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BRAIN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanBrain", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BUBBLE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanBubble", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.FIRE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanFire", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.HORN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanHorn", new ItemStack(blockCoralBlock)));
+
+        BlockCoralBlock.TUBE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralBlock", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BRAIN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralBlock", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BUBBLE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralBlock", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.FIRE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralBlock", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.HORN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralBlock", new ItemStack(blockCoralBlock)));
+
+        BlockCoralBlock.TUBE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BRAIN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.BUBBLE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.FIRE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
+        BlockCoralBlock.HORN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
+
+        OreDictionary.registerOre("coralBlockTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
+
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
+
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
 
         // Vanilla ore dict values
         OreDictionary.registerOre("clay", Items.CLAY_BALL);
@@ -137,14 +263,212 @@ public class OreDictionaryHelper
 
     private static void register(Thing thing, Object... parts)
     {
-        if (done) throw new IllegalStateException("Cannot use the helper to register after postInit has past.");
+//  !      if (done) throw new IllegalStateException("Cannot use the helper to register after postInit has past.");
         MAP.put(thing, toString(parts));
     }
 
-    private static void registerRockType(Thing thing, Rock.Type type, Object... prefixParts)
+    private static void registerRockType(Thing thing, Type type, Object... prefixParts)
     {
         switch (type)
         {
+            case MOSSY_RAW:
+                MAP.put(thing, toString(prefixParts, "stone"));
+                //MAP.put(thing, toString(prefixParts, "stone", rock));
+                MAP.put(thing, toString(prefixParts, "stone_mossy"));
+                //MAP.put(thing, toString(prefixParts, "stone_mossy", rock));
+                break;
+            case MUD:
+                MAP.put(thing, toString(prefixParts, "block", type));
+                //MAP.put(thing, toString(prefixParts, "block", rockTFCF, rock));
+                break;
+            case MUD_BRICKS:
+                MAP.put(thing, toString(prefixParts, type));
+                //MAP.put(thing, toString(prefixParts, "mud_bricks", rock));
+                break;
+            case ROOTED_DIRT:
+            case ROOTED_LOAMY_SAND:
+            case ROOTED_SANDY_LOAM:
+            case ROOTED_LOAM:
+            case ROOTED_SILT_LOAM:
+            case ROOTED_SILT:
+            case ROOTED_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "rooted_dirt"));
+                break;
+            case COARSE_DIRT:
+            case COARSE_LOAMY_SAND:
+            case COARSE_SANDY_LOAM:
+            case COARSE_LOAM:
+            case COARSE_SILT_LOAM:
+            case COARSE_SILT:
+            case COARSE_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "coarse_dirt"));
+                //MAP.put(thing, toString(prefixParts, "coarse_dirt", rock));
+                break;
+            case COARSE_CLAY:
+            case COARSE_SANDY_CLAY_LOAM:
+            case COARSE_SANDY_CLAY:
+            case COARSE_CLAY_LOAM:
+            case COARSE_SILTY_CLAY:
+            case COARSE_SILTY_CLAY_LOAM:
+            case COARSE_CLAY_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "coarse_dirt"));
+                //MAP.put(thing, toString(prefixParts, "coarse_dirt", rock));
+                MAP.put(thing, toString(prefixParts, "coarse_clay_dirt"));
+                //MAP.put(thing, toString(prefixParts, "coarse_clay_dirt", rock));
+                break;
+            case COARSE_KAOLINITE_CLAY:
+            case COARSE_SANDY_KAOLINITE_CLAY_LOAM:
+            case COARSE_SANDY_KAOLINITE_CLAY:
+            case COARSE_KAOLINITE_CLAY_LOAM:
+            case COARSE_SILTY_KAOLINITE_CLAY:
+            case COARSE_SILTY_KAOLINITE_CLAY_LOAM:
+            case COARSE_KAOLINITE_CLAY_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "coarse_dirt"));
+                //MAP.put(thing, toString(prefixParts, "coarse_dirt", rock));
+                MAP.put(thing, toString(prefixParts, "coarse_kaolinite_clay_dirt"));
+                //MAP.put(thing, toString(prefixParts, "coarse_kaolinite_clay_dirt", rock));
+                break;
+            case LOAMY_SAND_GRASS:
+            case SANDY_LOAM_GRASS:
+            case LOAM_GRASS:
+            case SILT_LOAM_GRASS:
+            case SILT_GRASS:
+            case HUMUS_GRASS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "grass"));
+                //MAP.put(thing, toString(prefixParts, "grass", rock));
+                break;
+            case PODZOL:
+            case LOAMY_SAND_PODZOL:
+            case SANDY_LOAM_PODZOL:
+            case LOAM_PODZOL:
+            case SILT_LOAM_PODZOL:
+            case SILT_PODZOL:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "podzol"));
+                //MAP.put(thing, toString(prefixParts, "podzol", rock));
+                break;
+            case LOAMY_SAND_FARMLAND:
+            case SANDY_LOAM_FARMLAND:
+            case LOAM_FARMLAND:
+            case SILT_LOAM_FARMLAND:
+            case SILT_FARMLAND:
+            case HUMUS_FARMLAND:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "farmland"));
+                //MAP.put(thing, toString(prefixParts, "farmland", rock));
+                break;
+            case LOAMY_SAND:
+            case SANDY_LOAM:
+            case LOAM:
+            case SILT_LOAM:
+            case SILT:
+            case HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "soil"));
+                //MAP.put(thing, toString(prefixParts, "soil", rock));
+                MAP.put(thing, toString(prefixParts, "dirt"));
+                //MAP.put(thing, toString(prefixParts, "dirt", rock));
+                break;
+            case SANDY_CLAY_LOAM:
+            case SANDY_CLAY:
+            case CLAY_LOAM:
+            case SILTY_CLAY:
+            case SILTY_CLAY_LOAM:
+            case CLAY_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_clay"));
+                //MAP.put(thing, toString(prefixParts, "block_clay", rock));
+                break;
+            case DRY_CLAY_GRASS:
+            case DRY_SANDY_CLAY_LOAM_GRASS:
+            case DRY_SANDY_CLAY_GRASS:
+            case DRY_CLAY_LOAM_GRASS:
+            case DRY_SILTY_CLAY_GRASS:
+            case DRY_SILTY_CLAY_LOAM_GRASS:
+            case DRY_CLAY_HUMUS_GRASS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_clay_dirt"));
+                //MAP.put(thing, toString(prefixParts, "block_clay_dirt", rock));
+                MAP.put(thing, toString(prefixParts, "dry_grass"));
+                //MAP.put(thing, toString(prefixParts, "dry_grass", rock));
+                break;
+            case SANDY_CLAY_LOAM_GRASS:
+            case SANDY_CLAY_GRASS:
+            case CLAY_LOAM_GRASS:
+            case SILTY_CLAY_GRASS:
+            case SILTY_CLAY_LOAM_GRASS:
+            case CLAY_HUMUS_GRASS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_clay_grass"));
+                //MAP.put(thing, toString(prefixParts, "block_clay_grass", rock));
+                MAP.put(thing, toString(prefixParts, "grass"));
+                //MAP.put(thing, toString(prefixParts, "grass", rock));
+            case CLAY_PODZOL:
+            case SANDY_CLAY_LOAM_PODZOL:
+            case SANDY_CLAY_PODZOL:
+            case CLAY_LOAM_PODZOL:
+            case SILTY_CLAY_PODZOL:
+            case SILTY_CLAY_LOAM_PODZOL:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_clay_podzol"));
+                //MAP.put(thing, toString(prefixParts, "block_clay_podzol", rock));
+                MAP.put(thing, toString(prefixParts, "podzol"));
+                //MAP.put(thing, toString(prefixParts, "podzol", rock));
+                break;
+            case KAOLINITE_CLAY:
+            case SANDY_KAOLINITE_CLAY_LOAM:
+            case SANDY_KAOLINITE_CLAY:
+            case KAOLINITE_CLAY_LOAM:
+            case SILTY_KAOLINITE_CLAY:
+            case SILTY_KAOLINITE_CLAY_LOAM:
+            case KAOLINITE_CLAY_HUMUS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_dirt"));
+                //MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_dirt", rock));
+                break;
+            case DRY_KAOLINITE_CLAY_GRASS:
+            case DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS:
+            case DRY_SANDY_KAOLINITE_CLAY_GRASS:
+            case DRY_KAOLINITE_CLAY_LOAM_GRASS:
+            case DRY_SILTY_KAOLINITE_CLAY_GRASS:
+            case DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS:
+            case DRY_KAOLINITE_CLAY_HUMUS_GRASS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_dry_kaolinite_clay_grass"));
+                //MAP.put(thing, toString(prefixParts, "block_dry_kaolinite_clay_grass", rock));
+                MAP.put(thing, toString(prefixParts, "dry_grass"));
+                //MAP.put(thing, toString(prefixParts, "dry_grass", rock));
+                break;
+            case KAOLINITE_CLAY_GRASS:
+            case SANDY_KAOLINITE_CLAY_LOAM_GRASS:
+            case SANDY_KAOLINITE_CLAY_GRASS:
+            case KAOLINITE_CLAY_LOAM_GRASS:
+            case SILTY_KAOLINITE_CLAY_GRASS:
+            case SILTY_KAOLINITE_CLAY_LOAM_GRASS:
+            case KAOLINITE_CLAY_HUMUS_GRASS:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_grass"));
+                //MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_grass", rock));
+                MAP.put(thing, toString(prefixParts, "grass"));
+                //MAP.put(thing, toString(prefixParts, "grass", rock));
+                break;
+            case KAOLINITE_CLAY_PODZOL:
+            case SANDY_KAOLINITE_CLAY_LOAM_PODZOL:
+            case SANDY_KAOLINITE_CLAY_PODZOL:
+            case KAOLINITE_CLAY_LOAM_PODZOL:
+            case SILTY_KAOLINITE_CLAY_PODZOL:
+            case SILTY_KAOLINITE_CLAY_LOAM_PODZOL:
+                MAP.put(thing, toString(prefixParts, type));
+                MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_podzol"));
+                //MAP.put(thing, toString(prefixParts, "block_kaolinite_clay_podzol", rock));
+                MAP.put(thing, toString(prefixParts, "podzol"));
+                //MAP.put(thing, toString(prefixParts, "podzol", rock));
+                break;
             case RAW:
                 MAP.put(thing, toString(prefixParts, "stone"));
                 break;

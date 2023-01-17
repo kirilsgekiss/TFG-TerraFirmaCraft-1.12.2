@@ -523,11 +523,11 @@ public final class ItemsTFC
 
             ItemPottery firedPotEarthenware = new ItemPottery(Size.LARGE, Weight.LIGHT);
             registerPottery(simpleItems, r, "ceramics/earthenware/unfired/pot", "ceramics/earthenware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotEarthenware);
-            tfcflorae.util.OreDictionaryHelper.register(firedPotEarthenware, "cooking_pot");
+            OreDictionaryHelper.register(firedPotEarthenware, "cooking_pot");
 
             ItemPottery firedBowlEarthenware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
             registerPottery(simpleItems, r, "ceramics/earthenware/unfired/bowl", "ceramics/earthenware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlEarthenware);
-            tfcflorae.util.OreDictionaryHelper.register(firedBowlEarthenware, "bowl");
+            OreDictionaryHelper.register(firedBowlEarthenware, "bowl");
 
             simpleItems.add(register(r, "ceramics/earthenware/unfired/jug", new ItemPottery(), CT_POTTERY));
             register(r, "ceramics/earthenware/fired/jug", new ItemJug(), CT_POTTERY);
@@ -555,11 +555,11 @@ public final class ItemsTFC
 
             ItemPottery firedPotKaolinite = new ItemPottery(Size.LARGE, Weight.LIGHT);
             registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/pot", "ceramics/kaolinite/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotKaolinite);
-            tfcflorae.util.OreDictionaryHelper.register(firedPotKaolinite, "cooking_pot");
+            OreDictionaryHelper.register(firedPotKaolinite, "cooking_pot");
 
             ItemPottery firedBowlKaolinite = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
             registerPottery(simpleItems, r, "ceramics/kaolinite/unfired/bowl", "ceramics/kaolinite/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlKaolinite);
-            tfcflorae.util.OreDictionaryHelper.register(firedBowlKaolinite, "bowl");
+            OreDictionaryHelper.register(firedBowlKaolinite, "bowl");
 
             simpleItems.add(register(r, "ceramics/kaolinite/unfired/jug", new ItemPottery(), CT_POTTERY));
             register(r, "ceramics/kaolinite/fired/jug", new ItemJug(), CT_POTTERY);
@@ -587,11 +587,11 @@ public final class ItemsTFC
 
             ItemPottery firedPotStoneware = new ItemPottery(Size.LARGE, Weight.LIGHT);
             registerPottery(simpleItems, r, "ceramics/stoneware/unfired/pot", "ceramics/stoneware/fired/pot", new ItemPottery(Size.LARGE, Weight.LIGHT), firedPotStoneware);
-            tfcflorae.util.OreDictionaryHelper.register(firedPotStoneware, "cooking_pot");
+            OreDictionaryHelper.register(firedPotStoneware, "cooking_pot");
 
             ItemPottery firedBowlStoneware = new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT);
             registerPottery(simpleItems, r, "ceramics/stoneware/unfired/bowl", "ceramics/stoneware/fired/bowl", new ItemPottery(Size.VERY_SMALL, Weight.VERY_LIGHT), firedBowlStoneware);
-            tfcflorae.util.OreDictionaryHelper.register(firedBowlStoneware, "bowl");
+            OreDictionaryHelper.register(firedBowlStoneware, "bowl");
 
             simpleItems.add(register(r, "ceramics/stoneware/unfired/jug", new ItemPottery(), CT_POTTERY));
             register(r, "ceramics/stoneware/fired/jug", new ItemJug(), CT_POTTERY);

@@ -64,9 +64,9 @@ public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
 //                PotionEffects.add(Effect);
 //            }
 //            else if (obj instanceof Object[])
-//                tfcflorae.util.OreDictionaryHelper.register(this, (Object[]) obj);
+//                OreDictionaryHelper.register(this, (Object[]) obj);
 //            else
-//                tfcflorae.util.OreDictionaryHelper.register(this, obj);
+//                OreDictionaryHelper.register(this, obj);
 //        }
 
         // Use "category" here as to not conflict with actual items, i.e. grain

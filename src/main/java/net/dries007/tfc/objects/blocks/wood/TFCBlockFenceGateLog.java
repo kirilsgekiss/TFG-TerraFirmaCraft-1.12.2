@@ -9,7 +9,7 @@ import net.minecraft.init.Blocks;
 
 import net.dries007.tfc.api.types.Tree;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class TFCBlockFenceGateLog extends BlockFenceGate
 {

@@ -34,7 +34,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.inventory.capability.TFCInventoryLargeChest;
 
 import net.dries007.tfc.objects.te.TEFruitChest;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockFruitChest extends BlockChest implements IItemSize

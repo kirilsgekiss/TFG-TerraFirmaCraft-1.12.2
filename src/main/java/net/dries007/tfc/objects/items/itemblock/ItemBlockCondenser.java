@@ -36,7 +36,7 @@ import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
 import net.dries007.tfc.objects.te.TECondenser;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;

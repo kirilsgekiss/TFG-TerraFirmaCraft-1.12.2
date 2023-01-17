@@ -46,7 +46,7 @@ import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;

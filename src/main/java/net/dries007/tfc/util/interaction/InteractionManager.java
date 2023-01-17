@@ -77,7 +77,7 @@ public final class InteractionManager
         }));
 
         // Pineapple Leather knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "knife"))
             {
                 if (!worldIn.isRemote)
@@ -90,7 +90,7 @@ public final class InteractionManager
         }));
 
         // Burlap Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -103,7 +103,7 @@ public final class InteractionManager
         }));
 
         // Wool Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothWool"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothWool"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -116,7 +116,7 @@ public final class InteractionManager
         }));
 
         // Silk Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -129,7 +129,7 @@ public final class InteractionManager
         }));
 
         // Sisal Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -142,7 +142,7 @@ public final class InteractionManager
         }));
 
         // Cotton Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -155,7 +155,7 @@ public final class InteractionManager
         }));
 
         // Linen Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -168,7 +168,7 @@ public final class InteractionManager
         }));
 
         // Hemp Cloth knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)
@@ -181,7 +181,7 @@ public final class InteractionManager
         }));
 
         // Yucca Canvas knapping
-        putBoth(stack -> tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca"), ((worldIn, playerIn, handIn) -> {
+        putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca"), ((worldIn, playerIn, handIn) -> {
             if (Helpers.playerHasItemMatchingOre(playerIn.inventory, "shears"))
             {
                 if (!worldIn.isRemote)

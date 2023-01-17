@@ -4,7 +4,7 @@ import net.minecraft.block.BlockButtonWood;
 import net.minecraft.block.SoundType;
 import net.minecraft.init.Blocks;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class BlockFruitButton extends BlockButtonWood
 {

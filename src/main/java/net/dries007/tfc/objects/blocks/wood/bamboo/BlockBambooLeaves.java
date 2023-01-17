@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class BlockBambooLeaves extends TFCBlockLeaves
 {

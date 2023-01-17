@@ -158,33 +158,33 @@ public class TFCGuiHandler implements IGuiHandler
             case BAG:
                 return new ContainerBag(player.inventory, stack.getItem() instanceof ItemBag ? stack : player.getHeldItemOffhand());
             case PINEAPPLE_LEATHER:
-                return new ContainerKnapping(KnappingType.PINEAPPLE_LEATHER, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.PINEAPPLE_LEATHER, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple") ? stack : player.getHeldItemOffhand());
             case BURLAP_CLOTH:
-                return new ContainerKnapping(KnappingType.BURLAP_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.BURLAP_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothBurlap") ? stack : player.getHeldItemOffhand());
             case WOOL_CLOTH:
-                return new ContainerKnapping(KnappingType.WOOL_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothWool") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.WOOL_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothWool") ? stack : player.getHeldItemOffhand());
             case SILK_CLOTH:
-                return new ContainerKnapping(KnappingType.SILK_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.SILK_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothSilk") ? stack : player.getHeldItemOffhand());
             case SISAL_CLOTH:
-                return new ContainerKnapping(KnappingType.SISAL_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.SISAL_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothSisal") ? stack : player.getHeldItemOffhand());
             case COTTON_CLOTH:
-                return new ContainerKnapping(KnappingType.COTTON_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.COTTON_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothCotton") ? stack : player.getHeldItemOffhand());
             case LINEN_CLOTH:
-                return new ContainerKnapping(KnappingType.LINEN_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.LINEN_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothLinen") ? stack : player.getHeldItemOffhand());
             case HEMP_CLOTH:
-                return new ContainerKnapping(KnappingType.HEMP_CLOTH, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.HEMP_CLOTH, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clothHemp") ? stack : player.getHeldItemOffhand());
             case YUCCA_CANVAS:
-                return new ContainerKnapping(KnappingType.YUCCA_CANVAS, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.YUCCA_CANVAS, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "canvasYucca") ? stack : player.getHeldItemOffhand());
             case MUD:
-                return new ContainerKnapping(KnappingType.MUD, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "mud") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.MUD, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "mud") ? stack : player.getHeldItemOffhand());
             case EARTHENWARE_CLAY:
-                return new ContainerKnapping(KnappingType.EARTHENWARE_CLAY, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clayEarthenware") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.EARTHENWARE_CLAY, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clayEarthenware") ? stack : player.getHeldItemOffhand());
             case KAOLINITE_CLAY:
-                return new ContainerKnapping(KnappingType.KAOLINITE_CLAY, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clayKaolinite") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.KAOLINITE_CLAY, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clayKaolinite") ? stack : player.getHeldItemOffhand());
             case STONEWARE_CLAY:
-                return new ContainerKnapping(KnappingType.STONEWARE_CLAY, player.inventory, tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "clayStoneware") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.STONEWARE_CLAY, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "clayStoneware") ? stack : player.getHeldItemOffhand());
             case FLINT:
-                return new ContainerKnapping(KnappingType.FLINT, player.inventory,  tfcflorae.util.OreDictionaryHelper.doesStackMatchOre(stack, "flint") ? stack : player.getHeldItemOffhand());
+                return new ContainerKnapping(KnappingType.FLINT, player.inventory,  OreDictionaryHelper.doesStackMatchOre(stack, "flint") ? stack : player.getHeldItemOffhand());
             case URN:
                 return new ContainerUrn(player.inventory, Helpers.getTE(world, pos, TEUrn.class));
             case CRATE:

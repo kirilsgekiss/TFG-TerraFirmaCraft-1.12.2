@@ -29,7 +29,7 @@ import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 
 import net.dries007.tfc.api.types.Rock.Type;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
