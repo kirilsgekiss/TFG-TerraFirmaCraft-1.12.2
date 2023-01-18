@@ -59,30 +59,6 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 @GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class ItemsTFCF
 {
-    // Normal Trees Fruits
-    @GameRegistry.ObjectHolder("food/baobab_fruit")
-    public static final ItemFoodTFCF BAOBAB_FRUIT = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/barrel_cactus_fruit")
-    public static final ItemFoodTFCF BARREL_CACTUS_FRUIT = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/hawthorn")
-    public static final ItemFoodTFCF HAWTHORN = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/juniper")
-    public static final ItemFoodTFCF JUNIPER = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/osage_orange")
-    public static final ItemFoodTFCF OSAGE_ORANGE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/pink_ivory_drupe")
-    public static final ItemFoodTFCF PINK_IVORY_DRUPE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/riberry")
-    public static final ItemFoodTFCF RIBERRY = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/rowan_berry")
-    public static final ItemFoodTFCF ROWAN_BERRY = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/sky_fruit")
-    public static final ItemFoodTFCF SKY_FRUIT = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/yew_berry")
-    public static final ItemFoodTFCF YEW_BERRY = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/glowberry")
-    public static final ItemFoodTFCF GLOWBERRY = Helpers.getNull();
-
     // Foods
     @GameRegistry.ObjectHolder("food/cassia_cinnamon_bark")
     public static final ItemFoodTFCF CASSIA_CINNAMON_BARK = Helpers.getNull();

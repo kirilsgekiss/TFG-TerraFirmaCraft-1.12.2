@@ -1,5 +1,7 @@
 package tfcflorae;
 
+import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -56,7 +58,7 @@ public final class CommonEventHandlerTFCF
                 if (chance == 0)
                 {
                     event.getDrops().clear();
-                    event.getDrops().add(new ItemStack(ItemsTFCF.BARREL_CACTUS_FRUIT, 1 + Constants.RNG.nextInt(3)));
+                    event.getDrops().add(new ItemStack(ItemFoodTFC.get(Food.BARREL_CACTUS_FRUIT), 1 + Constants.RNG.nextInt(3)));
                 }
             }
         }
