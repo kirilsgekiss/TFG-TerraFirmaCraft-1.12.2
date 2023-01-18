@@ -79,6 +79,28 @@ import static net.dries007.tfc.util.Helpers.getNull;
 @GameRegistry.ObjectHolder(MOD_ID)
 public final class ItemsTFC
 {
+    // Crop product
+    @GameRegistry.ObjectHolder("crop/product/chamomile_head")
+    public static final ItemMisc CHAMOMILE_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/chamomile_head")
+    public static final ItemMisc DRIED_CHAMOMILE_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/dandelion_head")
+    public static final ItemMisc DANDELION_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/dandelion_head")
+    public static final ItemMisc DRIED_DANDELION_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/labrador_tea_head")
+    public static final ItemMisc LABRADOR_TEA_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/labrador_tea_head")
+    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/sunflower_head")
+    public static final ItemMisc SUNFLOWER_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/sunflower_head")
+    public static final ItemMisc DRIED_SUNFLOWER_HEAD = Helpers.getNull();
+    @GameRegistry.ObjectHolder("pomace")
+    public static final ItemMisc POMACE = Helpers.getNull();
+
+
+
     public static final ItemGoldPan GOLDPAN = getNull();
     public static final ItemMisc STRAW = getNull();
     public static final Item HANDSTONE = getNull();

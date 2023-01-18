@@ -60,14 +60,6 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 public final class ItemsTFCF
 {
     // Miscellaneous Food Stuff
-    @GameRegistry.ObjectHolder("pomace")
-    public static final ItemMisc POMACE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/coffea_cherries")
-    public static final ItemFoodTFCF DRIED_COFFEA_CHERRIES = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/roasted/coffee_beans")
-    public static final ItemFoodTFCF ROASTED_COFFEE_BEANS = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/coffee_powder")
-    public static final ItemFoodTFCF COFFEE_POWDER = Helpers.getNull();
 
     @GameRegistry.ObjectHolder("crop/product/malt_barley")
     public static final ItemMisc MALT_BARLEY = Helpers.getNull();
@@ -108,22 +100,7 @@ public final class ItemsTFCF
     public static final ItemFoodTFCF MASHED_SUGAR_CANE = Helpers.getNull();
     @GameRegistry.ObjectHolder("food/soybean_paste")
     public static final ItemFoodTFCF SOYBEAN_PASTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/chamomile_head")
-    public static final ItemMisc CHAMOMILE_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/chamomile_head")
-    public static final ItemMisc DRIED_CHAMOMILE_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/dandelion_head")
-    public static final ItemMisc DANDELION_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/dandelion_head")
-    public static final ItemMisc DRIED_DANDELION_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/labrador_tea_head")
-    public static final ItemMisc LABRADOR_TEA_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/labrador_tea_head")
-    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/sunflower_head")
-    public static final ItemMisc SUNFLOWER_HEAD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/sunflower_head")
-    public static final ItemMisc DRIED_SUNFLOWER_HEAD = Helpers.getNull();
+
 
 
     // Normal Trees Nuts
