@@ -1006,18 +1006,6 @@ public final class ItemsTFCF
         OreDictionaryHelper.init();
     }
 
-    @SuppressWarnings("ConstantConditions")
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void registerVanillaOverrides(RegistryEvent.Register<Item> event)
-    {
-        // Vanilla Overrides. Used for small tweaks on vanilla items, rather than replacing them outright
-        TFCFlorae.getLog().info("The below warnings about unintended overrides are normal. The overrides are intended - deal with it. ;)");
-        event.getRegistry().registerAll(
-            new ItemFlint(Size.VERY_SMALL, Weight.VERY_LIGHT).setRegistryName(Items.FLINT.getRegistryName()).setTranslationKey("flint"),
-            new ItemBlockStickBundle(BlocksTFC.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
-        );
-    }
-
     private static void registerPottery(Builder<Item> items, IForgeRegistry<Item> r, String nameUnfired, String nameFired)
     {
         registerPottery(items, r, nameUnfired, nameFired, new ItemPottery(), new ItemPottery());

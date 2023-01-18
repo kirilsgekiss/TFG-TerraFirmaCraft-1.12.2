@@ -26,6 +26,7 @@ import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaolinit
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
 import net.dries007.tfc.objects.items.devices.ItemCalendarClock;
 import net.dries007.tfc.objects.items.devices.ItemFloraDensity;
+import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.dries007.tfc.objects.items.metal.ItemLamp;
@@ -743,7 +744,9 @@ public final class ItemsTFC
         TerraFirmaCraft.getLog().info("The below warnings about unintended overrides are normal. The override is intended. ;)");
         event.getRegistry().registerAll(
             new ItemSnow(Blocks.SNOW_LAYER).setRegistryName("minecraft", "snow_layer"),
-            new ItemGlassBottleTFC().setRegistryName(Items.GLASS_BOTTLE.getRegistryName()).setTranslationKey("glassBottle")
+            new ItemGlassBottleTFC().setRegistryName(Items.GLASS_BOTTLE.getRegistryName()).setTranslationKey("glassBottle"),
+            new ItemFlint(Size.VERY_SMALL, Weight.VERY_LIGHT).setRegistryName(Items.FLINT.getRegistryName()).setTranslationKey("flint"),
+            new ItemBlockStickBundle(BlocksTFC.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
         );
 
         if (ConfigTFC.General.OVERRIDES.enableTorchOverride)
