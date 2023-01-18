@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -22,9 +23,18 @@ import net.dries007.tfc.util.agriculture.Food;
 @ParametersAreNonnullByDefault
 public class ItemSandwich extends ItemFoodTFC
 {
-    public ItemSandwich(@Nonnull Food food)
+
+    public ItemSandwich(@Nonnull Food food, Object... oreNameParts)
     {
         super(food);
+
+        for (Object obj : oreNameParts)
+        {
+            if (obj instanceof Object[])
+                OreDictionaryHelper.register(this, (Object[]) obj);
+            else
+                OreDictionaryHelper.register(this, obj);
+        }
     }
 
     @Nullable
