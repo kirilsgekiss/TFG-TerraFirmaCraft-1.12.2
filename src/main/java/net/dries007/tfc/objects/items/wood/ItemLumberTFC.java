@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.wood.IWoodHandler;
 import net.minecraft.item.ItemStack;
 
 import mcp.MethodsReturnNonnullByDefault;
@@ -21,7 +22,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemLumberTFC extends ItemTFC
+public class ItemLumberTFC extends ItemTFC implements IWoodHandler
 {
     private static final Map<Tree, ItemLumberTFC> MAP = new HashMap<>();
 
@@ -35,7 +36,7 @@ public class ItemLumberTFC extends ItemTFC
         return new ItemStack(MAP.get(wood), amount);
     }
 
-    public final Tree wood;
+    private final Tree wood;
 
     public ItemLumberTFC(Tree wood)
     {
@@ -45,6 +46,11 @@ public class ItemLumberTFC extends ItemTFC
         OreDictionaryHelper.register(this, "lumber");
         //noinspection ConstantConditions
         OreDictionaryHelper.register(this, "lumber", wood.getRegistryName().getPath());
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     @Nonnull

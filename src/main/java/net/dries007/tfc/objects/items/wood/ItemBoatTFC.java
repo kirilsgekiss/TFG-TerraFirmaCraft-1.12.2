@@ -12,6 +12,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.wood.IWoodHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
@@ -37,7 +38,7 @@ import net.dries007.tfc.objects.items.ItemTFC;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemBoatTFC extends ItemTFC
+public class ItemBoatTFC extends ItemTFC implements IWoodHandler
 {
     private static final Map<Tree, ItemBoatTFC> MAP = new HashMap<>();
 
@@ -54,6 +55,7 @@ public class ItemBoatTFC extends ItemTFC
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
     }
 
+    @Override
     public Tree getWood()
     {
         return wood;

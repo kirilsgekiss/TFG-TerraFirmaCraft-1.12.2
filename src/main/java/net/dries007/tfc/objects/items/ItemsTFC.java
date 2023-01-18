@@ -40,6 +40,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBoat;
 import net.minecraft.item.ItemSnow;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -396,8 +397,8 @@ public final class ItemsTFC
     public static final ItemMisc WOOD_ASH = getNull();
 
     private static ImmutableList<Item> allSimpleItems;
-    private static ImmutableList<Item> allLumberItems;
-    private static ImmutableList<Item> allBoatItems;
+    private static ImmutableList<ItemLumberTFC> allLumberItems;
+    private static ImmutableList<ItemBoatTFC> allBoatItems;
     private static ImmutableList<ItemArmorTFC> allArmorItems;
     private static ImmutableList<ItemClayMold> allClayMolds;
     private static ImmutableList<ItemEarthenwareMold> allEarthenwareMolds;
@@ -405,8 +406,8 @@ public final class ItemsTFC
     private static ImmutableList<ItemStonewareMold> allStonewareMolds;
 
     public static ImmutableList<Item> getAllSimpleItems() { return allSimpleItems; }
-    public static ImmutableList<Item> getAllLumberItems() { return allLumberItems; }
-    public static ImmutableList<Item> getAllBoatItems() { return allBoatItems; }
+    public static ImmutableList<ItemLumberTFC> getAllLumberItems() { return allLumberItems; }
+    public static ImmutableList<ItemBoatTFC> getAllBoatItems() { return allBoatItems; }
     public static ImmutableList<ItemArmorTFC> getAllArmorItems() { return allArmorItems; }
     public static ImmutableList<ItemClayMold> getAllClayMolds() { return allClayMolds; }
     public static ImmutableList<ItemEarthenwareMold> getAllEarthenwareMolds() { return allEarthenwareMolds; }
@@ -421,8 +422,8 @@ public final class ItemsTFC
         IForgeRegistry<Item> r = event.getRegistry();
         Builder<Item> simpleItems = ImmutableList.builder();
 
-        Builder<Item> lumberItems = ImmutableList.builder();
-        Builder<Item> boatItems = ImmutableList.builder();
+        Builder<ItemLumberTFC> lumberItems = ImmutableList.builder();
+        Builder<ItemBoatTFC> boatItems = ImmutableList.builder();
 
         simpleItems.add(register(r, "wand", new ItemDebug(), CT_MISC));
         simpleItems.add(register(r, "mortar", new ItemMisc(Size.TINY, Weight.VERY_LIGHT, "mortar"), CT_MISC));
