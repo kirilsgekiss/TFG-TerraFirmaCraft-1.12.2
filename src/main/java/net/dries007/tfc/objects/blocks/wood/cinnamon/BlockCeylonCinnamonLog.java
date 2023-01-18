@@ -3,6 +3,8 @@ package net.dries007.tfc.objects.blocks.wood.cinnamon;
 import java.util.Random;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -116,7 +118,7 @@ public class BlockCeylonCinnamonLog extends Block
                 {
                     world.setBlockState(pos, state.withProperty(GROWN, false));
                     held.damageItem(1, player);
-                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ItemsTFCF.CEYLON_CINNAMON_BARK, 1));
+                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ItemFoodTFC.get(Food.CEYLON_CINNAMON_BARK), 1));
                 }
 
             }

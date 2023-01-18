@@ -1,6 +1,8 @@
 package net.dries007.tfc.util;
 
+import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.types.DefaultTrees;
+import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.init.Items;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
@@ -58,9 +60,9 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFCF.DRIFTWOOD), () -> new ItemHeatHandler(null, 1, 60));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFCF.BONES), () -> new ItemHeatHandler(null, 1, 425));
 
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.BLACK_TEA), () -> new ItemHeatHandler(null, 1, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.GREEN_TEA), () -> new ItemHeatHandler(null, 1, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.WHITE_TEA), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.BLACK_TEA)), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.GREEN_TEA)), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.WHITE_TEA)), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.CANNABIS_BUD), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.CANNABIS_LEAF), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.COCA_LEAF), () -> new ItemHeatHandler(null, 1, 480));
@@ -73,9 +75,9 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.LABRADOR_TEA_HEAD), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.SUNFLOWER_HEAD), () -> new ItemHeatHandler(null, 1, 480));
 
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_BLACK_TEA), () -> new ItemHeatHandler(null, 1, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_GREEN_TEA), () -> new ItemHeatHandler(null, 1, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_WHITE_TEA), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.DRIED_BLACK_TEA)), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.DRIED_GREEN_TEA)), () -> new ItemHeatHandler(null, 1, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemFoodTFC.get(Food.DRIED_WHITE_TEA)), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_CANNABIS_BUD), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_CANNABIS_LEAF), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.DRIED_COCA_LEAF), () -> new ItemHeatHandler(null, 1, 480));

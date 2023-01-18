@@ -59,28 +59,6 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 @GameRegistry.ObjectHolder(TFCFLORAE_MODID)
 public final class ItemsTFCF
 {
-    // Foods
-    @GameRegistry.ObjectHolder("food/cassia_cinnamon_bark")
-    public static final ItemFoodTFCF CASSIA_CINNAMON_BARK = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/ground_cassia_cinnamon_bark")
-    public static final ItemFoodTFCF GROUND_CASSIA_CINNAMON = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/ceylon_cinnamon_bark")
-    public static final ItemFoodTFCF CEYLON_CINNAMON_BARK = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/ground_ceylon_cinnamon_bark")
-    public static final ItemFoodTFCF GROUND_CEYLON_CINNAMON = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/black_tea")
-    public static final ItemFoodTFCF BLACK_TEA = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/black_tea")
-    public static final ItemFoodTFCF DRIED_BLACK_TEA = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/green_tea")
-    public static final ItemFoodTFCF GREEN_TEA = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/green_tea")
-    public static final ItemFoodTFCF DRIED_GREEN_TEA = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/white_tea")
-    public static final ItemFoodTFCF WHITE_TEA = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/white_tea")
-    public static final ItemFoodTFCF DRIED_WHITE_TEA = Helpers.getNull();
-
     // Miscellaneous Food Stuff
     @GameRegistry.ObjectHolder("pomace")
     public static final ItemMisc POMACE = Helpers.getNull();
