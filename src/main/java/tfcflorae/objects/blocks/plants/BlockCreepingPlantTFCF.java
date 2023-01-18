@@ -34,7 +34,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy2;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockCreepingPlantTFCF extends BlockPlantDummy2

@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.proxy.CommonProxy;
 import net.dries007.tfc.util.CapabilityHeatHandler;
-import tfcflorae.util.OreDictionaryHelper;
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
 @Mod(modid = TFCFlorae.TFCFLORAE_MODID, name = TFCFlorae.NAME, version = TFCFlorae.VERSION, dependencies = TFCFlorae.DEPENDENCIES, certificateFingerprint = TFCFlorae.SIGNING_KEY)
@@ -90,8 +89,6 @@ public class TFCFlorae
     public void init(FMLInitializationEvent event)
     {
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-        OreDictionaryHelper.init();
-        CapabilityHeatHandler.init();
 		proxy.init(event);
     }
 

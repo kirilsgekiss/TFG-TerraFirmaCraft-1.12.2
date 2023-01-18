@@ -24,7 +24,7 @@ import net.dries007.tfc.util.interaction.*;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 

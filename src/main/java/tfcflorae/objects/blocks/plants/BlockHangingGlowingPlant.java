@@ -46,7 +46,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowable, ITallPlant

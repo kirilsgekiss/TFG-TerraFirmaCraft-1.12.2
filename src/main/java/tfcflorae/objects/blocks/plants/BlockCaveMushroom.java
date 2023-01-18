@@ -54,7 +54,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize, IItemFoodTFC

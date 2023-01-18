@@ -38,7 +38,7 @@ import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF implements IGrowable

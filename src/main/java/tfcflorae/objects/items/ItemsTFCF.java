@@ -46,7 +46,7 @@ import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.tools.ItemWalkingStick;
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 

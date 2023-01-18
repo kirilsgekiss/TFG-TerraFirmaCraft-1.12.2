@@ -5,7 +5,7 @@ import java.util.Map;
 
 import net.dries007.tfc.api.types.Plant;
 
-import tfcflorae.util.OreDictionaryHelper;
+import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class BlockPlantDummy1 extends BlockPlantTFCF
 {
