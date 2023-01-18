@@ -9,6 +9,7 @@ import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.types.DefaultRecipes;
+import net.dries007.tfc.util.Helpers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.server.MinecraftServer;
@@ -152,6 +153,8 @@ public final class TerraFirmaCraft
         CapabilityDamageResistance.preInit();
         CapabilityMetalItem.preInit();
         CapabilityWorldTracker.preInit();
+
+        Helpers.insertWhitelistFluids();
 
         if (event.getSide().isClient())
         {

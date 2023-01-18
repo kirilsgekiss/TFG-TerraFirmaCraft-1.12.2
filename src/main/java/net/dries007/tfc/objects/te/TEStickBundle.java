@@ -14,7 +14,6 @@ import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
 import net.dries007.tfc.objects.recipes.StickBundleRecipe;
-import tfcflorae.util.HelpersTFCF;
 
 @ParametersAreNonnullByDefault
 public class TEStickBundle extends TEInventory implements ITickable
@@ -141,7 +140,7 @@ public class TEStickBundle extends TEInventory implements ITickable
             StickBundleRecipe recipe = StickBundleRecipe.get(input);
             if (recipe != null && !world.isRemote)
             {
-                inventory.setStackInSlot(0, HelpersTFCF.updateFoodFuzzed(input, recipe.getOutputItem(input)));
+                inventory.setStackInSlot(0, Helpers.updateFoodFuzzed(input, recipe.getOutputItem(input)));
                 setAndUpdateSlots(0);
                 markForSync();
             }

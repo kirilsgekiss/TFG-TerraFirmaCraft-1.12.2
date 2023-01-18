@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import tfcflorae.proxy.CommonProxy;
 import net.dries007.tfc.util.CapabilityHeatHandler;
-import tfcflorae.util.HelpersTFCF;
 import tfcflorae.util.OreDictionaryHelper;
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
@@ -85,7 +84,6 @@ public class TFCFlorae
 
         proxy.preInit(event);
 
-        HelpersTFCF.insertWhitelistFluids();
     }
 
     @EventHandler

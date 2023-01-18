@@ -14,7 +14,6 @@ import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 
 import net.dries007.tfc.objects.recipes.DryingRecipe;
-import tfcflorae.util.HelpersTFCF;
 
 @ParametersAreNonnullByDefault
 public class TEDryer extends TEInventory implements ITickable
@@ -221,7 +220,7 @@ public class TEDryer extends TEInventory implements ITickable
             DryingRecipe recipe = DryingRecipe.get(input);
             if (recipe != null && !world.isRemote)
             {
-                inventory.setStackInSlot(index, HelpersTFCF.updateFoodFuzzed(input, recipe.getOutputItem(input)));
+                inventory.setStackInSlot(index, Helpers.updateFoodFuzzed(input, recipe.getOutputItem(input)));
                 setAndUpdateSlots(index);
                 markForSync();
                 done[index] = true;
