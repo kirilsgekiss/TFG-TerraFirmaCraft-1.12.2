@@ -16,7 +16,6 @@ import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.plants.*;
 import net.dries007.tfc.types.DefaultPlants;
 
 @ParametersAreNonnullByDefault

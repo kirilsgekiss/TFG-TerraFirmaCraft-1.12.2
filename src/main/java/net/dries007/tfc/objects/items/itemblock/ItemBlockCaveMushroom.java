@@ -1,8 +1,6 @@
 package net.dries007.tfc.objects.items.itemblock;
 
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
-
-import tfcflorae.objects.blocks.plants.BlockCaveMushroom;
+import net.dries007.tfc.objects.blocks.plants.BlockCaveMushroom;
 
 public class ItemBlockCaveMushroom extends ItemBlockTFC
 {

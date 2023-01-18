@@ -2,6 +2,7 @@ package tfcflorae.client;
 
 import com.google.common.base.Strings;
 
+import net.dries007.tfc.objects.blocks.plants.*;
 import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
@@ -29,8 +30,6 @@ import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.*;
-import tfcflorae.objects.blocks.plants.*;
-import tfcflorae.objects.blocks.plants.BlockPlant.*;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockFenceGateLog;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;

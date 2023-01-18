@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +51,6 @@ import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import org.jetbrains.annotations.NotNull;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;

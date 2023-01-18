@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,8 +29,6 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
-
-import tfcflorae.objects.blocks.plants.BlockPlant.BlockPlantTFCF;
 
 @ParametersAreNonnullByDefault
 public class BlockShortGrassTFCF extends BlockPlantTFCF implements IShearable

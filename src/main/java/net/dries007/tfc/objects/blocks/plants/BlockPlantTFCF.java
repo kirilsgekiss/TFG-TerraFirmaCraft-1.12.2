@@ -3,7 +3,7 @@
  * See the project README.md and LICENSE.txt for more information.
  */
 
-package tfcflorae.objects.blocks.plants.BlockPlant;
+package net.dries007.tfc.objects.blocks.plants;
 
 import java.util.Random;
 import javax.annotation.Nonnull;
