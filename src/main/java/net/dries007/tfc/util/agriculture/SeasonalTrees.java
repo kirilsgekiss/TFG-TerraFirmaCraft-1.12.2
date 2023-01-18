@@ -6,6 +6,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -47,7 +48,7 @@ public enum SeasonalTrees
 
     // Seasonal trees
     GINKGO(null, new int[] {0, 0, 1, 2, 2, 1, 1, 1, 4, 4, 0, 0}, 6f, 20f, 240f, 550f, 0.33f, true, false, false, DefaultTrees.GINKGO_TREE),
-    LARCH(() -> ItemsTFCF.PINECONE, new int[] {0, 0, 1, 2, 2, 1, 1, 3, 4, 4, 0, 0}, -12f, 15f, 60f, 400f, 0.33f, true, false, false, DefaultTrees.LARCH_TREE),
+    LARCH(() -> ItemsTFC.PINECONE, new int[] {0, 0, 1, 2, 2, 1, 1, 3, 4, 4, 0, 0}, -12f, 15f, 60f, 400f, 0.33f, true, false, false, DefaultTrees.LARCH_TREE),
     LOCUST(null, new int[] {0, 0, 1, 2, 2, 1, 1, 1, 4, 4, 0, 0}, -6f, 15f, 120f, 290f, 0.33f, true, false, false, DefaultTrees.LOCUST_TREE),
     YELLOW_HAWTHORN(() -> ItemFoodTFC.get(Food.HAWTHORN), new int[] {0, 0, 1, 2, 2, 1, 1, 3, 4, 4, 0, 0}, -8f, 14f, 180f, 400f, 0.33f, true, false, false, DefaultTrees.HAWTHORN_TREE),
     ORANGE_HAWTHORN(() -> ItemFoodTFC.get(Food.HAWTHORN), new int[] {0, 0, 1, 2, 2, 1, 1, 3, 4, 4, 0, 0}, -8f, 14f, 180f, 400f, 0.33f, true, false, false, DefaultTrees.HAWTHORN_TREE),

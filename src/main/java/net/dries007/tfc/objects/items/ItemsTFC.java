@@ -26,6 +26,7 @@ import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaolinit
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
 import net.dries007.tfc.objects.items.devices.ItemCalendarClock;
 import net.dries007.tfc.objects.items.devices.ItemFloraDensity;
+import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
@@ -96,8 +97,15 @@ public final class ItemsTFC
     public static final ItemMisc SUNFLOWER_HEAD = Helpers.getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/sunflower_head")
     public static final ItemMisc DRIED_SUNFLOWER_HEAD = Helpers.getNull();
+
+
     @GameRegistry.ObjectHolder("pomace")
     public static final ItemMisc POMACE = Helpers.getNull();
+
+    // Normal Trees Nuts
+    @GameRegistry.ObjectHolder("food/pinecone")
+    public static final ItemFoodTFCF PINECONE = Helpers.getNull();
+
 
 
 

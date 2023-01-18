@@ -83,25 +83,7 @@ public final class ItemsTFCF
     public static final ItemMisc MALT_QUINOA = Helpers.getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_spelt")
     public static final ItemMisc MALT_SPELT = Helpers.getNull();
-    
 
-    // Normal Trees Nuts
-    @GameRegistry.ObjectHolder("food/pinecone")
-    public static final ItemFoodTFCF PINECONE = Helpers.getNull();
-
-
-    @GameRegistry.ObjectHolder("food/amaranth_flour")
-    public static final ItemFoodTFCF AMARANTH_FLOUR = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/buckwheat_flour")
-    public static final ItemFoodTFCF BUCKWHEAT_FLOUR = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/fonio_flour")
-    public static final ItemFoodTFCF FONIO_FLOUR = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/millet_flour")
-    public static final ItemFoodTFCF MILLET_FLOUR = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/quinoa_flour")
-    public static final ItemFoodTFCF QUINOA_FLOUR = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/spelt_flour")
-    public static final ItemFoodTFCF SPELT_FLOUR = Helpers.getNull();
 
     // Normal Items
     @GameRegistry.ObjectHolder("tools/walking_Stick")
@@ -205,31 +187,6 @@ public final class ItemsTFCF
     public static final ItemMisc SILK_WORM_COCOON_BOILED = Helpers.getNull();
     @GameRegistry.ObjectHolder("crop/product/mulberry_leaf")
     public static final ItemMisc MULBERRY_LEAF = Helpers.getNull();
-
-    @GameRegistry.ObjectHolder("food/cannabis_bud")
-    public static final ItemFoodTFCF CANNABIS_BUD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/cannabis_bud")
-    public static final ItemFoodTFCF DRIED_CANNABIS_BUD = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/cannabis_leaf")
-    public static final ItemFoodTFCF CANNABIS_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/cannabis_leaf")
-    public static final ItemFoodTFCF DRIED_CANNABIS_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/coca_leaf")
-    public static final ItemFoodTFCF COCA_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/coca_leaf")
-    public static final ItemFoodTFCF DRIED_COCA_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/opium_poppy_bulb")
-    public static final ItemFoodTFCF OPIUM_POPPY_BULB = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/opium_poppy_bulb")
-    public static final ItemFoodTFCF DRIED_OPIUM_POPPY_BULB = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/peyote")
-    public static final ItemFoodTFCF PEYOTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/peyote")
-    public static final ItemFoodTFCF DRIED_PEYOTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/tobacco_leaf")
-    public static final ItemFoodTFCF TOBACCO_LEAF = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/dried/tobacco_leaf")
-    public static final ItemFoodTFCF DRIED_TOBACCO_LEAF = Helpers.getNull();
 
     @GameRegistry.ObjectHolder("crop/product/papyrus_pulp")
     public static final ItemMisc PAPYRUS_PULP = Helpers.getNull();
