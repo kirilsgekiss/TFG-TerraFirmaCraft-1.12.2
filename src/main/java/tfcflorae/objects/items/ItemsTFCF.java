@@ -83,25 +83,7 @@ public final class ItemsTFCF
     public static final ItemMisc MALT_QUINOA = Helpers.getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_spelt")
     public static final ItemMisc MALT_SPELT = Helpers.getNull();
-
-    @GameRegistry.ObjectHolder("food/ginger")
-    public static final ItemFoodTFCF GINGER = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/linseed_paste")
-    public static final ItemFoodTFCF LINSEED_PASTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/rape_seed_paste")
-    public static final ItemFoodTFCF RAPE_SEED_PASTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/sunflower_seed_paste")
-    public static final ItemFoodTFCF SUNFLOWER_SEED_PASTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/pumpkin_chunks")
-    public static final ItemFoodTFCF OPIUM_POPPY_SEED_PASTE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/mashed_sugar_beet")
-    public static final ItemFoodTFCF MASHED_SUGAR_BEET = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/mashed_sugar_cane")
-    public static final ItemFoodTFCF MASHED_SUGAR_CANE = Helpers.getNull();
-    @GameRegistry.ObjectHolder("food/soybean_paste")
-    public static final ItemFoodTFCF SOYBEAN_PASTE = Helpers.getNull();
-
-
+    
 
     // Normal Trees Nuts
     @GameRegistry.ObjectHolder("food/pinecone")

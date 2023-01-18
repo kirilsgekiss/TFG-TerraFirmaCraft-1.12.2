@@ -1149,9 +1149,9 @@ public final class DefaultRecipes
 
 
                 new QuernRecipe(IIngredient.of("logWoodLogwood"), new ItemStack((ItemsTFCF.LOGWOOD_CHIPS), 3)).setRegistryName("chipped_logwood_log"),
-                new QuernRecipe(IIngredient.of("sugarcane"), new ItemStack((ItemsTFCF.MASHED_SUGAR_CANE))).setRegistryName("mashed_sugar_cane_quern_1"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.SUGARCANE)), new ItemStack((ItemsTFCF.MASHED_SUGAR_CANE))).setRegistryName("mashed_sugar_cane_quern_2"),
-                new QuernRecipe(IIngredient.of("cropSugarBeet"), new ItemStack((ItemsTFCF.MASHED_SUGAR_BEET))).setRegistryName("mashed_sugar_beet_quern"),
+                new QuernRecipe(IIngredient.of("sugarcane"), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_1"),
+                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.SUGARCANE)), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_2"),
+                new QuernRecipe(IIngredient.of("cropSugarBeet"), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_BEET)))).setRegistryName("mashed_sugar_beet_quern"),
                 new QuernRecipe(IIngredient.of("grainAmaranth"), new ItemStack((ItemsTFCF.AMARANTH_FLOUR))).setRegistryName("amaranth"),
                 new QuernRecipe(IIngredient.of("grainBuckwheat"), new ItemStack((ItemsTFCF.BUCKWHEAT_FLOUR))).setRegistryName("buckwheat"),
                 new QuernRecipe(IIngredient.of("grainFonio"), new ItemStack((ItemsTFCF.FONIO_FLOUR))).setRegistryName("fonio"),
@@ -1165,11 +1165,11 @@ public final class DefaultRecipes
 //                new QuernRecipe(IIngredient.of("pearl"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.PEARL))).setRegistryName("crushed_pearl"),
 //                new QuernRecipe(IIngredient.of("pearlBlack"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.BLACK_PEARL))).setRegistryName("crushed_black_pearl"),
                 new QuernRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PAPYRUS))), new ItemStack(ItemsTFCF.PAPYRUS_PULP, 3)).setRegistryName("crushed_papyrus"),
-                new QuernRecipe(IIngredient.of("linseed"), new ItemStack(ItemsTFCF.LINSEED_PASTE, 1)).setRegistryName("crushed_linseed"),
-                new QuernRecipe(IIngredient.of("rapeSeed"), new ItemStack(ItemsTFCF.RAPE_SEED_PASTE, 1)).setRegistryName("crushed_rape_seed"),
-                new QuernRecipe(IIngredient.of("sunflowerSeed"), new ItemStack(ItemsTFCF.SUNFLOWER_SEED_PASTE, 1)).setRegistryName("crushed_sunflower_seed"),
-                new QuernRecipe(IIngredient.of("opiumPoppySeed"), new ItemStack(ItemsTFCF.OPIUM_POPPY_SEED_PASTE, 1)).setRegistryName("crushed_opium_poppy_seed"),
-                new QuernRecipe(IIngredient.of("cropSoybean"), new ItemStack(ItemsTFCF.SOYBEAN_PASTE, 1)).setRegistryName("crushed_soybean"),
+                new QuernRecipe(IIngredient.of("linseed"), new ItemStack(ItemFoodTFC.get(Food.LINSEED_PASTE), 1)).setRegistryName("crushed_linseed"),
+                new QuernRecipe(IIngredient.of("rapeSeed"), new ItemStack(ItemFoodTFC.get(Food.RAPE_SEED_PASTE), 1)).setRegistryName("crushed_rape_seed"),
+                new QuernRecipe(IIngredient.of("sunflowerSeed"), new ItemStack(ItemFoodTFC.get(Food.SUNFLOWER_SEED_PASTE), 1)).setRegistryName("crushed_sunflower_seed"),
+                new QuernRecipe(IIngredient.of("opiumPoppySeed"), new ItemStack(ItemFoodTFC.get(Food.OPIUM_POPPY_SEED_PASTE), 1)).setRegistryName("crushed_opium_poppy_seed"),
+                new QuernRecipe(IIngredient.of("cropSoybean"), new ItemStack(ItemFoodTFC.get(Food.SOYBEAN_PASTE), 1)).setRegistryName("crushed_soybean"),
 
                 // Dye from plants
                 new QuernRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.CHAMOMILE))), new ItemStack(ItemsTFC.DYE_WHITE, 2)).setRegistryName("crushed_chamomile"),

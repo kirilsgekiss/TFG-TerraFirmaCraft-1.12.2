@@ -12,7 +12,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.agriculture.Crop;
+import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -205,7 +207,7 @@ public class BlockPlantTFC extends BlockBush implements IItemSize
                     int chance = Constants.RNG.nextInt(2);
                     if (chance == 0)
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.GINGER, 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemFoodTFC.get(Food.GINGER), 1 + Constants.RNG.nextInt(2)));
                         spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), Constants.RNG.nextInt(2)));
                     }
                     else if (chance == 1)
