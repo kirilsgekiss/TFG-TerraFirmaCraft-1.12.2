@@ -112,7 +112,6 @@ public final class ClientRegisterEvents
         for (ItemArmorTFC item : ItemsTFC.getAllArmorItems())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
-
         // Dye color Items
         for (EnumDyeColor color : EnumDyeColor.values())
         {

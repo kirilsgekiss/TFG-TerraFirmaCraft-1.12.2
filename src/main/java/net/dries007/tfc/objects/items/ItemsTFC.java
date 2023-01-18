@@ -396,6 +396,8 @@ public final class ItemsTFC
     public static final Item WOOD_ASH = getNull();
 
     private static ImmutableList<Item> allSimpleItems;
+    private static ImmutableList<Item> allLumberItems;
+    private static ImmutableList<Item> allBoatItems;
     private static ImmutableList<ItemArmorTFC> allArmorItems;
     private static ImmutableList<ItemClayMold> allClayMolds;
     private static ImmutableList<ItemEarthenwareMold> allEarthenwareMolds;
@@ -403,6 +405,8 @@ public final class ItemsTFC
     private static ImmutableList<ItemStonewareMold> allStonewareMolds;
 
     public static ImmutableList<Item> getAllSimpleItems() { return allSimpleItems; }
+    public static ImmutableList<Item> getAllLumberItems() { return allLumberItems; }
+    public static ImmutableList<Item> getAllBoatItems() { return allBoatItems; }
     public static ImmutableList<ItemArmorTFC> getAllArmorItems() { return allArmorItems; }
     public static ImmutableList<ItemClayMold> getAllClayMolds() { return allClayMolds; }
     public static ImmutableList<ItemEarthenwareMold> getAllEarthenwareMolds() { return allEarthenwareMolds; }
@@ -416,6 +420,9 @@ public final class ItemsTFC
     {
         IForgeRegistry<Item> r = event.getRegistry();
         Builder<Item> simpleItems = ImmutableList.builder();
+
+        Builder<Item> lumberItems = ImmutableList.builder();
+        Builder<Item> boatItems = ImmutableList.builder();
 
         simpleItems.add(register(r, "wand", new ItemDebug(), CT_MISC));
         simpleItems.add(register(r, "mortar", new ItemMisc(Size.TINY, Weight.VERY_LIGHT, "mortar"), CT_MISC));
@@ -459,8 +466,8 @@ public final class ItemsTFC
 
         for (Tree wood : TFCRegistries.TREES.getValuesCollection())
         {
-            simpleItems.add(register(r, "wood/lumber/" + wood.getRegistryName().getPath(), new ItemLumberTFC(wood), CT_WOOD));
-            simpleItems.add(register(r, "wood/boat/" + wood.getRegistryName().getPath(), new ItemBoatTFC(wood), CT_WOOD));
+            lumberItems.add(register(r, "wood/lumber/" + wood.getRegistryName().getPath(), new ItemLumberTFC(wood), CT_WOOD));
+            boatItems.add(register(r, "wood/boat/" + wood.getRegistryName().getPath(), new ItemBoatTFC(wood), CT_WOOD));
         }
 
         simpleItems.add(register(r, "stick_bunch", new ItemMisc(Size.NORMAL, Weight.LIGHT), CT_WOOD));
@@ -757,6 +764,9 @@ public final class ItemsTFC
         simpleItems.add(register(r, "wrought_iron_grill", new ItemMisc(Size.LARGE, Weight.HEAVY, "grill"), CT_MISC));
 
         allSimpleItems = simpleItems.build();
+
+        allLumberItems = lumberItems.build();
+        allBoatItems = boatItems.build();
 
         allClayMolds = clayMolds.build();
         allEarthenwareMolds = earthenwareMolds.build();
