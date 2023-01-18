@@ -82,29 +82,29 @@ public final class ItemsTFC
 {
     // Crop product
     @GameRegistry.ObjectHolder("crop/product/chamomile_head")
-    public static final ItemMisc CHAMOMILE_HEAD = Helpers.getNull();
+    public static final ItemMisc CHAMOMILE_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/chamomile_head")
-    public static final ItemMisc DRIED_CHAMOMILE_HEAD = Helpers.getNull();
+    public static final ItemMisc DRIED_CHAMOMILE_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dandelion_head")
-    public static final ItemMisc DANDELION_HEAD = Helpers.getNull();
+    public static final ItemMisc DANDELION_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/dandelion_head")
-    public static final ItemMisc DRIED_DANDELION_HEAD = Helpers.getNull();
+    public static final ItemMisc DRIED_DANDELION_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/labrador_tea_head")
-    public static final ItemMisc LABRADOR_TEA_HEAD = Helpers.getNull();
+    public static final ItemMisc LABRADOR_TEA_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/labrador_tea_head")
-    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = Helpers.getNull();
+    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_head")
-    public static final ItemMisc SUNFLOWER_HEAD = Helpers.getNull();
+    public static final ItemMisc SUNFLOWER_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/sunflower_head")
-    public static final ItemMisc DRIED_SUNFLOWER_HEAD = Helpers.getNull();
+    public static final ItemMisc DRIED_SUNFLOWER_HEAD = getNull();
 
 
     @GameRegistry.ObjectHolder("pomace")
-    public static final ItemMisc POMACE = Helpers.getNull();
+    public static final ItemMisc POMACE = getNull();
 
     // Normal Trees Nuts
     @GameRegistry.ObjectHolder("food/pinecone")
-    public static final ItemFoodTFCF PINECONE = Helpers.getNull();
+    public static final ItemFoodTFCF PINECONE = getNull();
 
 
 
@@ -131,83 +131,83 @@ public final class ItemsTFC
     public static final ItemMisc SILK_CLOTH = getNull();
 
     @GameRegistry.ObjectHolder("devices/flora_density_meter")
-    public static final ItemFloraDensity FLORA_DENSITY_METER = Helpers.getNull();
+    public static final ItemFloraDensity FLORA_DENSITY_METER = getNull();
     @GameRegistry.ObjectHolder("devices/season_clock")
-    public static final ItemCalendarClock CALENDAR_CLOCK = Helpers.getNull();
+    public static final ItemCalendarClock CALENDAR_CLOCK = getNull();
 
     // Armor
     @GameRegistry.ObjectHolder("armor/helmet/pineapple_leather")
-    public static final ItemArmorTFC PINEAPPLE_LEATHER_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/pineapple_leather")
-    public static final ItemArmorTFC PINEAPPLE_LEATHER_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/pineapple_leather")
-    public static final ItemArmorTFC PINEAPPLE_LEATHER_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/pineapple_leather")
-    public static final ItemArmorTFC PINEAPPLE_LEATHER_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC PINEAPPLE_LEATHER_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/burlap_cloth")
-    public static final ItemArmorTFC BURLAP_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC BURLAP_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/burlap_cloth")
-    public static final ItemArmorTFC BURLAP_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC BURLAP_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/burlap_cloth")
-    public static final ItemArmorTFC BURLAP_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC BURLAP_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/burlap_cloth")
-    public static final ItemArmorTFC BURLAP_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC BURLAP_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/wool_cloth")
-    public static final ItemArmorTFC WOOL_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC WOOL_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/wool_cloth")
-    public static final ItemArmorTFC WOOL_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC WOOL_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/wool_cloth")
-    public static final ItemArmorTFC WOOL_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC WOOL_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/wool_cloth")
-    public static final ItemArmorTFC WOOL_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC WOOL_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/silk_cloth")
-    public static final ItemArmorTFC SILK_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC SILK_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/silk_cloth")
-    public static final ItemArmorTFC SILK_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC SILK_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/silk_cloth")
-    public static final ItemArmorTFC SILK_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC SILK_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/silk_cloth")
-    public static final ItemArmorTFC SILK_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC SILK_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/sisal_cloth")
-    public static final ItemArmorTFC SISAL_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC SISAL_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/sisal_cloth")
-    public static final ItemArmorTFC SISAL_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC SISAL_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/sisal_cloth")
-    public static final ItemArmorTFC SISAL_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC SISAL_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/sisal_cloth")
-    public static final ItemArmorTFC SISAL_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC SISAL_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/cotton_cloth")
-    public static final ItemArmorTFC COTTON_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC COTTON_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/cotton_cloth")
-    public static final ItemArmorTFC COTTON_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC COTTON_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/cotton_cloth")
-    public static final ItemArmorTFC COTTON_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC COTTON_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/cotton_cloth")
-    public static final ItemArmorTFC COTTON_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC COTTON_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/linen_cloth")
-    public static final ItemArmorTFC LINEN_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC LINEN_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/linen_cloth")
-    public static final ItemArmorTFC LINEN_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC LINEN_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/linen_cloth")
-    public static final ItemArmorTFC LINEN_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC LINEN_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/linen_cloth")
-    public static final ItemArmorTFC LINEN_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC LINEN_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/hemp_cloth")
-    public static final ItemArmorTFC HEMP_CLOTH_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC HEMP_CLOTH_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/hemp_cloth")
-    public static final ItemArmorTFC HEMP_CLOTH_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC HEMP_CLOTH_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/hemp_cloth")
-    public static final ItemArmorTFC HEMP_CLOTH_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC HEMP_CLOTH_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/hemp_cloth")
-    public static final ItemArmorTFC HEMP_CLOTH_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC HEMP_CLOTH_BOOTS = getNull();
     @GameRegistry.ObjectHolder("armor/helmet/yucca_canvas")
-    public static final ItemArmorTFC YUCCA_CANVAS_HELMET = Helpers.getNull();
+    public static final ItemArmorTFC YUCCA_CANVAS_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/yucca_canvas")
-    public static final ItemArmorTFC YUCCA_CANVAS_CHESTPLATE = Helpers.getNull();
+    public static final ItemArmorTFC YUCCA_CANVAS_CHESTPLATE = getNull();
     @GameRegistry.ObjectHolder("armor/leggings/yucca_canvas")
-    public static final ItemArmorTFC YUCCA_CANVAS_LEGGINGS = Helpers.getNull();
+    public static final ItemArmorTFC YUCCA_CANVAS_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/yucca_canvas")
-    public static final ItemArmorTFC YUCCA_CANVAS_BOOTS = Helpers.getNull();
+    public static final ItemArmorTFC YUCCA_CANVAS_BOOTS = getNull();
 
     @GameRegistry.ObjectHolder("ceramics/clay/unfired/fire_brick")
     public static final ItemPottery UNFIRED_FIRE_BRICK = getNull();
@@ -246,105 +246,105 @@ public final class ItemsTFC
 
     // Earthenware Clay Ceramics
     @GameRegistry.ObjectHolder("ceramics/earthenware/earthenware_clay")
-    public static final ItemClayEarthenware EARTHENWARE_CLAY = Helpers.getNull();
+    public static final ItemClayEarthenware EARTHENWARE_CLAY = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/earthenware_brick")
-    public static final ItemPottery UNFIRED_EARTHENWARE_BRICK = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/earthenware_brick")
-    public static final ItemPottery FIRED_EARTHENWARE_BRICK = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/vessel")
-    public static final ItemPottery UNFIRED_EARTHENWARE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/vessel")
-    public static final ItemPottery FIRED_EARTHENWARE_VESSEL = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/vessel_glazed")
-    public static final ItemPottery UNFIRED_EARTHENWARE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/vessel_glazed")
-    public static final ItemPottery FIRED_EARTHENWARE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/jug")
-    public static final ItemPottery UNFIRED_EARTHENWARE_JUG = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/jug")
-    public static final ItemPottery FIRED_EARTHENWARE_JUG = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/pot")
-    public static final ItemPottery UNFIRED_EARTHENWARE_POT = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/pot")
-    public static final ItemPottery FIRED_EARTHENWARE_POT = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/bowl")
-    public static final ItemPottery UNFIRED_EARTHENWARE_BOWL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/bowl")
-    public static final ItemPottery FIRED_EARTHENWARE_BOWL = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/spindle")
-    public static final ItemPottery UNFIRED_EARTHENWARE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/fired/spindle")
-    public static final ItemPottery FIRED_EARTHENWARE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery FIRED_EARTHENWARE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/earthenware/unfired/large_vessel")
-    public static final ItemPottery UNFIRED_EARTHENWARE_LARGE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_EARTHENWARE_LARGE_VESSEL = getNull();
 
     // Kaolinite Clay Ceramics
     @GameRegistry.ObjectHolder("ceramics/kaolinite/kaolinite_clay")
-    public static final ItemClayKaolinite KAOLINITE_CLAY = Helpers.getNull();
+    public static final ItemClayKaolinite KAOLINITE_CLAY = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/kaolinite_brick")
-    public static final ItemPottery UNFIRED_KAOLINITE_BRICK = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/kaolinite_brick")
-    public static final ItemPottery FIRED_KAOLINITE_BRICK = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/vessel")
-    public static final ItemPottery UNFIRED_KAOLINITE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/vessel")
-    public static final ItemPottery FIRED_KAOLINITE_VESSEL = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/vessel_glazed")
-    public static final ItemPottery UNFIRED_KAOLINITE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/vessel_glazed")
-    public static final ItemPottery FIRED_KAOLINITE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/jug")
-    public static final ItemPottery UNFIRED_KAOLINITE_JUG = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/jug")
-    public static final ItemPottery FIRED_KAOLINITE_JUG = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/pot")
-    public static final ItemPottery UNFIRED_KAOLINITE_POT = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/pot")
-    public static final ItemPottery FIRED_KAOLINITE_POT = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/bowl")
-    public static final ItemPottery UNFIRED_KAOLINITE_BOWL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/bowl")
-    public static final ItemPottery FIRED_KAOLINITE_BOWL = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/spindle")
-    public static final ItemPottery UNFIRED_KAOLINITE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/fired/spindle")
-    public static final ItemPottery FIRED_KAOLINITE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery FIRED_KAOLINITE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/kaolinite/unfired/large_vessel")
-    public static final ItemPottery UNFIRED_KAOLINITE_LARGE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_KAOLINITE_LARGE_VESSEL = getNull();
 
     // Stoneware Clay Ceramics
     @GameRegistry.ObjectHolder("ceramics/stoneware/stoneware_clay")
-    public static final ItemClayStoneware STONEWARE_CLAY = Helpers.getNull();
+    public static final ItemClayStoneware STONEWARE_CLAY = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/stoneware_brick")
-    public static final ItemPottery UNFIRED_STONEWARE_BRICK = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/stoneware_brick")
-    public static final ItemPottery FIRED_STONEWARE_BRICK = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_BRICK = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/vessel")
-    public static final ItemPottery UNFIRED_STONEWARE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/vessel")
-    public static final ItemPottery FIRED_STONEWARE_VESSEL = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_VESSEL = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/vessel_glazed")
-    public static final ItemPottery UNFIRED_STONEWARE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/vessel_glazed")
-    public static final ItemPottery FIRED_STONEWARE_VESSEL_GLAZED = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_VESSEL_GLAZED = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/jug")
-    public static final ItemPottery UNFIRED_STONEWARE_JUG = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/jug")
-    public static final ItemPottery FIRED_STONEWARE_JUG = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_JUG = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/pot")
-    public static final ItemPottery UNFIRED_STONEWARE_POT = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/pot")
-    public static final ItemPottery FIRED_STONEWARE_POT = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_POT = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/bowl")
-    public static final ItemPottery UNFIRED_STONEWARE_BOWL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/bowl")
-    public static final ItemPottery FIRED_STONEWARE_BOWL = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_BOWL = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/spindle")
-    public static final ItemPottery UNFIRED_STONEWARE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/fired/spindle")
-    public static final ItemPottery FIRED_STONEWARE_SPINDLE = Helpers.getNull();
+    public static final ItemPottery FIRED_STONEWARE_SPINDLE = getNull();
     @GameRegistry.ObjectHolder("ceramics/stoneware/unfired/large_vessel")
-    public static final ItemPottery UNFIRED_STONEWARE_LARGE_VESSEL = Helpers.getNull();
+    public static final ItemPottery UNFIRED_STONEWARE_LARGE_VESSEL = getNull();
 
     @GameRegistry.ObjectHolder("bloom/unrefined")
     public static final ItemBloom UNREFINED_BLOOM = getNull();
@@ -381,19 +381,19 @@ public final class ItemsTFC
     public static final ItemPottery UNFIRED_FLOWER_POT = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/jute_disc")
-    public static final Item JUTE_DISC = getNull();
+    public static final ItemMisc JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/jute_net")
-    public static final Item JUTE_NET = getNull();
+    public static final ItemMisc JUTE_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_jute_net")
-    public static final Item DIRTY_JUTE_NET = getNull();
+    public static final ItemMisc DIRTY_JUTE_NET = getNull();
     @GameRegistry.ObjectHolder("food/olive_paste")
-    public static final Item OLIVE_PASTE = getNull();
+    public static final ItemMisc OLIVE_PASTE = getNull();
     @GameRegistry.ObjectHolder("glass_shard")
-    public static final Item GLASS_SHARD = getNull();
+    public static final ItemMisc GLASS_SHARD = getNull();
     @GameRegistry.ObjectHolder("stick_bunch")
-    public static final Item STICK_BUNCH = getNull();
+    public static final ItemMisc STICK_BUNCH = getNull();
     @GameRegistry.ObjectHolder("wood_ash")
-    public static final Item WOOD_ASH = getNull();
+    public static final ItemMisc WOOD_ASH = getNull();
 
     private static ImmutableList<Item> allSimpleItems;
     private static ImmutableList<Item> allLumberItems;
