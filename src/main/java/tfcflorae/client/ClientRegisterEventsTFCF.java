@@ -3,6 +3,7 @@ package tfcflorae.client;
 import com.google.common.base.Strings;
 
 import net.dries007.tfc.objects.blocks.plants.*;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;

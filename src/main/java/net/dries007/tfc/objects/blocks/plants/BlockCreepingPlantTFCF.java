@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy2;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;

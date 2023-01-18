@@ -42,7 +42,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.blocks.groundcover.*;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantDummy1;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLeaves;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooSapling;

@@ -1,10 +1,11 @@
-package net.dries007.tfc.objects.blocks.plants;
+package net.dries007.tfc.objects.blocks.plants.BlockPlant;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import net.dries007.tfc.api.types.Plant;
 
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class BlockPlantDummy1 extends BlockPlantTFCF
