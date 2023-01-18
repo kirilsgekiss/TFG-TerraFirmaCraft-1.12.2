@@ -28,7 +28,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCBlockPlanks extends Block implements IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/planks/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/planks");
 
     private static final Map<Tree, TFCBlockPlanks> MAP = new HashMap<>();
 

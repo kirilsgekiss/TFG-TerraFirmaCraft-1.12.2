@@ -39,8 +39,8 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     public final Block modelBlock;
     protected TFCBlockWoodSlab.Half halfSlab;
 
-    private static final ResourceLocation MODEL_LOCATION_HALF = new ResourceLocation(MOD_ID, "wood/slab/pattern");
-    private static final ResourceLocation MODEL_LOCATION_FULL = new ResourceLocation(MOD_ID, "wood/slab/pattern_double");
+    private static final ResourceLocation MODEL_LOCATION_HALF = new ResourceLocation(MOD_ID, "wood/slab_half");
+    private static final ResourceLocation MODEL_LOCATION_FULL = new ResourceLocation(MOD_ID, "wood/slab_double");
 
     private Tree wood;
 

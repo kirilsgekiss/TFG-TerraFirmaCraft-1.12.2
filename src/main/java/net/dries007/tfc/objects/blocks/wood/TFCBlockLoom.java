@@ -51,7 +51,7 @@ import static net.minecraft.block.material.Material.WOOD;
 @ParametersAreNonnullByDefault
 public class TFCBlockLoom extends BlockContainer implements IItemSize, IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/loom/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/loom");
     protected static final AxisAlignedBB LOOM_EAST_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.0625D, 0.5625D, 1.0D, 0.9375D);
     protected static final AxisAlignedBB LOOM_WEST_AABB = new AxisAlignedBB(0.4375D, 0.0D, 0.0625D, 0.875D, 1.0D, 0.9375D);
     protected static final AxisAlignedBB LOOM_SOUTH_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.125D, 0.9375D, 1.0D, 0.5625D);

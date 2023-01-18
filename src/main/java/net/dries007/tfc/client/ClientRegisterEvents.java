@@ -259,11 +259,11 @@ public final class ClientRegisterEvents
         // Fence gates log
         // todo ?
         // ToolRack
-        // BlocksTFC.getAllToolRackBlocks().forEach();
+        BlocksTFC.getAllToolRackBlocks().forEach(TFCBlockToolRack::onModelRegister);
         // Pressure plate
-        // BlocksTFC.getAllWoodPressurePlateBlocks().forEach();
+        BlocksTFC.getAllWoodPressurePlateBlocks().forEach(TFCBlockWoodPressurePlate::onModelRegister);
         // Button
-        // BlocksTFC.getAllWoodButtonBlocks().forEach();
+        BlocksTFC.getAllWoodButtonBlocks().forEach(TFCBlockWoodButton::onModelRegister);
 
         // Item Blocks
         BlocksTFC.getAllNormalItemBlocks().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName(), "normal")));
@@ -385,6 +385,16 @@ public final class ClientRegisterEvents
         BlocksTFC.getAllFenceBlocks().forEach(s -> blockColors.registerBlockColorHandler(woodBlockColors, s));
         // Fence gates
         BlocksTFC.getAllFenceGateBlocks().forEach(s -> blockColors.registerBlockColorHandler(woodBlockColors, s));
+        // Fence log
+        // todo ?
+        // Fence gates log
+        // todo ?
+        // ToolRack
+        BlocksTFC.getAllToolRackBlocks().forEach(s -> blockColors.registerBlockColorHandler(woodBlockColors, s));
+        // Pressure plate
+        BlocksTFC.getAllWoodPressurePlateBlocks().forEach(s -> blockColors.registerBlockColorHandler(woodBlockColors, s));
+        // Button
+        BlocksTFC.getAllWoodButtonBlocks().forEach(s -> blockColors.registerBlockColorHandler(woodBlockColors, s));
 
         // Grass Colors
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
@@ -462,6 +472,16 @@ public final class ClientRegisterEvents
         BlocksTFC.getAllFenceBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(s)));
         // Fence gate
         BlocksTFC.getAllFenceGateBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(s)));
+        // Fence log
+        // todo ?
+        // Fence gates log
+        // todo ?
+        // ToolRack
+        BlocksTFC.getAllToolRackBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(s)));
+        // Pressure plate
+        BlocksTFC.getAllWoodPressurePlateBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(s)));
+        // Button
+        BlocksTFC.getAllWoodButtonBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, Item.getItemFromBlock(s)));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),

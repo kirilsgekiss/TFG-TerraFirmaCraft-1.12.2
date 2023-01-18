@@ -46,15 +46,12 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/workbench/pattern");
-
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/workbench");
     private static final Map<Tree, TFCBlockWorkbench> MAP = new HashMap<>();
-
     public static TFCBlockWorkbench get(Tree wood)
     {
         return MAP.get(wood);
     }
-
     private final Tree wood;
 
     public TFCBlockWorkbench(Tree wood)

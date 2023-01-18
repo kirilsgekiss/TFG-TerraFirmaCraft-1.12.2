@@ -65,7 +65,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 @ParametersAreNonnullByDefault
 public class TFCBlockBarrel extends Block implements IItemSize, IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/barrel/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/barrel");
 
     public static final PropertyBool SEALED = PropertyBool.create("sealed");
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);

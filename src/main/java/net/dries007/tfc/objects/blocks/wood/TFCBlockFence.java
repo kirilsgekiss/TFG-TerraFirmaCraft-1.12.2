@@ -25,9 +25,9 @@ import org.jetbrains.annotations.NotNull;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockFence extends BlockFence implements IHasModel {
+public class TFCBlockFence extends BlockFence implements IWoodHandler, IHasModel {
 
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence");
     private static final Map<Tree, TFCBlockFence> MAP = new HashMap<>();
 
     public static TFCBlockFence get(Tree wood)
@@ -35,7 +35,7 @@ public class TFCBlockFence extends BlockFence implements IHasModel {
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    private final Tree wood;
 
     public TFCBlockFence(Tree wood)
     {
@@ -49,6 +49,12 @@ public class TFCBlockFence extends BlockFence implements IHasModel {
         //noinspection ConstantConditions
         OreDictionaryHelper.register(this, "fence", "wood", wood.getRegistryName().getPath());
         Blocks.FIRE.setFireInfo(this, 5, 20);
+    }
+
+    @Override
+    public Tree getWood()
+    {
+        return wood;
     }
 
     @Override

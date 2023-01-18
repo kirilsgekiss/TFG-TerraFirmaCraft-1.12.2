@@ -34,7 +34,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/bookshelf/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/bookshelf");
     private static final Map<Tree, TFCBlockBookshelf> MAP = new HashMap<>();
     public static TFCBlockBookshelf get(Tree wood)
     {

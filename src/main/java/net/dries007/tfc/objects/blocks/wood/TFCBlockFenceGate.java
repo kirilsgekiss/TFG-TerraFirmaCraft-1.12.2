@@ -26,7 +26,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoodHandler
 {
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence_gate/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence_gate");
     private static final Map<Tree, TFCBlockFenceGate> MAP = new HashMap<>();
 
     public static TFCBlockFenceGate get(Tree wood)

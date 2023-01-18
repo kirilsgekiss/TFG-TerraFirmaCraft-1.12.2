@@ -9,19 +9,25 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.client.CustomStateMap;
+import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -35,19 +41,22 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.te.TEToolRack;
 import net.dries007.tfc.util.Helpers;
+import net.minecraftforge.client.model.ModelLoader;
 
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.minecraft.block.BlockHorizontal.FACING;
 import static net.minecraft.block.material.Material.WOOD;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockToolRack extends Block implements IItemSize
+public class TFCBlockToolRack extends Block implements IWoodHandler, IHasModel, IItemSize
 {
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/tool_rack");
     protected static final AxisAlignedBB RACK_EAST_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 1.0D, 1.0D);
     protected static final AxisAlignedBB RACK_WEST_AABB = new AxisAlignedBB(0.875D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
     protected static final AxisAlignedBB RACK_SOUTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
     protected static final AxisAlignedBB RACK_NORTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 1.0D, 1.0D);
 
-    public final Tree wood;
+    private final Tree wood;
 
     public TFCBlockToolRack(Tree wood)
     {
@@ -58,6 +67,11 @@ public class TFCBlockToolRack extends Block implements IItemSize
         setHardness(0.5f);
         setResistance(3f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+    }
+
+    @Override
+    public Tree getWood() {
+        return wood;
     }
 
     @Nonnull
@@ -249,5 +263,14 @@ public class TFCBlockToolRack extends Block implements IItemSize
             slot += 2;
         }
         return slot;
+    }
+
+    @Override
+    public void onModelRegister() {
+        ModelLoader.setCustomStateMapper(this, new CustomStateMap.Builder().customPath(MODEL_LOCATION).build());
+
+        for (IBlockState state : this.getBlockState().getValidStates()) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), new ModelResourceLocation(MODEL_LOCATION, "normal"));
+        }
     }
 }

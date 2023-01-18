@@ -23,7 +23,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodHandler {
 
-    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/stairs/pattern");
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/stairs");
     private static final Map<Tree, TFCBlockWoodStairs> WOOD_MAP = new HashMap<>();
     public static TFCBlockWoodStairs get(Tree wood)
     {
