@@ -3,6 +3,7 @@ package net.dries007.tfc.objects.blocks;
 import java.util.Random;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.ImmutableList;
@@ -24,7 +25,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
@@ -53,7 +54,7 @@ public class BlockUrnLoot extends Block implements IItemSize // TODO ALL
             for (Item item : ItemsTFC.getAllSimpleItems())
                 if (item.getRegistryName().getPath().contains("seeds/"))
                     buildSeeds.add(item);
-            for (Item item : ItemsTFC.getAllSimpleItems())
+            for (Item item : ItemsTFCF.getAllSimpleItems())
                 if (item.getRegistryName().getPath().contains("seeds/"))
                     buildSeeds.add(item);
 
@@ -134,7 +135,7 @@ public class BlockUrnLoot extends Block implements IItemSize // TODO ALL
             for (int i = 0; i < count; i++)
             {
                 /*
-                Item[] dropList = {ItemsTFC.MADDER, ItemsTFC.WELD, ItemsTFC.WOAD, ItemsTFC.INDIGO, ItemsTFC.RAPE, ItemsTFC.HOPS, ItemsTFC.FLAX, ItemsTFC.LINEN_STRING, ItemsTFC.COTTON_BOLL, ItemsTFC.COTTON_YARN, ItemsTFC.AGAVE, ItemsTFC.SISAL_STRING, ItemsTFC.PAPYRUS_FIBER, ItemsTFC.JUTE, ItemsTFC.JUTE_FIBER, ItemsTFC.SALT, ItemsTFC.MORTAR, ItemsTFC.FIRE_CLAY, Items.CLAY_BALL, ItemsTFC.WOOL, ItemsTFC.WOOL_YARN, ItemPowder.get(Powder.KAOLINITE), ItemPowder.get(Powder.GRAPHITE), ItemPowder.get(Powder.FLUX), ItemPowder.get(Powder.SALTPETER), ItemPowder.get(Powder.LAPIS_LAZULI), ItemPowder.get(Powder.SULFUR), ItemPowder.get(Powder.SALT)};
+                Item[] dropList = {ItemsTFCF.MADDER, ItemsTFCF.WELD, ItemsTFCF.WOAD, ItemsTFCF.INDIGO, ItemsTFCF.RAPE, ItemsTFCF.HOPS, ItemsTFCF.FLAX, ItemsTFCF.LINEN_STRING, ItemsTFCF.COTTON_BOLL, ItemsTFCF.COTTON_YARN, ItemsTFCF.AGAVE, ItemsTFCF.SISAL_STRING, ItemsTFCF.PAPYRUS_FIBER, ItemsTFC.JUTE, ItemsTFC.JUTE_FIBER, ItemsTFC.SALT, ItemsTFC.MORTAR, ItemsTFC.FIRE_CLAY, Items.CLAY_BALL, ItemsTFC.WOOL, ItemsTFC.WOOL_YARN, ItemPowder.get(Powder.KAOLINITE), ItemPowder.get(Powder.GRAPHITE), ItemPowder.get(Powder.FLUX), ItemPowder.get(Powder.SALTPETER), ItemPowder.get(Powder.LAPIS_LAZULI), ItemPowder.get(Powder.SULFUR), ItemPowder.get(Powder.SALT)};
                 int dropIndex = rand.nextInt(dropList.length);
                 int amount = rand.nextInt(5) + 2;
 

@@ -1,4 +1,4 @@
-package net.dries007.tfc.objects.items.wood.fruitwood;
+package net.dries007.tfc.objects.items.wood;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;

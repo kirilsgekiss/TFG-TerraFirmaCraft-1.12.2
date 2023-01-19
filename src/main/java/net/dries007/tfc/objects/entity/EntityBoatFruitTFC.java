@@ -23,7 +23,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitBoat;
+import net.dries007.tfc.objects.items.wood.ItemFruitBoat;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

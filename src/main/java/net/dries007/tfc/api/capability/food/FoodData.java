@@ -18,17 +18,10 @@ public class FoodData implements INBTSerializable<NBTTagCompound>
     public static final FoodData GOLDEN_CARROT = new FoodData(1, 0, 0, 0, 0, 2.5f, 0, 0, 0);
     public static final FoodData RAW_EGG = new FoodData(1, 0, 0, 0, 0, 0, 0, 0, 1.3f);
     public static final FoodData MILK = new FoodData(0, 0, 0, 0, 0, 0, 0, 1.0f, 0);
-
-    // Dried Foods
-    public static final FoodData DRIED_FRUIT_SATURATION = new FoodData(4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f);
     public static final FoodData DRIED_FRUIT_DECAY = new FoodData(4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f);
-    public static final FoodData DRIED_FRUIT_CATEGORY = new FoodData(4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f);
-
-    // Cracked & Roasted Nuts
     public static final FoodData UNCRACKED_NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
     public static final FoodData NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
     public static final FoodData ROASTED_NUT = new FoodData(4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f);
-
     // raw Mushrooms
     public static final FoodData RAW_BLUESHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);
     public static final FoodData RAW_GLOWSHROOM = new FoodData(4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f);

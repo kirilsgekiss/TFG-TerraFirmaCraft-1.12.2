@@ -70,7 +70,7 @@ public class BlockShortGrassTFC extends BlockPlantTFC implements IShearable
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.WILD_BARLEY, 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_BARLEY, 1 + Constants.RNG.nextInt(2)));
                         spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.BARLEY), Constants.RNG.nextInt(2)));
                     }
                     else
@@ -90,7 +90,7 @@ public class BlockShortGrassTFC extends BlockPlantTFC implements IShearable
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.WILD_WHEAT, 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_WHEAT, 1 + Constants.RNG.nextInt(2)));
                         spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.WHEAT), Constants.RNG.nextInt(2)));
                     }
                     else
@@ -110,7 +110,7 @@ public class BlockShortGrassTFC extends BlockPlantTFC implements IShearable
                 {
                     if (age == 3 && (currentStage == 1 || expectedStage == 1))
                     {
-                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFC.WILD_RICE, 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemsTFCF.WILD_RICE, 1 + Constants.RNG.nextInt(2)));
                         spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.RICE), Constants.RNG.nextInt(2)));
                     }
                     else

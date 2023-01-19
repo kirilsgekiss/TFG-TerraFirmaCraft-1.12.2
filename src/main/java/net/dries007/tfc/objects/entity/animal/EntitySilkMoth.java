@@ -40,7 +40,7 @@ import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;
@@ -146,7 +146,7 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     public List<ItemStack> getProducts()
     {
         List<ItemStack> eggs = new ArrayList<>();
-        ItemStack egg = new ItemStack(ItemsTFC.SILK_MOTH_EGG);
+        ItemStack egg = new ItemStack(ItemsTFCF.SILK_MOTH_EGG);
         if (this.isFertilized())
         {
             IEgg cap = egg.getCapability(CapabilityEgg.CAPABILITY, null);

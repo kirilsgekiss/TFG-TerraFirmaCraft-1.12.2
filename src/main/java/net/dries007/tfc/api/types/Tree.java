@@ -86,89 +86,52 @@ public class Tree extends IForgeRegistryEntry.Impl<Tree>
      * @param burnTemp         the temperature at which this will burn in a fire pit or similar
      * @param burnTicks        the number of ticks that this will burn in a fire pit or similar
      */
-    public Tree(
-            @Nonnull ResourceLocation name,
-            @Nonnull ITreeGenerator generator,
-            float minTemp,
-            float maxTemp,
-            float minRain,
-            float maxRain,
-            float minDensity,
-            float maxDensity,
-            float dominance,
-            int maxGrowthRadius,
-            int maxHeight,
-            int maxDecayDistance,
-            boolean isConifer,
-            @Nullable ITreeGenerator bushGenerator,
-            boolean canMakeTannin,
-            float minGrowthTime,
-            float burnTemp,
-            int burnTicks)
+    public Tree(@Nonnull ResourceLocation name, @Nonnull ITreeGenerator generator, float minTemp, float maxTemp, float minRain, float maxRain, float minDensity, float maxDensity, float dominance, int maxGrowthRadius, int maxHeight, int maxDecayDistance, boolean isConifer, @Nullable ITreeGenerator bushGenerator, boolean canMakeTannin, float minGrowthTime, float burnTemp, int burnTicks)
     {
-        setRegistryName(name);
-        this.generator = generator;
-
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
         this.minRain = minRain;
         this.maxRain = maxRain;
-        this.minDensity = minDensity;
-        this.maxDensity = maxDensity;
         this.dominance = dominance;
         this.maxGrowthRadius = maxGrowthRadius;
         this.maxHeight = maxHeight;
         this.maxDecayDistance = maxDecayDistance;
         this.isConifer = isConifer;
+        this.minGrowthTime = minGrowthTime;
+        this.minDensity = minDensity;
+        this.maxDensity = maxDensity;
         this.bushGenerator = bushGenerator;
         this.canMakeTannin = canMakeTannin;
-        this.minGrowthTime = minGrowthTime;
         this.burnTemp = burnTemp;
         this.burnTicks = burnTicks;
         this.color = 0xFFFFFF;
+
+        this.generator = generator;
+        setRegistryName(name);
     }
 
-    public Tree(
-            @Nonnull ResourceLocation name,
-            @Nonnull ITreeGenerator generator,
-            float minTemp,
-            float maxTemp,
-            float minRain,
-            float maxRain,
-            float minDensity,
-            float maxDensity,
-            float dominance,
-            int maxGrowthRadius,
-            int maxHeight,
-            int maxDecayDistance,
-            boolean isConifer,
-            @Nullable ITreeGenerator bushGenerator,
-            boolean canMakeTannin,
-            float minGrowthTime,
-            float burnTemp,
-            int burnTicks,
-            int color)
+    public Tree(@Nonnull ResourceLocation name, @Nonnull ITreeGenerator generator, float minTemp, float maxTemp, float minRain, float maxRain, float minDensity, float maxDensity, float dominance, int maxGrowthRadius, int maxHeight, int maxDecayDistance, boolean isConifer, @Nullable ITreeGenerator bushGenerator, boolean canMakeTannin, float minGrowthTime, float burnTemp, int burnTicks, int color)
     {
-        setRegistryName(name);
-        this.generator = generator;
-
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
         this.minRain = minRain;
         this.maxRain = maxRain;
-        this.minDensity = minDensity;
-        this.maxDensity = maxDensity;
         this.dominance = dominance;
         this.maxGrowthRadius = maxGrowthRadius;
         this.maxHeight = maxHeight;
         this.maxDecayDistance = maxDecayDistance;
         this.isConifer = isConifer;
+        this.minGrowthTime = minGrowthTime;
+        this.minDensity = minDensity;
+        this.maxDensity = maxDensity;
         this.bushGenerator = bushGenerator;
         this.canMakeTannin = canMakeTannin;
-        this.minGrowthTime = minGrowthTime;
         this.burnTemp = burnTemp;
         this.burnTicks = burnTicks;
         this.color = color;
+
+        this.generator = generator;
+        setRegistryName(name);
     }
 
     public boolean makeTree(TemplateManager manager, World world, BlockPos pos, Random rand, boolean isWorldGen)

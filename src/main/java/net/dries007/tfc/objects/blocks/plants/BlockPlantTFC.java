@@ -54,6 +54,8 @@ import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
+import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 
 @ParametersAreNonnullByDefault

@@ -44,6 +44,8 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
+import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault

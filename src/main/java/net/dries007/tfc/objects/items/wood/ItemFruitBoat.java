@@ -1,4 +1,4 @@
-package net.dries007.tfc.objects.items.wood.fruitwood;
+package net.dries007.tfc.objects.items.wood;
 
 import java.util.HashMap;
 import java.util.List;

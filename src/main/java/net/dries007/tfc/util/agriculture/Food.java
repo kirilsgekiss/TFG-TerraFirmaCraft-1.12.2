@@ -209,6 +209,16 @@ public enum Food
     PINE_NUT(FRUIT,4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f),
     WALNUT(FRUIT,4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f),
 
+    // Dried Foods
+    DRIED_FRUIT_SATURATION(FRUIT,4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f),
+    DRIED_FRUIT_DECAY(FRUIT,4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f),
+    DRIED_FRUIT_CATEGORY(FRUIT,4, 0f, 1f, 0f, 1f, 0f, 0f, 0f, 0.8f),
+
+    // Cracked & Roasted Nuts
+    UNCRACKED_NUT(FRUIT,4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f),
+    NUT(FRUIT,4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f),
+    ROASTED_NUT(FRUIT,4, 0f, 0.5f, 0f, 0.75f, 0f, 0f, 0f, 0.25f),
+
     // Raw Epiphytes
     RAW_ARTISTS_CONK(VEGETABLE,4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f),
     RAW_SULPHUR_SHELF(VEGETABLE,4, 0f, 0.5f, 0f, 0.1f, 0.1f, 0.5f, 0f, 2f),

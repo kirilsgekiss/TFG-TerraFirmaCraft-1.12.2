@@ -116,12 +116,12 @@ public class BlockStickBundle extends Block implements IItemSize, ITallPlant
     	/*switch(state.getValue(GROWTH))
         {
 			case 4:
-				drops.add(new ItemStack(ItemsTFC.SILK_WORM_COCOON, 1));
+				drops.add(new ItemStack(ItemsTFCF.SILK_WORM_COCOON, 1));
 				break;
 			case 3:
 			case 2:
 			case 1:
-				drops.add(new ItemStack(ItemsTFC.SILK_WORM, 1));
+				drops.add(new ItemStack(ItemsTFCF.SILK_WORM, 1));
 				break;
 			default:
 		}*/
