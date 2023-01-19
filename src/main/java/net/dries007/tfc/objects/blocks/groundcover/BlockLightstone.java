@@ -141,7 +141,7 @@ public class BlockLightstone extends BlockBush implements IItemSize
         IBlockState iblockstate = worldIn.getBlockState(blockpos);
         BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, blockpos, facing);
 
-        return blockfaceshape == BlockFaceShape.SOLID || BlocksTFC.isGround(iblockstate) || BlocksTFCF.isGround(iblockstate) || worldIn.getBlockState(blockpos).isFullBlock();
+        return blockfaceshape == BlockFaceShape.SOLID || BlocksTFC.isGround(iblockstate) || worldIn.getBlockState(blockpos).isFullBlock();
     }
 
     @Override

@@ -17,6 +17,7 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import gregtech.common.items.ToolItems;
+import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
@@ -601,7 +602,7 @@ public final class DefaultRecipes
             if (recipe != null)
             {
                 modRegistry.remove(recipe.getRegistryName());
-                TFCFlorae.logger.info("Removed barrel recipe tfc:{}", name);
+                TerraFirmaCraft.getLog().info("Removed barrel recipe tfc:{}", name);
             }
         }
 

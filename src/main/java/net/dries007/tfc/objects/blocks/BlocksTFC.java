@@ -1960,6 +1960,336 @@ public final class BlocksTFC
                 type == SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
     }
 
+    public static boolean isClayGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return
+                // Type.CLAY_GRASS ?
+                rock == Type.SANDY_CLAY_LOAM_GRASS ||
+                rock == Type.SANDY_CLAY_GRASS ||
+                rock == Type.CLAY_LOAM_GRASS ||
+                rock == Type.SILTY_CLAY_GRASS ||
+                rock == Type.SILTY_CLAY_LOAM_GRASS ||
+                rock == Type.CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isClayDryGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_SANDY_CLAY_GRASS ||
+                rock == Type.DRY_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_CLAY_GRASS ||
+                rock == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_CLAY_GRASS ||
+                rock == Type.SPARSE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SILTY_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isKaoliniteClayGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.KAOLINITE_CLAY_GRASS ||
+                rock == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SANDY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SILTY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.KAOLINITE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isKaoliniteClayDryGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.DRY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_KAOLINITE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isKaoliniteClayPodzol(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.KAOLINITE_CLAY_PODZOL ||
+                rock == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+                rock == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+                rock == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+                rock == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL;
+    }
+
+    public static boolean isKaoliniteClayDirt(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.KAOLINITE_CLAY ||
+                rock == Type.SANDY_KAOLINITE_CLAY_LOAM ||
+                rock == Type.SANDY_KAOLINITE_CLAY ||
+                rock == Type.KAOLINITE_CLAY_LOAM ||
+                rock == Type.SILTY_KAOLINITE_CLAY ||
+                rock == Type.SILTY_KAOLINITE_CLAY_LOAM ||
+                rock == Type.KAOLINITE_CLAY_HUMUS;
+    }
+
+    public static boolean isStonewareClayGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.STONEWARE_CLAY_GRASS ||
+                rock == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SANDY_STONEWARE_CLAY_GRASS ||
+                rock == Type.STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SILTY_STONEWARE_CLAY_GRASS ||
+                rock == Type.SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.STONEWARE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isStonewareClayDryGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
+                rock == Type.DRY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_STONEWARE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_STONEWARE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_STONEWARE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isStonewareClayPodzol(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.STONEWARE_CLAY_PODZOL ||
+                rock == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+                rock == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL;
+    }
+
+    public static boolean isStonewareClayDirt(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.STONEWARE_CLAY ||
+                rock == Type.SANDY_STONEWARE_CLAY_LOAM ||
+                rock == Type.SANDY_STONEWARE_CLAY ||
+                rock == Type.STONEWARE_CLAY_LOAM ||
+                rock == Type.SILTY_STONEWARE_CLAY ||
+                rock == Type.SILTY_STONEWARE_CLAY_LOAM ||
+                rock == Type.STONEWARE_CLAY_HUMUS;
+    }
+
+    public static boolean isEarthenwareClayGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.EARTHENWARE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isEarthenwareClayDryGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.DRY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.DRY_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.DRY_EARTHENWARE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+    }
+
+    public static boolean isEarthenwareClayPodzol(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
+    }
+
+    public static boolean isEarthenwareClayDirt(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.EARTHENWARE_CLAY ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
+                rock == Type.SANDY_EARTHENWARE_CLAY ||
+                rock == Type.EARTHENWARE_CLAY_LOAM ||
+                rock == Type.SILTY_EARTHENWARE_CLAY ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_LOAM ||
+                rock == Type.EARTHENWARE_CLAY_HUMUS;
+    }
+
+    public static boolean isClayPodzol(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.CLAY_PODZOL ||
+                rock == Type.SANDY_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_CLAY_PODZOL ||
+                rock == Type.CLAY_LOAM_PODZOL ||
+                rock == Type.SILTY_CLAY_PODZOL ||
+                rock == Type.SILTY_CLAY_LOAM_PODZOL;
+    }
+
+    public static boolean isClayDirt(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return
+                // CLAY ?
+                rock == Type.SANDY_CLAY_LOAM ||
+                rock == Type.SANDY_CLAY ||
+                rock == Type.CLAY_LOAM ||
+                rock == Type.SILTY_CLAY_LOAM ||
+                rock == Type.SILTY_CLAY ||
+                rock == Type.CLAY_HUMUS;
+    }
+
+    public static boolean isPodzol(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.PODZOL ||
+                rock == Type.BOG_IRON_PODZOL ||
+                rock == Type.LOAMY_SAND_PODZOL ||
+                rock == Type.SANDY_LOAM_PODZOL ||
+                rock == Type.SANDY_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_CLAY_PODZOL ||
+                rock == Type.LOAM_PODZOL ||
+                rock == Type.CLAY_LOAM_PODZOL ||
+                rock == Type.CLAY_PODZOL ||
+                rock == Type.SILTY_CLAY_PODZOL ||
+                rock == Type.SILTY_CLAY_LOAM_PODZOL ||
+                rock == Type.SILT_LOAM_PODZOL ||
+                rock == Type.SILT_PODZOL ||
+                rock == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_KAOLINITE_CLAY_PODZOL ||
+                rock == Type.KAOLINITE_CLAY_LOAM_PODZOL ||
+                rock == Type.KAOLINITE_CLAY_PODZOL ||
+                rock == Type.SILTY_KAOLINITE_CLAY_PODZOL ||
+                rock == Type.SILTY_KAOLINITE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_STONEWARE_CLAY_PODZOL ||
+                rock == Type.STONEWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.STONEWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_STONEWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_STONEWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.SANDY_EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.EARTHENWARE_CLAY_LOAM_PODZOL ||
+                rock == Type.EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_PODZOL ||
+                rock == Type.SILTY_EARTHENWARE_CLAY_LOAM_PODZOL;
+    }
+
+    public static boolean isSparseGrass(IBlockState current)
+    {
+        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+
+        return rock == Type.SPARSE_GRASS ||
+                rock == Type.SPARSE_BOG_IRON_GRASS ||
+                rock == Type.SPARSE_CLAY_GRASS ||
+                rock == Type.SPARSE_LOAMY_SAND_GRASS ||
+                rock == Type.SPARSE_SANDY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_CLAY_GRASS ||
+                rock == Type.SPARSE_LOAM_GRASS ||
+                rock == Type.SPARSE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SILTY_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SILT_LOAM_GRASS ||
+                rock == Type.SPARSE_SILT_GRASS ||
+                rock == Type.SPARSE_HUMUS_GRASS ||
+                rock == Type.SPARSE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_KAOLINITE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_KAOLINITE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_KAOLINITE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_STONEWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_STONEWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_STONEWARE_CLAY_HUMUS_GRASS ||
+                rock == Type.SPARSE_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_SANDY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_EARTHENWARE_CLAY_GRASS ||
+                rock == Type.SPARSE_SILTY_EARTHENWARE_CLAY_LOAM_GRASS ||
+                rock == Type.SPARSE_EARTHENWARE_CLAY_HUMUS_GRASS;
+    }
+
     private static <T extends Block> T register(IForgeRegistry<Block> r, String name, T block, CreativeTabs ct)
     {
         block.setCreativeTab(ct);

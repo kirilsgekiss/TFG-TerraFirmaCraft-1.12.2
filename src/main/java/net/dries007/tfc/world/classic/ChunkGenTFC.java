@@ -1010,7 +1010,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         outp.setBlockState(x, y + yOffset, z, inp.getBlockState(x, y, z));
                         if (y + 1 < yOffset && outp.getBlockState(x, y + yOffset, z) == AIR/* no need to check again && BlocksTFC.isSoilOrGravel(outp.getBlockState(x, y + yOffset + 1, z))*/)
                         {
-                            for (int upCount = 1; (BlocksTFC.isSoilOrGravel(outp.getBlockState(x, y + yOffset + upCount, z)) || BlocksTFCF.isSoilOrGravel(outp.getBlockState(x, y + yOffset + upCount, z))); upCount++)
+                            for (int upCount = 1; BlocksTFC.isSoilOrGravel(outp.getBlockState(x, y + yOffset + upCount, z)); upCount++)
                             {
                                 outp.setBlockState(x, y + yOffset + upCount, z, AIR);
                             }

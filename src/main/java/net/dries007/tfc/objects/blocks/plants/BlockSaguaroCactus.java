@@ -218,8 +218,6 @@ public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITa
         return (block2 == this || 
                 BlocksTFC.isSand(worldIn.getBlockState(pos.down())) ||
                 BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
-                BlocksTFCF.isSand(worldIn.getBlockState(pos.down())) ||
-                BlocksTFCF.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
                 block2 == Blocks.HARDENED_CLAY ||
                 block2 == Blocks.STAINED_HARDENED_CLAY) /*&& 
                 plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && 
@@ -257,8 +255,6 @@ public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITa
         return (block2 == this || 
                 BlocksTFC.isSand(worldIn.getBlockState(pos.down())) ||
                 BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
-                BlocksTFCF.isSand(worldIn.getBlockState(pos.down())) ||
-                BlocksTFCF.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
                 block2 == Blocks.HARDENED_CLAY ||
                 block2 == Blocks.STAINED_HARDENED_CLAY) /*&& 
                 plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && 

@@ -64,7 +64,7 @@ public class BlockBambooLog extends Block
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
         IBlockState downState = worldIn.getBlockState(pos.down());
         boolean shouldDestroy = true;
-        if (downState.getBlock() instanceof BlockBambooLog || BlocksTFC.isGrowableSoil(downState) || BlocksTFCF.isGrowableSoil(downState))
+        if (downState.getBlock() instanceof BlockBambooLog || BlocksTFC.isGrowableSoil(downState))
             shouldDestroy = false;
         if (shouldDestroy)
         {

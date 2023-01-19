@@ -1,5 +1,6 @@
 package tfcflorae;
 
+import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -16,7 +17,7 @@ public class ConfigTFCF
     {
         if (event.getModID().equals(TFCFLORAE_MODID))
         {
-            TFCFlorae.getLog().warn("Config changed");
+            TerraFirmaCraft.getLog().warn("Config changed");
             ConfigManager.sync(TFCFLORAE_MODID, Config.Type.INSTANCE);
         }
     }

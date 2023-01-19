@@ -16,7 +16,6 @@ import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
@@ -184,20 +183,20 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (sandyLoamRarity == 0)
                                     {
-                                        if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
+                                        if (BlocksTFC.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SANDY_LOAM_PODZOL)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.SPARSE_SANDY_LOAM_GRASS).getDefaultState(),
                                                     2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
@@ -210,20 +209,20 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (loamySandRarity== 0)
                                     {
-                                        if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
+                                        if (BlocksTFC.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAMY_SAND_PODZOL)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.SPARSE_LOAMY_SAND_GRASS).getDefaultState(),
                                                     2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
@@ -239,19 +238,19 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (loamRarity == 0)
                                     {
-                                        if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
+                                        if (BlocksTFC.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAM_PODZOL)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_LOAM_GRASS)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_LOAM_GRASS)
@@ -266,20 +265,20 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (siltLoamRarity == 0)
                                     {
-                                        if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
+                                        if (BlocksTFC.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_LOAM_PODZOL)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.SPARSE_SILT_LOAM_GRASS).getDefaultState(),
                                                     2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
@@ -292,7 +291,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (humusRarity == 0)
                                     {
-                                        if (BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -300,14 +299,14 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                             .getDefaultState(),
                                                     2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.SPARSE_HUMUS_GRASS).getDefaultState(),
                                                     2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
@@ -320,19 +319,19 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (siltRarity == 0)
                                     {
-                                        if (BlocksTFCF.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
+                                        if (BlocksTFC.isPodzol(current) && ConfigTFCF.General.WORLD.enableAllPodzol)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_PODZOL)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isDryGrass(current) || BlocksTFCF.isDryGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isDryGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_SILT_GRASS)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if ((BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current)) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
+                                        else if (BlocksTFC.isGrass(current) && ConfigTFCF.General.WORLD.enableAllSparseGrass)
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_SILT_GRASS)
@@ -679,20 +678,20 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 if (data.getFloraDiversity() > FLORA_DIVERSITY_SAND_SANDY_MIX) {
                                     if (coarseSandyLoamRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_SANDY_LOAM)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                        else if (BlocksTFC.isClay(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SANDY_CLAY_LOAM).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                        else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -701,7 +700,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                             .getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                        else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -710,7 +709,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                             .getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                        else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -725,33 +724,33 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (coarseLoamySandRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_LOAMY_SAND)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                        else if (BlocksTFC.isClay(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_SANDY_CLAY)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                        else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SANDY_KAOLINITE_CLAY).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                        else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SANDY_STONEWARE_CLAY).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                        else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -767,7 +766,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                             {       
                                 if (coarseDirtRarity == 0)
                                 {
-                                    if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                    if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant
@@ -781,7 +780,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                             {
                                 if (coarseLoamRarity == 0)
                                 {
-                                    if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                    if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant
@@ -789,27 +788,27 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                         .getDefaultState(),
                                                 2);
                                     }
-                                    else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                    else if (BlocksTFC.isClay(current))
                                     {
                                         world.setBlockState(pos, BlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_CLAY_LOAM)
                                                 .getDefaultState(), 2);
                                     }
-                                    else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                    else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                         Type.COARSE_KAOLINITE_CLAY_LOAM).getDefaultState(),
                                                 2);
                                     }
-                                    else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                    else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                         Type.COARSE_STONEWARE_CLAY_LOAM).getDefaultState(),
                                                 2);
                                     }
-                                    else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                    else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
@@ -824,20 +823,20 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (coarseSiltLoamRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_SILT_LOAM)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                        else if (BlocksTFC.isClay(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SILTY_CLAY_LOAM).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                        else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -846,7 +845,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                             .getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                        else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -855,7 +854,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                                             .getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                        else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -870,33 +869,33 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (coarseHumusRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_HUMUS)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                        else if (BlocksTFC.isClay(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_CLAY_HUMUS)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                        else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_KAOLINITE_CLAY_HUMUS).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                        else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_STONEWARE_CLAY_HUMUS).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                        else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -911,33 +910,33 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (coarseSiltRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current) )
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_SILT)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFC.isClay(current) || BlocksTFCF.isClay(current))
+                                        else if (BlocksTFC.isClay(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.COARSE_SILTY_CLAY)
                                                     .getDefaultState(), 2);
                                         }
-                                        else if (BlocksTFCF.isKaoliniteClayGrass(current) || BlocksTFCF.isKaoliniteClayDirt(current))
+                                        else if (BlocksTFC.isKaoliniteClayGrass(current) || BlocksTFC.isKaoliniteClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SILTY_KAOLINITE_CLAY).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isStonewareClayGrass(current) || BlocksTFCF.isStonewareClayDirt(current))
+                                        else if (BlocksTFC.isStonewareClayGrass(current) || BlocksTFC.isStonewareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos),
                                                             Type.COARSE_SILTY_STONEWARE_CLAY).getDefaultState(),
                                                     2);
                                         }
-                                        else if (BlocksTFCF.isEarthenwareClayGrass(current) || BlocksTFCF.isEarthenwareClayDirt(current))
+                                        else if (BlocksTFC.isEarthenwareClayGrass(current) || BlocksTFC.isEarthenwareClayDirt(current))
                                         {
                                             world.setBlockState(pos,
                                                     BlockRockVariant
@@ -1013,7 +1012,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 if (data.getFloraDiversity() > FLORA_DIVERSITY_SAND_SANDY_MIX) {
                                     if (rootedSandyLoamRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.ROOTED_SANDY_LOAM)
@@ -1025,7 +1024,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (rootedLoamySandRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.ROOTED_LOAMY_SAND)
@@ -1038,7 +1037,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                             {       
                                 if (rootedDirtRarity == 0)
                                 {
-                                    if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                    if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant
@@ -1052,7 +1051,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                             {
                                 if (rootedLoamRarity == 0)
                                 {
-                                    if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                    if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                     {
                                         world.setBlockState(pos,
                                                 BlockRockVariant
@@ -1068,7 +1067,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (rootedSiltLoamRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.ROOTED_SILT_LOAM)
@@ -1080,7 +1079,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (rootedHumusRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.ROOTED_HUMUS)
@@ -1092,7 +1091,7 @@ public class WorldGenSoilTypes implements IWorldGenerator
                                 {
                                     if (rootedSiltRarity == 0)
                                     {
-                                        if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current) || BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                        if (BlocksTFC.isGrass(current) || BlocksTFC.isDirt(current))
                                         {
                                             world.setBlockState(pos, BlockRockVariant
                                                     .get(ChunkDataTFC.getRockHeight(world, pos), Type.ROOTED_SILT)

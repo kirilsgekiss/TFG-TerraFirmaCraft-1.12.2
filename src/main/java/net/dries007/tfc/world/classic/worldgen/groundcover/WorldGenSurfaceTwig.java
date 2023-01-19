@@ -63,7 +63,7 @@ public class WorldGenSurfaceTwig implements IWorldGenerator
         {
             if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP))
             {
-                if (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFCF.isSoil(world.getBlockState(pos.down())) || BlocksTFC.isGround(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down())))
+                if (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFC.isGround(world.getBlockState(pos.down())))
                 {
                     world.setBlockState(pos, BlocksTFCF.TWIG.getDefaultState());
                 }

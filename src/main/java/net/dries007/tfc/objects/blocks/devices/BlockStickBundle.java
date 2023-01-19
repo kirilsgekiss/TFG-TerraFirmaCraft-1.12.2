@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
@@ -293,7 +294,7 @@ public class BlockStickBundle extends Block implements IItemSize, ITallPlant
                 //double percentage = te.calculatePercentage();
                 double percentage = calcPercentage(te.getCurrentTicks(), te.getGoalTick());
                 
-                TFCFlorae.getLog().warn("TFCFlorae: BlockStickBundle error, percentage stuff: " + percentage + ", " + te.getTicksRemaining());
+                TerraFirmaCraft.getLog().warn("TFCFlorae: BlockStickBundle error, percentage stuff: " + percentage + ", " + te.getTicksRemaining());
                 if (!(inventory.getStackInSlot(0).isEmpty()))
                 {
                     // Note to self, need to move it back to only check for current block and not both, so remove half

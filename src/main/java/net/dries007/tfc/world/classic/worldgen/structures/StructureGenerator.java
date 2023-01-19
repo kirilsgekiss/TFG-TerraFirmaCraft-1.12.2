@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import java.util.Random;
 
+import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -62,7 +63,7 @@ public class StructureGenerator extends WorldGenerator
 
 		if (template == null)
         {
-			TFCFlorae.getLog().info("TFCFlorae: Structure '" + structureName + "' does not exist ");
+			TerraFirmaCraft.getLog().info("TFCFlorae: Structure '" + structureName + "' does not exist ");
 			return false;
 		}
 		if (structureName.endsWith("_bury"))
@@ -165,7 +166,7 @@ public class StructureGenerator extends WorldGenerator
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (BlocksTFC.isDirt(current) || BlocksTFCF.isDirt(current))
+                                    else if (BlocksTFC.isDirt(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
 															BlockRockVariant
@@ -181,7 +182,7 @@ public class StructureGenerator extends WorldGenerator
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (BlocksTFC.isGrass(current) || BlocksTFCF.isGrass(current))
+                                    else if (BlocksTFC.isGrass(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
 															BlockRockVariant
@@ -189,7 +190,7 @@ public class StructureGenerator extends WorldGenerator
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (BlocksTFCF.isSparseGrass(current))
+                                    else if (BlocksTFC.isSparseGrass(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
 															BlockRockVariant
@@ -309,7 +310,7 @@ public class StructureGenerator extends WorldGenerator
 		while (!foundGround && y-- > 0)
 		{
 			IBlockState current = world.getBlockState(new BlockPos(x, y, z));
-			foundGround = BlocksTFC.isGround(current) || BlocksTFCF.isGround(current);
+			foundGround = BlocksTFC.isGround(current);
 		}
 		BlockPos pos = new BlockPos(x, y - 1, z);
 

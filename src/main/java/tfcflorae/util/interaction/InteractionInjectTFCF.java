@@ -2,6 +2,7 @@ package tfcflorae.util.interaction;
 
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,7 +43,7 @@ public class InteractionInjectTFCF
 
             if (seedCrop == null)
             {
-                TFCFlorae.getLog().error("Couldn't find crop to place in farmland");
+                TerraFirmaCraft.getLog().error("Couldn't find crop to place in farmland");
                 return EnumActionResult.FAIL;
             }
 

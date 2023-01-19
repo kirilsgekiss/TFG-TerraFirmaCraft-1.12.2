@@ -170,7 +170,7 @@ public class BlockPinecone extends BlockBush
 
         if (state.getBlock() == this)
         {
-            return (BlocksTFC.isGround(soil) || BlocksTFCF.isGround(soil)) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil));
+            return BlocksTFC.isGround(soil) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
     }

@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockFruitLogFence extends BlockFence 
+public class BlockFruitLogFence extends BlockFence
 {
     public BlockFruitLogFence()
     {

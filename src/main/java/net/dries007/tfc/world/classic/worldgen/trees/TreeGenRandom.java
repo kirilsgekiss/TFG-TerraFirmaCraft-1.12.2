@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.trees;
 
 import java.util.Random;
 
+import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -54,7 +55,7 @@ public class TreeGenRandom implements ITreeGenerator
 
         if (structureBase == null)
         {
-            TFCFlorae.getLog().warn("TFCFlorae: Unable to find a template for " + base.toString());
+            TerraFirmaCraft.getLog().warn("TFCFlorae: Unable to find a template for " + base.toString());
             return;
         }
 

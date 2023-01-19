@@ -117,7 +117,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
                     IBlockState iblockstate = worldIn.getBlockState(pos.down());
                     Block block = iblockstate.getBlock();
 
-                    if (BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || BlocksTFCF.isSand(iblockstate) || BlocksTFCF.isSoilOrGravel(iblockstate) || iblockstate == Blocks.HARDENED_CLAY || iblockstate == Blocks.STAINED_HARDENED_CLAY)
+                    if (BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || iblockstate == Blocks.HARDENED_CLAY || iblockstate == Blocks.STAINED_HARDENED_CLAY)
                     {
                         flag = true;
                     }
@@ -131,7 +131,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
 
                             if (block1 != BlockJoshuaTreeLog.get(wood))
                             {
-                                if (BlocksTFC.isSand(worldIn.getBlockState(pos.down(j + 1))) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down(j + 1))) || BlocksTFCF.isSand(worldIn.getBlockState(pos.down(j + 1))) || BlocksTFCF.isSoilOrGravel(worldIn.getBlockState(pos.down(j + 1))) || block1 == Blocks.HARDENED_CLAY || block1 == Blocks.STAINED_HARDENED_CLAY)
+                                if (BlocksTFC.isSand(worldIn.getBlockState(pos.down(j + 1))) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down(j + 1))) || block1 == Blocks.HARDENED_CLAY || block1 == Blocks.STAINED_HARDENED_CLAY)
                                 {
                                     flag1 = true;
                                 }
@@ -285,7 +285,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
                 IBlockState iblockstate = worldIn.getBlockState(currentBlock.down());
                 Block block = iblockstate.getBlock();
 
-                if (BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || BlocksTFCF.isSand(iblockstate) || BlocksTFCF.isSoilOrGravel(iblockstate) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY)
+                if (BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY)
                 {
                     flag = true;
                 }
@@ -299,7 +299,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
 
                         if (block1 != BlockJoshuaTreeLog.get(wood))
                         {
-                            if (BlocksTFC.isSand(worldIn.getBlockState(currentBlock.down(j + 1))) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(currentBlock.down(j + 1))) || BlocksTFCF.isSand(worldIn.getBlockState(currentBlock.down(j + 1))) || BlocksTFCF.isSoilOrGravel(worldIn.getBlockState(currentBlock.down(j + 1))) || block1 == Blocks.HARDENED_CLAY || block1 == Blocks.STAINED_HARDENED_CLAY)
+                            if (BlocksTFC.isSand(worldIn.getBlockState(currentBlock.down(j + 1))) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(currentBlock.down(j + 1))) || block1 == Blocks.HARDENED_CLAY || block1 == Blocks.STAINED_HARDENED_CLAY)
                             {
                                 flag1 = true;
                             }
@@ -589,7 +589,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         Block block = worldIn.getBlockState(pos.down()).getBlock();
-        return ((super.canPlaceBlockAt(worldIn, pos) && this.canSurvive(worldIn, pos)) || (BlocksTFC.isSand(worldIn.getBlockState(pos.down())) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) || BlocksTFCF.isSand(worldIn.getBlockState(pos.down())) || BlocksTFCF.isSoilOrGravel(worldIn.getBlockState(pos.down())) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY));
+        return ((super.canPlaceBlockAt(worldIn, pos) && this.canSurvive(worldIn, pos)) || (BlocksTFC.isSand(worldIn.getBlockState(pos.down())) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY));
     }
 
     /**
@@ -611,7 +611,7 @@ public class BlockJoshuaTreeFlower extends Block implements IGrowingPlant
         IBlockState iblockstate = worldIn.getBlockState(pos.down());
         Block block = iblockstate.getBlock();
 
-        if (block != BlockJoshuaTreeLog.get(wood) && !(BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || BlocksTFCF.isSand(iblockstate) || BlocksTFCF.isSoilOrGravel(iblockstate) || iblockstate == Blocks.HARDENED_CLAY || iblockstate == Blocks.STAINED_HARDENED_CLAY))
+        if (block != BlockJoshuaTreeLog.get(wood) && !(BlocksTFC.isSand(iblockstate) || BlocksTFC.isSoilOrGravel(iblockstate) || iblockstate == Blocks.HARDENED_CLAY || iblockstate == Blocks.STAINED_HARDENED_CLAY))
         {
             if (iblockstate.getMaterial() == Material.AIR)
             {

@@ -11,6 +11,16 @@ import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.types.DefaultRecipes;
 import net.dries007.tfc.util.CapabilityHeatHandler;
 import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.world.classic.worldgen.*;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
+import net.dries007.tfc.world.classic.worldgen.groundcover.*;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenClays;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilDecorative;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilTypes;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.server.MinecraftServer;
@@ -50,6 +60,8 @@ import net.dries007.tfc.util.fuel.FuelManager;
 import net.dries007.tfc.util.json.JsonConfigRegistry;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
+import tfcflorae.ConfigTFCF;
+import tfcflorae.TFCFlorae;
 
 import static net.dries007.tfc.TerraFirmaCraft.DEPENDENCIES;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -76,10 +88,9 @@ public final class TerraFirmaCraft
     @SidedProxy(modId = MOD_ID, clientSide = "net.dries007.tfc.proxy.ClientProxy", serverSide = "net.dries007.tfc.proxy.ServerProxy")
     private static IProxy PROXY = null;
 
-    static
-    {
-        FluidRegistry.enableUniversalBucket();
-    }
+    private final Logger log = LogManager.getLogger(MOD_ID);
+    private WorldTypeTFC worldTypeTFC;
+    private SimpleNetworkWrapper network;
 
     public static Logger getLog()
     {
@@ -106,17 +117,22 @@ public final class TerraFirmaCraft
         return INSTANCE;
     }
 
-    private final Logger log = LogManager.getLogger(MOD_ID);
-    private WorldTypeTFC worldTypeTFC;
-    private SimpleNetworkWrapper network;
+    static
+    {
+        FluidRegistry.enableUniversalBucket();
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        log.debug("If you can see this, debug logging is working :)");
+        log.debug("TerraFirmaCraft is Working! :)"); // todo: wtf check
 
         TFCToolItems.init();
         TFCMetaItem.init();
+
+        someStuffOnPreInit(event);
+
+        //OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID); // Client Proxy from Florae?
 
         // No need to sync config here, forge magic
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new TFCGuiHandler());
@@ -231,5 +247,92 @@ public final class TerraFirmaCraft
 
         // Initialize calendar for the current server
         CalendarTFC.INSTANCE.init(event.getServer());
+    }
+
+    public void someStuffOnPreInit(FMLPreInitializationEvent event) // todo: move this to another file pls
+    {
+        if (ConfigTFCF.General.STRUCTURES.activateStructureGeneration)
+        {
+            GameRegistry.registerWorldGenerator(new WorldGenStructures(), 0);
+            if (ConfigTFCF.General.WORLD.enableCoralWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenStructuresCorals(), 0);
+            }
+        }
+        if (ConfigTFCF.General.WORLD.enableAllWorldGen)
+        {
+            if (ConfigTFCF.General.WORLD.enableMesaStrata)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenMesaStrata(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableTrees)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGeneratorTrees(), 0);
+            }
+            //GameRegistry.registerWorldGenerator(new WorldGenWildCropsTFCF(), 0);
+            if (ConfigTFCF.General.WORLD.enableCoralWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenCorals(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableMossyRawWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenMossyRaw(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enablePlantWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGeneratorPlants(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableUndergroundPlantWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGeneratorUnderground(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableLightstoneWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenLightstones(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableOceanGlowPlantWorldGen)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenGlowPlant(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableSoilPits)
+            {
+                //GameRegistry.registerWorldGenerator(new WorldGenSoil(), 0);
+                GameRegistry.registerWorldGenerator(new WorldGenSoilTypes(), 0);
+                GameRegistry.registerWorldGenerator(new WorldGenSoilDecorative(), 0);
+                GameRegistry.registerWorldGenerator(new WorldGenClays(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverRock)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceRocks(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverSeashell)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceSeashells(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverFlint)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceFlint(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverBones)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceBones(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverPinecone)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfacePinecone(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverDriftwood)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceDriftwood(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGroundcoverTwig)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenSurfaceTwig(), 0);
+            }
+            if (ConfigTFCF.General.WORLD.enableGourdWorldGen && TFCFlorae.FirmaLifeAdded)
+            {
+                GameRegistry.registerWorldGenerator(new WorldGenGourds(), 0);
+            }
+        }
     }
 }

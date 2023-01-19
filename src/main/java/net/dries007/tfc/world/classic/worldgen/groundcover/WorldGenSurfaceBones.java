@@ -72,7 +72,7 @@ public class WorldGenSurfaceBones implements IWorldGenerator
         ChunkDataTFC data = ChunkDataTFC.get(world, pos);
         if (pos.getY() > 146 && pos.getY() < 170 && data.getRainfall() <= 75)
         {
-            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && (BlocksTFC.isGround(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down()))))
+            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(world.getBlockState(pos.down())))
             {
                 world.setBlockState(pos, BlocksTFCF.BONES.getDefaultState());
             }

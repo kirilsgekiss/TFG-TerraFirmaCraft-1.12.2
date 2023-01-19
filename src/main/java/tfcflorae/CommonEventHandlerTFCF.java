@@ -39,8 +39,6 @@ import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 @Mod.EventBusSubscriber(modid = TFCFLORAE_MODID)
 public final class CommonEventHandlerTFCF
 {
-    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-
     @SubscribeEvent
     public void onBlockHarvestDrops(BlockEvent.HarvestDropsEvent event)
     {

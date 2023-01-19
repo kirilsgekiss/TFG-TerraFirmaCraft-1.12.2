@@ -52,7 +52,7 @@ public class WorldGenGourds implements IWorldGenerator
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down()))))
+                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down()))))
                 {
                     final int rotationValue = random.nextInt(4);
                 }
@@ -78,7 +78,7 @@ public class WorldGenGourds implements IWorldGenerator
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFCF.isGround(world.getBlockState(pos.down()))))
+                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down()))))
                 {
                     final int rotationValue = random.nextInt(4);
                 }

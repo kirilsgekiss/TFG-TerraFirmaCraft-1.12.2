@@ -150,6 +150,6 @@ public class WorldGenWildCrops implements IWorldGenerator
 
     protected boolean isValidPosition(World world, BlockPos pos)
     {
-        return world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFCF.isSoil(world.getBlockState(pos.down())));
+        return world.isAirBlock(pos) && BlocksTFC.isSoil(world.getBlockState(pos.down()));
     }
 }
