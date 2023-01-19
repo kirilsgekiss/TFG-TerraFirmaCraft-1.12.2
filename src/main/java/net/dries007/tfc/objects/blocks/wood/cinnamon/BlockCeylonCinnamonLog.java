@@ -29,8 +29,7 @@ import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;
@@ -129,7 +128,7 @@ public class BlockCeylonCinnamonLog extends Block
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        drops.add(new ItemStack(ItemsTFCF.CEYLON_CINNAMON_POLE, 1));
+        drops.add(new ItemStack(ItemsTFC.CEYLON_CINNAMON_POLE, 1));
     }
 
     @Override

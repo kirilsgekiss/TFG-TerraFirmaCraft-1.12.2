@@ -38,7 +38,6 @@ import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.OreDictionaryHelper;
 

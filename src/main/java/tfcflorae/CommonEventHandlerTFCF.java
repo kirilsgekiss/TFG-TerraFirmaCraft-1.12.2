@@ -30,7 +30,6 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.skills.SmithingSkill;
 
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.api.types.Rock.Type;
 
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;

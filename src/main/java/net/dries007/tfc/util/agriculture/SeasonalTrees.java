@@ -21,8 +21,6 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
 
-import tfcflorae.objects.items.ItemsTFCF;
-
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public enum SeasonalTrees
 {

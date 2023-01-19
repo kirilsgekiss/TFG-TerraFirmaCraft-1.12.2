@@ -36,8 +36,8 @@ import net.dries007.tfc.objects.blocks.wood.TFCBlockFenceGateLog;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
-import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
-import tfcflorae.objects.items.ItemsTFCF;
+import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitDoor;
+import net.dries007.tfc.objects.items.ItemsTFC;
 import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.api.stateproperty.StatePropertiesTFC;
@@ -57,13 +57,13 @@ public class ClientRegisterEventsTFCF
     public static void registerModels(ModelRegistryEvent event)
     {
         // ITEMS
-        for (Item item : ItemsTFCF.getAllSimpleItems())
+        for (Item item : ItemsTFC.getAllSimpleItems())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
-        /*for (Item item : ItemsTFCF.getAllItemBows())
+        /*for (Item item : ItemsTFC.getAllItemBows())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));*/
 
-        for (ItemFruitDoor item : ItemsTFCF.getAllFruitDoors())
+        for (ItemFruitDoor item : ItemsTFC.getAllFruitDoors())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
 
@@ -193,7 +193,7 @@ public class ClientRegisterEventsTFCF
             {
                 return tintIndex > 0 ? -1 : ((ItemArmorTFCF)stack.getItem()).getColor(stack);
             }
-        }, ItemsTFCF.getAllArmorItems().toArray(new ItemArmorTFCF[0]));*/
+        }, ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFCF[0]));*/
 
 
 

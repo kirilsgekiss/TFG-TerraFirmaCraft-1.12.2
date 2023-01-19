@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import net.minecraft.init.Blocks;
 
 import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
-import tfcflorae.objects.items.ItemsTFCF;
+import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitDoor;
+import net.dries007.tfc.objects.items.ItemsTFC;
 
 public class BlockFruitDoor extends BlockDoor
 {
@@ -36,7 +36,7 @@ public class BlockFruitDoor extends BlockDoor
 
     public Item getItem() //From the way we build the ImmutableLists these two should always be sorted
     {
-        Iterator<ItemFruitDoor> ifd = ItemsTFCF.getAllFruitDoors().iterator();
+        Iterator<ItemFruitDoor> ifd = ItemsTFC.getAllFruitDoors().iterator();
         Iterator<BlockFruitDoor> bfd = BlocksTFCF.getAllFruitDoors().iterator();
         while (ifd.hasNext() && bfd.hasNext())
         {
