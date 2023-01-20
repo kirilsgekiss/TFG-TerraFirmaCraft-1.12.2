@@ -933,14 +933,10 @@ public final class TFCBlocks
             TerraFirmaCraft.getLog().info("The below warnings about unintended overrides are normal. The override is intended. ;)");
             event.getRegistry().registerAll(
                     new BlockIceTFC(FluidRegistry.WATER).setRegistryName("minecraft", "ice").setTranslationKey("ice"),
-                    new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow")
+                    new BlockSnowTFC().setRegistryName("minecraft", "snow_layer").setTranslationKey("snow"),
+                    new BlockTorchTFC().setRegistryName("minecraft", "torch").setTranslationKey("torch")
             );
 
-        }
-
-        if (ConfigTFC.General.OVERRIDES.enableTorchOverride)
-        {
-            event.getRegistry().register(new BlockTorchTFC().setRegistryName("minecraft", "torch").setTranslationKey("torch"));
         }
     }
 
