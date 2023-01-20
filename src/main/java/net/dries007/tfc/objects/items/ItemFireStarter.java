@@ -16,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -34,7 +33,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TEFirePit;
 import net.dries007.tfc.objects.te.TELogPile;
 import net.dries007.tfc.objects.te.TEPitKiln;
@@ -168,7 +167,7 @@ public class ItemFireStarter extends ItemTFC
         {
             stack.damageItem(1, player);
             final IBlockState state = world.getBlockState(pos.down());
-            if (state.getBlock() == BlocksTFC.LOG_PILE)
+            if (state.getBlock() == TFCBlocks.LOG_PILE)
             {
                 // Log pile
                 if (itemRand.nextFloat() < chance)
@@ -185,7 +184,7 @@ public class ItemFireStarter extends ItemTFC
                     }
                 }
             }
-            else if (state.getBlock() == BlocksTFC.PIT_KILN)
+            else if (state.getBlock() == TFCBlocks.PIT_KILN)
             {
                 // Pit Kiln
                 if (itemRand.nextFloat() < chance)
@@ -230,7 +229,7 @@ public class ItemFireStarter extends ItemTFC
                     final float kindlingModifier = Math.min(0.1f * (float) kindling, 0.5f);
                     if (itemRand.nextFloat() < chance + kindlingModifier)
                     {
-                        world.setBlockState(pos, BlocksTFC.FIREPIT.getDefaultState().withProperty(LIT, true));
+                        world.setBlockState(pos, TFCBlocks.FIREPIT.getDefaultState().withProperty(LIT, true));
                         TEFirePit te = Helpers.getTE(world, pos, TEFirePit.class);
                         if (te != null)
                         {

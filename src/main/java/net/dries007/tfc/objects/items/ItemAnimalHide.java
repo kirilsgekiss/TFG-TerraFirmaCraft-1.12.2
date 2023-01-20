@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -58,7 +58,7 @@ public class ItemAnimalHide extends ItemTFC
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack stack = player.getHeldItem(hand);
-        if (ConfigTFC.General.OVERRIDES.enableThatchBed && type == HideType.RAW && size == HideSize.LARGE && facing == EnumFacing.UP && worldIn.getBlockState(pos).getBlock() == BlocksTFC.THATCH && worldIn.getBlockState(pos.offset(player.getHorizontalFacing())).getBlock() == BlocksTFC.THATCH)
+        if (ConfigTFC.General.OVERRIDES.enableThatchBed && type == HideType.RAW && size == HideSize.LARGE && facing == EnumFacing.UP && worldIn.getBlockState(pos).getBlock() == TFCBlocks.THATCH && worldIn.getBlockState(pos.offset(player.getHorizontalFacing())).getBlock() == TFCBlocks.THATCH)
         {
             // Try and create a thatch bed
             BlockPos headPos = pos.offset(player.getHorizontalFacing());
@@ -67,11 +67,11 @@ public class ItemAnimalHide extends ItemTFC
             {
                 if (!worldIn.isRemote)
                 {
-                    IBlockState footState = BlocksTFC.THATCH_BED.getDefaultState().withProperty(BlockBed.OCCUPIED, false).withProperty(BlockBed.FACING, player.getHorizontalFacing()).withProperty(BlockBed.PART, BlockBed.EnumPartType.FOOT);
-                    IBlockState headState = BlocksTFC.THATCH_BED.getDefaultState().withProperty(BlockBed.OCCUPIED, false).withProperty(BlockBed.FACING, player.getHorizontalFacing().getOpposite()).withProperty(BlockBed.PART, BlockBed.EnumPartType.HEAD);
+                    IBlockState footState = TFCBlocks.THATCH_BED.getDefaultState().withProperty(BlockBed.OCCUPIED, false).withProperty(BlockBed.FACING, player.getHorizontalFacing()).withProperty(BlockBed.PART, BlockBed.EnumPartType.FOOT);
+                    IBlockState headState = TFCBlocks.THATCH_BED.getDefaultState().withProperty(BlockBed.OCCUPIED, false).withProperty(BlockBed.FACING, player.getHorizontalFacing().getOpposite()).withProperty(BlockBed.PART, BlockBed.EnumPartType.HEAD);
                     worldIn.setBlockState(pos, footState, 10);
                     worldIn.setBlockState(headPos, headState, 10);
-                    SoundType soundtype = BlocksTFC.THATCH_BED.getSoundType(footState, worldIn, pos, player);
+                    SoundType soundtype = TFCBlocks.THATCH_BED.getSoundType(footState, worldIn, pos, player);
                     worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 
                     stack.shrink(1);
@@ -90,7 +90,7 @@ public class ItemAnimalHide extends ItemTFC
             {
                 if (!worldIn.isRemote)
                 {
-                    worldIn.setBlockState(posAbove, BlocksTFC.PLACED_HIDE.getDefaultState().withProperty(SIZE, size));
+                    worldIn.setBlockState(posAbove, TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, size));
                 }
                 stack.shrink(1);
                 player.setHeldItem(hand, stack);

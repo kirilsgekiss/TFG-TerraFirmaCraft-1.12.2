@@ -15,16 +15,16 @@ import net.minecraft.block.material.Material;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockRockPressurePlate extends BlockPressurePlate
+public class TFCBlockRockPressurePlate extends BlockPressurePlate
 {
-    private static final Map<Rock, BlockRockPressurePlate> MAP = new HashMap<>();
+    private static final Map<Rock, TFCBlockRockPressurePlate> MAP = new HashMap<>();
 
-    public static BlockRockPressurePlate get(Rock rock)
+    public static TFCBlockRockPressurePlate get(Rock rock)
     {
         return MAP.get(rock);
     }
 
-    public BlockRockPressurePlate(Rock rock)
+    public TFCBlockRockPressurePlate(Rock rock)
     {
         super(Material.ROCK, Sensitivity.MOBS);
         if (MAP.put(rock, this) != null) throw new IllegalStateException("There can only be one.");

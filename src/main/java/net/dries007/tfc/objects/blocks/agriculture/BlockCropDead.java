@@ -33,7 +33,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFCF;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
@@ -213,7 +213,7 @@ public class BlockCropDead extends BlockBush
     {
         if (crop == Crop.RICE)
         {
-            return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
+            return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
         }
         else
         {

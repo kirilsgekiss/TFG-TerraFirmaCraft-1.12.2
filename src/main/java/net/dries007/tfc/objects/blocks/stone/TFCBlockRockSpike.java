@@ -17,7 +17,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 
 /**
@@ -25,7 +24,7 @@ import net.dries007.tfc.api.types.Rock;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockSpike extends BlockRockVariant
+public class TFCBlockRockSpike extends TFCBlockRockVariant
 {
     public static final PropertyBool CEILING = PropertyBool.create("ceiling"); //If this comes from ceiling
     public static final PropertyBool BASE = PropertyBool.create("base"); //If this block is the base
@@ -34,7 +33,7 @@ public class BlockRockSpike extends BlockRockVariant
     public static final AxisAlignedBB GROUND_TOP_AABB = new AxisAlignedBB(0.375D, 0, 0.375D, 0.625D, 0.75D, 0.625D);
     public static final AxisAlignedBB CEILING_TOP_AABB = new AxisAlignedBB(0.375D, 0.25D, 0.375D, 0.625D, 1D, 0.625D);
 
-    public BlockRockSpike(Rock.Type type, Rock rock)
+    public TFCBlockRockSpike(Rock.Type type, Rock rock)
     {
         super(type, rock);
     }

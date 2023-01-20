@@ -30,7 +30,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
-public class BlockTallPlantTFC extends BlockPlantTFC implements IGrowable, ITallPlant
+public class BlockTallPlantTFC extends TFCBlockPlant implements IGrowable, ITallPlant
 {
     private static final PropertyEnum<EnumBlockPart> PART = PropertyEnum.create("part", EnumBlockPart.class);
     private static final Map<Plant, BlockTallPlantTFC> MAP = new HashMap<>();

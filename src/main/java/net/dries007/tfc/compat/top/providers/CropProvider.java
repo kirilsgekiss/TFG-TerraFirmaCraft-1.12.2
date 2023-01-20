@@ -8,7 +8,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -29,12 +29,12 @@ public class CropProvider implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
         TECropBase te = Helpers.getTE(world, data.getPos(), TECropBase.class);
-        if (state.getBlock() instanceof BlockCropTFC && te != null)
+        if (state.getBlock() instanceof TFCBlockCrop && te != null)
         {
-            BlockCropTFC bs = (BlockCropTFC) state.getBlock();
+            TFCBlockCrop bs = (TFCBlockCrop) state.getBlock();
             ICrop crop = bs.getCrop();
 
-            boolean isWild = state.getValue(BlockCropTFC.WILD);
+            boolean isWild = state.getValue(TFCBlockCrop.WILD);
             float temp = ClimateTFC.getActualTemp(world, data.getPos(), -te.getLastUpdateTick());
             float rainfall = ChunkDataTFC.getRainfall(world, data.getPos());
 

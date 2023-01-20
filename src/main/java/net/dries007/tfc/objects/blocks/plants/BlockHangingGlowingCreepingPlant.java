@@ -30,7 +30,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -38,7 +38,6 @@ import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -141,7 +140,7 @@ public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF imp
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
             Material material = blockState.getMaterial();
 
-            if (material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || BlocksTFC.isGround(blockState) || worldIn.getBlockState(pos.up()).getBlock() == this)
+            if (material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || TFCBlocks.isGround(blockState) || worldIn.getBlockState(pos.up()).getBlock() == this)
             {
                 return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
             }
@@ -162,7 +161,7 @@ public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF imp
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Material material = iblockstate.getMaterial();
 
-        return material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || BlocksTFC.isGround(iblockstate);
+        return material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || TFCBlocks.isGround(iblockstate);
     }
 
     @Override
@@ -233,7 +232,7 @@ public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF imp
                 IBlockState sideState = worldIn.getBlockState(sidePos.down(2));
                 Material sideMaterial = sideState.getMaterial();
 
-                if (worldIn.isAirBlock(sidePos) && worldIn.isAirBlock(sidePos.down()) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES || sideMaterial == Material.GROUND || sideMaterial == Material.ROCK || sideMaterial == Material.WOOD || BlocksTFC.isGround(sideState)) && canBlockStay(worldIn, sidePos.down(), state))
+                if (worldIn.isAirBlock(sidePos) && worldIn.isAirBlock(sidePos.down()) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES || sideMaterial == Material.GROUND || sideMaterial == Material.ROCK || sideMaterial == Material.WOOD || TFCBlocks.isGround(sideState)) && canBlockStay(worldIn, sidePos.down(), state))
                 {
                     flag = true;
                 }
@@ -271,7 +270,7 @@ public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF imp
             IBlockState sideState = worldIn.getBlockState(sidePos.down());
             Material sideMaterial = sideState.getMaterial();
 
-            if (worldIn.isAirBlock(sidePos) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES || sideMaterial == Material.GROUND || sideMaterial == Material.ROCK || sideMaterial == Material.WOOD || BlocksTFC.isGround(sideState)) && canBlockStay(worldIn, sidePos, state))
+            if (worldIn.isAirBlock(sidePos) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES || sideMaterial == Material.GROUND || sideMaterial == Material.ROCK || sideMaterial == Material.WOOD || TFCBlocks.isGround(sideState)) && canBlockStay(worldIn, sidePos, state))
             {
                 flag = true;
             }

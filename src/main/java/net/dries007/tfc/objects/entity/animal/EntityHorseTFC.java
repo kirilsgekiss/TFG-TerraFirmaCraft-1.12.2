@@ -50,7 +50,7 @@ import net.dries007.tfc.api.util.IRidable;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
@@ -241,7 +241,7 @@ public class EntityHorseTFC extends EntityHorse implements IAnimalTFC, ILivestoc
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
             && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
             && !this.world.containsAnyLiquid(getEntityBoundingBox())
-            && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
+            && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Override

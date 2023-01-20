@@ -29,9 +29,9 @@ import net.dries007.tfc.objects.items.rock.ItemMud;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockVariantFallable extends BlockRockVariant
+public class TFCBlockRockVariantFallable extends TFCBlockRockVariant
 {
-    public BlockRockVariantFallable(Type type, Rock rock)
+    public TFCBlockRockVariantFallable(Type type, Rock rock)
     {
         super(type, rock);
         if (type.canFall())

@@ -7,7 +7,7 @@ import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
-import net.dries007.tfc.objects.blocks.metal.BlockLampTFC;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockLamp;
 import net.dries007.tfc.objects.items.ItemTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -62,7 +62,7 @@ public class ItemLamp extends ItemTFC implements IMetalItem {
                 if (!worldIn.isRemote)
                 {
                     ItemLamp lamp = (ItemLamp) stack.getItem();
-                    worldIn.setBlockState(placedPos, BlockLampTFC.get(lamp.material).getDefaultState());
+                    worldIn.setBlockState(placedPos, TFCBlockLamp.get(lamp.material).getDefaultState());
                     worldIn.playSound(null, placedPos, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     stack.shrink(1);
                     player.setHeldItem(hand, stack);

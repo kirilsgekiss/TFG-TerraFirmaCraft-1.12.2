@@ -106,12 +106,12 @@ import net.dries007.tfc.network.PacketPlayerDataUpdate;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.blocks.BlockFluidTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
-import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockRaw;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.BlockRockAnvil;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
@@ -324,7 +324,7 @@ public final class CommonEventHandler
                 event.setNewSpeed(event.getNewSpeed() + (event.getNewSpeed() * skillModifier));
             }
         }
-        if (event.getState().getBlock() instanceof BlockRockVariant)
+        if (event.getState().getBlock() instanceof TFCBlockRockVariant)
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
         }
@@ -347,8 +347,8 @@ public final class CommonEventHandler
         final EntityPlayer player = event.getEntityPlayer();
 
         // Fire onBlockActivated for in world crafting devices
-        if (state.getBlock() instanceof BlockAnvilTFC
-            || state.getBlock() instanceof BlockRockAnvil
+        if (state.getBlock() instanceof TFCBlockMetalAnvil
+            || state.getBlock() instanceof TFCBlockRockAnvil
             || state.getBlock() instanceof BlockQuern
             || state.getBlock() instanceof TFCBlockWoodSupport)
         {
@@ -364,7 +364,7 @@ public final class CommonEventHandler
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSeaWater(waterState);
+                boolean isWater = TFCBlocks.isWater(waterState), isSaltWater = TFCBlocks.isSeaWater(waterState);
                 if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
                 {
                     //Simulated so client will check if he would drink before updating stats
@@ -401,15 +401,15 @@ public final class CommonEventHandler
 
         if (ConfigTFC.General.OVERRIDES.enableHoeing)
         {
-            if (block instanceof BlockRockVariant)
+            if (block instanceof TFCBlockRockVariant)
             {
-                BlockRockVariant blockRock = (BlockRockVariant) block;
+                TFCBlockRockVariant blockRock = (TFCBlockRockVariant) block;
                 if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DIRT)
                 {
                     if (!world.isRemote)
                     {
                         world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
+                        world.setBlockState(pos, TFCBlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
                     }
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -795,7 +795,7 @@ public final class CommonEventHandler
 
         // Stop mob spawning in thatch - the list of non-spawnable light-blocking, non-collidable blocks is hardcoded in WorldEntitySpawner#canEntitySpawnBody
         // This is intentionally outside the previous world type check as this is a fix for the thatch block, not a generic spawning check.
-        if (event.getWorld().getBlockState(pos).getBlock() == BlocksTFC.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == BlocksTFC.THATCH)
+        if (event.getWorld().getBlockState(pos).getBlock() == TFCBlocks.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == TFCBlocks.THATCH)
         {
             event.setResult(Event.Result.DENY);
         }
@@ -1057,11 +1057,11 @@ public final class CommonEventHandler
         {
             if (event.getNewState().getBlock() == Blocks.STONE)
             {
-                event.setNewState(BlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
             if (event.getNewState().getBlock() == Blocks.COBBLESTONE)
             {
-                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(BlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
         }
     }

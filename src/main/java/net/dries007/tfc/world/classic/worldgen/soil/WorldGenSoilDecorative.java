@@ -14,9 +14,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
@@ -123,9 +123,9 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                             {
                                 final BlockPos pos = posHorizontal.add(0, y, 0);
                                 final IBlockState current = world.getBlockState(pos);
-                                if (BlocksTFC.isSoilOrGravel(current) || BlocksTFC.isRawStone(current))
+                                if (TFCBlocks.isSoilOrGravel(current) || TFCBlocks.isRawStone(current))
                                 {
-                                    world.setBlockState(pos, BlockRockVariant
+                                    world.setBlockState(pos, TFCBlockRockVariant
                                             .get(ChunkDataTFC.getRockHeight(world, pos), Type.SAND).getDefaultState(),
                                             2);
                                 }
@@ -183,60 +183,60 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                                 final BlockPos pos = posHorizontal.add(0, y, 0);
                                 final IBlockState current = world.getBlockState(pos);
 
-                                if (current.getBlock() instanceof BlockRockVariant)
+                                if (current.getBlock() instanceof TFCBlockRockVariant)
                                 {
-                                    BlockRockVariant blockRock = (BlockRockVariant) current.getBlock();
+                                    TFCBlockRockVariant blockRock = (TFCBlockRockVariant) current.getBlock();
 
                                     if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DRY_GRASS)
                                     {
                                         world.setBlockState(pos,
-                                                BlockRockVariant
+                                                TFCBlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, pos), Type.PODZOL)
                                                         .getDefaultState(),
                                                 2);
                                     }
                                 }
-                                else if (current.getBlock() instanceof BlockRockVariant)
+                                else if (current.getBlock() instanceof TFCBlockRockVariant)
                                 {
-                                    BlockRockVariant blockRockTFCF = (BlockRockVariant) current.getBlock();
+                                    TFCBlockRockVariant blockRockTFCF = (TFCBlockRockVariant) current.getBlock();
 
                                     if (blockRockTFCF.getType() == Type.LOAMY_SAND_GRASS || blockRockTFCF.getType() == Type.DRY_LOAMY_SAND_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAMY_SAND_PODZOL)
                                                 .getDefaultState(), 2);
                                     }
                                     else if (blockRockTFCF.getType() == Type.SANDY_LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_SANDY_LOAM_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.SANDY_LOAM_PODZOL)
                                                 .getDefaultState(), 2);
                                     }
                                     else if (blockRockTFCF.getType() == Type.LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_LOAM_GRASS)
                                     {
                                         world.setBlockState(pos,
-                                                BlockRockVariant
+                                                TFCBlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, pos), Type.LOAM_PODZOL)
                                                         .getDefaultState(),
                                                 2);
                                     }
                                     else if (blockRockTFCF.getType() == Type.SILT_LOAM_GRASS || blockRockTFCF.getType() == Type.DRY_SILT_LOAM_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_LOAM_PODZOL)
                                                 .getDefaultState(), 2);
                                     }
                                     else if (blockRockTFCF.getType() == Type.SILT_GRASS || blockRockTFCF.getType() == Type.DRY_SILT_GRASS)
                                     {
                                         world.setBlockState(pos,
-                                                BlockRockVariant
+                                                TFCBlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, pos), Type.SILT_PODZOL)
                                                         .getDefaultState(),
                                                 2);
                                     }
                                     else if (blockRockTFCF.getType() == Type.HUMUS_GRASS || blockRockTFCF.getType() == Type.DRY_HUMUS_GRASS)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_HUMUS_GRASS)
                                                 .getDefaultState(), 2);
                                     }
@@ -297,15 +297,15 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                             {
                                 final BlockPos pos = posHorizontal.add(0, y, 0);
                                 final IBlockState current = world.getBlockState(pos);
-                                if (BlocksTFC.isDirt(current))
+                                if (TFCBlocks.isDirt(current))
                                 {
-                                    world.setBlockState(pos, BlockRockVariant
+                                    world.setBlockState(pos, TFCBlockRockVariant
                                             .get(ChunkDataTFC.getRockHeight(world, pos), Type.MUD).getDefaultState(),
                                             2);
                                 }
-                                else if (BlocksTFC.isGrass(current))
+                                else if (TFCBlocks.isGrass(current))
                                 {
-                                    world.setBlockState(pos, BlockRockVariant
+                                    world.setBlockState(pos, TFCBlockRockVariant
                                             .get(ChunkDataTFC.getRockHeight(world, pos), Type.MUD).getDefaultState(),
                                             2);
                                 }
@@ -344,35 +344,35 @@ public class WorldGenSoilDecorative implements IWorldGenerator
 
                                 if (data.getRainfall() >= RAINFALL_SAND_SANDY_MIX)
                                 {
-                                    if (BlocksTFC.isDirt(current))
+                                    if (TFCBlocks.isDirt(current))
                                     {
                                         world.setBlockState(pos,
-                                                BlockRockVariant
+                                                TFCBlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, pos), Type.BOG_IRON)
                                                         .getDefaultState(),
                                                 2);
                                     }
-                                    else if (BlocksTFC.isPodzol(current) && ConfigTFC.FloraeGeneral.WORLD.enableAllPodzol)
+                                    else if (TFCBlocks.isPodzol(current) && ConfigTFC.FloraeGeneral.WORLD.enableAllPodzol)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.BOG_IRON_PODZOL)
                                                 .getDefaultState(), 2);
                                     }
-                                    else if (BlocksTFC.isSparseGrass(current) && ConfigTFC.FloraeGeneral.WORLD.enableAllSparseGrass)
+                                    else if (TFCBlocks.isSparseGrass(current) && ConfigTFC.FloraeGeneral.WORLD.enableAllSparseGrass)
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_BOG_IRON_GRASS)
                                                 .getDefaultState(), 2);
                                     }
-                                    else if (BlocksTFC.isDryGrass(current))
+                                    else if (TFCBlocks.isDryGrass(current))
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.DRY_BOG_IRON_GRASS)
                                                 .getDefaultState(), 2);
                                     }
-                                    else if (BlocksTFC.isGrass(current))
+                                    else if (TFCBlocks.isGrass(current))
                                     {
-                                        world.setBlockState(pos, BlockRockVariant
+                                        world.setBlockState(pos, TFCBlockRockVariant
                                                 .get(ChunkDataTFC.getRockHeight(world, pos), Type.SPARSE_BOG_IRON_GRASS)
                                                 .getDefaultState(), 2);
                                     }
@@ -385,7 +385,7 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                                     {
                                         if (plant.getIsClayMarking())
                                         {
-                                            BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
+                                            TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
                                             IBlockState state = plantBlock.getDefaultState();
                                             int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, posTop));
 
@@ -394,9 +394,9 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                                                 world.isAirBlock(posTop) &&
                                                 plantBlock.canBlockStay(world, posTop, state))
                                             {
-                                                if (BlocksTFC.isClay(current))
+                                                if (TFCBlocks.isClay(current))
                                                 {
-                                                    world.setBlockState(posTop, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
+                                                    world.setBlockState(posTop, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
                                                 }
                                             }
                                         }
@@ -436,13 +436,13 @@ public class WorldGenSoilDecorative implements IWorldGenerator
                         final BlockPos pos = start.add(x, y, z);
                         final IBlockState current = world.getBlockState(pos);
 
-                        if (BlocksTFC.isGrass(current))
+                        if (TFCBlocks.isGrass(current))
                         {
-                            world.setBlockState(pos, BlocksTFC.PEAT_GRASS.getDefaultState(), 2);
+                            world.setBlockState(pos, TFCBlocks.PEAT_GRASS.getDefaultState(), 2);
                         }
-                        else if (BlocksTFC.isDirt(current) || BlocksTFC.isClay(current))
+                        else if (TFCBlocks.isDirt(current) || TFCBlocks.isClay(current))
                         {
-                            world.setBlockState(pos, BlocksTFC.PEAT.getDefaultState(), 2);
+                            world.setBlockState(pos, TFCBlocks.PEAT.getDefaultState(), 2);
                         }
                     }
                 }

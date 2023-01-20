@@ -23,7 +23,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
@@ -47,20 +46,20 @@ import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.ICalendar;
 
 @ParametersAreNonnullByDefault
-public class BlockLampTFC extends Block implements ILightableBlock
+public class TFCBlockLamp extends Block implements ILightableBlock
 {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.VERTICAL);
     private static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 0.5, 0.6875);
     private static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 1, 0.6875);
 
-    private static final Map<gregtech.api.unification.material.Material, BlockLampTFC> MAP = new HashMap<>();
-    public static BlockLampTFC get(gregtech.api.unification.material.Material metal) {
+    private static final Map<gregtech.api.unification.material.Material, TFCBlockLamp> MAP = new HashMap<>();
+    public static TFCBlockLamp get(gregtech.api.unification.material.Material metal) {
         return MAP.get(metal);
     }
 
     private final gregtech.api.unification.material.Material metal;
 
-    public BlockLampTFC(gregtech.api.unification.material.Material metal)
+    public TFCBlockLamp(gregtech.api.unification.material.Material metal)
     {
         super(Material.REDSTONE_LIGHT);
 

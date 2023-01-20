@@ -29,13 +29,13 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC.AXIS;
+import static net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil.AXIS;
 
 @ParametersAreNonnullByDefault
 public class ItemAnvil extends ItemTFC implements IMetalItem
@@ -71,7 +71,7 @@ public class ItemAnvil extends ItemTFC implements IMetalItem
                 if (!worldIn.isRemote)
                 {
                     ItemAnvil anvil = (ItemAnvil) stack.getItem();
-                    worldIn.setBlockState(placedPos, BlockAnvilTFC.get(anvil.material).getDefaultState().withProperty(AXIS, player.getHorizontalFacing()));
+                    worldIn.setBlockState(placedPos, TFCBlockMetalAnvil.get(anvil.material).getDefaultState().withProperty(AXIS, player.getHorizontalFacing()));
                     worldIn.playSound(null, placedPos, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     stack.shrink(1);
                     player.setHeldItem(hand, stack);

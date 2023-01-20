@@ -26,7 +26,6 @@ import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredKaolinit
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredStonewareMold;
 import net.dries007.tfc.objects.items.devices.ItemCalendarClock;
 import net.dries007.tfc.objects.items.devices.ItemFloraDensity;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.dries007.tfc.objects.items.metal.ItemLamp;
@@ -39,7 +38,6 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBoat;
 import net.minecraft.item.ItemSnow;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -54,8 +52,8 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockSlab;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.items.ceramics.*;
@@ -518,20 +516,20 @@ public final class ItemsTFC
             }
         }
 
-        BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
-        BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
-        BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : BlocksTFC.getAllLogBlocks())
+        for (TFCBlockLog log : TFCBlocks.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new ItemBlockTFC(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())
+        for (TFCBlockWoodDoor door : TFCBlocks.getAllDoorBlocks())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new ItemDoorTFC(door), CT_DECORATIONS));
 
-        for (BlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
+        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllRockSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
+        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Tree wood : TFCRegistries.TREES.getValuesCollection())

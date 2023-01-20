@@ -18,7 +18,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
@@ -70,13 +70,13 @@ public class TreeGenSequoia implements ITreeGenerator
     {
         for (BlockPos p1 : OFFSETS)
         {
-            if (!BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down())))
+            if (!TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down())))
             {
                 if (world.getBlockState(pos.add(p1)).getMaterial().isReplaceable())
                 {
-                    if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(1))))
+                    if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(1))))
                         continue;
-                    if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
+                    if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
                         continue;
                 }
                 return false;

@@ -13,13 +13,12 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeFlower;
 import net.dries007.tfc.world.classic.worldgen.structures.StructureGeneratorCorals;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
@@ -111,7 +110,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((BlocksTFC.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == BiomesTFC.BAYOU)
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == BiomesTFC.BAYOU)
                 {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.BALD_CYPRESS).isValidLocation(avgTemperature, rainfall, density))
                     if (10f <= avgTemperature && 38f >= avgTemperature && 180f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8)
@@ -137,7 +136,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((BlocksTFC.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == BiomesTFC.MANGROVE)
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == BiomesTFC.MANGROVE)
                 {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.MANGROVE).isValidLocation(avgTemperature, rainfall, density))
                     if (15f <= avgTemperature && 40f >= avgTemperature && 200f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8)
@@ -165,7 +164,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
 
                 if (b1 != BiomesTFC.BAYOU && b1 != BiomesTFC.MARSH && !BiomesTFC.isOceanicBiome(b1) && !BiomesTFC.isLakeBiome(b1) && !BiomesTFC.isBeachBiome(b1) && !BiomesTFC.isMesaBiome(b1))
                 {
-                    if ((BlocksTFC.isSand(down) || BlocksTFC.isSoilOrGravel(down)) && (down != Blocks.HARDENED_CLAY && down != Blocks.STAINED_HARDENED_CLAY))
+                    if ((TFCBlocks.isSand(down) || TFCBlocks.isSoilOrGravel(down)) && (down != Blocks.HARDENED_CLAY && down != Blocks.STAINED_HARDENED_CLAY))
                     {
                         if (15f <= avgTemperature && 40f >= avgTemperature && 65f <= rainfall && 150f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL)
                         {

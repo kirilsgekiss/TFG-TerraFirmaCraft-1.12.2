@@ -45,7 +45,7 @@ public class BlockFluidWater extends BlockFluidTFC implements ITemperatureBlock
             {
                 if (world.getBlockState(pos.offset(face)).getBlock() != this)
                 {
-                    world.setBlockState(pos, isSalt ? BlocksTFC.SEA_ICE.getDefaultState() : Blocks.ICE.getDefaultState());
+                    world.setBlockState(pos, isSalt ? TFCBlocks.SEA_ICE.getDefaultState() : Blocks.ICE.getDefaultState());
                     break;
                 }
             }

@@ -41,11 +41,11 @@ import net.dries007.tfc.util.Helpers;
 import static net.dries007.tfc.objects.te.TEAnvilTFC.SLOT_HAMMER;
 
 @ParametersAreNonnullByDefault
-public class BlockRockAnvil extends BlockRockVariant
+public class TFCBlockRockAnvil extends TFCBlockRockVariant
 {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0, 0, 0, 1, 0.875, 1);
 
-    public BlockRockAnvil(Rock.Type type, Rock rock)
+    public TFCBlockRockAnvil(Rock.Type type, Rock rock)
     {
         super(type, rock);
 
@@ -245,7 +245,7 @@ public class BlockRockAnvil extends BlockRockVariant
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(BlockRockRaw.get(rock, Type.RAW));
+        return new ItemStack(TFCBlockRockRaw.get(rock, Type.RAW));
     }
 
     @Override

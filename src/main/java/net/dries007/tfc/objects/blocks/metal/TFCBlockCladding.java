@@ -44,10 +44,10 @@ import net.dries007.tfc.objects.te.TEMetalSheet;
 import net.dries007.tfc.util.Helpers;
 
 @ParametersAreNonnullByDefault
-public class BlockCladdingTFC extends Block
+public class TFCBlockCladding extends Block
 {
-    private static final Map<gregtech.api.unification.material.Material, BlockCladdingTFC> MAP = new HashMap<>();
-    public static BlockCladdingTFC get(gregtech.api.unification.material.Material metal)
+    private static final Map<gregtech.api.unification.material.Material, TFCBlockCladding> MAP = new HashMap<>();
+    public static TFCBlockCladding get(gregtech.api.unification.material.Material metal)
     {
         return MAP.get(metal);
     }
@@ -76,7 +76,7 @@ public class BlockCladdingTFC extends Block
 
     private final gregtech.api.unification.material.Material metal;
 
-    public BlockCladdingTFC(gregtech.api.unification.material.Material metal)
+    public TFCBlockCladding(gregtech.api.unification.material.Material metal)
     {
         super(Material.IRON);
 

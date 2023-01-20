@@ -7,11 +7,11 @@ package net.dries007.tfc.api.types;
 
 import net.minecraft.block.material.Material;
 
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 
 public interface IPlantType
 {
-    BlockPlantTFC create(Plant plant);
+    TFCBlockPlant create(Plant plant);
 
     Material getPlantMaterial();
 }

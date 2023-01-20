@@ -33,7 +33,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
-public class BlockCreepingPlantTFC extends BlockPlantTFC
+public class BlockCreepingPlantTFC extends TFCBlockPlant
 {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");

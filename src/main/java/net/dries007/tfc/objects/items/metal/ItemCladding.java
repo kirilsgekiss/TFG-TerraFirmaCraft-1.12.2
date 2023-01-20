@@ -7,7 +7,7 @@ import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
-import net.dries007.tfc.objects.blocks.metal.BlockCladdingTFC;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
 import net.dries007.tfc.objects.items.ItemTFC;
 import net.dries007.tfc.objects.te.TEMetalSheet;
 import net.dries007.tfc.util.Helpers;
@@ -62,10 +62,10 @@ public class ItemCladding extends ItemTFC implements IMetalItem {
             BlockPos posAt = pos.offset(facing);
             IBlockState stateAt = worldIn.getBlockState(posAt);
 
-            if (stateAt.getBlock() instanceof BlockCladdingTFC)
+            if (stateAt.getBlock() instanceof TFCBlockCladding)
             {
                 // Existing sheet block
-                Material metal = ((BlockCladdingTFC) stateAt.getBlock()).getMetal();
+                Material metal = ((TFCBlockCladding) stateAt.getBlock()).getMetal();
                 if (metal == sheet.material)
                 {
                     stack.shrink(1);
@@ -78,7 +78,7 @@ public class ItemCladding extends ItemTFC implements IMetalItem {
                 // Place a new block
                 if (!worldIn.isRemote)
                 {
-                    worldIn.setBlockState(posAt, BlockCladdingTFC.get(sheet.material).getDefaultState());
+                    worldIn.setBlockState(posAt, TFCBlockCladding.get(sheet.material).getDefaultState());
                     stack.shrink(1);
                     player.setHeldItem(hand, stack);
                     placeSheet(worldIn, posAt, facing);

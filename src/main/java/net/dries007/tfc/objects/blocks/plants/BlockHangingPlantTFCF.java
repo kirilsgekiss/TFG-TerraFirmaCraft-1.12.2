@@ -31,7 +31,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
@@ -266,7 +266,7 @@ public class BlockHangingPlantTFCF extends BlockPlantDummy1 implements IGrowable
         IBlockState iblockstate = world.getBlockState(pos);
         Material material = iblockstate.getMaterial();
 
-		return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || BlocksTFC.isGround(iblockstate) || blockState.getBlock() == this;
+		return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || TFCBlocks.isGround(iblockstate) || blockState.getBlock() == this;
 	}
 
     @Override

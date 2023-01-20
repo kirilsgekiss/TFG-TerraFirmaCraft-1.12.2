@@ -18,9 +18,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -61,7 +60,7 @@ public class WorldGenFissure implements IWorldGenerator
             return;
         }
 
-        final IBlockState rock = BlockRockVariant.get(getRock3(world, start), Type.RAW).getDefaultState();
+        final IBlockState rock = TFCBlockRockVariant.get(getRock3(world, start), Type.RAW).getDefaultState();
 
         int depth = 2 + random.nextInt(3);
         int radius = 1 + random.nextInt(2);
@@ -73,7 +72,7 @@ public class WorldGenFissure implements IWorldGenerator
             for (BlockPos pos : clearing)
             {
                 IBlockState block = world.getBlockState(pos.up(y));
-                if (BlocksTFC.isWater(block) && !BlocksTFC.isGround(block)) return;
+                if (TFCBlocks.isWater(block) && !TFCBlocks.isGround(block)) return;
             }
         }
 

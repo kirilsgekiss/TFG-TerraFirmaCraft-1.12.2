@@ -37,10 +37,9 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.plants.BlockMushroomTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
@@ -54,7 +53,7 @@ import net.dries007.tfc.world.classic.worldgen.WorldGenPlantTFC;
 import net.dries007.tfc.world.classic.worldgen.WorldGenTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
+import static net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop.WILD;
 
 
 /**
@@ -185,9 +184,9 @@ public class WorldRegenHandler
                 if (!topState.getMaterial().isLiquid() && (topBlock instanceof BlockCropDead || topBlock instanceof BlockMushroomTFC))
                 {
                     IBlockState soil = world.getBlockState(topPos.down());
-                    if (soil.getBlock() instanceof BlockRockVariant)
+                    if (soil.getBlock() instanceof TFCBlockRockVariant)
                     {
-                        BlockRockVariant soilRock = (BlockRockVariant) soil.getBlock();
+                        TFCBlockRockVariant soilRock = (TFCBlockRockVariant) soil.getBlock();
                         //Stop removing dead crops from farmland please!
                         if (soilRock.getType() != Type.FARMLAND)
                         {

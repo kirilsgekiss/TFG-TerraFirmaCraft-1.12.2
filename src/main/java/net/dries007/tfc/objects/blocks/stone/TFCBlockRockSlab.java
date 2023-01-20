@@ -32,22 +32,22 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public abstract class BlockRockSlab extends BlockSlab
+public abstract class TFCBlockRockSlab extends BlockSlab
 {
     public static final PropertyEnum<Variant> VARIANT = PropertyEnum.create("variant", Variant.class);
     public final Block modelBlock;
     protected Half halfSlab;
 
-    private BlockRockSlab(Rock rock, Type type)
+    private TFCBlockRockSlab(Rock rock, Type type)
     {
-        this(BlockRockVariant.get(rock, type));
-        Block c = BlockRockVariant.get(rock, type);
+        this(TFCBlockRockVariant.get(rock, type));
+        Block c = TFCBlockRockVariant.get(rock, type);
         //noinspection ConstantConditions
         setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));
         useNeighborBrightness = true;
     }
 
-    private BlockRockSlab(Block block)
+    private TFCBlockRockSlab(Block block)
     {
         super(block.getDefaultState().getMaterial());
         IBlockState state = blockState.getBaseState();
@@ -153,7 +153,7 @@ public abstract class BlockRockSlab extends BlockSlab
         }
     }
 
-    public static class Double extends BlockRockSlab
+    public static class Double extends TFCBlockRockSlab
     {
         private static final Map<Rock, EnumMap<Type, Double>> ROCK_MAP = new HashMap<>();
 
@@ -181,7 +181,7 @@ public abstract class BlockRockSlab extends BlockSlab
         }
     }
 
-    public static class Half extends BlockRockSlab
+    public static class Half extends TFCBlockRockSlab
     {
         private static final Map<Rock, EnumMap<Rock.Type, Half>> ROCK_MAP = new HashMap<>();
 

@@ -23,8 +23,8 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 
 @ParametersAreNonnullByDefault
 public class CommandStripWorld extends CommandBase
@@ -69,7 +69,7 @@ public class CommandStripWorld extends CommandBase
                     {
                         world.setBlockState(pos, fluidReplacement, 2);
                     }
-                    else if (current instanceof BlockRockVariant || current instanceof BlockPlantTFC)
+                    else if (current instanceof TFCBlockRockVariant || current instanceof TFCBlockPlant)
                     {
                         world.setBlockState(pos, terrainReplacement, 2);
                     }

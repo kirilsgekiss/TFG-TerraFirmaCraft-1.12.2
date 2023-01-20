@@ -13,7 +13,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
@@ -1492,7 +1492,7 @@ public class WorldGenCorals implements IWorldGenerator
         IBlockState south = world.getBlockState(pos.south());
         IBlockState east = world.getBlockState(pos.east());
         IBlockState west = world.getBlockState(pos.west());
-        return ((BlocksTFC.isGround(down) || up.getBlock() instanceof BlockCoralBlock || down.getBlock() instanceof BlockCoralBlock || north.getBlock() instanceof BlockCoralBlock || south.getBlock() instanceof BlockCoralBlock || east.getBlock() instanceof BlockCoralBlock || west.getBlock() instanceof BlockCoralBlock) && !(world.isAirBlock(pos.up())));
+        return ((TFCBlocks.isGround(down) || up.getBlock() instanceof BlockCoralBlock || down.getBlock() instanceof BlockCoralBlock || north.getBlock() instanceof BlockCoralBlock || south.getBlock() instanceof BlockCoralBlock || east.getBlock() instanceof BlockCoralBlock || west.getBlock() instanceof BlockCoralBlock) && !(world.isAirBlock(pos.up())));
     }
 
     protected boolean isValidPosition2(World world, BlockPos pos)

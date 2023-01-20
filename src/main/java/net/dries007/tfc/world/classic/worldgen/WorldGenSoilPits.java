@@ -19,10 +19,9 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
@@ -69,14 +68,14 @@ public class WorldGenSoilPits implements IWorldGenerator
                 {
                     final BlockPos pos = posHorizontal.add(0, y, 0);
                     final IBlockState current = world.getBlockState(pos);
-                    if (BlocksTFC.isDirt(current))
+                    if (TFCBlocks.isDirt(current))
                     {
-                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY).getDefaultState(), 2);
+                        world.setBlockState(pos, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY).getDefaultState(), 2);
                         flag = true;
                     }
-                    else if (BlocksTFC.isGrass(current))
+                    else if (TFCBlocks.isGrass(current))
                     {
-                        world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY_GRASS).getDefaultState(), 2);
+                        world.setBlockState(pos, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.CLAY_GRASS).getDefaultState(), 2);
                         flag = true;
                     }
                 }
@@ -88,7 +87,7 @@ public class WorldGenSoilPits implements IWorldGenerator
                     {
                         if (plant.getIsClayMarking())
                         {
-                            BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
+                            TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
                             IBlockState state = plantBlock.getDefaultState();
                             int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, pos));
 
@@ -97,7 +96,7 @@ public class WorldGenSoilPits implements IWorldGenerator
                                 world.isAirBlock(pos) &&
                                 plantBlock.canBlockStay(world, pos, state))
                             {
-                                world.setBlockState(pos, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
+                                world.setBlockState(pos, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
                             }
                         }
                     }
@@ -129,13 +128,13 @@ public class WorldGenSoilPits implements IWorldGenerator
                     final BlockPos pos = start.add(x, y, z);
                     final IBlockState current = world.getBlockState(pos);
 
-                    if (BlocksTFC.isGrass(current))
+                    if (TFCBlocks.isGrass(current))
                     {
-                        world.setBlockState(pos, BlocksTFC.PEAT_GRASS.getDefaultState(), 2);
+                        world.setBlockState(pos, TFCBlocks.PEAT_GRASS.getDefaultState(), 2);
                     }
-                    else if (BlocksTFC.isDirt(current) || BlocksTFC.isClay(current))
+                    else if (TFCBlocks.isDirt(current) || TFCBlocks.isClay(current))
                     {
-                        world.setBlockState(pos, BlocksTFC.PEAT.getDefaultState(), 2);
+                        world.setBlockState(pos, TFCBlocks.PEAT.getDefaultState(), 2);
                     }
                 }
             }

@@ -42,7 +42,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -123,7 +123,7 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-        return BlocksTFC.isGround(state) || (state.getBlock() == BlockTallWaterPlantTFCF.get(plant));
+        return TFCBlocks.isGround(state) || (state.getBlock() == BlockTallWaterPlantTFCF.get(plant));
     }
 
     @Override
@@ -243,8 +243,8 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         IBlockState soil = worldIn.getBlockState(pos.down());
 
         if (plant.getWaterType() == SEA_WATER)
-            return BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up()));
-        return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()));
+            return TFCBlocks.isSeaWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || TFCBlocks.isGround(soil)) && TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up()));
+        return TFCBlocks.isFreshWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || TFCBlocks.isGround(soil)) && TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up()));
     }
 
     @Override
@@ -272,7 +272,7 @@ public class BlockWaterPlantTFCF extends BlockWaterloggedPlant implements IItemS
         if (up.getBlock() instanceof BlockTallGrassWater) return false;
         if (state.getBlock() == this)
         {
-            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || BlocksTFC.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || TFCBlocks.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
         return this.canSustainBush(soil);
     }

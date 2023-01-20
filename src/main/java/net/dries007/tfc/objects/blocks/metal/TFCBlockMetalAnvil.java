@@ -14,8 +14,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
-import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.Materials;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,7 +22,6 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -56,15 +53,15 @@ import static net.dries007.tfc.objects.te.TEAnvilTFC.SLOT_HAMMER;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class BlockAnvilTFC extends Block
+public class TFCBlockMetalAnvil extends Block
 {
     public static final PropertyDirection AXIS = PropertyDirection.create("axis", EnumFacing.Plane.HORIZONTAL);
 
     private static final AxisAlignedBB AABB_Z = new AxisAlignedBB(0.1875, 0, 0, 0.8125, 0.6875, 1);
     private static final AxisAlignedBB AABB_X = new AxisAlignedBB(0, 0, 0.1875, 1, 0.6875, 0.8125);
 
-    private static final Map<gregtech.api.unification.material.Material, BlockAnvilTFC> MAP = new HashMap<>();
-    public static BlockAnvilTFC get(gregtech.api.unification.material.Material metal) {
+    private static final Map<gregtech.api.unification.material.Material, TFCBlockMetalAnvil> MAP = new HashMap<>();
+    public static TFCBlockMetalAnvil get(gregtech.api.unification.material.Material metal) {
         return MAP.get(metal);
     }
     public static ItemStack get(gregtech.api.unification.material.Material metal, int amount) {
@@ -73,7 +70,7 @@ public class BlockAnvilTFC extends Block
 
     private final gregtech.api.unification.material.Material metal;
 
-    public BlockAnvilTFC(gregtech.api.unification.material.Material metal)
+    public TFCBlockMetalAnvil(gregtech.api.unification.material.Material metal)
     {
         super(Material.IRON);
 

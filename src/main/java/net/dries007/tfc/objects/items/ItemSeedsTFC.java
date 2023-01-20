@@ -37,8 +37,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
-import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.util.agriculture.Crop;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
@@ -72,13 +72,13 @@ public class ItemSeedsTFC extends Item implements IPlantable
     @Nonnull
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        BlockCropTFC cropBlock = BlockCropTFC.get(crop);
+        TFCBlockCrop cropBlock = TFCBlockCrop.get(crop);
         ItemStack itemstack = player.getHeldItem(hand);
         IBlockState state = worldIn.getBlockState(pos);
 
-        if (crop != Crop.RICE && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()) && state.getBlock() instanceof BlockFarmlandTFC)
+        if (crop != Crop.RICE && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()) && state.getBlock() instanceof TFCBlockFarmland)
         {
-            worldIn.setBlockState(pos.up(), BlockCropTFC.get(crop).getDefaultState());
+            worldIn.setBlockState(pos.up(), TFCBlockCrop.get(crop).getDefaultState());
 
             if (player instanceof EntityPlayerMP)
             {
@@ -116,14 +116,14 @@ public class ItemSeedsTFC extends Item implements IPlantable
                     {
                         // special case for handling block placement with water lilies
                         net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
-                        worldIn.setBlockState(blockpos1, BlockCropTFC.get(crop).getDefaultState());
+                        worldIn.setBlockState(blockpos1, TFCBlockCrop.get(crop).getDefaultState());
                         if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(player, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled())
                         {
                             blocksnapshot.restore(true, false);
                             return EnumActionResult.FAIL;
                         }
 
-                        worldIn.setBlockState(blockpos1, BlockCropTFC.get(crop).getDefaultState(), 11);
+                        worldIn.setBlockState(blockpos1, TFCBlockCrop.get(crop).getDefaultState(), 11);
 
                         if (player instanceof EntityPlayerMP)
                         {
@@ -184,14 +184,14 @@ public class ItemSeedsTFC extends Item implements IPlantable
                     {
                         // special case for handling block placement with water lilies
                         net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
-                        worldIn.setBlockState(blockpos1, BlockCropTFC.get(crop).getDefaultState());
+                        worldIn.setBlockState(blockpos1, TFCBlockCrop.get(crop).getDefaultState());
                         if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, handIn).isCanceled())
                         {
                             blocksnapshot.restore(true, false);
                             return new ActionResult<>(EnumActionResult.FAIL, itemstack);
                         }
 
-                        worldIn.setBlockState(blockpos1, BlockCropTFC.get(crop).getDefaultState(), 11);
+                        worldIn.setBlockState(blockpos1, TFCBlockCrop.get(crop).getDefaultState(), 11);
 
                         if (playerIn instanceof EntityPlayerMP)
                         {
@@ -226,11 +226,11 @@ public class ItemSeedsTFC extends Item implements IPlantable
     public IBlockState getPlant(IBlockAccess world, BlockPos pos)
     {
         IBlockState state = world.getBlockState(pos);
-        if (state.getBlock() instanceof BlockCropTFC && ((BlockCropTFC) state.getBlock()).getCrop() == this.crop)
+        if (state.getBlock() instanceof TFCBlockCrop && ((TFCBlockCrop) state.getBlock()).getCrop() == this.crop)
         {
             return state;
         }
-        return BlockCropTFC.get(crop).getDefaultState();
+        return TFCBlockCrop.get(crop).getDefaultState();
     }
 
     @SideOnly(Side.CLIENT)

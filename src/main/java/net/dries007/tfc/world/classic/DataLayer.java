@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 
 /**
  * Todo: Get rid. PH is already obselete / Siesmic and drainage can be done much easier similar to rainfall / temperature
@@ -58,12 +58,12 @@ public final class DataLayer
     }
 
     public final int layerID;
-    public final BlockRockVariant block;
+    public final TFCBlockRockVariant block;
     public final String name;
     public final int valueInt;
     public final float valueFloat;
 
-    private DataLayer(int i, BlockRockVariant block, String name, int valueInt, float valueFloat)
+    private DataLayer(int i, TFCBlockRockVariant block, String name, int valueInt, float valueFloat)
     {
         this.layerID = i;
         this.block = block;

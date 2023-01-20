@@ -10,7 +10,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -72,7 +72,7 @@ public class WorldGenSurfacePinecone implements IWorldGenerator
             {
                 if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP))
                 {
-                    if (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFC.isSoilOrGravel(world.getBlockState(pos.down())))
+                    if (TFCBlocks.isSoil(world.getBlockState(pos.down())) || TFCBlocks.isSoilOrGravel(world.getBlockState(pos.down())))
                     {
                         world.setBlockState(pos, BlocksTFCF.PINECONE.getDefaultState());
                     }

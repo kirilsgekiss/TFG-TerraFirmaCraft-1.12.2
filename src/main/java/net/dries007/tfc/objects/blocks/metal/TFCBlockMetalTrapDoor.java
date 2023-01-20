@@ -11,7 +11,6 @@ import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
-import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumActionResult;
@@ -27,17 +26,17 @@ import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BlockTrapDoorMetalTFC extends BlockTrapDoor
+public class TFCBlockMetalTrapDoor extends BlockTrapDoor
 {
-    private static final Map<gregtech.api.unification.material.Material, BlockTrapDoorMetalTFC> MAP = new HashMap<>();
+    private static final Map<gregtech.api.unification.material.Material, TFCBlockMetalTrapDoor> MAP = new HashMap<>();
 
-    public static BlockTrapDoorMetalTFC get(gregtech.api.unification.material.Material metal) {
+    public static TFCBlockMetalTrapDoor get(gregtech.api.unification.material.Material metal) {
         return MAP.get(metal);
     }
 
     public final gregtech.api.unification.material.Material metal;
 
-    public BlockTrapDoorMetalTFC(gregtech.api.unification.material.Material metal)
+    public TFCBlockMetalTrapDoor(gregtech.api.unification.material.Material metal)
     {
         super(Material.IRON);
 

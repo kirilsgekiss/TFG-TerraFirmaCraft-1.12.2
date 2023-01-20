@@ -24,7 +24,7 @@ import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropSimple;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropSpreading;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -222,7 +222,7 @@ public enum Crop implements ICrop
         return ItemStack.EMPTY;
     }
 
-    public BlockCropTFC createGrowingBlock()
+    public TFCBlockCrop createGrowingBlock()
     {
         if (type == SIMPLE || type == PICKABLE)
         {

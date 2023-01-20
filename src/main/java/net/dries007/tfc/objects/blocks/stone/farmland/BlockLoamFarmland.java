@@ -24,7 +24,7 @@ import net.minecraftforge.common.IPlantable;
 import mcp.MethodsReturnNonnullByDefault;
 
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 
@@ -33,7 +33,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockLoamFarmland extends BlockFarmlandTFC
+public class BlockLoamFarmland extends TFCBlockFarmland
 {
     public static final int MAX_MOISTURE = 15;
     public static final PropertyInteger MOISTURE = PropertyInteger.create("moisture", 0, MAX_MOISTURE);
@@ -140,9 +140,9 @@ public class BlockLoamFarmland extends BlockFarmlandTFC
             {
                 // If can't see sky, or isn't moisturized, reset growth *evil laughter* >:)
                 IBlockState stateFarmland = world.getBlockState(pos);
-                if (!state.getValue(BlockCropTFC.WILD))
+                if (!state.getValue(TFCBlockCrop.WILD))
                 {
-                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof BlockFarmlandTFC && stateFarmland.getValue(MOISTURE) < 3))
+                    if (!world.canSeeSky(pos.up()) || (stateFarmland.getBlock() instanceof TFCBlockFarmland && stateFarmland.getValue(MOISTURE) < 3))
                     {
                         te.resetCounter();
                         return;

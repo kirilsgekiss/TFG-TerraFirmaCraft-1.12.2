@@ -13,18 +13,18 @@ import net.minecraft.block.SoundType;
 
 import net.dries007.tfc.api.types.Rock;
 
-public class BlockRockButton extends BlockButtonStone
+public class TFCBlockRockButton extends BlockButtonStone
 {
-    private static final Map<Rock, BlockRockButton> MAP = new HashMap<>();
+    private static final Map<Rock, TFCBlockRockButton> MAP = new HashMap<>();
 
-    public static BlockRockButton get(Rock rock)
+    public static TFCBlockRockButton get(Rock rock)
     {
         return MAP.get(rock);
     }
 
     public final Rock rock;
 
-    public BlockRockButton(Rock rock)
+    public TFCBlockRockButton(Rock rock)
     {
         this.rock = rock;
         if (MAP.put(rock, this) != null) throw new IllegalStateException("There can only be one.");

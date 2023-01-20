@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.BiomeTFC;
@@ -46,9 +46,9 @@ public class WorldGenTrees implements IWorldGenerator
                 // This matches the check in BlockPlacedItemFlat for if the block can stay
                 // Also, only add on soil, since this is called by the world regen handler later
                 IBlockState stateDown = world.getBlockState(pos.down());
-                if (world.isAirBlock(pos) && stateDown.isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(stateDown))
+                if (world.isAirBlock(pos) && stateDown.isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(stateDown))
                 {
-                    world.setBlockState(pos, BlocksTFC.PLACED_ITEM_FLAT.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.PLACED_ITEM_FLAT.getDefaultState());
                     TEPlacedItemFlat tile = (TEPlacedItemFlat) world.getTileEntity(pos);
                     if (tile != null)
                     {

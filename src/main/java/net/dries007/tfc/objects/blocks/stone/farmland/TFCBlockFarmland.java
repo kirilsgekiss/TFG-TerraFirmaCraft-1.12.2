@@ -6,10 +6,9 @@
 package net.dries007.tfc.objects.blocks.stone.farmland;
 
 import java.util.Random;
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariantFallable;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariantFallable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -36,7 +35,7 @@ import net.dries007.tfc.api.util.FallingBlockManager;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockFarmlandTFC extends BlockRockVariantFallable
+public class TFCBlockFarmland extends TFCBlockRockVariantFallable
 {
     public static final int MAX_MOISTURE = 15;
     public static final PropertyInteger MOISTURE = PropertyInteger.create("moisture", 0, MAX_MOISTURE);
@@ -61,7 +60,7 @@ public class BlockFarmlandTFC extends BlockRockVariantFallable
     private static final AxisAlignedBB FARMLAND_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockFarmlandTFC(Rock.Type type, Rock rock)
+    public TFCBlockFarmland(Rock.Type type, Rock rock)
     {
         super(type, rock);
         setDefaultState(blockState.getBaseState().withProperty(MOISTURE, 1)); // 1 is default so it doesn't instantly turn back to dirt

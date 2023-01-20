@@ -30,7 +30,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.recipes.BloomeryRecipe;
 import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
 import net.dries007.tfc.objects.blocks.BlockMolten;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockBloomery;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -138,7 +138,7 @@ public class TEBloomery extends TETickableInventory implements ITickable
                     }
                     if (cachedRecipe != null)
                     {
-                        world.setBlockState(getInternalBlock(), BlocksTFC.BLOOM.getDefaultState());
+                        world.setBlockState(getInternalBlock(), TFCBlocks.BLOOM.getDefaultState());
                         TEBloom te = Helpers.getTE(world, getInternalBlock(), TEBloom.class);
                         if (te != null)
                         {
@@ -160,7 +160,7 @@ public class TEBloomery extends TETickableInventory implements ITickable
             // Update multiblock status
             int newMaxItems = BlockBloomery.getChimneyLevels(world, getInternalBlock()) * 8;
             EnumFacing direction = world.getBlockState(pos).getValue(FACING);
-            if (!BlocksTFC.BLOOMERY.isFormed(world, getInternalBlock(), direction))
+            if (!TFCBlocks.BLOOMERY.isFormed(world, getInternalBlock(), direction))
             {
                 newMaxItems = 0;
             }
@@ -189,7 +189,7 @@ public class TEBloomery extends TETickableInventory implements ITickable
                 state = state.withProperty(LIT, false);
                 world.setBlockState(pos, state);
             }
-            if (!BlocksTFC.BLOOMERY.canGateStayInPlace(world, pos, direction.getAxis()))
+            if (!TFCBlocks.BLOOMERY.canGateStayInPlace(world, pos, direction.getAxis()))
             {
                 // Bloomery gate (the front facing) structure became compromised
                 world.destroyBlock(pos, true);
@@ -280,7 +280,7 @@ public class TEBloomery extends TETickableInventory implements ITickable
         //Dump everything in world
         for (int i = 1; i < 4; i++)
         {
-            if (world.getBlockState(getInternalBlock().up(i)).getBlock() == BlocksTFC.MOLTEN)
+            if (world.getBlockState(getInternalBlock().up(i)).getBlock() == TFCBlocks.MOLTEN)
             {
                 world.setBlockToAir(getInternalBlock().up(i));
             }
@@ -292,7 +292,7 @@ public class TEBloomery extends TETickableInventory implements ITickable
     protected boolean isInternalBlockComplete()
     {
         IBlockState inside = world.getBlockState(getInternalBlock());
-        return inside.getBlock() == BlocksTFC.CHARCOAL_PILE && inside.getValue(BlockCharcoalPile.LAYERS) >= 8;
+        return inside.getBlock() == TFCBlocks.CHARCOAL_PILE && inside.getValue(BlockCharcoalPile.LAYERS) >= 8;
     }
 
     protected void addItemsFromWorld()
@@ -362,18 +362,18 @@ public class TEBloomery extends TETickableInventory implements ITickable
                 if (slagLayers >= 4)
                 {
                     slagLayers -= 4;
-                    world.setBlockState(getInternalBlock().up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, 4));
+                    world.setBlockState(getInternalBlock().up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, 4));
                 }
                 else
                 {
-                    world.setBlockState(getInternalBlock().up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, slagLayers));
+                    world.setBlockState(getInternalBlock().up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, slagLayers));
                     slagLayers = 0;
                 }
             }
             else
             {
                 //Remove any surplus slag(ie: after cooking/structure became compromised)
-                if (world.getBlockState(getInternalBlock().up(i)).getBlock() == BlocksTFC.MOLTEN)
+                if (world.getBlockState(getInternalBlock().up(i)).getBlock() == TFCBlocks.MOLTEN)
                 {
                     world.setBlockToAir(getInternalBlock().up(i));
                 }

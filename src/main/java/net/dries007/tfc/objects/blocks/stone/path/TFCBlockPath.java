@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.blocks.stone.path;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariantFallable;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariantFallable;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -25,12 +25,12 @@ import net.dries007.tfc.api.util.FallingBlockManager;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockPathTFC extends BlockRockVariantFallable
+public class TFCBlockPath extends TFCBlockRockVariantFallable
 {
     private static final AxisAlignedBB GRASS_PATH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockPathTFC(Type type, Rock rock)
+    public TFCBlockPath(Type type, Rock rock)
     {
         super(type, rock);
         setLightOpacity(255);

@@ -11,7 +11,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -59,7 +59,7 @@ public class WorldGenSurfaceRocks implements IWorldGenerator
 
     private void generateRock(World world, BlockPos pos, Rock rock)
     {
-        if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFC.isRawStone(world.getBlockState(pos.down()))))
+        if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && (TFCBlocks.isSoil(world.getBlockState(pos.down())) || TFCBlocks.isRawStone(world.getBlockState(pos.down()))))
         {
             world.setBlockState(pos, BlockSurfaceRock.get(rock).getDefaultState());
         }

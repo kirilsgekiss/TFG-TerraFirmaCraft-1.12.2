@@ -18,7 +18,6 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -180,7 +179,7 @@ public class BlockCharcoalPile extends Block implements ILightableBlock
         {
             if (!world.isRemote)
             {
-                world.setBlockState(pos, BlocksTFC.CHARCOAL_FORGE.getDefaultState().withProperty(LIT, true));
+                world.setBlockState(pos, TFCBlocks.CHARCOAL_FORGE.getDefaultState().withProperty(LIT, true));
                 TECharcoalForge te = Helpers.getTE(world, pos, TECharcoalForge.class);
                 if (te != null)
                 {

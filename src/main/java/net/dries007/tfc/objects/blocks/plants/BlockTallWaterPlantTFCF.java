@@ -20,7 +20,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -56,9 +56,9 @@ public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGro
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
         if (water == SEA_WATER)
-            return i < plant.getMaxHeight() && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
+            return i < plant.getMaxHeight() && TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
         else
-            return i < plant.getMaxHeight() && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
+            return i < plant.getMaxHeight() && TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
     }
 
     @Override
@@ -166,7 +166,7 @@ public class BlockTallWaterPlantTFCF extends BlockWaterPlantTFCF implements IGro
         if (worldIn.isAirBlock(pos.up())) return false;
         if (state.getBlock() == this)
         {
-            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || BlocksTFC.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || TFCBlocks.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
         return this.canSustainBush(soil);
     }

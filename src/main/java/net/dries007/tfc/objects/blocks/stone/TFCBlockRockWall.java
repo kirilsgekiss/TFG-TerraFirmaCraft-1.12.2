@@ -21,18 +21,18 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 //todo: actually by-pass the variant? or would it be worth adding a mossy texture for nice looking walls
-public class BlockRockWall extends BlockWall
+public class TFCBlockRockWall extends BlockWall
 {
-    private static final Map<Rock, EnumMap<Type, BlockRockWall>> TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, TFCBlockRockWall>> TABLE = new HashMap<>();
 
-    public static BlockRockWall get(Rock rock, Type type)
+    public static TFCBlockRockWall get(Rock rock, Type type)
     {
         return TABLE.get(rock).get(type);
     }
 
-    public final BlockRockVariant parent;
+    public final TFCBlockRockVariant parent;
 
-    public BlockRockWall(BlockRockVariant modelBlock)
+    public TFCBlockRockWall(TFCBlockRockVariant modelBlock)
     {
         super(modelBlock);
 

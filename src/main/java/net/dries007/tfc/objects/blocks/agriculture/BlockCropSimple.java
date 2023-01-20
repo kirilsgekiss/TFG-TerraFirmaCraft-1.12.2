@@ -26,7 +26,7 @@ import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 
 @ParametersAreNonnullByDefault
-public abstract class BlockCropSimple extends BlockCropTFC
+public abstract class BlockCropSimple extends TFCBlockCrop
 {
     public static BlockCropSimple create(ICrop crop, boolean isPickable)
     {

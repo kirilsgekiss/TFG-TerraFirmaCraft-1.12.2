@@ -35,7 +35,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
 import net.dries007.tfc.objects.te.TEInventory;
@@ -52,7 +52,7 @@ public class TFCBlockLogPile extends Block implements ILightableBlock
     // A simplified check for display (Patchouli) purposes
     public static boolean isValidCoverBlock(IBlockState state)
     {
-        if (state.getBlock() == BlocksTFC.LOG_PILE || state.getBlock() == BlocksTFC.CHARCOAL_PILE)
+        if (state.getBlock() == TFCBlocks.LOG_PILE || state.getBlock() == TFCBlocks.CHARCOAL_PILE)
         {
             return true;
         }
@@ -65,7 +65,7 @@ public class TFCBlockLogPile extends Block implements ILightableBlock
 
     private static boolean isValidCoverBlock(IBlockState offsetState, World world, BlockPos pos, EnumFacing side)
     {
-        if (offsetState.getBlock() instanceof TFCBlockLogPile || offsetState.getBlock() == BlocksTFC.CHARCOAL_PILE)
+        if (offsetState.getBlock() instanceof TFCBlockLogPile || offsetState.getBlock() == TFCBlocks.CHARCOAL_PILE)
         {
             return true;
         }

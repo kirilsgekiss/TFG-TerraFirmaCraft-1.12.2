@@ -27,7 +27,7 @@ import net.dries007.tfc.api.types.Rock.Type;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockMud extends BlockRockVariant
+public class TFCBlockRockMud extends TFCBlockRockVariant
 {
     protected static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.6D, 1.0D);
 
@@ -45,10 +45,10 @@ public class BlockRockMud extends BlockRockVariant
 
     public static boolean isSupportingSideBlock(IBlockState state)
     {
-        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariant);
+        return state.isNormalCube() || (state.getBlock() instanceof TFCBlockRockVariant);
     }
 
-    public BlockRockMud(Type type, Rock rock)
+    public TFCBlockRockMud(Type type, Rock rock)
     {
         super(type, rock);
 

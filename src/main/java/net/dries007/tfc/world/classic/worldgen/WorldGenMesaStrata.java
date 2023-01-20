@@ -15,7 +15,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
@@ -66,8 +66,8 @@ public class WorldGenMesaStrata implements IWorldGenerator
                             IBlockState currentBlockStateTop = world.getBlockState(currentBlock.up());
                             //TFCFlorae.getLog().warn("TFCFlorae: Current 'currentBlock' is " + "X: " + currentBlock.getX() + ", Y: " + currentBlock.getY() + ", Z: " + currentBlock.getZ());
                             //if (currentBlockState instanceof BlockRockVariant && ((BlockRockVariant)(currentBlockState.getBlock())).getRock().getRockCategory() == TFCRegistries.ROCK_CATEGORIES.getValue(DefaultRocks.SEDIMENTARY))
-                            if ((y <= WorldTypeTFC.SEALEVEL + 5 && (BlocksTFC.isRawStone(currentBlockState) || BlocksTFC.isGround(currentBlockState) || BlocksTFC.isSoil(currentBlockState)  || BlocksTFC.isSoilOrGravel(currentBlockState)) && !(BlocksTFC.isGrass(currentBlockState) || BlocksTFC.isSand(currentBlockState) || BlocksTFC.isClay(currentBlockState))) ||
-                                (y > WorldTypeTFC.SEALEVEL + 5 && (BlocksTFC.isRawStone(currentBlockState) || BlocksTFC.isGround(currentBlockState) || BlocksTFC.isSoil(currentBlockState) || BlocksTFC.isSoilOrGravel(currentBlockState))))
+                            if ((y <= WorldTypeTFC.SEALEVEL + 5 && (TFCBlocks.isRawStone(currentBlockState) || TFCBlocks.isGround(currentBlockState) || TFCBlocks.isSoil(currentBlockState)  || TFCBlocks.isSoilOrGravel(currentBlockState)) && !(TFCBlocks.isGrass(currentBlockState) || TFCBlocks.isSand(currentBlockState) || TFCBlocks.isClay(currentBlockState))) ||
+                                (y > WorldTypeTFC.SEALEVEL + 5 && (TFCBlocks.isRawStone(currentBlockState) || TFCBlocks.isGround(currentBlockState) || TFCBlocks.isSoil(currentBlockState) || TFCBlocks.isSoilOrGravel(currentBlockState))))
                             {
                                 if (y >= strataLayer.getY() && y <= strataLayer.getY() + 2)
                                 {

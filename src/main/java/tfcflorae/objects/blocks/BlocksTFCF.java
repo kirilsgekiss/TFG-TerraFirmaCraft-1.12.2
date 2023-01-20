@@ -13,8 +13,8 @@ import net.dries007.tfc.objects.CreativeTabsTFC;
 import net.dries007.tfc.objects.blocks.*;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.plants.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockSlab;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeFlower;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeLog;
@@ -248,9 +248,9 @@ public final class BlocksTFCF
     private static ImmutableList<BlockFruitWorkbench> allFruitWorkbench = Helpers.getNull();
     private static ImmutableList<BlockFruitChest> allFruitChestBlocks = Helpers.getNull();
     private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = Helpers.getNull();
-    private static ImmutableList<BlockCropTFC> allCropBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockCrop> allCropBlocks = Helpers.getNull();
     private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
-    private static ImmutableList<BlockRockSlab.Half> allSlabBlocksTFC = Helpers.getNull();
+    private static ImmutableList<TFCBlockRockSlab.Half> allSlabBlocksTFC = Helpers.getNull();
     private static ImmutableList<TFCBlockWoodStairs> allStairBlocksTFC = Helpers.getNull();
     private static ImmutableList<TFCBlockPlanks> allPlanksTFC = Helpers.getNull();
     private static ImmutableList<BlockSurfaceRock> allSurfaceRocks = Helpers.getNull();
@@ -412,7 +412,7 @@ public final class BlocksTFCF
         return allFruitLoomBlocks;
     }
 
-    public static ImmutableList<BlockCropTFC> getAllCropBlocks()
+    public static ImmutableList<TFCBlockCrop> getAllCropBlocks()
     {
         return allCropBlocks;
     }
@@ -423,7 +423,7 @@ public final class BlocksTFCF
     }
 
 
-    public static ImmutableList<BlockRockSlab.Half> getAllSlabBlocksTFC()
+    public static ImmutableList<TFCBlockRockSlab.Half> getAllSlabBlocksTFC()
     {
         return allSlabBlocksTFC;
     }
@@ -616,9 +616,9 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockFruitWorkbench> fruitWorkbench = ImmutableList.builder();
         ImmutableList.Builder<BlockFruitChest> fruitChests = ImmutableList.builder();
         ImmutableList.Builder<BlockFruitLoom> fruitLoom = ImmutableList.builder();
-        ImmutableList.Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockCrop> cropBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
-        ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceRock> surfaceRock = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceFlint> surfaceFlint = ImmutableList.builder();
@@ -626,7 +626,7 @@ public final class BlocksTFCF
         ImmutableList.Builder<BlockDriftwood> surfaceDriftwood = ImmutableList.builder();
         ImmutableList.Builder<BlockTwig> surfaceTwig = ImmutableList.builder();
         ImmutableList.Builder<BlockPinecone> surfacePinecone = ImmutableList.builder();
-        ImmutableList.Builder<BlockRockSlab.Half> blockSlabTFC = new Builder<>();
+        ImmutableList.Builder<TFCBlockRockSlab.Half> blockSlabTFC = new Builder<>();
         ImmutableList.Builder<TFCBlockWoodStairs> blockStairTFC = new Builder<>();
         ImmutableList.Builder<TFCBlockPlanks> planksTFC = ImmutableList.builder();
         ImmutableList.Builder<BlockPebbleWater> pebbleWater = ImmutableList.builder();

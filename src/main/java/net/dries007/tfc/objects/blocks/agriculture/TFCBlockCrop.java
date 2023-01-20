@@ -39,10 +39,10 @@ import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFCF;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
 import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
-import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
@@ -55,7 +55,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public abstract class BlockCropTFC extends BlockBush
+public abstract class TFCBlockCrop extends BlockBush
 {
     // stage properties
     public static final PropertyInteger STAGE_8 = PropertyInteger.create("stage", 0, 7);
@@ -86,7 +86,7 @@ public abstract class BlockCropTFC extends BlockBush
     private static final int META_GROWTH = 7;
 
     // static field for conversion from crop to Block
-    private static final Map<ICrop, BlockCropTFC> MAP = new HashMap<>();
+    private static final Map<ICrop, TFCBlockCrop> MAP = new HashMap<>();
 
     static
     {
@@ -96,7 +96,7 @@ public abstract class BlockCropTFC extends BlockBush
         STAGE_MAP.put(8, STAGE_8);
     }
 
-    public static BlockCropTFC get(ICrop crop)
+    public static TFCBlockCrop get(ICrop crop)
     {
         return MAP.get(crop);
     }
@@ -113,7 +113,7 @@ public abstract class BlockCropTFC extends BlockBush
 
     private final ICrop crop;
 
-    public BlockCropTFC(ICrop crop)
+    public TFCBlockCrop(ICrop crop)
     {
         super(Material.PLANTS);
 
@@ -243,7 +243,7 @@ public abstract class BlockCropTFC extends BlockBush
                 IBlockState stateFarmland = worldIn.getBlockState(pos.down());
                 if (!state.getValue(WILD))
                 {
-                    if (!worldIn.canSeeSky(pos) || (stateFarmland.getBlock() instanceof BlockFarmlandTFC && stateFarmland.getValue(BlockFarmlandTFC.MOISTURE) < 3))
+                    if (!worldIn.canSeeSky(pos) || (stateFarmland.getBlock() instanceof TFCBlockFarmland && stateFarmland.getValue(TFCBlockFarmland.MOISTURE) < 3))
                     {
                         te.resetCounter();
                         return;
@@ -266,7 +266,7 @@ public abstract class BlockCropTFC extends BlockBush
                     {
                         grow(worldIn, pos, state, random);
                         state = worldIn.getBlockState(pos);
-                        if (state.getBlock() instanceof BlockCropTFC && !state.getValue(WILD) && state.getValue(getStageProperty()) == crop.getMaxStage())
+                        if (state.getBlock() instanceof TFCBlockCrop && !state.getValue(WILD) && state.getValue(getStageProperty()) == crop.getMaxStage())
                         {
                             fullGrownStages++;
                             if (fullGrownStages > 2)
@@ -302,7 +302,7 @@ public abstract class BlockCropTFC extends BlockBush
         {
             return 0.8f;
         }
-        else if (stateFarmland.getBlock() instanceof BlockFarmlandTFC)
+        else if (stateFarmland.getBlock() instanceof TFCBlockFarmland)
         {
             return 1f;
         }
@@ -369,7 +369,7 @@ public abstract class BlockCropTFC extends BlockBush
     {
         if (crop == Crop.RICE)
         {
-            return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
+            return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
         }
         else
         {

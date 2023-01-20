@@ -8,8 +8,18 @@ package net.dries007.tfc.objects.blocks;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
+import net.dries007.tfc.api.types.Plant;
+import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockLamp;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
+import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.te.*;
+import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
@@ -29,29 +39,24 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockCrate;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrn;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockUrnLoot;
-import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.devices.*;
-import net.dries007.tfc.objects.blocks.metal.*;
 import net.dries007.tfc.objects.blocks.plants.BlockFloatingWaterTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.stone.*;
-import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.items.itemblock.*;
-import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.util.agriculture.BerryBush;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.agriculture.FruitTree;
@@ -64,7 +69,7 @@ import static net.dries007.tfc.util.Helpers.getNull;
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = MOD_ID)
 @GameRegistry.ObjectHolder(MOD_ID)
-public final class BlocksTFC
+public final class TFCBlocks
 {
     @GameRegistry.ObjectHolder("ceramics/fired/large_vessel")
     public static final BlockLargeVessel FIRED_LARGE_VESSEL = getNull();
@@ -127,8 +132,8 @@ public final class BlocksTFC
     private static ImmutableList<TFCBlockBarrel> allBarrelBlocksBlocks;
 
     private static ImmutableList<BlockFluidBase> allFluidBlocks;
-    private static ImmutableList<BlockRockVariant> allBlockRockVariants;
-    private static ImmutableList<BlockRockWall> allWallBlocks;
+    private static ImmutableList<TFCBlockRockVariant> allBlockRockVariants;
+    private static ImmutableList<TFCBlockRockWall> allWallBlocks;
     private static ImmutableList<TFCBlockLog> allLogBlocks;
     private static ImmutableList<TFCBlockPlanks> allPlankBlocks;
     private static ImmutableList<TFCBlockWorkbench> allWorkbenchBlocks;
@@ -141,20 +146,20 @@ public final class BlocksTFC
     private static ImmutableList<TFCBlockSapling> allSaplingBlocks;
     private static ImmutableList<TFCBlockWoodDoor> allDoorBlocks;
     private static ImmutableList<TFCBlockWoodTrapDoor> allTrapDoorWoodBlocks;
-    private static ImmutableList<BlockTrapDoorMetalTFC> allTrapDoorMetalBlocks;
-    private static ImmutableList<BlockRockStairs> allRockStairsBlocks;
+    private static ImmutableList<TFCBlockMetalTrapDoor> allBlockMetalTrapDoor;
+    private static ImmutableList<TFCBlockRockStairs> allRockStairsBlocks;
     private static ImmutableList<TFCBlockWoodStairs> allWoodStairsBlocks;
-    private static ImmutableList<BlockRockSlab.Half> allRockSlabBlocks;
+    private static ImmutableList<TFCBlockRockSlab.Half> allRockSlabBlocks;
     private static ImmutableList<TFCBlockWoodSlab.Half> allWoodSlabBlocks;
     private static ImmutableList<TFCBlockChest> allChestBlocks;
-    private static ImmutableList<BlockAnvilTFC> allAnvils;
-    private static ImmutableList<BlockCladdingTFC> allSheets;
-    private static ImmutableList<BlockLampTFC> allLamps;
+    private static ImmutableList<TFCBlockMetalAnvil> allBlcokAnvils;
+    private static ImmutableList<TFCBlockCladding> allBlockCladding;
+    private static ImmutableList<TFCBlockLamp> allBlockLamps;
     private static ImmutableList<TFCBlockToolRack> allToolRackBlocks;
-    private static ImmutableList<BlockCropTFC> allCropBlocks;
+    private static ImmutableList<TFCBlockCrop> allCropBlocks;
     private static ImmutableList<BlockCropDead> allDeadCropBlocks;
-    private static ImmutableList<BlockPlantTFC> allPlantBlocks;
-    private static ImmutableList<BlockPlantTFC> allGrassBlocks;
+    private static ImmutableList<TFCBlockPlant> allPlantBlocks;
+    private static ImmutableList<TFCBlockPlant> allGrassBlocks;
     private static ImmutableList<TFCBlockLoom> allLoomBlocks;
     private static ImmutableList<TFCBlockWoodSupport> allSupportBlocks;
     private static ImmutableList<BlockFlowerPotTFC> allFlowerPots;
@@ -189,7 +194,7 @@ public final class BlocksTFC
         return allFluidBlocks;
     }
 
-    public static ImmutableList<BlockRockVariant> getAllBlockRockVariants()
+    public static ImmutableList<TFCBlockRockVariant> getAllBlockRockVariants()
     {
         return allBlockRockVariants;
     }
@@ -236,7 +241,7 @@ public final class BlocksTFC
         return allWoodButtonBlocks;
     }
 
-    public static ImmutableList<BlockRockWall> getAllWallBlocks()
+    public static ImmutableList<TFCBlockRockWall> getAllWallBlocks()
     {
         return allWallBlocks;
     }
@@ -256,12 +261,12 @@ public final class BlocksTFC
         return allTrapDoorWoodBlocks;
     }
 
-    public static ImmutableList<BlockTrapDoorMetalTFC> getAllTrapDoorMetalBlocks()
+    public static ImmutableList<TFCBlockMetalTrapDoor> getAllBlockMetalTrapDoor()
     {
-        return allTrapDoorMetalBlocks;
+        return allBlockMetalTrapDoor;
     }
 
-    public static ImmutableList<BlockRockStairs> getAllRockStairsBlocks()
+    public static ImmutableList<TFCBlockRockStairs> getAllRockStairsBlocks()
     {
         return allRockStairsBlocks;
     }
@@ -271,7 +276,7 @@ public final class BlocksTFC
         return allWoodStairsBlocks;
     }
 
-    public static ImmutableList<BlockRockSlab.Half> getAllRockSlabBlocks()
+    public static ImmutableList<TFCBlockRockSlab.Half> getAllRockSlabBlocks()
     {
         return allRockSlabBlocks;
     }
@@ -286,19 +291,19 @@ public final class BlocksTFC
         return allChestBlocks;
     }
 
-    public static ImmutableList<BlockAnvilTFC> getAllAnvils()
+    public static ImmutableList<TFCBlockMetalAnvil> getAllBlcokAnvils()
     {
-        return allAnvils;
+        return allBlcokAnvils;
     }
 
-    public static ImmutableList<BlockCladdingTFC> getAllSheets()
+    public static ImmutableList<TFCBlockCladding> getAllBlockCladding()
     {
-        return allSheets;
+        return allBlockCladding;
     }
 
-    public static ImmutableList<BlockLampTFC> getAllLamps()
+    public static ImmutableList<TFCBlockLamp> getAllBlockLamps()
     {
-        return allLamps;
+        return allBlockLamps;
     }
 
     public static ImmutableList<TFCBlockToolRack> getAllToolRackBlocks()
@@ -306,7 +311,7 @@ public final class BlocksTFC
         return allToolRackBlocks;
     }
 
-    public static ImmutableList<BlockCropTFC> getAllCropBlocks()
+    public static ImmutableList<TFCBlockCrop> getAllCropBlocks()
     {
         return allCropBlocks;
     }
@@ -316,12 +321,12 @@ public final class BlocksTFC
         return allDeadCropBlocks;
     }
 
-    public static ImmutableList<BlockPlantTFC> getAllPlantBlocks()
+    public static ImmutableList<TFCBlockPlant> getAllPlantBlocks()
     {
         return allPlantBlocks;
     }
 
-    public static ImmutableList<BlockPlantTFC> getAllGrassBlocks()
+    public static ImmutableList<TFCBlockPlant> getAllGrassBlocks()
     {
         return allGrassBlocks;
     }
@@ -437,6 +442,7 @@ public final class BlocksTFC
             BlockDecorativeStone.ALABASTER_RAW.put(dyeColor, raw);
         }
 
+        // Fluid
         // Apparently this is the way we're supposed to do things even though the fluid registry defaults. So we'll do it this way.
         Builder<BlockFluidBase> fluids = ImmutableList.builder();
         {
@@ -498,19 +504,19 @@ public final class BlocksTFC
         }
 
         {
-            Builder<BlockRockVariant> b = ImmutableList.builder();
-            for (Rock.Type type : values())
+            Builder<TFCBlockRockVariant> b = ImmutableList.builder();
+            for (Type type : values())
             {
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                 {
                     if (type != ANVIL)
                     {
-                        b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
+                        b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
                     }
                     else if (rock.getRockCategory().hasAnvil())
                     {
                         // Anvil registration is special, is has it's own folder
-                        register(r, "anvil/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type));
+                        register(r, "anvil/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type));
                     }
                 }
             }
@@ -544,89 +550,89 @@ public final class BlocksTFC
                             }
                         case RAW:
                             spec = new FallingBlockManager.Specification(spec);
-                            spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
-                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, RAW), spec);
+                            spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
+                            FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, RAW), spec);
                             break;
                         case SMOOTH:
                             spec = new FallingBlockManager.Specification(spec);
-                            spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
-                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(BlockRockSmooth.CAN_FALL, true), spec);
+                            spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
+                            FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(TFCBlockRockSmooth.CAN_FALL, true), spec);
                             break;
                         default:
                             Rock.Type nonGrassType = type.getNonGrassVersion();
                             if (nonGrassType != type)
                             {
                                 spec = new FallingBlockManager.Specification(spec);
-                                spec.setResultingState(BlockRockVariant.get(rock, nonGrassType).getDefaultState());
+                                spec.setResultingState(TFCBlockRockVariant.get(rock, nonGrassType).getDefaultState());
                             }
-                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, type), spec);
+                            FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, type), spec);
                     }
                 }
             }
         }
 
         {
-            Builder<TFCBlockLog> logs = ImmutableList.builder();
-            Builder<TFCBlockPlanks> planks = ImmutableList.builder();
-            Builder<TFCBlockWorkbench> workbenches = ImmutableList.builder();
-            Builder<TFCBlockBookshelf> bookshelfs = ImmutableList.builder();
-            Builder<TFCBlockLeaves> leaves = ImmutableList.builder();
-            Builder<TFCBlockFenceGate> fenceGates = ImmutableList.builder();
-            Builder<TFCBlockFence> fence = ImmutableList.builder();
-            Builder<TFCBlockWoodPressurePlate> woodPressurePlate = ImmutableList.builder();
-            Builder<TFCBlockWoodButton> woodButton = ImmutableList.builder();
-            Builder<TFCBlockSapling> saplings = ImmutableList.builder();
-            Builder<TFCBlockWoodDoor> doors = ImmutableList.builder();
-            Builder<TFCBlockWoodTrapDoor> trapDoors = ImmutableList.builder();
-            Builder<TFCBlockChest> chests = ImmutableList.builder();
-            Builder<TFCBlockToolRack> toolRacks = ImmutableList.builder();
-            Builder<TFCBlockBarrel> barrelBlocks = ImmutableList.builder();
-            Builder<BlockPlantTFC> plants = ImmutableList.builder();
-            Builder<TFCBlockLoom> looms = ImmutableList.builder();
-            Builder<TFCBlockWoodSupport> supports = ImmutableList.builder();
+            Builder<TFCBlockLog> blockLogs = ImmutableList.builder();
+            Builder<TFCBlockPlanks> blockPlanks = ImmutableList.builder();
+            Builder<TFCBlockWorkbench> blockWorkbenches = ImmutableList.builder();
+            Builder<TFCBlockBookshelf> blockBookshelfs = ImmutableList.builder();
+            Builder<TFCBlockLeaves> blockLeaves = ImmutableList.builder();
+            Builder<TFCBlockFenceGate> blockFenceGates = ImmutableList.builder();
+            Builder<TFCBlockFence> blockFence = ImmutableList.builder();
+            Builder<TFCBlockWoodPressurePlate> blockWoodPressurePlate = ImmutableList.builder();
+            Builder<TFCBlockWoodButton> blockWoodButton = ImmutableList.builder();
+            Builder<TFCBlockSapling> blockSaplings = ImmutableList.builder();
+            Builder<TFCBlockWoodDoor> blockDoors = ImmutableList.builder();
+            Builder<TFCBlockWoodTrapDoor> blockTrapDoors = ImmutableList.builder();
+            Builder<TFCBlockChest> blockChests = ImmutableList.builder();
+            Builder<TFCBlockToolRack> blockToolRacks = ImmutableList.builder();
+            Builder<TFCBlockBarrel> blockBarrel = ImmutableList.builder();
+            Builder<TFCBlockPlant> blockPlants = ImmutableList.builder();
+            Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
+            Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
 
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
             {
-                logs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new TFCBlockLog(wood), CT_WOOD));
-                planks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new TFCBlockPlanks(wood), CT_WOOD));
-                workbenches.add(register(r, "wood/workbench/" + wood.getRegistryName().getPath(), new TFCBlockWorkbench(wood), CT_DECORATIONS));
-                bookshelfs.add(register(r, "wood/bookshelf/" + wood.getRegistryName().getPath(), new TFCBlockBookshelf(wood), CT_DECORATIONS));
-                leaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new TFCBlockLeaves(wood), CT_WOOD));
-                fenceGates.add(register(r, "wood/fence_gate/" + wood.getRegistryName().getPath(), new TFCBlockFenceGate(wood), CT_DECORATIONS));
-                fence.add(register(r, "wood/fence/" + wood.getRegistryName().getPath(), new TFCBlockFence(wood), CT_DECORATIONS));
-                woodButton.add(register(r, "wood/button/" + wood.getRegistryName().getPath(), new TFCBlockWoodButton(wood), CT_DECORATIONS));
-                woodPressurePlate.add(register(r, "wood/pressure_plate/" + wood.getRegistryName().getPath().toLowerCase(), new TFCBlockWoodPressurePlate(wood), CT_DECORATIONS));
-                saplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new TFCBlockSapling(wood), CT_WOOD));
-                doors.add(register(r, "wood/door/" + wood.getRegistryName().getPath(), new TFCBlockWoodDoor(wood), CT_DECORATIONS));
-                trapDoors.add(register(r, "wood/trapdoor/" + wood.getRegistryName().getPath(), new TFCBlockWoodTrapDoor(wood), CT_DECORATIONS));
-                chests.add(register(r, "wood/chest/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCBASIC, wood), CT_DECORATIONS));
-                chests.add(register(r, "wood/chest_trap/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCTRAP, wood), CT_DECORATIONS));
+                blockLogs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new TFCBlockLog(wood), CT_WOOD));
+                blockPlanks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new TFCBlockPlanks(wood), CT_WOOD));
+                blockWorkbenches.add(register(r, "wood/workbench/" + wood.getRegistryName().getPath(), new TFCBlockWorkbench(wood), CT_DECORATIONS));
+                blockBookshelfs.add(register(r, "wood/bookshelf/" + wood.getRegistryName().getPath(), new TFCBlockBookshelf(wood), CT_DECORATIONS));
+                blockLeaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new TFCBlockLeaves(wood), CT_WOOD));
+                blockFenceGates.add(register(r, "wood/fence_gate/" + wood.getRegistryName().getPath(), new TFCBlockFenceGate(wood), CT_DECORATIONS));
+                blockFence.add(register(r, "wood/fence/" + wood.getRegistryName().getPath(), new TFCBlockFence(wood), CT_DECORATIONS));
+                blockWoodButton.add(register(r, "wood/button/" + wood.getRegistryName().getPath(), new TFCBlockWoodButton(wood), CT_DECORATIONS));
+                blockWoodPressurePlate.add(register(r, "wood/pressure_plate/" + wood.getRegistryName().getPath().toLowerCase(), new TFCBlockWoodPressurePlate(wood), CT_DECORATIONS));
+                blockSaplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new TFCBlockSapling(wood), CT_WOOD));
+                blockDoors.add(register(r, "wood/door/" + wood.getRegistryName().getPath(), new TFCBlockWoodDoor(wood), CT_DECORATIONS));
+                blockTrapDoors.add(register(r, "wood/trapdoor/" + wood.getRegistryName().getPath(), new TFCBlockWoodTrapDoor(wood), CT_DECORATIONS));
+                blockChests.add(register(r, "wood/chest/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCBASIC, wood), CT_DECORATIONS));
+                blockChests.add(register(r, "wood/chest_trap/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCTRAP, wood), CT_DECORATIONS));
 
-                toolRacks.add(register(r, "wood/tool_rack/" + wood.getRegistryName().getPath(), new TFCBlockToolRack(wood), CT_DECORATIONS));
-                barrelBlocks.add(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new TFCBlockBarrel(wood), CT_DECORATIONS));
+                blockToolRacks.add(register(r, "wood/tool_rack/" + wood.getRegistryName().getPath(), new TFCBlockToolRack(wood), CT_DECORATIONS));
+                blockBarrel.add(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new TFCBlockBarrel(wood), CT_DECORATIONS));
 
-                looms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new TFCBlockLoom(wood), CT_WOOD));
-                supports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new TFCBlockWoodSupport(wood), CT_WOOD));
+                blockLooms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new TFCBlockLoom(wood), CT_WOOD));
+                blockSupports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new TFCBlockWoodSupport(wood), CT_WOOD));
             }
 
-            allPlankBlocks = planks.build();
-            allWorkbenchBlocks = workbenches.build();
-            allBookshelfBlocks = bookshelfs.build();
-            allLoomBlocks = looms.build();
-            allFenceGateBlocks = fenceGates.build();
-            allFenceBlocks = fence.build();
-            allWoodButtonBlocks = woodButton.build();
-            allWoodPressurePlateBlocks = woodPressurePlate.build();
-            allBarrelBlocksBlocks = barrelBlocks.build();
+            allPlankBlocks = blockPlanks.build();
+            allWorkbenchBlocks = blockWorkbenches.build();
+            allBookshelfBlocks = blockBookshelfs.build();
+            allLoomBlocks = blockLooms.build();
+            allFenceGateBlocks = blockFenceGates.build();
+            allFenceBlocks = blockFence.build();
+            allWoodButtonBlocks = blockWoodButton.build();
+            allWoodPressurePlateBlocks = blockWoodPressurePlate.build();
+            allBarrelBlocksBlocks = blockBarrel.build();
 
-            allLogBlocks = logs.build();
-            allLeafBlocks = leaves.build();
-            allSaplingBlocks = saplings.build();
-            allDoorBlocks = doors.build();
-            allTrapDoorWoodBlocks = trapDoors.build();
-            allChestBlocks = chests.build();
-            allToolRackBlocks = toolRacks.build();
-            allSupportBlocks = supports.build();
+            allLogBlocks = blockLogs.build();
+            allLeafBlocks = blockLeaves.build();
+            allSaplingBlocks = blockSaplings.build();
+            allDoorBlocks = blockDoors.build();
+            allTrapDoorWoodBlocks = blockTrapDoors.build();
+            allChestBlocks = blockChests.build();
+            allToolRackBlocks = blockToolRacks.build();
+            allSupportBlocks = blockSupports.build();
 
             // logs are special
             allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
@@ -648,21 +654,21 @@ public final class BlocksTFC
         }
 
         {
-            Builder<BlockRockWall> blockWallTFC = ImmutableList.builder();
-            Builder<BlockRockStairs> blockRockStairsTFC = new Builder<>();
+            Builder<TFCBlockRockWall> blockWallTFC = ImmutableList.builder();
+            Builder<TFCBlockRockStairs> blockRockStairsTFC = new Builder<>();
             Builder<TFCBlockWoodStairs> blockWoodStairsTFC = new Builder<>();
-            Builder<BlockRockSlab.Half> blockRockSlabTFC = new Builder<>();
+            Builder<TFCBlockRockSlab.Half> blockRockSlabTFC = new Builder<>();
             Builder<TFCBlockWoodSlab.Half> blockWoodSlabTFC = new Builder<>();
 
             // Walls
             for (Type type : new Type[] {SMOOTH, COBBLE, BRICKS, MUD_BRICKS})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockWallTFC.add(register(r, ("wall/" + type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockRockWall(BlockRockVariant.get(rock, type)), CT_DECORATIONS));
+                    blockWallTFC.add(register(r, ("wall/" + type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockWall(TFCBlockRockVariant.get(rock, type)), CT_DECORATIONS));
 
             // Stairs
             for (Type type : new Type[] {SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockRockStairsTFC.add(register(r, "stairs/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockRockStairs(rock, type), CT_DECORATIONS));
+                    blockRockStairsTFC.add(register(r, "stairs/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockStairs(rock, type), CT_DECORATIONS));
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
                 blockWoodStairsTFC.add(register(r, "stairs/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodStairs(wood), CT_DECORATIONS));
 
@@ -670,22 +676,22 @@ public final class BlocksTFC
             // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
             for (Type type : new Type[] {SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    register(r, "double_slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockRockSlab.Double(rock, type));
+                    register(r, "double_slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockSlab.Double(rock, type));
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
                 register(r, "double_slab/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Double(wood));
 
             // Slabs
             for (Type type : new Type[] {SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
-                    blockRockSlabTFC.add(register(r, "slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new BlockRockSlab.Half(rock, type), CT_DECORATIONS));
+                    blockRockSlabTFC.add(register(r, "slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockSlab.Half(rock, type), CT_DECORATIONS));
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
                 blockWoodSlabTFC.add(register(r, "slab/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Half(wood), CT_DECORATIONS));
 
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
             {
                 // Redstone things
-                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/button/" + rock.getRegistryName().getPath().toLowerCase(), new BlockRockButton(rock), CT_DECORATIONS)));
-                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/pressure_plate/" + rock.getRegistryName().getPath().toLowerCase(), new BlockRockPressurePlate(rock), CT_DECORATIONS)));
+                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/button/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockButton(rock), CT_DECORATIONS)));
+                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/pressure_plate/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockPressurePlate(rock), CT_DECORATIONS)));
             }
 
             allWallBlocks = blockWallTFC.build();
@@ -693,43 +699,44 @@ public final class BlocksTFC
             allWoodStairsBlocks = blockWoodStairsTFC.build();
             allRockSlabBlocks = blockRockSlabTFC.build();
             allWoodSlabBlocks = blockWoodSlabTFC.build();
+
             allWallBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allRockStairsBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
             allWoodStairsBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
         }
 
         {
-            Builder<BlockAnvilTFC> anvils = ImmutableList.builder();
-            Builder<BlockCladdingTFC> sheets = ImmutableList.builder();
-            Builder<BlockLampTFC> lamps = ImmutableList.builder();
-            Builder<BlockTrapDoorMetalTFC> metalTrapdoors = ImmutableList.builder();
+            Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
+            Builder<TFCBlockCladding> blockCladding = ImmutableList.builder();
+            Builder<TFCBlockLamp> blockLamps = ImmutableList.builder();
+            Builder<TFCBlockMetalTrapDoor> blockMetalTrapdoors = ImmutableList.builder();
 
             for (gregtech.api.unification.material.Material material : GregTechAPI.MATERIAL_REGISTRY)
             {
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
-                    anvils.add(register(r, "anvil/" + material.getUnlocalizedName(), new BlockAnvilTFC(material), CT_METAL));
+                    blockAnvils.add(register(r, "anvil/" + material.getUnlocalizedName(), new TFCBlockMetalAnvil(material), CT_METAL));
                 }
 
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_CLADDING)) {
-                    sheets.add(register(r, "cladding/" + material.getUnlocalizedName(), new BlockCladdingTFC(material), CT_METAL));
+                    blockCladding.add(register(r, "cladding/" + material.getUnlocalizedName(), new TFCBlockCladding(material), CT_METAL));
                 }
 
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_TRAPDOOR)) {
-                    metalTrapdoors.add(register(r, "trapdoor/" + material.getUnlocalizedName(), new BlockTrapDoorMetalTFC(material), CT_METAL));
+                    blockMetalTrapdoors.add(register(r, "trapdoor/" + material.getUnlocalizedName(), new TFCBlockMetalTrapDoor(material), CT_METAL));
                 }
 
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_LAMP)) {
-                    lamps.add(register(r, "lamp/" + material.getUnlocalizedName(), new BlockLampTFC(material), CT_METAL));
+                    blockLamps.add(register(r, "lamp/" + material.getUnlocalizedName(), new TFCBlockLamp(material), CT_METAL));
                 }
             }
 
-            allAnvils = anvils.build();
-            allSheets = sheets.build();
-            allLamps = lamps.build();
-            allTrapDoorMetalBlocks = metalTrapdoors.build();
+            allBlcokAnvils = blockAnvils.build();
+            allBlockCladding = blockCladding.build();
+            allBlockLamps = blockLamps.build();
+            allBlockMetalTrapDoor = blockMetalTrapdoors.build();
         }
 
-        Builder<BlockCropTFC> cropBlocks = ImmutableList.builder();
+        Builder<TFCBlockCrop> cropBlocks = ImmutableList.builder();
         {
 
             for (Crop crop : Crop.values())
@@ -795,7 +802,7 @@ public final class BlocksTFC
 
         {
 
-            Builder<BlockPlantTFC> b = ImmutableList.builder();
+            Builder<TFCBlockPlant> b = ImmutableList.builder();
             Builder<BlockFlowerPotTFC> pots = ImmutableList.builder();
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
@@ -819,7 +826,7 @@ public final class BlocksTFC
             allPlantBlocks = b.build();
             allFlowerPots = pots.build();
 
-            for (BlockPlantTFC blockPlant : allPlantBlocks)
+            for (TFCBlockPlant blockPlant : allPlantBlocks)
             {
                 if (blockPlant instanceof BlockFloatingWaterTFC)
                 {
@@ -837,14 +844,14 @@ public final class BlocksTFC
         }
 
         {
-            Builder<BlockPlantTFC> b = ImmutableList.builder();
+            Builder<TFCBlockPlant> b = ImmutableList.builder();
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
                 if (plant.getPlantType() == Plant.PlantType.SHORT_GRASS || plant.getPlantType() == Plant.PlantType.TALL_GRASS)
                     b.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));
             }
             allGrassBlocks = b.build();
-            for (BlockPlantTFC blockPlant : allGrassBlocks)
+            for (TFCBlockPlant blockPlant : allGrassBlocks)
             {
                 normalItemBlocks.add(new ItemBlockTFC(blockPlant));
             }
@@ -964,9 +971,9 @@ public final class BlocksTFC
 
     public static boolean isRawStone(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Rock.Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == RAW ||
                 type == COBBLE ||
                 type == SMOOTH ||
@@ -975,9 +982,9 @@ public final class BlocksTFC
 
     public static boolean isClay(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == CLAY ||
                 type == CLAY_GRASS ||
                 type == MUD ||
@@ -1143,9 +1150,9 @@ public final class BlocksTFC
 
     public static boolean isDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == DIRT ||
                 type == MUD ||
                 type == ROOTED_DIRT ||
@@ -1172,8 +1179,8 @@ public final class BlocksTFC
 
     public static boolean isSand(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Rock.Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == SAND;
     }
 
@@ -1181,9 +1188,9 @@ public final class BlocksTFC
     public static boolean isSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return true;
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == GRASS ||
                 type == DRY_GRASS ||
                 type == DIRT ||
@@ -1403,9 +1410,9 @@ public final class BlocksTFC
     public static boolean isGrowableSoil(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return false;
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == GRASS ||
                 type == DRY_GRASS ||
                 type == DIRT ||
@@ -1625,9 +1632,9 @@ public final class BlocksTFC
     public static boolean isSoilOrGravel(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeat) return true;
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == GRASS ||
                 type == DRY_GRASS ||
                 type == DIRT ||
@@ -1689,17 +1696,17 @@ public final class BlocksTFC
     public static boolean isGrass(IBlockState current)
     {
         if (current.getBlock() instanceof BlockPeatGrass) return true;
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Rock.Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Rock.Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type.isGrass;
     }
 
     public static boolean isDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == DRY_GRASS ||
                 type == DRY_BOG_IRON_GRASS ||
                 type == DRY_LOAMY_SAND_GRASS ||
@@ -1740,9 +1747,9 @@ public final class BlocksTFC
 
     public static boolean isGround(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
 
-        Type type = ((BlockRockVariant) current.getBlock()).getType();
+        Type type = ((TFCBlockRockVariant) current.getBlock()).getType();
         return type == GRASS ||
                 type == DRY_GRASS ||
                 type == DIRT ||
@@ -1962,8 +1969,8 @@ public final class BlocksTFC
 
     public static boolean isClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return
                 // Type.CLAY_GRASS ?
@@ -1977,8 +1984,8 @@ public final class BlocksTFC
 
     public static boolean isClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.DRY_SANDY_CLAY_LOAM_GRASS ||
                 rock == Type.DRY_SANDY_CLAY_GRASS ||
@@ -1997,8 +2004,8 @@ public final class BlocksTFC
 
     public static boolean isKaoliniteClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.KAOLINITE_CLAY_GRASS ||
                 rock == Type.SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
@@ -2011,8 +2018,8 @@ public final class BlocksTFC
 
     public static boolean isKaoliniteClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.DRY_SANDY_KAOLINITE_CLAY_LOAM_GRASS ||
                 rock == Type.DRY_SANDY_KAOLINITE_CLAY_GRASS ||
@@ -2032,8 +2039,8 @@ public final class BlocksTFC
 
     public static boolean isKaoliniteClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.KAOLINITE_CLAY_PODZOL ||
                 rock == Type.SANDY_KAOLINITE_CLAY_LOAM_PODZOL ||
@@ -2045,8 +2052,8 @@ public final class BlocksTFC
 
     public static boolean isKaoliniteClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.KAOLINITE_CLAY ||
                 rock == Type.SANDY_KAOLINITE_CLAY_LOAM ||
@@ -2059,8 +2066,8 @@ public final class BlocksTFC
 
     public static boolean isStonewareClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.STONEWARE_CLAY_GRASS ||
                 rock == Type.SANDY_STONEWARE_CLAY_LOAM_GRASS ||
@@ -2073,8 +2080,8 @@ public final class BlocksTFC
 
     public static boolean isStonewareClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.DRY_SANDY_STONEWARE_CLAY_LOAM_GRASS ||
                 rock == Type.DRY_SANDY_STONEWARE_CLAY_GRASS ||
@@ -2094,8 +2101,8 @@ public final class BlocksTFC
 
     public static boolean isStonewareClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.STONEWARE_CLAY_PODZOL ||
                 rock == Type.SANDY_STONEWARE_CLAY_LOAM_PODZOL ||
@@ -2107,8 +2114,8 @@ public final class BlocksTFC
 
     public static boolean isStonewareClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.STONEWARE_CLAY ||
                 rock == Type.SANDY_STONEWARE_CLAY_LOAM ||
@@ -2121,8 +2128,8 @@ public final class BlocksTFC
 
     public static boolean isEarthenwareClayGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.EARTHENWARE_CLAY_GRASS ||
                 rock == Type.SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
@@ -2135,8 +2142,8 @@ public final class BlocksTFC
 
     public static boolean isEarthenwareClayDryGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.DRY_SANDY_EARTHENWARE_CLAY_LOAM_GRASS ||
                 rock == Type.DRY_SANDY_EARTHENWARE_CLAY_GRASS ||
@@ -2156,8 +2163,8 @@ public final class BlocksTFC
 
     public static boolean isEarthenwareClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.EARTHENWARE_CLAY_PODZOL ||
                 rock == Type.SANDY_EARTHENWARE_CLAY_LOAM_PODZOL ||
@@ -2169,8 +2176,8 @@ public final class BlocksTFC
 
     public static boolean isEarthenwareClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.EARTHENWARE_CLAY ||
                 rock == Type.SANDY_EARTHENWARE_CLAY_LOAM ||
@@ -2183,8 +2190,8 @@ public final class BlocksTFC
 
     public static boolean isClayPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.CLAY_PODZOL ||
                 rock == Type.SANDY_CLAY_LOAM_PODZOL ||
@@ -2196,8 +2203,8 @@ public final class BlocksTFC
 
     public static boolean isClayDirt(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return
                 // CLAY ?
@@ -2211,8 +2218,8 @@ public final class BlocksTFC
 
     public static boolean isPodzol(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.PODZOL ||
                 rock == Type.BOG_IRON_PODZOL ||
@@ -2249,8 +2256,8 @@ public final class BlocksTFC
 
     public static boolean isSparseGrass(IBlockState current)
     {
-        if (!(current.getBlock() instanceof BlockRockVariant)) return false;
-        Type rock = ((BlockRockVariant) current.getBlock()).getType();
+        if (!(current.getBlock() instanceof TFCBlockRockVariant)) return false;
+        Type rock = ((TFCBlockRockVariant) current.getBlock()).getType();
 
         return rock == Type.SPARSE_GRASS ||
                 rock == Type.SPARSE_BOG_IRON_GRASS ||

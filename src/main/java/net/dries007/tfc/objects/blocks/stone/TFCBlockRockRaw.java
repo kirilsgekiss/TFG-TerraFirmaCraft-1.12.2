@@ -31,12 +31,12 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockRaw extends BlockRockVariant
+public class TFCBlockRockRaw extends TFCBlockRockVariant
 {
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
-    public BlockRockRaw(Type type, Rock rock)
+    public TFCBlockRockRaw(Type type, Rock rock)
     {
         super(type, rock);
 
@@ -103,8 +103,8 @@ public class BlockRockRaw extends BlockRockVariant
             if (!worldIn.isRemote)
             {
                 // Create a stone anvil
-                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
-                if (anvil instanceof BlockRockAnvil)
+                TFCBlockRockVariant anvil = TFCBlockRockVariant.get(this.rock, Type.ANVIL);
+                if (anvil instanceof TFCBlockRockAnvil)
                 {
                     worldIn.setBlockState(pos, anvil.getDefaultState());
                 }

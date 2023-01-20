@@ -23,10 +23,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 
 @ParametersAreNonnullByDefault
-public class BlockFloatingWaterTFC extends BlockPlantTFC
+public class BlockFloatingWaterTFC extends TFCBlockPlant
 {
     private static final AxisAlignedBB LILY_PAD_AABB = new AxisAlignedBB(0.0D, -0.125D, 0.0D, 1.0D, 0.0625D, 1.0D);
     private static final Map<Plant, BlockFloatingWaterTFC> MAP = new HashMap<>();
@@ -70,7 +70,7 @@ public class BlockFloatingWaterTFC extends BlockPlantTFC
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-        return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == plant.getWaterType()) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
+        return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == plant.getWaterType()) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
     }
 
     @Override

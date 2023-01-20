@@ -17,7 +17,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -29,8 +28,8 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlockFireBrick;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.metal.BlockCladdingTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
 import net.dries007.tfc.objects.te.TEBellows;
@@ -48,15 +47,15 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
     {
         Predicate<IBlockState> stoneMatcher = state -> state.getBlock() instanceof BlockFireBrick;
         Predicate<IBlockState> sheetMatcher = state -> {
-            if (state.getBlock() instanceof BlockCladdingTFC)
+            if (state.getBlock() instanceof TFCBlockCladding)
             {
-                BlockCladdingTFC block = (BlockCladdingTFC) state.getBlock();
+                TFCBlockCladding block = (TFCBlockCladding) state.getBlock();
                 return TFGUtils.isAtLeast(block.getMetal().getProperty(TFCPropertyKey.TFC).getMaterialTier(), 3); // todo && block.getMetal().isToolMetal()
             }
             return false;
         };
         BLAST_FURNACE_CHIMNEY = new Multiblock()
-            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == BlocksTFC.MOLTEN || state.getMaterial().isReplaceable())
+            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == TFCBlocks.MOLTEN || state.getMaterial().isReplaceable())
             .match(new BlockPos(0, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 0, -1), stoneMatcher)
             .match(new BlockPos(1, 0, 0), stoneMatcher)

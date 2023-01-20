@@ -10,21 +10,12 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import git.jbredwards.fluidlogged_api.api.block.BlockWaterloggedPlant;
 import git.jbredwards.fluidlogged_api.api.block.IFluidloggable;
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
-import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
-import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.objects.blocks.metal.BlockAnvilTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -32,10 +23,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.minecraftforge.common.IPlantable;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,7 +32,7 @@ import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
 // todo: either pull some trickery to make this look like water or simply wait until 1.13 and implement ILiquidContainer
 @ParametersAreNonnullByDefault
-public class BlockWaterPlantTFC extends BlockPlantTFC implements IFluidloggable
+public class BlockWaterPlantTFC extends TFCBlockPlant implements IFluidloggable
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     private static final Map<Plant, BlockWaterPlantTFC> MAP = new HashMap<>();
@@ -66,8 +55,8 @@ public class BlockWaterPlantTFC extends BlockPlantTFC implements IFluidloggable
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
         if (plant.getWaterType() == SEA_WATER)
-            return BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
-        return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
+            return TFCBlocks.isSeaWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
+        return TFCBlocks.isFreshWater(worldIn.getBlockState(pos)) && this.canSustainBush(soil);
     }
 
     @Override

@@ -18,7 +18,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -33,7 +32,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
 import net.dries007.tfc.objects.te.TEBloomery;
@@ -77,15 +76,15 @@ public class BlockBloomery extends BlockHorizontal implements IItemSize, ILighta
     static
     {
         Predicate<IBlockState> stoneMatcher = BlockBloomery::isValidSideBlock;
-        Predicate<IBlockState> insideChimney = state -> state.getBlock() == BlocksTFC.MOLTEN || state.getMaterial().isReplaceable();
-        Predicate<IBlockState> center = state -> state.getBlock() == BlocksTFC.CHARCOAL_PILE || state.getBlock() == BlocksTFC.BLOOM || state.getMaterial().isReplaceable();
+        Predicate<IBlockState> insideChimney = state -> state.getBlock() == TFCBlocks.MOLTEN || state.getMaterial().isReplaceable();
+        Predicate<IBlockState> center = state -> state.getBlock() == TFCBlocks.CHARCOAL_PILE || state.getBlock() == TFCBlocks.BLOOM || state.getMaterial().isReplaceable();
 
         // Bloomery center is the charcoal pile pos
         BLOOMERY_BASE = new Multiblock[4];
         BLOOMERY_BASE[EnumFacing.NORTH.getHorizontalIndex()] = new Multiblock()
             .match(new BlockPos(0, 0, 0), center)
             .match(new BlockPos(0, -1, 0), stoneMatcher)
-            .match(new BlockPos(0, 0, 1), state -> state.getBlock() == BlocksTFC.BLOOMERY)
+            .match(new BlockPos(0, 0, 1), state -> state.getBlock() == TFCBlocks.BLOOMERY)
             .match(new BlockPos(1, 0, 1), stoneMatcher)
             .match(new BlockPos(-1, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 1, 1), stoneMatcher)
@@ -100,7 +99,7 @@ public class BlockBloomery extends BlockHorizontal implements IItemSize, ILighta
         BLOOMERY_BASE[EnumFacing.SOUTH.getHorizontalIndex()] = new Multiblock()
             .match(new BlockPos(0, 0, 0), center)
             .match(new BlockPos(0, -1, 0), stoneMatcher)
-            .match(new BlockPos(0, 0, -1), state -> state.getBlock() == BlocksTFC.BLOOMERY)
+            .match(new BlockPos(0, 0, -1), state -> state.getBlock() == TFCBlocks.BLOOMERY)
             .match(new BlockPos(1, 0, -1), stoneMatcher)
             .match(new BlockPos(-1, 0, -1), stoneMatcher)
             .match(new BlockPos(0, 1, 1), stoneMatcher)
@@ -115,7 +114,7 @@ public class BlockBloomery extends BlockHorizontal implements IItemSize, ILighta
         BLOOMERY_BASE[EnumFacing.WEST.getHorizontalIndex()] = new Multiblock()
             .match(new BlockPos(0, 0, 0), center)
             .match(new BlockPos(0, -1, 0), stoneMatcher)
-            .match(new BlockPos(1, 0, 0), state -> state.getBlock() == BlocksTFC.BLOOMERY)
+            .match(new BlockPos(1, 0, 0), state -> state.getBlock() == TFCBlocks.BLOOMERY)
             .match(new BlockPos(1, 0, -1), stoneMatcher)
             .match(new BlockPos(1, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 1, 1), stoneMatcher)
@@ -130,7 +129,7 @@ public class BlockBloomery extends BlockHorizontal implements IItemSize, ILighta
         BLOOMERY_BASE[EnumFacing.EAST.getHorizontalIndex()] = new Multiblock()
             .match(new BlockPos(0, 0, 0), center)
             .match(new BlockPos(0, -1, 0), stoneMatcher)
-            .match(new BlockPos(-1, 0, 0), state -> state.getBlock() == BlocksTFC.BLOOMERY)
+            .match(new BlockPos(-1, 0, 0), state -> state.getBlock() == TFCBlocks.BLOOMERY)
             .match(new BlockPos(-1, 0, -1), stoneMatcher)
             .match(new BlockPos(-1, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 1, 1), stoneMatcher)
@@ -152,14 +151,14 @@ public class BlockBloomery extends BlockHorizontal implements IItemSize, ILighta
 
         // Gate center is the bloomery gate block
         GATE_Z = new Multiblock()
-            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == BlocksTFC.BLOOMERY || state.getBlock() == Blocks.AIR)
+            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == TFCBlocks.BLOOMERY || state.getBlock() == Blocks.AIR)
             .match(new BlockPos(1, 0, 0), stoneMatcher)
             .match(new BlockPos(-1, 0, 0), stoneMatcher)
             .match(new BlockPos(0, 1, 0), stoneMatcher)
             .match(new BlockPos(0, -1, 0), stoneMatcher);
 
         GATE_X = new Multiblock()
-            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == BlocksTFC.BLOOMERY || state.getBlock() == Blocks.AIR)
+            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == TFCBlocks.BLOOMERY || state.getBlock() == Blocks.AIR)
             .match(new BlockPos(0, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 0, -1), stoneMatcher)
             .match(new BlockPos(0, 1, 0), stoneMatcher)

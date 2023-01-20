@@ -22,24 +22,24 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockRockStairs extends BlockStairs
+public class TFCBlockRockStairs extends BlockStairs
 {
-    private static final Map<Rock, EnumMap<Type, BlockRockStairs>> ROCK_TABLE = new HashMap<>();
+    private static final Map<Rock, EnumMap<Type, TFCBlockRockStairs>> ROCK_TABLE = new HashMap<>();
 
-    public static BlockRockStairs get(Rock rock, Type type)
+    public static TFCBlockRockStairs get(Rock rock, Type type)
     {
         return ROCK_TABLE.get(rock).get(type);
     }
 
-    public BlockRockStairs(Rock rock, Type type)
+    public TFCBlockRockStairs(Rock rock, Type type)
     {
-        super(BlockRockVariant.get(rock, type).getDefaultState());
+        super(TFCBlockRockVariant.get(rock, type).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
             ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
         ROCK_TABLE.get(rock).put(type, this);
 
-        Block baseBlock = BlockRockVariant.get(rock, type);
+        Block baseBlock = TFCBlockRockVariant.get(rock, type);
         //noinspection ConstantConditions
         setHarvestLevel(baseBlock.getHarvestTool(baseBlock.getDefaultState()), baseBlock.getHarvestLevel(baseBlock.getDefaultState()));
         useNeighborBrightness = true;

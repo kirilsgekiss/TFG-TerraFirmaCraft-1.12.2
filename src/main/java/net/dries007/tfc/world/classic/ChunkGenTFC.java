@@ -33,7 +33,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.registries.ForgeRegistry;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
 import mcp.MethodsReturnNonnullByDefault;
@@ -41,7 +41,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateHelper;
@@ -75,7 +75,7 @@ public class ChunkGenTFC implements IChunkGenerator
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     /* Layers must be one here - otherwise snow becomes non-replaceable and wrecks the rest of world gen */
     public static final IBlockState SNOW = Blocks.SNOW_LAYER.getDefaultState().withProperty(BlockSnow.LAYERS, 1);
-    public static final IBlockState SALT_WATER_ICE = BlocksTFC.SEA_ICE.getDefaultState();
+    public static final IBlockState SALT_WATER_ICE = TFCBlocks.SEA_ICE.getDefaultState();
     public static final IBlockState WATER_ICE = Blocks.ICE.getDefaultState();
     private static final float[] parabolicField = new float[25];
 
@@ -594,8 +594,8 @@ public class ChunkGenTFC implements IChunkGenerator
                     // Surface Block
                     if ((biome == BiomesTFC.SWAMPLAND || biome == BiomesTFC.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f)
                     {
-                        surfaceBlock = BlocksTFC.PEAT_GRASS.getDefaultState();
-                        subSurfaceBlock = BlocksTFC.PEAT.getDefaultState();
+                        surfaceBlock = TFCBlocks.PEAT_GRASS.getDefaultState();
+                        subSurfaceBlock = TFCBlocks.PEAT.getDefaultState();
                     }
                     else if (biome == BiomesTFC.MOUNTAIN_RANGE || biome == BiomesTFC.MOUNTAIN_RANGE_EDGE || biome == BiomesTFC.CRAG || biome == BiomesTFC.MOUNTAINS || biome == BiomesTFC.FAULT_LINE)
                     {
@@ -608,34 +608,34 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SANDY_LOAM_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SANDY_LOAM_GRASS)
                                             .getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
                                             .getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SANDY_LOAM_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SANDY_LOAM_GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SANDY_LOAM_GRASS)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SANDY_LOAM_GRASS)
                                                 .getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
                                                 .getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
                                                 .getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -644,34 +644,34 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_LOAMY_SAND_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_LOAMY_SAND_GRASS)
                                             .getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
                                             .getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.LOAMY_SAND_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAMY_SAND_GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_LOAMY_SAND_GRASS)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_LOAMY_SAND_GRASS)
                                                 .getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
                                                 .getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
                                                 .getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -680,31 +680,31 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_LOAM_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_LOAM_GRASS)
                                             .getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.LOAM_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAM_GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_LOAM_GRASS)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_LOAM_GRASS)
                                                 .getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -713,33 +713,33 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SILT_LOAM_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SILT_LOAM_GRASS)
                                             .getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM).getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SILT_LOAM_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT_LOAM_GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SILT_LOAM_GRASS)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SILT_LOAM_GRASS)
                                                 .getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
                                                 .getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
                                                 .getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -748,31 +748,31 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SILT_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SILT_GRASS)
                                             .getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SILT_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT_GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_SILT_GRASS)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_SILT_GRASS)
                                                 .getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -781,29 +781,29 @@ public class ChunkGenTFC implements IChunkGenerator
                             if (floraDensity + 0.05f * rand.nextGaussian() >= 0.2f)
                             {
                                 if (g2 >= 0.4f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_GRASS).getDefaultState();
                                 else if (g2 > 0.1f && g2 < 0.25f)
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRASS).getDefaultState();
                             }
                             else
                             {
                                 if (stability.valueInt >= 1 + g1)
                                 {
                                     if (g2 >= 0.4f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.SPARSE_GRASS).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SPARSE_GRASS).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
                                 }
                                 else
                                 {
                                     if (g2 >= 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
                                     else if (g2 > 0.1f && g2 < 0.25f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COBBLE).getDefaultState();
                                 }
                             }
                         }
@@ -813,7 +813,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         if (floraDiversity < FLORA_DIVERSITY_SAND_SANDY_MIX + 0.05f * rand.nextGaussian())
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.SANDY_LOAM_GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SANDY_LOAM_GRASS).getDefaultState();
                             else
                             {
                                 double p = floraDensity + 0.05f * rand.nextGaussian();
@@ -821,14 +821,14 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SANDY_LOAM)
                                                 .getDefaultState();
                                 }
                                 else
                                 {
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_SANDY_LOAM_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_SANDY_LOAM_GRASS)
                                             .getDefaultState();
                                 }
                             }
@@ -836,7 +836,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         else if (floraDiversity > FLORA_DIVERSITY_SAND_SANDY_MIX + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SANDY + 0.05f * rand.nextGaussian())
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.LOAMY_SAND_GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAMY_SAND_GRASS).getDefaultState();
                             else
                             {
                                 double p = floraDensity + 0.05f * rand.nextGaussian();
@@ -844,20 +844,20 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAMY_SAND)
                                                 .getDefaultState();
                                 }
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_LOAMY_SAND_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_LOAMY_SAND_GRASS)
                                             .getDefaultState();
                             }
                         }
                         else if (floraDiversity > FLORA_DIVERSITY_SANDY + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian())
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.LOAM_GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAM_GRASS).getDefaultState();
                             else
                             {
                                 double p = floraDensity + 0.05f * rand.nextGaussian();
@@ -865,18 +865,18 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_LOAM).getDefaultState();
                                 }
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_LOAM_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_LOAM_GRASS).getDefaultState();
                             }
                         }
                         else if (floraDiversity > FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SILT + 0.05f * rand.nextGaussian())
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.SILT_LOAM_GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT_LOAM_GRASS).getDefaultState();
                             else
                             {
                                 double p = floraDensity + 0.05f * rand.nextGaussian();
@@ -884,20 +884,20 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT_LOAM)
                                                 .getDefaultState();
                                 }
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_SILT_LOAM_GRASS)
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_SILT_LOAM_GRASS)
                                             .getDefaultState();
                             }
                         }
                         else if (floraDiversity > FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian())
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.SILT_GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT_GRASS).getDefaultState();
                             else
                             {
                                 double p = floraDensity + 0.05f * rand.nextGaussian();
@@ -905,19 +905,19 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_SILT).getDefaultState();
                                 }
                                 else
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_SILT_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_SILT_GRASS).getDefaultState();
                             }
                         }
                         else
                         {
                             if (rainfall + 3.3f * rand.nextGaussian() >= 150f)
                             {
-                                surfaceBlock = BlockRockVariant.get(rock1, Type.GRASS).getDefaultState();
+                                surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRASS).getDefaultState();
                             }
                             else
                             {
@@ -926,13 +926,13 @@ public class ChunkGenTFC implements IChunkGenerator
                                 {
                                     double g = rand.nextGaussian();
                                     if (g > 0.5f)
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                                     else
-                                        surfaceBlock = BlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
+                                        surfaceBlock = TFCBlockRockVariant.get(rock1, Type.COARSE_DIRT).getDefaultState();
                                 }
                                 else
                                 {
-                                    surfaceBlock = BlockRockVariant.get(rock1, Type.DRY_GRASS).getDefaultState();
+                                    surfaceBlock = TFCBlockRockVariant.get(rock1, Type.DRY_GRASS).getDefaultState();
                                 }
                             }
                         }
@@ -941,35 +941,35 @@ public class ChunkGenTFC implements IChunkGenerator
                     // Subsurface Block
                     if (floraDiversity < FLORA_DIVERSITY_SAND_SANDY_MIX + 0.05f * rand.nextGaussian())
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.SANDY_LOAM).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.SANDY_LOAM).getDefaultState();
                     }
                     else if (floraDiversity > FLORA_DIVERSITY_SAND_SANDY_MIX + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SANDY + 0.05f * rand.nextGaussian())
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.LOAMY_SAND).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAMY_SAND).getDefaultState();
                     }
                     else if (floraDiversity > FLORA_DIVERSITY_SANDY + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian())
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.LOAM).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.LOAM).getDefaultState();
                     }
                     else if (floraDiversity > FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian() && floraDiversity < FLORA_DIVERSITY_SILT + 0.05f * rand.nextGaussian())
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.SILT_LOAM).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT_LOAM).getDefaultState();
                     }
                     else if (floraDiversity > FLORA_DIVERSITY_SILTY + 0.05f * rand.nextGaussian())
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.SILT).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.SILT).getDefaultState();
                     }
                     else
                     {
-                        subSurfaceBlock = BlockRockVariant.get(rock1, Type.DIRT).getDefaultState();
+                        subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.DIRT).getDefaultState();
                     }
                 }
                 else
                 {
-                    surfaceBlock = BlockRockVariant
+                    surfaceBlock = TFCBlockRockVariant
                             .get(rock1, rainfall + 4.3f * rand.nextGaussian() >= 150f ? Type.GRASS : Type.DRY_GRASS)
                             .getDefaultState();
-                    subSurfaceBlock = BlockRockVariant.get(rock1, Type.DIRT).getDefaultState();
+                    subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.DIRT).getDefaultState();
                 }
 
                 if (BiomesTFC.isBeachBiome(getBiomeOffset(x - 1, z)) || BiomesTFC.isBeachBiome(getBiomeOffset(x + 1, z)) || BiomesTFC.isBeachBiome(getBiomeOffset(x, z + 1)) || BiomesTFC.isBeachBiome(getBiomeOffset(x, z - 1)))
@@ -1008,7 +1008,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         outp.setBlockState(x, y + yOffset, z, inp.getBlockState(x, y, z));
                         if (y + 1 < yOffset && outp.getBlockState(x, y + yOffset, z) == AIR/* no need to check again && BlocksTFC.isSoilOrGravel(outp.getBlockState(x, y + yOffset + 1, z))*/)
                         {
-                            for (int upCount = 1; BlocksTFC.isSoilOrGravel(outp.getBlockState(x, y + yOffset + upCount, z)); upCount++)
+                            for (int upCount = 1; TFCBlocks.isSoilOrGravel(outp.getBlockState(x, y + yOffset + upCount, z)); upCount++)
                             {
                                 outp.setBlockState(x, y + yOffset + upCount, z, AIR);
                             }
@@ -1066,28 +1066,28 @@ public class ChunkGenTFC implements IChunkGenerator
 
                         if (y + yOffset <= ROCKLAYER3 + seaLevelOffsetMap[colIndex])
                             outp.setBlockState(x, y + yOffset, z,
-                                    BlockRockVariant.get(rock3, Type.RAW).getDefaultState());
+                                    TFCBlockRockVariant.get(rock3, Type.RAW).getDefaultState());
                         else if (y + yOffset <= ROCKLAYER2 + seaLevelOffsetMap[colIndex])
                             outp.setBlockState(x, y + yOffset, z,
-                                    BlockRockVariant.get(rock2, Type.RAW).getDefaultState());
+                                    TFCBlockRockVariant.get(rock2, Type.RAW).getDefaultState());
                         else
                             outp.setBlockState(x, y + yOffset, z,
-                                    BlockRockVariant.get(rock1, Type.RAW).getDefaultState());
+                                    TFCBlockRockVariant.get(rock1, Type.RAW).getDefaultState());
 
                         // Deserts / dry areas
                         if (rainfall < +1.3 * rand.nextGaussian() + 75f)
                         {
-                            subSurfaceBlock = surfaceBlock = BlockRockVariant.get(rock1, Type.RAW).getVariant(Type.SAND)
+                            subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.RAW).getVariant(Type.SAND)
                                     .getDefaultState();
                         }
 
                         if (biome == BiomesTFC.BEACH || biome == BiomesTFC.OCEAN || biome == BiomesTFC.DEEP_OCEAN || biome == BiomesTFC.SHORE)
                         {
-                            subSurfaceBlock = surfaceBlock = BlockRockVariant.get(rock1, Type.SAND).getDefaultState();
+                            subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SAND).getDefaultState();
                         }
                         else if (biome == BiomesTFC.GRAVEL_BEACH || biome == BiomesTFC.ESTUARY || biome == BiomesTFC.RIVER || biome == BiomesTFC.RIVERBANK || biome == BiomesTFC.LAKESHORE/* || biome == BiomesTFC.RIVER_SOURCE*/)
                         {
-                            subSurfaceBlock = surfaceBlock = BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
+                            subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                         }
 
                         if (smooth == -1)
@@ -1117,7 +1117,7 @@ public class ChunkGenTFC implements IChunkGenerator
                                 if (yOffset + y + c > 256) continue;
 
                                 IBlockState current = outp.getBlockState(x, yOffset + y + c, z);
-                                if (current != surfaceBlock && current != subSurfaceBlock && !BlocksTFC.isWater(current))
+                                if (current != surfaceBlock && current != subSurfaceBlock && !TFCBlocks.isWater(current))
                                 {
                                     outp.setBlockState(x, yOffset + y + c, z, AIR);
                                     if (yOffset + y + c + 1 > 256) continue;
@@ -1141,7 +1141,7 @@ public class ChunkGenTFC implements IChunkGenerator
                                         outp.setBlockState(x, y - c + yOffset, z, subSurfaceBlock);
                                         if (c > 1 + (5 - drainage.valueInt))
                                             outp.setBlockState(x, y - c + yOffset, z,
-                                                    BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState());
+                                                    TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState());
                                     }
                                 }
                             }
@@ -1152,23 +1152,23 @@ public class ChunkGenTFC implements IChunkGenerator
                         {
                             if (biome != BiomesTFC.SWAMPLAND || biome != BiomesTFC.BAYOU || biome != BiomesTFC.MANGROVE || biome != BiomesTFC.MARSH) // Most areas have gravel and sand bottoms
                             {
-                                if (outp.getBlockState(x, y + yOffset, z) != BlockRockVariant.get(rock1, Type.SAND)
+                                if (outp.getBlockState(x, y + yOffset, z) != TFCBlockRockVariant.get(rock1, Type.SAND)
                                         .getDefaultState() && rand.nextInt(5) == 0)
                                     outp.setBlockState(x, y + yOffset, z,
-                                            BlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState());
+                                            TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState());
                             }
                             else if ((biome == BiomesTFC.SWAMPLAND || biome == BiomesTFC.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f) // Bogs with mostly peat and humus
                             {
-                                if (outp.getBlockState(x, y + yOffset, z) != BlockRockVariant.get(rock1, Type.HUMUS)
+                                if (outp.getBlockState(x, y + yOffset, z) != TFCBlockRockVariant.get(rock1, Type.HUMUS)
                                         .getDefaultState() && rand.nextInt(5) == 0)
-                                    outp.setBlockState(x, y + yOffset, z, BlocksTFC.PEAT.getDefaultState());
+                                    outp.setBlockState(x, y + yOffset, z, TFCBlocks.PEAT.getDefaultState());
                             }
                             else // Swamp biomes have bottoms that are mostly dirt
                             {
-                                if (outp.getBlockState(x, y + yOffset, z) != BlockRockVariant.get(rock1, Type.SAND)
+                                if (outp.getBlockState(x, y + yOffset, z) != TFCBlockRockVariant.get(rock1, Type.SAND)
                                         .getDefaultState())
                                     outp.setBlockState(x, y + yOffset, z,
-                                            BlockRockVariant.get(rock1, Type.DIRT).getDefaultState());
+                                            TFCBlockRockVariant.get(rock1, Type.DIRT).getDefaultState());
                             }
                         }
                     }
@@ -1195,19 +1195,19 @@ public class ChunkGenTFC implements IChunkGenerator
                     else if (outp.isEmpty(x, y, z))
                     {
                         if (y <= ROCKLAYER3 + seaLevelOffsetMap[colIndex])
-                            outp.setBlockState(x, y, z, BlockRockVariant.get(rock3, Type.RAW).getDefaultState());
+                            outp.setBlockState(x, y, z, TFCBlockRockVariant.get(rock3, Type.RAW).getDefaultState());
                         else if (y <= ROCKLAYER2 + seaLevelOffsetMap[colIndex])
-                            outp.setBlockState(x, y, z, BlockRockVariant.get(rock2, Type.RAW).getDefaultState());
+                            outp.setBlockState(x, y, z, TFCBlockRockVariant.get(rock2, Type.RAW).getDefaultState());
                         else
-                            outp.setBlockState(x, y, z, BlockRockVariant.get(rock1, Type.RAW).getDefaultState());
+                            outp.setBlockState(x, y, z, TFCBlockRockVariant.get(rock1, Type.RAW).getDefaultState());
 
                         if (BiomesTFC.isBeachBiome(biome) || BiomesTFC.isOceanicBiome(biome))
                         {
                             if (outp.getBlockState(x, y + 1, z) == SEA_WATER)
                             {
-                                outp.setBlockState(x, y, z, BlockRockVariant.get(rock1, Type.SAND).getDefaultState());
+                                outp.setBlockState(x, y, z, TFCBlockRockVariant.get(rock1, Type.SAND).getDefaultState());
                                 outp.setBlockState(x, y - 1, z,
-                                        BlockRockVariant.get(rock1, Type.SAND).getDefaultState());
+                                        TFCBlockRockVariant.get(rock1, Type.SAND).getDefaultState());
                             }
                         }
                     }

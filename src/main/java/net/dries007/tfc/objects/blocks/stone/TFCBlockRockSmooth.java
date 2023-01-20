@@ -12,17 +12,16 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.util.FallingBlockManager;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockSmooth extends BlockRockVariant
+public class TFCBlockRockSmooth extends TFCBlockRockVariant
 {
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
-    public BlockRockSmooth(Rock.Type type, Rock rock)
+    public TFCBlockRockSmooth(Rock.Type type, Rock rock)
     {
         super(type, rock);
 

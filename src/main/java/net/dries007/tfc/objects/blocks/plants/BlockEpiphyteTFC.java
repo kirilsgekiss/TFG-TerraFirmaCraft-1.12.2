@@ -30,7 +30,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
-public class BlockEpiphyteTFC extends BlockPlantTFC
+public class BlockEpiphyteTFC extends TFCBlockPlant
 {
     private static final PropertyDirection FACING = PropertyDirection.create("facing");
     private static final AxisAlignedBB PLANT_UP_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.75D, 0.75D);
