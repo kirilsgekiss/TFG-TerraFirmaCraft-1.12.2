@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.groundcover;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,7 +17,6 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.ConfigTFCF;
 import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenSurfaceSeashells implements IWorldGenerator
@@ -46,7 +46,7 @@ public class WorldGenSurfaceSeashells implements IWorldGenerator
             final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
             final ChunkDataTFC baseChunkData = ChunkDataTFC.get(world, chunkBlockPos);
 
-            for (int i = 0; i < ((1 + baseChunkData.getRainfall()) / ConfigTFCF.General.WORLD.groundcoverSeashellFrequency) * factor; i++)
+            for (int i = 0; i < ((1 + baseChunkData.getRainfall()) / ConfigTFC.FloraeGeneral.WORLD.groundcoverSeashellFrequency) * factor; i++)
             {
                 BlockPos pos = new BlockPos(
                     xoff + random.nextInt(16),

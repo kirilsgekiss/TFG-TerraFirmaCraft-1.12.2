@@ -3,10 +3,10 @@ package net.dries007.tfc.world.classic.worldgen;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -14,8 +14,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
-import net.minecraft.world.gen.structure.template.Template;
-import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
@@ -24,10 +22,6 @@ import net.dries007.tfc.world.classic.StructureHelper;
 import net.dries007.tfc.world.classic.biomes.BiomeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
-import tfcflorae.ConfigTFCF;
-import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenCinnamon extends WorldGenerator
 {
@@ -40,7 +34,7 @@ public class WorldGenCinnamon extends WorldGenerator
     @Override
     public boolean generate(World world, Random rand, BlockPos pos)
     {
-        if (rand.nextInt(ConfigTFCF.General.WORLD.cinnamonRarity) < 5)
+        if (rand.nextInt(ConfigTFC.FloraeGeneral.WORLD.cinnamonRarity) < 5)
             return false;
 
         ChunkDataTFC chunkData = ChunkDataTFC.get(world, pos);

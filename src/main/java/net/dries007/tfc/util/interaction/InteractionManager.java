@@ -10,6 +10,9 @@ import java.util.Map;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -45,6 +48,39 @@ public final class InteractionManager
 
     static
     {
+        USE_ACTIONS.put(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "stickBundle"), (stack, player, worldIn, pos, hand, direction, hitX, hitY, hitZ) -> {
+            if (direction == EnumFacing.DOWN)
+            {
+                IBlockState state = worldIn.getBlockState(pos);
+                Block block = state.getBlock();
+                if (!block.isReplaceable(worldIn, pos)) pos = pos.down();
+                BlockPos posDown = pos.down();
+                // ItemStack itemStack = player.getHeldItem(hand);
+
+                if (player.canPlayerEdit(pos, direction, stack) && player.canPlayerEdit(posDown, direction, stack))
+                {
+                    IBlockState stateDown = worldIn.getBlockState(posDown);
+                    boolean canPutBlock = block.isReplaceable(worldIn, pos) || worldIn.isAirBlock(pos);
+                    boolean canPutBlockDown = stateDown.getBlock().isReplaceable(worldIn, posDown) || worldIn.isAirBlock(posDown);
+                    if (canPutBlock && canPutBlockDown)
+                    {
+                        if (!worldIn.isRemote)
+                        {
+                            worldIn.setBlockState(pos, BlocksTFC.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
+                            worldIn.setBlockState(posDown, BlocksTFC.STICK_BUNDLE.getDefaultState(), 10);
+                            SoundType soundtype = BlocksTFC.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
+                            worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                            //itemStack.shrink(1);
+                            stack.shrink(1);
+                            player.setHeldItem(hand, stack);
+                        }
+                        return EnumActionResult.SUCCESS;
+                    }
+                }
+            }
+            return EnumActionResult.FAIL;
+        });
+
         // Clay knapping
         putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clay") && stack.getCount() >= KnappingType.CLAY.getAmountToConsume(), (worldIn, playerIn, handIn) -> {
             if (!worldIn.isRemote)

@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.soil;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,8 +12,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-
-import tfcflorae.ConfigTFCF;
 
 public class WorldGenSoil implements IWorldGenerator
 {
@@ -34,27 +33,27 @@ public class WorldGenSoil implements IWorldGenerator
         if (!(chunkGenerator instanceof ChunkGenTFC)) return;
         final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-        if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes)
         {
-            /*if (ConfigTFCF.General.WORLD.enablePodzolGen)
+            /*if (ConfigTFC.FloraeGeneral.WORLD.enablePodzolGen)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);
                 generatePodzol(world, random, pos);
             }
 
-            if (ConfigTFCF.General.WORLD.enableAllCoarse)
+            if (ConfigTFC.FloraeGeneral.WORLD.enableAllCoarse)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);
                 generateCoarse(world, random, pos);
             }
 
-            if (ConfigTFCF.General.WORLD.enableMudGen)
+            if (ConfigTFC.FloraeGeneral.WORLD.enableMudGen)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);
                 generateMud(world, random, pos);
             }
 
-            if (ConfigTFCF.General.WORLD.enableSandGen)
+            if (ConfigTFC.FloraeGeneral.WORLD.enableSandGen)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);
                 generateSand(world, random, pos);
@@ -100,7 +99,7 @@ public class WorldGenSoil implements IWorldGenerator
         {
             for (int z = 0; z < 16; ++z)
             {
-                if (rng.nextInt(ConfigTFCF.General.WORLD.sandRarity) == 0)
+                if (rng.nextInt(ConfigTFC.FloraeGeneral.WORLD.sandRarity) == 0)
                 {
                     BlockPos newStart = world.getTopSolidOrLiquidBlock(start.add(x, 0, z));
                     for (int y = -depth; y <= 0; y++)
@@ -135,7 +134,7 @@ public class WorldGenSoil implements IWorldGenerator
         {
             for (int z = 0; z < 16; ++z)
             {
-                if (rng.nextInt(ConfigTFCF.General.WORLD.podzolRarity) == 0)
+                if (rng.nextInt(ConfigTFC.FloraeGeneral.WORLD.podzolRarity) == 0)
                 {
                     BlockPos newStart = world.getTopSolidOrLiquidBlock(start.add(x, 0, z));
                     for (int y = -depth; y <= 0; y++)
@@ -173,7 +172,7 @@ public class WorldGenSoil implements IWorldGenerator
         {
             for (int z = 0; z < 16; ++z)
             {
-                if (rng.nextInt(ConfigTFCF.General.WORLD.mudRarity) == 0)
+                if (rng.nextInt(ConfigTFC.FloraeGeneral.WORLD.mudRarity) == 0)
                 {
                     BlockPos newStart = world.getTopSolidOrLiquidBlock(start.add(x, 0, z));
                     for (int y = -depth; y <= 0; y++)
@@ -209,7 +208,7 @@ public class WorldGenSoil implements IWorldGenerator
         {
             for (int z = 0; z < 16; ++z)
             {
-                if (rng.nextInt(ConfigTFCF.General.WORLD.mudRarity) == 0)
+                if (rng.nextInt(ConfigTFC.FloraeGeneral.WORLD.mudRarity) == 0)
                 {
                     BlockPos newStart = world.getTopSolidOrLiquidBlock(start.add(x, 0, z));
                     for (int y = -depth; y <= 0; y++)

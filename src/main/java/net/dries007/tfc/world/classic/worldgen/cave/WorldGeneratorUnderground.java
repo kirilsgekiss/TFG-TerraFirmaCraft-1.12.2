@@ -2,13 +2,13 @@ package net.dries007.tfc.world.classic.worldgen.cave;
 
 import java.util.*;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import tfcflorae.ConfigTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -27,10 +27,10 @@ public class WorldGeneratorUnderground implements IWorldGenerator
     private final WorldGenCaveCreepingVines undergroundCreepingVines;
     //private final WorldGenUnderground undergroundPlant = new WorldGenUnderground();
 
-    private float fungiUndergroundCount = ConfigTFCF.General.WORLD.fungiUndergroundCount;
-    private float hangingVinesUndergroundCount = ConfigTFCF.General.WORLD.hangingVinesUndergroundCount;
-    private float creepingVinesUndergroundCount = ConfigTFCF.General.WORLD.creepingVinesUndergroundCount;
-    private float creepingUndergroundCount = ConfigTFCF.General.WORLD.creepingUndergroundCount;
+    private float fungiUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.fungiUndergroundCount;
+    private float hangingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.hangingVinesUndergroundCount;
+    private float creepingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingVinesUndergroundCount;
+    private float creepingUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingUndergroundCount;
 
     public WorldGeneratorUnderground()
     {

@@ -6,7 +6,7 @@ import java.util.Map;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.objects.items.*;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.objects.items.food.ItemFoodTFCF;
@@ -17,14 +17,12 @@ import net.dries007.tfc.types.DefaultTrees;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.agriculture.Fruits;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.Item.ToolMaterial;
 
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -44,13 +42,10 @@ import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.tools.ItemWalkingStick;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
@@ -765,7 +760,7 @@ public final class ItemsTFCF
         allSimpleItems = simpleItems.build();
         //allItemBows = itemBows.build();
 
-        if (ConfigTFCF.General.WORLD.enableAllEarthenwareClay || ConfigTFCF.General.WORLD.enableAllKaoliniteClay || ConfigTFCF.General.WORLD.enableAllStonewareClay)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllEarthenwareClay || ConfigTFC.FloraeGeneral.WORLD.enableAllKaoliniteClay || ConfigTFC.FloraeGeneral.WORLD.enableAllStonewareClay)
         {
             allCeramicMoldItems = ceramicItems.build();
         }

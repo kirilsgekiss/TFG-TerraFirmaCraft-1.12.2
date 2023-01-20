@@ -33,8 +33,6 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.registries.ForgeRegistry;
 
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
@@ -591,7 +589,7 @@ public class ChunkGenTFC implements IChunkGenerator
 
                 IBlockState surfaceBlock;
                 IBlockState subSurfaceBlock;
-                if (ConfigTFCF.General.WORLD.enableAllBlockTypes && ConfigTFCF.General.WORLD.enableSoilPits)
+                if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes && ConfigTFC.FloraeGeneral.WORLD.enableSoilPits)
                 {
                     // Surface Block
                     if ((biome == BiomesTFC.SWAMPLAND || biome == BiomesTFC.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f)

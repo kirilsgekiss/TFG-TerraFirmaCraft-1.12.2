@@ -2,13 +2,12 @@ package tfcflorae.objects.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
-import net.dries007.tfc.TerraFirmaCraft;
+import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.food.FoodData;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.CreativeTabsTFC;
 import net.dries007.tfc.objects.blocks.*;
@@ -28,7 +27,6 @@ import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumDyeColor;
@@ -36,11 +34,9 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.blocks.groundcover.*;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
@@ -53,7 +49,6 @@ import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
-import static net.dries007.tfc.api.types.Rock.Type.DIRT;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static net.dries007.tfc.util.Helpers.getNull;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
@@ -992,7 +987,7 @@ public final class BlocksTFCF
             normalItemBlocks.add(new ItemBlockTFC(lightstone));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverRock)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock)
         {
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
             {
@@ -1002,42 +997,42 @@ public final class BlocksTFCF
             allSurfaceRocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverBones)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
         {
             surfaceBone.add(register(r, "groundcover/bone", new BlockSurfaceBones(), CT_FLORA));
             allSurfaceBones = surfaceBone.build();
             allSurfaceBones.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverDriftwood)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood)
         {
             surfaceDriftwood.add(register(r, "groundcover/driftwood", new BlockDriftwood(), CT_FLORA));
             allSurfaceDriftwood = surfaceDriftwood.build();
             allSurfaceDriftwood.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverFlint)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint)
         {
             surfaceFlint.add(register(r, "groundcover/flint", new BlockSurfaceFlint(), CT_FLORA));
             allSurfaceFlint = surfaceFlint.build();
             allSurfaceFlint.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverPinecone)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone)
         {
             surfacePinecone.add(register(r, "groundcover/pinecone", new BlockPinecone(), CT_FLORA));
             allSurfacePinecone = surfacePinecone.build();
             allSurfacePinecone.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverSeashell)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell)
         {
             surfaceSeashell.add(register(r, "groundcover/seashell", new BlockSurfaceSeashells(), CT_FLORA));
             allSurfaceSeashells = surfaceSeashell.build();
             allSurfaceSeashells.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverTwig)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig)
         {
             surfaceTwig.add(register(r, "groundcover/twig", new BlockTwig(), CT_FLORA));
             allSurfaceTwig = surfaceTwig.build();

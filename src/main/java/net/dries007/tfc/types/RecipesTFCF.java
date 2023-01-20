@@ -33,7 +33,7 @@
 //import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import net.minecraftforge.registries.IForgeRegistry;
 //import net.minecraftforge.registries.IForgeRegistryModifiable;
-//import tfcflorae.ConfigTFCF;
+//import net.dries007.tfc.ConfigTFCF;
 //import tfcflorae.TFCFlorae;
 //import tfcflorae.objects.blocks.BlocksTFCF;
 //import tfcflorae.objects.items.ItemsTFCF;
@@ -179,7 +179,7 @@
 //            }
 //        }
 //
-//        if (!ConfigTFCF.General.WORLD.enableAllCoarse)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllCoarse)
 //        {
 //            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
 //            {
@@ -197,7 +197,7 @@
 //                    }
 //                }
 //            }
-//            if (!(ConfigTFCF.General.WORLD.enableAllCoarse && ConfigTFCF.General.WORLD.enableAllSpecialSoil))
+//            if (!(ConfigTFC.FloraeGeneral.WORLD.enableAllCoarse && ConfigTFC.FloraeGeneral.WORLD.enableAllSpecialSoil))
 //            {
 //                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
 //                {
@@ -223,7 +223,7 @@
 //            }
 //        }
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllEarthenwareClay)
 //        {
 //            for (Metal.ItemType type : Metal.ItemType.values())
 //            {
@@ -287,7 +287,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllEarthenwareClay || !TFCFlorae.FirmaLifeAdded)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllEarthenwareClay || !TFCFlorae.FirmaLifeAdded)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {
@@ -304,7 +304,7 @@
 //                }
 //            }
 //        }
-//        if (!ConfigTFCF.General.WORLD.enableAllEarthenwareClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllEarthenwareClay)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {
@@ -328,7 +328,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllKaoliniteClay)
 //        {
 //            for (Metal.ItemType type : Metal.ItemType.values())
 //            {
@@ -392,7 +392,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllKaoliniteClay || !TFCFlorae.FirmaLifeAdded)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllKaoliniteClay || !TFCFlorae.FirmaLifeAdded)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {
@@ -409,7 +409,7 @@
 //                }
 //            }
 //        }
-//        if (!ConfigTFCF.General.WORLD.enableAllKaoliniteClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllKaoliniteClay)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {
@@ -433,7 +433,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllStonewareClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllStonewareClay)
 //        {
 //            for (Metal.ItemType type : Metal.ItemType.values())
 //            {
@@ -497,7 +497,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllStonewareClay || !TFCFlorae.FirmaLifeAdded)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllStonewareClay || !TFCFlorae.FirmaLifeAdded)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {
@@ -515,7 +515,7 @@
 //            }
 //        }*/
 //        /*
-//        if (!ConfigTFCF.General.WORLD.enableAllStonewareClay)
+//        if (!ConfigTFC.FloraeGeneral.WORLD.enableAllStonewareClay)
 //        {
 //            IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 //            String[] regNames = {

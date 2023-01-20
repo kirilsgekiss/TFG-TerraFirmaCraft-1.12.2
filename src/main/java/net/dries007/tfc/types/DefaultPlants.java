@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.types;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Plant;
-import tfcflorae.ConfigTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -493,7 +493,7 @@ public final class DefaultPlants
             );
 
             // Vine/Ivy
-        if (ConfigTFCF.General.WORLD.enableAllVines)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllVines)
         {
             event.getRegistry().register(new Plant(RATTAN, Plant.PlantType.HANGING, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, false, 18f, 40f, 10f, 50f, 210f, 500f, 0, 15, 5, 0.5D, "vine"));
             event.getRegistry().register(new Plant(BEARDED_MOSS, Plant.PlantType.HANGING, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, true, -10f, 22f, -25f, 37f, 180f, 500f, 0, 15, 10, 0.7D, "vine")); // Special
@@ -512,7 +512,7 @@ public final class DefaultPlants
         }
 
         // Water Plants
-        if (ConfigTFCF.General.WORLD.enableAllWaterPlants)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllWaterPlants)
         {
             event.getRegistry().register(new Plant(BADDERLOCKS, Plant.PlantType.TALL_WATER_SEA, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, false, -31f, 17f, -33f, 25f, 150f, 500f, 0, 15, 6, 1, 256, 0.8D, "seaweed"));
             //event.getRegistry().register(new Plant(BROWN_ALGAE, Plant.PlantType.WATER, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, false, -37f, 11f, -39f, 13f, 100f, 500f, 0, 15, 1, 1, 256, 0.6D, "seaweed"));

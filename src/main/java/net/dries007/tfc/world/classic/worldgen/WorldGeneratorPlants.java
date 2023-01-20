@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.BlockHardenedClay;
 import net.minecraft.block.BlockStainedHardenedClay;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +24,6 @@ import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import tfcflorae.ConfigTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGeneratorPlants implements IWorldGenerator
@@ -39,18 +39,18 @@ public class WorldGeneratorPlants implements IWorldGenerator
     private int dryCount = 1;
     private int standardCount = 1;
 
-    private float waterCountConfig = ConfigTFCF.General.WORLD.waterCount;
-    private float waterTallCountConfig = ConfigTFCF.General.WORLD.waterTallCount;
-    private float waterSeaCountConfig = ConfigTFCF.General.WORLD.waterSeaCount;
-    private float waterTallSeaCountConfig = ConfigTFCF.General.WORLD.waterTallSeaCount;
-    private float waterSeaAlgaeCountConfig = ConfigTFCF.General.WORLD.waterSeaAlgaeCount;
-    private float hangingCountConfig = ConfigTFCF.General.WORLD.hangingCount;
-    private float beardedMossConfig = ConfigTFCF.General.WORLD.beardedMossCount;
-    private float grassCountConfig = ConfigTFCF.General.WORLD.grassCount;
-    private float tallGrassCountConfig = ConfigTFCF.General.WORLD.tallGrassCount;
-    private float tallCountConfig = ConfigTFCF.General.WORLD.tallPlantCount;
-    private float epiphyteCountConfig = ConfigTFCF.General.WORLD.epiphyteCount;
-    private float standardCountConfig = ConfigTFCF.General.WORLD.standardCount;
+    private float waterCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterCount;
+    private float waterTallCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterTallCount;
+    private float waterSeaCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterSeaCount;
+    private float waterTallSeaCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterTallSeaCount;
+    private float waterSeaAlgaeCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterSeaAlgaeCount;
+    private float hangingCountConfig = ConfigTFC.FloraeGeneral.WORLD.hangingCount;
+    private float beardedMossConfig = ConfigTFC.FloraeGeneral.WORLD.beardedMossCount;
+    private float grassCountConfig = ConfigTFC.FloraeGeneral.WORLD.grassCount;
+    private float tallGrassCountConfig = ConfigTFC.FloraeGeneral.WORLD.tallGrassCount;
+    private float tallCountConfig = ConfigTFC.FloraeGeneral.WORLD.tallPlantCount;
+    private float epiphyteCountConfig = ConfigTFC.FloraeGeneral.WORLD.epiphyteCount;
+    private float standardCountConfig = ConfigTFC.FloraeGeneral.WORLD.standardCount;
 
     public WorldGeneratorPlants()
     {

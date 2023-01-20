@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -19,8 +20,6 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenMesaStrata implements IWorldGenerator
 {
@@ -42,7 +41,7 @@ public class WorldGenMesaStrata implements IWorldGenerator
     {
         BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
         ChunkDataTFC data = ChunkDataTFC.get(world, chunkBlockPos);
-        if (!data.isInitialized() && !ConfigTFCF.General.WORLD.enableMesaStrata) return;
+        if (!data.isInitialized() && !ConfigTFC.FloraeGeneral.WORLD.enableMesaStrata) return;
 
         for (int x = 0; x < 16; ++x)
         {

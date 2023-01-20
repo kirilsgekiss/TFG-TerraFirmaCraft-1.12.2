@@ -2,6 +2,7 @@ package tfcflorae.client;
 
 import com.google.common.base.Strings;
 
+import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.minecraft.block.*;
@@ -38,7 +39,6 @@ import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
 import tfcflorae.objects.items.ItemsTFCF;
-import tfcflorae.ConfigTFCF;
 import tfcflorae.TFCFlorae;
 import net.dries007.tfc.api.stateproperty.StatePropertiesTFC;
 
@@ -80,43 +80,43 @@ public class ClientRegisterEventsTFCF
         for (Block block : BlocksTFCF.getAllGlowWaterPlants())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWaterGlowPlant.LEVEL).build());
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverBones)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
         {
             for (Block block : BlocksTFCF.getAllSurfaceBones())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverDriftwood)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood)
         {
             for (Block block : BlocksTFCF.getAllSurfaceDriftwood())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverFlint)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint)
         {
             for (Block block : BlocksTFCF.getAllSurfaceFlint())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverPinecone)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone)
         {
             for (Block block : BlocksTFCF.getAllSurfacePinecone())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverSeashell)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell)
         {
             for (Block block : BlocksTFCF.getAllSurfaceSeashells())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverTwig)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig)
         {
             for (Block block : BlocksTFCF.getAllSurfaceTwig())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        if (ConfigTFCF.General.WORLD.enableGroundcoverRock)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock)
         {
             for (Block block : BlocksTFCF.getAllSurfaceRocks())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
@@ -275,7 +275,7 @@ public class ClientRegisterEventsTFCF
         IBlockColor grassColor = GrassColorHandler::computeGrassColor;
         IBlockColor foliageColor = GrassColorHandler::computeGrassColor;
 
-        if (ConfigTFCF.General.WORLD.enableAllBlockTypes)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes)
         {
 
         }
@@ -304,7 +304,7 @@ public class ClientRegisterEventsTFCF
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantDummy1[0]));
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantDummy2[0]));
 
-        if (ConfigTFCF.General.WORLD.enableAllBlockTypes && ConfigTFCF.General.WORLD.enableAllFarmland)
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes && ConfigTFC.FloraeGeneral.WORLD.enableAllFarmland)
         {
         }
     }
