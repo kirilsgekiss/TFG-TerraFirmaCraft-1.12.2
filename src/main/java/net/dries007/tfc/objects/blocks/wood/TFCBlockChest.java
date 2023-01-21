@@ -36,7 +36,7 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.inventory.capability.TFCInventoryLargeChest;
-import net.dries007.tfc.objects.te.TEChestTFC;
+import net.dries007.tfc.objects.te.TEChest;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -160,7 +160,7 @@ public class TFCBlockChest extends BlockChest implements IItemSize
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new TEChestTFC();
+        return new TEChest();
     }
 
     @Nonnull

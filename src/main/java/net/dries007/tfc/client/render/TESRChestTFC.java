@@ -21,12 +21,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
-import net.dries007.tfc.objects.te.TEChestTFC;
+import net.dries007.tfc.objects.te.TEChest;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
-public class TESRChestTFC extends TileEntitySpecialRenderer<TEChestTFC>
+public class TESRChestTFC extends TileEntitySpecialRenderer<TEChest>
 {
     private static final Map<Tree, ResourceLocation> SINGLE_TEXTURES = new HashMap<>();
     private static final Map<Tree, ResourceLocation> DOUBLE_TEXTURES = new HashMap<>();
@@ -49,7 +49,7 @@ public class TESRChestTFC extends TileEntitySpecialRenderer<TEChestTFC>
     private final ModelChest largeChest = new ModelLargeChest();
 
     @Override
-    public void render(TEChestTFC te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+    public void render(TEChest te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         GlStateManager.enableDepth();
         GlStateManager.depthFunc(515);

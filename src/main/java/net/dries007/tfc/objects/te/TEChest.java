@@ -39,7 +39,7 @@ import net.dries007.tfc.objects.inventory.capability.TFCDoubleChestItemHandler;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class TEChestTFC extends TileEntityChest implements ISlotCallback
+public class TEChest extends TileEntityChest implements ISlotCallback
 {
     public static final int SIZE = 18;
 

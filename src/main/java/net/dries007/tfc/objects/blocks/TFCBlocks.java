@@ -2121,7 +2121,7 @@ public final class TFCBlocks
         register(TEPlacedItemFlat.class, "placed_item_flat");
         register(TEPlacedHide.class, "placed_hide");
         register(TEPitKiln.class, "pit_kiln");
-        register(TEChestTFC.class, "chest");
+        register(TEChest.class, "chest");
         register(TENestBox.class, "nest_box");
         register(TELogPile.class, "log_pile");
         register(TEFirePit.class, "fire_pit");
