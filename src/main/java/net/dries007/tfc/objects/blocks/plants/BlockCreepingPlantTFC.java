@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy2;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.properties.PropertyBool;
@@ -31,9 +32,10 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockCreepingPlantTFC extends TFCBlockPlant
+public class BlockCreepingPlantTFC extends BlockPlantDummy2
 {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
@@ -78,7 +80,7 @@ public class BlockCreepingPlantTFC extends TFCBlockPlant
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return EnumOffsetType.NONE;
     }
@@ -87,6 +89,12 @@ public class BlockCreepingPlantTFC extends TFCBlockPlant
     protected boolean canSustainBush(IBlockState state)
     {
         return true;
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
     }
 
     @Override

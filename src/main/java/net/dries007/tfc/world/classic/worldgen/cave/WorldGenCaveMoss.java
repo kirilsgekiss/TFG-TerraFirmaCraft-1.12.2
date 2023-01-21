@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.plants.BlockCreepingPlantTFCF;
+import net.dries007.tfc.objects.blocks.plants.BlockCreepingPlantTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -29,7 +29,7 @@ public class WorldGenCaveMoss extends WorldGenerator
 	@Override
     public boolean generate(World worldIn, Random rng, BlockPos pos)
     {
-        BlockCreepingPlantTFCF plantBlock = BlockCreepingPlantTFCF.get(plant);
+        BlockCreepingPlantTFC plantBlock = BlockCreepingPlantTFC.get(plant);
         IBlockState state = plantBlock.getDefaultState();
 
         for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)
@@ -43,7 +43,7 @@ public class WorldGenCaveMoss extends WorldGenerator
                 plantBlock.canBlockStay(worldIn, blockpos, state))
             {
                 int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
-                setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockCreepingPlantTFCF.AGE, plantAge));
+                setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockCreepingPlantTFC.AGE, plantAge));
             }
         }
         return true;

@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 
 import net.dries007.tfc.TerraFirmaCraft;
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -33,13 +34,11 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.TFCFlorae;
 import net.dries007.tfc.api.types.Rock.Type;
 
 public class StructureGenerator extends WorldGenerator
@@ -57,7 +56,7 @@ public class StructureGenerator extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(TerraFirmaCraft.MOD_ID, structureName));
 		int variation = 3;
 
 		if (template == null)
@@ -154,7 +153,7 @@ public class StructureGenerator extends WorldGenerator
                             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
                             {
                                 if (world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == Blocks.AIR || 
-                                    world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == TFCBlockPlant.get(plant))
+                                    world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == BlockPlantTFC.get(plant))
                                 {
                                     final IBlockState current = world.getBlockState(position);
                                     if (TFCBlocks.isSand(current))

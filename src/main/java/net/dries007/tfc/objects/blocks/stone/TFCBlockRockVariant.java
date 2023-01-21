@@ -15,6 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.TFCSounds;
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
@@ -40,7 +41,6 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.objects.blocks.stone.farmland.*;
@@ -1153,8 +1153,8 @@ public class TFCBlockRockVariant extends Block implements IItemSize {
             IPlantable plantable) {
         int beachDistance = 2;
 
-        if (plantable instanceof TFCBlockPlant) {
-            switch (((TFCBlockPlant) plantable).getPlantTypeTFC()) {
+        if (plantable instanceof BlockPlantTFC) {
+            switch (((BlockPlantTFC) plantable).getPlantTypeTFC()) {
                 case CLAY:
                     return type == Type.DIRT ||
                             type == Type.GRASS ||

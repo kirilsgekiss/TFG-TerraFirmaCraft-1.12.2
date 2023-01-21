@@ -48,22 +48,23 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowable, ITallPlant
+public class BlockHangingGlowingPlantTFC extends BlockPlantDummy1 implements IGrowable, ITallPlant
 {
     private static final PropertyEnum<EnumBlockPart> PART = PropertyEnum.create("part", EnumBlockPart.class);
 
 	public static final AxisAlignedBB AABB = new AxisAlignedBB(0.25F, 0, 0.25F, 0.75F, 1, 0.75F);
 
-    private static final Map<Plant, BlockHangingGlowingPlant> MAP = new HashMap<>();
+    private static final Map<Plant, BlockHangingGlowingPlantTFC> MAP = new HashMap<>();
 
-    public static BlockHangingGlowingPlant get(Plant plant)
+    public static BlockHangingGlowingPlantTFC get(Plant plant)
     {
-        return BlockHangingGlowingPlant.MAP.get(plant);
+        return BlockHangingGlowingPlantTFC.MAP.get(plant);
     }
 
-    public BlockHangingGlowingPlant(Plant plant)
+    public BlockHangingGlowingPlantTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
@@ -100,7 +101,7 @@ public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowa
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
     }
@@ -325,7 +326,7 @@ public class BlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowa
             {
                 if (!worldIn.isRemote)
                 {
-                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemFoodTFC.get(Food.GLOWBERRY), 1 + BlockHangingGlowingPlant.getSkillFoodBonus(skill, RANDOM)));
+                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemFoodTFC.get(Food.GLOWBERRY), 1 + BlockHangingGlowingPlantTFC.getSkillFoodBonus(skill, RANDOM)));
                     worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(AGE, 0), 2);
                     TETickCounter te = Helpers.getTE(worldIn, pos, TETickCounter.class);
                     if (te != null)

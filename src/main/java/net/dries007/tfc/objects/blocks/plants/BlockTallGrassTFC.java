@@ -35,6 +35,7 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
 public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, ITallPlant
@@ -251,7 +252,7 @@ public class BlockTallGrassTFC extends BlockShortGrassTFC implements IGrowable, 
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
     }

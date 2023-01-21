@@ -32,19 +32,20 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockTallGrassWater extends BlockShortGrassTFCF implements IGrowable, ITallPlant
+public class BlockTallGrassWaterTFC extends BlockShortGrassTFC implements IGrowable, ITallPlant
 {
-    private static final PropertyEnum<BlockTallGrassWater.EnumBlockPart> PART = PropertyEnum.create("part", BlockTallGrassWater.EnumBlockPart.class);
-    private static final Map<Plant, BlockTallGrassWater> MAP = new HashMap<>();
+    private static final PropertyEnum<BlockTallGrassWaterTFC.EnumBlockPart> PART = PropertyEnum.create("part", BlockTallGrassWaterTFC.EnumBlockPart.class);
+    private static final Map<Plant, BlockTallGrassWaterTFC> MAP = new HashMap<>();
 
-    public static BlockTallGrassWater get(Plant plant)
+    public static BlockTallGrassWaterTFC get(Plant plant)
     {
-        return BlockTallGrassWater.MAP.get(plant);
+        return BlockTallGrassWaterTFC.MAP.get(plant);
     }
 
-    public BlockTallGrassWater(Plant plant)
+    public BlockTallGrassWaterTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
@@ -75,7 +76,7 @@ public class BlockTallGrassWater extends BlockShortGrassTFCF implements IGrowabl
         IBlockState soil = worldIn.getBlockState(pos.down());
 
         if (worldIn.getBlockState(pos.down(plant.getMaxHeight())).getBlock() == this) return false;
-        if (soil.getBlock() instanceof BlockWaterPlantTFCF || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
+        if (soil.getBlock() instanceof BlockWaterPlantTFC) return false;
         if (state.getBlock() == this)
         {
             IBlockState stateDown = worldIn.getBlockState(pos.down());
@@ -228,7 +229,7 @@ public class BlockTallGrassWater extends BlockShortGrassTFCF implements IGrowabl
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
     }

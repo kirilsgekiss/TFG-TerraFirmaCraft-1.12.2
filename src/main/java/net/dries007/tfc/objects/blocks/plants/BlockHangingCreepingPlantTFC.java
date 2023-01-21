@@ -32,17 +32,17 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockHangingCreepingPlantTFCF extends BlockCreepingPlantTFCF implements IGrowable
+public class BlockHangingCreepingPlantTFC extends BlockCreepingPlantTFC implements IGrowable
 {
     private static final PropertyBool BOTTOM = PropertyBool.create("bottom");
-    private static final Map<Plant, BlockHangingCreepingPlantTFCF> MAP = new HashMap<>();
+    private static final Map<Plant, BlockHangingCreepingPlantTFC> MAP = new HashMap<>();
 
-    public static BlockHangingCreepingPlantTFCF get(Plant plant)
+    public static BlockHangingCreepingPlantTFC get(Plant plant)
     {
-        return BlockHangingCreepingPlantTFCF.MAP.get(plant);
+        return BlockHangingCreepingPlantTFC.MAP.get(plant);
     }
 
-    public BlockHangingCreepingPlantTFCF(Plant plant)
+    public BlockHangingCreepingPlantTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");

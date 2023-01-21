@@ -55,12 +55,12 @@ import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize, IItemFoodTFC
+public class BlockCaveMushroomTFC extends BlockBush implements IGrowable, IItemSize, IItemFoodTFC
 {
     ArrayList<PotionEffectToHave> PotionEffects = new ArrayList<PotionEffectToHave>();
     public FoodData data;
 
-    private static final Map<BlockCaveMushroom, ItemFoodTFC> MAP = new HashMap<>();
+    private static final Map<BlockCaveMushroomTFC, ItemFoodTFC> MAP = new HashMap<>();
 
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     /*
@@ -90,7 +90,7 @@ public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize
 
     protected final BlockStateContainer blockState;
 
-    public BlockCaveMushroom(float lightLevel, FoodData data, Object... oreNameParts)
+    public BlockCaveMushroomTFC(float lightLevel, FoodData data, Object... oreNameParts)
     {
         super(Material.PLANTS);
 
@@ -128,7 +128,7 @@ public class BlockCaveMushroom extends BlockBush implements IGrowable, IItemSize
         return MAP.get(food);
     }
 
-    public static ItemStack get(BlockCaveMushroom food, int amount)
+    public static ItemStack get(BlockCaveMushroomTFC food, int amount)
     {
         return new ItemStack(MAP.get(food), amount);
     }

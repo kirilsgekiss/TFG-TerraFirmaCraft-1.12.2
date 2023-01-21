@@ -16,8 +16,6 @@ import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import tfcflorae.TFCFlorae;
-
 import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
 
 public class TreeGenRandom implements ITreeGenerator

@@ -42,17 +42,17 @@ import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF implements IGrowable
+public class BlockHangingGlowingCreepingPlantTFC extends BlockCreepingPlantTFC implements IGrowable
 {
     private static final PropertyBool BOTTOM = PropertyBool.create("bottom");
-    private static final Map<Plant, BlockHangingGlowingCreepingPlant> MAP = new HashMap<>();
+    private static final Map<Plant, BlockHangingGlowingCreepingPlantTFC> MAP = new HashMap<>();
 
-    public static BlockHangingGlowingCreepingPlant get(Plant plant)
+    public static BlockHangingGlowingCreepingPlantTFC get(Plant plant)
     {
-        return BlockHangingGlowingCreepingPlant.MAP.get(plant);
+        return BlockHangingGlowingCreepingPlantTFC.MAP.get(plant);
     }
 
-    public BlockHangingGlowingCreepingPlant(Plant plant)
+    public BlockHangingGlowingCreepingPlantTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
@@ -377,7 +377,7 @@ public class BlockHangingGlowingCreepingPlant extends BlockCreepingPlantTFCF imp
             {
                 if (!worldIn.isRemote)
                 {
-                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemFoodTFC.get(Food.GLOWBERRY), 1 + BlockHangingGlowingPlant.getSkillFoodBonus(skill, RANDOM)));
+                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemFoodTFC.get(Food.GLOWBERRY), 1 + BlockHangingGlowingPlantTFC.getSkillFoodBonus(skill, RANDOM)));
                     worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(AGE, 0), 2);
                     TETickCounter te = Helpers.getTE(worldIn, pos, TETickCounter.class);
                     if (te != null)

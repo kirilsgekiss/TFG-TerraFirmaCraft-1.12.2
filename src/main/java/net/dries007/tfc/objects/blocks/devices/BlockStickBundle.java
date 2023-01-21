@@ -39,7 +39,6 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import net.dries007.tfc.objects.te.TEStickBundle;

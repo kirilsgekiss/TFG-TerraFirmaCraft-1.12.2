@@ -3,6 +3,7 @@ package net.dries007.tfc.world.classic.worldgen.soil;
 import java.util.Random;
 
 import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -13,7 +14,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -366,7 +366,7 @@ public class WorldGenClays implements IWorldGenerator
                             {
                                 if (plant.getIsClayMarking())
                                 {
-                                    TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                                    BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                                     IBlockState state = plantBlock.getDefaultState();
                                     int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, posTop));
 
@@ -377,7 +377,7 @@ public class WorldGenClays implements IWorldGenerator
                                     {
                                         if (TFCBlocks.isClay(current))
                                         {
-                                            world.setBlockState(posTop, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
+                                            world.setBlockState(posTop, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
                                         }
                                     }
                                 }
@@ -752,7 +752,7 @@ public class WorldGenClays implements IWorldGenerator
                             {
                                 if (plant.getIsClayMarking())
                                 {
-                                    TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                                    BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                                     IBlockState state = plantBlock.getDefaultState();
                                     int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, posTop));
 
@@ -763,7 +763,7 @@ public class WorldGenClays implements IWorldGenerator
                                     {
                                         if (TFCBlocks.isClay(current))
                                         {
-                                            world.setBlockState(posTop, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
+                                            world.setBlockState(posTop, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
                                         }
                                     }
                                 }
@@ -1129,7 +1129,7 @@ public class WorldGenClays implements IWorldGenerator
                             {
                                 if (plant.getIsClayMarking())
                                 {
-                                    TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                                    BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                                     IBlockState state = plantBlock.getDefaultState();
                                     int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, posTop));
 
@@ -1140,7 +1140,7 @@ public class WorldGenClays implements IWorldGenerator
                                     {
                                         if (TFCBlocks.isClay(current))
                                         {
-                                            world.setBlockState(posTop, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
+                                            world.setBlockState(posTop, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
                                         }
                                     }
                                 }
@@ -1506,7 +1506,7 @@ public class WorldGenClays implements IWorldGenerator
                             {
                                 if (plant.getIsClayMarking())
                                 {
-                                    TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                                    BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                                     IBlockState state = plantBlock.getDefaultState();
                                     int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, posTop));
 
@@ -1517,7 +1517,7 @@ public class WorldGenClays implements IWorldGenerator
                                     {
                                         if (TFCBlocks.isClay(current))
                                         {
-                                            world.setBlockState(posTop, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
+                                            world.setBlockState(posTop, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
                                         }
                                     }
                                 }

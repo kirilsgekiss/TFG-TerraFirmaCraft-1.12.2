@@ -43,7 +43,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.objects.blocks.groundcover.*;
 
 @ParametersAreNonnullByDefault
-public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPlantable
+public class BlockWaterGlowPlantTFC extends BlockFluidTFC implements IItemSize, IPlantable
 {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
@@ -61,12 +61,12 @@ public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPl
     private static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.2D, 0.1D, 0.1D, 1.0D, 0.9D, 0.9D);
     private static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.1D, 0.1D, 0.8D, 0.9D, 0.9D);
 
-    public BlockWaterGlowPlant(Fluid fluid)
+    public BlockWaterGlowPlantTFC(Fluid fluid)
     {
         this(fluid, Material.WATER);
     }
 
-    public BlockWaterGlowPlant(Fluid fluid, Material materialIn)
+    public BlockWaterGlowPlantTFC(Fluid fluid, Material materialIn)
     {
         super(fluid, Material.WATER, false);
         this.setSoundType(SoundType.PLANT);
@@ -314,7 +314,7 @@ public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPl
         {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockWaterGlowPlant))
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockWaterGlowPlantTFC))
             {
                 return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
@@ -346,7 +346,7 @@ public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPl
         {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockWaterGlowPlant))
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockWaterGlowPlantTFC))
             {
                 return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
@@ -394,7 +394,7 @@ public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPl
     @SideOnly(Side.CLIENT)
 	public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos)
     {
-		if (state.getBlock() instanceof BlockWaterGlowPlant)
+		if (state.getBlock() instanceof BlockWaterGlowPlantTFC)
 			return state.getBoundingBox(worldIn, pos).offset(pos);
 		return null;
 	}
@@ -402,6 +402,6 @@ public class BlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPl
 	@Override
 	public boolean canCollideCheck(IBlockState state, boolean fullHit)
     {
-		return state.getBlock() instanceof BlockWaterGlowPlant && super.canCollideCheck(state, fullHit);
+		return state.getBlock() instanceof BlockWaterGlowPlantTFC && super.canCollideCheck(state, fullHit);
 	}
 }

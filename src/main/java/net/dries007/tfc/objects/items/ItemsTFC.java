@@ -76,8 +76,6 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.agriculture.Food;
-import tfcflorae.BlocksTFCF;
-import tfcflorae.TFCFlorae;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
@@ -1207,7 +1205,7 @@ public final class ItemsTFC
         simpleItems.add(register(r, "firma_cola_oils", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "oils_firma_cola"), CT_MISC));
         simpleItems.add(register(r, "firma_cola_blend", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "blend_firma_cola"), CT_MISC));
 
-        for (BlockFruitLog log : BlocksTFCF.getAllNormalTreeLog())
+        for (BlockFruitLog log : TFCBlocks.getAllNormalTreeLog())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new ItemBlockTFC(log), CT_WOOD));
 
         // Tools
@@ -1392,18 +1390,18 @@ public final class ItemsTFC
 
         simpleItems.add(register(r, "wood/fruit_tree/boat/ceylon_cinnamon", new ItemBoatTFC(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
 
-        for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
+        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
         {
             ItemMisc bambooPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
-            simpleItems.add(register(r, "wood/pole/" + BlocksTFCF.bamboo[i], bambooPole, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + BlocksTFCF.bamboo[i]), bambooPole);
-            ((BlockBambooLog) BlocksTFCF.getAllBambooLog().get(i)).setDrop(bambooPole);
+            simpleItems.add(register(r, "wood/pole/" + TFCBlocks.bamboo[i], bambooPole, CT_WOOD));
+            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + TFCBlocks.bamboo[i]), bambooPole);
+            ((BlockBambooLog) TFCBlocks.getAllBambooLog().get(i)).setDrop(bambooPole);
 
             ItemMisc bambooLumber = new ItemMisc(Size.SMALL, Weight.VERY_LIGHT);
-            simpleItems.add(register(r, "wood/lumber/" + BlocksTFCF.bamboo[i], bambooLumber, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + BlocksTFCF.bamboo[i]), bambooLumber);
+            simpleItems.add(register(r, "wood/lumber/" + TFCBlocks.bamboo[i], bambooLumber, CT_WOOD));
+            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + TFCBlocks.bamboo[i]), bambooLumber);
 
-            simpleItems.add(register(r, "wood/boat/" + BlocksTFCF.bamboo[i], new ItemFruitBoat(BlocksTFCF.bambooTrees[i]), CT_WOOD));
+            simpleItems.add(register(r, "wood/boat/" + TFCBlocks.bamboo[i], new ItemFruitBoat(TFCBlocks.bambooTrees[i]), CT_WOOD));
         }
 
         /*for (SeasonalTrees fruitTree : SeasonalTrees.values())
@@ -1513,7 +1511,7 @@ public final class ItemsTFC
             String name = fruitTree.getName().toLowerCase();
 
             // Poles
-            if (!TFCFlorae.FirmaLifeAdded)
+            if (true) // if firmalife !added
             {
                 ItemMisc pole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
                 simpleItems.add(register(r, "wood/fruit_tree/pole/" + name, pole, CT_WOOD));
@@ -1530,7 +1528,7 @@ public final class ItemsTFC
 
         ImmutableList.Builder<ItemFruitDoor> fruitDoors = ImmutableList.builder();
 
-        for (BlockFruitDoor blockDoor : BlocksTFCF.getAllFruitDoors())
+        for (BlockFruitDoor blockDoor : TFCBlocks.getAllFruitDoors())
         {
             ItemFruitDoor itemDoor = new ItemFruitDoor(blockDoor);
             fruitDoors.add(register(r, blockDoor.getRegistryName().getPath(), itemDoor, CT_DECORATIONS));
@@ -1538,20 +1536,15 @@ public final class ItemsTFC
             OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood_" + blockDoor.Name), itemDoor);
         }
 
-        for (BlockFruitSlab.Half slab : BlocksTFCF.getAllFruitSlabBlocks())
+        for (BlockFruitSlab.Half slab : TFCBlocks.getAllFruitSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : BlocksTFCF.getAllSlabBlocksTFC())
+        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllSlabBlocksTFC())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new ItemSlabTFC(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
         allFruitDoors = fruitDoors.build();
 
-        BlocksTFCF.getAllNormalItemBlocks().forEach((x) -> {
-            registerItemBlock(r, x);
-        });
-
-        allSimpleItems = simpleItems.build();
         //allItemBows = itemBows.build();
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableAllEarthenwareClay || ConfigTFC.FloraeGeneral.WORLD.enableAllKaoliniteClay || ConfigTFC.FloraeGeneral.WORLD.enableAllStonewareClay)

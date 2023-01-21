@@ -14,8 +14,6 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.BlocksTFCF;
-
 public class WorldGenSurfaceBones implements IWorldGenerator
 {
     private double factor;
@@ -74,7 +72,7 @@ public class WorldGenSurfaceBones implements IWorldGenerator
         {
             if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down())))
             {
-                world.setBlockState(pos, BlocksTFCF.BONES.getDefaultState());
+                world.setBlockState(pos, TFCBlocks.BONES.getDefaultState());
             }
         }
     }

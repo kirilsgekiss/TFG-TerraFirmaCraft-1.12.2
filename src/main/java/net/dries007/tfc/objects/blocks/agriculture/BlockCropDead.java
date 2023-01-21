@@ -30,7 +30,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFCF;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
@@ -161,7 +160,7 @@ public class BlockCropDead extends BlockBush
         {
             IBlockState soil = worldIn.getBlockState(pos.down());
 
-            if (soil.getBlock() instanceof BlockWaterPlantTFCF || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
+            if (soil.getBlock() instanceof BlockWaterPlantTFC || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
             if (state.getBlock() == this)
             {
                 IBlockState stateDown = worldIn.getBlockState(pos.down());

@@ -14,8 +14,6 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.BlocksTFCF;
-
 public class WorldGenSurfaceTwig implements IWorldGenerator
 {
     private double factor;
@@ -65,7 +63,7 @@ public class WorldGenSurfaceTwig implements IWorldGenerator
             {
                 if (TFCBlocks.isSoil(world.getBlockState(pos.down())) || TFCBlocks.isGround(world.getBlockState(pos.down())))
                 {
-                    world.setBlockState(pos, BlocksTFCF.TWIG.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.TWIG.getDefaultState());
                 }
             }
         }

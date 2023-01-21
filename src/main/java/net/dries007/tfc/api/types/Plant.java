@@ -354,41 +354,43 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
     // todo: switch usages to interface from enum, it will make custom plants by addons easier down the line. It's also a better design
     public enum PlantType implements IPlantType
     {
-        STANDARD(TFCBlockPlant::new),
+        STANDARD(BlockPlantTFC::new),
         TALL_PLANT(BlockTallPlantTFC::new),
         CREEPING(BlockCreepingPlantTFC::new),
         HANGING(BlockHangingPlantTFC::new),
         FLOATING(BlockFloatingWaterTFC::new),
         FLOATING_SEA(BlockFloatingWaterTFC::new),
-        DESERT(TFCBlockPlant::new),
+        DESERT(BlockPlantTFC::new),
         DESERT_TALL_PLANT(BlockTallPlantTFC::new),
-        DRY(TFCBlockPlant::new),
+        DRY(BlockPlantTFC::new),
         DRY_TALL_PLANT(BlockTallPlantTFC::new),
         CACTUS(BlockCactusTFC::new),
+        SAGUARO_CACTUS(BlockSaguaroCactusTFC::new),
         SHORT_GRASS(BlockShortGrassTFC::new),
         TALL_GRASS(BlockTallGrassTFC::new),
         EPIPHYTE(BlockEpiphyteTFC::new),
-        REED(TFCBlockPlant::new),
-        REED_SEA(TFCBlockPlant::new),
+        REED(BlockPlantTFC::new),
+        REED_SEA(BlockPlantTFC::new),
         TALL_REED(BlockTallPlantTFC::new),
         TALL_REED_SEA(BlockTallPlantTFC::new),
         WATER(BlockWaterPlantTFC::new),
         WATER_SEA(BlockWaterPlantTFC::new),
         TALL_WATER(BlockTallWaterPlantTFC::new),
         TALL_WATER_SEA(BlockTallWaterPlantTFC::new),
+        TALL_WATER_GRASS(BlockTallGrassWaterTFC::new),
         EMERGENT_TALL_WATER(BlockEmergentTallWaterPlantTFC::new),
         EMERGENT_TALL_WATER_SEA(BlockEmergentTallWaterPlantTFC::new),
         MUSHROOM(BlockMushroomTFC::new);
 
-        private final Function<Plant, TFCBlockPlant> supplier;
+        private final Function<Plant, BlockPlantTFC> supplier;
 
-        PlantType(@Nonnull Function<Plant, TFCBlockPlant> supplier)
+        PlantType(@Nonnull Function<Plant, BlockPlantTFC> supplier)
         {
             this.supplier = supplier;
         }
 
         @Override
-        public TFCBlockPlant create(Plant plant)
+        public BlockPlantTFC create(Plant plant)
         {
             return supplier.apply(plant);
         }

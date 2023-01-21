@@ -16,7 +16,6 @@ import net.dries007.tfc.util.Alloy;
 import net.dries007.tfc.util.config.*;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;
 
 /**
  * Top level items must be static, the subclasses' fields must not be static.

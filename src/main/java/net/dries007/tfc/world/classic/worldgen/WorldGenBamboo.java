@@ -16,8 +16,6 @@ import net.dries007.tfc.world.classic.biomes.BiomeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.BlocksTFCF;
-
 public class WorldGenBamboo extends WorldGenerator
 {
     @Override
@@ -200,7 +198,7 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.ARROW_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.ARROW_BAMBOO_LOG.getDefaultState());
                         /*if (trunk < 3)
                             continue;
                         for (EnumFacing d : EnumFacing.HORIZONTALS)
@@ -216,7 +214,7 @@ public class WorldGenBamboo extends WorldGenerator
                         }*/
                     }
                     //world.setBlockState(pos.offset(EnumFacing.UP, height), leaves);
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.ARROW_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.ARROW_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -248,9 +246,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.BLACK_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.BLACK_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.BLACK_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.BLACK_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -282,10 +280,10 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.BLUE_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.BLUE_BAMBOO_LOG.getDefaultState());
 
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.BLUE_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.BLUE_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -317,9 +315,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.DRAGON_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.DRAGON_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.DRAGON_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.DRAGON_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -351,9 +349,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.GOLDEN_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.GOLDEN_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.GOLDEN_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.GOLDEN_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -385,9 +383,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.NARROW_LEAF_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.NARROW_LEAF_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.NARROW_LEAF_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.NARROW_LEAF_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -419,9 +417,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.RED_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.RED_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.RED_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.RED_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -453,9 +451,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.TEMPLE_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.TEMPLE_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.TEMPLE_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.TEMPLE_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -487,9 +485,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.THORNY_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.THORNY_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.THORNY_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.THORNY_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -521,9 +519,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.TIMBER_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.TIMBER_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.TIMBER_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.TIMBER_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -555,9 +553,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.TINWA_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.TINWA_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.TINWA_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.TINWA_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }
@@ -589,9 +587,9 @@ public class WorldGenBamboo extends WorldGenerator
                     for (int trunk = 0; trunk < height; trunk++)
                     {
                         BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-                        world.setBlockState(trunkPos, BlocksTFCF.WEAVERS_BAMBOO_LOG.getDefaultState());
+                        world.setBlockState(trunkPos, TFCBlocks.WEAVERS_BAMBOO_LOG.getDefaultState());
                     }
-                    generateBambooLeaves(world, rand, pos, height, BlocksTFCF.WEAVERS_BAMBOO_LEAVES.getDefaultState());
+                    generateBambooLeaves(world, rand, pos, height, TFCBlocks.WEAVERS_BAMBOO_LEAVES.getDefaultState());
                 }
             }
         }

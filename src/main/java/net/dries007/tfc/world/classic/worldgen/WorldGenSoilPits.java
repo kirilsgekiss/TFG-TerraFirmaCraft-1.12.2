@@ -7,6 +7,7 @@ package net.dries007.tfc.world.classic.worldgen;
 
 import java.util.Random;
 
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -20,7 +21,6 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
@@ -87,7 +87,7 @@ public class WorldGenSoilPits implements IWorldGenerator
                     {
                         if (plant.getIsClayMarking())
                         {
-                            TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                            BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                             IBlockState state = plantBlock.getDefaultState();
                             int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(world, pos));
 
@@ -96,7 +96,7 @@ public class WorldGenSoilPits implements IWorldGenerator
                                 world.isAirBlock(pos) &&
                                 plantBlock.canBlockStay(world, pos, state))
                             {
-                                world.setBlockState(pos, state.withProperty(TFCBlockPlant.AGE, plantAge), 2);
+                                world.setBlockState(pos, state.withProperty(BlockPlantTFC.AGE, plantAge), 2);
                             }
                         }
                     }

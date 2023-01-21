@@ -33,9 +33,10 @@ import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockShortGrassTFC extends TFCBlockPlant implements IShearable
+public class BlockShortGrassTFC extends BlockPlantTFC implements IShearable
 {
     private static final AxisAlignedBB GRASS_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
     private static final AxisAlignedBB SHORTER_GRASS_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.5D, 0.875D);
@@ -144,7 +145,7 @@ public class BlockShortGrassTFC extends TFCBlockPlant implements IShearable
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
     }

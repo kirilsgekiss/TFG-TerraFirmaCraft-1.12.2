@@ -5,6 +5,8 @@
 
 package net.dries007.tfc.objects.blocks.plants;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -47,7 +49,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
-public class BlockPlantTFCF extends BlockBush implements IItemSize
+public class BlockPlantTFC extends BlockBush implements IItemSize
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
     /*
@@ -59,22 +61,22 @@ public class BlockPlantTFCF extends BlockBush implements IItemSize
      */
     public final static PropertyInteger DAYPERIOD = PropertyInteger.create("dayperiod", 0, 3);
     private static final AxisAlignedBB PLANT_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
-    //private static final Map<Plant, BlockPlantTFCF> MAP = new HashMap<>();
+    private static final Map<Plant, BlockPlantTFC> MAP = new HashMap<>();
 
-    /*public static BlockPlantTFCF get(Plant plant)
+    public static BlockPlantTFC get(Plant plant)
     {
         return MAP.get(plant);
-    }*/
+    }
 
     /* Growth Stage of the plant, tied to the month of year */
     public final PropertyInteger growthStageProperty;
     protected final Plant plant;
     protected final BlockStateContainer blockState;
 
-    public BlockPlantTFCF(Plant plant)
+    public BlockPlantTFC(Plant plant)
     {
         super(plant.getMaterial());
-        //if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+        if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 
         plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
 
@@ -182,6 +184,43 @@ public class BlockPlantTFCF extends BlockBush implements IItemSize
     @Override
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
     {
+        /*
+        Month currentMonth = CalendarTFC.CALENDAR_TIME.getMonthOfYear();
+        int currentStage = state.getValue(growthStageProperty);
+        int expectedStage = plant.getStageForMonth(currentMonth);
+
+        if (!plant.getOreDictName().isPresent() && !worldIn.isRemote && (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1) && plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
+        {
+            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BLUE_GINGER))
+            {
+                if (currentStage == 0 || expectedStage == 0)
+                {
+                    int chance = Constants.RNG.nextInt(2);
+                    if (chance == 0)
+                    {
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemFoodTFC.get(Food.GINGER), 1 + Constants.RNG.nextInt(2)));
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), Constants.RNG.nextInt(2)));
+                    }
+                    else if (chance == 1)
+                    {
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), 1 + Constants.RNG.nextInt(2)));
+                    }
+                }
+                else
+                {
+                    int chance = Constants.RNG.nextInt(2);
+                    if (chance == 0)
+                    {
+                        spawnAsEntity(worldIn, pos, new ItemStack(ItemSeedsTFC.get(Crop.GINGER), Constants.RNG.nextInt(2)));
+                    }
+                }
+            }
+            else
+            {
+                spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
+            }
+        }
+        super.harvestBlock(worldIn, player, pos, state, te, stack);*/
         if (!plant.getOreDictName().isPresent() && !worldIn.isRemote && (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1) && plant.getPlantType() != Plant.PlantType.SHORT_GRASS && plant.getPlantType() != Plant.PlantType.TALL_GRASS)
         {
             spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
@@ -226,8 +265,8 @@ public class BlockPlantTFCF extends BlockBush implements IItemSize
             case REED_SEA:
             case TALL_REED:
             case TALL_REED_SEA:
-            /*case SHORT_GRASS:
-            case TALL_GRASS:*/
+            case SHORT_GRASS:
+            case TALL_GRASS:
                 return (stack.getItem().getHarvestLevel(stack, "knife", player, state) != -1 || stack.getItem().getHarvestLevel(stack, "scythe", player, state) != -1);
             default:
                 return true;
@@ -375,7 +414,7 @@ public class BlockPlantTFCF extends BlockBush implements IItemSize
         return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE);
     }
 
-    public int getDayPeriod()
+    int getDayPeriod()
     {
         return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
@@ -399,8 +438,6 @@ public class BlockPlantTFCF extends BlockBush implements IItemSize
             case WATER:
             case TALL_WATER:
             case EMERGENT_TALL_WATER:
-            case CREEPING:
-            case HANGING:
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:

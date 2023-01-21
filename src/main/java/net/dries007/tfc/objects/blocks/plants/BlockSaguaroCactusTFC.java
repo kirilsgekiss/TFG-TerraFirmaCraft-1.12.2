@@ -32,9 +32,10 @@ import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.Helpers;
 
 import net.dries007.tfc.objects.te.TESaguaroCactus;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITallPlant
+public class BlockSaguaroCactusTFC extends BlockPlantTFC implements IGrowable, ITallPlant
 {
     public static final PropertyDirection HORIZONTAL_DIRECTION  = PropertyDirection.create("facing");
     public static final PropertyBool HORIZONTAL  = PropertyBool.create("horizontal");
@@ -42,16 +43,16 @@ public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITa
     public static final PropertyBool EAST = PropertyBool.create("east");
     public static final PropertyBool SOUTH = PropertyBool.create("south");
     public static final PropertyBool WEST = PropertyBool.create("west");
-    private static final Map<Plant, BlockSaguaroCactus> MAP = new HashMap<>();
+    private static final Map<Plant, BlockSaguaroCactusTFC> MAP = new HashMap<>();
     
     public static final AxisAlignedBB CACTUS_ROOT = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
 
-    public static BlockSaguaroCactus get(Plant plant)
+    public static BlockSaguaroCactusTFC get(Plant plant)
     {
-        return BlockSaguaroCactus.MAP.get(plant);
+        return BlockSaguaroCactusTFC.MAP.get(plant);
     }
 
-    public BlockSaguaroCactus(Plant plant)
+    public BlockSaguaroCactusTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
@@ -125,7 +126,7 @@ public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITa
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return EnumOffsetType.NONE;
     }
@@ -227,13 +228,13 @@ public class BlockSaguaroCactus extends BlockPlantTFCF implements IGrowable, ITa
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {
         TESaguaroCactus tile = Helpers.getTE(worldIn, pos, TESaguaroCactus.class);
-        if (state.getBlock() instanceof BlockSaguaroCactus && tile.isSet()) state = state.getBlock().getActualState(state, worldIn, pos);
+        if (state.getBlock() instanceof BlockSaguaroCactusTFC && tile.isSet()) state = state.getBlock().getActualState(state, worldIn, pos);
 
-        if (state.getBlock() instanceof BlockSaguaroCactus && state.getValue(HORIZONTAL))
+        if (state.getBlock() instanceof BlockSaguaroCactusTFC && state.getValue(HORIZONTAL))
         {
             IBlockState stateHorizontal = worldIn.getBlockState(pos.offset(state.getValue(HORIZONTAL_DIRECTION)));
 
-            if(stateHorizontal.getBlock() instanceof BlockSaguaroCactus)
+            if(stateHorizontal.getBlock() instanceof BlockSaguaroCactusTFC)
             {
                 TESaguaroCactus tileHorizontal = Helpers.getTE(worldIn, pos.offset(state.getValue(HORIZONTAL_DIRECTION)), TESaguaroCactus.class);
                 if (tileHorizontal.isSet()) stateHorizontal = stateHorizontal.getBlock().getActualState(stateHorizontal, worldIn, pos.offset(state.getValue(HORIZONTAL_DIRECTION)));
