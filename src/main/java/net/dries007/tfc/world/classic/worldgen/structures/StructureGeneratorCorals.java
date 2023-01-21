@@ -55,7 +55,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 
 		if (template == null)
         {
-			TerraFirmaCraft.getLog().info("TFCFlorae: Structure '" + structureName + "' does not exist ");
+			TerraFirmaCraft.getLog().info("TerraFirmaCraft: Structure '" + structureName + "' does not exist ");
 			return false;
 		}
 		if (structureName.endsWith("_bury"))

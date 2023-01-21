@@ -53,7 +53,7 @@ public class TreeGenRandom implements ITreeGenerator
 
         if (structureBase == null)
         {
-            TerraFirmaCraft.getLog().warn("TFCFlorae: Unable to find a template for " + base.toString());
+            TerraFirmaCraft.getLog().warn("TerraFirmaCraft: Unable to find a template for " + base.toString());
             return;
         }
 
