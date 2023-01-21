@@ -17,8 +17,6 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.BlocksTFCF;
-
 public class WorldGenSurfaceDriftwood implements IWorldGenerator
 {
     private double factor;
@@ -67,7 +65,7 @@ public class WorldGenSurfaceDriftwood implements IWorldGenerator
             {
                 if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down())))
                 {
-                    world.setBlockState(pos, BlocksTFCF.DRIFTWOOD.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.DRIFTWOOD.getDefaultState());
                 }
             }
         }

@@ -12,18 +12,28 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
+import net.dries007.tfc.objects.blocks.property.ITallPlant;
+import net.dries007.tfc.util.OreDictionaryHelper;
+import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
@@ -32,22 +42,28 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrowable
+public class BlockHangingPlantTFC extends BlockPlantDummy1 implements IGrowable, ITallPlant
 {
-    private static final PropertyBool BOTTOM = PropertyBool.create("bottom");
+    private static final PropertyEnum<EnumBlockPart> PART = PropertyEnum.create("part", EnumBlockPart.class);
+
+    public static final AxisAlignedBB AABB = new AxisAlignedBB(0.25F, 0, 0.25F, 0.75F, 1, 0.75F);
+
     private static final Map<Plant, BlockHangingPlantTFC> MAP = new HashMap<>();
 
     public static BlockHangingPlantTFC get(Plant plant)
     {
-        return BlockHangingPlantTFC.MAP.get(plant);
+        return MAP.get(plant);
     }
 
     public BlockHangingPlantTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+
+        plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
     }
 
     @Override
@@ -69,10 +85,17 @@ public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrow
     }
 
     @Override
+    @Nonnull
+    public Block.@NotNull EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XZ;
+    }
+
+    @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
         worldIn.setBlockState(pos.down(), this.getDefaultState());
-        IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth()).withProperty(BOTTOM, false);
+        IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth()).withProperty(PART, getPlantPart(worldIn, pos));
         worldIn.setBlockState(pos, iblockstate);
         iblockstate.neighborChanged(worldIn, pos.down(), this, pos);
     }
@@ -87,66 +110,112 @@ public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrow
     @Nonnull
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-        IBlockState actualState = super.getActualState(state, worldIn, pos);
-        if (worldIn.getBlockState(pos.down()).getBlock() == this && actualState.getValue(UP) && !actualState.getValue(DOWN) && !actualState.getValue(NORTH) && !actualState.getValue(SOUTH) && !actualState.getValue(EAST) && !actualState.getValue(WEST))
+        return super.getActualState(state, worldIn, pos).withProperty(PART, getPlantPart(worldIn, pos));
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return AABB;
+    }
+
+    @Override
+    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        IBlockState plant = plantable.getPlant(world, pos.offset(direction));
+
+        if (plant.getBlock() == this)
         {
-            actualState = actualState.withProperty(NORTH, true).withProperty(SOUTH, true).withProperty(EAST, true).withProperty(WEST, true);
+            return true;
         }
-        if (worldIn.getBlockState(pos.up()).getBlock() == this && !actualState.getValue(UP) && !actualState.getValue(NORTH) && !actualState.getValue(SOUTH) && !actualState.getValue(EAST) && !actualState.getValue(WEST))
-        {
-            if (!actualState.getValue(DOWN))
-            {
-                actualState = actualState.getActualState(worldIn, pos.up()).withProperty(UP, false);
-            }
-            else
-            {
-                actualState = actualState.getActualState(worldIn, pos.up()).withProperty(DOWN, true).withProperty(UP, false);
-            }
-        }
-        return actualState.withProperty(BOTTOM, getIsBottom(worldIn, pos));
+        return super.canSustainPlant(state, world, pos, direction, plantable);
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        IBlockState up = worldIn.getBlockState(pos.up());
+        return (up.getBlock().canSustainPlant(up, worldIn, pos.up(), net.minecraft.util.EnumFacing.DOWN, this) || isValidBlock(worldIn, pos.up(), worldIn.getBlockState(pos.up())) || worldIn.getBlockState(pos.up()).getBlock() == this) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+        //return this.canBlockStay(worldIn, pos, worldIn.getBlockState(pos));
+        //return true;
     }
 
     @Override
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {
-        for (EnumFacing face : EnumFacing.values())
-        {
-            IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            Material material = blockState.getMaterial();
+        IBlockState up = worldIn.getBlockState(pos.up());
 
-            if (material == Material.LEAVES || worldIn.getBlockState(pos.up()).getBlock() == this)
-            {
-                return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
-            }
+        if (worldIn.getBlockState(pos.up(plant.getMaxHeight())).getBlock() == this) return false;
+        if (state.getBlock() == this)
+        {
+            return (up.getBlock().canSustainPlant(up, worldIn, pos.up(), net.minecraft.util.EnumFacing.DOWN, this) || isValidBlock(worldIn, pos.up(), worldIn.getBlockState(pos.up())) || worldIn.getBlockState(pos.up()).getBlock() == this) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
-        return false;
+        return this.canSustainBush(up);
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, new IProperty[]{PART});
     }
 
     @Override
     @Nonnull
     protected BlockStateContainer createPlantBlockState()
     {
-        return new BlockStateContainer(this, DOWN, UP, NORTH, EAST, WEST, SOUTH, growthStageProperty, DAYPERIOD, AGE, BOTTOM);
+        return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE, PART);
     }
 
     @Override
-    protected boolean canConnectTo(IBlockAccess worldIn, BlockPos pos, EnumFacing facing)
+    public int getMetaFromState(IBlockState state)
     {
-        IBlockState iblockstate = worldIn.getBlockState(pos);
-        Material material = iblockstate.getMaterial();
-
-        return material == Material.LEAVES;
+        return state.getValue(AGE);
     }
 
     @Override
-    protected boolean canPlantConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing)
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
     {
-        if (!super.canPlantConnectTo(world, pos, facing) && world.getBlockState(pos.up()).getBlock() == this && facing != EnumFacing.DOWN && facing != EnumFacing.UP)
+        return this.getDefaultState().withProperty(PART, EnumBlockPart.LOWER);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(AGE, meta);
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        if (!this.canBlockStay(worldIn, pos, state))
         {
-            return canPlantConnectTo(world, pos.up(), facing);
+            worldIn.destroyBlock(pos, false);
         }
+    }
 
-        return super.canPlantConnectTo(world, pos, facing);
+    @Override
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+        if (pos.getY() < WorldTypeTFC.SEALEVEL)
+        {
+            if (rand.nextInt(40) == 0)
+            {
+                float dripRange = 0.4F;
+                float px = rand.nextFloat() - 0.5F;
+                float py = rand.nextFloat();
+                float pz = rand.nextFloat() - 0.5F;
+                float u = Math.max(Math.abs(px), Math.abs(pz));
+                px = px / u * dripRange + 0.5F;
+                pz = pz / u * dripRange + 0.5F;
+                worldIn.spawnParticle(EnumParticleTypes.DRIP_WATER, pos.getX() + px, pos.getY() + py, pos.getZ() + pz, 0, -1, 0);
+            }
+        }
     }
 
     @Override
@@ -160,15 +229,13 @@ public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrow
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos.down(), state, true))
             {
-                if (j == 3)
+                if (j == 3 && canGrow(worldIn, pos, state, worldIn.isRemote))
                 {
-                    if (canGrow(worldIn, pos, state, worldIn.isRemote)) grow(worldIn, rand, pos, state);
-                    else if (canGrowHorizontally(worldIn, pos, state)) growHorizontally(worldIn, rand, pos, state);
-                    else if (canGrowDiagonally(worldIn, pos, state)) growDiagonally(worldIn, rand, pos, state);
+                    grow(worldIn, rand, pos, state);
                 }
                 else if (j < 3)
                 {
-                    worldIn.setBlockState(pos, state.withProperty(AGE, j + 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)));
+                    worldIn.setBlockState(pos, state.withProperty(AGE, j + 1).withProperty(PART, getPlantPart(worldIn, pos)));
                 }
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
@@ -179,14 +246,13 @@ public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrow
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true))
             {
-                if (j == 0)
+                if (j == 0 && canShrink(worldIn, pos))
                 {
-                    if (canShrink(worldIn, pos)) shrink(worldIn, pos);
-                    else if (canShrinkHorizontally(worldIn, pos)) shrinkHorizontally(worldIn, pos);
+                    shrink(worldIn, pos);
                 }
                 else if (j > 0)
                 {
-                    worldIn.setBlockState(pos, state.withProperty(AGE, j - 1).withProperty(BOTTOM, getIsBottom(worldIn, pos)));
+                    worldIn.setBlockState(pos, state.withProperty(AGE, j - 1).withProperty(PART, getPlantPart(worldIn, pos)));
                 }
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
@@ -195,123 +261,17 @@ public class BlockHangingPlantTFC extends BlockCreepingPlantTFC implements IGrow
         checkAndDropBlock(worldIn, pos, state);
     }
 
-    private boolean canGrowDiagonally(World worldIn, BlockPos pos, IBlockState state)
-    {
-        boolean flag = false;
-        if (!state.getValue(BOTTOM))
-        {
-            for (EnumFacing face : EnumFacing.Plane.HORIZONTAL.facings())
-            {
-                BlockPos sidePos = pos.offset(face);
-                IBlockState sideState = worldIn.getBlockState(sidePos.down(2));
-                Material sideMaterial = sideState.getMaterial();
-
-                if (worldIn.isAirBlock(sidePos) && worldIn.isAirBlock(sidePos.down()) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES) && canBlockStay(worldIn, sidePos.down(), state))
-                {
-                    flag = true;
-                }
-            }
-        }
-        return flag;
-    }
-
-    private void growDiagonally(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        if (!state.getValue(BOTTOM))
-        {
-            for (EnumFacing face : EnumFacing.Plane.HORIZONTAL.facings())
-            {
-                BlockPos sidePos = pos.offset(face);
-
-                if (rand.nextDouble() < 0.5D && worldIn.isAirBlock(sidePos) && worldIn.isAirBlock(sidePos.down()))
-                {
-                    worldIn.setBlockState(sidePos.down(), this.getDefaultState());
-                    IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth());
-                    worldIn.setBlockState(pos, iblockstate);
-                    iblockstate.neighborChanged(worldIn, sidePos.down(), this, pos);
-                    break;
-                }
-            }
-        }
-    }
-
-    private boolean canGrowHorizontally(World worldIn, BlockPos pos, IBlockState state)
-    {
-        boolean flag = false;
-        for (EnumFacing face : EnumFacing.Plane.HORIZONTAL.facings())
-        {
-            BlockPos sidePos = pos.offset(face);
-            IBlockState sideState = worldIn.getBlockState(sidePos.down());
-            Material sideMaterial = sideState.getMaterial();
-
-            if (worldIn.isAirBlock(sidePos) && (!sideMaterial.isSolid() || sideMaterial == Material.LEAVES) && canBlockStay(worldIn, sidePos, state))
-            {
-                flag = true;
-            }
-        }
-        return flag;
-    }
-
-    private void growHorizontally(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        for (EnumFacing face : EnumFacing.Plane.HORIZONTAL.facings())
-        {
-            BlockPos sidePos = pos.offset(face);
-
-            if (rand.nextDouble() < 0.01D && worldIn.isAirBlock(sidePos))
-            {
-                worldIn.setBlockState(sidePos, this.getDefaultState());
-                IBlockState iblockstate = state.withProperty(AGE, 0).withProperty(growthStageProperty, plant.getStageForMonth());
-                worldIn.setBlockState(pos, iblockstate);
-                iblockstate.neighborChanged(worldIn, sidePos, this, pos);
-                break;
-            }
-        }
-    }
-
-    private void shrinkHorizontally(World worldIn, BlockPos pos)
-    {
-        worldIn.setBlockToAir(pos);
-        IBlockState state = worldIn.getBlockState(pos);
-        state.neighborChanged(worldIn, pos.east(), this, pos);
-        state.neighborChanged(worldIn, pos.west(), this, pos);
-        state.neighborChanged(worldIn, pos.north(), this, pos);
-        state.neighborChanged(worldIn, pos.south(), this, pos);
-    }
-
     private boolean canShrink(World worldIn, BlockPos pos)
     {
         return worldIn.getBlockState(pos.up()).getBlock() == this && worldIn.getBlockState(pos.down()).getBlock() != this;
     }
 
-    private boolean canShrinkHorizontally(World worldIn, BlockPos pos)
+    protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState)
     {
-        boolean flag = false;
-        for (EnumFacing face : EnumFacing.Plane.HORIZONTAL.facings())
-        {
-            if (worldIn.getBlockState(pos.offset(face)).getBlock() == this)
-            {
-                flag = true;
-            }
-        }
-        return flag;
-    }
-
-    private boolean getIsBottom(IBlockAccess world, BlockPos pos)
-    {
-        IBlockState iblockstate = world.getBlockState(pos.down());
+        IBlockState iblockstate = world.getBlockState(pos);
         Material material = iblockstate.getMaterial();
 
-        return world.getBlockState(pos.down()).getBlock() != this && !material.isSolid();
-    }
-
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
-        if (!this.canBlockStay(worldIn, pos, state))
-        {
-            worldIn.destroyBlock(pos, false);
-        }
+        return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || material == Material.LEAVES || material == Material.GROUND || material == Material.ROCK || material == Material.WOOD || TFCBlocks.isGround(iblockstate) || blockState.getBlock() == this;
     }
 
     @Override

@@ -3,6 +3,7 @@ package net.dries007.tfc.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
@@ -18,7 +19,6 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitChest;
 import net.dries007.tfc.objects.te.TEFruitChest;
 
@@ -61,12 +61,12 @@ public class TESRFruitChestTFCF extends TileEntitySpecialRenderer<TEFruitChest>
             TRAP_DOUBLE_TEXTURES.put(fruitTree, new ResourceLocation(MOD_ID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/" + name + ".png"));
         }
 
-        for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
+        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
         {
-            SINGLE_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest/" + BlocksTFCF.bamboo[i] + ".png"));
-            DOUBLE_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_double/" + BlocksTFCF.bamboo[i] + ".png"));
-            TRAP_SINGLE_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap/" + BlocksTFCF.bamboo[i] + ".png"));
-            TRAP_DOUBLE_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap_double/" + BlocksTFCF.bamboo[i] + ".png"));
+            SINGLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest/" + TFCBlocks.bamboo[i] + ".png"));
+            DOUBLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_double/" + TFCBlocks.bamboo[i] + ".png"));
+            TRAP_SINGLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap/" + TFCBlocks.bamboo[i] + ".png"));
+            TRAP_DOUBLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap_double/" + TFCBlocks.bamboo[i] + ".png"));
         }
 
         SINGLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(MOD_ID, "textures/entity/wood/fruit_tree/chests/chest/cassia_cinnamon.png"));

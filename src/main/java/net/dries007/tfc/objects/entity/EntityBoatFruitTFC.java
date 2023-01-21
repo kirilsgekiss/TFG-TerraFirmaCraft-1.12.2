@@ -3,6 +3,7 @@ package net.dries007.tfc.objects.entity;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.EntityBoat;
@@ -22,7 +23,6 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.items.wood.ItemFruitBoat;
 
 @MethodsReturnNonnullByDefault
@@ -66,10 +66,10 @@ public class EntityBoatFruitTFC extends EntityBoat
     @Nullable
     public Tree getTree()
     {
-        for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
+        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
         {
-            if (this.dataManager.get(WOOD_NAME) == BlocksTFCF.bamboo[i])
-                return BlocksTFCF.bambooTrees[i];
+            if (this.dataManager.get(WOOD_NAME) == TFCBlocks.bamboo[i])
+                return TFCBlocks.bambooTrees[i];
         }
 
         if (this.dataManager.get(WOOD_NAME) == "cassia_cinnamon")

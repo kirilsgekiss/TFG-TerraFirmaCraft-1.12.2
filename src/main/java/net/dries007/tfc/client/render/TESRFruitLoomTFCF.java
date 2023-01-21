@@ -3,6 +3,7 @@ package net.dries007.tfc.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.types.DefaultTrees;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -17,7 +18,6 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.te.TEFruitLoom;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -46,9 +46,9 @@ public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
             PLANKS_TEXTURES.put(fruitTree, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + name + ".png"));
         }
 
-        for (int i = 0; i < BlocksTFCF.bamboo.length; i++)
+        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
         {
-            PLANKS_TEXTURES_TREE.put(BlocksTFCF.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + BlocksTFCF.bamboo[i] + ".png"));
+            PLANKS_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/" + TFCBlocks.bamboo[i] + ".png"));
         }
 
         PLANKS_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(MOD_ID, "textures/blocks/wood/planks/cassia_cinnamon.png"));

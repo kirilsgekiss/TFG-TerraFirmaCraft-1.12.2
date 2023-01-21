@@ -19,7 +19,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.plants.BlockTallGrassWater;
+import net.dries007.tfc.objects.blocks.plants.BlockTallGrassWaterTFC;
 import net.dries007.tfc.types.DefaultPlants;
 
 import net.dries007.tfc.ConfigTFC;
@@ -119,7 +119,7 @@ public class WorldGenWildCrops implements IWorldGenerator
                 {
                     // Can't be arsed to make this any different. If it works, it works, hurray for that.
                     Plant plant = TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS);
-                    BlockTallGrassWater plantBlock = BlockTallGrassWater.get(plant);
+                    BlockTallGrassWaterTFC plantBlock = BlockTallGrassWaterTFC.get(plant);
                     IBlockState state = plantBlock.getDefaultState();
                     IBlockState water = plant.getWaterType();
 

@@ -34,9 +34,10 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 @ParametersAreNonnullByDefault
-public class BlockCactusTFC extends TFCBlockPlant implements IGrowable, ITallPlant
+public class BlockCactusTFC extends BlockPlantTFC implements IGrowable, ITallPlant
 {
     private static final PropertyEnum<EnumBlockPart> PART = PropertyEnum.create("part", EnumBlockPart.class);
     private static final Map<Plant, BlockCactusTFC> MAP = new HashMap<>();
@@ -112,7 +113,7 @@ public class BlockCactusTFC extends TFCBlockPlant implements IGrowable, ITallPla
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
         return EnumOffsetType.XYZ;
     }

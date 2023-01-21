@@ -20,7 +20,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 
 @ParametersAreNonnullByDefault
-public class BlockMushroomTFC extends TFCBlockPlant implements IGrowable
+public class BlockMushroomTFC extends BlockPlantTFC implements IGrowable
 {
     private static final Map<Plant, BlockMushroomTFC> MAP = new HashMap<>();
 

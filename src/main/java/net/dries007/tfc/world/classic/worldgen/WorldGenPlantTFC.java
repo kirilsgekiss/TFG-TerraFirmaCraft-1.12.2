@@ -55,7 +55,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         plantBlock.canPlaceBlockAt(worldIn, blockpos))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockPlantTFC.AGE, plantAge));
                     }
                 }
                 break;
@@ -149,7 +149,7 @@ public class WorldGenPlantTFC extends WorldGenerator
             case REED:
             case REED_SEA:
             {
-                TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -162,7 +162,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         worldIn.getBlockState(blockpos.down()).getBlock().canSustainPlant(state, worldIn, blockpos.down(), EnumFacing.UP, plantBlock))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockPlantTFC.AGE, plantAge));
                     }
                 }
                 break;
@@ -195,7 +195,7 @@ public class WorldGenPlantTFC extends WorldGenerator
             }
             case DESERT:
             {
-                TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -209,7 +209,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         plantBlock.canBlockStay(worldIn, blockpos, state))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockPlantTFC.AGE, plantAge));
                     }
                 }
                 break;
@@ -241,7 +241,7 @@ public class WorldGenPlantTFC extends WorldGenerator
             }
             case DRY:
             {
-                TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -255,7 +255,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         plantBlock.canBlockStay(worldIn, blockpos, state))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockPlantTFC.AGE, plantAge));
                     }
                 }
                 break;
@@ -465,7 +465,7 @@ public class WorldGenPlantTFC extends WorldGenerator
             }
             default:
             {
-                TFCBlockPlant plantBlock = TFCBlockPlant.get(plant);
+                BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -478,7 +478,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         plantBlock.canBlockStay(worldIn, blockpos, state))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(BlockPlantTFC.AGE, plantAge));
                     }
                 }
             }

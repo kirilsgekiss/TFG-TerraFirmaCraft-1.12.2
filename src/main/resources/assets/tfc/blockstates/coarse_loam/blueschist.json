@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/coarse_loam/blueschist"
+      "all": "tfc:blocks/stonetypes/coarse_loam/blueschist"
     }
   },
   "variants": {

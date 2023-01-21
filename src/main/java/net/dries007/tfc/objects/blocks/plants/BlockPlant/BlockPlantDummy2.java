@@ -5,10 +5,10 @@ import java.util.Map;
 
 import net.dries007.tfc.api.types.Plant;
 
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFCF;
+import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockPlantDummy2 extends BlockPlantTFCF
+public class BlockPlantDummy2 extends BlockPlantTFC
 {
     private static final Map<Plant, BlockPlantDummy2> MAP = new HashMap<>();
 

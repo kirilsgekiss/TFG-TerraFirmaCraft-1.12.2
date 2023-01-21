@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.PropertyEnum;
@@ -29,6 +30,7 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.jetbrains.annotations.NotNull;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 
@@ -40,13 +42,15 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
 
     public static BlockTallWaterPlantTFC get(Plant plant)
     {
-        return BlockTallWaterPlantTFC.MAP.get(plant);
+        return MAP.get(plant);
     }
 
     public BlockTallWaterPlantTFC(Plant plant)
     {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
+
+        // plant.getOreDictName().ifPresent(name -> OreDictionaryHelper.register(this, name));
     }
 
     @Override
@@ -57,9 +61,9 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
         if (water == SEA_WATER)
-            return i < plant.getMaxHeight() && TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
         else
-            return i < plant.getMaxHeight() && TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up())) && canBlockStay(worldIn, pos.up(), state) && !worldIn.isAirBlock(pos.up());
     }
 
     @Override
@@ -110,9 +114,9 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
 
     @Override
     @Nonnull
-    public Block.EnumOffsetType getOffsetType()
+    public Block.@NotNull EnumOffsetType getOffsetType()
     {
-        return EnumOffsetType.XYZ;
+        return EnumOffsetType.XZ;
     }
 
     @Override
@@ -164,9 +168,10 @@ public class BlockTallWaterPlantTFC extends BlockWaterPlantTFC implements IGrowa
         IBlockState soil = worldIn.getBlockState(pos.down());
 
         if (worldIn.getBlockState(pos.down(plant.getMaxHeight())).getBlock() == this) return false;
+        if (worldIn.isAirBlock(pos.up())) return false;
         if (state.getBlock() == this)
         {
-            return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || TFCBlocks.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
         return this.canSustainBush(soil);
     }

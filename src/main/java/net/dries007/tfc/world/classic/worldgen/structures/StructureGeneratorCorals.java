@@ -34,8 +34,6 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
-import tfcflorae.TFCFlorae;
-
 public class StructureGeneratorCorals extends WorldGenerator
 {
 	private String structureName;
@@ -51,13 +49,13 @@ public class StructureGeneratorCorals extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(TerraFirmaCraft.MOD_ID, structureName));
 		final Biome b = world.getBiome(position);
 		int variation = 3;
 
 		if (template == null)
         {
-			TerraFirmaCraft.getLog().info("TFCFlorae: Structure '" + structureName + "' does not exist ");
+			TerraFirmaCraft.getLog().info("TerraFirmaCraft: Structure '" + structureName + "' does not exist ");
 			return false;
 		}
 		if (structureName.endsWith("_bury"))

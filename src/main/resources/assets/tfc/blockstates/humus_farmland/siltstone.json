@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/siltstone",
-      "particle": "tfcflorae:blocks/stonetypes/humus/siltstone",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/siltstone"
+      "dirt": "tfc:blocks/stonetypes/humus/siltstone",
+      "particle": "tfc:blocks/stonetypes/humus/siltstone",
+      "top": "tfc:blocks/stonetypes/humus_farmland/siltstone"
     }
   },
   "variants": {

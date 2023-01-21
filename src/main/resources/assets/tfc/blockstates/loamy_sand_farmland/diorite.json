@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/diorite",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/diorite",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/diorite"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/diorite",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/diorite",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/diorite"
     }
   },
   "variants": {

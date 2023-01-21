@@ -14,8 +14,6 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.BlocksTFCF;
-
 public class WorldGenSurfacePinecone implements IWorldGenerator
 {
     private double factor;
@@ -74,7 +72,7 @@ public class WorldGenSurfacePinecone implements IWorldGenerator
                 {
                     if (TFCBlocks.isSoil(world.getBlockState(pos.down())) || TFCBlocks.isSoilOrGravel(world.getBlockState(pos.down())))
                     {
-                        world.setBlockState(pos, BlocksTFCF.PINECONE.getDefaultState());
+                        world.setBlockState(pos, TFCBlocks.PINECONE.getDefaultState());
                     }
                 }
             }

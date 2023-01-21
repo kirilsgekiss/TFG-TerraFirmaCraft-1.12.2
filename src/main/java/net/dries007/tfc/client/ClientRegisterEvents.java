@@ -19,7 +19,6 @@ import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
-import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
@@ -67,7 +66,6 @@ import net.dries007.tfc.objects.blocks.stone.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
-import tfcflorae.BlocksTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -425,14 +423,14 @@ public final class ClientRegisterEvents
         blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllBlockRockVariants().stream()
                 .filter(x -> x.getType().isGrass).toArray(TFCBlockRockVariant[]::new));
         // This is talking about tall grass vs actual grass blocks
-        blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));
+        //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));
 
         blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllLeafBlocks().toArray(new Block[0]));
-        blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllPlantBlocks().toArray(new TFCBlockPlant[0]));
+        blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllPlantBlocks().toArray(new BlockPlantTFC[0]));
 
         blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFruitTreeLeavesBlocks().toArray(new Block[0]));
 
-        blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFlowerPots().toArray(new Block[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFlowerPots().toArray(new Block[0]));
 
         blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> TFCBlockFarmland.TINT[state.getValue(TFCBlockFarmland.MOISTURE)],
             TFCBlocks.getAllBlockRockVariants().stream().filter(x -> x.getType() == Type.FARMLAND).toArray(TFCBlockRockVariant[]::new));
@@ -535,9 +533,9 @@ public final class ClientRegisterEvents
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
                 ItemsTFC.UNFIRED_STONEWARE_VESSEL_GLAZED, ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED);
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
+       /* itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-            TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));
+            TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));*/
 
         // Food
         itemColors.registerItemColorHandler((stack, tintIndex) -> {
@@ -580,102 +578,99 @@ public final class ClientRegisterEvents
 
         // BLOCKS
 
-        for (ItemBlock itemBlock : BlocksTFCF.getAllNormalItemBlocks())
-            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName().toString()));
-
-        for (Block block : BlocksTFCF.getAllCoralPlants())
+        for (Block block : TFCBlocks.getAllCoralPlants())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockCoral.LEVEL).build());
 
-        for (Block block : BlocksTFCF.getAllGlowWaterPlants())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWaterGlowPlant.LEVEL).build());
+        for (Block block : TFCBlocks.getAllGlowWaterPlants())
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWaterGlowPlantTFC.LEVEL).build());
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceBones())
+            for (Block block : TFCBlocks.getAllSurfaceBones())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceDriftwood())
+            for (Block block : TFCBlocks.getAllSurfaceDriftwood())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceFlint())
+            for (Block block : TFCBlocks.getAllSurfaceFlint())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone)
         {
-            for (Block block : BlocksTFCF.getAllSurfacePinecone())
+            for (Block block : TFCBlocks.getAllSurfacePinecone())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceSeashells())
+            for (Block block : TFCBlocks.getAllSurfaceSeashells())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceTwig())
+            for (Block block : TFCBlocks.getAllSurfaceTwig())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock)
         {
-            for (Block block : BlocksTFCF.getAllSurfaceRocks())
+            for (Block block : TFCBlocks.getAllSurfaceRocks())
                 ModelLoader.setCustomStateMapper(block, new StateMap.Builder().build());
         }
 
-        for (Block block : BlocksTFCF.getAllJoshuaTreeSaplingBlocks())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockJoshuaTreeSapling.STAGE).build());
+        //for (Block block : TFCBlocks.getAllJoshuaTreeSaplingBlocks())
+            //ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockJoshuaTreeSapling.STAGE).build());
 
-        for (BlockFruitTreeLeaves leaves : BlocksTFCF.getAllFruitLeaves())
+        for (BlockFruitTreeLeaves leaves : TFCBlocks.getAllFruitLeaves())
             ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build());
 
-        for (BlockFruitLeaves leaves : BlocksTFCF.getAllNormalTreeLeaves())
+        for (BlockFruitLeaves leaves : TFCBlocks.getAllNormalTreeLeaves())
             ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitLeaves.DECAYABLE).ignore(BlockFruitLeaves.HARVESTABLE).build());
 
-        for (BlockFruitLog Logs : BlocksTFCF.getAllNormalTreeLog())
+        for (BlockFruitLog Logs : TFCBlocks.getAllNormalTreeLog())
             ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockFruitLog.PLACED).build());
 
-        for (BlockFruitDoor door : BlocksTFCF.getAllFruitDoors())
+        for (BlockFruitDoor door : TFCBlocks.getAllFruitDoors())
             ModelLoader.setCustomStateMapper(door, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
 
-        for (BlockFruitFenceGate gate : BlocksTFCF.getAllFruitFenceGates())
+        for (BlockFruitFenceGate gate : TFCBlocks.getAllFruitFenceGates())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitFenceGate.POWERED).build());
 
-        for (BlockFruitLogFenceGate gate : BlocksTFCF.getAllFruitLogFenceGates())
+        for (BlockFruitLogFenceGate gate : TFCBlocks.getAllFruitLogFenceGates())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitLogFenceGate.POWERED).build());
 
-        for (TFCBlockFenceGateLog gate : BlocksTFCF.getAllFenceGateLogBlocks())
+        for (TFCBlockFenceGateLog gate : TFCBlocks.getAllFenceGateLogBlocks())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(TFCBlockFenceGateLog.POWERED).build());
 
-        for (BlockFruitSlab.Half block : BlocksTFCF.getAllFruitSlabBlocks())
+        for (BlockFruitSlab.Half block : TFCBlocks.getAllFruitSlabBlocks())
         {
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
             ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
         }
 
-        for (Block block : BlocksTFCF.getAllFruitChestBlocks())
+        for (Block block : TFCBlocks.getAllFruitChestBlocks())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockChest.FACING).build());
 
-        for (TFCBlockRockSlab.Half block : BlocksTFCF.getAllSlabBlocksTFC())
+        for (TFCBlockRockSlab.Half block : TFCBlocks.getAllSlabBlocksTFC())
         {
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockRockSlab.VARIANT).build());
             ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(TFCBlockRockSlab.VARIANT).build());
         }
-        for (Block block : BlocksTFCF.getAllBambooLog())
+        for (Block block : TFCBlocks.getAllBambooLog())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(StatePropertiesTFC.CAN_GROW).build());
 
-        for (Block block : BlocksTFCF.getAllBambooLeaves())
+        for (Block block : TFCBlocks.getAllBambooLeaves())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build());
 
-        for (Block block : BlocksTFCF.getAllBambooSapling())
+        for (Block block : TFCBlocks.getAllBambooSapling())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockSapling.STAGE).build());
 
         /*
@@ -709,12 +704,12 @@ public final class ClientRegisterEvents
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                BlocksTFCF.getAllFruitLeaves().toArray(new BlockFruitTreeLeaves[0])
+                TFCBlocks.getAllFruitLeaves().toArray(new BlockFruitTreeLeaves[0])
         );
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                BlocksTFCF.getAllNormalTreeLeaves().toArray(new BlockFruitLeaves[0])
+                TFCBlocks.getAllNormalTreeLeaves().toArray(new BlockFruitLeaves[0])
         );
 
         /*
@@ -727,9 +722,9 @@ public final class ClientRegisterEvents
             BlocksTFCF.CEYLON_CINNAMON_LEAVES);*/
 
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
+        /*itemColors.registerItemColorHandler((stack, tintIndex) ->
                         event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                BlocksTFCF.getAllTallGrassWaterBlocks().toArray(new BlockTallGrassWater[0]));
+                TFCBlocks.getAllTallGrassWaterBlocks().toArray(new BlockTallGrassWaterTFC[0]));*/
 
         /*itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
@@ -775,28 +770,28 @@ public final class ClientRegisterEvents
 
         }
 
-        blockColors.registerBlockColorHandler(grassColor, BlocksTFCF.getAllShortGrassBlocks().toArray(new BlockShortGrassTFCF[0]));
+        //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllShortGrassBlocks().toArray(new BlockShortGrassTFC[0]));
         //blockColors.registerBlockColorHandler(grassColor, BlocksTFCF.getAllTallGrassBlocks().toArray(new BlockTallGrassTFCF[0]));
 
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllFruitLeaves().toArray(new Block[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllNormalTreeLeaves().toArray(new Block[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFruitLeaves().toArray(new Block[0]));
+        // blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllNormalTreeLeaves().toArray(new Block[0]));
 
 
-        for (Block block : BlocksTFCF.getAllBambooLeaves())
+        for (Block block : TFCBlocks.getAllBambooLeaves())
             blockColors.registerBlockColorHandler(foliageColor, block);
 
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.CASSIA_CINNAMON_LEAVES);
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.CEYLON_CINNAMON_LEAVES);
 
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllWaterPlantBlocks().toArray(new BlockWaterPlantTFCF[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllHangingPlantBlocks().toArray(new BlockHangingPlantTFCF[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllHangingGlowingPlantBlocks().toArray(new BlockHangingGlowingPlant[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllHangingCreepingPlantBlocks().toArray(new BlockHangingCreepingPlantTFCF[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllHangingGlowingCreepingPlantBlocks().toArray(new BlockHangingGlowingCreepingPlant[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllCreepingPlantBlocks().toArray(new BlockCreepingPlantTFCF[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllTallGrassWaterBlocks().toArray(new BlockTallGrassWater[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllWaterPlantBlocks().toArray(new BlockWaterPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingPlantBlocks().toArray(new BlockHangingPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingGlowingPlantBlocks().toArray(new BlockHangingGlowingPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingCreepingPlantBlocks().toArray(new BlockHangingCreepingPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingGlowingCreepingPlantBlocks().toArray(new BlockHangingGlowingCreepingPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllCreepingPlantBlocks().toArray(new BlockCreepingPlantTFC[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllTallGrassWaterBlocks().toArray(new BlockTallGrassWaterTFC[0]));
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantTFCF[0]));
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantDummy1[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllStandardBlocks().toArray(new BlockPlantDummy1[0]));
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantDummy2[0]));
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes && ConfigTFC.FloraeGeneral.WORLD.enableAllFarmland)

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/gabbro",
-      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/gabbro",
-      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/gabbro"
+      "dirt": "tfc:blocks/stonetypes/sandy_loam/gabbro",
+      "particle": "tfc:blocks/stonetypes/sandy_loam/gabbro",
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/gabbro"
     }
   },
   "variants": {

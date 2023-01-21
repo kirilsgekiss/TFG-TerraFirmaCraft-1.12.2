@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -21,7 +22,6 @@ import net.minecraft.world.World;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
-import tfcflorae.BlocksTFCF;
 
 public class BlockCassiaCinnamonLeaves extends TFCBlockLeaves
 {
@@ -40,7 +40,7 @@ public class BlockCassiaCinnamonLeaves extends TFCBlockLeaves
         int chance = 10;
         if (RANDOM.nextInt(101) < chance)
         {
-            drops.add(new ItemStack(BlocksTFCF.CASSIA_CINNAMON_SAPLING));
+            drops.add(new ItemStack(TFCBlocks.CASSIA_CINNAMON_SAPLING));
         }
     }
 

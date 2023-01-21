@@ -14,8 +14,6 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.TFCFlorae;
-
 @ParametersAreNonnullByDefault
 public class WorldGenGourds implements IWorldGenerator
 {
@@ -25,7 +23,7 @@ public class WorldGenGourds implements IWorldGenerator
 	@Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
-        if (!(chunkGenerator instanceof ChunkGenTFC) && !TFCFlorae.FirmaLifeAdded) return;
+        if (!(chunkGenerator instanceof ChunkGenTFC) && true) return; // if firmalife added
 
         generateMelons(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
         generatePumpkins(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);

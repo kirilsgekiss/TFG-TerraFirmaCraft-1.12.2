@@ -60,7 +60,6 @@ import net.dries007.tfc.util.fuel.FuelManager;
 import net.dries007.tfc.util.json.JsonConfigRegistry;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
-import tfcflorae.TFCFlorae;
 
 import static net.dries007.tfc.TerraFirmaCraft.DEPENDENCIES;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -328,7 +327,7 @@ public final class TerraFirmaCraft
             {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceTwig(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGourdWorldGen && TFCFlorae.FirmaLifeAdded)
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGourdWorldGen && false) // if firmalife added
             {
                 GameRegistry.registerWorldGenerator(new WorldGenGourds(), 0);
             }
