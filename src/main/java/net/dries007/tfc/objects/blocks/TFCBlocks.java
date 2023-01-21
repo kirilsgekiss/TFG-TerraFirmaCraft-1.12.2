@@ -1353,7 +1353,6 @@ public final class TFCBlocks
         }
 
         {
-
             Builder<BlockPlantTFC> plantBlocks = ImmutableList.builder();
             Builder<BlockFlowerPotTFC> plantInPotBlock = ImmutableList.builder();
 

@@ -43,11 +43,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case MUSHROOM:
             {
                 BlockMushroomTFC plantBlock = BlockMushroomTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("Null mushroom");
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -68,11 +63,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case SHORT_GRASS:
             {
                 BlockShortGrassTFC plantBlock = BlockShortGrassTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockShortGrass is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 4; ++i)
@@ -93,11 +83,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case TALL_GRASS:
             {
                 BlockTallGrassTFC plantBlock = BlockTallGrassTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockTallGrass is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -123,11 +108,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case CREEPING:
             {
                 BlockCreepingPlantTFC plantBlock = BlockCreepingPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockCreeping is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -149,11 +129,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case HANGING:
             {
                 BlockHangingPlantTFC plantBlock = BlockHangingPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockHanging is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 4; ++i)
@@ -175,11 +150,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case REED_SEA:
             {
                 BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockPlant(REED or REED_SEA) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -201,11 +171,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case TALL_REED_SEA:
             {
                 BlockTallPlantTFC plantBlock = BlockTallPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockTallGrass(TALL_REED or TALL_REED_SEA) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -231,11 +196,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case DESERT:
             {
                 BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockPlant(Desert) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -257,11 +217,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case DESERT_TALL_PLANT:
             {
                 BlockTallPlantTFC plantBlock = BlockTallPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockTallPlant(Desert) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -287,11 +242,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case DRY:
             {
                 BlockPlantTFC plantBlock = BlockPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockPlant(DRY) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -313,11 +263,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case DRY_TALL_PLANT:
             {
                 BlockTallPlantTFC plantBlock = BlockTallPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockTallPlant(DRY_TALL_PLANT) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position); ++i)
@@ -343,11 +288,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case TALL_PLANT:
             {
                 BlockTallPlantTFC plantBlock = BlockTallPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("TALL_PLANT is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
 
                 for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, position) / 16; ++i)
@@ -374,11 +314,6 @@ public class WorldGenPlantTFC extends WorldGenerator
             case WATER_SEA:
             {
                 BlockWaterPlantTFC plantBlock = BlockWaterPlantTFC.get(plant);
-                if (plantBlock == null)
-                {
-                    System.out.println("BlockWaterPlant(WATER or WATER_SEA) is null: " + plant);
-                    break;
-                }
                 IBlockState state = plantBlock.getDefaultState();
                 IBlockState water = plant.getWaterType();
 
