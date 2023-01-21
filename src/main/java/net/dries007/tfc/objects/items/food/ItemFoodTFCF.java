@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -49,14 +49,14 @@ public class ItemFoodTFCF extends ItemFood implements IItemFoodTFC
         return new FoodHeatHandler(null, data, 1.0F, 200.0F);
     }
 
-    private static final Map<ItemTFC, ItemFoodTFCF> MAP = new HashMap<>();
+    private static final Map<TFCItem, ItemFoodTFCF> MAP = new HashMap<>();
 
     public static ItemFoodTFCF get(ItemFoodTFCF food)
     {
         return MAP.get(food);
     }
 
-    public static ItemStack get(ItemTFC food, int amount)
+    public static ItemStack get(TFCItem food, int amount)
     {
         return new ItemStack(MAP.get(food), amount);
     }

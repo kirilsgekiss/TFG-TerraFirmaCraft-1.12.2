@@ -50,12 +50,12 @@ import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.LootTablesTFC;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -83,7 +83,7 @@ public class EntitySheepTFC extends EntityAnimalMammal implements IShearable, IL
     public int getSpawnWeight(Biome biome, float temperature, float rainfall, float floraDensity, float floraDiversity)
     {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
-        if (!BiomesTFC.isOceanicBiome(biome) && !BiomesTFC.isBeachBiome(biome) &&
+        if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
             (biomeType == BiomeHelper.BiomeType.PLAINS))
         {
             return ConfigTFC.Animals.SHEEP.rarity;
@@ -163,7 +163,7 @@ public class EntitySheepTFC extends EntityAnimalMammal implements IShearable, IL
                 if (isReadyForAnimalProduct())
                 {
                     ToolHelper.damageItem(stack, player);
-                    ItemStack woolStack = new ItemStack(ItemsTFC.WOOL, 1);
+                    ItemStack woolStack = new ItemStack(TFCItems.WOOL, 1);
                     Helpers.spawnItemStack(player.world, new BlockPos(posX, posY, posZ), woolStack);
                     playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);
                     setProductsCooldown();
@@ -249,7 +249,7 @@ public class EntitySheepTFC extends EntityAnimalMammal implements IShearable, IL
     public List<ItemStack> getProducts()
     {
         // Only white for now
-        return Collections.singletonList(new ItemStack(ItemsTFC.WOOL, 1));
+        return Collections.singletonList(new ItemStack(TFCItems.WOOL, 1));
     }
 
     @Override

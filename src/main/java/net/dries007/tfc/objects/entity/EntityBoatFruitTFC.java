@@ -23,7 +23,7 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import net.dries007.tfc.objects.items.wood.ItemFruitBoat;
+import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitBoat;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

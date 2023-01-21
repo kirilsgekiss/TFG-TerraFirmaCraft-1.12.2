@@ -33,7 +33,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.registries.ForgeRegistry;
 
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
 import mcp.MethodsReturnNonnullByDefault;
@@ -45,7 +45,7 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateHelper;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
@@ -592,12 +592,12 @@ public class ChunkGenTFC implements IChunkGenerator
                 if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes && ConfigTFC.FloraeGeneral.WORLD.enableSoilPits)
                 {
                     // Surface Block
-                    if ((biome == BiomesTFC.SWAMPLAND || biome == BiomesTFC.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f)
+                    if ((biome == TFCBiomes.SWAMPLAND || biome == TFCBiomes.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f)
                     {
                         surfaceBlock = TFCBlocks.PEAT_GRASS.getDefaultState();
                         subSurfaceBlock = TFCBlocks.PEAT.getDefaultState();
                     }
-                    else if (biome == BiomesTFC.MOUNTAIN_RANGE || biome == BiomesTFC.MOUNTAIN_RANGE_EDGE || biome == BiomesTFC.CRAG || biome == BiomesTFC.MOUNTAINS || biome == BiomesTFC.FAULT_LINE)
+                    else if (biome == TFCBiomes.MOUNTAIN_RANGE || biome == TFCBiomes.MOUNTAIN_RANGE_EDGE || biome == TFCBiomes.CRAG || biome == TFCBiomes.MOUNTAINS || biome == TFCBiomes.FAULT_LINE)
                     {
                         double g1 = +rand.nextGaussian();
                         double g2 = rand.nextGaussian();
@@ -972,9 +972,9 @@ public class ChunkGenTFC implements IChunkGenerator
                     subSurfaceBlock = TFCBlockRockVariant.get(rock1, Type.DIRT).getDefaultState();
                 }
 
-                if (BiomesTFC.isBeachBiome(getBiomeOffset(x - 1, z)) || BiomesTFC.isBeachBiome(getBiomeOffset(x + 1, z)) || BiomesTFC.isBeachBiome(getBiomeOffset(x, z + 1)) || BiomesTFC.isBeachBiome(getBiomeOffset(x, z - 1)))
+                if (TFCBiomes.isBeachBiome(getBiomeOffset(x - 1, z)) || TFCBiomes.isBeachBiome(getBiomeOffset(x + 1, z)) || TFCBiomes.isBeachBiome(getBiomeOffset(x, z + 1)) || TFCBiomes.isBeachBiome(getBiomeOffset(x, z - 1)))
                 {
-                    if (!BiomesTFC.isBeachBiome(getBiomeOffset(x, z))) cliffMap[colIndex] = true;
+                    if (!TFCBiomes.isBeachBiome(getBiomeOffset(x, z))) cliffMap[colIndex] = true;
                 }
 
                 //Used to make better rivers
@@ -985,11 +985,11 @@ public class ChunkGenTFC implements IChunkGenerator
                     for (int b = z - 1; b <= z + 1; b++)
                     {
                         Biome BiomeAtOffset = getBiomeOffset(a, b);
-                        if (!BiomesTFC.isRiverBiome(BiomeAtOffset))
+                        if (!TFCBiomes.isRiverBiome(BiomeAtOffset))
                         {
                             nonRiverTiles++;
                         }
-                        if (!BiomesTFC.isBeachBiome(BiomeAtOffset) && !BiomesTFC.isOceanicBiome(BiomeAtOffset) && BiomeAtOffset != BiomesTFC.DEEP_OCEAN && BiomeAtOffset != BiomesTFC.OCEAN)
+                        if (!TFCBiomes.isBeachBiome(BiomeAtOffset) && !TFCBiomes.isOceanicBiome(BiomeAtOffset) && BiomeAtOffset != TFCBiomes.DEEP_OCEAN && BiomeAtOffset != TFCBiomes.OCEAN)
                         {
                             nonBeachTiles++;
                         }
@@ -1024,13 +1024,13 @@ public class ChunkGenTFC implements IChunkGenerator
                     int beachCliffHeight = nonBeachTiles > 0 ? (int) ((highestStone - highestBeachTheoretical) * (nonBeachTiles) / 6.0 + highestBeachTheoretical) : highestBeachTheoretical;
 
                     //Redo cliffs
-                    if (BiomesTFC.isBeachBiome(biome) && y > seaLevel && outp.getBlockState(x, y + yOffset, z) != AIR && y >= beachCliffHeight)
+                    if (TFCBiomes.isBeachBiome(biome) && y > seaLevel && outp.getBlockState(x, y + yOffset, z) != AIR && y >= beachCliffHeight)
                     {
                         inp.setBlockState(x, y, z, AIR);
                         outp.setBlockState(x, y + yOffset, z, AIR);
                     }
                     //Ensure rivers can't get blocked
-                    if (BiomesTFC.isRiverBiome(biome) && y >= seaLevel - 2 && outp.getBlockState(x, y + yOffset, z) != AIR)
+                    if (TFCBiomes.isRiverBiome(biome) && y >= seaLevel - 2 && outp.getBlockState(x, y + yOffset, z) != AIR)
                     {
 
                         if (nonRiverTiles > 0)
@@ -1050,7 +1050,7 @@ public class ChunkGenTFC implements IChunkGenerator
 
                         //outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SALT_WATER);
                     }
-                    else if (!BiomesTFC.isRiverBiome(biome) && nonRiverTiles < 9 && outp.getBlockState(x, y + yOffset, z) == STONE && ((y >= ((highestStone - seaLevel) / (10 - nonRiverTiles) + seaLevel)) || (nonRiverTiles <= 5 && y >= seaLevel)))
+                    else if (!TFCBiomes.isRiverBiome(biome) && nonRiverTiles < 9 && outp.getBlockState(x, y + yOffset, z) == STONE && ((y >= ((highestStone - seaLevel) / (10 - nonRiverTiles) + seaLevel)) || (nonRiverTiles <= 5 && y >= seaLevel)))
                     {
                         inp.setBlockState(x, y, z, y >= seaLevel ? AIR : SEA_WATER);
                         outp.setBlockState(x, y + yOffset, z, y >= seaLevel ? AIR : SEA_WATER);
@@ -1081,11 +1081,11 @@ public class ChunkGenTFC implements IChunkGenerator
                                     .getDefaultState();
                         }
 
-                        if (biome == BiomesTFC.BEACH || biome == BiomesTFC.OCEAN || biome == BiomesTFC.DEEP_OCEAN || biome == BiomesTFC.SHORE)
+                        if (biome == TFCBiomes.BEACH || biome == TFCBiomes.OCEAN || biome == TFCBiomes.DEEP_OCEAN || biome == TFCBiomes.SHORE)
                         {
                             subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SAND).getDefaultState();
                         }
-                        else if (biome == BiomesTFC.GRAVEL_BEACH || biome == BiomesTFC.ESTUARY || biome == BiomesTFC.RIVER || biome == BiomesTFC.RIVERBANK || biome == BiomesTFC.LAKESHORE/* || biome == BiomesTFC.RIVER_SOURCE*/)
+                        else if (biome == TFCBiomes.GRAVEL_BEACH || biome == TFCBiomes.ESTUARY || biome == TFCBiomes.RIVER || biome == TFCBiomes.RIVERBANK || biome == TFCBiomes.LAKESHORE/* || biome == BiomesTFC.RIVER_SOURCE*/)
                         {
                             subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                         }
@@ -1131,11 +1131,11 @@ public class ChunkGenTFC implements IChunkGenerator
 
                             if (smooth > 0)
                             {
-                                if (y >= seaLevel - 1 && y + 1 < yOffset && inp.getBlockState(x, y + 1, z) != SEA_WATER && dirtH > 0 && !(BiomesTFC.isBeachBiome(biome) && y > highestBeachTheoretical + 2))
+                                if (y >= seaLevel - 1 && y + 1 < yOffset && inp.getBlockState(x, y + 1, z) != SEA_WATER && dirtH > 0 && !(TFCBiomes.isBeachBiome(biome) && y > highestBeachTheoretical + 2))
                                 {
                                     outp.setBlockState(x, y + yOffset, z, surfaceBlock);
 
-                                    boolean mountains = BiomesTFC.isMountainBiome(biome) || biome == BiomesTFC.HIGH_HILLS || biome == BiomesTFC.HIGH_HILLS_EDGE || biome == BiomesTFC.MOUNTAINS || biome == BiomesTFC.MOUNTAINS_EDGE || biome == BiomesTFC.MOUNTAIN_RANGE || biome == BiomesTFC.MOUNTAIN_RANGE_EDGE || biome == BiomesTFC.FOOTHILLS || biome == BiomesTFC.FAULT_LINE || biome == BiomesTFC.CRAG;
+                                    boolean mountains = TFCBiomes.isMountainBiome(biome) || biome == TFCBiomes.HIGH_HILLS || biome == TFCBiomes.HIGH_HILLS_EDGE || biome == TFCBiomes.MOUNTAINS || biome == TFCBiomes.MOUNTAINS_EDGE || biome == TFCBiomes.MOUNTAIN_RANGE || biome == TFCBiomes.MOUNTAIN_RANGE_EDGE || biome == TFCBiomes.FOOTHILLS || biome == TFCBiomes.FAULT_LINE || biome == TFCBiomes.CRAG;
                                     for (int c = 1; c < dirtH && !mountains && !cliffMap[colIndex]; c++)
                                     {
                                         outp.setBlockState(x, y - c + yOffset, z, subSurfaceBlock);
@@ -1150,14 +1150,14 @@ public class ChunkGenTFC implements IChunkGenerator
                         if (y > seaLevel - 2 && y < seaLevel && inp.getBlockState(x, y + 1, z) == SEA_WATER ||
                                 y < seaLevel && inp.getBlockState(x, y + 1, z) == SEA_WATER)
                         {
-                            if (biome != BiomesTFC.SWAMPLAND || biome != BiomesTFC.BAYOU || biome != BiomesTFC.MANGROVE || biome != BiomesTFC.MARSH) // Most areas have gravel and sand bottoms
+                            if (biome != TFCBiomes.SWAMPLAND || biome != TFCBiomes.BAYOU || biome != TFCBiomes.MANGROVE || biome != TFCBiomes.MARSH) // Most areas have gravel and sand bottoms
                             {
                                 if (outp.getBlockState(x, y + yOffset, z) != TFCBlockRockVariant.get(rock1, Type.SAND)
                                         .getDefaultState() && rand.nextInt(5) == 0)
                                     outp.setBlockState(x, y + yOffset, z,
                                             TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState());
                             }
-                            else if ((biome == BiomesTFC.SWAMPLAND || biome == BiomesTFC.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f) // Bogs with mostly peat and humus
+                            else if ((biome == TFCBiomes.SWAMPLAND || biome == TFCBiomes.MARSH) && ph.valueInt >= 4 && floraDiversity >= 0.25f && floraDensity >= 0.25f) // Bogs with mostly peat and humus
                             {
                                 if (outp.getBlockState(x, y + yOffset, z) != TFCBlockRockVariant.get(rock1, Type.HUMUS)
                                         .getDefaultState() && rand.nextInt(5) == 0)
@@ -1177,7 +1177,7 @@ public class ChunkGenTFC implements IChunkGenerator
                     {
                         outp.setBlockState(x, y + yOffset, z, TANNIN);
                     }*/
-                    else if (inp.getBlockState(x, y, z) == SEA_WATER && !(BiomesTFC.isOceanicBiome(biome) || BiomesTFC.isBeachBiome(biome)))
+                    else if (inp.getBlockState(x, y, z) == SEA_WATER && !(TFCBiomes.isOceanicBiome(biome) || TFCBiomes.isBeachBiome(biome)))
                     {
                         outp.setBlockState(x, y + yOffset, z, WATER);
                     }
@@ -1201,7 +1201,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         else
                             outp.setBlockState(x, y, z, TFCBlockRockVariant.get(rock1, Type.RAW).getDefaultState());
 
-                        if (BiomesTFC.isBeachBiome(biome) || BiomesTFC.isOceanicBiome(biome))
+                        if (TFCBiomes.isBeachBiome(biome) || TFCBiomes.isOceanicBiome(biome))
                         {
                             if (outp.getBlockState(x, y + 1, z) == SEA_WATER)
                             {

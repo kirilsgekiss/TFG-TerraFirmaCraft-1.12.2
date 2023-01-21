@@ -57,7 +57,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockCrate;
@@ -70,7 +70,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.devices.*;
-import net.dries007.tfc.objects.blocks.stone.*;
+import net.dries007.tfc.objects.blocks.rock.*;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.items.itemblock.*;
 import net.dries007.tfc.util.agriculture.BerryBush;
@@ -281,23 +281,23 @@ public final class TFCBlocks
     public static final BlockCoralBlock TUBE_CORAL_BLOCK_DEAD = getNull();
 
     @GameRegistry.ObjectHolder("plants/glowing_sea_banana")
-    public static final BlockWaterGlowPlantTFC GLOWING_SEA_BANANA = getNull();
+    public static final TFCBlockWaterGlowPlant GLOWING_SEA_BANANA = getNull();
     @GameRegistry.ObjectHolder("plants/blueshroom")
-    public static final BlockCaveMushroomTFC BLUESHROOM = getNull();
+    public static final TFCBlockCaveMushroom BLUESHROOM = getNull();
     @GameRegistry.ObjectHolder("plants/glowshroom")
-    public static final BlockCaveMushroomTFC GLOWSHROOM = getNull();
+    public static final TFCBlockCaveMushroom GLOWSHROOM = getNull();
     @GameRegistry.ObjectHolder("plants/magma_shroom")
-    public static final BlockCaveMushroomTFC MAGMA_SHROOM = getNull();
+    public static final TFCBlockCaveMushroom MAGMA_SHROOM = getNull();
     @GameRegistry.ObjectHolder("plants/poison_shroom")
-    public static final BlockCaveMushroomTFC POISON_SHROOM = getNull();
+    public static final TFCBlockCaveMushroom POISON_SHROOM = getNull();
     @GameRegistry.ObjectHolder("plants/sulphur_shroom")
-    public static final BlockCaveMushroomTFC SULPHUR_SHROOM = getNull();
+    public static final TFCBlockCaveMushroom SULPHUR_SHROOM = getNull();
 
     @GameRegistry.ObjectHolder("groundcover/lightstone")
     public static final BlockLightstone LIGHTSTONE = getNull();
 
     @GameRegistry.ObjectHolder("plants/saguaro_cactus")
-    public static final BlockSaguaroCactusTFC SAGUARO_CACTUS = getNull();
+    public static final TFCBlockSaguaroCactus SAGUARO_CACTUS = getNull();
 
 
     // All these are for use in model registration. Do not use for block lookups.
@@ -334,8 +334,8 @@ public final class TFCBlocks
     private static ImmutableList<TFCBlockToolRack> allToolRackBlocks;
     private static ImmutableList<TFCBlockCrop> allCropBlocks;
     private static ImmutableList<BlockCropDead> allDeadCropBlocks;
-    private static ImmutableList<BlockPlantTFC> allPlantBlocks;
-    private static ImmutableList<BlockPlantTFC> allGrassBlocks;
+    private static ImmutableList<TFCBlockPlant> allPlantBlocks;
+    private static ImmutableList<TFCBlockPlant> allGrassBlocks;
     private static ImmutableList<TFCBlockLoom> allLoomBlocks;
     private static ImmutableList<TFCBlockWoodSupport> allSupportBlocks;
     private static ImmutableList<BlockFlowerPotTFC> allFlowerPots;
@@ -380,16 +380,16 @@ public final class TFCBlocks
     private static ImmutableList<BlockFruitLeaves> allNormalTreeLeaves = Helpers.getNull();
     private static ImmutableList<BlockFruitLog> allNormalTreeLog = Helpers.getNull();
     private static ImmutableList<BlockCoral> allCoralPlants = Helpers.getNull();
-    private static ImmutableList<BlockWaterGlowPlantTFC> allGlowWaterPlants = Helpers.getNull();
-    private static ImmutableList<BlockWaterPlantTFC> allWaterPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockHangingPlantTFC> allHangingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockHangingGlowingPlantTFC> allHangingGlowingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockHangingCreepingPlantTFC> allHangingCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockHangingGlowingCreepingPlantTFC> allHangingGlowingCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockCreepingPlantTFC> allCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<BlockTallGrassWaterTFC> allTallGrassWaterBlocks = Helpers.getNull();
-    private static ImmutableList<BlockShortGrassTFC> allShortGrassBlocks = Helpers.getNull();
-    private static ImmutableList<BlockSaguaroCactusTFC> allSaguaroCactusBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockWaterGlowPlant> allGlowWaterPlants = Helpers.getNull();
+    private static ImmutableList<TFCBlockWaterPlant> allWaterPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockHangingPlant> allHangingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockHangingGlowingPlant> allHangingGlowingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockHangingCreepingPlant> allHangingCreepingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockCreepingPlant> allCreepingPlantBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockTallGrassWater> allTallGrassWaterBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockShortGrass> allShortGrassBlocks = Helpers.getNull();
+    private static ImmutableList<TFCBlockSaguaroCactus> allSaguaroCactusBlocks = Helpers.getNull();
     private static ImmutableList<BlockPlantDummy1> allStandardBlocks = Helpers.getNull();
     private static ImmutableList<BlockLightstone> allLightstoneBlocks = Helpers.getNull();
     private static ImmutableList<BlockJoshuaTreeFlower> allJoshuaTreeFlowerBlocks = Helpers.getNull();
@@ -553,12 +553,12 @@ public final class TFCBlocks
         return allDeadCropBlocks;
     }
 
-    public static ImmutableList<BlockPlantTFC> getAllPlantBlocks()
+    public static ImmutableList<TFCBlockPlant> getAllPlantBlocks()
     {
         return allPlantBlocks;
     }
 
-    public static ImmutableList<BlockPlantTFC> getAllGrassBlocks()
+    public static ImmutableList<TFCBlockPlant> getAllGrassBlocks()
     {
         return allGrassBlocks;
     }
@@ -794,52 +794,52 @@ public final class TFCBlocks
         return allCoralPlants;
     }
 
-    public static ImmutableList<BlockWaterGlowPlantTFC> getAllGlowWaterPlants()
+    public static ImmutableList<TFCBlockWaterGlowPlant> getAllGlowWaterPlants()
     {
         return allGlowWaterPlants;
     }
 
-    public static ImmutableList<BlockWaterPlantTFC> getAllWaterPlantBlocks()
+    public static ImmutableList<TFCBlockWaterPlant> getAllWaterPlantBlocks()
     {
         return allWaterPlantBlocks;
     }
 
-    public static ImmutableList<BlockHangingPlantTFC> getAllHangingPlantBlocks()
+    public static ImmutableList<TFCBlockHangingPlant> getAllHangingPlantBlocks()
     {
         return allHangingPlantBlocks;
     }
 
-    public static ImmutableList<BlockHangingGlowingPlantTFC> getAllHangingGlowingPlantBlocks()
+    public static ImmutableList<TFCBlockHangingGlowingPlant> getAllHangingGlowingPlantBlocks()
     {
         return allHangingGlowingPlantBlocks;
     }
 
-    public static ImmutableList<BlockHangingCreepingPlantTFC> getAllHangingCreepingPlantBlocks()
+    public static ImmutableList<TFCBlockHangingCreepingPlant> getAllHangingCreepingPlantBlocks()
     {
         return allHangingCreepingPlantBlocks;
     }
 
-    public static ImmutableList<BlockHangingGlowingCreepingPlantTFC> getAllHangingGlowingCreepingPlantBlocks()
+    public static ImmutableList<TFCBlockHangingGlowingCreepingPlant> getAllHangingGlowingCreepingPlantBlocks()
     {
         return allHangingGlowingCreepingPlantBlocks;
     }
 
-    public static ImmutableList<BlockCreepingPlantTFC> getAllCreepingPlantBlocks()
+    public static ImmutableList<TFCBlockCreepingPlant> getAllCreepingPlantBlocks()
     {
         return allCreepingPlantBlocks;
     }
 
-    public static ImmutableList<BlockTallGrassWaterTFC> getAllTallGrassWaterBlocks()
+    public static ImmutableList<TFCBlockTallGrassWater> getAllTallGrassWaterBlocks()
     {
         return allTallGrassWaterBlocks;
     }
 
-    public static ImmutableList<BlockShortGrassTFC> getAllShortGrassBlocks()
+    public static ImmutableList<TFCBlockShortGrass> getAllShortGrassBlocks()
     {
         return allShortGrassBlocks;
     }
 
-    public static ImmutableList<BlockSaguaroCactusTFC> getAllSaguaroCactusBlocks()
+    public static ImmutableList<TFCBlockSaguaroCactus> getAllSaguaroCactusBlocks()
     {
         return allSaguaroCactusBlocks;
     }
@@ -926,53 +926,53 @@ public final class TFCBlocks
         ImmutableList.Builder<TFCBlockPlanks> planksTFC = ImmutableList.builder();
         ImmutableList.Builder<BlockPebbleWater> pebbleWater = ImmutableList.builder();
         ImmutableList.Builder<BlockCoral> plantCoral = ImmutableList.builder();
-        ImmutableList.Builder<BlockWaterGlowPlantTFC> plantGlowWater = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
         ImmutableList.Builder<BlockLightstone> blockLightstone = ImmutableList.builder();
         ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
         //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
 
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "debug", new BlockDebug(), CT_MISC)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "debug", new BlockDebug(), CT_MISC)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "aggregate", new BlockAggregate(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "fire_clay_block", new BlockFireClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "aggregate", new BlockAggregate(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_clay_block", new BlockFireClay(), CT_ROCK_BLOCKS)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "peat", new BlockPeat(Material.GROUND), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "peat_grass", new BlockPeatGrass(Material.GRASS), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "peat", new BlockPeat(Material.GROUND), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "peat_grass", new BlockPeatGrass(Material.GRASS), CT_ROCK_BLOCKS)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "thatch", new BlockThatch(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "fire_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "thatch", new BlockThatch(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_bricks", new BlockFireBrick(), CT_DECORATIONS)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "quern", new BlockQuern(), CT_MISC)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "quern", new BlockQuern(), CT_MISC)));
         normalItemBlocks.add(new ItemBlockCrucible(register(r, "crucible", new BlockCrucible(), CT_MISC)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "blast_furnace", new BlockBlastFurnace(), CT_MISC)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "blast_furnace", new BlockBlastFurnace(), CT_MISC)));
         normalItemBlocks.add(new ItemBlockDryer(register(r, "devices/dryer", new BlockDryer(), CT_MISC)));
         normalItemBlocks.add(new ItemBlockStickBundle(register(r, "devices/stick_bundle", new BlockStickBundle(), CT_MISC)));
 
-        inventoryItemBlocks.add(new ItemBlockTFC(register(r, "bellows", new BlockBellows(), CT_MISC)));
-        inventoryItemBlocks.add(new ItemBlockTFC(register(r, "bloomery", new BlockBloomery(), CT_MISC)));
-        inventoryItemBlocks.add(new ItemBlockTFC(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
+        inventoryItemBlocks.add(new TFCItemBlock(register(r, "bellows", new BlockBellows(), CT_MISC)));
+        inventoryItemBlocks.add(new TFCItemBlock(register(r, "bloomery", new BlockBloomery(), CT_MISC)));
+        inventoryItemBlocks.add(new TFCItemBlock(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_MISC)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
 
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
         normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/raw/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_clay_block", new BlockEarthenwareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_clay_block", new BlockEarthenwareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_clay_block", new BlockKaoliniteClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_clay_block", new BlockKaoliniteClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_clay_block", new BlockStonewareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_clay_block", new BlockStonewareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
         normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new BlockUrn(), CT_POTTERY)));
@@ -985,9 +985,9 @@ public final class TFCBlocks
             BlockDecorativeStone bricks = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
             BlockDecorativeStone raw = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
 
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/polished/" + dyeColor.getName(), polished, CT_DECORATIONS)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/bricks/" + dyeColor.getName(), bricks, CT_DECORATIONS)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "alabaster/raw/" + dyeColor.getName(), raw, CT_DECORATIONS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/" + dyeColor.getName(), polished, CT_DECORATIONS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/" + dyeColor.getName(), bricks, CT_DECORATIONS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/" + dyeColor.getName(), raw, CT_DECORATIONS)));
 
             BlockDecorativeStone.ALABASTER_POLISHED.put(dyeColor, polished);
             BlockDecorativeStone.ALABASTER_BRICKS.put(dyeColor, bricks);
@@ -1081,7 +1081,7 @@ public final class TFCBlocks
                 }
                 else if (x.getType() != SPIKE && x.getType() != ANVIL)
                 {
-                    normalItemBlocks.add(new ItemBlockTFC(x));
+                    normalItemBlocks.add(new TFCItemBlock(x));
                 }
             });
         }
@@ -1139,7 +1139,7 @@ public final class TFCBlocks
             Builder<TFCBlockChest> blockChests = ImmutableList.builder();
             Builder<TFCBlockToolRack> blockToolRacks = ImmutableList.builder();
             Builder<TFCBlockBarrel> blockBarrel = ImmutableList.builder();
-            Builder<BlockPlantTFC> blockPlants = ImmutableList.builder();
+            Builder<TFCBlockPlant> blockPlants = ImmutableList.builder();
             Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
             Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
 
@@ -1187,22 +1187,22 @@ public final class TFCBlocks
             allSupportBlocks = blockSupports.build();
 
             // logs are special
-            allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allFenceBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allFenceGateBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allWoodButtonBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
-            allWoodPressurePlateBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allFenceBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allFenceGateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWoodButtonBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWoodPressurePlateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
             allBarrelBlocksBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockBarrel(x)));
-            allToolRackBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allToolRackBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
 
-            allLeafBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allLeafBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
             allSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockSaplingTFC(x)));
-            allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
-            allChestBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allSupportBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            allChestBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+            allSupportBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         {
@@ -1242,8 +1242,8 @@ public final class TFCBlocks
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
             {
                 // Redstone things
-                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/button/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockButton(rock), CT_DECORATIONS)));
-                inventoryItemBlocks.add(new ItemBlockTFC(register(r, "stone/pressure_plate/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockPressurePlate(rock), CT_DECORATIONS)));
+                inventoryItemBlocks.add(new TFCItemBlock(register(r, "stone/button/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockButton(rock), CT_DECORATIONS)));
+                inventoryItemBlocks.add(new TFCItemBlock(register(r, "stone/pressure_plate/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockPressurePlate(rock), CT_DECORATIONS)));
             }
 
             allWallBlocks = blockWallTFC.build();
@@ -1252,9 +1252,9 @@ public final class TFCBlocks
             allRockSlabBlocks = blockRockSlabTFC.build();
             allWoodSlabBlocks = blockWoodSlabTFC.build();
 
-            allWallBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allRockStairsBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-            allWoodStairsBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockTFC(x)));
+            allWallBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+            allRockStairsBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+            allWoodStairsBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
         }
 
         {
@@ -1347,19 +1347,19 @@ public final class TFCBlocks
             }
 
             //Add ItemBlocks
-            allFruitTreeSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
-            allFruitTreeLeavesBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
-            allBerryBushBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockTFC(x)));
+            allFruitTreeSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            allFruitTreeLeavesBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            allBerryBushBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
         }
 
         {
-            Builder<BlockPlantTFC> plantBlocks = ImmutableList.builder();
+            Builder<TFCBlockPlant> plantBlocks = ImmutableList.builder();
             Builder<BlockFlowerPotTFC> plantInPotBlock = ImmutableList.builder();
 
-            Builder<BlockHangingPlantTFC> plantHangingBlock = ImmutableList.builder();
-            Builder<BlockHangingGlowingPlantTFC> plantHangingGlowingBlock = ImmutableList.builder();
-            Builder<BlockHangingCreepingPlantTFC> plantHangingCreepingBlock = ImmutableList.builder();
-            Builder<BlockHangingGlowingCreepingPlantTFC> plantHangingGlowingCreepingBlock = ImmutableList.builder();
+            Builder<TFCBlockHangingPlant> plantHangingBlock = ImmutableList.builder();
+            Builder<TFCBlockHangingGlowingPlant> plantHangingGlowingBlock = ImmutableList.builder();
+            Builder<TFCBlockHangingCreepingPlant> plantHangingCreepingBlock = ImmutableList.builder();
+            Builder<TFCBlockHangingGlowingCreepingPlant> plantHangingGlowingCreepingBlock = ImmutableList.builder();
 
             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
             {
@@ -1372,12 +1372,12 @@ public final class TFCBlocks
                 {
                     if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
                     {
-                        plantHangingGlowingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockHangingGlowingPlantTFC(plant), CT_FLORA));
+                        plantHangingGlowingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingGlowingPlant(plant), CT_FLORA));
                         //plantHangingGlowingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingGlowingCreepingPlantTFC(plant), CT_FLORA));
                     }
                     else
                     {
-                        plantHangingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new BlockHangingPlantTFC(plant), CT_FLORA));
+                        plantHangingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingPlant(plant), CT_FLORA));
                         //plantHangingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingCreepingPlantTFC(plant), CT_FLORA));
                     }
                 }
@@ -1388,19 +1388,19 @@ public final class TFCBlocks
             }
 
             allPlantBlocks = plantBlocks.build();
-            allPlantBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
             allHangingPlantBlocks = plantHangingBlock.build();
-            allHangingPlantBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allHangingPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
             allHangingGlowingPlantBlocks = plantHangingGlowingBlock.build();
-            allHangingGlowingPlantBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allHangingGlowingPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
             allHangingCreepingPlantBlocks = plantHangingCreepingBlock.build();
-            allHangingCreepingPlantBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allHangingCreepingPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
             allHangingGlowingCreepingPlantBlocks = plantHangingGlowingCreepingBlock.build();
-            allHangingGlowingCreepingPlantBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allHangingGlowingCreepingPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
 
             /*
@@ -1494,21 +1494,21 @@ public final class TFCBlocks
             }
         }*/
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/yucca/yucca_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/yucca/yucca_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/cotton/cotton_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/cotton/cotton_yarn_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/flax/flax_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/flax/flax_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/hemp/hemp_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/hemp/hemp_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/jute/jute_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/jute/jute_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/linen/linen_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/linen/linen_string_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/papyrus/papyrus_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_yarn_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/flax/flax_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/flax/flax_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_string_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/papyrus/papyrus_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));
 
 
 
@@ -1625,14 +1625,14 @@ public final class TFCBlocks
         allCoralPlants = plantCoral.build();
         for (BlockCoral plantCoralBlock : allCoralPlants)
         {
-            normalItemBlocks.add(new ItemBlockTFC(plantCoralBlock));
+            normalItemBlocks.add(new TFCItemBlock(plantCoralBlock));
         }
 
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/brain/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/bubble/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/fire/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/horn/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/tube/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/dead", new BlockCoralBlock(MapColor.SNOW), CT_FLORA)));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {
@@ -1642,11 +1642,11 @@ public final class TFCBlocks
             BlockCoralBlock horn = new BlockCoralBlock(MapColor.getBlockColor(dyeColor));
             BlockCoralBlock tube = new BlockCoralBlock(MapColor.getBlockColor(dyeColor));
 
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
 
             BlockCoralBlock.BRAIN_CORAL_BLOCK.put(dyeColor, brain);
             BlockCoralBlock.BUBBLE_CORAL_BLOCK.put(dyeColor, bubble);
@@ -1656,22 +1656,22 @@ public final class TFCBlocks
         }
 
         {
-            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new BlockWaterGlowPlantTFC(FluidsTFC.SEA_WATER.get()), CT_FLORA));
+            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
         }
         allGlowWaterPlants = plantGlowWater.build();
-        for (BlockWaterGlowPlantTFC plantGlowWaterBlock : allGlowWaterPlants)
+        for (TFCBlockWaterGlowPlant plantGlowWaterBlock : allGlowWaterPlants)
         {
-            normalItemBlocks.add(new ItemBlockTFC(plantGlowWaterBlock));
+            normalItemBlocks.add(new TFCItemBlock(plantGlowWaterBlock));
         }
 
         {
             //Builder<BlockCaveMushroom> plantCaveMushroom = ImmutableList.builder();
 
-            BlockCaveMushroomTFC blueshroom = new BlockCaveMushroomTFC(0.3F, FoodData.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
-            BlockCaveMushroomTFC glowshroom = new BlockCaveMushroomTFC(0.5F, FoodData.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
-            BlockCaveMushroomTFC magma_shroom = new BlockCaveMushroomTFC(0.2F, FoodData.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
-            BlockCaveMushroomTFC poison_shroom = new BlockCaveMushroomTFC(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
-            BlockCaveMushroomTFC sulphur_shroom = new BlockCaveMushroomTFC(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
+            TFCBlockCaveMushroom blueshroom = new TFCBlockCaveMushroom(0.3F, FoodData.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
+            TFCBlockCaveMushroom glowshroom = new TFCBlockCaveMushroom(0.5F, FoodData.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
+            TFCBlockCaveMushroom magma_shroom = new TFCBlockCaveMushroom(0.2F, FoodData.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
+            TFCBlockCaveMushroom poison_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
+            TFCBlockCaveMushroom sulphur_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
 
             normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
             normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
@@ -1709,7 +1709,7 @@ public final class TFCBlocks
         allLightstoneBlocks = blockLightstone.build();
         for (BlockLightstone lightstone : allLightstoneBlocks)
         {
-            normalItemBlocks.add(new ItemBlockTFC(lightstone));
+            normalItemBlocks.add(new TFCItemBlock(lightstone));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock)
@@ -1719,49 +1719,49 @@ public final class TFCBlocks
                 surfaceRock.add(register(r, "groundcover/rock/" + rock.getRegistryName().getPath().toLowerCase(), new BlockSurfaceRock(rock), CT_ROCK_BLOCKS));
             }
             allSurfaceRocks = surfaceRock.build();
-            allSurfaceRocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceRocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
         {
             surfaceBone.add(register(r, "groundcover/bone", new BlockSurfaceBones(), CT_FLORA));
             allSurfaceBones = surfaceBone.build();
-            allSurfaceBones.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceBones.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood)
         {
             surfaceDriftwood.add(register(r, "groundcover/driftwood", new BlockDriftwood(), CT_FLORA));
             allSurfaceDriftwood = surfaceDriftwood.build();
-            allSurfaceDriftwood.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceDriftwood.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint)
         {
             surfaceFlint.add(register(r, "groundcover/flint", new BlockSurfaceFlint(), CT_FLORA));
             allSurfaceFlint = surfaceFlint.build();
-            allSurfaceFlint.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceFlint.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone)
         {
             surfacePinecone.add(register(r, "groundcover/pinecone", new BlockPinecone(), CT_FLORA));
             allSurfacePinecone = surfacePinecone.build();
-            allSurfacePinecone.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfacePinecone.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell)
         {
             surfaceSeashell.add(register(r, "groundcover/seashell", new BlockSurfaceSeashells(), CT_FLORA));
             allSurfaceSeashells = surfaceSeashell.build();
-            allSurfaceSeashells.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceSeashells.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig)
         {
             surfaceTwig.add(register(r, "groundcover/twig", new BlockTwig(), CT_FLORA));
             allSurfaceTwig = surfaceTwig.build();
-            allSurfaceTwig.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+            allSurfaceTwig.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
 
@@ -1978,24 +1978,24 @@ public final class TFCBlocks
 
         allBambooLog = itemBambooLog.build();
         allBambooLog.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allBambooLeaves = itemBambooLeaves.build();
         allBambooLeaves.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allNormalTreeLeaves = itemNormalTreeLeaves.build();
         allNormalTreeLeaves.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allNormalTreeLog = normalTreeLog.build();
 
         allBambooSapling = itemBambooSapling.build();
         allBambooSapling.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFoodItemBlocks = foodItemBlocks.build();
@@ -2005,17 +2005,17 @@ public final class TFCBlocks
 
         allFenceGateLogBlocks = fenceGatesLog.build();
         allFenceGateLogBlocks.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitLeaves = fruitLeaves.build();
         allFruitLeaves.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitSapling = fruitSapling.build();
         allFruitSapling.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         /*allFruitBarrel = fruitBarrel.build();
@@ -2025,87 +2025,87 @@ public final class TFCBlocks
 
         allFruitBookshelves = fruitBookshelves.build();
         allFruitBookshelves.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitButton = fruitButton.build();
         allFruitButton.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitDoors = fruitDoors.build();
 
         allFruitPlanks = fruitPlanks.build();
         allFruitPlanks.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allPlanksTFC = planksTFC.build();
         allPlanksTFC.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allSlabBlocksTFC = blockSlabTFC.build();
         allStairBlocksTFC = blockStairTFC.build();
-        allStairBlocksTFC.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+        allStairBlocksTFC.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
         allFruitSlabBlocks = fruitSlab.build();
         allFruitStairBlocks = fruitStairs.build();
-        allFruitStairBlocks.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+        allFruitStairBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
         allFruitPressurePlate = fruitPressurePlate.build();
         allFruitPressurePlate.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitFences = fruitFences.build();
         allFruitFences.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitFenceGates = fruitFenceGates.build();
         allFruitFenceGates.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitLogFences = fruitLogFences.build();
         allFruitLogFences.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitLogFenceGates = fruitLogFenceGates.build();
         allFruitLogFenceGates.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitSupport = fruitSupport.build();
         allFruitSupport.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitToolRack = fruitToolRack.build();
         allFruitToolRack.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitTrapDoors = fruitTrapdoors.build();
         allFruitTrapDoors.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitWorkbench = fruitWorkbench.build();
         allFruitWorkbench.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitChestBlocks = fruitChests.build();
         allFruitChestBlocks.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
 
         allFruitLoomBlocks = fruitLoom.build();
         allFruitLoomBlocks.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockTFC(x));
+            normalItemBlocks.add(new TFCItemBlock(x));
         });
         // Florae End
 

@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.items.wood.ItemBoatTFC;
+import net.dries007.tfc.objects.items.wood.TFCItemBoat;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -76,7 +76,7 @@ public class EntityBoatTFC extends EntityBoat
         Tree wood = getWood();
         if (wood != null)
         {
-            return ItemBoatTFC.get(wood);
+            return TFCItemBoat.get(wood);
         }
         return super.getItemBoat();
     }

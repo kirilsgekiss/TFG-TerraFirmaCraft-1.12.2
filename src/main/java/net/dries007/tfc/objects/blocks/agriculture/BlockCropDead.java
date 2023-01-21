@@ -33,8 +33,8 @@ import net.minecraftforge.common.EnumPlantType;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.plants.BlockEmergentTallWaterPlantTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockWaterPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockEmergentTallWaterPlant;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterPlant;
 import net.dries007.tfc.objects.items.ItemSeedsTFC;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.skills.SimpleSkill;
@@ -160,12 +160,12 @@ public class BlockCropDead extends BlockBush
         {
             IBlockState soil = worldIn.getBlockState(pos.down());
 
-            if (soil.getBlock() instanceof BlockWaterPlantTFC || soil.getBlock() instanceof BlockWaterPlantTFC) return false;
+            if (soil.getBlock() instanceof TFCBlockWaterPlant || soil.getBlock() instanceof TFCBlockWaterPlant) return false;
             if (state.getBlock() == this)
             {
                 IBlockState stateDown = worldIn.getBlockState(pos.down());
                 Material material = stateDown.getMaterial();
-                return ((soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || ((material == Material.WATER && stateDown.getValue(BlockLiquid.LEVEL) == 0 && stateDown == WATER) || material == Material.ICE || (material == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC))));
+                return ((soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || ((material == Material.WATER && stateDown.getValue(BlockLiquid.LEVEL) == 0 && stateDown == WATER) || material == Material.ICE || (material == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant))));
             }
             else
             {
@@ -212,7 +212,7 @@ public class BlockCropDead extends BlockBush
     {
         if (crop == Crop.RICE)
         {
-            return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof BlockEmergentTallWaterPlantTFC));
+            return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant));
         }
         else
         {

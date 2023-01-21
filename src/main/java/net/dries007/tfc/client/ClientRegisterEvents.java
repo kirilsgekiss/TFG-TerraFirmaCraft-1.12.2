@@ -20,7 +20,7 @@ import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.items.ItemArmorTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
-import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
+import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitDoor;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -53,15 +53,15 @@ import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.client.render.*;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.BlockThatchBed;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
-import net.dries007.tfc.objects.blocks.stone.*;
+import net.dries007.tfc.objects.blocks.rock.*;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.te.*;
-import net.dries007.tfc.objects.blocks.stone.farmland.*;
+import net.dries007.tfc.objects.blocks.rock.farmland.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
@@ -105,40 +105,40 @@ public final class ClientRegisterEvents
         // Register models for Items //
 
         // Registering fluid containers
-        ModelLoader.setCustomModelResourceLocation(ItemsTFC.WOODEN_BUCKET, 0, new ModelResourceLocation(ItemsTFC.WOODEN_BUCKET.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_JUG, 0, new ModelResourceLocation(ItemsTFC.FIRED_JUG.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_EARTHENWARE_JUG, 0, new ModelResourceLocation(ItemsTFC.FIRED_EARTHENWARE_JUG.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_KAOLINITE_JUG, 0, new ModelResourceLocation(ItemsTFC.FIRED_KAOLINITE_JUG.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_STONEWARE_JUG, 0, new ModelResourceLocation(ItemsTFC.FIRED_STONEWARE_JUG.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(TFCItems.WOODEN_BUCKET, 0, new ModelResourceLocation(TFCItems.WOODEN_BUCKET.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_JUG, 0, new ModelResourceLocation(TFCItems.FIRED_JUG.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_EARTHENWARE_JUG, 0, new ModelResourceLocation(TFCItems.FIRED_EARTHENWARE_JUG.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_KAOLINITE_JUG, 0, new ModelResourceLocation(TFCItems.FIRED_KAOLINITE_JUG.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_STONEWARE_JUG, 0, new ModelResourceLocation(TFCItems.FIRED_STONEWARE_JUG.getRegistryName(), "inventory"));
         // ModelLoader.setCustomModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.BLUE_STEEL_BUCKET.getRegistryName(), "inventory"));
         // ModelLoader.setCustomModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET, 0, new ModelResourceLocation(ItemsTFC.RED_STEEL_BUCKET.getRegistryName(), "inventory"));
 
         // Simple Items
-        ItemsTFC.getAllSimpleItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName().toString())));
+        TFCItems.getAllSimpleItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName().toString())));
 
         // Lumber Items
-        ItemsTFC.getAllLumberItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/lumber"), "normal")));
+        TFCItems.getAllLumberItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/lumber"), "normal")));
 
         // Boat Items
-        ItemsTFC.getAllBoatItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/boat"), "normal")));
+        TFCItems.getAllBoatItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(new ResourceLocation(MOD_ID, "wood/boat"), "normal")));
 
         // Armor Items
-        ItemsTFC.getAllArmorItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName().toString())));
+        TFCItems.getAllArmorItems().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName().toString())));
 
         // Dye color Items
         for (EnumDyeColor color : EnumDyeColor.values())
         {
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.UNFIRED_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.UNFIRED_VESSEL_GLAZED.getRegistryName().toString()));
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.FIRED_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.UNFIRED_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.UNFIRED_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.FIRED_VESSEL_GLAZED.getRegistryName().toString()));
 
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.UNFIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.UNFIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.FIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.UNFIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.UNFIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_EARTHENWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.FIRED_EARTHENWARE_VESSEL_GLAZED.getRegistryName().toString()));
 
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.UNFIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.UNFIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.FIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.UNFIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.UNFIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_KAOLINITE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.FIRED_KAOLINITE_VESSEL_GLAZED.getRegistryName().toString()));
 
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.UNFIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.UNFIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.UNFIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.UNFIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
+            ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.FIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
         }
 
         // Gold Pan
@@ -425,7 +425,7 @@ public final class ClientRegisterEvents
         //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));
 
         blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllLeafBlocks().toArray(new Block[0]));
-        blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllPlantBlocks().toArray(new BlockPlantTFC[0]));
+        blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllPlantBlocks().toArray(new TFCBlockPlant[0]));
 
         blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFruitTreeLeavesBlocks().toArray(new Block[0]));
 
@@ -496,13 +496,13 @@ public final class ClientRegisterEvents
         TFCBlocks.getAllWoodButtonBlocks().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
 
         // Lumber
-        ItemsTFC.getAllLumberItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
+        TFCItems.getAllLumberItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
         // Boat
-        ItemsTFC.getAllBoatItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
+        TFCItems.getAllBoatItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
-                ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFC[0]));
+                TFCItems.getAllArmorItems().toArray(new ItemArmorTFC[0]));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
@@ -521,16 +521,16 @@ public final class ClientRegisterEvents
             TFCBlocks.getAllFruitTreeLeavesBlocks().toArray(new BlockFruitTreeLeaves[0]));
 
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-            ItemsTFC.UNFIRED_VESSEL_GLAZED, ItemsTFC.FIRED_VESSEL_GLAZED);
+            TFCItems.UNFIRED_VESSEL_GLAZED, TFCItems.FIRED_VESSEL_GLAZED);
 
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFC.UNFIRED_EARTHENWARE_VESSEL_GLAZED, ItemsTFC.FIRED_EARTHENWARE_VESSEL_GLAZED);
+                TFCItems.UNFIRED_EARTHENWARE_VESSEL_GLAZED, TFCItems.FIRED_EARTHENWARE_VESSEL_GLAZED);
 
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFC.UNFIRED_KAOLINITE_VESSEL_GLAZED, ItemsTFC.FIRED_KAOLINITE_VESSEL_GLAZED);
+                TFCItems.UNFIRED_KAOLINITE_VESSEL_GLAZED, TFCItems.FIRED_KAOLINITE_VESSEL_GLAZED);
 
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
-                ItemsTFC.UNFIRED_STONEWARE_VESSEL_GLAZED, ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED);
+                TFCItems.UNFIRED_STONEWARE_VESSEL_GLAZED, TFCItems.FIRED_STONEWARE_VESSEL_GLAZED);
 
        /* itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
@@ -547,16 +547,16 @@ public final class ClientRegisterEvents
         }, ForgeRegistries.ITEMS.getValuesCollection().stream().filter(x -> x instanceof ItemFood).toArray(Item[]::new));
 
         // Colorize clay molds
-        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllClayMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, TFCItems.getAllClayMolds().toArray(new Item[0]));
 
         // Colorize earthenware molds
-        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllEarthenwareMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, TFCItems.getAllEarthenwareMolds().toArray(new Item[0]));
 
         // Colorize kaolinite molds
-        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllKaoliniteMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, TFCItems.getAllKaoliniteMolds().toArray(new Item[0]));
 
         // Colorize stoneware molds
-        itemColors.registerItemColorHandler(moldItemColors, ItemsTFC.getAllStonewareMolds().toArray(new Item[0]));
+        itemColors.registerItemColorHandler(moldItemColors, TFCItems.getAllStonewareMolds().toArray(new Item[0]));
     }
 
     @SubscribeEvent
@@ -569,7 +569,7 @@ public final class ClientRegisterEvents
         /*for (Item item : ItemsTFC.getAllItemBows())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));*/
 
-        for (ItemFruitDoor item : ItemsTFC.getAllFruitDoors())
+        for (ItemFruitDoor item : TFCItems.getAllFruitDoors())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
 
@@ -581,7 +581,7 @@ public final class ClientRegisterEvents
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockCoral.LEVEL).build());
 
         for (Block block : TFCBlocks.getAllGlowWaterPlants())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockWaterGlowPlantTFC.LEVEL).build());
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockWaterGlowPlant.LEVEL).build());
 
         if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
         {

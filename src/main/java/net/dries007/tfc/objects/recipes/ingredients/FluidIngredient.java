@@ -23,7 +23,7 @@ import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 
 @SuppressWarnings("unused")
 public class FluidIngredient extends Ingredient
@@ -31,7 +31,7 @@ public class FluidIngredient extends Ingredient
     private static ItemStack[] getValidBuckets(FluidStack fluid)
     {
         List<ItemStack> output = new ArrayList<>();
-        ItemStack woodenBucket = new ItemStack(ItemsTFC.WOODEN_BUCKET);
+        ItemStack woodenBucket = new ItemStack(TFCItems.WOODEN_BUCKET);
         IFluidHandler bucketCap = woodenBucket.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
         if (bucketCap != null)
         {

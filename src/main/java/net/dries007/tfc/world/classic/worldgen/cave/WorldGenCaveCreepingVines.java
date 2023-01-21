@@ -4,8 +4,8 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.plants.BlockHangingCreepingPlantTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockHangingGlowingCreepingPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingCreepingPlant;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingGlowingCreepingPlant;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -35,7 +35,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
     {
         if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
         {
-            BlockHangingGlowingCreepingPlantTFC plantBlock = BlockHangingGlowingCreepingPlantTFC.get(plant);
+            TFCBlockHangingGlowingCreepingPlant plantBlock = TFCBlockHangingGlowingCreepingPlant.get(plant);
             IBlockState state = plantBlock.getDefaultState();
     
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 4; ++i)
@@ -55,7 +55,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
                         plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k)))
                     {
                         int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(BlockHangingGlowingCreepingPlantTFC.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingGlowingCreepingPlant.AGE, plantAge));
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
         }
         else
         {
-            BlockHangingCreepingPlantTFC plantBlock = BlockHangingCreepingPlantTFC.get(plant);
+            TFCBlockHangingCreepingPlant plantBlock = TFCBlockHangingCreepingPlant.get(plant);
             if (plantBlock == null)
             {
                 System.out.println("BlockHangingCreeping is null: " + plant); // todo BUG
@@ -88,7 +88,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
                         plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k)))
                     {
                         int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(BlockHangingCreepingPlantTFC.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingCreepingPlant.AGE, plantAge));
                     }
                 }
             }

@@ -16,8 +16,8 @@ import com.google.common.collect.Multimap;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultPlants;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -90,12 +90,12 @@ public class OreDictionaryHelper
         MAP.forEach((t, s) -> OreDictionary.registerOre(s, t.toItemStack()));
         MAP.clear(); // No need to keep this stuff around
 
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.BURLAP_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.WOOL_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.SILK_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.BURLAP_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.WOOL_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.SILK_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.BURLAP_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.WOOL_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.SILK_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.BURLAP_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.WOOL_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.SILK_CLOTH));
 
         //OreDictionary.registerOre("stickBunch", new ItemStack(ItemsTFC.STICK_BUNCH));
         //OreDictionary.registerOre("stickBundle", new ItemStack(ItemsTFC.STICK_BUNCH));
@@ -117,8 +117,8 @@ public class OreDictionaryHelper
         OreDictionary.registerOre("baleSisalFiber", new ItemStack(TFCBlocks.SISAL_FIBER_BALE));
         OreDictionary.registerOre("baleYucca", new ItemStack(TFCBlocks.YUCCA_BALE));
         OreDictionary.registerOre("baleYuccaFiber", new ItemStack(TFCBlocks.YUCCA_FIBER_BALE));
-        OreDictionary.registerOre("glue", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
-        OreDictionary.registerOre("slimeball", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("glue", new ItemStack(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("slimeball", new ItemStack(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
 
         // Flint
         OreDictionary.registerOre("flint", new ItemStack(Items.FLINT));

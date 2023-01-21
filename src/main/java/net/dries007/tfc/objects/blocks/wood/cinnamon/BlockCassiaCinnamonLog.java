@@ -3,7 +3,7 @@ package net.dries007.tfc.objects.blocks.wood.cinnamon;
 import java.util.Random;
 import javax.annotation.Nonnull;
 
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
@@ -128,7 +128,7 @@ public class BlockCassiaCinnamonLog extends Block
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        drops.add(new ItemStack(ItemsTFC.CASSIA_CINNAMON_POLE, 1));
+        drops.add(new ItemStack(TFCItems.CASSIA_CINNAMON_POLE, 1));
     }
 
     @Override

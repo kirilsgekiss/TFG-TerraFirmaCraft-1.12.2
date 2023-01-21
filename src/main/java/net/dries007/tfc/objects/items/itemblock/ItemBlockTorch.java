@@ -20,7 +20,7 @@ import net.dries007.tfc.util.Helpers;
 
 import static net.dries007.tfc.objects.blocks.property.ILightableBlock.LIT;
 
-public class ItemBlockTorch extends ItemBlockTFC
+public class ItemBlockTorch extends TFCItemBlock
 {
     public ItemBlockTorch(Block block)
     {

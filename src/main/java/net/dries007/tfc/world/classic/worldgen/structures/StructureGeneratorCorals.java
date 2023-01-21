@@ -32,7 +32,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 
 public class StructureGeneratorCorals extends WorldGenerator
 {
@@ -128,7 +128,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 			}
 
 			// Places foundations under flying structures
-			if ((!structureName.startsWith("underground_") || world.provider.getDimension() != DimensionType.NETHER.getId()) || !(b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH || b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
+			if ((!structureName.startsWith("underground_") || world.provider.getDimension() != DimensionType.NETHER.getId()) || !(b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH || b == TFCBiomes.BAYOU || b == TFCBiomes.MANGROVE || b == TFCBiomes.MARSH))
             {
 				final int searchRange = 10;
 				int posX = position.getX();

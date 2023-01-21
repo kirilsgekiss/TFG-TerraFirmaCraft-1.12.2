@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -34,9 +34,9 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import net.dries007.tfc.api.types.Rock.Type;
@@ -153,7 +153,7 @@ public class StructureGenerator extends WorldGenerator
                             for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
                             {
                                 if (world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == Blocks.AIR || 
-                                    world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == BlockPlantTFC.get(plant))
+                                    world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == TFCBlockPlant.get(plant))
                                 {
                                     final IBlockState current = world.getBlockState(position);
                                     if (TFCBlocks.isSand(current))
@@ -291,9 +291,9 @@ public class StructureGenerator extends WorldGenerator
 		final Biome b2 = world.getBiome(x2);
 		final Biome b3 = world.getBiome(x3);
 
-		if ((world.getBlockState(x1).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b1 == BiomesTFC.OCEAN || b1 == BiomesTFC.DEEP_OCEAN || b1 == BiomesTFC.LAKE || b1 == BiomesTFC.RIVER || b1 == BiomesTFC.BEACH || b1 == BiomesTFC.GRAVEL_BEACH) ||
-		(world.getBlockState(x2).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b2 == BiomesTFC.OCEAN || b2 == BiomesTFC.DEEP_OCEAN || b2 == BiomesTFC.LAKE || b2 == BiomesTFC.RIVER || b2 == BiomesTFC.BEACH || b2 == BiomesTFC.GRAVEL_BEACH) ||
-		(world.getBlockState(x3).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b3 == BiomesTFC.OCEAN || b3 == BiomesTFC.DEEP_OCEAN || b3 == BiomesTFC.LAKE || b3 == BiomesTFC.RIVER || b3 == BiomesTFC.BEACH || b3 == BiomesTFC.GRAVEL_BEACH))
+		if ((world.getBlockState(x1).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x1).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b1 == TFCBiomes.OCEAN || b1 == TFCBiomes.DEEP_OCEAN || b1 == TFCBiomes.LAKE || b1 == TFCBiomes.RIVER || b1 == TFCBiomes.BEACH || b1 == TFCBiomes.GRAVEL_BEACH) ||
+		(world.getBlockState(x2).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x2).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b2 == TFCBiomes.OCEAN || b2 == TFCBiomes.DEEP_OCEAN || b2 == TFCBiomes.LAKE || b2 == TFCBiomes.RIVER || b2 == TFCBiomes.BEACH || b2 == TFCBiomes.GRAVEL_BEACH) ||
+		(world.getBlockState(x3).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(x3).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b3 == TFCBiomes.OCEAN || b3 == TFCBiomes.DEEP_OCEAN || b3 == TFCBiomes.LAKE || b3 == TFCBiomes.RIVER || b3 == TFCBiomes.BEACH || b3 == TFCBiomes.GRAVEL_BEACH))
 			return false;
 
 		return true;

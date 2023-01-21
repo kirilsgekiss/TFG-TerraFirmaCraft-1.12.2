@@ -8,7 +8,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockLamp;
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class ItemLamp extends ItemTFC implements IMetalItem {
+public class ItemLamp extends TFCItem implements IMetalItem {
 
     private final Material material;
 

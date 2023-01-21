@@ -9,14 +9,14 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-import net.dries007.tfc.objects.container.ContainerChestTFC;
+import net.dries007.tfc.objects.container.ContainerChest;
 
 public class GuiChestTFC extends GuiContainerTFC
 {
     private static final ResourceLocation CHEST_GUI_TEXTURE = new ResourceLocation("textures/gui/container/generic_54.png");
     private final int inventoryRows;
 
-    public GuiChestTFC(ContainerChestTFC container, InventoryPlayer playerInv)
+    public GuiChestTFC(ContainerChest container, InventoryPlayer playerInv)
     {
         super(container, playerInv, CHEST_GUI_TEXTURE);
         this.allowUserInput = false;

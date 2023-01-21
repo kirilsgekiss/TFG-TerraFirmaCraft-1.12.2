@@ -8,7 +8,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.dries007.tfc.objects.te.TEMetalSheet;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class ItemCladding extends ItemTFC implements IMetalItem {
+public class ItemCladding extends TFCItem implements IMetalItem {
 
     private final Material material;
 

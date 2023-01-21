@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableList;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -383,7 +383,7 @@ public class BlockFruitLeaves extends BlockLeaves implements IGrowingPlant
         }
         if ((fruitTree == SeasonalTrees.YELLOW_MULBERRY || fruitTree == SeasonalTrees.ORANGE_MULBERRY || fruitTree == SeasonalTrees.RED_MULBERRY) && state.getValue(LEAF_STATE) != EnumLeafState.WINTER)
         {
-            ItemStack drop = new ItemStack(ItemsTFC.MULBERRY_LEAF, 1 + RANDOM.nextInt(2), damageDropped(state));
+            ItemStack drop = new ItemStack(TFCItems.MULBERRY_LEAF, 1 + RANDOM.nextInt(2), damageDropped(state));
             if (!drop.isEmpty())
             {
                 drops.add(drop);

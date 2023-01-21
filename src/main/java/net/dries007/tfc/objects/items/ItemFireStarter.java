@@ -44,7 +44,7 @@ import static net.dries007.tfc.objects.blocks.property.ILightableBlock.LIT;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemFireStarter extends ItemTFC
+public class ItemFireStarter extends TFCItem
 {
     /**
      * Causes ignition of fire based devices, consume or damage items if valid

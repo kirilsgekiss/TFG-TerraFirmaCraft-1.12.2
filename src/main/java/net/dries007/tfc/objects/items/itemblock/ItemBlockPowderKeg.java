@@ -23,7 +23,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.objects.blocks.BlockPowderKeg;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockPowderKeg extends ItemBlockTFC implements IItemSize
+public class ItemBlockPowderKeg extends TFCItemBlock implements IItemSize
 {
     public ItemBlockPowderKeg(BlockPowderKeg block)
     {

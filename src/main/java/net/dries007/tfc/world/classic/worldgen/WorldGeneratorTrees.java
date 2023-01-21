@@ -23,7 +23,7 @@ import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGeneratorTrees implements IWorldGenerator
@@ -55,46 +55,46 @@ public class WorldGeneratorTrees implements IWorldGenerator
         trees.removeIf(t -> !t.hasBushes());
 
         // Dense foliage chaparral/shrubland forests in dry & sparsely populated mountain regions
-        if ((b == BiomesTFC.CRAG || b == BiomesTFC.MOUNTAINS || b == BiomesTFC.MOUNTAINS_EDGE || b == BiomesTFC.FOOTHILLS))
+        if ((b == TFCBiomes.CRAG || b == TFCBiomes.MOUNTAINS || b == TFCBiomes.MOUNTAINS_EDGE || b == TFCBiomes.FOOTHILLS))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.0f, 0.3f, 60f + gauss, 200f + gauss, 8 + random.nextInt(20), trees);
         }
 
         // Dense foliage chaparral/shrubland forests in dry & sparsely populated mountain regions
         // Similarly to Mediterranean and Californian areas 
-        if ((b == BiomesTFC.MOUNTAINS || b == BiomesTFC.MOUNTAINS_EDGE || b == BiomesTFC.HIGH_HILLS || b == BiomesTFC.HIGH_HILLS_EDGE || b == BiomesTFC.MOUNTAIN_RANGE || b == BiomesTFC.MOUNTAIN_RANGE_EDGE || b == BiomesTFC.FOOTHILLS) && (avgTemperature >= 4 + gauss))
+        if ((b == TFCBiomes.MOUNTAINS || b == TFCBiomes.MOUNTAINS_EDGE || b == TFCBiomes.HIGH_HILLS || b == TFCBiomes.HIGH_HILLS_EDGE || b == TFCBiomes.MOUNTAIN_RANGE || b == TFCBiomes.MOUNTAIN_RANGE_EDGE || b == TFCBiomes.FOOTHILLS) && (avgTemperature >= 4 + gauss))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.0f, 0.3f, 60f + gauss, 200f + gauss, 4 + random.nextInt(10), trees);
         }
 
         // Mid-dense foliage chaparral/shrubland forests in dry & sparsely populated hilly landscapes
         // Similarly to South African areas
-        if ((b == BiomesTFC.ROLLING_HILLS || b == BiomesTFC.HIGH_PLAINS) && (avgTemperature >= 1 + gauss))
+        if ((b == TFCBiomes.ROLLING_HILLS || b == TFCBiomes.HIGH_PLAINS) && (avgTemperature >= 1 + gauss))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.0f, 0.3f, 70f + gauss, 230f + gauss, 4 + random.nextInt(9), trees);
         }
 
         // Mid-dense foliage chaparral/shrubland forests in temperate regions
         // Similarly to steppes across Eurasian regions
-        if ((b == BiomesTFC.ROLLING_HILLS || b == BiomesTFC.FIELDS || b == BiomesTFC.FLATLANDS || b == BiomesTFC.PLAINS || b == BiomesTFC.HIGH_PLAINS) || b == BiomesTFC.FOOTHILLS && (avgTemperature <= 10 + gauss))
+        if ((b == TFCBiomes.ROLLING_HILLS || b == TFCBiomes.FIELDS || b == TFCBiomes.FLATLANDS || b == TFCBiomes.PLAINS || b == TFCBiomes.HIGH_PLAINS) || b == TFCBiomes.FOOTHILLS && (avgTemperature <= 10 + gauss))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.0f, 0.3f, 150f + gauss, 380f + gauss, 1 + random.nextInt(7), trees);
         }
 
         // More foliage bushes to woodlands
-        if (!(b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN))
+        if (!(b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.3f, 1f, 150f + gauss, 500f - gauss, 1 + random.nextInt(5), trees);
         }
 
         // Jungle Foliage
-        if (!(b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN) && (avgTemperature >= 10 + gauss))
+        if (!(b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN) && (avgTemperature >= 10 + gauss))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.3f, 1f, 150f + gauss, 500f - gauss, 5 + random.nextInt(10), trees);
         }
 
         // Sparse foliage were it's otherwise just completely barren and boring...
-        if (!(b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN))
+        if (!(b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN))
         {
             genBush(random, chunkX, chunkZ, world, chunkData, 0.0f, 0.2f, 260f + gauss, 500f - gauss, 0 + random.nextInt(5), trees);
         }
@@ -110,7 +110,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == BiomesTFC.BAYOU)
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == TFCBiomes.BAYOU)
                 {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.BALD_CYPRESS).isValidLocation(avgTemperature, rainfall, density))
                     if (10f <= avgTemperature && 38f >= avgTemperature && 180f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8)
@@ -136,7 +136,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == BiomesTFC.MANGROVE)
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == TFCBiomes.MANGROVE)
                 {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.MANGROVE).isValidLocation(avgTemperature, rainfall, density))
                     if (15f <= avgTemperature && 40f >= avgTemperature && 200f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8)
@@ -162,7 +162,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                 IBlockState down = world.getBlockState(blockPos.down());
                 final Biome b1 = world.getBiome(blockPos);
 
-                if (b1 != BiomesTFC.BAYOU && b1 != BiomesTFC.MARSH && !BiomesTFC.isOceanicBiome(b1) && !BiomesTFC.isLakeBiome(b1) && !BiomesTFC.isBeachBiome(b1) && !BiomesTFC.isMesaBiome(b1))
+                if (b1 != TFCBiomes.BAYOU && b1 != TFCBiomes.MARSH && !TFCBiomes.isOceanicBiome(b1) && !TFCBiomes.isLakeBiome(b1) && !TFCBiomes.isBeachBiome(b1) && !TFCBiomes.isMesaBiome(b1))
                 {
                     if ((TFCBlocks.isSand(down) || TFCBlocks.isSoilOrGravel(down)) && (down != Blocks.HARDENED_CLAY && down != Blocks.STAINED_HARDENED_CLAY))
                     {

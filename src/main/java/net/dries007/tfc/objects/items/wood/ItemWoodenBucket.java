@@ -35,13 +35,13 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandler;
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 
 import static net.minecraftforge.fluids.BlockFluidBase.LEVEL;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemWoodenBucket extends ItemTFC
+public class ItemWoodenBucket extends TFCItem
 {
     private static final int CAPACITY = Fluid.BUCKET_VOLUME;
 

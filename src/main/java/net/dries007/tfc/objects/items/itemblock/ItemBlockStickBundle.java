@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockStickBundle extends ItemBlockTFC
+public class ItemBlockStickBundle extends TFCItemBlock
 {
     public final BlockStickBundle block;
 

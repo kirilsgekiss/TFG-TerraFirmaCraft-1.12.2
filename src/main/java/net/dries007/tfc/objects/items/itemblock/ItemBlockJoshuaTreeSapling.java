@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
 
-public class ItemBlockJoshuaTreeSapling extends ItemBlockTFC
+public class ItemBlockJoshuaTreeSapling extends TFCItemBlock
 {
     public ItemBlockJoshuaTreeSapling(BlockJoshuaTreeSapling block)
     {

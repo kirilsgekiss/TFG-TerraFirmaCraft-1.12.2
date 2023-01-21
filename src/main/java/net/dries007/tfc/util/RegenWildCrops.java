@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.plants.BlockShortGrassTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockShortGrass;
 import net.dries007.tfc.world.classic.worldgen.WorldGenWildCrops;
 
 @ParametersAreNonnullByDefault
@@ -19,6 +19,6 @@ public class RegenWildCrops extends WorldGenWildCrops
     {
         //Modified to allow replacement of grass during spring regen
         Block test = world.getBlockState(pos).getBlock();
-        return (test instanceof BlockShortGrassTFC || test.isAir(world.getBlockState(pos), world, pos) && TFCBlocks.isSoil(world.getBlockState(pos.down())));
+        return (test instanceof TFCBlockShortGrass || test.isAir(world.getBlockState(pos), world, pos) && TFCBlocks.isSoil(world.getBlockState(pos.down())));
     }
 }

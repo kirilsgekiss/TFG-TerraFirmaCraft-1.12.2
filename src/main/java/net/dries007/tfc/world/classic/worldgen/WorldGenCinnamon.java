@@ -19,8 +19,8 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.StructureHelper;
-import net.dries007.tfc.world.classic.biomes.BiomeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiome;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGenCinnamon extends WorldGenerator
@@ -41,7 +41,7 @@ public class WorldGenCinnamon extends WorldGenerator
         if (!chunkData.isInitialized()) return false;
 
         final Biome b = world.getBiome(pos);
-        if (!(b instanceof BiomeTFC) || b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN)
+        if (!(b instanceof TFCBiome) || b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN)
             return false;
 
         final float diversity = chunkData.getFloraDiversity();

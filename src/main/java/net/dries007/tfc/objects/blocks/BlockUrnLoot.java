@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 
 @ParametersAreNonnullByDefault
 public class BlockUrnLoot extends Block implements IItemSize // TODO ALL
@@ -49,10 +49,10 @@ public class BlockUrnLoot extends Block implements IItemSize // TODO ALL
         if (seedsList == null)
         {
             Builder<Item> buildSeeds = ImmutableList.builder();
-            for (Item item : ItemsTFC.getAllSimpleItems())
+            for (Item item : TFCItems.getAllSimpleItems())
                 if (item.getRegistryName().getPath().contains("seeds/"))
                     buildSeeds.add(item);
-            for (Item item : ItemsTFC.getAllSimpleItems())
+            for (Item item : TFCItems.getAllSimpleItems())
                 if (item.getRegistryName().getPath().contains("seeds/"))
                     buildSeeds.add(item);
 

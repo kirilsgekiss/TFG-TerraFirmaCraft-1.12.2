@@ -18,7 +18,7 @@ import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGenMesaStrata implements IWorldGenerator
@@ -57,7 +57,7 @@ public class WorldGenMesaStrata implements IWorldGenerator
                 {
                     //TFCFlorae.getLog().warn("Biome at X: " + strataLayer.getX() + " Z: " + strataLayer.getZ() + " is " + b);
                     //if (b == BiomesTFC.MESA || b == BiomesTFC.MESA_PLATEAU || b == BiomesTFC.MESA_BRYCE || b == BiomesTFC.MESA_PLATEAU_M || BiomesTFC.isMesaBiome(b))
-                    if (BiomesTFC.isMesaBiome(b))
+                    if (TFCBiomes.isMesaBiome(b))
                     {
                         for (int y = WorldTypeTFC.SEALEVEL; y < world.getTopSolidOrLiquidBlock(strataLayer).getY(); ++y)
                         {

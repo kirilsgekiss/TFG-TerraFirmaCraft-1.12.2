@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -28,7 +28,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemMud extends ItemTFC implements IRockObject
+public class ItemMud extends TFCItem implements IRockObject
 {
     private static final Map<Rock, ItemMud> MAP = new HashMap<>();
 

@@ -54,7 +54,7 @@ import net.dries007.tfc.objects.blocks.wood.TFCBlockLoom;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
 import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
@@ -175,7 +175,7 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(new ItemStack(TFCBlockLoom.get(tree)), LOOM_UID);
             }
             registry.addRecipeCatalyst(new ItemStack(TFCBlocks.CRUCIBLE), ALLOY_UID);
-            registry.addRecipeCatalyst(new ItemStack(ItemsTFC.FIRED_VESSEL), ALLOY_UID);
+            registry.addRecipeCatalyst(new ItemStack(TFCItems.FIRED_VESSEL), ALLOY_UID);
             for (ItemStack stack : OreDictionary.getOres("clay")) {
                 registry.addRecipeCatalyst(stack, KNAP_CLAY_UID);
             }
@@ -201,7 +201,7 @@ public final class TFCJEIPlugin implements IModPlugin
             registry.addRecipeCatalyst(new ItemStack(TFCBlocks.BLOOMERY), BLOOMERY_UID);
             registry.addRecipeCatalyst(new ItemStack(TFCBlocks.BLAST_FURNACE), BLAST_FURNACE_UID);
             registry.addRecipeCatalyst(new ItemStack(TFCBlocks.CRUCIBLE), METAL_HEAT_UID);
-            registry.addRecipeCatalyst(new ItemStack(ItemsTFC.FIRED_VESSEL), METAL_HEAT_UID);
+            registry.addRecipeCatalyst(new ItemStack(TFCItems.FIRED_VESSEL), METAL_HEAT_UID);
             for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
                     registry.addRecipeCatalyst(new ItemStack(ItemAnvil.get(material)), ANVIL_UID);

@@ -3,7 +3,7 @@ package net.dries007.tfc.objects.items.devices;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class ItemFloraDensity extends ItemTFC
+public class ItemFloraDensity extends TFCItem
 {
     private final Size size;
     private final Weight weight;

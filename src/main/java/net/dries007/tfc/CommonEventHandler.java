@@ -109,15 +109,15 @@ import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockAnvil;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemQuiver;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.DamageSourcesTFC;
 import net.dries007.tfc.util.Helpers;
@@ -285,7 +285,7 @@ public final class CommonEventHandler
         ItemStack stackAt = new ItemStack(Item.getItemFromBlock(state.getBlock()), 1, state.getBlock().damageDropped(state));
         if (!event.isSilkTouching() && OreDictionaryHelper.doesStackMatchOre(stackAt, "blockGlass"))
         {
-            event.getDrops().add(new ItemStack(ItemsTFC.GLASS_SHARD));
+            event.getDrops().add(new ItemStack(TFCItems.GLASS_SHARD));
         }
 
         // Apply durability modifier on tools

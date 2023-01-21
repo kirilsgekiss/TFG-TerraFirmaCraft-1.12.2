@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 
 import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
-public class ItemBlockSaplingTFC extends ItemBlockTFC
+public class ItemBlockSaplingTFC extends TFCItemBlock
 {
     public ItemBlockSaplingTFC(TFCBlockSapling block)
     {

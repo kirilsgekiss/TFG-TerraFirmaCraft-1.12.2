@@ -22,7 +22,7 @@ import net.dries007.tfc.objects.blocks.devices.BlockSluice;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemBlockSluice extends ItemBlockTFC
+public class ItemBlockSluice extends TFCItemBlock
 {
     public ItemBlockSluice(Block block)
     {

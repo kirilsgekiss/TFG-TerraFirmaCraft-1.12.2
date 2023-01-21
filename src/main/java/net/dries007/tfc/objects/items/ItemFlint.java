@@ -17,7 +17,7 @@ import net.dries007.tfc.api.capability.size.Weight;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class ItemFlint extends ItemTFC implements IItemSize
+public class ItemFlint extends TFCItem implements IItemSize
 {
     private final Size size;
     private final Weight weight;

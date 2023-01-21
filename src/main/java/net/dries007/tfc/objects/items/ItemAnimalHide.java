@@ -28,7 +28,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
 
 @ParametersAreNonnullByDefault
-public class ItemAnimalHide extends ItemTFC
+public class ItemAnimalHide extends TFCItem
 {
     private static final Map<HideType, Map<HideSize, ItemAnimalHide>> TABLE = new HashMap<>();
 

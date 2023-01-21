@@ -8,7 +8,7 @@ package net.dries007.tfc.command;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;
@@ -24,7 +24,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 
 @ParametersAreNonnullByDefault
 public class CommandStripWorld extends CommandBase
@@ -69,7 +69,7 @@ public class CommandStripWorld extends CommandBase
                     {
                         world.setBlockState(pos, fluidReplacement, 2);
                     }
-                    else if (current instanceof TFCBlockRockVariant || current instanceof BlockPlantTFC)
+                    else if (current instanceof TFCBlockRockVariant || current instanceof TFCBlockPlant)
                     {
                         world.setBlockState(pos, terrainReplacement, 2);
                     }

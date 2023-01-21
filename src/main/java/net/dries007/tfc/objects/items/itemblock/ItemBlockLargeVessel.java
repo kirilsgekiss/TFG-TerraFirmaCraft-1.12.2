@@ -17,7 +17,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.objects.blocks.BlockLargeVessel;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockLargeVessel extends ItemBlockTFC implements IItemSize
+public class ItemBlockLargeVessel extends TFCItemBlock implements IItemSize
 {
     public ItemBlockLargeVessel(BlockLargeVessel block)
     {

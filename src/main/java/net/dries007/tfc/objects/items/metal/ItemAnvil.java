@@ -14,7 +14,7 @@ import gregtech.api.util.LocalizationUtils;
 import net.dries007.tfc.api.capability.forge.ForgeableHeatableHandler;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
-import net.dries007.tfc.objects.items.ItemTFC;
+import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -38,7 +38,7 @@ import java.util.Map;
 import static net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil.AXIS;
 
 @ParametersAreNonnullByDefault
-public class ItemAnvil extends ItemTFC implements IMetalItem
+public class ItemAnvil extends TFCItem implements IMetalItem
 {
     private final Material material;
 
