@@ -25,7 +25,7 @@ import net.dries007.tfc.objects.te.TEFruitChest;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
-public class TESRFruitChestTFCF extends TileEntitySpecialRenderer<TEFruitChest>
+public class TESRFruitChest extends TileEntitySpecialRenderer<TEFruitChest>
 {
     private static final Map<IFruitTree, ResourceLocation> SINGLE_TEXTURES = new HashMap<>();
     private static final Map<IFruitTree, ResourceLocation> DOUBLE_TEXTURES = new HashMap<>();

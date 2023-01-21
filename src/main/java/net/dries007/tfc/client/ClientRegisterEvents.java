@@ -15,7 +15,6 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.plants.*;
-import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
@@ -370,8 +369,8 @@ public final class ClientRegisterEvents
         ClientRegistry.bindTileEntitySpecialRenderer(TEFirePit.class, new TESRFirePit());
         ClientRegistry.bindTileEntitySpecialRenderer(TESluice.class, new TESRSluice());
         ClientRegistry.bindTileEntitySpecialRenderer(TEDryer.class, new TESRDryer());
-        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitLoom.class, new TESRFruitLoomTFCF());
-        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitChest.class, new TESRFruitChestTFCF());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitLoom.class, new TESRFruitLoom());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEFruitChest.class, new TESRFruitChest());
     }
 
     @SubscribeEvent

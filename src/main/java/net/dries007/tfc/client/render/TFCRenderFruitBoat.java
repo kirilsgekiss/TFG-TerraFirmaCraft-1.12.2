@@ -1,8 +1,3 @@
-/*
- * Work under Copyright. Licensed under the EUPL.
- * See the project README.md and LICENSE.txt for more information.
- */
-
 package net.dries007.tfc.client.render;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -19,25 +14,27 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.entity.EntityBoatTFC;
+
+import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderBoatTFC extends Render<EntityBoatTFC>
+public class TFCRenderFruitBoat extends Render<EntityBoatFruitTFC>
 {
     private final ModelBase modelBoat = new ModelBoat();
 
-    public RenderBoatTFC(RenderManager renderManagerIn)
+    public TFCRenderFruitBoat(RenderManager renderManagerIn)
     {
         super(renderManagerIn);
         this.shadowSize = 0.5F;
     }
 
     @Override
-    public void doRender(EntityBoatTFC entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(EntityBoatFruitTFC entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);
@@ -66,14 +63,22 @@ public class RenderBoatTFC extends Render<EntityBoatTFC>
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
     @Override
-    protected ResourceLocation getEntityTexture(EntityBoatTFC entity)
+    protected ResourceLocation getEntityTexture(EntityBoatFruitTFC entity)
     {
-        final Tree wood = entity.getWood();
+        final IFruitTree wood = entity.getWood();
         if (wood != null)
         {
             //noinspection ConstantConditions
-            return new ResourceLocation(MOD_ID, "textures/entity/boat/" + wood.getRegistryName().getPath().toLowerCase() + ".png");
+            return new ResourceLocation(MOD_ID, "textures/entity/boat/" + wood.getName().toLowerCase() + ".png");
         }
+
+        final Tree tree = entity.getTree();
+        if (tree != null)
+        {
+            //noinspection ConstantConditions
+            return new ResourceLocation(MOD_ID, "textures/entity/boat/" + tree.getRegistryName().getPath().toLowerCase() + ".png");
+        }
+
         // Fallback
         return new ResourceLocation(MOD_ID, "textures/entity/boat/oak.png");
     }
@@ -85,7 +90,7 @@ public class RenderBoatTFC extends Render<EntityBoatTFC>
     }
 
     @Override
-    public void renderMultipass(EntityBoatTFC entityIn, double x, double y, double z, float entityYaw, float partialTicks)
+    public void renderMultipass(EntityBoatFruitTFC entityIn, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);

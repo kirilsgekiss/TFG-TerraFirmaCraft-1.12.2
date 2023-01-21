@@ -23,7 +23,7 @@ import net.dries007.tfc.objects.te.TEFruitLoom;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
-public class TESRFruitLoomTFCF extends TESRBase<TEFruitLoom>
+public class TESRFruitLoom extends TESRBase<TEFruitLoom>
 {
     private static final Map<IFruitTree, ResourceLocation> PLANKS_TEXTURES = new HashMap<>();
     private static final Map<Tree, ResourceLocation> PLANKS_TEXTURES_TREE = new HashMap<>();
