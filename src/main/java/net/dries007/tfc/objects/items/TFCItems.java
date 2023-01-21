@@ -105,77 +105,77 @@ public final class TFCItems
 
     // Miscellaneous Food Stuff
     @GameRegistry.ObjectHolder("crop/product/malt_barley")
-    public static final ItemMisc MALT_BARLEY = Helpers.getNull();
+    public static final ItemMisc MALT_BARLEY = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_corn")
-    public static final ItemMisc MALT_CORN = Helpers.getNull();
+    public static final ItemMisc MALT_CORN = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_rice")
-    public static final ItemMisc MALT_RICE = Helpers.getNull();
+    public static final ItemMisc MALT_RICE = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_rye")
-    public static final ItemMisc MALT_RYE = Helpers.getNull();
+    public static final ItemMisc MALT_RYE = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_wheat")
-    public static final ItemMisc MALT_WHEAT = Helpers.getNull();
+    public static final ItemMisc MALT_WHEAT = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_amaranth")
-    public static final ItemMisc MALT_AMARANTH = Helpers.getNull();
+    public static final ItemMisc MALT_AMARANTH = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_buckwheat")
-    public static final ItemMisc MALT_BUCKWHEAT = Helpers.getNull();
+    public static final ItemMisc MALT_BUCKWHEAT = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_fonio")
-    public static final ItemMisc MALT_FONIO = Helpers.getNull();
+    public static final ItemMisc MALT_FONIO = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_millet")
-    public static final ItemMisc MALT_MILLET = Helpers.getNull();
+    public static final ItemMisc MALT_MILLET = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_quinoa")
-    public static final ItemMisc MALT_QUINOA = Helpers.getNull();
+    public static final ItemMisc MALT_QUINOA = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_spelt")
-    public static final ItemMisc MALT_SPELT = Helpers.getNull();
+    public static final ItemMisc MALT_SPELT = getNull();
 
 
     // Container
     @GameRegistry.ObjectHolder("container/leather_bag_piece")
-    public static final ItemMisc LEATHER_BAG_PIECE = Helpers.getNull();
+    public static final ItemMisc LEATHER_BAG_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/leather_bag")
-    public static final ItemBag LEATHER_BAG = Helpers.getNull();
+    public static final ItemBag LEATHER_BAG = getNull();
     @GameRegistry.ObjectHolder("container/pineapple_leather_bag_piece")
-    public static final ItemMisc PINEAPPLE_LEATHER_BAG_PIECE = Helpers.getNull();
+    public static final ItemMisc PINEAPPLE_LEATHER_BAG_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/pineapple_leather_bag")
-    public static final ItemBag PINEAPPLE_LEATHER_BAG = Helpers.getNull();
+    public static final ItemBag PINEAPPLE_LEATHER_BAG = getNull();
     @GameRegistry.ObjectHolder("container/burlap_sack_piece")
-    public static final ItemMisc BURLAP_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc BURLAP_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/burlap_sack")
-    public static final ItemSack BURLAP_SACK = Helpers.getNull();
+    public static final ItemSack BURLAP_SACK = getNull();
     @GameRegistry.ObjectHolder("container/wool_sack_piece")
-    public static final ItemMisc WOOL_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc WOOL_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/wool_sack")
-    public static final ItemSack WOOL_SACK = Helpers.getNull();
+    public static final ItemSack WOOL_SACK = getNull();
     @GameRegistry.ObjectHolder("container/silk_sack_piece")
-    public static final ItemMisc SILK_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc SILK_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/silk_sack")
-    public static final ItemSack SILK_SACK = Helpers.getNull();
+    public static final ItemSack SILK_SACK = getNull();
     @GameRegistry.ObjectHolder("container/cotton_sack_piece")
-    public static final ItemMisc COTTON_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc COTTON_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/cotton_sack")
-    public static final ItemSack COTTON_SACK = Helpers.getNull();
+    public static final ItemSack COTTON_SACK = getNull();
     @GameRegistry.ObjectHolder("container/hemp_sack_piece")
-    public static final ItemMisc HEMP_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc HEMP_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/hemp_sack")
-    public static final ItemSack HEMP_SACK = Helpers.getNull();
+    public static final ItemSack HEMP_SACK = getNull();
     @GameRegistry.ObjectHolder("container/linen_sack_piece")
-    public static final ItemMisc LINEN_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc LINEN_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/linen_sack")
-    public static final ItemSack LINEN_SACK = Helpers.getNull();
+    public static final ItemSack LINEN_SACK = getNull();
     @GameRegistry.ObjectHolder("container/sisal_sack_piece")
-    public static final ItemMisc SISAL_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc SISAL_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/sisal_sack")
-    public static final ItemSack SISAL_SACK = Helpers.getNull();
+    public static final ItemSack SISAL_SACK = getNull();
     @GameRegistry.ObjectHolder("container/yucca_sack_piece")
-    public static final ItemMisc YUCCA_SACK_PIECE = Helpers.getNull();
+    public static final ItemMisc YUCCA_SACK_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/yucca_sack")
-    public static final ItemSack YUCCA_SACK = Helpers.getNull();
+    public static final ItemSack YUCCA_SACK = getNull();
 
 
 
     @GameRegistry.ObjectHolder("pomace")
     public static final ItemMisc POMACE = getNull();
     @GameRegistry.ObjectHolder("charred_bones")
-    public static final ItemMisc CHARRED_BONES = Helpers.getNull();
+    public static final ItemMisc CHARRED_BONES = getNull();
 
     // Normal Trees Nuts
     @GameRegistry.ObjectHolder("food/pinecone")
@@ -477,309 +477,309 @@ public final class TFCItems
 
     // Normal Items
     @GameRegistry.ObjectHolder("tools/walking_Stick")
-    public static final ItemWalkingStick WALKING_STICK = Helpers.getNull();
+    public static final ItemWalkingStick WALKING_STICK = getNull();
 
     /*@GameRegistry.ObjectHolder("tools/bows/shortbow/shortbow")
-    public static final ItemBowTFCF SHORTBOW = Helpers.getNull();
+    public static final ItemBowTFCF SHORTBOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/longbow/longbow")
-    public static final ItemBowTFCF LONGBOW = Helpers.getNull();
+    public static final ItemBowTFCF LONGBOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/bonebow/bonebow")
-    public static final ItemBowTFCF BONEBOW = Helpers.getNull();
+    public static final ItemBowTFCF BONEBOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/bow_of_lost_souls/bow_of_lost_souls")
-    public static final ItemBowTFCF BOW_OF_LOST_SOULS = Helpers.getNull();
+    public static final ItemBowTFCF BOW_OF_LOST_SOULS = getNull();
     @GameRegistry.ObjectHolder("tools/bows/elite_power_bow/elite_power_bow")
-    public static final ItemBowTFCF ELITE_POWER_BOW = Helpers.getNull();
+    public static final ItemBowTFCF ELITE_POWER_BOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/green_menace/green_menace")
-    public static final ItemBowTFCF GREEN_MENACE = Helpers.getNull();
+    public static final ItemBowTFCF GREEN_MENACE = getNull();
     @GameRegistry.ObjectHolder("tools/bows/hunting_bow/hunting_bow")
-    public static final ItemBowTFCF HUNTING_BOW = Helpers.getNull();
+    public static final ItemBowTFCF HUNTING_BOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/nocturnal_bow/nocturnal_bow")
-    public static final ItemBowTFCF NOCTURNAL_BOW = Helpers.getNull();
+    public static final ItemBowTFCF NOCTURNAL_BOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/red_snake/red_snake")
-    public static final ItemBowTFCF RED_SNAKE = Helpers.getNull();
+    public static final ItemBowTFCF RED_SNAKE = getNull();
     @GameRegistry.ObjectHolder("tools/bows/rosebow/rosebow")
-    public static final ItemBowTFCF ROSEBOW = Helpers.getNull();
+    public static final ItemBowTFCF ROSEBOW = getNull();
     @GameRegistry.ObjectHolder("tools/bows/sabrewing/sabrewing")
-    public static final ItemBowTFCF SABREWING = Helpers.getNull();*/
+    public static final ItemBowTFCF SABREWING = getNull();*/
 
 
 
     @GameRegistry.ObjectHolder("logwood_chips")
-    public static final ItemMisc LOGWOOD_CHIPS = Helpers.getNull();
+    public static final ItemMisc LOGWOOD_CHIPS = getNull();
     //@GameRegistry.ObjectHolder("resin")
-    //public static final ItemMisc RESIN = Helpers.getNull();
+    //public static final ItemMisc RESIN = getNull();
     @GameRegistry.ObjectHolder("conch")
-    public static final ItemMisc CONCH = Helpers.getNull();
+    public static final ItemMisc CONCH = getNull();
     @GameRegistry.ObjectHolder("clam")
-    public static final ItemMisc CLAM = Helpers.getNull();
+    public static final ItemMisc CLAM = getNull();
     @GameRegistry.ObjectHolder("live_clam")
-    public static final ItemMisc LIVE_CLAM = Helpers.getNull();
+    public static final ItemMisc LIVE_CLAM = getNull();
     @GameRegistry.ObjectHolder("scallop")
-    public static final ItemMisc SCALLOP = Helpers.getNull();
+    public static final ItemMisc SCALLOP = getNull();
     @GameRegistry.ObjectHolder("live_scallop")
-    public static final ItemMisc LIVE_SCALLOP = Helpers.getNull();
+    public static final ItemMisc LIVE_SCALLOP = getNull();
     @GameRegistry.ObjectHolder("pearl")
-    public static final ItemMisc PEARL = Helpers.getNull();
+    public static final ItemMisc PEARL = getNull();
     @GameRegistry.ObjectHolder("black_pearl")
-    public static final ItemMisc BLACK_PEARL = Helpers.getNull();
+    public static final ItemMisc BLACK_PEARL = getNull();
     @GameRegistry.ObjectHolder("live_starfish")
-    public static final ItemMisc LIVE_STARFISH = Helpers.getNull();
+    public static final ItemMisc LIVE_STARFISH = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_moth_egg")
-    public static final ItemMisc SILK_MOTH_EGG = Helpers.getNull();
+    public static final ItemMisc SILK_MOTH_EGG = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_worm_hatchery")
-    public static final ItemMisc SILK_WORM_HATCHERY = Helpers.getNull();
+    public static final ItemMisc SILK_WORM_HATCHERY = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_worm")
-    public static final ItemMisc SILK_WORM = Helpers.getNull();
+    public static final ItemMisc SILK_WORM = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_worm_cocoon")
-    public static final ItemMisc SILK_WORM_COCOON = Helpers.getNull();
+    public static final ItemMisc SILK_WORM_COCOON = getNull();
     @GameRegistry.ObjectHolder("animal/product/silk_worm_cocoon_boiled")
-    public static final ItemMisc SILK_WORM_COCOON_BOILED = Helpers.getNull();
+    public static final ItemMisc SILK_WORM_COCOON_BOILED = getNull();
     @GameRegistry.ObjectHolder("crop/product/mulberry_leaf")
-    public static final ItemMisc MULBERRY_LEAF = Helpers.getNull();
+    public static final ItemMisc MULBERRY_LEAF = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/papyrus_pulp")
-    public static final ItemMisc PAPYRUS_PULP = Helpers.getNull();
+    public static final ItemMisc PAPYRUS_PULP = getNull();
     @GameRegistry.ObjectHolder("crop/product/papyrus_fiber")
-    public static final ItemMisc PAPYRUS_FIBER = Helpers.getNull();
+    public static final ItemMisc PAPYRUS_FIBER = getNull();
     @GameRegistry.ObjectHolder("crop/product/papyrus_paper")
-    public static final ItemMisc PAPYRUS_PAPER = Helpers.getNull();
+    public static final ItemMisc PAPYRUS_PAPER = getNull();
     @GameRegistry.ObjectHolder("crop/product/agave")
-    public static final ItemMisc AGAVE = Helpers.getNull();
+    public static final ItemMisc AGAVE = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal_fiber")
-    public static final ItemMisc SISAL_FIBER = Helpers.getNull();
+    public static final ItemMisc SISAL_FIBER = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal_string")
-    public static final ItemMisc SISAL_STRING = Helpers.getNull();
+    public static final ItemMisc SISAL_STRING = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal_cloth")
-    public static final ItemMisc SISAL_CLOTH = Helpers.getNull();
+    public static final ItemMisc SISAL_CLOTH = getNull();
     @GameRegistry.ObjectHolder("crop/product/cotton_boll")
-    public static final ItemMisc COTTON_BOLL = Helpers.getNull();
+    public static final ItemMisc COTTON_BOLL = getNull();
     @GameRegistry.ObjectHolder("crop/product/cotton_yarn")
-    public static final ItemMisc COTTON_YARN = Helpers.getNull();
+    public static final ItemMisc COTTON_YARN = getNull();
     @GameRegistry.ObjectHolder("crop/product/cotton_cloth")
-    public static final ItemMisc COTTON_CLOTH = Helpers.getNull();
+    public static final ItemMisc COTTON_CLOTH = getNull();
     @GameRegistry.ObjectHolder("crop/product/flax")
-    public static final ItemMisc FLAX = Helpers.getNull();
+    public static final ItemMisc FLAX = getNull();
     @GameRegistry.ObjectHolder("crop/product/flax_fiber")
-    public static final ItemMisc FLAX_FIBER = Helpers.getNull();
+    public static final ItemMisc FLAX_FIBER = getNull();
     @GameRegistry.ObjectHolder("crop/product/linen_string")
-    public static final ItemMisc LINEN_STRING = Helpers.getNull();
+    public static final ItemMisc LINEN_STRING = getNull();
     @GameRegistry.ObjectHolder("crop/product/linen_cloth")
-    public static final ItemMisc LINEN_CLOTH = Helpers.getNull();
+    public static final ItemMisc LINEN_CLOTH = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp")
-    public static final ItemMisc HEMP = Helpers.getNull();
+    public static final ItemMisc HEMP = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp_fiber")
-    public static final ItemMisc HEMP_FIBER = Helpers.getNull();
+    public static final ItemMisc HEMP_FIBER = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp_string")
-    public static final ItemMisc HEMP_STRING = Helpers.getNull();
+    public static final ItemMisc HEMP_STRING = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp_cloth")
-    public static final ItemMisc HEMP_CLOTH = Helpers.getNull();
+    public static final ItemMisc HEMP_CLOTH = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/silk_disc")
-    public static final Item SILK_DISC = Helpers.getNull();
+    public static final Item SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal_disc")
-    public static final Item SISAL_DISC = Helpers.getNull();
+    public static final Item SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/cotton_disc")
-    public static final Item COTTON_DISC = Helpers.getNull();
+    public static final Item COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linen_disc")
-    public static final Item LINEN_DISC = Helpers.getNull();
+    public static final Item LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/papyrus_disc")
-    public static final Item PAPYRUS_DISC = Helpers.getNull();
+    public static final Item PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp_disc")
-    public static final Item HEMP_DISC = Helpers.getNull();
+    public static final Item HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/soybean_jute_disc")
-    public static final Item SOYBEAN_JUTE_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_silk_disc")
-    public static final Item SOYBEAN_SILK_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_sisal_disc")
-    public static final Item SOYBEAN_SISAL_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_cotton_disc")
-    public static final Item SOYBEAN_COTTON_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_linen_disc")
-    public static final Item SOYBEAN_LINEN_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_papyrus_disc")
-    public static final Item SOYBEAN_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/soybean_hemp_disc")
-    public static final Item SOYBEAN_HEMP_DISC = Helpers.getNull();
+    public static final Item SOYBEAN_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/linseed_jute_disc")
-    public static final Item LINSEED_JUTE_DISC = Helpers.getNull();
+    public static final Item LINSEED_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_silk_disc")
-    public static final Item LINSEED_SILK_DISC = Helpers.getNull();
+    public static final Item LINSEED_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_sisal_disc")
-    public static final Item LINSEED_SISAL_DISC = Helpers.getNull();
+    public static final Item LINSEED_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_cotton_disc")
-    public static final Item LINSEED_COTTON_DISC = Helpers.getNull();
+    public static final Item LINSEED_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_linen_disc")
-    public static final Item LINSEED_LINEN_DISC = Helpers.getNull();
+    public static final Item LINSEED_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_papyrus_disc")
-    public static final Item LINSEED_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item LINSEED_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/linseed_hemp_disc")
-    public static final Item LINSEED_HEMP_DISC = Helpers.getNull();
+    public static final Item LINSEED_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/rape_seed_jute_disc")
-    public static final Item RAPE_SEED_JUTE_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_silk_disc")
-    public static final Item RAPE_SEED_SILK_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_sisal_disc")
-    public static final Item RAPE_SEED_SISAL_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_cotton_disc")
-    public static final Item RAPE_SEED_COTTON_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_linen_disc")
-    public static final Item RAPE_SEED_LINEN_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_papyrus_disc")
-    public static final Item RAPE_SEED_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape_seed_hemp_disc")
-    public static final Item RAPE_SEED_HEMP_DISC = Helpers.getNull();
+    public static final Item RAPE_SEED_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_jute_disc")
-    public static final Item SUNFLOWER_SEED_JUTE_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_silk_disc")
-    public static final Item SUNFLOWER_SEED_SILK_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_sisal_disc")
-    public static final Item SUNFLOWER_SEED_SISAL_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_cotton_disc")
-    public static final Item SUNFLOWER_SEED_COTTON_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_linen_disc")
-    public static final Item SUNFLOWER_SEED_LINEN_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_papyrus_disc")
-    public static final Item SUNFLOWER_SEED_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_hemp_disc")
-    public static final Item SUNFLOWER_SEED_HEMP_DISC = Helpers.getNull();
+    public static final Item SUNFLOWER_SEED_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_jute_disc")
-    public static final Item OPIUM_POPPY_SEED_JUTE_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_silk_disc")
-    public static final Item OPIUM_POPPY_SEED_SILK_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_sisal_disc")
-    public static final Item OPIUM_POPPY_SEED_SISAL_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_cotton_disc")
-    public static final Item OPIUM_POPPY_SEED_COTTON_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_linen_disc")
-    public static final Item OPIUM_POPPY_SEED_LINEN_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_papyrus_disc")
-    public static final Item OPIUM_POPPY_SEED_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_hemp_disc")
-    public static final Item OPIUM_POPPY_SEED_HEMP_DISC = Helpers.getNull();
+    public static final Item OPIUM_POPPY_SEED_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_jute_disc")
-    public static final Item SUGAR_BEET_JUTE_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_silk_disc")
-    public static final Item SUGAR_BEET_SILK_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_sisal_disc")
-    public static final Item SUGAR_BEET_SISAL_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_cotton_disc")
-    public static final Item SUGAR_BEET_COTTON_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_linen_disc")
-    public static final Item SUGAR_BEET_LINEN_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_papyrus_disc")
-    public static final Item SUGAR_BEET_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_hemp_disc")
-    public static final Item SUGAR_BEET_HEMP_DISC = Helpers.getNull();
+    public static final Item SUGAR_BEET_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_jute_disc")
-    public static final Item SUGAR_CANE_JUTE_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_JUTE_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_silk_disc")
-    public static final Item SUGAR_CANE_SILK_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_sisal_disc")
-    public static final Item SUGAR_CANE_SISAL_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_cotton_disc")
-    public static final Item SUGAR_CANE_COTTON_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_linen_disc")
-    public static final Item SUGAR_CANE_LINEN_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_papyrus_disc")
-    public static final Item SUGAR_CANE_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_hemp_disc")
-    public static final Item SUGAR_CANE_HEMP_DISC = Helpers.getNull();
+    public static final Item SUGAR_CANE_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/olive_silk_disc")
-    public static final Item OLIVE_SILK_DISC = Helpers.getNull();
+    public static final Item OLIVE_SILK_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/olive_sisal_disc")
-    public static final Item OLIVE_SISAL_DISC = Helpers.getNull();
+    public static final Item OLIVE_SISAL_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/olive_cotton_disc")
-    public static final Item OLIVE_COTTON_DISC = Helpers.getNull();
+    public static final Item OLIVE_COTTON_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/olive_linen_disc")
-    public static final Item OLIVE_LINEN_DISC = Helpers.getNull();
+    public static final Item OLIVE_LINEN_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/olive_papyrus_disc")
-    public static final Item OLIVE_PAPYRUS_DISC = Helpers.getNull();
+    public static final Item OLIVE_PAPYRUS_DISC = getNull();
     @GameRegistry.ObjectHolder("crop/product/olive_hemp_disc")
-    public static final Item OLIVE_HEMP_DISC = Helpers.getNull();
+    public static final Item OLIVE_HEMP_DISC = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/silk_net")
-    public static final Item SILK_NET = Helpers.getNull();
+    public static final Item SILK_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal_net")
-    public static final Item SISAL_NET = Helpers.getNull();
+    public static final Item SISAL_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/cotton_net")
-    public static final Item COTTON_NET = Helpers.getNull();
+    public static final Item COTTON_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/linen_net")
-    public static final Item LINEN_NET = Helpers.getNull();
+    public static final Item LINEN_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/papyrus_net")
-    public static final Item PAPYRUS_NET = Helpers.getNull();
+    public static final Item PAPYRUS_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/hemp_net")
-    public static final Item HEMP_NET = Helpers.getNull();
+    public static final Item HEMP_NET = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/dirty_silk_net")
-    public static final Item DIRTY_SILK_NET = Helpers.getNull();
+    public static final Item DIRTY_SILK_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_sisal_net")
-    public static final Item DIRTY_SISAL_NET = Helpers.getNull();
+    public static final Item DIRTY_SISAL_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_cotton_net")
-    public static final Item DIRTY_COTTON_NET = Helpers.getNull();
+    public static final Item DIRTY_COTTON_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_linen_net")
-    public static final Item DIRTY_LINEN_NET = Helpers.getNull();
+    public static final Item DIRTY_LINEN_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_papyrus_net")
-    public static final Item DIRTY_PAPYRUS_NET = Helpers.getNull();
+    public static final Item DIRTY_PAPYRUS_NET = getNull();
     @GameRegistry.ObjectHolder("crop/product/dirty_hemp_net")
-    public static final Item DIRTY_HEMP_NET = Helpers.getNull();
+    public static final Item DIRTY_HEMP_NET = getNull();
 
     @GameRegistry.ObjectHolder("crop/product/indigo")
-    public static final ItemMisc INDIGO = Helpers.getNull();
+    public static final ItemMisc INDIGO = getNull();
     @GameRegistry.ObjectHolder("crop/product/madder")
-    public static final ItemMisc MADDER = Helpers.getNull();
+    public static final ItemMisc MADDER = getNull();
     @GameRegistry.ObjectHolder("crop/product/weld")
-    public static final ItemMisc WELD = Helpers.getNull();
+    public static final ItemMisc WELD = getNull();
     @GameRegistry.ObjectHolder("crop/product/woad")
-    public static final ItemMisc WOAD = Helpers.getNull();
+    public static final ItemMisc WOAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/hops")
-    public static final ItemMisc HOPS = Helpers.getNull();
+    public static final ItemMisc HOPS = getNull();
     @GameRegistry.ObjectHolder("crop/product/rape")
-    public static final ItemMisc RAPE = Helpers.getNull();
+    public static final ItemMisc RAPE = getNull();
 
     @GameRegistry.ObjectHolder("cellulose_fibers")
-    public static final ItemMisc CELLULOSE_FIBERS = Helpers.getNull();
+    public static final ItemMisc CELLULOSE_FIBERS = getNull();
     @GameRegistry.ObjectHolder("crop/product/yucca_fiber")
-    public static final ItemMisc YUCCA_FIBER = Helpers.getNull();
+    public static final ItemMisc YUCCA_FIBER = getNull();
     @GameRegistry.ObjectHolder("crop/product/yucca_string")
-    public static final ItemMisc YUCCA_STRING = Helpers.getNull();
+    public static final ItemMisc YUCCA_STRING = getNull();
     @GameRegistry.ObjectHolder("crop/product/yucca_canvas")
-    public static final ItemMisc YUCCA_CANVAS = Helpers.getNull();
+    public static final ItemMisc YUCCA_CANVAS = getNull();
 
     @GameRegistry.ObjectHolder("wood/fruit_tree/pole/cassia_cinnamon")
-    public static final ItemMisc CASSIA_CINNAMON_POLE = Helpers.getNull();
+    public static final ItemMisc CASSIA_CINNAMON_POLE = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/lumber/cassia_cinnamon")
-    public static final ItemMisc CASSIA_CINNAMON_LUMBER = Helpers.getNull();
+    public static final ItemMisc CASSIA_CINNAMON_LUMBER = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/pole/ceylon_cinnamon")
-    public static final ItemMisc CEYLON_CINNAMON_POLE = Helpers.getNull();
+    public static final ItemMisc CEYLON_CINNAMON_POLE = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/lumber/ceylon_cinnamon")
-    public static final ItemMisc CEYLON_CINNAMON_LUMBER = Helpers.getNull();
+    public static final ItemMisc CEYLON_CINNAMON_LUMBER = getNull();
 
 
 
     @GameRegistry.ObjectHolder("storage/unfired/urn")
-    public static final ItemPottery UNFIRED_URN = Helpers.getNull();
+    public static final ItemPottery UNFIRED_URN = getNull();
     @GameRegistry.ObjectHolder("wooden_bucket_salt")
-    public static final ItemMisc WOODEN_BUCKET_SALT = Helpers.getNull();
+    public static final ItemMisc WOODEN_BUCKET_SALT = getNull();
     @GameRegistry.ObjectHolder("wooden_bucket_sugar")
-    public static final ItemMisc WOODEN_BUCKET_SUGAR = Helpers.getNull();
+    public static final ItemMisc WOODEN_BUCKET_SUGAR = getNull();
 
-    private static ImmutableList<Item> allSimpleItems;
-    private static ImmutableList<TFCItemLumber> allLumberItems;
-    private static ImmutableList<TFCItemBoat> allBoatItems;
-    private static ImmutableList<ItemArmorTFC> allArmorItems;
-    private static ImmutableList<ItemClayMold> allClayMolds;
-    private static ImmutableList<ItemEarthenwareMold> allEarthenwareMolds;
-    private static ImmutableList<ItemKaoliniteMold> allKaoliniteMolds;
-    private static ImmutableList<ItemStonewareMold> allStonewareMolds;
-    private static ImmutableList<ItemFruitDoor> allFruitDoors;
+    private static ImmutableList<Item> allSimpleItems = getNull();
+    private static ImmutableList<TFCItemLumber> allLumberItems = getNull();
+    private static ImmutableList<TFCItemBoat> allBoatItems = getNull();
+    private static ImmutableList<ItemArmorTFC> allArmorItems = getNull();
+    private static ImmutableList<ItemClayMold> allClayMolds = getNull();
+    private static ImmutableList<ItemEarthenwareMold> allEarthenwareMolds = getNull();
+    private static ImmutableList<ItemKaoliniteMold> allKaoliniteMolds = getNull();
+    private static ImmutableList<ItemStonewareMold> allStonewareMolds = getNull();
+    private static ImmutableList<ItemFruitDoor> allFruitDoors = getNull();
 
     public static ImmutableList<Item> getAllSimpleItems() { return allSimpleItems; }
     public static ImmutableList<TFCItemLumber> getAllLumberItems() { return allLumberItems; }

@@ -103,9 +103,9 @@ public final class TFCBlocks
     @GameRegistry.ObjectHolder("alabaster/raw/plain")
     public static final BlockDecorativeStone ALABASTER_RAW_PLAIN = getNull();
     @GameRegistry.ObjectHolder("devices/stick_bundle")
-    public static final BlockStickBundle STICK_BUNDLE = Helpers.getNull();
+    public static final BlockStickBundle STICK_BUNDLE = getNull();
     @GameRegistry.ObjectHolder("devices/dryer")
-    public static final BlockDryer DRYER = Helpers.getNull();
+    public static final BlockDryer DRYER = getNull();
 
     @GameRegistry.ObjectHolder("storage/urn")
     public static final BlockUrn FIRED_URN = getNull();
@@ -140,112 +140,112 @@ public final class TFCBlocks
     public static final Block FIRE_BRICKS = getNull();
 
     @GameRegistry.ObjectHolder("groundcover/bone")
-    public static final BlockSurfaceBones BONES = Helpers.getNull();
+    public static final BlockSurfaceBones BONES = getNull();
     @GameRegistry.ObjectHolder("groundcover/driftwood")
-    public static final BlockDriftwood DRIFTWOOD = Helpers.getNull();
+    public static final BlockDriftwood DRIFTWOOD = getNull();
     @GameRegistry.ObjectHolder("groundcover/flint")
-    public static final BlockSurfaceFlint FLINT = Helpers.getNull();
+    public static final BlockSurfaceFlint FLINT = getNull();
     @GameRegistry.ObjectHolder("groundcover/pinecone")
-    public static final BlockPinecone PINECONE = Helpers.getNull();
+    public static final BlockPinecone PINECONE = getNull();
     @GameRegistry.ObjectHolder("groundcover/seashell")
-    public static final BlockSurfaceSeashells SEASHELLS = Helpers.getNull();
+    public static final BlockSurfaceSeashells SEASHELLS = getNull();
     @GameRegistry.ObjectHolder("groundcover/twig")
-    public static final BlockTwig TWIG = Helpers.getNull();
+    public static final BlockTwig TWIG = getNull();
 
     @GameRegistry.ObjectHolder("wood/fruit_tree/log/cassia_cinnamon")
-    public static final BlockCassiaCinnamonLog CASSIA_CINNAMON_LOG = Helpers.getNull();
+    public static final BlockCassiaCinnamonLog CASSIA_CINNAMON_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/leaves/cassia_cinnamon")
-    public static final BlockCassiaCinnamonLeaves CASSIA_CINNAMON_LEAVES = Helpers.getNull();
+    public static final BlockCassiaCinnamonLeaves CASSIA_CINNAMON_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/sapling/cassia_cinnamon")
-    public static final BlockCassiaCinnamonSapling CASSIA_CINNAMON_SAPLING = Helpers.getNull();
+    public static final BlockCassiaCinnamonSapling CASSIA_CINNAMON_SAPLING = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/log/ceylon_cinnamon")
-    public static final BlockCeylonCinnamonLog CEYLON_CINNAMON_LOG = Helpers.getNull();
+    public static final BlockCeylonCinnamonLog CEYLON_CINNAMON_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/leaves/ceylon_cinnamon")
-    public static final BlockCeylonCinnamonLeaves CEYLON_CINNAMON_LEAVES = Helpers.getNull();
+    public static final BlockCeylonCinnamonLeaves CEYLON_CINNAMON_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/fruit_tree/sapling/ceylon_cinnamon")
-    public static final BlockCeylonCinnamonSapling CEYLON_CINNAMON_SAPLING = Helpers.getNull();
+    public static final BlockCeylonCinnamonSapling CEYLON_CINNAMON_SAPLING = getNull();
 
     // Bales
     @GameRegistry.ObjectHolder("crop/bales/yucca/yucca_bale")
-    public static final BlockBale YUCCA_BALE = Helpers.getNull();
+    public static final BlockBale YUCCA_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/yucca/yucca_fiber_bale")
-    public static final BlockBale YUCCA_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale YUCCA_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/cotton/cotton_bale")
-    public static final BlockBale COTTON_BALE = Helpers.getNull();
+    public static final BlockBale COTTON_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/cotton/cotton_yarn_bale")
-    public static final BlockBale COTTON_YARN_BALE = Helpers.getNull();
+    public static final BlockBale COTTON_YARN_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/flax/flax_bale")
-    public static final BlockBale FLAX_BALE = Helpers.getNull();
+    public static final BlockBale FLAX_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/flax/flax_fiber_bale")
-    public static final BlockBale FLAX_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale FLAX_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/hemp/hemp_bale")
-    public static final BlockBale HEMP_BALE = Helpers.getNull();
+    public static final BlockBale HEMP_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/hemp/hemp_fiber_bale")
-    public static final BlockBale HEMP_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale HEMP_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/jute/jute_bale")
-    public static final BlockBale JUTE_BALE = Helpers.getNull();
+    public static final BlockBale JUTE_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/jute/jute_fiber_bale")
-    public static final BlockBale JUTE_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale JUTE_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/linen/linen_bale")
-    public static final BlockBale LINEN_BALE = Helpers.getNull();
+    public static final BlockBale LINEN_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/linen/linen_string_bale")
-    public static final BlockBale LINEN_STRING_BALE = Helpers.getNull();
+    public static final BlockBale LINEN_STRING_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/papyrus/papyrus_fiber_bale")
-    public static final BlockBale PAPYRUS_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale PAPYRUS_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/silk/silk_string_bale")
-    public static final BlockBale SILK_STRING_BALE = Helpers.getNull();
+    public static final BlockBale SILK_STRING_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/sisal/sisal_fiber_bale")
-    public static final BlockBale SISAL_FIBER_BALE = Helpers.getNull();
+    public static final BlockBale SISAL_FIBER_BALE = getNull();
 
     // Bamboo Blocks
     @GameRegistry.ObjectHolder("wood/log/arrow_bamboo")
-    public static final BlockBambooLog ARROW_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog ARROW_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/arrow_bamboo")
-    public static final BlockBambooLeaves ARROW_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves ARROW_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/black_bamboo")
-    public static final BlockBambooLog BLACK_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog BLACK_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/black_bamboo")
-    public static final BlockBambooLeaves BLACK_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves BLACK_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/blue_bamboo")
-    public static final BlockBambooLog BLUE_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog BLUE_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/blue_bamboo")
-    public static final BlockBambooLeaves BLUE_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves BLUE_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/dragon_bamboo")
-    public static final BlockBambooLog DRAGON_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog DRAGON_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/dragon_bamboo")
-    public static final BlockBambooLeaves DRAGON_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves DRAGON_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/golden_bamboo")
-    public static final BlockBambooLog GOLDEN_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog GOLDEN_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/golden_bamboo")
-    public static final BlockBambooLeaves GOLDEN_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves GOLDEN_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/narrow_leaf_bamboo")
-    public static final BlockBambooLog NARROW_LEAF_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog NARROW_LEAF_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/narrow_leaf_bamboo")
-    public static final BlockBambooLeaves NARROW_LEAF_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves NARROW_LEAF_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/red_bamboo")
-    public static final BlockBambooLog RED_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog RED_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/red_bamboo")
-    public static final BlockBambooLeaves RED_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves RED_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/temple_bamboo")
-    public static final BlockBambooLog TEMPLE_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog TEMPLE_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/temple_bamboo")
-    public static final BlockBambooLeaves TEMPLE_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves TEMPLE_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/thorny_bamboo")
-    public static final BlockBambooLog THORNY_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog THORNY_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/thorny_bamboo")
-    public static final BlockBambooLeaves THORNY_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves THORNY_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/timber_bamboo")
-    public static final BlockBambooLog TIMBER_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog TIMBER_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/timber_bamboo")
-    public static final BlockBambooLeaves TIMBER_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves TIMBER_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/tinwa_bamboo")
-    public static final BlockBambooLog TINWA_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog TINWA_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/tinwa_bamboo")
-    public static final BlockBambooLeaves TINWA_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves TINWA_BAMBOO_LEAVES = getNull();
     @GameRegistry.ObjectHolder("wood/log/weavers_bamboo")
-    public static final BlockBambooLog WEAVERS_BAMBOO_LOG = Helpers.getNull();
+    public static final BlockBambooLog WEAVERS_BAMBOO_LOG = getNull();
     @GameRegistry.ObjectHolder("wood/leaves/weavers_bamboo")
-    public static final BlockBambooLeaves WEAVERS_BAMBOO_LEAVES = Helpers.getNull();
+    public static final BlockBambooLeaves WEAVERS_BAMBOO_LEAVES = getNull();
 
     @GameRegistry.ObjectHolder("coral/brain/dead")
     public static final BlockCoral BRAIN_CORAL_DEAD = getNull();
@@ -302,106 +302,106 @@ public final class TFCBlocks
 
     // All these are for use in model registration. Do not use for block lookups.
     // Use the static get methods in the classes instead.
-    private static ImmutableList<ItemBlock> allNormalItemBlocks;
-    private static ImmutableList<ItemBlock> allInventoryItemBlocks;
-    private static ImmutableList<ItemBlock> allColorizedItemBlocks;
-    private static ImmutableList<TFCBlockBarrel> allBarrelBlocksBlocks;
+    private static ImmutableList<ItemBlock> allNormalItemBlocks = getNull();
+    private static ImmutableList<ItemBlock> allInventoryItemBlocks = getNull();
+    private static ImmutableList<ItemBlock> allColorizedItemBlocks = getNull();
+    private static ImmutableList<TFCBlockBarrel> allBarrelBlocksBlocks = getNull();
 
-    private static ImmutableList<BlockFluidBase> allFluidBlocks;
-    private static ImmutableList<TFCBlockRockVariant> allBlockRockVariants;
-    private static ImmutableList<TFCBlockRockWall> allWallBlocks;
-    private static ImmutableList<TFCBlockLog> allLogBlocks;
-    private static ImmutableList<TFCBlockPlanks> allPlankBlocks;
-    private static ImmutableList<TFCBlockWorkbench> allWorkbenchBlocks;
-    private static ImmutableList<TFCBlockBookshelf> allBookshelfBlocks;
-    private static ImmutableList<TFCBlockLeaves> allLeafBlocks;
-    private static ImmutableList<TFCBlockFenceGate> allFenceGateBlocks;
-    private static ImmutableList<TFCBlockFence> allFenceBlocks;
-    private static ImmutableList<TFCBlockWoodPressurePlate> allWoodPressurePlateBlocks;
-    private static ImmutableList<TFCBlockWoodButton> allWoodButtonBlocks;
-    private static ImmutableList<TFCBlockSapling> allSaplingBlocks;
-    private static ImmutableList<TFCBlockWoodDoor> allDoorBlocks;
-    private static ImmutableList<TFCBlockWoodTrapDoor> allTrapDoorWoodBlocks;
-    private static ImmutableList<TFCBlockMetalTrapDoor> allBlockMetalTrapDoor;
-    private static ImmutableList<TFCBlockRockStairs> allRockStairsBlocks;
-    private static ImmutableList<TFCBlockWoodStairs> allWoodStairsBlocks;
-    private static ImmutableList<TFCBlockRockSlab.Half> allRockSlabBlocks;
-    private static ImmutableList<TFCBlockWoodSlab.Half> allWoodSlabBlocks;
-    private static ImmutableList<TFCBlockChest> allChestBlocks;
-    private static ImmutableList<TFCBlockMetalAnvil> allBlcokAnvils;
-    private static ImmutableList<TFCBlockCladding> allBlockCladding;
-    private static ImmutableList<TFCBlockLamp> allBlockLamps;
-    private static ImmutableList<TFCBlockToolRack> allToolRackBlocks;
-    private static ImmutableList<TFCBlockCrop> allCropBlocks;
-    private static ImmutableList<BlockCropDead> allDeadCropBlocks;
-    private static ImmutableList<TFCBlockPlant> allPlantBlocks;
-    private static ImmutableList<TFCBlockPlant> allGrassBlocks;
-    private static ImmutableList<TFCBlockLoom> allLoomBlocks;
-    private static ImmutableList<TFCBlockWoodSupport> allSupportBlocks;
-    private static ImmutableList<BlockFlowerPotTFC> allFlowerPots;
+    private static ImmutableList<BlockFluidBase> allFluidBlocks = getNull();
+    private static ImmutableList<TFCBlockRockVariant> allBlockRockVariants = getNull();
+    private static ImmutableList<TFCBlockRockWall> allWallBlocks = getNull();
+    private static ImmutableList<TFCBlockLog> allLogBlocks = getNull();
+    private static ImmutableList<TFCBlockPlanks> allPlankBlocks = getNull();
+    private static ImmutableList<TFCBlockWorkbench> allWorkbenchBlocks = getNull();
+    private static ImmutableList<TFCBlockBookshelf> allBookshelfBlocks = getNull();
+    private static ImmutableList<TFCBlockLeaves> allLeafBlocks = getNull();
+    private static ImmutableList<TFCBlockFenceGate> allFenceGateBlocks = getNull();
+    private static ImmutableList<TFCBlockFence> allFenceBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodPressurePlate> allWoodPressurePlateBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodButton> allWoodButtonBlocks = getNull();
+    private static ImmutableList<TFCBlockSapling> allSaplingBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodDoor> allDoorBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodTrapDoor> allTrapDoorWoodBlocks = getNull();
+    private static ImmutableList<TFCBlockMetalTrapDoor> allBlockMetalTrapDoor = getNull();
+    private static ImmutableList<TFCBlockRockStairs> allRockStairsBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodStairs> allWoodStairsBlocks = getNull();
+    private static ImmutableList<TFCBlockRockSlab.Half> allRockSlabBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodSlab.Half> allWoodSlabBlocks = getNull();
+    private static ImmutableList<TFCBlockChest> allChestBlocks = getNull();
+    private static ImmutableList<TFCBlockMetalAnvil> allBlcokAnvils = getNull();
+    private static ImmutableList<TFCBlockCladding> allBlockCladding = getNull();
+    private static ImmutableList<TFCBlockLamp> allBlockLamps = getNull();
+    private static ImmutableList<TFCBlockToolRack> allToolRackBlocks = getNull();
+    private static ImmutableList<TFCBlockCrop> allCropBlocks = getNull();
+    private static ImmutableList<BlockCropDead> allDeadCropBlocks = getNull();
+    private static ImmutableList<TFCBlockPlant> allPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockPlant> allGrassBlocks = getNull();
+    private static ImmutableList<TFCBlockLoom> allLoomBlocks = getNull();
+    private static ImmutableList<TFCBlockWoodSupport> allSupportBlocks = getNull();
+    private static ImmutableList<BlockFlowerPotTFC> allFlowerPots = getNull();
 
 
-    private static ImmutableList<Block> allFoodItemBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockFenceGateLog> allFenceGateLogBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitTreeLeaves> allFruitLeaves = Helpers.getNull();
-    private static ImmutableList<BlockFruitTreeSapling> allFruitSapling = Helpers.getNull();
-    //private static ImmutableList<BlockFruitBarrelTest> allFruitBarrel = Helpers.getNull();
-    private static ImmutableList<BlockFruitBookshelf> allFruitBookshelves = Helpers.getNull();
-    private static ImmutableList<BlockFruitButton> allFruitButton = Helpers.getNull();
-    private static ImmutableList<BlockFruitDoor> allFruitDoors = Helpers.getNull();
-    private static ImmutableList<BlockFruitPressurePlate> allFruitPressurePlate = Helpers.getNull();
-    private static ImmutableList<BlockFruitFence> allFruitFences = Helpers.getNull();
-    private static ImmutableList<BlockFruitFenceGate> allFruitFenceGates = Helpers.getNull();
-    private static ImmutableList<BlockFruitLogFence> allFruitLogFences = Helpers.getNull();
-    private static ImmutableList<BlockFruitLogFenceGate> allFruitLogFenceGates = Helpers.getNull();
-    private static ImmutableList<BlockFruitPlanks> allFruitPlanks = Helpers.getNull();
-    private static ImmutableList<BlockFruitSlab.Half> allFruitSlabBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitStairs> allFruitStairBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitSupport> allFruitSupport = Helpers.getNull();
-    private static ImmutableList<BlockFruitToolRack> allFruitToolRack = Helpers.getNull();
-    private static ImmutableList<BlockFruitTrapDoor> allFruitTrapDoors = Helpers.getNull();
-    private static ImmutableList<BlockFruitWorkbench> allFruitWorkbench = Helpers.getNull();
-    private static ImmutableList<BlockFruitChest> allFruitChestBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = Helpers.getNull();
-    private static ImmutableList<BlockCropDead> allDeadCrops = Helpers.getNull();
-    private static ImmutableList<TFCBlockRockSlab.Half> allSlabBlocksTFC = Helpers.getNull();
-    private static ImmutableList<TFCBlockWoodStairs> allStairBlocksTFC = Helpers.getNull();
-    private static ImmutableList<TFCBlockPlanks> allPlanksTFC = Helpers.getNull();
-    private static ImmutableList<BlockSurfaceRock> allSurfaceRocks = Helpers.getNull();
-    private static ImmutableList<BlockSurfaceSeashells> allSurfaceSeashells = Helpers.getNull();
-    private static ImmutableList<BlockSurfaceFlint> allSurfaceFlint = Helpers.getNull();
-    private static ImmutableList<BlockSurfaceBones> allSurfaceBones = Helpers.getNull();
-    private static ImmutableList<BlockDriftwood> allSurfaceDriftwood = Helpers.getNull();
-    private static ImmutableList<BlockTwig> allSurfaceTwig = Helpers.getNull();
-    private static ImmutableList<BlockPinecone> allSurfacePinecone = Helpers.getNull();
-    private static ImmutableList<Block> allBambooLog = Helpers.getNull();
-    private static ImmutableList<Block> allBambooLeaves = Helpers.getNull();
-    private static ImmutableList<Block> allBambooSapling = Helpers.getNull();
-    private static ImmutableList<BlockFruitLeaves> allNormalTreeLeaves = Helpers.getNull();
-    private static ImmutableList<BlockFruitLog> allNormalTreeLog = Helpers.getNull();
-    private static ImmutableList<BlockCoral> allCoralPlants = Helpers.getNull();
-    private static ImmutableList<TFCBlockWaterGlowPlant> allGlowWaterPlants = Helpers.getNull();
-    private static ImmutableList<TFCBlockWaterPlant> allWaterPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockHangingPlant> allHangingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockHangingGlowingPlant> allHangingGlowingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockHangingCreepingPlant> allHangingCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockCreepingPlant> allCreepingPlantBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockTallGrassWater> allTallGrassWaterBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockShortGrass> allShortGrassBlocks = Helpers.getNull();
-    private static ImmutableList<TFCBlockSaguaroCactus> allSaguaroCactusBlocks = Helpers.getNull();
-    private static ImmutableList<BlockPlantDummy1> allStandardBlocks = Helpers.getNull();
-    private static ImmutableList<BlockLightstone> allLightstoneBlocks = Helpers.getNull();
-    private static ImmutableList<BlockJoshuaTreeFlower> allJoshuaTreeFlowerBlocks = Helpers.getNull();
-    private static ImmutableList<BlockJoshuaTreeLog> allJoshuaTreeLogBlocks = Helpers.getNull();
-    private static ImmutableList<BlockJoshuaTreeSapling> allJoshuaTreeSaplingBlocks = Helpers.getNull();
+    private static ImmutableList<Block> allFoodItemBlocks = getNull();
+    private static ImmutableList<TFCBlockFenceGateLog> allFenceGateLogBlocks = getNull();
+    private static ImmutableList<BlockFruitTreeLeaves> allFruitLeaves = getNull();
+    private static ImmutableList<BlockFruitTreeSapling> allFruitSapling = getNull();
+    //private static ImmutableList<BlockFruitBarrelTest> allFruitBarrel = getNull();
+    private static ImmutableList<BlockFruitBookshelf> allFruitBookshelves = getNull();
+    private static ImmutableList<BlockFruitButton> allFruitButton = getNull();
+    private static ImmutableList<BlockFruitDoor> allFruitDoors = getNull();
+    private static ImmutableList<BlockFruitPressurePlate> allFruitPressurePlate = getNull();
+    private static ImmutableList<BlockFruitFence> allFruitFences = getNull();
+    private static ImmutableList<BlockFruitFenceGate> allFruitFenceGates = getNull();
+    private static ImmutableList<BlockFruitLogFence> allFruitLogFences = getNull();
+    private static ImmutableList<BlockFruitLogFenceGate> allFruitLogFenceGates = getNull();
+    private static ImmutableList<BlockFruitPlanks> allFruitPlanks = getNull();
+    private static ImmutableList<BlockFruitSlab.Half> allFruitSlabBlocks = getNull();
+    private static ImmutableList<BlockFruitStairs> allFruitStairBlocks = getNull();
+    private static ImmutableList<BlockFruitSupport> allFruitSupport = getNull();
+    private static ImmutableList<BlockFruitToolRack> allFruitToolRack = getNull();
+    private static ImmutableList<BlockFruitTrapDoor> allFruitTrapDoors = getNull();
+    private static ImmutableList<BlockFruitWorkbench> allFruitWorkbench = getNull();
+    private static ImmutableList<BlockFruitChest> allFruitChestBlocks = getNull();
+    private static ImmutableList<BlockFruitLoom> allFruitLoomBlocks = getNull();
+    private static ImmutableList<BlockCropDead> allDeadCrops = getNull();
+    private static ImmutableList<TFCBlockRockSlab.Half> allSlabBlocksTFC = getNull();
+    private static ImmutableList<TFCBlockWoodStairs> allStairBlocksTFC = getNull();
+    private static ImmutableList<TFCBlockPlanks> allPlanksTFC = getNull();
+    private static ImmutableList<BlockSurfaceRock> allSurfaceRocks = getNull();
+    private static ImmutableList<BlockSurfaceSeashells> allSurfaceSeashells = getNull();
+    private static ImmutableList<BlockSurfaceFlint> allSurfaceFlint = getNull();
+    private static ImmutableList<BlockSurfaceBones> allSurfaceBones = getNull();
+    private static ImmutableList<BlockDriftwood> allSurfaceDriftwood = getNull();
+    private static ImmutableList<BlockTwig> allSurfaceTwig = getNull();
+    private static ImmutableList<BlockPinecone> allSurfacePinecone = getNull();
+    private static ImmutableList<Block> allBambooLog = getNull();
+    private static ImmutableList<Block> allBambooLeaves = getNull();
+    private static ImmutableList<Block> allBambooSapling = getNull();
+    private static ImmutableList<BlockFruitLeaves> allNormalTreeLeaves = getNull();
+    private static ImmutableList<BlockFruitLog> allNormalTreeLog = getNull();
+    private static ImmutableList<BlockCoral> allCoralPlants = getNull();
+    private static ImmutableList<TFCBlockWaterGlowPlant> allGlowWaterPlants = getNull();
+    private static ImmutableList<TFCBlockWaterPlant> allWaterPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingPlant> allHangingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingGlowingPlant> allHangingGlowingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingCreepingPlant> allHangingCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockCreepingPlant> allCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockTallGrassWater> allTallGrassWaterBlocks = getNull();
+    private static ImmutableList<TFCBlockShortGrass> allShortGrassBlocks = getNull();
+    private static ImmutableList<TFCBlockSaguaroCactus> allSaguaroCactusBlocks = getNull();
+    private static ImmutableList<BlockPlantDummy1> allStandardBlocks = getNull();
+    private static ImmutableList<BlockLightstone> allLightstoneBlocks = getNull();
+    private static ImmutableList<BlockJoshuaTreeFlower> allJoshuaTreeFlowerBlocks = getNull();
+    private static ImmutableList<BlockJoshuaTreeLog> allJoshuaTreeLogBlocks = getNull();
+    private static ImmutableList<BlockJoshuaTreeSapling> allJoshuaTreeSaplingBlocks = getNull();
 
-    private static ImmutableList<BlockFruitTreeSapling> allFruitTreeSaplingBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitTreeTrunk> allFruitTreeTrunkBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitTreeBranch> allFruitTreeBranchBlocks = Helpers.getNull();
-    private static ImmutableList<BlockFruitTreeLeaves> allFruitTreeLeavesBlocks = Helpers.getNull();
+    private static ImmutableList<BlockFruitTreeSapling> allFruitTreeSaplingBlocks = getNull();
+    private static ImmutableList<BlockFruitTreeTrunk> allFruitTreeTrunkBlocks = getNull();
+    private static ImmutableList<BlockFruitTreeBranch> allFruitTreeBranchBlocks = getNull();
+    private static ImmutableList<BlockFruitTreeLeaves> allFruitTreeLeavesBlocks = getNull();
 
-    private static ImmutableList<BlockBerryBush> allBerryBushBlocks = Helpers.getNull();
+    private static ImmutableList<BlockBerryBush> allBerryBushBlocks = getNull();
 
     public static ImmutableList<ItemBlock> getAllNormalItemBlocks()
     {
