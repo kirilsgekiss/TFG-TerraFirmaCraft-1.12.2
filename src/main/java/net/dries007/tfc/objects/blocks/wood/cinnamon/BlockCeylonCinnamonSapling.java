@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.util.IGrowingPlant;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 public class BlockCeylonCinnamonSapling extends TFCBlockSapling implements IGrowingPlant
 {
     public BlockCeylonCinnamonSapling()

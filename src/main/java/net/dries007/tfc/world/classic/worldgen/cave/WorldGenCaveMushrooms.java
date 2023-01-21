@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGenCaveMushrooms extends WorldGenerator

@@ -29,7 +29,7 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;

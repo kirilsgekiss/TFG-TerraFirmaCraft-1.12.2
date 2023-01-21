@@ -18,7 +18,7 @@ import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
 

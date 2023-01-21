@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault

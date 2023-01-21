@@ -32,7 +32,7 @@ import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillTier;
 import net.dries007.tfc.world.classic.worldgen.WorldGenWildCrops;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 
 import static net.dries007.tfc.util.agriculture.Crop.CropType.*;
 

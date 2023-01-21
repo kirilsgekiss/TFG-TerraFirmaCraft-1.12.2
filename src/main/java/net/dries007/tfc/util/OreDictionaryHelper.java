@@ -30,7 +30,7 @@ import net.dries007.tfc.api.capability.damage.DamageType;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.objects.blocks.BlockDecorativeStone;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 
 /**
  * This is not the best example of good coding practice, but I do think it works rather well.

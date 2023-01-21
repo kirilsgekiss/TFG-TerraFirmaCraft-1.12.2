@@ -40,7 +40,7 @@ import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;

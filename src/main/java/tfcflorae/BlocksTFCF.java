@@ -1,4 +1,4 @@
-package tfcflorae.objects.blocks;
+package tfcflorae;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;

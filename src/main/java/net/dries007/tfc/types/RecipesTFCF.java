@@ -35,8 +35,8 @@
 //import net.minecraftforge.registries.IForgeRegistryModifiable;
 //import net.dries007.tfc.ConfigTFCF;
 //import tfcflorae.TFCFlorae;
-//import tfcflorae.objects.blocks.BlocksTFCF;
-//import tfcflorae.objects.items.ItemsTFCF;
+//import tfcflorae.BlocksTFCF;
+//import tfcflorae.ItemsTFCF;
 //import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 //import net.dries007.tfc.util.agriculture.SeasonalTrees;
 //

@@ -16,9 +16,9 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.init.Blocks;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.items.wood.ItemFruitDoor;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 
 public class BlockFruitDoor extends BlockDoor
 {

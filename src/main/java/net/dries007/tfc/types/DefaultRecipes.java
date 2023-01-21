@@ -92,10 +92,10 @@ import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.fuel.FuelManager;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockFenceGateLog;
 import net.dries007.tfc.objects.items.rock.ItemUnfiredMudBrick;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 
 import static gregtech.api.recipes.RecipeMaps.*;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;

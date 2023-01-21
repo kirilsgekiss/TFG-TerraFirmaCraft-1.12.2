@@ -12,9 +12,9 @@ import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.types.DefaultPlants;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
-import tfcflorae.objects.items.ItemsTFCF;
+import tfcflorae.ItemsTFCF;
 
 public class CapabilityHeatHandler
 {

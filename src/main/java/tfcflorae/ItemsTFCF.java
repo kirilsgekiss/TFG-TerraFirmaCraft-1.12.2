@@ -1,4 +1,4 @@
-package tfcflorae.objects.items;
+package tfcflorae;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,13 +38,11 @@ import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
 import net.dries007.tfc.objects.items.tools.ItemWalkingStick;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import tfcflorae.TFCFlorae;
 
 import static net.dries007.tfc.objects.CreativeTabsTFC.*;
 import static tfcflorae.TFCFlorae.TFCFLORAE_MODID;

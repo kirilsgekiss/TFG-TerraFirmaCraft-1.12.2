@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.plants.BlockSaguaroCactus;
 import net.dries007.tfc.objects.te.TESaguaroCactus;
 

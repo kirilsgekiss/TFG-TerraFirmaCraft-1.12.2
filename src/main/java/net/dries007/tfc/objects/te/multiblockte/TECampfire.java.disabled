@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import tfcflorae.objects.blocks.multiblock.MultiBlockBase;
 import tfcflorae.objects.blocks.multiblock.MultiBlockController;
 

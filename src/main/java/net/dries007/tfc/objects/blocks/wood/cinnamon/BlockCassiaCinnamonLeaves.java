@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 
 public class BlockCassiaCinnamonLeaves extends TFCBlockLeaves
 {

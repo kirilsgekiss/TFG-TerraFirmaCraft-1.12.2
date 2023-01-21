@@ -15,13 +15,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.client.render.TESRBase;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
+import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.te.TEFruitLoom;
 
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
