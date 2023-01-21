@@ -3,7 +3,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/ceramics/earthenware/earthenware_bricks"
+      "all": "tfc:blocks/ceramics/earthenware/earthenware_bricks"
     }
   },
   "variants": {

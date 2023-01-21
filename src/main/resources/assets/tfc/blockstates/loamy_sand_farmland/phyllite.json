@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/phyllite",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/phyllite",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/phyllite"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/phyllite",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/phyllite",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/phyllite"
     }
   },
   "variants": {

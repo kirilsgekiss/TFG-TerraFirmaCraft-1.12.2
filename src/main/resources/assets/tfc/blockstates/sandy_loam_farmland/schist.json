@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/schist",
-      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/schist",
-      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/schist"
+      "dirt": "tfc:blocks/stonetypes/sandy_loam/schist",
+      "particle": "tfc:blocks/stonetypes/sandy_loam/schist",
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/schist"
     }
   },
   "variants": {

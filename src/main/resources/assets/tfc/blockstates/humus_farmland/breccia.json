@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/breccia",
-      "particle": "tfcflorae:blocks/stonetypes/humus/breccia",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/breccia"
+      "dirt": "tfc:blocks/stonetypes/humus/breccia",
+      "particle": "tfc:blocks/stonetypes/humus/breccia",
+      "top": "tfc:blocks/stonetypes/humus_farmland/breccia"
     }
   },
   "variants": {

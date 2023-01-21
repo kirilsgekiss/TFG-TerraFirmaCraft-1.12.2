@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "fan": "tfcflorae:blocks/coral/fan/tube/magenta",
-    "particle": "tfcflorae:blocks/coral/fan/tube/magenta"
+    "fan": "tfc:blocks/coral/fan/tube/magenta",
+    "particle": "tfc:blocks/coral/fan/tube/magenta"
   },
   "elements": [
     {

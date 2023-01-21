@@ -66,7 +66,7 @@ public class WorldGenCaveCreepingVines extends WorldGenerator
             BlockHangingCreepingPlantTFC plantBlock = BlockHangingCreepingPlantTFC.get(plant);
             if (plantBlock == null)
             {
-                System.out.println("BlockHangingCreeping is null: " + plant);
+                System.out.println("BlockHangingCreeping is null: " + plant); // todo BUG
                 return true;
             }
             IBlockState state = plantBlock.getDefaultState();

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "fan": "tfcflorae:blocks/coral/fan/bubble/purple",
-    "particle": "tfcflorae:blocks/coral/fan/bubble/purple"
+    "fan": "tfc:blocks/coral/fan/bubble/purple",
+    "particle": "tfc:blocks/coral/fan/bubble/purple"
   },
   "elements": [
     {

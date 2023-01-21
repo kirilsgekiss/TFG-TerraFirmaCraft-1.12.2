@@ -2,8 +2,8 @@
 	"parent":"block/block",
 	"ambientocclusion": false,
 	"textures":{
-		"particle":"tfcflorae:blocks/groundcover/lightstone",
-		"texture":"tfcflorae:blocks/groundcover/lightstone"
+		"particle":"tfc:blocks/groundcover/lightstone",
+		"texture":"tfc:blocks/groundcover/lightstone"
 	},
 	"elements":[
 		{

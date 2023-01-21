@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "parent": "block/block",
   "textures": {
-    "0": "tfcflorae:blocks/groundcover/driftwood",
-    "1": "tfcflorae:blocks/groundcover/driftwood",
-    "particle": "tfcflorae:blocks/groundcover/driftwood"
+    "0": "tfc:blocks/groundcover/driftwood",
+    "1": "tfc:blocks/groundcover/driftwood",
+    "particle": "tfc:blocks/groundcover/driftwood"
   },
   "elements": [
     {

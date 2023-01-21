@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "fan": "tfcflorae:blocks/coral/fan/fire/red",
-    "particle": "tfcflorae:blocks/coral/fan/fire/red"
+    "fan": "tfc:blocks/coral/fan/fire/red",
+    "particle": "tfc:blocks/coral/fan/fire/red"
   },
   "elements": [
     {

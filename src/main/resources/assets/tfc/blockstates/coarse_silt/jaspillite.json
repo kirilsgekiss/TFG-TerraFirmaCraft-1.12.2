@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/coarse_silt/jaspillite"
+      "all": "tfc:blocks/stonetypes/coarse_silt/jaspillite"
     }
   },
   "variants": {

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "fan": "tfcflorae:blocks/coral/fan/brain/lime",
-    "particle": "tfcflorae:blocks/coral/fan/brain/lime"
+    "fan": "tfc:blocks/coral/fan/brain/lime",
+    "particle": "tfc:blocks/coral/fan/brain/lime"
   },
   "elements": [
     {

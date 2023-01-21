@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "tfcflorae:blocks/coral/tube/white"
+    "cross": "tfc:blocks/coral/tube/white"
   }
 }

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "fan": "tfcflorae:blocks/coral/fan/horn/dead",
-    "particle": "tfcflorae:blocks/coral/fan/horn/dead"
+    "fan": "tfc:blocks/coral/fan/horn/dead",
+    "particle": "tfc:blocks/coral/fan/horn/dead"
   },
   "elements": [
     {

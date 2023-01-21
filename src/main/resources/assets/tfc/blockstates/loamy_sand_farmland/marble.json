@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/marble",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/marble",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/marble"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/marble",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/marble",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/marble"
     }
   },
   "variants": {

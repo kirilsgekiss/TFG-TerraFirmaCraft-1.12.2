@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/novaculite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/novaculite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/novaculite"
+      "dirt": "tfc:blocks/stonetypes/humus/novaculite",
+      "particle": "tfc:blocks/stonetypes/humus/novaculite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/novaculite"
     }
   },
   "variants": {

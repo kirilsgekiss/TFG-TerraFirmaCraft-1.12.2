@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/silt/blueschist"
+      "all": "tfc:blocks/stonetypes/silt/blueschist"
     }
   },
   "variants": {

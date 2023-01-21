@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/mud/slate"
+      "all": "tfc:blocks/stonetypes/mud/slate"
     }
   },
   "variants": {
