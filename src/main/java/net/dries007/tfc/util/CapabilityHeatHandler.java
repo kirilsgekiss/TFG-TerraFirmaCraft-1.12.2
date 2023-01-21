@@ -14,7 +14,6 @@ import net.dries007.tfc.types.DefaultPlants;
 
 import tfcflorae.BlocksTFCF;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
-import tfcflorae.ItemsTFCF;
 
 public class CapabilityHeatHandler
 {
@@ -44,8 +43,8 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.WOOLLY_GOMPHUS))), () -> new ItemHeatHandler(null, 1, 480));
 
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.WOODEN_BUCKET), () -> new ItemHeatHandler(null, 1.76f, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.WOODEN_BUCKET_SALT), () -> new ItemHeatHandler(null, 3.993f, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFCF.WOODEN_BUCKET_SUGAR), () -> new ItemHeatHandler(null, 1.255f, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.WOODEN_BUCKET_SALT), () -> new ItemHeatHandler(null, 3.993f, 480));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(ItemsTFC.WOODEN_BUCKET_SUGAR), () -> new ItemHeatHandler(null, 1.255f, 480));
         /*CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of((Item) woodenBucketSaltWater), () -> new ItemHeatHandler(null, 3.993f, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of((Item) woodenBucketSweetSap), () -> new ItemHeatHandler(null, 4.01f, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of((Item) woodenBucketSweetSyrup), () -> new ItemHeatHandler(null, 2.1f, 480));*/

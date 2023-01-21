@@ -68,7 +68,6 @@ import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemKaoliniteMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemStonewareMold;
 import tfcflorae.BlocksTFCF;
-import tfcflorae.ItemsTFCF;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.blocks.BlockPlacedHide.SIZE;
@@ -568,13 +567,12 @@ public final class ClientRegisterEvents
     public static void registerModelsTFCF(ModelRegistryEvent event)
     {
         // ITEMS
-        for (Item item : ItemsTFCF.getAllSimpleItems())
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
+          
 
-        /*for (Item item : ItemsTFCF.getAllItemBows())
+        /*for (Item item : ItemsTFC.getAllItemBows())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));*/
 
-        for (ItemFruitDoor item : ItemsTFCF.getAllFruitDoors())
+        for (ItemFruitDoor item : ItemsTFC.getAllFruitDoors())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
 
@@ -694,7 +692,7 @@ public final class ClientRegisterEvents
     @SuppressWarnings("deprecation")
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
-    public static void registerColorHandlerItemsTFCF(ColorHandlerEvent.Item event)
+    public static void registerColorHandlerItemsTFC(ColorHandlerEvent.Item event)
     {
         ItemColors itemColors = event.getItemColors();
 
@@ -704,7 +702,7 @@ public final class ClientRegisterEvents
             {
                 return tintIndex > 0 ? -1 : ((ItemArmorTFCF)stack.getItem()).getColor(stack);
             }
-        }, ItemsTFCF.getAllArmorItems().toArray(new ItemArmorTFCF[0]));*/
+        }, ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFCF[0]));*/
 
 
 

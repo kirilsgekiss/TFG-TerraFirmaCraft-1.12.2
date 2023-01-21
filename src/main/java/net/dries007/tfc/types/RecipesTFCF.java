@@ -36,7 +36,7 @@
 //import net.dries007.tfc.ConfigTFCF;
 //import tfcflorae.TFCFlorae;
 //import tfcflorae.BlocksTFCF;
-//import tfcflorae.ItemsTFCF;
+//import tfcflorae.ItemsTFC;
 //import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 //import net.dries007.tfc.util.agriculture.SeasonalTrees;
 //
@@ -548,100 +548,100 @@
 //
 //                /*
 //                // Flint Tool Heads
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_AXE_HEAD, 1), " X   ", "XXXX ", "XXXXX", "XXXX ", " X   ").setRegistryName(TFCFlorae.MODID, "flint_axe_head"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_AXE_HEAD, 1), " X   ", "XXXX ", "XXXXX", "XXXX ", " X   ").setRegistryName(TFCFlorae.MODID, "flint_axe_head"),
 //
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_HAMMER_HEAD, 1), "     ", "XXXXX", "XXXXX", "  X  ", "     ").setRegistryName(TFCFlorae.MODID, "flint_hammer_head"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_HAMMER_HEAD, 1), "     ", "XXXXX", "XXXXX", "  X  ", "     ").setRegistryName(TFCFlorae.MODID, "flint_hammer_head"),
 //
-//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_HOE_HEAD, 1), "XXXXX", "   XX").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_1"),
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_HOE_HEAD, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_2"),
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_HOE_HEAD, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_3"),
+//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_HOE_HEAD, 1), "XXXXX", "   XX").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_1"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_HOE_HEAD, 2), "XXXXX", "XX   ", "     ", "XXXXX", "XX   ").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_2"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_HOE_HEAD, 2), "XXXXX", "XX   ", "     ", "XXXXX", "   XX").setRegistryName(TFCFlorae.MODID, "flint_hoe_head_3"),
 //
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_JAVELIN_HEAD, 1), "XXX  ", "XXXX ", "XXXXX", " XXX ", "  X  ").setRegistryName(TFCFlorae.MODID, "flint_javelin_head"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_JAVELIN_HEAD, 1), "XXX  ", "XXXX ", "XXXXX", " XXX ", "  X  ").setRegistryName(TFCFlorae.MODID, "flint_javelin_head"),
 //
-//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_KNIFE_HEAD, 1), "X ", "XX", "XX", "XX", "XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_1"),
-//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_KNIFE_HEAD, 1), " X", "XX", "XX", "XX", "XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_2"),
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_KNIFE_HEAD, 2), "X  X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_3"),
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_KNIFE_HEAD, 2), "X   X", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_4"),
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_KNIFE_HEAD, 2), " X X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_5"),
+//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_KNIFE_HEAD, 1), "X ", "XX", "XX", "XX", "XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_1"),
+//                // new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_KNIFE_HEAD, 1), " X", "XX", "XX", "XX", "XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_2"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_KNIFE_HEAD, 2), "X  X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_3"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_KNIFE_HEAD, 2), "X   X", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_4"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_KNIFE_HEAD, 2), " X X ", "XX XX", "XX XX", "XX XX", "XX XX").setRegistryName(TFCFlorae.MODID, "flint_knife_head_5"),
 //
-//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFCF.FLINT_SHOVEL_HEAD, 1), " XXX ", " XXX ", " XXX ", " XXX ", "  X  ").setRegistryName(TFCFlorae.MODID, "flint_shovel_head"),
+//                new KnappingRecipeSimple(KnappingTypes.FLINT, true, new ItemStack(ItemsTFC.FLINT_SHOVEL_HEAD, 1), " XXX ", " XXX ", " XXX ", " XXX ", "  X  ").setRegistryName(TFCFlorae.MODID, "flint_shovel_head"),
 //
-//                new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "clay_urn"),
-//                new KnappingRecipeSimple(KnappingTypes.EARTHENWARE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "earthenware_urn"),
-//                new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "kaolinite_urn"),
-//                new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "stoneware_urn"),
+//                new KnappingRecipeSimple(KnappingType.CLAY, true, new ItemStack(ItemsTFC.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "clay_urn"),
+//                new KnappingRecipeSimple(KnappingTypes.EARTHENWARE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "earthenware_urn"),
+//                new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "kaolinite_urn"),
+//                new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_URN), "XX XX", "X   X", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "stoneware_urn"),
 //
 //                // Containers
-//                new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(ItemsTFCF.LEATHER_BAG_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("leather_bag_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(ItemsTFCF.LEATHER_BAG_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("leather_bag_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("burlap_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("burlap_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("wool_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("wool_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("silk_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("silk_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("sisal_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("sisal_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("cotton_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("cotton_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("linen_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("linen_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("hemp_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("hemp_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("yucca_sack_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("yucca_sack_pieces_vertical"),
-//                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_BAG_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("pineapple_leather_bag_pieces_horizontal"),
-//                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_BAG_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("pineapple_leather_bag_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(ItemsTFC.LEATHER_BAG_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("leather_bag_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingType.LEATHER, true, new ItemStack(ItemsTFC.LEATHER_BAG_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("leather_bag_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("burlap_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("burlap_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("wool_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("wool_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("silk_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("silk_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("sisal_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("sisal_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("cotton_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("cotton_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("linen_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("linen_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("hemp_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("hemp_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_SACK_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("yucca_sack_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_SACK_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("yucca_sack_pieces_vertical"),
+//                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_BAG_PIECE, 2), " XXX ", " XXX ", "     ", " XXX ", " XXX ").setRegistryName("pineapple_leather_bag_pieces_horizontal"),
+//                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_BAG_PIECE, 2), "     ", "XX XX", "XX XX", "XX XX", "     ").setRegistryName("pineapple_leather_bag_pieces_vertical"),
 //
 //                // Pineapple Leather
 //                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(Items.SADDLE), "  X  ", "XXXXX", "XXXXX", "XXXXX", "  X  ").setRegistryName("pineapple_leather_saddle"),
 //                new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.QUIVER), " XXXX", "X XXX", "X XXX", "X XXX", " XXXX").setRegistryName("pineapple_leather_quiver")
 //                */
 //                // Armor Knapping
-//            /*new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("pineapple_leather_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("pineapple_leather_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("pineapple_leather_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFCF.PINEAPPLE_LEATHER_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("pineapple_leather_boots"),
+//            /*new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("pineapple_leather_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("pineapple_leather_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("pineapple_leather_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.PINEAPPLE_LEATHER, true, new ItemStack(ItemsTFC.PINEAPPLE_LEATHER_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("pineapple_leather_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("burlap_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("burlap_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("burlap_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFCF.BURLAP_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("burlap_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("burlap_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("burlap_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("burlap_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.BURLAP_CLOTH, true, new ItemStack(ItemsTFC.BURLAP_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("burlap_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("wool_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("wool_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("wool_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFCF.WOOL_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("wool_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("wool_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("wool_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("wool_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.WOOL_CLOTH, true, new ItemStack(ItemsTFC.WOOL_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("wool_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("silk_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("silk_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("silk_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFCF.SILK_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("silk_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("silk_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("silk_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("silk_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.SILK_CLOTH, true, new ItemStack(ItemsTFC.SILK_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("silk_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("sisal_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("sisal_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("sisal_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFCF.SISAL_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("sisal_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("sisal_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("sisal_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("sisal_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.SISAL_CLOTH, true, new ItemStack(ItemsTFC.SISAL_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("sisal_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("cotton_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("cotton_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("cotton_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFCF.COTTON_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("cotton_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("cotton_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("cotton_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("cotton_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.COTTON_CLOTH, true, new ItemStack(ItemsTFC.COTTON_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("cotton_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("linen_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("linen_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("linen_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFCF.LINEN_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("linen_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("linen_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("linen_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("linen_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.LINEN_CLOTH, true, new ItemStack(ItemsTFC.LINEN_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("linen_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("hemp_cloth_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("hemp_cloth_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("hemp_cloth_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFCF.HEMP_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("hemp_cloth_boots"),
+//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_CLOTH_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("hemp_cloth_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_CLOTH_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("hemp_cloth_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_CLOTH_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("hemp_cloth_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.HEMP_CLOTH, true, new ItemStack(ItemsTFC.HEMP_CLOTH_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("hemp_cloth_boots"),
 //
-//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_CANVAS_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("yucca_canvas_helmet"),
-//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_CANVAS_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("yucca_canvas_chestplate"),
-//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_CANVAS_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("yucca_canvas_leggings"),
-//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFCF.YUCCA_CANVAS_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("yucca_canvas_boots")*/
+//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_CANVAS_HELMET), "XXXXX", "X   X", "X   X", "     ", "     ").setRegistryName("yucca_canvas_helmet"),
+//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_CANVAS_CHESTPLATE), "X   X", "XXXXX", "XXXXX", "XXXXX", "XXXXX").setRegistryName("yucca_canvas_chestplate"),
+//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_CANVAS_LEGGINGS), "XXXXX", "XXXXX", "XX XX", "XX XX", "XX XX").setRegistryName("yucca_canvas_leggings"),
+//            new KnappingRecipeSimple(KnappingTypes.YUCCA_CANVAS, true, new ItemStack(ItemsTFC.YUCCA_CANVAS_BOOTS), "XX   ", "XX   ", "XX   ", "XXXX ", "XXXXX").setRegistryName("yucca_canvas_boots")*/
 //        );
 //    }
 //
@@ -681,9 +681,9 @@
 //        // Clay Pottery Items with metadata
 //        for (EnumDyeColor dye : EnumDyeColor.values())
 //        {
-//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.UNFIRED_EARTHENWARE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_vessel_glazed_" + dye.getName()));
-//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.UNFIRED_KAOLINITE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_vessel_glazed_" + dye.getName()));
-//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.UNFIRED_STONEWARE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFCF.FIRED_STONEWARE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_vessel_glazed_" + dye.getName()));
+//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.UNFIRED_EARTHENWARE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_vessel_glazed_" + dye.getName()));
+//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.UNFIRED_KAOLINITE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFC.FIRED_KAOLINITE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_vessel_glazed_" + dye.getName()));
+//            r.register(new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.UNFIRED_STONEWARE_VESSEL_GLAZED, 1, dye.getMetadata())), new ItemStack(ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED, 1, dye.getMetadata()), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_vessel_glazed_" + dye.getName()));
 //        }
 //
 //        // Clay Molds
@@ -716,12 +716,12 @@
 //        {
 //            r.registerAll(
 //
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.AMARANTH_DOUGH), new ItemStack(ItemsTFCF.AMARANTH_BREAD), 200, 480).setRegistryName("amaranth_bread"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.BUCKWHEAT_DOUGH), new ItemStack(ItemsTFCF.BUCKWHEAT_BREAD), 200, 480).setRegistryName("buckwheat_bread"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FONIO_DOUGH), new ItemStack(ItemsTFCF.FONIO_BREAD), 200, 480).setRegistryName("fonio_bread"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.MILLET_DOUGH), new ItemStack(ItemsTFCF.MILLET_BREAD), 200, 480).setRegistryName("millet_bread"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.QUINOA_DOUGH), new ItemStack(ItemsTFCF.QUINOA_BREAD), 200, 480).setRegistryName("quinoa_bread"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.SPELT_DOUGH), new ItemStack(ItemsTFCF.SPELT_BREAD), 200, 480).setRegistryName("spelt_bread")
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.AMARANTH_DOUGH), new ItemStack(ItemsTFC.AMARANTH_BREAD), 200, 480).setRegistryName("amaranth_bread"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.BUCKWHEAT_DOUGH), new ItemStack(ItemsTFC.BUCKWHEAT_BREAD), 200, 480).setRegistryName("buckwheat_bread"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.FONIO_DOUGH), new ItemStack(ItemsTFC.FONIO_BREAD), 200, 480).setRegistryName("fonio_bread"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.MILLET_DOUGH), new ItemStack(ItemsTFC.MILLET_BREAD), 200, 480).setRegistryName("millet_bread"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.QUINOA_DOUGH), new ItemStack(ItemsTFC.QUINOA_BREAD), 200, 480).setRegistryName("quinoa_bread"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.SPELT_DOUGH), new ItemStack(ItemsTFC.SPELT_BREAD), 200, 480).setRegistryName("spelt_bread")
 //            );
 //        }*/
 //
@@ -736,9 +736,9 @@
 //
 //        r.registerAll(
 //
-//            new HeatRecipeSimple(IIngredient.of((Item) woodenBucketSaltWater), new ItemStack(ItemsTFCF.WOODEN_BUCKET_SALT, 1), 480, 500).setRegistryName("bucket_salt"),
+//            new HeatRecipeSimple(IIngredient.of((Item) woodenBucketSaltWater), new ItemStack(ItemsTFC.WOODEN_BUCKET_SALT, 1), 480, 500).setRegistryName("bucket_salt"),
 //            new HeatRecipeSimple(IIngredient.of((Item) woodenBucketSweetSap), new ItemStack((Item) woodenBucketSweetSyrup, 1), 480, 500).setRegistryName("bucket_syrup"),
-//            new HeatRecipeSimple(IIngredient.of((Item) woodenBucketSweetSyrup), new ItemStack(ItemsTFCF.WOODEN_BUCKET_SUGAR, 1), 480, 500).setRegistryName("bucket_sugar")
+//            new HeatRecipeSimple(IIngredient.of((Item) woodenBucketSweetSyrup), new ItemStack(ItemsTFC.WOODEN_BUCKET_SUGAR, 1), 480, 500).setRegistryName("bucket_sugar")
 //        );*/
 //
 //        // Standard / Simple recipes
@@ -746,134 +746,134 @@
 //        r.registerAll(
 //
 //                // Earthenware Pottery
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_BRICK), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_brick"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_VESSEL), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_vessel"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_JUG), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_POT), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_BOWL), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_bowl"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_EARTHENWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_large_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_BRICK), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_brick"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_VESSEL), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_JUG), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_POT), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_BOWL), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_EARTHENWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_earthenware_large_vessel"),
 //
 //                // Fired Earthenware Pottery - doesn't burn up
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_BRICK), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_brick"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_vessel"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_vessel_glazed_all"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_JUG), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_POT), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_EARTHENWARE_BOWL), new ItemStack(ItemsTFCF.FIRED_EARTHENWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_BRICK), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_brick"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_vessel"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_vessel_glazed_all"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_JUG), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_POT), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_EARTHENWARE_BOWL), new ItemStack(ItemsTFC.FIRED_EARTHENWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_bowl"),
 //                new HeatRecipeSimple(IIngredient.of(BlocksTFCF.FIRED_EARTHENWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_EARTHENWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_earthenware_large_vessel"),
 //
 //                // Kaolinite Pottery
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_BRICK), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_brick"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_VESSEL), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_vessel"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_JUG), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_POT), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_BOWL), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_bowl"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_KAOLINITE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_large_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_BRICK), new ItemStack(ItemsTFC.FIRED_KAOLINITE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_brick"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_VESSEL), new ItemStack(ItemsTFC.FIRED_KAOLINITE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_JUG), new ItemStack(ItemsTFC.FIRED_KAOLINITE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_POT), new ItemStack(ItemsTFC.FIRED_KAOLINITE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_BOWL), new ItemStack(ItemsTFC.FIRED_KAOLINITE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_KAOLINITE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_kaolinite_large_vessel"),
 //
 //                // Fired Kaolinite Pottery - doesn't burn up
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_BRICK), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_brick"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_vessel"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_vessel_glazed_all"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_JUG), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_POT), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_KAOLINITE_BOWL), new ItemStack(ItemsTFCF.FIRED_KAOLINITE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_BRICK), new ItemStack(ItemsTFC.FIRED_KAOLINITE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_brick"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_vessel"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_vessel_glazed_all"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_JUG), new ItemStack(ItemsTFC.FIRED_KAOLINITE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_POT), new ItemStack(ItemsTFC.FIRED_KAOLINITE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_KAOLINITE_BOWL), new ItemStack(ItemsTFC.FIRED_KAOLINITE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_bowl"),
 //                new HeatRecipeSimple(IIngredient.of(BlocksTFCF.FIRED_KAOLINITE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_KAOLINITE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_kaolinite_large_vessel"),
 //
 //                // Stoneware Pottery
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_BRICK), new ItemStack(ItemsTFCF.FIRED_STONEWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_brick"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_VESSEL), new ItemStack(ItemsTFCF.FIRED_STONEWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_vessel"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_JUG), new ItemStack(ItemsTFCF.FIRED_STONEWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_POT), new ItemStack(ItemsTFCF.FIRED_STONEWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_BOWL), new ItemStack(ItemsTFCF.FIRED_STONEWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_bowl"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_STONEWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_large_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_BRICK), new ItemStack(ItemsTFC.FIRED_STONEWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_brick"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_VESSEL), new ItemStack(ItemsTFC.FIRED_STONEWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_vessel"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_JUG), new ItemStack(ItemsTFC.FIRED_STONEWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_POT), new ItemStack(ItemsTFC.FIRED_STONEWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_BOWL), new ItemStack(ItemsTFC.FIRED_STONEWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_STONEWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_stoneware_large_vessel"),
 //
 //                // Fired Stoneware Pottery - doesn't burn up
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_BRICK), new ItemStack(ItemsTFCF.FIRED_STONEWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_brick"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_vessel"),
-//                new HeatRecipeVessel(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_vessel_glazed_all"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_JUG), new ItemStack(ItemsTFCF.FIRED_STONEWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_jug"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_POT), new ItemStack(ItemsTFCF.FIRED_STONEWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_pot"),
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.FIRED_STONEWARE_BOWL), new ItemStack(ItemsTFCF.FIRED_STONEWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_bowl"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_STONEWARE_BRICK), new ItemStack(ItemsTFC.FIRED_STONEWARE_BRICK), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_brick"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_STONEWARE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_vessel"),
+//                new HeatRecipeVessel(IIngredient.of(ItemsTFC.FIRED_STONEWARE_VESSEL_GLAZED), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_vessel_glazed_all"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_STONEWARE_JUG), new ItemStack(ItemsTFC.FIRED_STONEWARE_JUG), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_jug"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_STONEWARE_POT), new ItemStack(ItemsTFC.FIRED_STONEWARE_POT), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_pot"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.FIRED_STONEWARE_BOWL), new ItemStack(ItemsTFC.FIRED_STONEWARE_BOWL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_bowl"),
 //                new HeatRecipeSimple(IIngredient.of(BlocksTFCF.FIRED_STONEWARE_LARGE_VESSEL), new ItemStack(BlocksTFCF.FIRED_STONEWARE_LARGE_VESSEL), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_stoneware_large_vessel"),
 //
-//                new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_URN), new ItemStack(BlocksTFCF.FIRED_URN), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_urn"),
+//                new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_URN), new ItemStack(BlocksTFCF.FIRED_URN), 1599f, Metal.Tier.TIER_I).setRegistryName("unfired_urn"),
 //                new HeatRecipeSimple(IIngredient.of(BlocksTFCF.FIRED_URN), new ItemStack(BlocksTFCF.FIRED_URN), 1599f, Metal.Tier.TIER_I).setRegistryName("fired_urn"),
 //
 //                // Bread
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.HASH_MUFFIN), 480).setRegistryName("burned_hash_muffin"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.AMARANTH_BREAD), 480).setRegistryName("burned_barley_bread"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.BUCKWHEAT_BREAD), 480).setRegistryName("burned_cornbread"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.FONIO_BREAD), 480).setRegistryName("burned_oat_bread"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.MILLET_BREAD), 480).setRegistryName("burned_rice_bread"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.QUINOA_BREAD), 480).setRegistryName("burned_rye_bread"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.SPELT_BREAD), 480).setRegistryName("burned_wheat_bread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.HASH_MUFFIN), 480).setRegistryName("burned_hash_muffin"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.AMARANTH_BREAD), 480).setRegistryName("burned_barley_bread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.BUCKWHEAT_BREAD), 480).setRegistryName("burned_cornbread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.FONIO_BREAD), 480).setRegistryName("burned_oat_bread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.MILLET_BREAD), 480).setRegistryName("burned_rice_bread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.QUINOA_BREAD), 480).setRegistryName("burned_rye_bread"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.SPELT_BREAD), 480).setRegistryName("burned_wheat_bread"),
 //
 //                // Epiphytes
-//                new HeatRecipeSimple(IIngredient.of("epiphyteArtistsConk"), new ItemStack(ItemsTFCF.ROASTED_ARTISTS_CONK), 200, 480).setRegistryName("roasted_artists_conk"),
-//                new HeatRecipeSimple(IIngredient.of("epiphyteSulphurShelf"), new ItemStack(ItemsTFCF.ROASTED_SULPHUR_SHELF), 200, 480).setRegistryName("roasted_sulphur_shelf"),
-//                new HeatRecipeSimple(IIngredient.of("epiphyteTurkeyTail"), new ItemStack(ItemsTFCF.ROASTED_TURKEY_TAIL), 200, 480).setRegistryName("roasted_turkey_tail"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_ARTISTS_CONK), 480).setRegistryName("burned_artists_conk"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_SULPHUR_SHELF), 480).setRegistryName("burned_sulphur_shelf"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_TURKEY_TAIL), 480).setRegistryName("burned_turkey_tail"),
+//                new HeatRecipeSimple(IIngredient.of("epiphyteArtistsConk"), new ItemStack(ItemsTFC.ROASTED_ARTISTS_CONK), 200, 480).setRegistryName("roasted_artists_conk"),
+//                new HeatRecipeSimple(IIngredient.of("epiphyteSulphurShelf"), new ItemStack(ItemsTFC.ROASTED_SULPHUR_SHELF), 200, 480).setRegistryName("roasted_sulphur_shelf"),
+//                new HeatRecipeSimple(IIngredient.of("epiphyteTurkeyTail"), new ItemStack(ItemsTFC.ROASTED_TURKEY_TAIL), 200, 480).setRegistryName("roasted_turkey_tail"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_ARTISTS_CONK), 480).setRegistryName("burned_artists_conk"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_SULPHUR_SHELF), 480).setRegistryName("burned_sulphur_shelf"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_TURKEY_TAIL), 480).setRegistryName("burned_turkey_tail"),
 //
 //                // Mushrooms
-//                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini_specific"),
-//                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita_specific"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFCF.ROASTED_BLACK_POWDERPUFF), 200, 480).setRegistryName("roasted_black_powderpuff"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomChanterelle"), new ItemStack(ItemsTFCF.ROASTED_CHANTERELLE), 200, 480).setRegistryName("roasted_chanterelle"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomDeathCap"), new ItemStack(ItemsTFCF.ROASTED_DEATH_CAP), 200, 480).setRegistryName("roasted_death_cap"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomGiantClub"), new ItemStack(ItemsTFCF.ROASTED_GIANT_CLUB), 200, 480).setRegistryName("roasted_giant_club"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomParasol"), new ItemStack(ItemsTFCF.ROASTED_PARASOL_MUSHROOM), 200, 480).setRegistryName("roasted_parasol_mushroom"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomStinkhorn"), new ItemStack(ItemsTFCF.ROASTED_STINKHORN), 200, 480).setRegistryName("roasted_stinkhorn"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomWeepingMilkCap"), new ItemStack(ItemsTFCF.ROASTED_WEEPING_MILK_CAP), 200, 480).setRegistryName("roasted_weeping_milk_cap"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomWoodBlewit"), new ItemStack(ItemsTFCF.ROASTED_WOOD_BLEWIT), 200, 480).setRegistryName("roasted_wood_blewit"),
-//                new HeatRecipeSimple(IIngredient.of("mushroomWoollyGomphus"), new ItemStack(ItemsTFCF.ROASTED_WOOLLY_GOMPHUS), 200, 480).setRegistryName("roasted_woolly_gomphus"),
+//                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFC.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini_specific"),
+//                new HeatRecipeSimple(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFC.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita_specific"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFC.ROASTED_PORCINI), 200, 480).setRegistryName("roasted_porcini"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFC.ROASTED_AMANITA), 200, 480).setRegistryName("roasted_amanita"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFC.ROASTED_BLACK_POWDERPUFF), 200, 480).setRegistryName("roasted_black_powderpuff"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomChanterelle"), new ItemStack(ItemsTFC.ROASTED_CHANTERELLE), 200, 480).setRegistryName("roasted_chanterelle"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomDeathCap"), new ItemStack(ItemsTFC.ROASTED_DEATH_CAP), 200, 480).setRegistryName("roasted_death_cap"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomGiantClub"), new ItemStack(ItemsTFC.ROASTED_GIANT_CLUB), 200, 480).setRegistryName("roasted_giant_club"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomParasol"), new ItemStack(ItemsTFC.ROASTED_PARASOL_MUSHROOM), 200, 480).setRegistryName("roasted_parasol_mushroom"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomStinkhorn"), new ItemStack(ItemsTFC.ROASTED_STINKHORN), 200, 480).setRegistryName("roasted_stinkhorn"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomWeepingMilkCap"), new ItemStack(ItemsTFC.ROASTED_WEEPING_MILK_CAP), 200, 480).setRegistryName("roasted_weeping_milk_cap"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomWoodBlewit"), new ItemStack(ItemsTFC.ROASTED_WOOD_BLEWIT), 200, 480).setRegistryName("roasted_wood_blewit"),
+//                new HeatRecipeSimple(IIngredient.of("mushroomWoollyGomphus"), new ItemStack(ItemsTFC.ROASTED_WOOLLY_GOMPHUS), 200, 480).setRegistryName("roasted_woolly_gomphus"),
 //
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_PORCINI), 480).setRegistryName("burned_porcini"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_AMANITA), 480).setRegistryName("burned_amanita"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_BLACK_POWDERPUFF), 480).setRegistryName("burned_black_powderpuff"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_CHANTERELLE), 480).setRegistryName("burned_chanterelle"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_DEATH_CAP), 480).setRegistryName("burned_death_cap"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_GIANT_CLUB), 480).setRegistryName("burned_giant_club"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_PARASOL_MUSHROOM), 480).setRegistryName("burned_parasol_mushroom"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_STINKHORN), 480).setRegistryName("burned_stinkhorn"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_WEEPING_MILK_CAP), 480).setRegistryName("burned_weeping_milk_cap"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_WOOD_BLEWIT), 480).setRegistryName("burned_wood_blewit"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_WOOLLY_GOMPHUS), 480).setRegistryName("burned_woolly_gomphus"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_PORCINI), 480).setRegistryName("burned_porcini"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_AMANITA), 480).setRegistryName("burned_amanita"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_BLACK_POWDERPUFF), 480).setRegistryName("burned_black_powderpuff"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_CHANTERELLE), 480).setRegistryName("burned_chanterelle"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_DEATH_CAP), 480).setRegistryName("burned_death_cap"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_GIANT_CLUB), 480).setRegistryName("burned_giant_club"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_PARASOL_MUSHROOM), 480).setRegistryName("burned_parasol_mushroom"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_STINKHORN), 480).setRegistryName("burned_stinkhorn"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_WEEPING_MILK_CAP), 480).setRegistryName("burned_weeping_milk_cap"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_WOOD_BLEWIT), 480).setRegistryName("burned_wood_blewit"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_WOOLLY_GOMPHUS), 480).setRegistryName("burned_woolly_gomphus"),
 //
 //                // Food
-//                new HeatRecipeSimple(IIngredient.of("rawEel"), new ItemStack(ItemsTFCF.COOKED_EEL), 200, 480).setRegistryName("cooked_eel"),
-//                new HeatRecipeSimple(IIngredient.of("rawCrab"), new ItemStack(ItemsTFCF.COOKED_CRAB), 200, 480).setRegistryName("cooked_crab"),
-//                new HeatRecipeSimple(IIngredient.of("rawClam"), new ItemStack(ItemsTFCF.COOKED_CLAM), 200, 480).setRegistryName("cooked_clam"),
-//                new HeatRecipeSimple(IIngredient.of("rawScallop"), new ItemStack(ItemsTFCF.COOKED_SCALLOP), 200, 480).setRegistryName("cooked_scallop"),
-//                new HeatRecipeSimple(IIngredient.of("rawStarfish"), new ItemStack(ItemsTFCF.COOKED_STARFISH), 200, 480).setRegistryName("cooked_starfish"),
-//                new HeatRecipeSimple(IIngredient.of("rawSnail"), new ItemStack(ItemsTFCF.COOKED_SNAIL), 200, 480).setRegistryName("cooked_snail"),
-//                new HeatRecipeSimple(IIngredient.of("rawWorm"), new ItemStack(ItemsTFCF.COOKED_WORM), 200, 480).setRegistryName("cooked_worm"),
+//                new HeatRecipeSimple(IIngredient.of("rawEel"), new ItemStack(ItemsTFC.COOKED_EEL), 200, 480).setRegistryName("cooked_eel"),
+//                new HeatRecipeSimple(IIngredient.of("rawCrab"), new ItemStack(ItemsTFC.COOKED_CRAB), 200, 480).setRegistryName("cooked_crab"),
+//                new HeatRecipeSimple(IIngredient.of("rawClam"), new ItemStack(ItemsTFC.COOKED_CLAM), 200, 480).setRegistryName("cooked_clam"),
+//                new HeatRecipeSimple(IIngredient.of("rawScallop"), new ItemStack(ItemsTFC.COOKED_SCALLOP), 200, 480).setRegistryName("cooked_scallop"),
+//                new HeatRecipeSimple(IIngredient.of("rawStarfish"), new ItemStack(ItemsTFC.COOKED_STARFISH), 200, 480).setRegistryName("cooked_starfish"),
+//                new HeatRecipeSimple(IIngredient.of("rawSnail"), new ItemStack(ItemsTFC.COOKED_SNAIL), 200, 480).setRegistryName("cooked_snail"),
+//                new HeatRecipeSimple(IIngredient.of("rawWorm"), new ItemStack(ItemsTFC.COOKED_WORM), 200, 480).setRegistryName("cooked_worm"),
 //
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_EEL), 480).setRegistryName("burned_eel"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_CRAB), 480).setRegistryName("burned_crab"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_CLAM), 480).setRegistryName("burned_clam"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_SCALLOP), 480).setRegistryName("burned_scallop"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_STARFISH), 480).setRegistryName("burned_starfish"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_SNAIL), 480).setRegistryName("burned_snail"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.COOKED_WORM), 480).setRegistryName("burned_worm"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_EEL), 480).setRegistryName("burned_eel"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_CRAB), 480).setRegistryName("burned_crab"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_CLAM), 480).setRegistryName("burned_clam"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_SCALLOP), 480).setRegistryName("burned_scallop"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_STARFISH), 480).setRegistryName("burned_starfish"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_SNAIL), 480).setRegistryName("burned_snail"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.COOKED_WORM), 480).setRegistryName("burned_worm"),
 //
 //                // Nut Roasting
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.BEECHNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BEECHNUT_NUT), 200, 480).setRegistryName("roasted_beechnut"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.BLACK_WALNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BLACK_WALNUT_NUT), 200, 480).setRegistryName("roasted_black_walnut"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.BUTTERNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BUTTERNUT_NUT), 200, 480).setRegistryName("roasted_butternut"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.GINKGO_NUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_GINKGO_NUT_NUT), 200, 480).setRegistryName("roasted_ginkgo_nut"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.HAZELNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_HAZELNUT_NUT), 200, 480).setRegistryName("roasted_hazelnut"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.WALNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_WALNUT_NUT), 200, 480).setRegistryName("roasted_walnut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.BEECHNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BEECHNUT_NUT), 200, 480).setRegistryName("roasted_beechnut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.BLACK_WALNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BLACK_WALNUT_NUT), 200, 480).setRegistryName("roasted_black_walnut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.BUTTERNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BUTTERNUT_NUT), 200, 480).setRegistryName("roasted_butternut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.GINKGO_NUT_NUT)), new ItemStack(ItemsTFC.ROASTED_GINKGO_NUT_NUT), 200, 480).setRegistryName("roasted_ginkgo_nut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.HAZELNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_HAZELNUT_NUT), 200, 480).setRegistryName("roasted_hazelnut"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.WALNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_WALNUT_NUT), 200, 480).setRegistryName("roasted_walnut"),
 //
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_BEECHNUT_NUT), 480).setRegistryName("burned_beechnut"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_BLACK_WALNUT_NUT), 480).setRegistryName("burned_black_walnut"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_BUTTERNUT_NUT), 480).setRegistryName("burned_butternut"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_GINKGO_NUT_NUT), 480).setRegistryName("burned_ginkgo_nut"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_HAZELNUT_NUT), 480).setRegistryName("burned_hazelnut"),
-//                HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_WALNUT_NUT), 480).setRegistryName("burned_walnut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_BEECHNUT_NUT), 480).setRegistryName("burned_beechnut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_BLACK_WALNUT_NUT), 480).setRegistryName("burned_black_walnut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_BUTTERNUT_NUT), 480).setRegistryName("burned_butternut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_GINKGO_NUT_NUT), 480).setRegistryName("burned_ginkgo_nut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_HAZELNUT_NUT), 480).setRegistryName("burned_hazelnut"),
+//                HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_WALNUT_NUT), 480).setRegistryName("burned_walnut"),
 //
 //                // Kaolinite Clay
 //                //new HeatRecipeSimple(IIngredient.of("clayKaolinite"), new ItemStack(ItemPowder.get(Powder.KAOLINITE)), 200).setRegistryName("kaolinite_clay"),
@@ -890,8 +890,8 @@
 //                new HeatRecipeSimple(IIngredient.of(Blocks.TORCH), new ItemStack(ItemsTFC.WOOD_ASH, 2), 350, 750).setRegistryName("torch_ash_2"),
 //
 //                // Charred Bones
-//                new HeatRecipeSimple(IIngredient.of("bone"), new ItemStack(ItemsTFCF.CHARRED_BONES), 425, 850).setRegistryName("charred_bones_heat"),
-//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.CHARRED_BONES)), new ItemStack(ItemsTFCF.CHARRED_BONES), 1599f, 1).setRegistryName("burnt_charred_bones")
+//                new HeatRecipeSimple(IIngredient.of("bone"), new ItemStack(ItemsTFC.CHARRED_BONES), 425, 850).setRegistryName("charred_bones_heat"),
+//                new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.CHARRED_BONES)), new ItemStack(ItemsTFC.CHARRED_BONES), 1599f, 1).setRegistryName("burnt_charred_bones")
 //        );*/
 //        /*
 //
@@ -899,49 +899,49 @@
 //        {
 //            r.registerAll(
 //
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.ACORN_NUT)), new ItemStack(ItemsTFCF.ROASTED_ACORN_NUT), 200, 480).setRegistryName("roasted_acorn"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.CHESTNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_CHESTNUT_NUT), 200, 480).setRegistryName("roasted_chestnut"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.HICKORY_NUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_HICKORY_NUT_NUT), 200, 480).setRegistryName("roasted_hickory_nut"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.PECAN_NUT)), new ItemStack(ItemsTFCF.ROASTED_PECAN_NUT), 200, 480).setRegistryName("roasted_pecan"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.PINE_NUT)), new ItemStack(ItemsTFCF.ROASTED_PINE_NUT), 200, 480).setRegistryName("roasted_pine_nut"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.ACORN_NUT)), new ItemStack(ItemsTFC.ROASTED_ACORN_NUT), 200, 480).setRegistryName("roasted_acorn"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.CHESTNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_CHESTNUT_NUT), 200, 480).setRegistryName("roasted_chestnut"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.HICKORY_NUT_NUT)), new ItemStack(ItemsTFC.ROASTED_HICKORY_NUT_NUT), 200, 480).setRegistryName("roasted_hickory_nut"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.PECAN_NUT)), new ItemStack(ItemsTFC.ROASTED_PECAN_NUT), 200, 480).setRegistryName("roasted_pecan"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.PINE_NUT)), new ItemStack(ItemsTFC.ROASTED_PINE_NUT), 200, 480).setRegistryName("roasted_pine_nut"),
 //
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_ACORN_NUT), 480).setRegistryName("burned_acorn"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_CHESTNUT_NUT), 480).setRegistryName("burned_chestnut"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_HICKORY_NUT_NUT), 480).setRegistryName("burned_hickory_nut"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_PECAN_NUT), 480).setRegistryName("burned_pecan"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_PINE_NUT), 480).setRegistryName("burned_pine_nut"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_ACORN_NUT), 480).setRegistryName("burned_acorn"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_CHESTNUT_NUT), 480).setRegistryName("burned_chestnut"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_HICKORY_NUT_NUT), 480).setRegistryName("burned_hickory_nut"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_PECAN_NUT), 480).setRegistryName("burned_pecan"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_PINE_NUT), 480).setRegistryName("burned_pine_nut"),
 //
 //                    // Food Roasting/Drying
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.BLACK_TEA)), new ItemStack(ItemsTFCF.DRIED_BLACK_TEA), 200, 480).setRegistryName("dried_black_tea"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.GREEN_TEA)), new ItemStack(ItemsTFCF.DRIED_GREEN_TEA), 200, 480).setRegistryName("dried_green_tea"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.WHITE_TEA)), new ItemStack(ItemsTFCF.DRIED_WHITE_TEA), 200, 480).setRegistryName("dried_white_tea"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.CANNABIS_BUD)), new ItemStack(ItemsTFCF.DRIED_CANNABIS_BUD), 200, 480).setRegistryName("dried_cannabis_bud"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.CANNABIS_LEAF)), new ItemStack(ItemsTFCF.DRIED_CANNABIS_LEAF), 200, 480).setRegistryName("dried_cannabis_leaf"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.COCA_LEAF)), new ItemStack(ItemsTFCF.DRIED_COCA_LEAF), 200, 480).setRegistryName("dried_coca_leaf"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.OPIUM_POPPY_BULB)), new ItemStack(ItemsTFCF.DRIED_OPIUM_POPPY_BULB), 200, 480).setRegistryName("dried_opium_poppy_bulb"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.PEYOTE)), new ItemStack(ItemsTFCF.DRIED_PEYOTE), 200, 480).setRegistryName("dried_peyote"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.TOBACCO_LEAF)), new ItemStack(ItemsTFCF.DRIED_TOBACCO_LEAF), 200, 480).setRegistryName("dried_tobacco_leaf"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.DRIED_COFFEA_CHERRIES)), new ItemStack(ItemsTFCF.ROASTED_COFFEE_BEANS), 200, 480).setRegistryName("roasted_coffea_cherries_firepit"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.CHAMOMILE_HEAD)), new ItemStack(ItemsTFCF.DRIED_CHAMOMILE_HEAD), 200, 480).setRegistryName("roasted_chamomile_head"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.DANDELION_HEAD)), new ItemStack(ItemsTFCF.DRIED_DANDELION_HEAD), 200, 480).setRegistryName("roasted_dandelion_head"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.LABRADOR_TEA_HEAD)), new ItemStack(ItemsTFCF.DRIED_LABRADOR_TEA_HEAD), 200, 480).setRegistryName("roasted_labrador_tea_head"),
-//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFCF.SUNFLOWER_HEAD)), new ItemStack(ItemsTFCF.DRIED_SUNFLOWER_HEAD), 200, 480).setRegistryName("roasted_sunflower_head"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.BLACK_TEA)), new ItemStack(ItemsTFC.DRIED_BLACK_TEA), 200, 480).setRegistryName("dried_black_tea"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.GREEN_TEA)), new ItemStack(ItemsTFC.DRIED_GREEN_TEA), 200, 480).setRegistryName("dried_green_tea"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.WHITE_TEA)), new ItemStack(ItemsTFC.DRIED_WHITE_TEA), 200, 480).setRegistryName("dried_white_tea"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.CANNABIS_BUD)), new ItemStack(ItemsTFC.DRIED_CANNABIS_BUD), 200, 480).setRegistryName("dried_cannabis_bud"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.CANNABIS_LEAF)), new ItemStack(ItemsTFC.DRIED_CANNABIS_LEAF), 200, 480).setRegistryName("dried_cannabis_leaf"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.COCA_LEAF)), new ItemStack(ItemsTFC.DRIED_COCA_LEAF), 200, 480).setRegistryName("dried_coca_leaf"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.OPIUM_POPPY_BULB)), new ItemStack(ItemsTFC.DRIED_OPIUM_POPPY_BULB), 200, 480).setRegistryName("dried_opium_poppy_bulb"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.PEYOTE)), new ItemStack(ItemsTFC.DRIED_PEYOTE), 200, 480).setRegistryName("dried_peyote"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.TOBACCO_LEAF)), new ItemStack(ItemsTFC.DRIED_TOBACCO_LEAF), 200, 480).setRegistryName("dried_tobacco_leaf"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.DRIED_COFFEA_CHERRIES)), new ItemStack(ItemsTFC.ROASTED_COFFEE_BEANS), 200, 480).setRegistryName("roasted_coffea_cherries_firepit"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.CHAMOMILE_HEAD)), new ItemStack(ItemsTFC.DRIED_CHAMOMILE_HEAD), 200, 480).setRegistryName("roasted_chamomile_head"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.DANDELION_HEAD)), new ItemStack(ItemsTFC.DRIED_DANDELION_HEAD), 200, 480).setRegistryName("roasted_dandelion_head"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.LABRADOR_TEA_HEAD)), new ItemStack(ItemsTFC.DRIED_LABRADOR_TEA_HEAD), 200, 480).setRegistryName("roasted_labrador_tea_head"),
+//                    new HeatRecipeSimple(IIngredient.of(new ItemStack(ItemsTFC.SUNFLOWER_HEAD)), new ItemStack(ItemsTFC.DRIED_SUNFLOWER_HEAD), 200, 480).setRegistryName("roasted_sunflower_head"),
 //
 //                    // Food Destroy
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_BLACK_TEA), 480).setRegistryName("burned_black_tea"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_GREEN_TEA), 480).setRegistryName("burned_green_tea"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_WHITE_TEA), 480).setRegistryName("burned_white_tea"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_CANNABIS_BUD), 480).setRegistryName("burned_cannabis_bud"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_CANNABIS_LEAF), 480).setRegistryName("burned_cannabis_leaf"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_COCA_LEAF), 480).setRegistryName("burned_coca_leaf"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_OPIUM_POPPY_BULB), 480).setRegistryName("burned_opium_poppy_bulb"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_PEYOTE), 480).setRegistryName("burned_peyote"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_TOBACCO_LEAF), 480).setRegistryName("burned_tobacco_leaf"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.ROASTED_COFFEE_BEANS), 480).setRegistryName("burned_coffea_cherries"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_CHAMOMILE_HEAD), 480).setRegistryName("burned_chamomile_head"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_DANDELION_HEAD), 480).setRegistryName("burned_dandelion_head"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_LABRADOR_TEA_HEAD), 480).setRegistryName("burned_labrador_tea_head"),
-//                    HeatRecipe.destroy(IIngredient.of(ItemsTFCF.DRIED_SUNFLOWER_HEAD), 480).setRegistryName("burned_sunflower_head")
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_BLACK_TEA), 480).setRegistryName("burned_black_tea"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_GREEN_TEA), 480).setRegistryName("burned_green_tea"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_WHITE_TEA), 480).setRegistryName("burned_white_tea"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_CANNABIS_BUD), 480).setRegistryName("burned_cannabis_bud"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_CANNABIS_LEAF), 480).setRegistryName("burned_cannabis_leaf"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_COCA_LEAF), 480).setRegistryName("burned_coca_leaf"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_OPIUM_POPPY_BULB), 480).setRegistryName("burned_opium_poppy_bulb"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_PEYOTE), 480).setRegistryName("burned_peyote"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_TOBACCO_LEAF), 480).setRegistryName("burned_tobacco_leaf"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.ROASTED_COFFEE_BEANS), 480).setRegistryName("burned_coffea_cherries"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_CHAMOMILE_HEAD), 480).setRegistryName("burned_chamomile_head"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_DANDELION_HEAD), 480).setRegistryName("burned_dandelion_head"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_LABRADOR_TEA_HEAD), 480).setRegistryName("burned_labrador_tea_head"),
+//                    HeatRecipe.destroy(IIngredient.of(ItemsTFC.DRIED_SUNFLOWER_HEAD), 480).setRegistryName("burned_sunflower_head")
 //            );
 //        }*/
 //    }
@@ -995,7 +995,7 @@
 //                    new KnappingRecipeSimple(KnappingTypes.EARTHENWARE_CLAY, true, new ItemStack(BlocksFL.OVEN_WALL), "    X", "   XX", "   XX", "  XXX", "  XXX").setRegistryName(TFCFlorae.MODID, "earthenware_clay_oven_wall"),
 //
 //                    // Earthenware Mallet Mold
-//                    new KnappingRecipeSimple(KnappingTypes.EARTHENWARE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_EARTHENWARE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_earthenware_clay_mallet_mold"),
+//                    new KnappingRecipeSimple(KnappingTypes.EARTHENWARE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_EARTHENWARE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_earthenware_clay_mallet_mold"),
 //
 //                    // Kaolinite Clay
 //                    new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(BlocksFL.OVEN), "XXXXX", "XX XX", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "kaolinite_clay_oven"),
@@ -1003,7 +1003,7 @@
 //                    new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(BlocksFL.OVEN_WALL), "    X", "   XX", "   XX", "  XXX", "  XXX").setRegistryName(TFCFlorae.MODID, "kaolinite_clay_oven_wall"),
 //
 //                    // Kaolinite Mallet Mold
-//                    new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_KAOLINITE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_kaolinite_clay_mallet_mold"),
+//                    new KnappingRecipeSimple(KnappingTypes.KAOLINITE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_KAOLINITE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_kaolinite_clay_mallet_mold"),
 //
 //                    // Stoneware Clay
 //                    new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(BlocksFL.OVEN), "XXXXX", "XX XX", "X   X", "X   X", "XXXXX").setRegistryName(TFCFlorae.MODID, "stoneware_clay_oven"),
@@ -1011,7 +1011,7 @@
 //                    new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(BlocksFL.OVEN_WALL), "    X", "   XX", "   XX", "  XXX", "  XXX").setRegistryName(TFCFlorae.MODID, "stoneware_clay_oven_wall"),
 //
 //                    // Stoneware Mallet Mold
-//                    new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(ItemsTFCF.UNFIRED_STONEWARE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_stoneware_clay_mallet_mold")
+//                    new KnappingRecipeSimple(KnappingTypes.STONEWARE_CLAY, true, new ItemStack(ItemsTFC.UNFIRED_STONEWARE_MALLET_MOLD, 1), "XXXXX", "     ", "   X ", "XXXXX", "XXXXX").setRegistryName(TFCFlorae.MODID, "unfired_stoneware_clay_mallet_mold")
 //            );
 //        }
 //    }*/
@@ -1026,9 +1026,9 @@
 //            IForgeRegistry<HeatRecipe> r = event.getRegistry();
 //            event.getRegistry().registerAll(
 //
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_EARTHENWARE_MALLET_MOLD), new ItemStack(ItemsTFCF.EARTHENWARE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "earthenware_clay_mallet_mold"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_KAOLINITE_MALLET_MOLD), new ItemStack(ItemsTFCF.KAOLINITE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "kaolinite_clay_mallet_mold"),
-//                    new HeatRecipeSimple(IIngredient.of(ItemsTFCF.UNFIRED_STONEWARE_MALLET_MOLD), new ItemStack(ItemsTFCF.STONEWARE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "stoneware_clay_mallet_mold")
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_EARTHENWARE_MALLET_MOLD), new ItemStack(ItemsTFC.EARTHENWARE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "earthenware_clay_mallet_mold"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_KAOLINITE_MALLET_MOLD), new ItemStack(ItemsTFC.KAOLINITE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "kaolinite_clay_mallet_mold"),
+//                    new HeatRecipeSimple(IIngredient.of(ItemsTFC.UNFIRED_STONEWARE_MALLET_MOLD), new ItemStack(ItemsTFC.STONEWARE_MALLET_MOLD), 1599.0F, Metal.Tier.TIER_I).setRegistryName(TFCFlorae.MODID, "stoneware_clay_mallet_mold")
 //            );
 //
 //            //Remove recipes
@@ -1119,35 +1119,35 @@
 //                    new NutRecipe(BlockLogTFC.get(hickory), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_HICKORY), new ItemStack(ItemsFL.getFood(FoodFL.PECAN_NUTS))).setRegistryName("hickory_nut_yellow"),
 //                    new NutRecipe(BlockLogTFC.get(hickory), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_HICKORY), new ItemStack(ItemsFL.getFood(FoodFL.PECAN_NUTS))).setRegistryName("hickory_nut_orange"),
 //                    new NutRecipe(BlockLogTFC.get(hickory), BlockLeavesTFCF.get(SeasonalTrees.RED_HICKORY), new ItemStack(ItemsFL.getFood(FoodFL.PECAN_NUTS))).setRegistryName("hickory_nut_red"),
-//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFC.get(beech), new ItemStack(ItemsTFCF.BEECHNUT)).setRegistryName("beech_nut"),
-//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BEECH), new ItemStack(ItemsTFCF.BEECHNUT)).setRegistryName("beech_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BEECH), new ItemStack(ItemsTFCF.BEECHNUT)).setRegistryName("beech_nut_orange"),
-//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.RED_BEECH), new ItemStack(ItemsTFCF.BEECHNUT)).setRegistryName("beech_nut_red"),
-//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFC.get(black_walnut), new ItemStack(ItemsTFCF.BLACK_WALNUT)).setRegistryName("black_walnut_nut"),
-//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BLACK_WALNUT), new ItemStack(ItemsTFCF.BLACK_WALNUT)).setRegistryName("black_walnut_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BLACK_WALNUT), new ItemStack(ItemsTFCF.BLACK_WALNUT)).setRegistryName("black_walnut_nut_orange"),
-//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.RED_BLACK_WALNUT), new ItemStack(ItemsTFCF.BLACK_WALNUT)).setRegistryName("black_walnut_nut_red"),
-//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFC.get(butternut), new ItemStack(ItemsTFCF.BUTTERNUT)).setRegistryName("butternut_nut"),
-//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BUTTERNUT), new ItemStack(ItemsTFCF.BUTTERNUT)).setRegistryName("butternut_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BUTTERNUT), new ItemStack(ItemsTFCF.BUTTERNUT)).setRegistryName("butternut_nut_orange"),
-//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.RED_BUTTERNUT), new ItemStack(ItemsTFCF.BUTTERNUT)).setRegistryName("butternut_nut_red"),
-//                    new NutRecipe(BlockLogTFC.get(ginkgo), BlockLeavesTFC.get(ginkgo), new ItemStack(ItemsTFCF.GINKGO_NUT)).setRegistryName("ginkgo_nut"),
-//                    new NutRecipe(BlockLogTFC.get(ginkgo), BlockLeavesTFCF.get(SeasonalTrees.GINKGO), new ItemStack(ItemsTFCF.GINKGO_NUT)).setRegistryName("ginkgo_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFC.get(hazel), new ItemStack(ItemsTFCF.HAZELNUT)).setRegistryName("hazel_nut"),
-//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_HAZEL), new ItemStack(ItemsTFCF.HAZELNUT)).setRegistryName("hazel_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_HAZEL), new ItemStack(ItemsTFCF.HAZELNUT)).setRegistryName("hazel_nut_orange"),
-//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.RED_HAZEL), new ItemStack(ItemsTFCF.HAZELNUT)).setRegistryName("hazel_nut_red"),
-//                    new NutRecipe(BlockLogTFC.get(hemlock), BlockLeavesTFC.get(hemlock), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("hemlock_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(ironwood), BlockLeavesTFC.get(ironwood), new ItemStack(ItemsTFCF.HOPS)).setRegistryName("ironwood_hops"),
-//                    new NutRecipe(BlockLogTFC.get(kauri), BlockLeavesTFC.get(kauri), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("kauri_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(larch), BlockLeavesTFCF.get(SeasonalTrees.LARCH), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("larch_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(nordmann_fir), BlockLeavesTFC.get(nordmann_fir), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("nordmann_fir_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(norway_spruce), BlockLeavesTFC.get(norway_spruce), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("norway_spruce_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(redwood), BlockLeavesTFC.get(redwood), new ItemStack(ItemsTFCF.PINECONE)).setRegistryName("redwood_pinecone"),
-//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFC.get(walnut), new ItemStack(ItemsTFCF.WALNUT)).setRegistryName("walnut_fruit"),
-//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_WALNUT), new ItemStack(ItemsTFCF.WALNUT)).setRegistryName("walnut_nut_yellow"),
-//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_WALNUT), new ItemStack(ItemsTFCF.WALNUT)).setRegistryName("walnut_nut_orange"),
-//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.RED_WALNUT), new ItemStack(ItemsTFCF.WALNUT)).setRegistryName("walnut_nut_red")
+//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFC.get(beech), new ItemStack(ItemsTFC.BEECHNUT)).setRegistryName("beech_nut"),
+//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BEECH), new ItemStack(ItemsTFC.BEECHNUT)).setRegistryName("beech_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BEECH), new ItemStack(ItemsTFC.BEECHNUT)).setRegistryName("beech_nut_orange"),
+//                    new NutRecipe(BlockLogTFC.get(beech), BlockLeavesTFCF.get(SeasonalTrees.RED_BEECH), new ItemStack(ItemsTFC.BEECHNUT)).setRegistryName("beech_nut_red"),
+//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFC.get(black_walnut), new ItemStack(ItemsTFC.BLACK_WALNUT)).setRegistryName("black_walnut_nut"),
+//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BLACK_WALNUT), new ItemStack(ItemsTFC.BLACK_WALNUT)).setRegistryName("black_walnut_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BLACK_WALNUT), new ItemStack(ItemsTFC.BLACK_WALNUT)).setRegistryName("black_walnut_nut_orange"),
+//                    new NutRecipe(BlockLogTFC.get(black_walnut), BlockLeavesTFCF.get(SeasonalTrees.RED_BLACK_WALNUT), new ItemStack(ItemsTFC.BLACK_WALNUT)).setRegistryName("black_walnut_nut_red"),
+//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFC.get(butternut), new ItemStack(ItemsTFC.BUTTERNUT)).setRegistryName("butternut_nut"),
+//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_BUTTERNUT), new ItemStack(ItemsTFC.BUTTERNUT)).setRegistryName("butternut_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_BUTTERNUT), new ItemStack(ItemsTFC.BUTTERNUT)).setRegistryName("butternut_nut_orange"),
+//                    new NutRecipe(BlockLogTFC.get(butternut), BlockLeavesTFCF.get(SeasonalTrees.RED_BUTTERNUT), new ItemStack(ItemsTFC.BUTTERNUT)).setRegistryName("butternut_nut_red"),
+//                    new NutRecipe(BlockLogTFC.get(ginkgo), BlockLeavesTFC.get(ginkgo), new ItemStack(ItemsTFC.GINKGO_NUT)).setRegistryName("ginkgo_nut"),
+//                    new NutRecipe(BlockLogTFC.get(ginkgo), BlockLeavesTFCF.get(SeasonalTrees.GINKGO), new ItemStack(ItemsTFC.GINKGO_NUT)).setRegistryName("ginkgo_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFC.get(hazel), new ItemStack(ItemsTFC.HAZELNUT)).setRegistryName("hazel_nut"),
+//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_HAZEL), new ItemStack(ItemsTFC.HAZELNUT)).setRegistryName("hazel_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_HAZEL), new ItemStack(ItemsTFC.HAZELNUT)).setRegistryName("hazel_nut_orange"),
+//                    new NutRecipe(BlockLogTFC.get(hazel), BlockLeavesTFCF.get(SeasonalTrees.RED_HAZEL), new ItemStack(ItemsTFC.HAZELNUT)).setRegistryName("hazel_nut_red"),
+//                    new NutRecipe(BlockLogTFC.get(hemlock), BlockLeavesTFC.get(hemlock), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("hemlock_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(ironwood), BlockLeavesTFC.get(ironwood), new ItemStack(ItemsTFC.HOPS)).setRegistryName("ironwood_hops"),
+//                    new NutRecipe(BlockLogTFC.get(kauri), BlockLeavesTFC.get(kauri), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("kauri_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(larch), BlockLeavesTFCF.get(SeasonalTrees.LARCH), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("larch_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(nordmann_fir), BlockLeavesTFC.get(nordmann_fir), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("nordmann_fir_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(norway_spruce), BlockLeavesTFC.get(norway_spruce), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("norway_spruce_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(redwood), BlockLeavesTFC.get(redwood), new ItemStack(ItemsTFC.PINECONE)).setRegistryName("redwood_pinecone"),
+//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFC.get(walnut), new ItemStack(ItemsTFC.WALNUT)).setRegistryName("walnut_fruit"),
+//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.YELLOW_WALNUT), new ItemStack(ItemsTFC.WALNUT)).setRegistryName("walnut_nut_yellow"),
+//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.ORANGE_WALNUT), new ItemStack(ItemsTFC.WALNUT)).setRegistryName("walnut_nut_orange"),
+//                    new NutRecipe(BlockLogTFC.get(walnut), BlockLeavesTFCF.get(SeasonalTrees.RED_WALNUT), new ItemStack(ItemsTFC.WALNUT)).setRegistryName("walnut_nut_red")
 //            );
 //        }
 //    }*/
@@ -1162,17 +1162,17 @@
 //            r.registerAll(
 //
 //                    // Regular Trees
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.ACORN), new ItemStack(ItemsTFCF.ACORN_NUT), 0.5f).setRegistryName("acorn_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.BEECHNUT), new ItemStack(ItemsTFCF.BEECHNUT_NUT), 0.5f).setRegistryName("beechnut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.BLACK_WALNUT), new ItemStack(ItemsTFCF.BLACK_WALNUT_NUT), 0.5f).setRegistryName("black_walnut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.BUTTERNUT), new ItemStack(ItemsTFCF.BUTTERNUT_NUT), 0.5f).setRegistryName("butternut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.CHESTNUT), new ItemStack(ItemsTFCF.CHESTNUT_NUT), 0.5f).setRegistryName("chestnut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.GINKGO_NUT), new ItemStack(ItemsTFCF.GINKGO_NUT_NUT), 0.5f).setRegistryName("ginkgo_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.HAZELNUT), new ItemStack(ItemsTFCF.HAZELNUT_NUT), 0.5f).setRegistryName("hazelnut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.HICKORY_NUT), new ItemStack(ItemsTFCF.HICKORY_NUT_NUT), 0.5f).setRegistryName("hickory_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.PINECONE), new ItemStack(ItemsTFCF.PINE_NUT), 0.5f).setRegistryName("pine_nut_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.PECAN), new ItemStack(ItemsTFCF.PECAN_NUT), 0.5f).setRegistryName("pecan_fruit"),
-//                    new CrackingRecipe(IIngredient.of(ItemsTFCF.WALNUT), new ItemStack(ItemsTFCF.WALNUT_NUT), 0.5f).setRegistryName("walnut_fruit")
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.ACORN), new ItemStack(ItemsTFC.ACORN_NUT), 0.5f).setRegistryName("acorn_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.BEECHNUT), new ItemStack(ItemsTFC.BEECHNUT_NUT), 0.5f).setRegistryName("beechnut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.BLACK_WALNUT), new ItemStack(ItemsTFC.BLACK_WALNUT_NUT), 0.5f).setRegistryName("black_walnut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.BUTTERNUT), new ItemStack(ItemsTFC.BUTTERNUT_NUT), 0.5f).setRegistryName("butternut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.CHESTNUT), new ItemStack(ItemsTFC.CHESTNUT_NUT), 0.5f).setRegistryName("chestnut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.GINKGO_NUT), new ItemStack(ItemsTFC.GINKGO_NUT_NUT), 0.5f).setRegistryName("ginkgo_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.HAZELNUT), new ItemStack(ItemsTFC.HAZELNUT_NUT), 0.5f).setRegistryName("hazelnut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.HICKORY_NUT), new ItemStack(ItemsTFC.HICKORY_NUT_NUT), 0.5f).setRegistryName("hickory_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.PINECONE), new ItemStack(ItemsTFC.PINE_NUT), 0.5f).setRegistryName("pine_nut_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.PECAN), new ItemStack(ItemsTFC.PECAN_NUT), 0.5f).setRegistryName("pecan_fruit"),
+//                    new CrackingRecipe(IIngredient.of(ItemsTFC.WALNUT), new ItemStack(ItemsTFC.WALNUT_NUT), 0.5f).setRegistryName("walnut_fruit")
 //            );
 //        }
 //    }*/
@@ -1196,65 +1196,65 @@
 //            }
 //
 //            r.registerAll(
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.HASH_MUFFIN_DOUGH), new ItemStack(ItemsTFCF.HASH_MUFFIN), 4 * hour).setRegistryName(TFCFlorae.MODID, "hash_muffin_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.AMARANTH_DOUGH), new ItemStack(ItemsTFCF.AMARANTH_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "amaranth_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.BUCKWHEAT_DOUGH), new ItemStack(ItemsTFCF.BUCKWHEAT_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "buckwheat_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.FONIO_DOUGH), new ItemStack(ItemsTFCF.FONIO_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "fonio_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.MILLET_DOUGH), new ItemStack(ItemsTFCF.MILLET_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "millet_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.QUINOA_DOUGH), new ItemStack(ItemsTFCF.QUINOA_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "quinoa_dough_oven"),
-//                    new OvenRecipe(IIngredient.of(ItemsTFCF.SPELT_DOUGH), new ItemStack(ItemsTFCF.SPELT_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "spelt_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.HASH_MUFFIN_DOUGH), new ItemStack(ItemsTFC.HASH_MUFFIN), 4 * hour).setRegistryName(TFCFlorae.MODID, "hash_muffin_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.AMARANTH_DOUGH), new ItemStack(ItemsTFC.AMARANTH_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "amaranth_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.BUCKWHEAT_DOUGH), new ItemStack(ItemsTFC.BUCKWHEAT_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "buckwheat_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.FONIO_DOUGH), new ItemStack(ItemsTFC.FONIO_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "fonio_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.MILLET_DOUGH), new ItemStack(ItemsTFC.MILLET_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "millet_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.QUINOA_DOUGH), new ItemStack(ItemsTFC.QUINOA_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "quinoa_dough_oven"),
+//                    new OvenRecipe(IIngredient.of(ItemsTFC.SPELT_DOUGH), new ItemStack(ItemsTFC.SPELT_BREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "spelt_dough_oven"),
 //
-//                    new OvenRecipe(IIngredient.of("amaranthFlatbreadDough"), new ItemStack(ItemsTFCF.AMARANTH_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "amaranth_flatbread_dough_oven"),
-//                    new OvenRecipe(IIngredient.of("buckwheatFlatbreadDough"), new ItemStack(ItemsTFCF.BUCKWHEAT_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "buckwheat_flatbread_dough_oven"),
-//                    new OvenRecipe(IIngredient.of("fonioFlatbreadDough"), new ItemStack(ItemsTFCF.FONIO_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "fonio_flatbread_dough_oven"),
-//                    new OvenRecipe(IIngredient.of("milletFlatbreadDough"), new ItemStack(ItemsTFCF.MILLET_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "millet_flatbread_dough_oven"),
-//                    new OvenRecipe(IIngredient.of("quinoaFlatbreadDough"), new ItemStack(ItemsTFCF.QUINOA_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "quinoa_flatbread_dough_oven"),
-//                    new OvenRecipe(IIngredient.of("speltFlatbreadDough"), new ItemStack(ItemsTFCF.SPELT_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "spelt_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("amaranthFlatbreadDough"), new ItemStack(ItemsTFC.AMARANTH_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "amaranth_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("buckwheatFlatbreadDough"), new ItemStack(ItemsTFC.BUCKWHEAT_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "buckwheat_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("fonioFlatbreadDough"), new ItemStack(ItemsTFC.FONIO_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "fonio_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("milletFlatbreadDough"), new ItemStack(ItemsTFC.MILLET_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "millet_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("quinoaFlatbreadDough"), new ItemStack(ItemsTFC.QUINOA_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "quinoa_flatbread_dough_oven"),
+//                    new OvenRecipe(IIngredient.of("speltFlatbreadDough"), new ItemStack(ItemsTFC.SPELT_FLATBREAD), 4 * hour).setRegistryName(TFCFlorae.MODID, "spelt_flatbread_dough_oven"),
 //
-//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.ACORN_NUT)), new ItemStack(ItemsTFCF.ROASTED_ACORN_NUT), 2 * hour).setRegistryName("acorn_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.BEECHNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BEECHNUT_NUT), 2 * hour).setRegistryName("beechnut_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.BLACK_WALNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BLACK_WALNUT_NUT), 2 * hour).setRegistryName("black_walnut_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.BUTTERNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_BUTTERNUT_NUT), 2 * hour).setRegistryName("butternut_roasted_oven"),
-//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.CHESTNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_CHESTNUT_NUT), 2 * hour).setRegistryName("chestnut_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.GINKGO_NUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_GINKGO_NUT_NUT), 2 * hour).setRegistryName("ginkgo_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.HAZELNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_HAZELNUT_NUT), 2 * hour).setRegistryName("hazelnut_roasted_oven"),
-//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.HICKORY_NUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_HICKORY_NUT_NUT), 2 * hour).setRegistryName("hickory_roasted_oven"),
-//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.PINE_NUT)), new ItemStack(ItemsTFCF.ROASTED_PINE_NUT), 2 * hour).setRegistryName("pine_nut_roasted_oven"),
-//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.PECAN_NUT)), new ItemStack(ItemsTFCF.ROASTED_PECAN_NUT), 2 * hour).setRegistryName("pecan_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.WALNUT_NUT)), new ItemStack(ItemsTFCF.ROASTED_WALNUT_NUT), 2 * hour).setRegistryName("walnut_roasted_oven"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.ACORN_FRUIT))), new ItemStack(ItemsTFCF.ROASTED_ACORN_NUT), 2 * hour).setRegistryName("acorn_roasted_oven_fl"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.PINE_NUTS))), new ItemStack(ItemsTFCF.ROASTED_PINE_NUT), 2 * hour).setRegistryName("pine_nut_roasted_oven_fl"),
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.PECAN_NUTS))), new ItemStack(ItemsTFCF.ROASTED_PECAN_NUT), 2 * hour).setRegistryName("pecan_roasted_oven_fl"),
+//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.ACORN_NUT)), new ItemStack(ItemsTFC.ROASTED_ACORN_NUT), 2 * hour).setRegistryName("acorn_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.BEECHNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BEECHNUT_NUT), 2 * hour).setRegistryName("beechnut_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.BLACK_WALNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BLACK_WALNUT_NUT), 2 * hour).setRegistryName("black_walnut_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.BUTTERNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_BUTTERNUT_NUT), 2 * hour).setRegistryName("butternut_roasted_oven"),
+//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.CHESTNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_CHESTNUT_NUT), 2 * hour).setRegistryName("chestnut_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.GINKGO_NUT_NUT)), new ItemStack(ItemsTFC.ROASTED_GINKGO_NUT_NUT), 2 * hour).setRegistryName("ginkgo_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.HAZELNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_HAZELNUT_NUT), 2 * hour).setRegistryName("hazelnut_roasted_oven"),
+//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.HICKORY_NUT_NUT)), new ItemStack(ItemsTFC.ROASTED_HICKORY_NUT_NUT), 2 * hour).setRegistryName("hickory_roasted_oven"),
+//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.PINE_NUT)), new ItemStack(ItemsTFC.ROASTED_PINE_NUT), 2 * hour).setRegistryName("pine_nut_roasted_oven"),
+//                    //new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.PECAN_NUT)), new ItemStack(ItemsTFC.ROASTED_PECAN_NUT), 2 * hour).setRegistryName("pecan_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.WALNUT_NUT)), new ItemStack(ItemsTFC.ROASTED_WALNUT_NUT), 2 * hour).setRegistryName("walnut_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.ACORN_FRUIT))), new ItemStack(ItemsTFC.ROASTED_ACORN_NUT), 2 * hour).setRegistryName("acorn_roasted_oven_fl"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.PINE_NUTS))), new ItemStack(ItemsTFC.ROASTED_PINE_NUT), 2 * hour).setRegistryName("pine_nut_roasted_oven_fl"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsFL.getFood(FoodFL.PECAN_NUTS))), new ItemStack(ItemsTFC.ROASTED_PECAN_NUT), 2 * hour).setRegistryName("pecan_roasted_oven_fl"),
 //
-//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFCF.DRIED_COFFEA_CHERRIES)), new ItemStack(ItemsTFCF.ROASTED_COFFEE_BEANS), 2 * hour).setRegistryName("coffee_beans_roasted_oven"),
+//                    new OvenRecipe(IIngredient.of(new ItemStack(ItemsTFC.DRIED_COFFEA_CHERRIES)), new ItemStack(ItemsTFC.ROASTED_COFFEE_BEANS), 2 * hour).setRegistryName("coffee_beans_roasted_oven"),
 //
-//                    new OvenRecipe(IIngredient.of("epiphyteArtistsConk"), new ItemStack(ItemsTFCF.ROASTED_ARTISTS_CONK), 2 * hour).setRegistryName("roasted_artists_conk_oven"),
-//                    new OvenRecipe(IIngredient.of("epiphyteSulphurShelf"), new ItemStack(ItemsTFCF.ROASTED_SULPHUR_SHELF), 2 * hour).setRegistryName("roasted_sulphur_shelf_oven"),
-//                    new OvenRecipe(IIngredient.of("epiphyteTurkeyTail"), new ItemStack(ItemsTFCF.ROASTED_TURKEY_TAIL), 2 * hour).setRegistryName("roasted_turkey_tail_oven"),
-//                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven_specific"),
-//                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven_specific"),
-//                    new OvenRecipe(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFCF.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFCF.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFCF.ROASTED_BLACK_POWDERPUFF), 2 * hour).setRegistryName("roasted_black_powderpuff_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomChanterelle"), new ItemStack(ItemsTFCF.ROASTED_CHANTERELLE), 2 * hour).setRegistryName("roasted_chanterelle_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomDeathCap"), new ItemStack(ItemsTFCF.ROASTED_DEATH_CAP), 2 * hour).setRegistryName("roasted_death_cap_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomGiantClub"), new ItemStack(ItemsTFCF.ROASTED_GIANT_CLUB), 2 * hour).setRegistryName("roasted_giant_club_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomParasol"), new ItemStack(ItemsTFCF.ROASTED_PARASOL_MUSHROOM), 2 * hour).setRegistryName("roasted_parasol_mushroom_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomStinkhorn"), new ItemStack(ItemsTFCF.ROASTED_STINKHORN), 2 * hour).setRegistryName("roasted_stinkhorn_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomWeepingMilkCap"), new ItemStack(ItemsTFCF.ROASTED_WEEPING_MILK_CAP), 2 * hour).setRegistryName("roasted_weeping_milk_cap_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomWoodBlewit"), new ItemStack(ItemsTFCF.ROASTED_WOOD_BLEWIT), 2 * hour).setRegistryName("roasted_wood_blewit_oven"),
-//                    new OvenRecipe(IIngredient.of("mushroomWoollyGomphus"), new ItemStack(ItemsTFCF.ROASTED_WOOLLY_GOMPHUS), 2 * hour).setRegistryName("roasted_woolly_gomphus_oven"),
+//                    new OvenRecipe(IIngredient.of("epiphyteArtistsConk"), new ItemStack(ItemsTFC.ROASTED_ARTISTS_CONK), 2 * hour).setRegistryName("roasted_artists_conk_oven"),
+//                    new OvenRecipe(IIngredient.of("epiphyteSulphurShelf"), new ItemStack(ItemsTFC.ROASTED_SULPHUR_SHELF), 2 * hour).setRegistryName("roasted_sulphur_shelf_oven"),
+//                    new OvenRecipe(IIngredient.of("epiphyteTurkeyTail"), new ItemStack(ItemsTFC.ROASTED_TURKEY_TAIL), 2 * hour).setRegistryName("roasted_turkey_tail_oven"),
+//                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PORCINI))), new ItemStack(ItemsTFC.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven_specific"),
+//                    new OvenRecipe(IIngredient.of(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.AMANITA))), new ItemStack(ItemsTFC.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven_specific"),
+//                    new OvenRecipe(IIngredient.of("mushroomPorcini"), new ItemStack(ItemsTFC.ROASTED_PORCINI), 2 * hour).setRegistryName("roasted_porcini_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomAmanita"), new ItemStack(ItemsTFC.ROASTED_AMANITA), 2 * hour).setRegistryName("roasted_amanita_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomBlackPowderpuff"), new ItemStack(ItemsTFC.ROASTED_BLACK_POWDERPUFF), 2 * hour).setRegistryName("roasted_black_powderpuff_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomChanterelle"), new ItemStack(ItemsTFC.ROASTED_CHANTERELLE), 2 * hour).setRegistryName("roasted_chanterelle_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomDeathCap"), new ItemStack(ItemsTFC.ROASTED_DEATH_CAP), 2 * hour).setRegistryName("roasted_death_cap_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomGiantClub"), new ItemStack(ItemsTFC.ROASTED_GIANT_CLUB), 2 * hour).setRegistryName("roasted_giant_club_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomParasol"), new ItemStack(ItemsTFC.ROASTED_PARASOL_MUSHROOM), 2 * hour).setRegistryName("roasted_parasol_mushroom_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomStinkhorn"), new ItemStack(ItemsTFC.ROASTED_STINKHORN), 2 * hour).setRegistryName("roasted_stinkhorn_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomWeepingMilkCap"), new ItemStack(ItemsTFC.ROASTED_WEEPING_MILK_CAP), 2 * hour).setRegistryName("roasted_weeping_milk_cap_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomWoodBlewit"), new ItemStack(ItemsTFC.ROASTED_WOOD_BLEWIT), 2 * hour).setRegistryName("roasted_wood_blewit_oven"),
+//                    new OvenRecipe(IIngredient.of("mushroomWoollyGomphus"), new ItemStack(ItemsTFC.ROASTED_WOOLLY_GOMPHUS), 2 * hour).setRegistryName("roasted_woolly_gomphus_oven"),
 //
-//                    new OvenRecipe(IIngredient.of("rawEel"), new ItemStack(ItemsTFCF.COOKED_EEL), 2 * hour).setRegistryName("cooked_eel_oven"),
-//                    new OvenRecipe(IIngredient.of("rawCrab"), new ItemStack(ItemsTFCF.COOKED_CRAB), 2 * hour).setRegistryName("cooked_crab_oven"),
-//                    new OvenRecipe(IIngredient.of("rawClam"), new ItemStack(ItemsTFCF.COOKED_CLAM), 2 * hour).setRegistryName("cooked_clam_oven"),
-//                    new OvenRecipe(IIngredient.of("rawScallop"), new ItemStack(ItemsTFCF.COOKED_SCALLOP), 2 * hour).setRegistryName("cooked_scallop_oven"),
-//                    new OvenRecipe(IIngredient.of("rawStarfish"), new ItemStack(ItemsTFCF.COOKED_STARFISH), 2 * hour).setRegistryName("cooked_starfish_oven"),
-//                    new OvenRecipe(IIngredient.of("rawSnail"), new ItemStack(ItemsTFCF.COOKED_SNAIL), 2 * hour).setRegistryName("cooked_snail_oven"),
-//                    new OvenRecipe(IIngredient.of("rawWorm"), new ItemStack(ItemsTFCF.COOKED_WORM), 2 * hour).setRegistryName("cooked_worm_oven"),
+//                    new OvenRecipe(IIngredient.of("rawEel"), new ItemStack(ItemsTFC.COOKED_EEL), 2 * hour).setRegistryName("cooked_eel_oven"),
+//                    new OvenRecipe(IIngredient.of("rawCrab"), new ItemStack(ItemsTFC.COOKED_CRAB), 2 * hour).setRegistryName("cooked_crab_oven"),
+//                    new OvenRecipe(IIngredient.of("rawClam"), new ItemStack(ItemsTFC.COOKED_CLAM), 2 * hour).setRegistryName("cooked_clam_oven"),
+//                    new OvenRecipe(IIngredient.of("rawScallop"), new ItemStack(ItemsTFC.COOKED_SCALLOP), 2 * hour).setRegistryName("cooked_scallop_oven"),
+//                    new OvenRecipe(IIngredient.of("rawStarfish"), new ItemStack(ItemsTFC.COOKED_STARFISH), 2 * hour).setRegistryName("cooked_starfish_oven"),
+//                    new OvenRecipe(IIngredient.of("rawSnail"), new ItemStack(ItemsTFC.COOKED_SNAIL), 2 * hour).setRegistryName("cooked_snail_oven"),
+//                    new OvenRecipe(IIngredient.of("rawWorm"), new ItemStack(ItemsTFC.COOKED_WORM), 2 * hour).setRegistryName("cooked_worm_oven"),
 //
 //                    new OvenRecipe(IIngredient.of("clayKaolinite"), new ItemStack(ItemPowder.get(Powder.KAOLINITE)), 1 * hour).setRegistryName("kaolinite_clay_oven"),
-//                    new OvenRecipe(IIngredient.of("bone"), new ItemStack(ItemsTFCF.CHARRED_BONES), 2 * hour).setRegistryName("charred_bones_heat_oven")
+//                    new OvenRecipe(IIngredient.of("bone"), new ItemStack(ItemsTFC.CHARRED_BONES), 2 * hour).setRegistryName("charred_bones_heat_oven")
 //            );
 //        }
 //    }*/
@@ -1269,22 +1269,22 @@
 //        int day = ICalendar.TICKS_IN_DAY;
 //
 //        r.registerAll(
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.SILK_WORM_HATCHERY), new ItemStack(ItemsTFCF.SILK_WORM), 24000).setRegistryName("silk_worm_hatchery"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.CELLULOSE_FIBERS), new ItemStack(Items.PAPER), 24000).setRegistryName(TFCFlorae.MODID, "paper_from_cellulose_fibers"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.BLACK_TEA), new ItemStack(ItemsTFCF.DRIED_BLACK_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_black_tea"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.GREEN_TEA), new ItemStack(ItemsTFCF.DRIED_GREEN_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_green_tea"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.WHITE_TEA), new ItemStack(ItemsTFCF.DRIED_WHITE_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_white_tea"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.CANNABIS_BUD), new ItemStack(ItemsTFCF.DRIED_CANNABIS_BUD), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_bud"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.CANNABIS_LEAF), new ItemStack(ItemsTFCF.DRIED_CANNABIS_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_leaf"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.COCA_LEAF), new ItemStack(ItemsTFCF.DRIED_COCA_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_coca_leaf"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.OPIUM_POPPY_BULB), new ItemStack(ItemsTFCF.DRIED_OPIUM_POPPY_BULB), 24000).setRegistryName(TFCFlorae.MODID, "dried_opium_poppy_bulb"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.PEYOTE), new ItemStack(ItemsTFCF.DRIED_PEYOTE), 24000).setRegistryName(TFCFlorae.MODID, "dried_peyote"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.TOBACCO_LEAF), new ItemStack(ItemsTFCF.DRIED_TOBACCO_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_tobacco_leaf"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.COFFEA_CHERRIES), new ItemStack(ItemsTFCF.DRIED_COFFEA_CHERRIES), 24000).setRegistryName(TFCFlorae.MODID, "dried_coffea_cherries"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.CHAMOMILE_HEAD), new ItemStack(ItemsTFCF.DRIED_CHAMOMILE_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_chamomile_head"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.DANDELION_HEAD), new ItemStack(ItemsTFCF.DRIED_DANDELION_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_dandelion_head"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.LABRADOR_TEA_HEAD), new ItemStack(ItemsTFCF.DRIED_LABRADOR_TEA_HEAD), 24000).setRegistryName("dried_labrador_tea_head"),
-//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFCF.SUNFLOWER_HEAD), new ItemStack(ItemsTFCF.DRIED_SUNFLOWER_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_sunflower_head")
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.SILK_WORM_HATCHERY), new ItemStack(ItemsTFC.SILK_WORM), 24000).setRegistryName("silk_worm_hatchery"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.CELLULOSE_FIBERS), new ItemStack(Items.PAPER), 24000).setRegistryName(TFCFlorae.MODID, "paper_from_cellulose_fibers"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.BLACK_TEA), new ItemStack(ItemsTFC.DRIED_BLACK_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_black_tea"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.GREEN_TEA), new ItemStack(ItemsTFC.DRIED_GREEN_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_green_tea"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.WHITE_TEA), new ItemStack(ItemsTFC.DRIED_WHITE_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_white_tea"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.CANNABIS_BUD), new ItemStack(ItemsTFC.DRIED_CANNABIS_BUD), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_bud"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.CANNABIS_LEAF), new ItemStack(ItemsTFC.DRIED_CANNABIS_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_leaf"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.COCA_LEAF), new ItemStack(ItemsTFC.DRIED_COCA_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_coca_leaf"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.OPIUM_POPPY_BULB), new ItemStack(ItemsTFC.DRIED_OPIUM_POPPY_BULB), 24000).setRegistryName(TFCFlorae.MODID, "dried_opium_poppy_bulb"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.PEYOTE), new ItemStack(ItemsTFC.DRIED_PEYOTE), 24000).setRegistryName(TFCFlorae.MODID, "dried_peyote"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.TOBACCO_LEAF), new ItemStack(ItemsTFC.DRIED_TOBACCO_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_tobacco_leaf"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.COFFEA_CHERRIES), new ItemStack(ItemsTFC.DRIED_COFFEA_CHERRIES), 24000).setRegistryName(TFCFlorae.MODID, "dried_coffea_cherries"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.CHAMOMILE_HEAD), new ItemStack(ItemsTFC.DRIED_CHAMOMILE_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_chamomile_head"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.DANDELION_HEAD), new ItemStack(ItemsTFC.DRIED_DANDELION_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_dandelion_head"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.LABRADOR_TEA_HEAD), new ItemStack(ItemsTFC.DRIED_LABRADOR_TEA_HEAD), 24000).setRegistryName("dried_labrador_tea_head"),
+//                new tfcflorae.objects.recipes.DryingRecipe(IIngredient.of(ItemsTFC.SUNFLOWER_HEAD), new ItemStack(ItemsTFC.DRIED_SUNFLOWER_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_sunflower_head")
 //        );
 //
 //        // Mud Pottery
@@ -1321,22 +1321,22 @@
 //        {
 //            IForgeRegistry<DryingRecipe> r = event.getRegistry();
 //            r.registerAll(
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.SILK_WORM_HATCHERY), new ItemStack(ItemsTFCF.SILK_WORM), 24000).setRegistryName(TFCFlorae.MODID, "silk_worm_hatchery_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.CELLULOSE_FIBERS), new ItemStack(Items.PAPER), 24000).setRegistryName(TFCFlorae.MODID, "paper_from_cellulose_fibers_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.BLACK_TEA), new ItemStack(ItemsTFCF.DRIED_BLACK_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_black_tea_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.GREEN_TEA), new ItemStack(ItemsTFCF.DRIED_GREEN_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_green_tea_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.WHITE_TEA), new ItemStack(ItemsTFCF.DRIED_WHITE_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_white_tea_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.CANNABIS_BUD), new ItemStack(ItemsTFCF.DRIED_CANNABIS_BUD), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_bud_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.CANNABIS_LEAF), new ItemStack(ItemsTFCF.DRIED_CANNABIS_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_leaf_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.COCA_LEAF), new ItemStack(ItemsTFCF.DRIED_COCA_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_coca_leaf_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.OPIUM_POPPY_BULB), new ItemStack(ItemsTFCF.DRIED_OPIUM_POPPY_BULB), 24000).setRegistryName(TFCFlorae.MODID, "dried_opium_poppy_bulb_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.PEYOTE), new ItemStack(ItemsTFCF.DRIED_PEYOTE), 24000).setRegistryName(TFCFlorae.MODID, "dried_peyote_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.TOBACCO_LEAF), new ItemStack(ItemsTFCF.DRIED_TOBACCO_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_tobacco_leaf_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.COFFEA_CHERRIES), new ItemStack(ItemsTFCF.DRIED_COFFEA_CHERRIES), 24000).setRegistryName(TFCFlorae.MODID, "dried_coffea_cherries_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.CHAMOMILE_HEAD), new ItemStack(ItemsTFCF.DRIED_CHAMOMILE_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_chamomile_head_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.DANDELION_HEAD), new ItemStack(ItemsTFCF.DRIED_DANDELION_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_dandelion_head_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.LABRADOR_TEA_HEAD), new ItemStack(ItemsTFCF.DRIED_LABRADOR_TEA_HEAD), 24000).setRegistryName("dried_labrador_tea_head_firmalife"),
-//                    new DryingRecipe(IIngredient.of(ItemsTFCF.SUNFLOWER_HEAD), new ItemStack(ItemsTFCF.DRIED_SUNFLOWER_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_sunflower_head_firmalife")
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.SILK_WORM_HATCHERY), new ItemStack(ItemsTFC.SILK_WORM), 24000).setRegistryName(TFCFlorae.MODID, "silk_worm_hatchery_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.CELLULOSE_FIBERS), new ItemStack(Items.PAPER), 24000).setRegistryName(TFCFlorae.MODID, "paper_from_cellulose_fibers_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.BLACK_TEA), new ItemStack(ItemsTFC.DRIED_BLACK_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_black_tea_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.GREEN_TEA), new ItemStack(ItemsTFC.DRIED_GREEN_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_green_tea_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.WHITE_TEA), new ItemStack(ItemsTFC.DRIED_WHITE_TEA), 24000).setRegistryName(TFCFlorae.MODID, "dried_white_tea_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.CANNABIS_BUD), new ItemStack(ItemsTFC.DRIED_CANNABIS_BUD), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_bud_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.CANNABIS_LEAF), new ItemStack(ItemsTFC.DRIED_CANNABIS_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_cannabis_leaf_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.COCA_LEAF), new ItemStack(ItemsTFC.DRIED_COCA_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_coca_leaf_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.OPIUM_POPPY_BULB), new ItemStack(ItemsTFC.DRIED_OPIUM_POPPY_BULB), 24000).setRegistryName(TFCFlorae.MODID, "dried_opium_poppy_bulb_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.PEYOTE), new ItemStack(ItemsTFC.DRIED_PEYOTE), 24000).setRegistryName(TFCFlorae.MODID, "dried_peyote_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.TOBACCO_LEAF), new ItemStack(ItemsTFC.DRIED_TOBACCO_LEAF), 24000).setRegistryName(TFCFlorae.MODID, "dried_tobacco_leaf_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.COFFEA_CHERRIES), new ItemStack(ItemsTFC.DRIED_COFFEA_CHERRIES), 24000).setRegistryName(TFCFlorae.MODID, "dried_coffea_cherries_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.CHAMOMILE_HEAD), new ItemStack(ItemsTFC.DRIED_CHAMOMILE_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_chamomile_head_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.DANDELION_HEAD), new ItemStack(ItemsTFC.DRIED_DANDELION_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_dandelion_head_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.LABRADOR_TEA_HEAD), new ItemStack(ItemsTFC.DRIED_LABRADOR_TEA_HEAD), 24000).setRegistryName("dried_labrador_tea_head_firmalife"),
+//                    new DryingRecipe(IIngredient.of(ItemsTFC.SUNFLOWER_HEAD), new ItemStack(ItemsTFC.DRIED_SUNFLOWER_HEAD), 24000).setRegistryName(TFCFlorae.MODID, "dried_sunflower_head_firmalife")
 //            );
 //
 //            // Mud Pottery
@@ -1356,29 +1356,29 @@
 //    {
 //        IForgeRegistry<PlanterRecipe> r = event.getRegistry();
 //        r.registerAll(
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.BLACK_EYED_PEAS)), new ItemStack(ItemsTFCF.BLACK_EYED_PEAS), 7, true).setRegistryName("black_eyed_peas"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.CAYENNE_PEPPER)), new ItemStack(ItemsTFCF.RED_CAYENNE_PEPPER), 7, true).setRegistryName("red_cayenne_pepper"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.GINSENG)), new ItemStack(ItemsTFCF.GINSENG), 5, false).setRegistryName("ginseng"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.RUTABAGA)), new ItemStack(ItemsTFCF.RUTABAGA), 7, false).setRegistryName("rutabaga"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.TURNIP)), new ItemStack(ItemsTFCF.TURNIP), 8, false).setRegistryName("turnip"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.SUGAR_BEET)), new ItemStack(ItemsTFCF.SUGAR_BEET), 7, false).setRegistryName("sugar_beet"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.PURPLE_GRAPE)), new ItemStack(ItemsTFCF.PURPLE_GRAPE), 8, false).setRegistryName("purple_grape"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.GREEN_GRAPE)), new ItemStack(ItemsTFCF.GREEN_GRAPE), 8, false).setRegistryName("green_grape"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.LIQUORICE_ROOT)), new ItemStack(ItemsTFCF.LIQUORICE_ROOT), 8, false).setRegistryName("liquorice_root"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COFFEA)), new ItemStack(ItemsTFCF.COFFEA_CHERRIES), 8, false).setRegistryName("coffea_cherries"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.AGAVE)), new ItemStack(ItemsTFCF.AGAVE), 6, false).setRegistryName("agave"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COCA)), new ItemStack(ItemsTFCF.COCA_LEAF), 6, true).setRegistryName("coca"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COTTON)), new ItemStack(ItemsTFCF.COTTON_BOLL), 6, false).setRegistryName("cotton"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.FLAX)), new ItemStack(ItemsTFCF.FLAX), 6, true).setRegistryName("flax"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.HEMP)), new ItemStack(ItemsTFCF.HEMP), 5, true).setRegistryName("hemp"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.HOP)), new ItemStack(ItemsTFCF.HOPS), 6, true).setRegistryName("hop"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.INDIGO)), new ItemStack(ItemsTFCF.INDIGO), 5, true).setRegistryName("indigo"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.MADDER)), new ItemStack(ItemsTFCF.MADDER), 5, false).setRegistryName("madder"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.OPIUM_POPPY)), new ItemStack(ItemsTFCF.OPIUM_POPPY_BULB), 6, false).setRegistryName("opium_poppy"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.RAPE)), new ItemStack(ItemsTFCF.RAPE), 6, false).setRegistryName("rape"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.WELD)), new ItemStack(ItemsTFCF.WELD), 5, true).setRegistryName("weld"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.WOAD)), new ItemStack(ItemsTFCF.WOAD), 6, false).setRegistryName("woad"),
-//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.TOBACCO)), new ItemStack(ItemsTFCF.TOBACCO_LEAF), 7, true).setRegistryName("tobacco")
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.BLACK_EYED_PEAS)), new ItemStack(ItemsTFC.BLACK_EYED_PEAS), 7, true).setRegistryName("black_eyed_peas"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.CAYENNE_PEPPER)), new ItemStack(ItemsTFC.RED_CAYENNE_PEPPER), 7, true).setRegistryName("red_cayenne_pepper"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.GINSENG)), new ItemStack(ItemsTFC.GINSENG), 5, false).setRegistryName("ginseng"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.RUTABAGA)), new ItemStack(ItemsTFC.RUTABAGA), 7, false).setRegistryName("rutabaga"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.TURNIP)), new ItemStack(ItemsTFC.TURNIP), 8, false).setRegistryName("turnip"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.SUGAR_BEET)), new ItemStack(ItemsTFC.SUGAR_BEET), 7, false).setRegistryName("sugar_beet"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.PURPLE_GRAPE)), new ItemStack(ItemsTFC.PURPLE_GRAPE), 8, false).setRegistryName("purple_grape"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.GREEN_GRAPE)), new ItemStack(ItemsTFC.GREEN_GRAPE), 8, false).setRegistryName("green_grape"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.LIQUORICE_ROOT)), new ItemStack(ItemsTFC.LIQUORICE_ROOT), 8, false).setRegistryName("liquorice_root"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COFFEA)), new ItemStack(ItemsTFC.COFFEA_CHERRIES), 8, false).setRegistryName("coffea_cherries"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.AGAVE)), new ItemStack(ItemsTFC.AGAVE), 6, false).setRegistryName("agave"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COCA)), new ItemStack(ItemsTFC.COCA_LEAF), 6, true).setRegistryName("coca"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.COTTON)), new ItemStack(ItemsTFC.COTTON_BOLL), 6, false).setRegistryName("cotton"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.FLAX)), new ItemStack(ItemsTFC.FLAX), 6, true).setRegistryName("flax"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.HEMP)), new ItemStack(ItemsTFC.HEMP), 5, true).setRegistryName("hemp"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.HOP)), new ItemStack(ItemsTFC.HOPS), 6, true).setRegistryName("hop"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.INDIGO)), new ItemStack(ItemsTFC.INDIGO), 5, true).setRegistryName("indigo"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.MADDER)), new ItemStack(ItemsTFC.MADDER), 5, false).setRegistryName("madder"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.OPIUM_POPPY)), new ItemStack(ItemsTFC.OPIUM_POPPY_BULB), 6, false).setRegistryName("opium_poppy"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.RAPE)), new ItemStack(ItemsTFC.RAPE), 6, false).setRegistryName("rape"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.WELD)), new ItemStack(ItemsTFC.WELD), 5, true).setRegistryName("weld"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.WOAD)), new ItemStack(ItemsTFC.WOAD), 6, false).setRegistryName("woad"),
+//                new PlanterRecipe(IIngredient.of(ItemSeedsTFC.get(CropTFCF.TOBACCO)), new ItemStack(ItemsTFC.TOBACCO_LEAF), 7, true).setRegistryName("tobacco")
 //        );
 //    }*/
 //}

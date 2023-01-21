@@ -8,6 +8,7 @@ import java.util.function.BiConsumer;
 
 import net.dries007.tfc.objects.LootTablesTFC;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -40,7 +41,6 @@ import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.BiomesTFC;
 
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
-import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;
@@ -146,7 +146,7 @@ public class EntitySilkMoth extends EntityAnimalTFC implements ILivestock
     public List<ItemStack> getProducts()
     {
         List<ItemStack> eggs = new ArrayList<>();
-        ItemStack egg = new ItemStack(ItemsTFCF.SILK_MOTH_EGG);
+        ItemStack egg = new ItemStack(ItemsTFC.SILK_MOTH_EGG);
         if (this.isFertilized())
         {
             IEgg cap = egg.getCapability(CapabilityEgg.CAPABILITY, null);

@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -27,7 +28,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
-import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -53,7 +53,7 @@ public class BlockSurfaceSeashells extends BlockBush
         this.index = index;
         if(chance <= currentNumber)
         {
-            Item[] drops = {ItemsTFCF.CLAM, ItemsTFCF.LIVE_CLAM, ItemsTFCF.SCALLOP, ItemsTFCF.LIVE_SCALLOP, ItemsTFCF.LIVE_STARFISH, ItemsTFCF.CONCH, ItemsTFCF.PEARL, ItemsTFCF.BLACK_PEARL};
+            Item[] drops = {ItemsTFC.CLAM, ItemsTFC.LIVE_CLAM, ItemsTFC.SCALLOP, ItemsTFC.LIVE_SCALLOP, ItemsTFC.LIVE_STARFISH, ItemsTFC.CONCH, ItemsTFC.PEARL, ItemsTFC.BLACK_PEARL};
             return drops[index];
         }
         else

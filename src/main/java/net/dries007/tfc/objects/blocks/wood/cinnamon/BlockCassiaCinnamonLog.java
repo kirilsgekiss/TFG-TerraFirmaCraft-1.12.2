@@ -3,6 +3,7 @@ package net.dries007.tfc.objects.blocks.wood.cinnamon;
 import java.util.Random;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.objects.items.ItemsTFC;
 import net.dries007.tfc.objects.items.food.ItemFoodTFC;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
@@ -29,7 +30,6 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import tfcflorae.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;
@@ -128,7 +128,7 @@ public class BlockCassiaCinnamonLog extends Block
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        drops.add(new ItemStack(ItemsTFCF.CASSIA_CINNAMON_POLE, 1));
+        drops.add(new ItemStack(ItemsTFC.CASSIA_CINNAMON_POLE, 1));
     }
 
     @Override
