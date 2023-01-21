@@ -115,7 +115,7 @@ import net.dries007.tfc.objects.blocks.rock.TFCBlockRockAnvil;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.items.ItemQuiver;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
@@ -756,7 +756,7 @@ public final class CommonEventHandler
             {
                 // Prevents squids spawning outside of salt water (eg: oceans)
                 Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
-                if (FluidsTFC.SEA_WATER.get() != fluid)
+                if (TFCFluids.SEA_WATER.get() != fluid)
                 {
                     event.setResult(Event.Result.DENY);
                 }

@@ -36,7 +36,7 @@ import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.objects.blocks.devices.BlockSluice;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
@@ -46,7 +46,7 @@ public class TESluice extends TEBase implements ITickable
 
     public static boolean isValidFluid(Fluid fluid)
     {
-        return fluid == FluidRegistry.WATER || fluid == FluidsTFC.SEA_WATER.get();
+        return fluid == FluidRegistry.WATER || fluid == TFCFluids.SEA_WATER.get();
     }
 
     private int soil;

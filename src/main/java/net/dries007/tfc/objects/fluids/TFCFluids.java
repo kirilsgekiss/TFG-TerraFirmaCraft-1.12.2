@@ -40,7 +40,7 @@ import net.dries007.tfc.util.calendar.ICalendar;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public final class FluidsTFC {
+public final class TFCFluids {
     private static final ResourceLocation STILL = new ResourceLocation(MOD_ID, "blocks/fluid_still");
     private static final ResourceLocation FLOW = new ResourceLocation(MOD_ID, "blocks/fluid_flow");
 

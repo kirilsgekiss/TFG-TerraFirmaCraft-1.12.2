@@ -42,7 +42,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
@@ -68,9 +68,9 @@ public class ChunkGenTFC implements IChunkGenerator
 {
     public static final IBlockState STONE = Blocks.STONE.getDefaultState();
     public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-    public static final IBlockState SEA_WATER = FluidsTFC.SEA_WATER.get().getBlock().getDefaultState();
-    public static final IBlockState WATER = FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
-    public static final IBlockState HOT_WATER = FluidsTFC.HOT_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState SEA_WATER = TFCFluids.SEA_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState WATER = TFCFluids.FRESH_WATER.get().getBlock().getDefaultState();
+    public static final IBlockState HOT_WATER = TFCFluids.HOT_WATER.get().getBlock().getDefaultState();
     public static final IBlockState LAVA = Blocks.LAVA.getDefaultState();
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     /* Layers must be one here - otherwise snow becomes non-replaceable and wrecks the rest of world gen */

@@ -30,7 +30,7 @@ import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeFlower;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeLog;
 import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.objects.te.*;
@@ -877,7 +877,7 @@ public final class TFCBlocks
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
         // This is called here because it needs to wait until Metal registry has fired
-        FluidsTFC.registerFluids();
+        TFCFluids.registerFluids();
         IForgeRegistry<Block> r = event.getRegistry();
 
         Builder<ItemBlock> normalItemBlocks = ImmutableList.builder();
@@ -954,7 +954,7 @@ public final class TFCBlocks
         inventoryItemBlocks.add(new TFCItemBlock(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
         inventoryItemBlocks.add(new ItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_MISC)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new BlockIceTFC(TFCFluids.SEA_WATER.get()), CT_MISC)));
 
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
         normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
@@ -1000,56 +1000,56 @@ public final class TFCBlocks
         {
             fluids.add(
                     register(r, "fluid/hot_water", new BlockFluidHotWater()),
-                    register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true)),
-                    register(r, "fluid/distilled_water", new BlockFluidTFC(FluidsTFC.DISTILLED_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/waste", new BlockFluidTFC(FluidsTFC.WASTE.get(), Material.WATER, false)),
-                    register(r, "fluid/base_potash_liquor", new BlockFluidTFC(FluidsTFC.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
-                    register(r, "fluid/sweet_sap", new BlockFluidTFC(FluidsTFC.SWEET_SAP.get(), Material.WATER, false)),
-                    register(r, "fluid/sweet_syrup", new BlockFluidTFC(FluidsTFC.SWEET_SYRUP.get(), Material.WATER, false)),
-                    register(r, "fluid/resin", new BlockFluidTFC(FluidsTFC.RESIN.get(), Material.WATER, false)),
-                    register(r, "fluid/kino", new BlockFluidTFC(FluidsTFC.KINO.get(), Material.WATER, false)),
-                    register(r, "fluid/salammoniac", new BlockFluidTFC(FluidsTFC.SALAMMONIAC.get(), Material.WATER, false))
+                    register(r, "fluid/fresh_water", new BlockFluidWater(TFCFluids.FRESH_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/sea_water", new BlockFluidWater(TFCFluids.SEA_WATER.get(), Material.WATER, true)),
+                    register(r, "fluid/distilled_water", new BlockFluidTFC(TFCFluids.DISTILLED_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/waste", new BlockFluidTFC(TFCFluids.WASTE.get(), Material.WATER, false)),
+                    register(r, "fluid/base_potash_liquor", new BlockFluidTFC(TFCFluids.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_sap", new BlockFluidTFC(TFCFluids.SWEET_SAP.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_syrup", new BlockFluidTFC(TFCFluids.SWEET_SYRUP.get(), Material.WATER, false)),
+                    register(r, "fluid/resin", new BlockFluidTFC(TFCFluids.RESIN.get(), Material.WATER, false)),
+                    register(r, "fluid/kino", new BlockFluidTFC(TFCFluids.KINO.get(), Material.WATER, false)),
+                    register(r, "fluid/salammoniac", new BlockFluidTFC(TFCFluids.SALAMMONIAC.get(), Material.WATER, false))
             );
-            for (FluidWrapper wrapper : FluidsTFC.getAllOtherFiniteFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllOtherFiniteFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllFermentedAlcoholsFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllFermentedAlcoholsFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllAlcoholsFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllBeerFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllBeerFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllTeaFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllTeaFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllCoffeeFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllCoffeeFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllJuiceBerryFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllJuiceBerryFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllJuiceFruitFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllJuiceFruitFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
-            for (FluidWrapper wrapper : FluidsTFC.getAllMiscFluids())
+            for (FluidWrapper wrapper : TFCFluids.getAllMiscFluids())
             {
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
             for (EnumDyeColor color : EnumDyeColor.values())
             {
-                FluidWrapper wrapper = FluidsTFC.getFluidFromDye(color);
+                FluidWrapper wrapper = TFCFluids.getFluidFromDye(color);
                 fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
             }
             allFluidBlocks = fluids.build();
@@ -1567,20 +1567,20 @@ public final class TFCBlocks
         }*/
 
         // Normal Corals
-        plantCoral.add(register(r, "coral/tube/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/brain/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/bubble/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fire/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/horn/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/tube/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/brain/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/bubble/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fire/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/horn/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {
 
-            BlockCoral brainNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubbleNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fireNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral hornNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tubeNormal = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral brainNormal = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral bubbleNormal = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral fireNormal = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral hornNormal = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral tubeNormal = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
 
             plantCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
             plantCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
@@ -1596,19 +1596,19 @@ public final class TFCBlocks
         }
 
         // Fan Corals
-        plantCoral.add(register(r, "coral/fan/tube/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/brain/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/bubble/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/fire/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/horn/dead", new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/tube/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/brain/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/bubble/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/fire/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+        plantCoral.add(register(r, "coral/fan/horn/dead", new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
 
         for (EnumDyeColor dyeColor : EnumDyeColor.values())
         {
-            BlockCoral brainFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubbleFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fireFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral hornFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tubeFan = new BlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral brainFan = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral bubbleFan = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral fireFan = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral hornFan = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            BlockCoral tubeFan = new BlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
 
             plantCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
             plantCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
@@ -1656,7 +1656,7 @@ public final class TFCBlocks
         }
 
         {
-            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
+            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(TFCFluids.SEA_WATER.get()), CT_FLORA));
         }
         allGlowWaterPlants = plantGlowWater.build();
         for (TFCBlockWaterGlowPlant plantGlowWaterBlock : allGlowWaterPlants)
@@ -2185,12 +2185,12 @@ public final class TFCBlocks
 
     public static boolean isFreshWater(IBlockState current)
     {
-        return current == FluidsTFC.FRESH_WATER.get().getBlock().getDefaultState();
+        return current == TFCFluids.FRESH_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isSeaWater(IBlockState current)
     {
-        return current == FluidsTFC.SEA_WATER.get().getBlock().getDefaultState();
+        return current == TFCFluids.SEA_WATER.get().getBlock().getDefaultState();
     }
 
     public static boolean isFreshWaterOrIce(IBlockState current)

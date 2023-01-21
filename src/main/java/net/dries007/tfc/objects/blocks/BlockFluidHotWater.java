@@ -24,14 +24,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.food.FoodStatsTFC;
 import net.dries007.tfc.client.particle.TFCParticles;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 
 @ParametersAreNonnullByDefault
 public class BlockFluidHotWater extends BlockFluidTFC
 {
     public BlockFluidHotWater()
     {
-        super(FluidsTFC.HOT_WATER.get(), Material.WATER, false);
+        super(TFCFluids.HOT_WATER.get(), Material.WATER, false);
 
         setLightOpacity(3);
         disableStats();
