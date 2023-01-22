@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -97,7 +97,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
 
     public Item getSpecialItemDropped(Random rand)
     {
-        Item[] drops = {ItemFoodTFC.get(Food.RAW_SNAIL), ItemFoodTFC.get(Food.RAW_WORM)};
+        Item[] drops = {TFCItemFood.get(Food.RAW_SNAIL), TFCItemFood.get(Food.RAW_WORM)};
         int dropIndex = rand.nextInt(drops.length);
         return drops[dropIndex];
     }

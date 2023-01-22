@@ -1,6 +1,6 @@
 package net.dries007.tfc.util.agriculture;
 
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.minecraft.item.Item;
 
 import net.dries007.tfc.api.capability.food.FoodData;
@@ -103,19 +103,19 @@ public enum Fruits
     */
 
     // Normal Tree Fruits
-    BAOBAB_FRUIT(ItemFoodTFC.get(Food.BAOBAB_FRUIT), true, DRIED_FRUIT_DECAY, false),
-    BARREL_CACTUS_FRUIT(ItemFoodTFC.get(Food.BARREL_CACTUS_FRUIT), true, DRIED_FRUIT_DECAY, false),
-    HAWTHORN(ItemFoodTFC.get(Food.HAWTHORN), true, DRIED_FRUIT_DECAY, false),
-    OSAGE_ORANGE(ItemFoodTFC.get(Food.OSAGE_ORANGE), true, DRIED_FRUIT_DECAY, false),
-    PINK_IVORY_DRUPE(ItemFoodTFC.get(Food.PINK_IVORY_DRUPE), true, DRIED_FRUIT_DECAY, false),
-    RIBERRY(ItemFoodTFC.get(Food.RIBERRY), true, DRIED_FRUIT_DECAY, false),
-    ROWAN_BERRY(ItemFoodTFC.get(Food.ROWAN_BERRY), true, DRIED_FRUIT_DECAY, false),
-    SKY_FRUIT(ItemFoodTFC.get(Food.SKY_FRUIT), true, DRIED_FRUIT_DECAY, false),
-    YEW_BERRY(ItemFoodTFC.get(Food.YEW_BERRY), true, DRIED_FRUIT_DECAY, false),
+    BAOBAB_FRUIT(TFCItemFood.get(Food.BAOBAB_FRUIT), true, DRIED_FRUIT_DECAY, false),
+    BARREL_CACTUS_FRUIT(TFCItemFood.get(Food.BARREL_CACTUS_FRUIT), true, DRIED_FRUIT_DECAY, false),
+    HAWTHORN(TFCItemFood.get(Food.HAWTHORN), true, DRIED_FRUIT_DECAY, false),
+    OSAGE_ORANGE(TFCItemFood.get(Food.OSAGE_ORANGE), true, DRIED_FRUIT_DECAY, false),
+    PINK_IVORY_DRUPE(TFCItemFood.get(Food.PINK_IVORY_DRUPE), true, DRIED_FRUIT_DECAY, false),
+    RIBERRY(TFCItemFood.get(Food.RIBERRY), true, DRIED_FRUIT_DECAY, false),
+    ROWAN_BERRY(TFCItemFood.get(Food.ROWAN_BERRY), true, DRIED_FRUIT_DECAY, false),
+    SKY_FRUIT(TFCItemFood.get(Food.SKY_FRUIT), true, DRIED_FRUIT_DECAY, false),
+    YEW_BERRY(TFCItemFood.get(Food.YEW_BERRY), true, DRIED_FRUIT_DECAY, false),
 
     // Crop Foods
-    GREEN_GRAPE(ItemFoodTFC.get(Food.GREEN_GRAPE), true, DRIED_FRUIT_DECAY, false),
-    PURPLE_GRAPE(ItemFoodTFC.get(Food.PURPLE_GRAPE), true, DRIED_FRUIT_DECAY, false);
+    GREEN_GRAPE(TFCItemFood.get(Food.GREEN_GRAPE), true, DRIED_FRUIT_DECAY, false),
+    PURPLE_GRAPE(TFCItemFood.get(Food.PURPLE_GRAPE), true, DRIED_FRUIT_DECAY, false);
 
     private final Item fruit;
     private final boolean dry;

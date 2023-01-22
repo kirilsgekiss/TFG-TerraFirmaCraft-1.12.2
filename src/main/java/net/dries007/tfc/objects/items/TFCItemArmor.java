@@ -19,7 +19,7 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.IArmorMaterialTFC;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class ItemArmorTFC extends ItemArmor implements IItemSize, IDamageResistance
+public class TFCItemArmor extends ItemArmor implements IItemSize, IDamageResistance
 {
 
     public static final int DEFAULT_COLOR = 14277081; // Light Gray
@@ -35,7 +35,7 @@ public class ItemArmorTFC extends ItemArmor implements IItemSize, IDamageResista
 
     private final IArmorMaterialTFC materialTFC;
 
-    public ItemArmorTFC(IArmorMaterialTFC materialTFC, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    public TFCItemArmor(IArmorMaterialTFC materialTFC, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
     {
         super(materialTFC.getMaterial(), renderIndexIn, equipmentSlotIn);
         this.materialTFC = materialTFC;

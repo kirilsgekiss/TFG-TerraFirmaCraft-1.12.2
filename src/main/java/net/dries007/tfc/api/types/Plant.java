@@ -279,35 +279,35 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         return plantType == PlantType.STANDARD || plantType == PlantType.CACTUS || plantType == PlantType.CREEPING || plantType == PlantType.TALL_PLANT || plantType == PlantType.DRY || plantType == PlantType.DESERT || plantType == PlantType.MUSHROOM;
     }
 
-    public final EnumPlantTypeTFC getEnumPlantTypeTFC()
+    public final TFCEnumPlantType getEnumPlantTypeTFC()
     {
         switch (plantType)
         {
             case DESERT:
             case DESERT_TALL_PLANT:
-                if (isClayMarking) return EnumPlantTypeTFC.DESERT_CLAY;
-                else return EnumPlantTypeTFC.NONE;
+                if (isClayMarking) return TFCEnumPlantType.DESERT_CLAY;
+                else return TFCEnumPlantType.NONE;
             case DRY:
             case DRY_TALL_PLANT:
-                if (isClayMarking) return EnumPlantTypeTFC.DRY_CLAY;
-                else return EnumPlantTypeTFC.DRY;
+                if (isClayMarking) return TFCEnumPlantType.DRY_CLAY;
+                else return TFCEnumPlantType.DRY;
             case REED:
             case TALL_REED:
-                return EnumPlantTypeTFC.FRESH_BEACH;
+                return TFCEnumPlantType.FRESH_BEACH;
             case REED_SEA:
             case TALL_REED_SEA:
-                return EnumPlantTypeTFC.SALT_BEACH;
+                return TFCEnumPlantType.SALT_BEACH;
             case WATER:
             case TALL_WATER:
             case EMERGENT_TALL_WATER:
-                return EnumPlantTypeTFC.WATER;
+                return TFCEnumPlantType.WATER;
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
-                return EnumPlantTypeTFC.SEA_WATER;
+                return TFCEnumPlantType.SEA_WATER;
             default:
-                if (isClayMarking) return EnumPlantTypeTFC.CLAY;
-                else return EnumPlantTypeTFC.NONE;
+                if (isClayMarking) return TFCEnumPlantType.CLAY;
+                else return TFCEnumPlantType.NONE;
         }
     }
 
@@ -419,7 +419,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         }
     }
 
-    public enum EnumPlantTypeTFC
+    public enum TFCEnumPlantType
     {
         CLAY,
         DESERT_CLAY,

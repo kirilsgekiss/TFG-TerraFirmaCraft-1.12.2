@@ -4,7 +4,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 
 import net.dries007.tfc.objects.items.TFCItems;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -117,7 +117,7 @@ public class BlockCeylonCinnamonLog extends Block
                 {
                     world.setBlockState(pos, state.withProperty(GROWN, false));
                     held.damageItem(1, player);
-                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ItemFoodTFC.get(Food.CEYLON_CINNAMON_BARK), 1));
+                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(TFCItemFood.get(Food.CEYLON_CINNAMON_BARK), 1));
                 }
 
             }

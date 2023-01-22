@@ -18,7 +18,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
@@ -257,7 +257,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable
         {
             if (Constants.RNG.nextDouble() <= (state.getValue(AGE) + 1) / 3.0D) //+33% change for each age
             {
-                spawnAsEntity(worldIn, pos, new ItemStack(ItemFoodTFC.get(Food.SEAWEED), 1));
+                spawnAsEntity(worldIn, pos, new ItemStack(TFCItemFood.get(Food.SEAWEED), 1));
             }
         }
         else if (!worldIn.isRemote)
@@ -380,7 +380,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable
         return getDefaultState();
     }
 
-    public Plant.EnumPlantTypeTFC getPlantTypeTFC()
+    public Plant.TFCEnumPlantType getPlantTypeTFC()
     {
         return plant.getEnumPlantTypeTFC();
     }

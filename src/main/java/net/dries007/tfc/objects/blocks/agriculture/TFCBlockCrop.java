@@ -42,7 +42,7 @@ import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockEmergentTallWaterPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterPlant;
 import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
+import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.Crop;
@@ -188,7 +188,7 @@ public abstract class TFCBlockCrop extends BlockBush
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
         EntityPlayer player = harvesters.get();
-        ItemStack seedStack = new ItemStack(ItemSeedsTFC.get(crop));
+        ItemStack seedStack = new ItemStack(TFCItemSeeds.get(crop));
         ItemStack foodStack = crop.getFoodDrop(state.getValue(getStageProperty()));
 
         // if player and skills are present, update skills and increase amounts of items depending on skill
@@ -222,7 +222,7 @@ public abstract class TFCBlockCrop extends BlockBush
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(ItemSeedsTFC.get(crop));
+        return new ItemStack(TFCItemSeeds.get(crop));
     }
 
     @Nonnull

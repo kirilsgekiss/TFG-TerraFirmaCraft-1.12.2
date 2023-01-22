@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -377,7 +377,7 @@ public class TFCBlockHangingGlowingCreepingPlant extends TFCBlockCreepingPlant i
             {
                 if (!worldIn.isRemote)
                 {
-                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(ItemFoodTFC.get(Food.GLOWBERRY), 1 + TFCBlockHangingGlowingPlant.getSkillFoodBonus(skill, RANDOM)));
+                    ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(TFCItemFood.get(Food.GLOWBERRY), 1 + TFCBlockHangingGlowingPlant.getSkillFoodBonus(skill, RANDOM)));
                     worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(AGE, 0), 2);
                     TETickCounter te = Helpers.getTE(worldIn, pos, TETickCounter.class);
                     if (te != null)

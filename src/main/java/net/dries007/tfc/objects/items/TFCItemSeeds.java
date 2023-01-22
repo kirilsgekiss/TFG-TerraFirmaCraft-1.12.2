@@ -43,11 +43,11 @@ import net.dries007.tfc.util.agriculture.Crop;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
-public class ItemSeedsTFC extends Item implements IPlantable
+public class TFCItemSeeds extends Item implements IPlantable
 {
-    private static final Map<ICrop, ItemSeedsTFC> MAP = new HashMap<>();
+    private static final Map<ICrop, TFCItemSeeds> MAP = new HashMap<>();
 
-    public static ItemSeedsTFC get(ICrop crop)
+    public static TFCItemSeeds get(ICrop crop)
     {
         return MAP.get(crop);
     }
@@ -59,7 +59,7 @@ public class ItemSeedsTFC extends Item implements IPlantable
 
     private final ICrop crop;
 
-    public ItemSeedsTFC(ICrop crop)
+    public TFCItemSeeds(ICrop crop)
     {
         this.crop = crop;
         if (MAP.put(crop, this) != null)

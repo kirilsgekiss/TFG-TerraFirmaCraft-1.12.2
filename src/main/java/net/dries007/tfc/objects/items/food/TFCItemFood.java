@@ -29,12 +29,12 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
 
 @ParametersAreNonnullByDefault
-public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
+public class TFCItemFood extends ItemFood implements IItemSize, IItemFoodTFC
 {
-    private static final Map<Food, ItemFoodTFC> MAP = new HashMap<>();
+    private static final Map<Food, TFCItemFood> MAP = new HashMap<>();
     ArrayList<PotionEffectToHave> PotionEffects = new ArrayList<PotionEffectToHave>();
 
-    public static ItemFoodTFC get(Food food)
+    public static TFCItemFood get(Food food)
     {
         return MAP.get(food);
     }
@@ -46,7 +46,7 @@ public class ItemFoodTFC extends ItemFood implements IItemSize, IItemFoodTFC
 
     protected final Food food;
 
-    public ItemFoodTFC(@Nonnull Food food) //, Object... objs
+    public TFCItemFood(@Nonnull Food food) //, Object... objs
     {
         super(0, 0, food.getCategory() == Food.Category.MEAT || food.getCategory() == Food.Category.COOKED_MEAT);
         this.food = food;

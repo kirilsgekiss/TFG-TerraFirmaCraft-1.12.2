@@ -86,7 +86,7 @@ import net.dries007.tfc.objects.inventory.ingredient.IngredientFluidItem;
 import net.dries007.tfc.objects.inventory.ingredient.IngredientItemFood;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.TFCItems;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.ICalendar;
@@ -618,17 +618,17 @@ public final class DefaultRecipes
             // Misc
             new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 1000), IIngredient.of("logWoodTannin"), new FluidStack(TANNIN.get(), 10000), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("tannin"),
             new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 200), IIngredient.of(TFCItems.JUTE), null, new ItemStack(TFCItems.JUTE_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("jute_fiber"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 600), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.SUGARCANE), 5)), null, new ItemStack(Items.SUGAR), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 600), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.SUGARCANE), 5)), null, new ItemStack(Items.SUGAR), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar"),
             new BarrelRecipe(IIngredient.of(LIMEWATER.get(), 500), IIngredient.of(new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage())), null, new ItemStack(TFCItems.GLUE), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("glue"),
             // Alcohol - Classic created 1000mb with 4oz, which would be 8 items per full barrel at 5 oz/item. Instead we now require 20 items, so conversion is 2 oz/item here
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.BARLEY_FLOUR))), new FluidStack(TFCFluids.BEER.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("beer"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.BARLEY_FLOUR))), new FluidStack(TFCFluids.BEER.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("beer"),
             new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of("apple")), new FluidStack(TFCFluids.CIDER.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("cider"),
             new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), IIngredient.of(Items.SUGAR), new FluidStack(TFCFluids.RUM.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("rum"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.RICE_FLOUR))), new FluidStack(TFCFluids.SAKE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("sake"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.POTATO))), new FluidStack(TFCFluids.VODKA.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("vodka"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.WHEAT_FLOUR))), new FluidStack(TFCFluids.WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("whiskey"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.CORNMEAL_FLOUR))), new FluidStack(TFCFluids.CORN_WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("corn_whiskey"),
-            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.RYE_FLOUR))), new FluidStack(TFCFluids.RYE_WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("rye_whiskey"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.RICE_FLOUR))), new FluidStack(TFCFluids.SAKE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("sake"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.POTATO))), new FluidStack(TFCFluids.VODKA.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("vodka"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.WHEAT_FLOUR))), new FluidStack(TFCFluids.WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("whiskey"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.CORNMEAL_FLOUR))), new FluidStack(TFCFluids.CORN_WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("corn_whiskey"),
+            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 500), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.RYE_FLOUR))), new FluidStack(TFCFluids.RYE_WHISKEY.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("rye_whiskey"),
             // Vinegar - Classic created 1000mb with 10 oz, which would be 20 items per full barrel at 5 oz/item. Instead we now require 40 items, so conversion is 2.5 oz/item.
             new BarrelRecipe(IIngredient.of(250, TFCFluids.BEER.get(), TFCFluids.CIDER.get(), TFCFluids.RUM.get(), TFCFluids.SAKE.get(), TFCFluids.VODKA.get(), TFCFluids.WHISKEY.get(), TFCFluids.CORN_WHISKEY.get(), TFCFluids.RYE_WHISKEY.get()), new IngredientItemFood(IIngredient.of("categoryFruit")), new FluidStack(TFCFluids.VINEGAR.get(), 250), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("vinegar"),
             // Food preservation
@@ -647,7 +647,7 @@ public final class DefaultRecipes
             new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of(new ItemStack(TFCItems.WOOD_ASH)), new FluidStack(LYE.get(), 125), ItemStack.EMPTY, 0).setRegistryName("lye"),
             new BarrelRecipe(IIngredient.of(MILK_VINEGAR.get(), 1), IIngredient.of(ItemStack.EMPTY), new FluidStack(CURDLED_MILK.get(), 1), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("curdled_milk"),
             // based on eating 5 oz in classic, and 1 item in TNG, the full barrel recipe generated 160 oz of cheese, now 32 items. Therefore 625mb creates 2 cheese.
-            new BarrelRecipe(IIngredient.of(CURDLED_MILK.get(), 625), IIngredient.of(ItemStack.EMPTY), null, new ItemStack(ItemFoodTFC.get(Food.CHEESE), 2), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cheese"),
+            new BarrelRecipe(IIngredient.of(CURDLED_MILK.get(), 625), IIngredient.of(ItemStack.EMPTY), null, new ItemStack(TFCItemFood.get(Food.CHEESE), 2), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cheese"),
 
             // Instant recipes: set the duration to 0
             new BarrelRecipeFluidMixing(IIngredient.of(SEA_WATER.get(), 9), new IngredientFluidItem(VINEGAR.get(), 1), new FluidStack(BRINE.get(), 10), 0).setRegistryName("brine"),
@@ -681,7 +681,7 @@ public final class DefaultRecipes
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 500), IIngredient.of("dustWood"), new FluidStack(TFCFluids.BASE_POTASH_LIQUOR.get(), 500), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("base_potash_liquor_from_wood_dust"),
 
             // Cellulose Fibers
-            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of(ItemFoodTFC.get(Food.SUGARCANE)), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sugarcane_1"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of(TFCItemFood.get(Food.SUGARCANE)), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sugarcane_1"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("sugarcane"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sugarcane_2"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("pulp"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_pulp"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropAgave"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_agave_crop"),
@@ -921,7 +921,7 @@ public final class DefaultRecipes
 
         for (Food food : new Food[] {Food.SALAD_DAIRY, Food.SALAD_FRUIT, Food.SALAD_GRAIN, Food.SALAD_MEAT, Food.SALAD_VEGETABLE, Food.SOUP_DAIRY, Food.SOUP_FRUIT, Food.SOUP_GRAIN, Food.SOUP_MEAT, Food.SOUP_VEGETABLE})
         {
-            event.getRegistry().register(new BarrelRecipeDynamicBowlFood(IIngredient.of(FluidRegistry.WATER, 200), IIngredient.of(ItemFoodTFC.get(food)), 0).setRegistryName(food.name().toLowerCase() + "_cleaning"));
+            event.getRegistry().register(new BarrelRecipeDynamicBowlFood(IIngredient.of(FluidRegistry.WATER, 200), IIngredient.of(TFCItemFood.get(food)), 0).setRegistryName(food.name().toLowerCase() + "_cleaning"));
         }
 
         //The many many many recipes that is dye. This assumes that the standard meta values for colored objects are followed.
@@ -1064,14 +1064,14 @@ public final class DefaultRecipes
 
         r.registerAll(
             //Grain
-            new QuernRecipe(IIngredient.of("grainBarley"), new ItemStack(ItemFoodTFC.get(Food.BARLEY_FLOUR), 1)).setRegistryName("barley"),
-            new QuernRecipe(IIngredient.of("grainOat"), new ItemStack(ItemFoodTFC.get(Food.OAT_FLOUR), 1)).setRegistryName("oat"),
-            new QuernRecipe(IIngredient.of("grainRice"), new ItemStack(ItemFoodTFC.get(Food.RICE_FLOUR), 1)).setRegistryName("rice"),
-            new QuernRecipe(IIngredient.of("grainRye"), new ItemStack(ItemFoodTFC.get(Food.RYE_FLOUR), 1)).setRegistryName("rye"),
-            new QuernRecipe(IIngredient.of("grainWheat"), new ItemStack(ItemFoodTFC.get(Food.WHEAT_FLOUR), 1)).setRegistryName("wheat"),
-            new QuernRecipe(IIngredient.of("grainMaize"), new ItemStack(ItemFoodTFC.get(Food.CORNMEAL_FLOUR), 1)).setRegistryName("maize"),
+            new QuernRecipe(IIngredient.of("grainBarley"), new ItemStack(TFCItemFood.get(Food.BARLEY_FLOUR), 1)).setRegistryName("barley"),
+            new QuernRecipe(IIngredient.of("grainOat"), new ItemStack(TFCItemFood.get(Food.OAT_FLOUR), 1)).setRegistryName("oat"),
+            new QuernRecipe(IIngredient.of("grainRice"), new ItemStack(TFCItemFood.get(Food.RICE_FLOUR), 1)).setRegistryName("rice"),
+            new QuernRecipe(IIngredient.of("grainRye"), new ItemStack(TFCItemFood.get(Food.RYE_FLOUR), 1)).setRegistryName("rye"),
+            new QuernRecipe(IIngredient.of("grainWheat"), new ItemStack(TFCItemFood.get(Food.WHEAT_FLOUR), 1)).setRegistryName("wheat"),
+            new QuernRecipe(IIngredient.of("grainMaize"), new ItemStack(TFCItemFood.get(Food.CORNMEAL_FLOUR), 1)).setRegistryName("maize"),
 
-            new QuernRecipe(new IngredientItemFood(IIngredient.of(ItemFoodTFC.get(Food.OLIVE))), new ItemStack(TFCItems.OLIVE_PASTE, 1)).setRegistryName("olive"),
+            new QuernRecipe(new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.OLIVE))), new ItemStack(TFCItems.OLIVE_PASTE, 1)).setRegistryName("olive"),
 
             //Bone meal
             new QuernRecipe(IIngredient.of("bone"), new ItemStack(Items.DYE, 3, EnumDyeColor.WHITE.getDyeDamage())).setRegistryName("bone_meal_from_bone"),
@@ -1147,27 +1147,27 @@ public final class DefaultRecipes
 
 
                 new QuernRecipe(IIngredient.of("logWoodLogwood"), new ItemStack((TFCItems.LOGWOOD_CHIPS), 3)).setRegistryName("chipped_logwood_log"),
-                new QuernRecipe(IIngredient.of("sugarcane"), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_1"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.SUGARCANE)), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_2"),
-                new QuernRecipe(IIngredient.of("cropSugarBeet"), new ItemStack((ItemFoodTFC.get(Food.MASHED_SUGAR_BEET)))).setRegistryName("mashed_sugar_beet_quern"),
-                new QuernRecipe(IIngredient.of("grainAmaranth"), new ItemStack((ItemFoodTFC.get(Food.AMARANTH_FLOUR)))).setRegistryName("amaranth"),
-                new QuernRecipe(IIngredient.of("grainBuckwheat"), new ItemStack((ItemFoodTFC.get(Food.BUCKWHEAT_FLOUR)))).setRegistryName("buckwheat"),
-                new QuernRecipe(IIngredient.of("grainFonio"), new ItemStack((ItemFoodTFC.get(Food.FONIO_FLOUR)))).setRegistryName("fonio"),
-                new QuernRecipe(IIngredient.of("grainMillet"), new ItemStack((ItemFoodTFC.get(Food.MILLET_FLOUR)))).setRegistryName("millet"),
-                new QuernRecipe(IIngredient.of("grainQuinoa"), new ItemStack((ItemFoodTFC.get(Food.QUINOA_FLOUR)))).setRegistryName("quinoa"),
-                new QuernRecipe(IIngredient.of("grainSpelt"), new ItemStack((ItemFoodTFC.get(Food.SPELT_FLOUR)))).setRegistryName("spelt"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.CASSIA_CINNAMON_BARK)), new ItemStack(ItemFoodTFC.get(Food.GROUND_CASSIA_CINNAMON), 2)).setRegistryName("ground_cassia_cinnamon"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.CEYLON_CINNAMON_BARK)), new ItemStack(ItemFoodTFC.get(Food.GROUND_CEYLON_CINNAMON), 2)).setRegistryName("ground_ceylon_cinnamon"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.BLACK_PEPPER)), new ItemStack(ItemFoodTFC.get(Food.GROUND_BLACK_PEPPER), 2)).setRegistryName("ground_black_pepper"),
-                new QuernRecipe(IIngredient.of(ItemFoodTFC.get(Food.ROASTED_COFFEE_BEANS)), new ItemStack(ItemFoodTFC.get(Food.COFFEE_POWDER), 2)).setRegistryName("ground_coffee_beans"),
+                new QuernRecipe(IIngredient.of("sugarcane"), new ItemStack((TFCItemFood.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_1"),
+                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.SUGARCANE)), new ItemStack((TFCItemFood.get(Food.MASHED_SUGAR_CANE)))).setRegistryName("mashed_sugar_cane_quern_2"),
+                new QuernRecipe(IIngredient.of("cropSugarBeet"), new ItemStack((TFCItemFood.get(Food.MASHED_SUGAR_BEET)))).setRegistryName("mashed_sugar_beet_quern"),
+                new QuernRecipe(IIngredient.of("grainAmaranth"), new ItemStack((TFCItemFood.get(Food.AMARANTH_FLOUR)))).setRegistryName("amaranth"),
+                new QuernRecipe(IIngredient.of("grainBuckwheat"), new ItemStack((TFCItemFood.get(Food.BUCKWHEAT_FLOUR)))).setRegistryName("buckwheat"),
+                new QuernRecipe(IIngredient.of("grainFonio"), new ItemStack((TFCItemFood.get(Food.FONIO_FLOUR)))).setRegistryName("fonio"),
+                new QuernRecipe(IIngredient.of("grainMillet"), new ItemStack((TFCItemFood.get(Food.MILLET_FLOUR)))).setRegistryName("millet"),
+                new QuernRecipe(IIngredient.of("grainQuinoa"), new ItemStack((TFCItemFood.get(Food.QUINOA_FLOUR)))).setRegistryName("quinoa"),
+                new QuernRecipe(IIngredient.of("grainSpelt"), new ItemStack((TFCItemFood.get(Food.SPELT_FLOUR)))).setRegistryName("spelt"),
+                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.CASSIA_CINNAMON_BARK)), new ItemStack(TFCItemFood.get(Food.GROUND_CASSIA_CINNAMON), 2)).setRegistryName("ground_cassia_cinnamon"),
+                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.CEYLON_CINNAMON_BARK)), new ItemStack(TFCItemFood.get(Food.GROUND_CEYLON_CINNAMON), 2)).setRegistryName("ground_ceylon_cinnamon"),
+                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.BLACK_PEPPER)), new ItemStack(TFCItemFood.get(Food.GROUND_BLACK_PEPPER), 2)).setRegistryName("ground_black_pepper"),
+                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.ROASTED_COFFEE_BEANS)), new ItemStack(TFCItemFood.get(Food.COFFEE_POWDER), 2)).setRegistryName("ground_coffee_beans"),
 //                new QuernRecipe(IIngredient.of("pearl"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.PEARL))).setRegistryName("crushed_pearl"),
 //                new QuernRecipe(IIngredient.of("pearlBlack"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.BLACK_PEARL))).setRegistryName("crushed_black_pearl"),
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PAPYRUS))), new ItemStack(TFCItems.PAPYRUS_PULP, 3)).setRegistryName("crushed_papyrus"),
-                new QuernRecipe(IIngredient.of("linseed"), new ItemStack(ItemFoodTFC.get(Food.LINSEED_PASTE), 1)).setRegistryName("crushed_linseed"),
-                new QuernRecipe(IIngredient.of("rapeSeed"), new ItemStack(ItemFoodTFC.get(Food.RAPE_SEED_PASTE), 1)).setRegistryName("crushed_rape_seed"),
-                new QuernRecipe(IIngredient.of("sunflowerSeed"), new ItemStack(ItemFoodTFC.get(Food.SUNFLOWER_SEED_PASTE), 1)).setRegistryName("crushed_sunflower_seed"),
-                new QuernRecipe(IIngredient.of("opiumPoppySeed"), new ItemStack(ItemFoodTFC.get(Food.OPIUM_POPPY_SEED_PASTE), 1)).setRegistryName("crushed_opium_poppy_seed"),
-                new QuernRecipe(IIngredient.of("cropSoybean"), new ItemStack(ItemFoodTFC.get(Food.SOYBEAN_PASTE), 1)).setRegistryName("crushed_soybean"),
+                new QuernRecipe(IIngredient.of("linseed"), new ItemStack(TFCItemFood.get(Food.LINSEED_PASTE), 1)).setRegistryName("crushed_linseed"),
+                new QuernRecipe(IIngredient.of("rapeSeed"), new ItemStack(TFCItemFood.get(Food.RAPE_SEED_PASTE), 1)).setRegistryName("crushed_rape_seed"),
+                new QuernRecipe(IIngredient.of("sunflowerSeed"), new ItemStack(TFCItemFood.get(Food.SUNFLOWER_SEED_PASTE), 1)).setRegistryName("crushed_sunflower_seed"),
+                new QuernRecipe(IIngredient.of("opiumPoppySeed"), new ItemStack(TFCItemFood.get(Food.OPIUM_POPPY_SEED_PASTE), 1)).setRegistryName("crushed_opium_poppy_seed"),
+                new QuernRecipe(IIngredient.of("cropSoybean"), new ItemStack(TFCItemFood.get(Food.SOYBEAN_PASTE), 1)).setRegistryName("crushed_soybean"),
 
                 // Dye from plants
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.CHAMOMILE))), new ItemStack(TFCItems.DYE_WHITE, 2)).setRegistryName("crushed_chamomile"),
@@ -1411,59 +1411,59 @@ public final class DefaultRecipes
                 new HeatRecipeSimple(IIngredient.of(TFCItems.UNFIRED_FLOWER_POT), new ItemStack(Items.FLOWER_POT), 1500).setRegistryName("unfired_flower_pot"),
 
                 // Bread
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.BARLEY_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.BARLEY_BREAD)), 200, 480).setRegistryName("barley_bread"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.CORNMEAL_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.CORNBREAD)), 200, 480).setRegistryName("cornbread"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.OAT_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.OAT_BREAD)), 200, 480).setRegistryName("oat_bread"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.RICE_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.RICE_BREAD)), 200, 480).setRegistryName("rice_bread"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.RYE_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.RYE_BREAD)), 200, 480).setRegistryName("rye_bread"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.WHEAT_DOUGH)), new ItemStack(ItemFoodTFC.get(Food.WHEAT_BREAD)), 200, 480).setRegistryName("wheat_bread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.BARLEY_DOUGH)), new ItemStack(TFCItemFood.get(Food.BARLEY_BREAD)), 200, 480).setRegistryName("barley_bread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.CORNMEAL_DOUGH)), new ItemStack(TFCItemFood.get(Food.CORNBREAD)), 200, 480).setRegistryName("cornbread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.OAT_DOUGH)), new ItemStack(TFCItemFood.get(Food.OAT_BREAD)), 200, 480).setRegistryName("oat_bread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.RICE_DOUGH)), new ItemStack(TFCItemFood.get(Food.RICE_BREAD)), 200, 480).setRegistryName("rice_bread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.RYE_DOUGH)), new ItemStack(TFCItemFood.get(Food.RYE_BREAD)), 200, 480).setRegistryName("rye_bread"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.WHEAT_DOUGH)), new ItemStack(TFCItemFood.get(Food.WHEAT_BREAD)), 200, 480).setRegistryName("wheat_bread"),
 
                 // Meat
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.BEEF)), new ItemStack(ItemFoodTFC.get(Food.COOKED_BEEF)), 200, 480).setRegistryName("cooked_beef"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.PORK)), new ItemStack(ItemFoodTFC.get(Food.COOKED_PORK)), 200, 480).setRegistryName("cooked_pork"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.CHICKEN)), new ItemStack(ItemFoodTFC.get(Food.COOKED_CHICKEN)), 200, 480).setRegistryName("cooked_chicken"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.MUTTON)), new ItemStack(ItemFoodTFC.get(Food.COOKED_MUTTON)), 200, 480).setRegistryName("cooked_mutton"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.FISH)), new ItemStack(ItemFoodTFC.get(Food.COOKED_FISH)), 200, 480).setRegistryName("cooked_fish"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.BEAR)), new ItemStack(ItemFoodTFC.get(Food.COOKED_BEAR)), 200, 480).setRegistryName("cooked_bear"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.CALAMARI)), new ItemStack(ItemFoodTFC.get(Food.COOKED_CALAMARI)), 200, 480).setRegistryName("cooked_calamari"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.HORSE_MEAT)), new ItemStack(ItemFoodTFC.get(Food.COOKED_HORSE_MEAT)), 200, 480).setRegistryName("cooked_horse_meat"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.PHEASANT)), new ItemStack(ItemFoodTFC.get(Food.COOKED_PHEASANT)), 200, 480).setRegistryName("cooked_pheasant"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.VENISON)), new ItemStack(ItemFoodTFC.get(Food.COOKED_VENISON)), 200, 480).setRegistryName("cooked_venison"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.RABBIT)), new ItemStack(ItemFoodTFC.get(Food.COOKED_RABBIT)), 200, 480).setRegistryName("cooked_rabbit"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.WOLF)), new ItemStack(ItemFoodTFC.get(Food.COOKED_WOLF)), 200, 480).setRegistryName("cooked_wolf"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.CAMELIDAE)), new ItemStack(ItemFoodTFC.get(Food.COOKED_CAMELIDAE)), 200, 480).setRegistryName("cooked_camelidae"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.MONGOOSE)), new ItemStack(ItemFoodTFC.get(Food.COOKED_MONGOOSE)), 200, 480).setRegistryName("cooked_mongoose"),
-                new HeatRecipeSimple(IIngredient.of(ItemFoodTFC.get(Food.GRAN_FELINE)), new ItemStack(ItemFoodTFC.get(Food.COOKED_GRAN_FELINE)), 200, 480).setRegistryName("cooked_gran_feline"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.BEEF)), new ItemStack(TFCItemFood.get(Food.COOKED_BEEF)), 200, 480).setRegistryName("cooked_beef"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.PORK)), new ItemStack(TFCItemFood.get(Food.COOKED_PORK)), 200, 480).setRegistryName("cooked_pork"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.CHICKEN)), new ItemStack(TFCItemFood.get(Food.COOKED_CHICKEN)), 200, 480).setRegistryName("cooked_chicken"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.MUTTON)), new ItemStack(TFCItemFood.get(Food.COOKED_MUTTON)), 200, 480).setRegistryName("cooked_mutton"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.FISH)), new ItemStack(TFCItemFood.get(Food.COOKED_FISH)), 200, 480).setRegistryName("cooked_fish"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.BEAR)), new ItemStack(TFCItemFood.get(Food.COOKED_BEAR)), 200, 480).setRegistryName("cooked_bear"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.CALAMARI)), new ItemStack(TFCItemFood.get(Food.COOKED_CALAMARI)), 200, 480).setRegistryName("cooked_calamari"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.HORSE_MEAT)), new ItemStack(TFCItemFood.get(Food.COOKED_HORSE_MEAT)), 200, 480).setRegistryName("cooked_horse_meat"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.PHEASANT)), new ItemStack(TFCItemFood.get(Food.COOKED_PHEASANT)), 200, 480).setRegistryName("cooked_pheasant"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.VENISON)), new ItemStack(TFCItemFood.get(Food.COOKED_VENISON)), 200, 480).setRegistryName("cooked_venison"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.RABBIT)), new ItemStack(TFCItemFood.get(Food.COOKED_RABBIT)), 200, 480).setRegistryName("cooked_rabbit"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.WOLF)), new ItemStack(TFCItemFood.get(Food.COOKED_WOLF)), 200, 480).setRegistryName("cooked_wolf"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.CAMELIDAE)), new ItemStack(TFCItemFood.get(Food.COOKED_CAMELIDAE)), 200, 480).setRegistryName("cooked_camelidae"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.MONGOOSE)), new ItemStack(TFCItemFood.get(Food.COOKED_MONGOOSE)), 200, 480).setRegistryName("cooked_mongoose"),
+                new HeatRecipeSimple(IIngredient.of(TFCItemFood.get(Food.GRAN_FELINE)), new ItemStack(TFCItemFood.get(Food.COOKED_GRAN_FELINE)), 200, 480).setRegistryName("cooked_gran_feline"),
 
                 // Egg
-                new HeatRecipeSimple(IIngredient.of(Items.EGG), new ItemStack(ItemFoodTFC.get(Food.COOKED_EGG)), 200, 480).setRegistryName("cooked_egg"),
+                new HeatRecipeSimple(IIngredient.of(Items.EGG), new ItemStack(TFCItemFood.get(Food.COOKED_EGG)), 200, 480).setRegistryName("cooked_egg"),
 
                 // Bread
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.BARLEY_BREAD)), 480).setRegistryName("burned_barley_bread"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.CORNBREAD)), 480).setRegistryName("burned_cornbread"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.OAT_BREAD)), 480).setRegistryName("burned_oat_bread"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.RICE_BREAD)), 480).setRegistryName("burned_rice_bread"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.RYE_BREAD)), 480).setRegistryName("burned_rye_bread"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.WHEAT_BREAD)), 480).setRegistryName("burned_wheat_bread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.BARLEY_BREAD)), 480).setRegistryName("burned_barley_bread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.CORNBREAD)), 480).setRegistryName("burned_cornbread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.OAT_BREAD)), 480).setRegistryName("burned_oat_bread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.RICE_BREAD)), 480).setRegistryName("burned_rice_bread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.RYE_BREAD)), 480).setRegistryName("burned_rye_bread"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.WHEAT_BREAD)), 480).setRegistryName("burned_wheat_bread"),
 
                 // Meat
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_BEEF)), 480).setRegistryName("burned_beef"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_PORK)), 480).setRegistryName("burned_pork"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_CHICKEN)), 480).setRegistryName("burned_chicken"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_MUTTON)), 480).setRegistryName("burned_mutton"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_FISH)), 480).setRegistryName("burned_fish"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_BEAR)), 480).setRegistryName("burned_bear"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_CALAMARI)), 480).setRegistryName("burned_calamari"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_HORSE_MEAT)), 480).setRegistryName("burned_horse_meat"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_PHEASANT)), 480).setRegistryName("burned_pheasant"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_RABBIT)), 480).setRegistryName("burned_rabbit"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_WOLF)), 480).setRegistryName("burned_wolf"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_VENISON)), 480).setRegistryName("burned_venison"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_CAMELIDAE)), 480).setRegistryName("burned_camelidae"),
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_MONGOOSE)), 480).setRegistryName("burned_mongoose"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_BEEF)), 480).setRegistryName("burned_beef"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_PORK)), 480).setRegistryName("burned_pork"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_CHICKEN)), 480).setRegistryName("burned_chicken"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_MUTTON)), 480).setRegistryName("burned_mutton"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_FISH)), 480).setRegistryName("burned_fish"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_BEAR)), 480).setRegistryName("burned_bear"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_CALAMARI)), 480).setRegistryName("burned_calamari"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_HORSE_MEAT)), 480).setRegistryName("burned_horse_meat"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_PHEASANT)), 480).setRegistryName("burned_pheasant"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_RABBIT)), 480).setRegistryName("burned_rabbit"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_WOLF)), 480).setRegistryName("burned_wolf"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_VENISON)), 480).setRegistryName("burned_venison"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_CAMELIDAE)), 480).setRegistryName("burned_camelidae"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_MONGOOSE)), 480).setRegistryName("burned_mongoose"),
 
                 // Egg
-                HeatRecipe.destroy(IIngredient.of(ItemFoodTFC.get(Food.COOKED_EGG)), 480).setRegistryName("burned_egg"),
+                HeatRecipe.destroy(IIngredient.of(TFCItemFood.get(Food.COOKED_EGG)), 480).setRegistryName("burned_egg"),
 
                 // Glazed terracotta, because minecraft decided *this* one should not use metadata.
                 new HeatRecipeSimple(IIngredient.of(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 1, EnumDyeColor.WHITE.getMetadata())), new ItemStack(Blocks.WHITE_GLAZED_TERRACOTTA), 1200).setRegistryName("white_glazed_terracotta"),

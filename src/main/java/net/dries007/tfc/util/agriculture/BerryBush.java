@@ -8,7 +8,7 @@ package net.dries007.tfc.util.agriculture;
 import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.types.IBerryBush;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
@@ -108,7 +108,7 @@ public enum BerryBush implements IBerryBush
     @Override
     public ItemStack getFoodDrop()
     {
-        return new ItemStack(ItemFoodTFC.get(getFruit()));
+        return new ItemStack(TFCItemFood.get(getFruit()));
     }
 
     public Size getSize() { return this.size; }

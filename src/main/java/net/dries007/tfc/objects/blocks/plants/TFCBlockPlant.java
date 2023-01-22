@@ -403,7 +403,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize
     }
 
     @Nonnull
-    public Plant.EnumPlantTypeTFC getPlantTypeTFC()
+    public Plant.TFCEnumPlantType getPlantTypeTFC()
     {
         return plant.getEnumPlantTypeTFC();
     }

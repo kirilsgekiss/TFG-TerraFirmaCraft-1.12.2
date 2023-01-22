@@ -18,7 +18,7 @@ import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
-import net.dries007.tfc.objects.items.ItemArmorTFC;
+import net.dries007.tfc.objects.items.TFCItemArmor;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitDoor;
 import net.minecraft.block.*;
@@ -501,8 +501,8 @@ public final class ClientRegisterEvents
         TFCItems.getAllBoatItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack),
-                TFCItems.getAllArmorItems().toArray(new ItemArmorTFC[0]));
+                        tintIndex > 0 ? -1 : ((TFCItemArmor)stack.getItem()).getColor(stack),
+                TFCItems.getAllArmorItems().toArray(new TFCItemArmor[0]));
 
         itemColors.registerItemColorHandler((stack, tintIndex) ->
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),

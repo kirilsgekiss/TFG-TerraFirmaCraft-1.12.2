@@ -24,7 +24,7 @@ import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.util.agriculture.Food;
 
 @ParametersAreNonnullByDefault
-public class ItemDynamicBowlFood extends ItemFoodTFC
+public class ItemDynamicBowlFood extends TFCItemFood
 {
     public ItemDynamicBowlFood(Food food)
     {

@@ -21,7 +21,7 @@ import net.dries007.tfc.api.capability.food.Nutrient;
 import net.dries007.tfc.util.agriculture.Food;
 
 @ParametersAreNonnullByDefault
-public class ItemSandwich extends ItemFoodTFC
+public class ItemSandwich extends TFCItemFood
 {
 
     public ItemSandwich(@Nonnull Food food, Object... oreNameParts)

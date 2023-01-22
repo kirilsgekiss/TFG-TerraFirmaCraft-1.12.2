@@ -25,7 +25,7 @@ import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemStackHandlerCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.Food;
 
@@ -270,15 +270,15 @@ public class ContainerSalad extends ContainerSimple implements ISlotCallback
         switch (nutrient)
         {
             case GRAIN:
-                return ItemFoodTFC.get(Food.SALAD_GRAIN);
+                return TFCItemFood.get(Food.SALAD_GRAIN);
             case VEGETABLES:
-                return ItemFoodTFC.get(Food.SALAD_VEGETABLE);
+                return TFCItemFood.get(Food.SALAD_VEGETABLE);
             case FRUIT:
-                return ItemFoodTFC.get(Food.SALAD_FRUIT);
+                return TFCItemFood.get(Food.SALAD_FRUIT);
             case PROTEIN:
-                return ItemFoodTFC.get(Food.SALAD_MEAT);
+                return TFCItemFood.get(Food.SALAD_MEAT);
             default:
-                return ItemFoodTFC.get(Food.SALAD_DAIRY);
+                return TFCItemFood.get(Food.SALAD_DAIRY);
         }
     }
 }

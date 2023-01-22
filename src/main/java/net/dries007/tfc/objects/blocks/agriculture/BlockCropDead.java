@@ -35,7 +35,7 @@ import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockEmergentTallWaterPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterPlant;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
+import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
@@ -104,7 +104,7 @@ public class BlockCropDead extends BlockBush
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemSeedsTFC.get(crop);
+        return TFCItemSeeds.get(crop);
     }
 
     @Override
@@ -150,7 +150,7 @@ public class BlockCropDead extends BlockBush
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(ItemSeedsTFC.get(crop));
+        return new ItemStack(TFCItemSeeds.get(crop));
     }
 
     @Override

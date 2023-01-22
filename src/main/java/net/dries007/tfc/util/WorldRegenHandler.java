@@ -40,7 +40,7 @@ import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockMushroom;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
+import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.types.DefaultPlants;
@@ -221,7 +221,7 @@ public class WorldRegenHandler
         for (ClassInheritanceMultiMap<Entity> target : world.getChunk(pos.x, pos.z).getEntityLists())
         {
             target.forEach(entity -> {
-                if (entity instanceof EntityItem && ((EntityItem) entity).getItem().getItem() instanceof ItemSeedsTFC)
+                if (entity instanceof EntityItem && ((EntityItem) entity).getItem().getItem() instanceof TFCItemSeeds)
                 {
                     removals.add(entity);
                 }

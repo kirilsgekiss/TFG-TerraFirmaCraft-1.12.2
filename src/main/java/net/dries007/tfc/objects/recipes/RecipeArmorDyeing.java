@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.DyeUtils;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import net.dries007.tfc.objects.items.ItemArmorTFC;
+import net.dries007.tfc.objects.items.TFCItemArmor;
 
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
@@ -37,9 +37,9 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
 
             if (!itemStack1.isEmpty())
             {
-                if (itemStack1.getItem() instanceof ItemArmorTFC)
+                if (itemStack1.getItem() instanceof TFCItemArmor)
                 {
-                    ItemArmorTFC itemArmor = (ItemArmorTFC)itemStack1.getItem();
+                    TFCItemArmor itemArmor = (TFCItemArmor)itemStack1.getItem();
                     itemStack = itemStack1;
                 }
                 else
@@ -66,7 +66,7 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
         int[] aint = new int[3];
         int i = 0;
         int j = 0;
-        ItemArmorTFC itemArmor = null;
+        TFCItemArmor itemArmor = null;
 
         for (int k = 0; k < inv.getSizeInventory(); ++k)
         {
@@ -74,9 +74,9 @@ public class RecipeArmorDyeing extends IForgeRegistryEntry.Impl<IRecipe> impleme
 
             if (!itemStack1.isEmpty())
             {
-                if (itemStack1.getItem() instanceof ItemArmorTFC)
+                if (itemStack1.getItem() instanceof TFCItemArmor)
                 {
-                    itemArmor = (ItemArmorTFC)itemStack1.getItem();
+                    itemArmor = (TFCItemArmor)itemStack1.getItem();
                     itemStack = itemStack1.copy();
                     itemStack.setCount(1);
                     if (itemArmor.hasColor(itemStack1))
