@@ -26,7 +26,7 @@ import net.dries007.tfc.objects.fluids.TFCFluids;
  * todo: as per comment in ItemsTFC, turn this into a proper fluid handler item?
  */
 @ParametersAreNonnullByDefault
-public class ItemGlassBottleTFC extends ItemGlassBottle
+public class TFCItemGlassBottle extends ItemGlassBottle
 {
     @Override
     @Nonnull

@@ -21,19 +21,19 @@ import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitSlab;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemSlabTFC extends ItemSlab implements IItemSize
+public class TFCItemSlab extends ItemSlab implements IItemSize
 {
-    public ItemSlabTFC(TFCBlockRockSlab.Half slab, TFCBlockRockSlab.Half slab1, TFCBlockRockSlab.Double doubleSlab)
+    public TFCItemSlab(TFCBlockRockSlab.Half slab, TFCBlockRockSlab.Half slab1, TFCBlockRockSlab.Double doubleSlab)
     {
         super(slab, slab1, doubleSlab);
     }
 
-    public ItemSlabTFC(TFCBlockWoodSlab.Half slab, TFCBlockWoodSlab.Half slab1, TFCBlockWoodSlab.Double doubleSlab)
+    public TFCItemSlab(TFCBlockWoodSlab.Half slab, TFCBlockWoodSlab.Half slab1, TFCBlockWoodSlab.Double doubleSlab)
     {
         super(slab, slab1, doubleSlab);
     }
 
-    public ItemSlabTFC(BlockFruitSlab.Half slab, BlockFruitSlab.Half slab1, BlockFruitSlab.Double doubleSlab)
+    public TFCItemSlab(BlockFruitSlab.Half slab, BlockFruitSlab.Half slab1, BlockFruitSlab.Double doubleSlab)
     {
         super(slab, slab1, doubleSlab);
     }
