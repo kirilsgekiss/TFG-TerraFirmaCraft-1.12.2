@@ -695,7 +695,7 @@ public final class DefaultRecipes
 
             // Fiber Processing
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropAgave"), null, new ItemStack(TFCItems.SISAL_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sisal_fiber"),
-            new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropFlax"), null, new ItemStack(TFCItems.FLAX_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("flax_fiber"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropFlax"), null, new ItemStack(TFCItems.LINEN_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("flax_fiber"),
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropHemp"), null, new ItemStack(TFCItems.HEMP_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("hemp_fiber"),
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 300), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), null, new ItemStack(TFCItems.YUCCA_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("yucca_fiber"),
 
