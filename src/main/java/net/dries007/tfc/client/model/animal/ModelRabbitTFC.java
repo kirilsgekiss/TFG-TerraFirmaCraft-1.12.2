@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityRabbitTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityRabbit;
 
 @SideOnly(Side.CLIENT)
 public class ModelRabbitTFC extends ModelBase
@@ -152,7 +152,7 @@ public class ModelRabbitTFC extends ModelBase
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
     {
         float f = ageInTicks - (float) entityIn.ticksExisted;
-        EntityRabbitTFC EntityRabbitTFC = (EntityRabbitTFC) entityIn;
+        TFCEntityRabbit EntityRabbitTFC = (TFCEntityRabbit) entityIn;
         this.rabbitNose.rotateAngleX = headPitch * 0.017453292F;
         this.rabbitHead.rotateAngleX = headPitch * 0.017453292F;
         this.rabbitRightEar.rotateAngleX = headPitch * 0.017453292F;
@@ -173,7 +173,7 @@ public class ModelRabbitTFC extends ModelBase
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
     {
         super.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTickTime);
-        this.jumpRotation = MathHelper.sin(((EntityRabbitTFC) entitylivingbaseIn).getJumpCompletion(partialTickTime) * (float) Math.PI);
+        this.jumpRotation = MathHelper.sin(((TFCEntityRabbit) entitylivingbaseIn).getJumpCompletion(partialTickTime) * (float) Math.PI);
     }
 
     private void setRotationOffset(ModelRenderer renderer, float x, float y, float z)

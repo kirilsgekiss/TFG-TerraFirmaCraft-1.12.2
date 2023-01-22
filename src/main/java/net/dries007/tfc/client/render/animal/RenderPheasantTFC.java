@@ -16,14 +16,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelPheasantTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityPheasantTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityPheasant;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderPheasantTFC extends RenderLiving<EntityPheasantTFC>
+public class RenderPheasantTFC extends RenderLiving<TFCEntityPheasant>
 {
     private static final ResourceLocation CHICK_TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/pheasant_chick.png");
     private static final ResourceLocation MALE_TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/pheasant_male.png");
@@ -36,14 +36,14 @@ public class RenderPheasantTFC extends RenderLiving<EntityPheasantTFC>
     }
 
     @Override
-    public void doRender(EntityPheasantTFC pheasent, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(TFCEntityPheasant pheasent, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.15f + pheasent.getPercentToAdulthood() * 0.15f);
         super.doRender(pheasent, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityPheasantTFC pheasent)
+    protected ResourceLocation getEntityTexture(TFCEntityPheasant pheasent)
     {
         float percent = (float) pheasent.getPercentToAdulthood();
 
@@ -51,7 +51,7 @@ public class RenderPheasantTFC extends RenderLiving<EntityPheasantTFC>
         {
             return CHICK_TEXTURE;
         }
-        else if (pheasent.getGender() == EntityAnimalTFC.Gender.MALE)
+        else if (pheasent.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             return MALE_TEXTURE;
         }
@@ -62,7 +62,7 @@ public class RenderPheasantTFC extends RenderLiving<EntityPheasantTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityPheasantTFC livingBase, float partialTicks)
+    protected float handleRotationFloat(TFCEntityPheasant livingBase, float partialTicks)
     {
         float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTicks;
         float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTicks;
@@ -70,7 +70,7 @@ public class RenderPheasantTFC extends RenderLiving<EntityPheasantTFC>
     }
 
     @Override
-    protected void preRenderCallback(EntityPheasantTFC bear, float par2)
+    protected void preRenderCallback(TFCEntityPheasant bear, float par2)
     {
         GlStateManager.scale(0.7f, 0.7f, 0.7f);
         GlStateManager.rotate(90, 0, 1, 0);

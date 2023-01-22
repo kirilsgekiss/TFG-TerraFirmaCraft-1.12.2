@@ -15,14 +15,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelCamelTFC;
-import net.dries007.tfc.objects.entity.animal.EntityCamelTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityCamel;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class LayerCamelDecor implements LayerRenderer<EntityCamelTFC>
+public class LayerCamelDecor implements LayerRenderer<TFCEntityCamel>
 {
     private static final ResourceLocation[] CAMEL_DECOR_TEXTURES = IntStream.range(0, 16).mapToObj(i -> new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/decor/" + EnumDyeColor.byMetadata(i).getName() + ".png")).toArray(ResourceLocation[]::new);
     private final RenderCamelTFC renderer;
@@ -33,7 +33,7 @@ public class LayerCamelDecor implements LayerRenderer<EntityCamelTFC>
         this.renderer = p_i47184_1_;
     }
 
-    public void doRenderLayer(EntityCamelTFC entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    public void doRenderLayer(TFCEntityCamel entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         if (entitylivingbaseIn.hasColor())
         {

@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityCoyoteTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityCoyote;
 
 /**
  * ModelCoyoteTFC
@@ -229,7 +229,7 @@ public class ModelCoyoteTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityCoyoteTFC coyote = ((EntityCoyoteTFC) entity);
+        TFCEntityCoyote coyote = ((TFCEntityCoyote) entity);
 
         float percent = (float) coyote.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

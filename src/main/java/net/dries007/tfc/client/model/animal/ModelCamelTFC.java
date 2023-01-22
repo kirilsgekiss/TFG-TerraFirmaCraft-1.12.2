@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityCamelTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityCamel;
 
 /**
  * ModelCamelTFC
@@ -474,7 +474,7 @@ public class ModelCamelTFC extends ModelBase
                 strapBellyLeftAngle.isHidden = true;
             }
         }
-        else if (abstractchesthorse instanceof EntityCamelTFC && ((EntityCamelTFC) abstractchesthorse).isHalter())
+        else if (abstractchesthorse instanceof TFCEntityCamel && ((TFCEntityCamel) abstractchesthorse).isHalter())
         {
             bridleFront1.isHidden = false;
             bridleFront2.isHidden = false;

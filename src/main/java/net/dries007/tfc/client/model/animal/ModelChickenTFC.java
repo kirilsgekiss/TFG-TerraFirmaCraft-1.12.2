@@ -16,8 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityChickenTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityChicken;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -81,7 +81,7 @@ public class ModelChickenTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityChickenTFC chicken = ((EntityChickenTFC) entity);
+        TFCEntityChicken chicken = ((TFCEntityChicken) entity);
 
         float percent = (float) chicken.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
@@ -91,7 +91,7 @@ public class ModelChickenTFC extends ModelBase
         GlStateManager.scale(1 / ageScale, 1 / ageScale, 1 / ageScale);
         GlStateManager.translate(0.0F, 1.5f - (1.5f * percent), 0f);
 
-        if (percent >= 0.75 && chicken.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (percent >= 0.75 && chicken.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             crown.isHidden = false;
             this.body.rotateAngleX = (float) Math.PI / 4F;

@@ -13,13 +13,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelCamelTFC;
-import net.dries007.tfc.objects.entity.animal.EntityCamelTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityCamel;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderCamelTFC extends RenderAnimalTFC<EntityCamelTFC>
+public class RenderCamelTFC extends RenderAnimalTFC<TFCEntityCamel>
 {
     private static final ResourceLocation OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/camel_old.png");
     private static final ResourceLocation YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/camel_young.png");

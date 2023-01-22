@@ -13,13 +13,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelSheepBodyTFC;
-import net.dries007.tfc.objects.entity.animal.EntitySheepTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySheep;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderSheepTFC extends RenderAnimalTFC<EntitySheepTFC>
+public class RenderSheepTFC extends RenderAnimalTFC<TFCEntitySheep>
 {
     private static final ResourceLocation SHEEP_YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/sheep_young.png");
     private static final ResourceLocation SHEEP_OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/sheep_old.png");

@@ -19,9 +19,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityDonkeyTFC;
-import net.dries007.tfc.objects.entity.animal.EntityHorseTFC;
-import net.dries007.tfc.objects.entity.animal.EntityMuleTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDonkey;
+import net.dries007.tfc.objects.entity.animal.TFCEntityHorse;
+import net.dries007.tfc.objects.entity.animal.TFCEntityMule;
 
 /**
  * Need this for not insta-growing
@@ -243,9 +243,9 @@ public class ModelHorseTFC extends ModelHorse
             else
             {
                 // Checks for halter
-                if ((horse instanceof EntityHorseTFC && ((EntityHorseTFC) horse).isHalter()) ||
-                    (horse instanceof EntityMuleTFC && ((EntityMuleTFC) horse).isHalter()) ||
-                    (horse instanceof EntityDonkeyTFC && ((EntityDonkeyTFC) horse).isHalter()))
+                if ((horse instanceof TFCEntityHorse && ((TFCEntityHorse) horse).isHalter()) ||
+                    (horse instanceof TFCEntityMule && ((TFCEntityMule) horse).isHalter()) ||
+                    (horse instanceof TFCEntityDonkey && ((TFCEntityDonkey) horse).isHalter()))
                 {
                     this.horseFaceRopes.render(scale);
                     this.horseLeftFaceMetal.render(scale);
@@ -489,9 +489,9 @@ public class ModelHorseTFC extends ModelHorse
                 this.horseRightSaddleMetal.rotateAngleZ = -f11 / 5.0F;
             }
         }
-        else if ((abstracthorse instanceof EntityHorseTFC && ((EntityHorseTFC) abstracthorse).isHalter()) ||
-            (abstracthorse instanceof EntityMuleTFC && ((EntityMuleTFC) abstracthorse).isHalter()) ||
-            (abstracthorse instanceof EntityDonkeyTFC && ((EntityDonkeyTFC) abstracthorse).isHalter()))
+        else if ((abstracthorse instanceof TFCEntityHorse && ((TFCEntityHorse) abstracthorse).isHalter()) ||
+            (abstracthorse instanceof TFCEntityMule && ((TFCEntityMule) abstracthorse).isHalter()) ||
+            (abstracthorse instanceof TFCEntityDonkey && ((TFCEntityDonkey) abstracthorse).isHalter()))
         {
             this.horseFaceRopes.rotationPointY = this.head.rotationPointY;
             this.horseFaceRopes.rotationPointZ = this.head.rotationPointZ;

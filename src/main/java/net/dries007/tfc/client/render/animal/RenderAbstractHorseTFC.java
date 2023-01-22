@@ -18,8 +18,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelHorseTFC;
-import net.dries007.tfc.objects.entity.animal.EntityDonkeyTFC;
-import net.dries007.tfc.objects.entity.animal.EntityMuleTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDonkey;
+import net.dries007.tfc.objects.entity.animal.TFCEntityMule;
 
 /**
  * Used for mule and donkey, because vanilla uses it's own map from class -> resource
@@ -33,8 +33,8 @@ public class RenderAbstractHorseTFC extends RenderLiving<AbstractHorse>
     static
     {
         // Those are grabbed from vanilla, please don't change unless we add our own textures first.
-        MAP.put(EntityDonkeyTFC.class, new ResourceLocation("textures/entity/horse/donkey.png"));
-        MAP.put(EntityMuleTFC.class, new ResourceLocation("textures/entity/horse/mule.png"));
+        MAP.put(TFCEntityDonkey.class, new ResourceLocation("textures/entity/horse/donkey.png"));
+        MAP.put(TFCEntityMule.class, new ResourceLocation("textures/entity/horse/mule.png"));
     }
 
     private final float scale;

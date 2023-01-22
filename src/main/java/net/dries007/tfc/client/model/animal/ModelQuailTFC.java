@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityQuailTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityQuail;
 
 /**
  * ModelQuailTFC
@@ -142,7 +142,7 @@ public class ModelQuailTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityQuailTFC quail = ((EntityQuailTFC) entity);
+        TFCEntityQuail quail = ((TFCEntityQuail) entity);
 
         float percent = (float) quail.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

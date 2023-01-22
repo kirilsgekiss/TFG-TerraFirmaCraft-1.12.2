@@ -14,13 +14,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelHareTFC;
-import net.dries007.tfc.objects.entity.animal.EntityHareTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityHare;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderHareTFC extends RenderLiving<EntityHareTFC>
+public class RenderHareTFC extends RenderLiving<TFCEntityHare>
 {
     private static final ResourceLocation BROWN = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/hare/brown.png");
     private static final ResourceLocation SPOTTED = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/hare/spotted.png");
@@ -34,14 +34,14 @@ public class RenderHareTFC extends RenderLiving<EntityHareTFC>
     }
 
     @Override
-    public void doRender(EntityHareTFC hare, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(TFCEntityHare hare, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.15f + hare.getPercentToAdulthood() * 0.15f);
         super.doRender(hare, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityHareTFC entity)
+    protected ResourceLocation getEntityTexture(TFCEntityHare entity)
     {
         switch (entity.getHareType())
         {

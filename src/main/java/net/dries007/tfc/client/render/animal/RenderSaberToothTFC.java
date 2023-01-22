@@ -11,13 +11,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelSaberToothTFC;
-import net.dries007.tfc.objects.entity.animal.EntitySaberToothTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySaberTooth;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderSaberToothTFC extends RenderLiving<EntitySaberToothTFC>
+public class RenderSaberToothTFC extends RenderLiving<TFCEntitySaberTooth>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/animal/predators/sabertooth.png");
 
@@ -27,26 +27,26 @@ public class RenderSaberToothTFC extends RenderLiving<EntitySaberToothTFC>
     }
 
     @Override
-    public void doRender(@Nonnull EntitySaberToothTFC sabertooth, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(@Nonnull TFCEntitySaberTooth sabertooth, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.35f + (sabertooth.getPercentToAdulthood() * 0.35f));
         super.doRender(sabertooth, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected float handleRotationFloat(EntitySaberToothTFC par1EntityLiving, float par2)
+    protected float handleRotationFloat(TFCEntitySaberTooth par1EntityLiving, float par2)
     {
         return 1.0f;
     }
 
     @Override
-    protected void preRenderCallback(EntitySaberToothTFC sabertooth, float par2)
+    protected void preRenderCallback(TFCEntitySaberTooth sabertooth, float par2)
     {
         GlStateManager.scale(1.3f, 1.3f, 1.3f);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntitySaberToothTFC entity)
+    protected ResourceLocation getEntityTexture(TFCEntitySaberTooth entity)
     {
         return TEXTURE;
     }

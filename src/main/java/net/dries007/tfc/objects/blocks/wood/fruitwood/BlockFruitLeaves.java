@@ -58,7 +58,7 @@ import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillType;
-import net.dries007.tfc.objects.entity.animal.EntitySilkMoth;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySilkMoth;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
@@ -295,7 +295,7 @@ public class BlockFruitLeaves extends BlockLeaves implements IGrowingPlant
                     BlockPos spawnPos = new BlockPos(pos.getX() - 3 + random.nextInt(7), pos.getY() - 1 + random.nextInt(3), pos.getZ() - 3 + random.nextInt(7));
                     if(worldIn.getBlockState(spawnPos).getCollisionBoundingBox(worldIn, spawnPos) == NULL_AABB)
                     {
-                        EntitySilkMoth entity = new EntitySilkMoth(worldIn);
+                        TFCEntitySilkMoth entity = new TFCEntitySilkMoth(worldIn);
                         entity.setPosition(spawnPos.getX() + 0.5D, spawnPos.getY() + 0.5D, spawnPos.getZ() + 0.5D);
                         worldIn.spawnEntity(entity);
                     }
