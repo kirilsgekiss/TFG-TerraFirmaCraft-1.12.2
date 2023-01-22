@@ -228,18 +228,18 @@ public final class TFCItems
 
 
 
-    @GameRegistry.ObjectHolder("crop/product/silk_disc")
-    public static final Item SILK_DISC = getNull();
-    @GameRegistry.ObjectHolder("crop/product/sisal_disc")
-    public static final Item SISAL_DISC = getNull();
-    @GameRegistry.ObjectHolder("crop/product/cotton_disc")
-    public static final Item COTTON_DISC = getNull();
-    @GameRegistry.ObjectHolder("crop/product/linen_disc")
-    public static final Item LINEN_DISC = getNull();
-    @GameRegistry.ObjectHolder("crop/product/papyrus_disc")
-    public static final Item PAPYRUS_DISC = getNull();
-    @GameRegistry.ObjectHolder("crop/product/hemp_disc")
-    public static final Item HEMP_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/silk_disc")
+//    public static final Item SILK_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/sisal_disc")
+//    public static final Item SISAL_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/cotton_disc")
+//    public static final Item COTTON_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/linen_disc")
+//    public static final Item LINEN_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/papyrus_disc")
+//    public static final Item PAPYRUS_DISC = getNull();
+//    @GameRegistry.ObjectHolder("crop/product/hemp_disc")
+//    public static final Item HEMP_DISC = getNull();
 
 
 
@@ -1120,12 +1120,12 @@ public final class TFCItems
 
 
 
-        simpleItems.add(register(r, "crop/product/silk_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_silk"), CT_MISC));
-        simpleItems.add(register(r, "crop/product/sisal_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_sisal"), CT_MISC));
-        simpleItems.add(register(r, "crop/product/cotton_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_cotton"), CT_MISC));
-        simpleItems.add(register(r, "crop/product/linen_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_linen"), CT_MISC));
-        simpleItems.add(register(r, "crop/product/papyrus_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_papyrus"), CT_MISC));
-        simpleItems.add(register(r, "crop/product/hemp_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_hemp"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/silk_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_silk"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/sisal_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_sisal"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/cotton_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_cotton"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/linen_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_linen"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/papyrus_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_papyrus"), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/hemp_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "disc", "disc_hemp"), CT_MISC));
         
         simpleItems.add(register(r, "crop/product/jute", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/jute_fiber", new ItemMisc(Size.SMALL, Weight.VERY_LIGHT), CT_MISC));
@@ -1241,7 +1241,7 @@ public final class TFCItems
 
         //olive oil production
         simpleItems.add(register(r, "food/olive_paste", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_FOOD)); //not edible
-        simpleItems.add(register(r, "crop/product/jute_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
+//        simpleItems.add(register(r, "crop/product/jute_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/olive_jute_disc", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_FOOD)); //not edible
         simpleItems.add(register(r, "crop/product/jute_net", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
         simpleItems.add(register(r, "crop/product/dirty_jute_net", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_MISC));
