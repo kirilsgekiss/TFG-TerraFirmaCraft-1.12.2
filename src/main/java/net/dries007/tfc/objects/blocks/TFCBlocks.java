@@ -36,7 +36,6 @@ import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.types.DefaultTrees;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
@@ -174,10 +173,6 @@ public final class TFCBlocks
     public static final BlockBale COTTON_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/cotton/cotton_yarn_bale")
     public static final BlockBale COTTON_YARN_BALE = getNull();
-    @GameRegistry.ObjectHolder("crop/bales/flax/flax_bale")
-    public static final BlockBale FLAX_BALE = getNull();
-    @GameRegistry.ObjectHolder("crop/bales/flax/flax_fiber_bale")
-    public static final BlockBale FLAX_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/hemp/hemp_bale")
     public static final BlockBale HEMP_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/hemp/hemp_fiber_bale")
@@ -189,7 +184,7 @@ public final class TFCBlocks
     @GameRegistry.ObjectHolder("crop/bales/linen/linen_bale")
     public static final BlockBale LINEN_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/linen/linen_string_bale")
-    public static final BlockBale LINEN_STRING_BALE = getNull();
+    public static final BlockBale LINEN_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/papyrus/papyrus_fiber_bale")
     public static final BlockBale PAPYRUS_FIBER_BALE = getNull();
     @GameRegistry.ObjectHolder("crop/bales/silk/silk_string_bale")
@@ -1498,14 +1493,12 @@ public final class TFCBlocks
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_yarn_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/flax/flax_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/flax/flax_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_string_bale", new BlockBale(), CT_DECORATIONS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/papyrus/papyrus_fiber_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));

@@ -684,8 +684,8 @@ public final class DefaultRecipes
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of(TFCItemFood.get(Food.SUGARCANE)), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sugarcane_1"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("sugarcane"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sugarcane_2"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("pulp"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_pulp"),
-            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropAgave"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_agave_crop"),
-            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropFlax"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_flax_crop"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropAgave"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_sisal_crop"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropLinen"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_linen_crop"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("cropHemp"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_hemp_crop"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of("pulpPapyrus"), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_papyrus_crop"),
             new BarrelRecipe(IIngredient.of(TFCFluids.BASE_POTASH_LIQUOR.get(), 150), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), new FluidStack(TFCFluids.WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_yucca_crop"),
@@ -695,7 +695,7 @@ public final class DefaultRecipes
 
             // Fiber Processing
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropAgave"), null, new ItemStack(TFCItems.SISAL_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sisal_fiber"),
-            new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropFlax"), null, new ItemStack(TFCItems.LINEN_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("flax_fiber"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropLinen"), null, new ItemStack(TFCItems.LINEN_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("linen_fiber"),
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 200), IIngredient.of("cropHemp"), null, new ItemStack(TFCItems.HEMP_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("hemp_fiber"),
             new BarrelRecipe(IIngredient.of(TFCFluids.FRESH_WATER.get(), 300), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), null, new ItemStack(TFCItems.YUCCA_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("yucca_fiber"),
 
@@ -800,7 +800,7 @@ public final class DefaultRecipes
             //new BarrelRecipe(IIngredient.of(FluidsTFC.HONEY_WATER.get(), 125), null, null, new ItemStack(Items.SUGAR), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar_from_honey_water"),
 
             // Dyes
-            new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 1000), IIngredient.of("cropAgave"), new FluidStack(TFCFluids.getFluidFromDye(EnumDyeColor.GREEN).get(), 1000), ItemStack.EMPTY, ICalendar.TICKS_IN_HOUR).setRegistryName("green_dye_agave"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 1000), IIngredient.of("cropAgave"), new FluidStack(TFCFluids.getFluidFromDye(EnumDyeColor.GREEN).get(), 1000), ItemStack.EMPTY, ICalendar.TICKS_IN_HOUR).setRegistryName("green_dye_sisal"),
             new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 1000), IIngredient.of("cropIndigo"), new FluidStack(TFCFluids.getFluidFromDye(EnumDyeColor.BLUE).get(), 1000), ItemStack.EMPTY, ICalendar.TICKS_IN_HOUR).setRegistryName("blue_dye_indigo"),
             new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 1000), IIngredient.of("cropMadder"), new FluidStack(TFCFluids.getFluidFromDye(EnumDyeColor.RED).get(), 1000), ItemStack.EMPTY, ICalendar.TICKS_IN_HOUR).setRegistryName("red_dye_madder"),
             new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 1000), IIngredient.of("cropWeld"), new FluidStack(TFCFluids.getFluidFromDye(EnumDyeColor.YELLOW).get(), 1000), ItemStack.EMPTY, ICalendar.TICKS_IN_HOUR).setRegistryName("yellow_dye_weld"),
@@ -829,7 +829,7 @@ public final class DefaultRecipes
             new BarrelRecipe(IIngredient.of(TFCFluids.HOT_WATER.get(), 500), IIngredient.of("hops"), new FluidStack(TFCFluids.WORT.get(), 500), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("wort"),
 
             // Fermented Alcohol
-            new BarrelRecipe(IIngredient.of(TFCFluids.JUICE_AGAVE.get(), 500), IIngredient.of("yeast"), new FluidStack(TFCFluids.AGAVE_WINE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("agave_wine"),
+            new BarrelRecipe(IIngredient.of(TFCFluids.JUICE_AGAVE.get(), 500), IIngredient.of("yeast"), new FluidStack(TFCFluids.AGAVE_WINE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("sisal_wine"),
             new BarrelRecipe(IIngredient.of(TFCFluids.JUICE_BANANA.get(), 500), IIngredient.of("yeast"), new FluidStack(TFCFluids.BANANA_WINE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("banana_wine"),
             new BarrelRecipe(IIngredient.of(TFCFluids.JUICE_CHERRY.get(), 500), IIngredient.of("yeast"), new FluidStack(TFCFluids.CHERRY_WINE.get(), 500), ItemStack.EMPTY, 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("cherry_wine"),
             new BarrelRecipe(IIngredient.of(TFCFluids.JUICE_GREEN_GRAPE.get(), 500), IIngredient.of("yeast"), new FluidStack(TFCFluids.WHITE_WINE.get(), 500), new ItemStack(TFCItems.POMACE), 72 * ICalendar.TICKS_IN_HOUR).setRegistryName("white_wine"),
@@ -1027,17 +1027,17 @@ public final class DefaultRecipes
         IForgeRegistry<LoomRecipe> r = event.getRegistry();
 
         r.registerAll(
-            new LoomRecipe(new ResourceLocation(MOD_ID, "burlap_cloth"), IIngredient.of(TFCItems.JUTE_FIBER, 12), new ItemStack(TFCItems.BURLAP_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/burlap.png")),
+            new LoomRecipe(new ResourceLocation(MOD_ID, "burlap_cloth"), IIngredient.of(TFCItems.JUTE_FIBER, 12), new ItemStack(TFCItems.JUTE_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/burlap.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "wool_cloth"), IIngredient.of(TFCItems.WOOL_YARN, 16), new ItemStack(TFCItems.WOOL_CLOTH), 16, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "silk_cloth"), IIngredient.of(Items.STRING, 24), new ItemStack(TFCItems.SILK_CLOTH), 24, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-            new LoomRecipe(new ResourceLocation(MOD_ID, "cotton_cloth"), IIngredient.of(TFCItems.COTTON_YARN, 12), new ItemStack(TFCItems.COTTON_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png")),
+            new LoomRecipe(new ResourceLocation(MOD_ID, "cotton_cloth"), IIngredient.of(TFCItems.COTTON_STRING, 12), new ItemStack(TFCItems.COTTON_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "hemp_cloth"), IIngredient.of(TFCItems.HEMP_STRING, 12), new ItemStack(TFCItems.HEMP_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/hemp.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "linen_cloth"), IIngredient.of(TFCItems.LINEN_STRING, 12), new ItemStack(TFCItems.LINEN_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/linen.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "sisal_cloth"), IIngredient.of(TFCItems.SISAL_STRING, 12), new ItemStack(TFCItems.SISAL_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/sisal.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "yucca_canvas"), IIngredient.of(TFCItems.YUCCA_STRING, 12), new ItemStack(TFCItems.YUCCA_CANVAS), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/yucca.png")),
 
             new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block"), IIngredient.of(TFCItems.WOOL_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
 
-            new LoomRecipe(new ResourceLocation(MOD_ID, "yucca_canvas"), IIngredient.of(TFCItems.YUCCA_STRING, 12), new ItemStack(TFCItems.YUCCA_CANVAS), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/yucca.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_cotton"), IIngredient.of(TFCItems.COTTON_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_linen"), IIngredient.of(TFCItems.LINEN_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
             new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_silk"), IIngredient.of(TFCItems.SILK_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png"))
@@ -1183,7 +1183,7 @@ public final class DefaultRecipes
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PEONY))), new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage())).setRegistryName("crushed_peony"),
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.LAVANDULA))), new ItemStack(Items.DYE, 2, EnumDyeColor.PURPLE.getDyeDamage())).setRegistryName("crushed_lavandula"),
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.CATTAIL))), new ItemStack(TFCItems.DYE_BROWN, 2)).setRegistryName("crushed_cattail"),
-                new QuernRecipe(IIngredient.of("cropAgave"), new ItemStack(Items.DYE, 2, EnumDyeColor.GREEN.getDyeDamage())).setRegistryName("crushed_agave"),
+                new QuernRecipe(IIngredient.of("cropAgave"), new ItemStack(Items.DYE, 2, EnumDyeColor.GREEN.getDyeDamage())).setRegistryName("crushed_sisal"),
                 new QuernRecipe(IIngredient.of("resin"), new ItemStack(Items.DYE, 2, EnumDyeColor.YELLOW.getDyeDamage())).setRegistryName("yellow_dye_resin"),
                 new QuernRecipe(IIngredient.of("treeLeavesTeak"), new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage())).setRegistryName("green_dye_teak_leaves"),
                 new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.SUGAR_CANE))), new ItemStack(Items.DYE, 2, EnumDyeColor.GREEN.getDyeDamage())).setRegistryName("green_dye_sugar_cane_1"),

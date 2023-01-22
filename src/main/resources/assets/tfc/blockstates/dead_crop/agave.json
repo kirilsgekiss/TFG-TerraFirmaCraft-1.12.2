@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:large_cross",
     "textures": {
-      "cross": "tfc:blocks/crop/agave_dead"
+      "cross": "tfc:blocks/crop/sisal_dead"
     }
   },
   "variants": {
@@ -14,7 +14,7 @@
     "mature": {
       "false": {
         "textures": {
-          "cross": "tfc:blocks/crop/agave_dead_young"
+          "cross": "tfc:blocks/crop/sisal_dead_young"
         }
       },
       "true": {}

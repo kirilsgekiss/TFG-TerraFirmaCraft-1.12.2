@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "tfc:blocks/plants/agave/agave_4",
-		"cross": "tfc:blocks/plants/agave/agave_4"
+		"particle": "tfc:blocks/plants/sisal/sisal_4",
+		"cross": "tfc:blocks/plants/sisal/sisal_4"
 	},
 	"elements": [
 		{

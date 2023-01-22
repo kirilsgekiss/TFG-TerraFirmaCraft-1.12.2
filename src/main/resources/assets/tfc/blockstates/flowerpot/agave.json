@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:flowerpot/flower_pot_cross",
     "textures": {
-      "plant": "tfc:blocks/plants/agave/agave_3"
+      "plant": "tfc:blocks/plants/sisal/sisal_3"
     }
   },
   "variants": {

@@ -333,7 +333,7 @@ public final class TFCFluids {
             };
             allFermentedAlcoholsFluids = ImmutableSet.<FluidWrapper>builder()
                     .add(
-                            AGAVE_WINE = registerFluid(new Fluid("agave_wine", STILL, FLOW, 0xFFDBB35A).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, fermentedAlcoholProperty),
+                            AGAVE_WINE = registerFluid(new Fluid("sisal_wine", STILL, FLOW, 0xFFDBB35A).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, fermentedAlcoholProperty),
                             BARLEY_WINE = registerFluid(new Fluid("barley_wine", STILL, FLOW, 0xFF851401).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, fermentedAlcoholProperty),
                             BANANA_WINE = registerFluid(new Fluid("banana_wine", STILL, FLOW, 0xFFB76A02).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, fermentedAlcoholProperty),
                             BERRY_WINE = registerFluid(new Fluid("berry_wine", STILL, FLOW, 0xFFE13F43).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, fermentedAlcoholProperty),
@@ -460,7 +460,7 @@ public final class TFCFluids {
             };
             allJuiceFruitFluids = ImmutableSet.<FluidWrapper>builder()
                     .add(
-                            JUICE_AGAVE = registerFluid(new Fluid("juice_agave", STILL, FLOW, 0xFFCCD8D4).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, juiceFruitProperty),
+                            JUICE_AGAVE = registerFluid(new Fluid("juice_sisal", STILL, FLOW, 0xFFCCD8D4).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, juiceFruitProperty),
                             JUICE_APPLE = registerFluid(new Fluid("juice_apple", STILL, FLOW, 0xFFFEB500).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, juiceFruitProperty),
                             JUICE_BANANA = registerFluid(new Fluid("juice_banana", STILL, FLOW, 0xFFFDE39F).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, juiceFruitProperty),
                             JUICE_CHERRY = registerFluid(new Fluid("juice_cherry", STILL, FLOW, 0xFF5E1224).setRarity(EnumRarity.UNCOMMON)).with(DrinkableProperty.DRINKABLE, juiceFruitProperty),

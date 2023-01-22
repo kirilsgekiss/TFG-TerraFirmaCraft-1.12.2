@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:blocks/plants/flax/flax_5"
+    "layer0": "tfc:blocks/plants/linen/linen_5"
   }
 }

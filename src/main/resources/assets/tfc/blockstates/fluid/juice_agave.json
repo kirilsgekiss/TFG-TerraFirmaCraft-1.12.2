@@ -9,7 +9,7 @@
     "normal": {
       "transform": "forge:default-item",
       "custom": {
-        "fluid": "juice_agave"
+        "fluid": "juice_sisal"
       }
     }
   }

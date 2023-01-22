@@ -90,10 +90,10 @@ public class OreDictionaryHelper
         MAP.forEach((t, s) -> OreDictionary.registerOre(s, t.toItemStack()));
         MAP.clear(); // No need to keep this stuff around
 
-        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.BURLAP_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.JUTE_CLOTH));
         OreDictionary.registerOre("cloth", new ItemStack(TFCItems.WOOL_CLOTH));
         OreDictionary.registerOre("cloth", new ItemStack(TFCItems.SILK_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.BURLAP_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.JUTE_CLOTH));
         OreDictionary.registerOre("fabric", new ItemStack(TFCItems.WOOL_CLOTH));
         OreDictionary.registerOre("fabric", new ItemStack(TFCItems.SILK_CLOTH));
 
@@ -104,14 +104,12 @@ public class OreDictionaryHelper
         OreDictionary.registerOre("baleHay", new ItemStack(Blocks.HAY_BLOCK));
         OreDictionary.registerOre("baleCotton", new ItemStack(TFCBlocks.COTTON_BALE));
         OreDictionary.registerOre("baleCottonYarn", new ItemStack(TFCBlocks.COTTON_YARN_BALE));
-        OreDictionary.registerOre("baleFlax", new ItemStack(TFCBlocks.FLAX_BALE));
-        OreDictionary.registerOre("baleFlaxFiber", new ItemStack(TFCBlocks.FLAX_FIBER_BALE));
         OreDictionary.registerOre("baleHemp", new ItemStack(TFCBlocks.HEMP_BALE));
         OreDictionary.registerOre("baleHempFiber", new ItemStack(TFCBlocks.HEMP_FIBER_BALE));
         OreDictionary.registerOre("baleJute", new ItemStack(TFCBlocks.JUTE_BALE));
         OreDictionary.registerOre("baleJuteFiber", new ItemStack(TFCBlocks.JUTE_FIBER_BALE));
         OreDictionary.registerOre("baleLinen", new ItemStack(TFCBlocks.LINEN_BALE));
-        OreDictionary.registerOre("baleLinenString", new ItemStack(TFCBlocks.LINEN_STRING_BALE));
+        OreDictionary.registerOre("baleLinenFiber", new ItemStack(TFCBlocks.LINEN_FIBER_BALE));
         OreDictionary.registerOre("balePapyrusFiber", new ItemStack(TFCBlocks.PAPYRUS_FIBER_BALE));
         OreDictionary.registerOre("baleSilkString", new ItemStack(TFCBlocks.SILK_STRING_BALE));
         OreDictionary.registerOre("baleSisalFiber", new ItemStack(TFCBlocks.SISAL_FIBER_BALE));

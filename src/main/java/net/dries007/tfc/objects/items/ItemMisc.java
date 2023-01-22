@@ -51,4 +51,5 @@ public class ItemMisc extends TFCItem implements IItemSize
     {
         return weight;
     }
+
 }

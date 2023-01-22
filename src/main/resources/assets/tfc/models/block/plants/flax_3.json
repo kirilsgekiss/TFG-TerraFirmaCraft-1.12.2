@@ -3,8 +3,8 @@
 	"parent": "block/crop",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "tfc:blocks/plants/flax/flax_3",
-		"crop": "tfc:blocks/plants/flax/flax_3"
+		"particle": "tfc:blocks/plants/linen/linen_3",
+		"crop": "tfc:blocks/plants/linen/linen_3"
 	},
 	"elements": [
 		{

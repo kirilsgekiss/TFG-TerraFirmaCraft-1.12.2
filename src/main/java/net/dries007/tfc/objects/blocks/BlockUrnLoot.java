@@ -133,7 +133,7 @@ public class BlockUrnLoot extends Block implements IItemSize // TODO ALL
             for (int i = 0; i < count; i++)
             {
                 /*
-                Item[] dropList = {ItemsTFC.MADDER, ItemsTFC.WELD, ItemsTFC.WOAD, ItemsTFC.INDIGO, ItemsTFC.RAPE, ItemsTFC.HOPS, ItemsTFC.FLAX, ItemsTFC.LINEN_STRING, ItemsTFC.COTTON_BOLL, ItemsTFC.COTTON_YARN, ItemsTFC.AGAVE, ItemsTFC.SISAL_STRING, ItemsTFC.PAPYRUS_FIBER, ItemsTFC.JUTE, ItemsTFC.JUTE_FIBER, ItemsTFC.SALT, ItemsTFC.MORTAR, ItemsTFC.FIRE_CLAY, Items.CLAY_BALL, ItemsTFC.WOOL, ItemsTFC.WOOL_YARN, ItemPowder.get(Powder.KAOLINITE), ItemPowder.get(Powder.GRAPHITE), ItemPowder.get(Powder.FLUX), ItemPowder.get(Powder.SALTPETER), ItemPowder.get(Powder.LAPIS_LAZULI), ItemPowder.get(Powder.SULFUR), ItemPowder.get(Powder.SALT)};
+                Item[] dropList = {ItemsTFC.MADDER, ItemsTFC.WELD, ItemsTFC.WOAD, ItemsTFC.INDIGO, ItemsTFC.RAPE, ItemsTFC.HOPS, ItemsTFC.LINEN, ItemsTFC.LINEN_STRING, ItemsTFC.COTTON_BOLL, ItemsTFC.COTTON_YARN, ItemsTFC.AGAVE, ItemsTFC.SISAL_STRING, ItemsTFC.PAPYRUS_FIBER, ItemsTFC.JUTE, ItemsTFC.JUTE_FIBER, ItemsTFC.SALT, ItemsTFC.MORTAR, ItemsTFC.FIRE_CLAY, Items.CLAY_BALL, ItemsTFC.WOOL, ItemsTFC.WOOL_YARN, ItemPowder.get(Powder.KAOLINITE), ItemPowder.get(Powder.GRAPHITE), ItemPowder.get(Powder.FLUX), ItemPowder.get(Powder.SALTPETER), ItemPowder.get(Powder.LAPIS_LAZULI), ItemPowder.get(Powder.SULFUR), ItemPowder.get(Powder.SALT)};
                 int dropIndex = rand.nextInt(dropList.length);
                 int amount = rand.nextInt(5) + 2;
 

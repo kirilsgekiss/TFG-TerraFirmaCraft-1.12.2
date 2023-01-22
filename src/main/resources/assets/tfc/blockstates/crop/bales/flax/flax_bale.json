@@ -4,9 +4,9 @@
   "defaults": {
     "model": "cube_column",
     "textures": {
-      "particle": "tfc:blocks/crop/bales/flax/flax_bale_side",
-      "side": "tfc:blocks/crop/bales/flax/flax_bale_side",
-      "end": "tfc:blocks/crop/bales/flax/flax_bale_top"
+      "particle": "tfc:blocks/crop/bales/linen/linen_bale_side",
+      "side": "tfc:blocks/crop/bales/linen/linen_bale_side",
+      "end": "tfc:blocks/crop/bales/linen/linen_bale_top"
     }
   },
   "variants": {
@@ -29,7 +29,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/crop/bales/flax/flax_bale_top"
+          "end": "tfc:blocks/crop/bales/linen/linen_bale_top"
         }
       }
     }
