@@ -25,7 +25,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -40,7 +39,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.types.IBerryBush;
 import net.dries007.tfc.api.util.IGrowingPlant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.DamageSourcesTFC;
 import net.dries007.tfc.util.Helpers;
@@ -287,9 +286,9 @@ public class BlockBerryBush extends Block implements IGrowingPlant
         IBlockState below = world.getBlockState(pos.down());
         if (bush.getSize() == IBerryBush.Size.LARGE && below.getBlock() instanceof BlockBerryBush && ((BlockBerryBush) below.getBlock()).bush == this.bush)
         {
-            return BlocksTFC.isGrowableSoil(world.getBlockState(pos.down(2))); // Only stack once
+            return TFCBlocks.isGrowableSoil(world.getBlockState(pos.down(2))); // Only stack once
         }
-        return BlocksTFC.isGrowableSoil(below);
+        return TFCBlocks.isGrowableSoil(below);
     }
 
     @Override

@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.objects.items.TFCItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
@@ -25,10 +26,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -54,7 +53,7 @@ public class BlockSurfaceSeashells extends BlockBush
         this.index = index;
         if(chance <= currentNumber)
         {
-            Item[] drops = {ItemsTFCF.CLAM, ItemsTFCF.LIVE_CLAM, ItemsTFCF.SCALLOP, ItemsTFCF.LIVE_SCALLOP, ItemsTFCF.LIVE_STARFISH, ItemsTFCF.CONCH, ItemsTFCF.PEARL, ItemsTFCF.BLACK_PEARL};
+            Item[] drops = {TFCItems.CLAM, TFCItems.LIVE_CLAM, TFCItems.SCALLOP, TFCItems.LIVE_SCALLOP, TFCItems.LIVE_STARFISH, TFCItems.CONCH, TFCItems.PEARL, TFCItems.BLACK_PEARL};
             return drops[index];
         }
         else
@@ -160,7 +159,7 @@ public class BlockSurfaceSeashells extends BlockBush
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-        if (!worldIn.isSideSolid(pos.down(), EnumFacing.UP) && !(worldIn.getBlockState(pos.down()).getBlock() instanceof BlockFarmlandTFC))
+        if (!worldIn.isSideSolid(pos.down(), EnumFacing.UP) && !(worldIn.getBlockState(pos.down()).getBlock() instanceof TFCBlockFarmland))
         {
             worldIn.setBlockToAir(pos);
         }
@@ -199,7 +198,7 @@ public class BlockSurfaceSeashells extends BlockBush
 
         if (state.getBlock() == this)
         {
-            return (BlocksTFC.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
+            return (TFCBlocks.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(TFCBlocks.isSeaWater(soil) || TFCBlocks.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
     }

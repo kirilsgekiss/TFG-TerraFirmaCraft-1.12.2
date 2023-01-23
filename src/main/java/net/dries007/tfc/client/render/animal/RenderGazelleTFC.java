@@ -15,13 +15,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelGazelleTFC;
-import net.dries007.tfc.objects.entity.animal.EntityGazelleTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityGazelle;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderGazelleTFC extends RenderLiving<EntityGazelleTFC>
+public class RenderGazelleTFC extends RenderLiving<TFCEntityGazelle>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/gazelle.png");
 
@@ -31,19 +31,19 @@ public class RenderGazelleTFC extends RenderLiving<EntityGazelleTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityGazelleTFC gazelle, float par2)
+    protected float handleRotationFloat(TFCEntityGazelle gazelle, float par2)
     {
         return 1.0f;
     }
 
     @Override
-    protected void preRenderCallback(EntityGazelleTFC gazelleTFC, float par2)
+    protected void preRenderCallback(TFCEntityGazelle gazelleTFC, float par2)
     {
         GlStateManager.scale(0.9f, 0.9f, 0.9f);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityGazelleTFC entity)
+    protected ResourceLocation getEntityTexture(TFCEntityGazelle entity)
     {
         return TEXTURE;
     }

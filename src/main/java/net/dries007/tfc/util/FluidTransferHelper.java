@@ -28,7 +28,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 
 import static net.minecraftforge.fluids.FluidUtil.getFluidHandler;
 
@@ -84,7 +84,7 @@ public final class FluidTransferHelper
                     {
                         containerFluidHandler.fill(drained, true);
                         SoundEvent soundevent = drained.getFluid().getFillSound(drained);
-                        if (playerIn.getHeldItemMainhand().getItem() == ItemsTFC.FIRED_JUG)
+                        if (playerIn.getHeldItemMainhand().getItem() == TFCItems.FIRED_JUG)
                         {
                             soundevent = TFCSounds.JUG_FILL;
                         }

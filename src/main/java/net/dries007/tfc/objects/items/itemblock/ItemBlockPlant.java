@@ -23,7 +23,7 @@ import net.dries007.tfc.util.Helpers;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemBlockPlant extends ItemBlockTFC
+public class ItemBlockPlant extends TFCItemBlock
 {
     private final Plant plant;
 

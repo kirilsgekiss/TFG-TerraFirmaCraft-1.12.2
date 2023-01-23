@@ -14,7 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntitySheepTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySheep;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -47,7 +47,7 @@ public class ModelSheepWoolTFC extends ModelQuadruped
     public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-        EntitySheepTFC sheep = ((EntitySheepTFC) entity);
+        TFCEntitySheep sheep = ((TFCEntitySheep) entity);
 
         float percent = (float) sheep.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

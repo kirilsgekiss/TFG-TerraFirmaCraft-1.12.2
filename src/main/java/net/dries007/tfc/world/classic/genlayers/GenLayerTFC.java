@@ -19,8 +19,8 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.world.classic.biomes.BiomeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiome;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.genlayers.biome.*;
 import net.dries007.tfc.world.classic.genlayers.datalayers.rock.GenLayerRockInit;
 import net.dries007.tfc.world.classic.genlayers.datalayers.stability.GenLayerStabilityInit;
@@ -198,7 +198,7 @@ public abstract class GenLayerTFC extends GenLayer
 
     public static void drawImageBiomes(int size, GenLayerTFC genlayer, String name)
     {
-        Function<Biome, Color> colorize = (x) -> x instanceof BiomeTFC ? ((BiomeTFC) x).debugColor : Color.BLACK;
+        Function<Biome, Color> colorize = (x) -> x instanceof TFCBiome ? ((TFCBiome) x).debugColor : Color.BLACK;
         drawImage(size, genlayer, name, (i) -> colorize.apply(Biome.getBiomeForId(i)));
     }
 
@@ -297,40 +297,40 @@ public abstract class GenLayerTFC extends GenLayer
     }
 
     // Doing this lookup only once is quite a bit faster.
-    protected final int oceanID = Biome.getIdForBiome(BiomesTFC.OCEAN);
-    protected final int plainsID = Biome.getIdForBiome(BiomesTFC.PLAINS);
-    protected final int highPlainsID = Biome.getIdForBiome(BiomesTFC.HIGH_PLAINS);
-    protected final int deepOceanID = Biome.getIdForBiome(BiomesTFC.DEEP_OCEAN);
-    protected final int lakeID = Biome.getIdForBiome(BiomesTFC.LAKE);
-    protected final int lakeshoreID = Biome.getIdForBiome(BiomesTFC.LAKESHORE);
-    protected final int shoreID = Biome.getIdForBiome(BiomesTFC.SHORE);
-    protected final int riverID = Biome.getIdForBiome(BiomesTFC.RIVER);
-    protected final int riverBankID = Biome.getIdForBiome(BiomesTFC.RIVERBANK);
+    protected final int oceanID = Biome.getIdForBiome(TFCBiomes.OCEAN);
+    protected final int plainsID = Biome.getIdForBiome(TFCBiomes.PLAINS);
+    protected final int highPlainsID = Biome.getIdForBiome(TFCBiomes.HIGH_PLAINS);
+    protected final int deepOceanID = Biome.getIdForBiome(TFCBiomes.DEEP_OCEAN);
+    protected final int lakeID = Biome.getIdForBiome(TFCBiomes.LAKE);
+    protected final int lakeshoreID = Biome.getIdForBiome(TFCBiomes.LAKESHORE);
+    protected final int shoreID = Biome.getIdForBiome(TFCBiomes.SHORE);
+    protected final int riverID = Biome.getIdForBiome(TFCBiomes.RIVER);
+    protected final int riverBankID = Biome.getIdForBiome(TFCBiomes.RIVERBANK);
     //protected final int riverSourceID = Biome.getIdForBiome(BiomesTFC.RIVER_SOURCE);
-    protected final int estuaryID = Biome.getIdForBiome(BiomesTFC.ESTUARY);
-    protected final int swamplandID = Biome.getIdForBiome(BiomesTFC.SWAMPLAND);
-    protected final int highHillsID = Biome.getIdForBiome(BiomesTFC.HIGH_HILLS);
-    protected final int highHillsEdgeID = Biome.getIdForBiome(BiomesTFC.HIGH_HILLS_EDGE);
-    protected final int rollingHillsID = Biome.getIdForBiome(BiomesTFC.ROLLING_HILLS);
-    protected final int beachID = Biome.getIdForBiome(BiomesTFC.BEACH);
-    protected final int gravelBeachID = Biome.getIdForBiome(BiomesTFC.GRAVEL_BEACH);
-    protected final int mountainsID = Biome.getIdForBiome(BiomesTFC.MOUNTAINS);
-    protected final int mountainsEdgeID = Biome.getIdForBiome(BiomesTFC.MOUNTAINS_EDGE);
-    protected final int flatlandsID = Biome.getIdForBiome(BiomesTFC.FLATLANDS);
-    protected final int fieldsID = Biome.getIdForBiome(BiomesTFC.FIELDS);
-    protected final int meadowsID = Biome.getIdForBiome(BiomesTFC.MEADOWS);
-    protected final int bayouID = Biome.getIdForBiome(BiomesTFC.BAYOU);
-    protected final int mangroveID = Biome.getIdForBiome(BiomesTFC.MANGROVE);
-    protected final int marshID = Biome.getIdForBiome(BiomesTFC.MARSH);
-    protected final int mountainRangeID = Biome.getIdForBiome(BiomesTFC.MOUNTAIN_RANGE);
-    protected final int mountainRangeEdgeID = Biome.getIdForBiome(BiomesTFC.MOUNTAIN_RANGE_EDGE);
-    protected final int foothillsID = Biome.getIdForBiome(BiomesTFC.FOOTHILLS);
-    protected final int faultLineID = Biome.getIdForBiome(BiomesTFC.FAULT_LINE);
-    protected final int cragID = Biome.getIdForBiome(BiomesTFC.CRAG);
-    protected final int mesaID = Biome.getIdForBiome(BiomesTFC.MESA);
-    protected final int mesaPlateauID = Biome.getIdForBiome(BiomesTFC.MESA_PLATEAU);
-    protected final int mesaBryceID = Biome.getIdForBiome(BiomesTFC.MESA_BRYCE);
-    protected final int mesaPlateauMID = Biome.getIdForBiome(BiomesTFC.MESA_PLATEAU_M);
+    protected final int estuaryID = Biome.getIdForBiome(TFCBiomes.ESTUARY);
+    protected final int swamplandID = Biome.getIdForBiome(TFCBiomes.SWAMPLAND);
+    protected final int highHillsID = Biome.getIdForBiome(TFCBiomes.HIGH_HILLS);
+    protected final int highHillsEdgeID = Biome.getIdForBiome(TFCBiomes.HIGH_HILLS_EDGE);
+    protected final int rollingHillsID = Biome.getIdForBiome(TFCBiomes.ROLLING_HILLS);
+    protected final int beachID = Biome.getIdForBiome(TFCBiomes.BEACH);
+    protected final int gravelBeachID = Biome.getIdForBiome(TFCBiomes.GRAVEL_BEACH);
+    protected final int mountainsID = Biome.getIdForBiome(TFCBiomes.MOUNTAINS);
+    protected final int mountainsEdgeID = Biome.getIdForBiome(TFCBiomes.MOUNTAINS_EDGE);
+    protected final int flatlandsID = Biome.getIdForBiome(TFCBiomes.FLATLANDS);
+    protected final int fieldsID = Biome.getIdForBiome(TFCBiomes.FIELDS);
+    protected final int meadowsID = Biome.getIdForBiome(TFCBiomes.MEADOWS);
+    protected final int bayouID = Biome.getIdForBiome(TFCBiomes.BAYOU);
+    protected final int mangroveID = Biome.getIdForBiome(TFCBiomes.MANGROVE);
+    protected final int marshID = Biome.getIdForBiome(TFCBiomes.MARSH);
+    protected final int mountainRangeID = Biome.getIdForBiome(TFCBiomes.MOUNTAIN_RANGE);
+    protected final int mountainRangeEdgeID = Biome.getIdForBiome(TFCBiomes.MOUNTAIN_RANGE_EDGE);
+    protected final int foothillsID = Biome.getIdForBiome(TFCBiomes.FOOTHILLS);
+    protected final int faultLineID = Biome.getIdForBiome(TFCBiomes.FAULT_LINE);
+    protected final int cragID = Biome.getIdForBiome(TFCBiomes.CRAG);
+    protected final int mesaID = Biome.getIdForBiome(TFCBiomes.MESA);
+    protected final int mesaPlateauID = Biome.getIdForBiome(TFCBiomes.MESA_PLATEAU);
+    protected final int mesaBryceID = Biome.getIdForBiome(TFCBiomes.MESA_BRYCE);
+    protected final int mesaPlateauMID = Biome.getIdForBiome(TFCBiomes.MESA_PLATEAU_M);
 
     public GenLayerTFC(long seed)
     {

@@ -25,11 +25,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fluids.Fluid;
 
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.util.climate.ITemperatureBlock;
 import net.dries007.tfc.util.climate.IceMeltHandler;
-import net.minecraftforge.fluids.FluidRegistry;
 
 @ParametersAreNonnullByDefault
 public class BlockIceTFC extends BlockIce implements ITemperatureBlock
@@ -40,7 +39,7 @@ public class BlockIceTFC extends BlockIce implements ITemperatureBlock
     public BlockIceTFC(Fluid waterFluid)
     {
         this.waterFluid = waterFluid;
-        this.meltThreshold = waterFluid == FluidsTFC.SEA_WATER.get() ? IceMeltHandler.SALT_WATER_MELT_THRESHOLD : IceMeltHandler.ICE_MELT_THRESHOLD;
+        this.meltThreshold = waterFluid == TFCFluids.SEA_WATER.get() ? IceMeltHandler.SALT_WATER_MELT_THRESHOLD : IceMeltHandler.ICE_MELT_THRESHOLD;
 
         setHardness(0.5F);
         setLightOpacity(3);

@@ -15,7 +15,7 @@ import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
 
 @ParametersAreNonnullByDefault
@@ -35,7 +35,7 @@ public class BiomeProviderTFC extends BiomeProvider
     @Override
     public List<Biome> getBiomesToSpawnIn()
     {
-        return BiomesTFC.getSpawnBiomes();
+        return TFCBiomes.getSpawnBiomes();
     }
 
     /**

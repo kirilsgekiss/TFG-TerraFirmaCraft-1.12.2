@@ -14,12 +14,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelAlpacaWoolTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAlpacaTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAlpaca;
 
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class LayerAlpacaWoolTFC implements LayerRenderer<EntityAlpacaTFC>
+public class LayerAlpacaWoolTFC implements LayerRenderer<TFCEntityAlpaca>
 {
     private final RenderAlpacaTFC alpacaRenderer;
     private final ModelAlpacaWoolTFC alpacaModel = new ModelAlpacaWoolTFC();
@@ -30,7 +30,7 @@ public class LayerAlpacaWoolTFC implements LayerRenderer<EntityAlpacaTFC>
     }
 
     @Override
-    public void doRenderLayer(EntityAlpacaTFC alpaca, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    public void doRenderLayer(TFCEntityAlpaca alpaca, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         if (alpaca.hasWool() && !alpaca.isInvisible())
         {

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/product/flax_fiber"
+    "layer0": "tfc:items/crop/product/linen_fiber"
   }
 }

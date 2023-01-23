@@ -16,11 +16,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.client.model.animal.ModelSheepWoolTFC;
-import net.dries007.tfc.objects.entity.animal.EntitySheepTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySheep;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class LayerSheepWoolTFC implements LayerRenderer<EntitySheepTFC>
+public class LayerSheepWoolTFC implements LayerRenderer<TFCEntitySheep>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation("minecraft:textures/entity/sheep/sheep_fur.png");
     private static final ResourceLocation OLD_TEXTURE = new ResourceLocation("tfc:textures/entity/animal/livestock/sheep_fur_old.png");
@@ -33,7 +33,7 @@ public class LayerSheepWoolTFC implements LayerRenderer<EntitySheepTFC>
     }
 
     @Override
-    public void doRenderLayer(EntitySheepTFC sheep, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    public void doRenderLayer(TFCEntitySheep sheep, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         if (sheep.hasWool() && !sheep.isInvisible())
         {

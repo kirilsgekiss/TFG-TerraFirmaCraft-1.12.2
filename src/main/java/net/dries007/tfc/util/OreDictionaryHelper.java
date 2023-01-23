@@ -16,8 +16,8 @@ import com.google.common.collect.Multimap;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import net.dries007.tfc.objects.blocks.plants.BlockPlantTFC;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultPlants;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -26,13 +26,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.damage.DamageType;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.BlockDecorativeStone;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import tfcflorae.objects.blocks.BlocksTFCF;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 
 /**
  * This is not the best example of good coding practice, but I do think it works rather well.
@@ -93,35 +90,33 @@ public class OreDictionaryHelper
         MAP.forEach((t, s) -> OreDictionary.registerOre(s, t.toItemStack()));
         MAP.clear(); // No need to keep this stuff around
 
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.BURLAP_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.WOOL_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(ItemsTFC.SILK_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.BURLAP_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.WOOL_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(ItemsTFC.SILK_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.JUTE_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.WOOL_CLOTH));
+        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.SILK_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.JUTE_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.WOOL_CLOTH));
+        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.SILK_CLOTH));
 
         //OreDictionary.registerOre("stickBunch", new ItemStack(ItemsTFC.STICK_BUNCH));
         //OreDictionary.registerOre("stickBundle", new ItemStack(ItemsTFC.STICK_BUNCH));
         OreDictionary.registerOre("thatch", new ItemStack(Blocks.HAY_BLOCK));
         OreDictionary.registerOre("bale", new ItemStack(Blocks.HAY_BLOCK));
         OreDictionary.registerOre("baleHay", new ItemStack(Blocks.HAY_BLOCK));
-        OreDictionary.registerOre("baleCotton", new ItemStack(BlocksTFCF.COTTON_BALE));
-        OreDictionary.registerOre("baleCottonYarn", new ItemStack(BlocksTFCF.COTTON_YARN_BALE));
-        OreDictionary.registerOre("baleFlax", new ItemStack(BlocksTFCF.FLAX_BALE));
-        OreDictionary.registerOre("baleFlaxFiber", new ItemStack(BlocksTFCF.FLAX_FIBER_BALE));
-        OreDictionary.registerOre("baleHemp", new ItemStack(BlocksTFCF.HEMP_BALE));
-        OreDictionary.registerOre("baleHempFiber", new ItemStack(BlocksTFCF.HEMP_FIBER_BALE));
-        OreDictionary.registerOre("baleJute", new ItemStack(BlocksTFCF.JUTE_BALE));
-        OreDictionary.registerOre("baleJuteFiber", new ItemStack(BlocksTFCF.JUTE_FIBER_BALE));
-        OreDictionary.registerOre("baleLinen", new ItemStack(BlocksTFCF.LINEN_BALE));
-        OreDictionary.registerOre("baleLinenString", new ItemStack(BlocksTFCF.LINEN_STRING_BALE));
-        OreDictionary.registerOre("balePapyrusFiber", new ItemStack(BlocksTFCF.PAPYRUS_FIBER_BALE));
-        OreDictionary.registerOre("baleSilkString", new ItemStack(BlocksTFCF.SILK_STRING_BALE));
-        OreDictionary.registerOre("baleSisalFiber", new ItemStack(BlocksTFCF.SISAL_FIBER_BALE));
-        OreDictionary.registerOre("baleYucca", new ItemStack(BlocksTFCF.YUCCA_BALE));
-        OreDictionary.registerOre("baleYuccaFiber", new ItemStack(BlocksTFCF.YUCCA_FIBER_BALE));
-        OreDictionary.registerOre("glue", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
-        OreDictionary.registerOre("slimeball", new ItemStack(BlockPlantTFC.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("baleCotton", new ItemStack(TFCBlocks.COTTON_BALE));
+        OreDictionary.registerOre("baleCottonYarn", new ItemStack(TFCBlocks.COTTON_YARN_BALE));
+        OreDictionary.registerOre("baleHemp", new ItemStack(TFCBlocks.HEMP_BALE));
+        OreDictionary.registerOre("baleHempFiber", new ItemStack(TFCBlocks.HEMP_FIBER_BALE));
+        OreDictionary.registerOre("baleJute", new ItemStack(TFCBlocks.JUTE_BALE));
+        OreDictionary.registerOre("baleJuteFiber", new ItemStack(TFCBlocks.JUTE_FIBER_BALE));
+        OreDictionary.registerOre("baleLinen", new ItemStack(TFCBlocks.LINEN_BALE));
+        OreDictionary.registerOre("baleLinenFiber", new ItemStack(TFCBlocks.LINEN_FIBER_BALE));
+        OreDictionary.registerOre("balePapyrusFiber", new ItemStack(TFCBlocks.PAPYRUS_FIBER_BALE));
+        OreDictionary.registerOre("baleSilkString", new ItemStack(TFCBlocks.SILK_STRING_BALE));
+        OreDictionary.registerOre("baleSisalFiber", new ItemStack(TFCBlocks.SISAL_FIBER_BALE));
+        OreDictionary.registerOre("baleYucca", new ItemStack(TFCBlocks.YUCCA_BALE));
+        OreDictionary.registerOre("baleYuccaFiber", new ItemStack(TFCBlocks.YUCCA_FIBER_BALE));
+        OreDictionary.registerOre("glue", new ItemStack(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
+        OreDictionary.registerOre("slimeball", new ItemStack(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.RESIN))));
 
         // Flint
         OreDictionary.registerOre("flint", new ItemStack(Items.FLINT));
@@ -140,17 +135,17 @@ public class OreDictionaryHelper
         BlockCoral.FIRE_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
         BlockCoral.HORN_CORAL.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
 
-        OreDictionary.registerOre("coralTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_DEAD));
-        OreDictionary.registerOre("coralBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_DEAD));
-        OreDictionary.registerOre("coralBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_DEAD));
-        OreDictionary.registerOre("coralFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_DEAD));
-        OreDictionary.registerOre("coralHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_DEAD));
+        OreDictionary.registerOre("coralTubeDead", new ItemStack(TFCBlocks.TUBE_CORAL_DEAD));
+        OreDictionary.registerOre("coralBrainDead", new ItemStack(TFCBlocks.BRAIN_CORAL_DEAD));
+        OreDictionary.registerOre("coralBubbleDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_DEAD));
+        OreDictionary.registerOre("coralFireDead", new ItemStack(TFCBlocks.FIRE_CORAL_DEAD));
+        OreDictionary.registerOre("coralHornDead", new ItemStack(TFCBlocks.HORN_CORAL_DEAD));
 
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.TUBE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BRAIN_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.FIRE_CORAL_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.HORN_CORAL_DEAD));
 
         BlockCoral.TUBE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanTube", new ItemStack(blockCoral)));
         BlockCoral.BRAIN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coralFanBrain", new ItemStack(blockCoral)));
@@ -164,17 +159,17 @@ public class OreDictionaryHelper
         BlockCoral.FIRE_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
         BlockCoral.HORN_CORAL_FAN.forEach((dyeColor, blockCoral) -> OreDictionary.registerOre("coral", new ItemStack(blockCoral)));
 
-        OreDictionary.registerOre("coralFanTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralFanBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralFanBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralFanFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralFanHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanTubeDead", new ItemStack(TFCBlocks.TUBE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanBrainDead", new ItemStack(TFCBlocks.BRAIN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanBubbleDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanFireDead", new ItemStack(TFCBlocks.FIRE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralFanHornDead", new ItemStack(TFCBlocks.HORN_CORAL_FAN_DEAD));
 
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_FAN_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.TUBE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BRAIN_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.FIRE_CORAL_FAN_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.HORN_CORAL_FAN_DEAD));
 
         BlockCoralBlock.TUBE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanTube", new ItemStack(blockCoralBlock)));
         BlockCoralBlock.BRAIN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coralFanBrain", new ItemStack(blockCoralBlock)));
@@ -194,23 +189,23 @@ public class OreDictionaryHelper
         BlockCoralBlock.FIRE_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
         BlockCoralBlock.HORN_CORAL_BLOCK.forEach((dyeColor, blockCoralBlock) -> OreDictionary.registerOre("coral", new ItemStack(blockCoralBlock)));
 
-        OreDictionary.registerOre("coralBlockTubeDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockBrainDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockBubbleDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockFireDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockHornDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockTubeDead", new ItemStack(TFCBlocks.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockBrainDead", new ItemStack(TFCBlocks.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockBubbleDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockFireDead", new ItemStack(TFCBlocks.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockHornDead", new ItemStack(TFCBlocks.HORN_CORAL_BLOCK_DEAD));
 
-        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralBlockDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(TFCBlocks.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(TFCBlocks.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(TFCBlocks.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralBlockDead", new ItemStack(TFCBlocks.HORN_CORAL_BLOCK_DEAD));
 
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.TUBE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BRAIN_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.BUBBLE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.FIRE_CORAL_BLOCK_DEAD));
-        OreDictionary.registerOre("coralDead", new ItemStack(BlocksTFCF.HORN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.TUBE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BRAIN_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.BUBBLE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.FIRE_CORAL_BLOCK_DEAD));
+        OreDictionary.registerOre("coralDead", new ItemStack(TFCBlocks.HORN_CORAL_BLOCK_DEAD));
 
         // Vanilla ore dict values
         OreDictionary.registerOre("clay", Items.CLAY_BALL);
@@ -233,10 +228,10 @@ public class OreDictionaryHelper
         BlockDecorativeStone.ALABASTER_POLISHED.forEach((dyeColor, blockDecorativeStone) -> OreDictionary.registerOre("alabasterPolished", new ItemStack(blockDecorativeStone)));
         BlockDecorativeStone.ALABASTER_RAW.forEach((dyeColor, blockDecorativeStone) -> OreDictionary.registerOre("alabasterRaw", new ItemStack(blockDecorativeStone)));
 
-        OreDictionary.registerOre("alabasterBricks", new ItemStack(BlocksTFC.ALABASTER_BRICKS_PLAIN));
-        OreDictionary.registerOre("bricksAlabaster", new ItemStack(BlocksTFC.ALABASTER_BRICKS_PLAIN));
-        OreDictionary.registerOre("alabasterRaw", new ItemStack(BlocksTFC.ALABASTER_RAW_PLAIN));
-        OreDictionary.registerOre("alabasterPolished", new ItemStack(BlocksTFC.ALABASTER_POLISHED_PLAIN));
+        OreDictionary.registerOre("alabasterBricks", new ItemStack(TFCBlocks.ALABASTER_BRICKS_PLAIN));
+        OreDictionary.registerOre("bricksAlabaster", new ItemStack(TFCBlocks.ALABASTER_BRICKS_PLAIN));
+        OreDictionary.registerOre("alabasterRaw", new ItemStack(TFCBlocks.ALABASTER_RAW_PLAIN));
+        OreDictionary.registerOre("alabasterPolished", new ItemStack(TFCBlocks.ALABASTER_POLISHED_PLAIN));
 
         // Register a name without any items
         OreDictionary.getOres("infiniteFire", true);

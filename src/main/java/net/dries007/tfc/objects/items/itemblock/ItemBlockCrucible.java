@@ -24,7 +24,7 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.util.Alloy;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockCrucible extends ItemBlockTFC
+public class ItemBlockCrucible extends TFCItemBlock
 {
     public ItemBlockCrucible(Block block)
     {

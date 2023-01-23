@@ -19,7 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 
 @ParametersAreNonnullByDefault
 public class BlockFireClay extends Block implements IItemSize
@@ -41,7 +41,7 @@ public class BlockFireClay extends Block implements IItemSize
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemsTFC.FIRE_CLAY;
+        return TFCItems.FIRE_CLAY;
     }
 
     @Nonnull

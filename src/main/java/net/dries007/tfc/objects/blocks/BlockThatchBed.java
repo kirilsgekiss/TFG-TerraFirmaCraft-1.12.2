@@ -82,7 +82,7 @@ public class BlockThatchBed extends BlockBed
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(BlocksTFC.THATCH);
+        return Item.getItemFromBlock(TFCBlocks.THATCH);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class BlockThatchBed extends BlockBed
         if (state.getValue(PART) == BlockBed.EnumPartType.HEAD)
         {
             spawnAsEntity(worldIn, pos, new ItemStack(ItemAnimalHide.get(ItemAnimalHide.HideType.RAW, ItemAnimalHide.HideSize.LARGE)));
-            spawnAsEntity(worldIn, pos, new ItemStack(BlocksTFC.THATCH, 2));
+            spawnAsEntity(worldIn, pos, new ItemStack(TFCBlocks.THATCH, 2));
         }
     }
 
@@ -105,7 +105,7 @@ public class BlockThatchBed extends BlockBed
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
-        return new ItemStack(BlocksTFC.THATCH);
+        return new ItemStack(TFCBlocks.THATCH);
     }
 
     @Override

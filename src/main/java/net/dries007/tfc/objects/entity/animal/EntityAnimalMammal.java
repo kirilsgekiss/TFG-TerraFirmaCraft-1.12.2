@@ -21,7 +21,7 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
  * Implements pregnancy for mammals in TFC
  */
 @ParametersAreNonnullByDefault
-public abstract class EntityAnimalMammal extends EntityAnimalTFC
+public abstract class EntityAnimalMammal extends TFCEntityAnimal
 {
     // The time(in days) this entity became pregnant
     private static final DataParameter<Long> PREGNANT_TIME = EntityDataManager.createKey(EntityAnimalMammal.class, EntitiesTFC.getLongDataSerializer());

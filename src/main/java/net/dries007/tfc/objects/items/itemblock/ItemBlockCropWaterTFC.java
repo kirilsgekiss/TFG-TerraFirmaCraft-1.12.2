@@ -20,16 +20,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockCropWaterTFC extends ItemBlockTFC
+public class ItemBlockCropWaterTFC extends TFCItemBlock
 {
-    protected final BlockCropTFC block;
+    protected final TFCBlockCrop block;
 
-    public ItemBlockCropWaterTFC(BlockCropTFC block)
+    public ItemBlockCropWaterTFC(TFCBlockCrop block)
     {
         super(block);
         this.block = block;

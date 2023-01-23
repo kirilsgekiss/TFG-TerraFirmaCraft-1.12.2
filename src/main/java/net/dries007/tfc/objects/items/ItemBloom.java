@@ -32,7 +32,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
 @ParametersAreNonnullByDefault
-public class ItemBloom extends ItemTFC implements IMetalItem
+public class ItemBloom extends TFCItem implements IMetalItem
 {
     private final boolean meltable;
 

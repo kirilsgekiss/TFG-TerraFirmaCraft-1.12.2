@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.groundcover;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -9,12 +10,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenSurfaceFlint implements IWorldGenerator
 {
@@ -44,7 +42,7 @@ public class WorldGenSurfaceFlint implements IWorldGenerator
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
-            for (int i = 0; i < ConfigTFCF.General.WORLD.groundcoverBonesFrequency * factor; i++)
+            for (int i = 0; i < ConfigTFC.FloraeGeneral.WORLD.groundcoverBonesFrequency * factor; i++)
             {
                 BlockPos pos = new BlockPos(
                     xoff + random.nextInt(16),
@@ -62,9 +60,9 @@ public class WorldGenSurfaceFlint implements IWorldGenerator
         {
             if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP))
             {
-                if (BlocksTFC.isSoil(world.getBlockState(pos.down())))
+                if (TFCBlocks.isSoil(world.getBlockState(pos.down())))
                 {
-                    world.setBlockState(pos, BlocksTFCF.FLINT.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.FLINT.getDefaultState());
                 }
             }
         }

@@ -2,6 +2,7 @@ package net.dries007.tfc.objects.items.itemblock;
 
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,15 +14,14 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.util.Helpers;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.plants.BlockSaguaroCactus;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockSaguaroCactus;
 import net.dries007.tfc.objects.te.TESaguaroCactus;
 
-public class ItemBlockSaguaroCactus extends ItemBlockTFC
+public class ItemBlockSaguaroCactus extends TFCItemBlock
 {
-    protected final BlockSaguaroCactus block;
+    protected final TFCBlockSaguaroCactus block;
 
-    public ItemBlockSaguaroCactus(BlockSaguaroCactus block)
+    public ItemBlockSaguaroCactus(TFCBlockSaguaroCactus block)
     {
         super(block);
         this.block = block;
@@ -48,39 +48,39 @@ public class ItemBlockSaguaroCactus extends ItemBlockTFC
                 switch(facing)
                 {
                     case EAST:
-                        worldIn.setBlockState(pos, state.withProperty(BlockSaguaroCactus.EAST, Boolean.valueOf(true)));
-                        worldIn.setBlockState(posAt, BlocksTFCF.SAGUARO_CACTUS.getDefaultState().withProperty(BlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
-                                                                        .withProperty(BlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
-                                                                        .withProperty(BlockSaguaroCactus.WEST, Boolean.valueOf(true)));
+                        worldIn.setBlockState(pos, state.withProperty(TFCBlockSaguaroCactus.EAST, Boolean.valueOf(true)));
+                        worldIn.setBlockState(posAt, TFCBlocks.SAGUARO_CACTUS.getDefaultState().withProperty(TFCBlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
+                                                                        .withProperty(TFCBlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
+                                                                        .withProperty(TFCBlockSaguaroCactus.WEST, Boolean.valueOf(true)));
                         updateRoot(worldIn, pos, EnumFacing.EAST);
                         placeBlock(worldIn, posAt, EnumFacing.WEST, true, facing.getOpposite());
                         break;
                     case NORTH:
-                        worldIn.setBlockState(pos, state.withProperty(BlockSaguaroCactus.NORTH, Boolean.valueOf(true)));
-                        worldIn.setBlockState(posAt, BlocksTFCF.SAGUARO_CACTUS.getDefaultState().withProperty(BlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
-                                                                        .withProperty(BlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
-                                                                        .withProperty(BlockSaguaroCactus.SOUTH, Boolean.valueOf(true)));
+                        worldIn.setBlockState(pos, state.withProperty(TFCBlockSaguaroCactus.NORTH, Boolean.valueOf(true)));
+                        worldIn.setBlockState(posAt, TFCBlocks.SAGUARO_CACTUS.getDefaultState().withProperty(TFCBlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
+                                                                        .withProperty(TFCBlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
+                                                                        .withProperty(TFCBlockSaguaroCactus.SOUTH, Boolean.valueOf(true)));
                         updateRoot(worldIn, pos, EnumFacing.NORTH);
                         placeBlock(worldIn, posAt, EnumFacing.SOUTH, true, facing.getOpposite());
                         break;
                     case SOUTH:
-                        worldIn.setBlockState(pos, state.withProperty(BlockSaguaroCactus.SOUTH, Boolean.valueOf(true)));
-                        worldIn.setBlockState(posAt, BlocksTFCF.SAGUARO_CACTUS.getDefaultState().withProperty(BlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
-                                                                        .withProperty(BlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
-                                                                        .withProperty(BlockSaguaroCactus.NORTH, Boolean.valueOf(true)));
+                        worldIn.setBlockState(pos, state.withProperty(TFCBlockSaguaroCactus.SOUTH, Boolean.valueOf(true)));
+                        worldIn.setBlockState(posAt, TFCBlocks.SAGUARO_CACTUS.getDefaultState().withProperty(TFCBlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
+                                                                        .withProperty(TFCBlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
+                                                                        .withProperty(TFCBlockSaguaroCactus.NORTH, Boolean.valueOf(true)));
                         updateRoot(worldIn, pos, EnumFacing.SOUTH);
                         placeBlock(worldIn, posAt, EnumFacing.NORTH, true, facing.getOpposite());
                         break;
                     case WEST:
-                        worldIn.setBlockState(pos, state.withProperty(BlockSaguaroCactus.WEST, Boolean.valueOf(true)));
-                        worldIn.setBlockState(posAt, BlocksTFCF.SAGUARO_CACTUS.getDefaultState().withProperty(BlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
-                                                                        .withProperty(BlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
-                                                                        .withProperty(BlockSaguaroCactus.EAST, Boolean.valueOf(true)));
+                        worldIn.setBlockState(pos, state.withProperty(TFCBlockSaguaroCactus.WEST, Boolean.valueOf(true)));
+                        worldIn.setBlockState(posAt, TFCBlocks.SAGUARO_CACTUS.getDefaultState().withProperty(TFCBlockSaguaroCactus.HORIZONTAL, Boolean.valueOf(true))
+                                                                        .withProperty(TFCBlockSaguaroCactus.HORIZONTAL_DIRECTION, facing.getOpposite())
+                                                                        .withProperty(TFCBlockSaguaroCactus.EAST, Boolean.valueOf(true)));
                         updateRoot(worldIn, pos, EnumFacing.WEST);
                         placeBlock(worldIn, posAt, EnumFacing.EAST, true, facing.getOpposite());
                         break;
                     case UP:
-                        worldIn.setBlockState(posAt, BlocksTFCF.SAGUARO_CACTUS.getDefaultState());
+                        worldIn.setBlockState(posAt, TFCBlocks.SAGUARO_CACTUS.getDefaultState());
                         placeBlock(worldIn, posAt, EnumFacing.UP, false, EnumFacing.NORTH);
                         break;
                     default:

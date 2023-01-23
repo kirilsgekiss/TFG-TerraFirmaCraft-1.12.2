@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityHareTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityHare;
 
 /**
  * ModelHareTFC
@@ -143,7 +143,7 @@ public class ModelHareTFC extends ModelBase
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
     {
         float f = ageInTicks - (float) entityIn.ticksExisted;
-        EntityHareTFC EntityHareTFC = (EntityHareTFC) entityIn;
+        TFCEntityHare EntityHareTFC = (TFCEntityHare) entityIn;
         this.hareNose.rotateAngleX = headPitch * 0.017453292F;
         this.hareHead.rotateAngleX = headPitch * 0.017453292F;
         this.hareNose.rotateAngleY = netHeadYaw * 0.017453292F;
@@ -160,7 +160,7 @@ public class ModelHareTFC extends ModelBase
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
     {
         super.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTickTime);
-        this.jumpRotation = MathHelper.sin(((EntityHareTFC) entitylivingbaseIn).getJumpCompletion(partialTickTime) * (float) Math.PI);
+        this.jumpRotation = MathHelper.sin(((TFCEntityHare) entitylivingbaseIn).getJumpCompletion(partialTickTime) * (float) Math.PI);
     }
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)

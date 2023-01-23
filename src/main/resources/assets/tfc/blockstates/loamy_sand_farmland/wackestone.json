@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/wackestone",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/wackestone",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/wackestone"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/wackestone",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/wackestone",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/wackestone"
     }
   },
   "variants": {

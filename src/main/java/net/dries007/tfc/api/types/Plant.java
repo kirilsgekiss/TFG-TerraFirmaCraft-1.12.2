@@ -279,35 +279,35 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         return plantType == PlantType.STANDARD || plantType == PlantType.CACTUS || plantType == PlantType.CREEPING || plantType == PlantType.TALL_PLANT || plantType == PlantType.DRY || plantType == PlantType.DESERT || plantType == PlantType.MUSHROOM;
     }
 
-    public final EnumPlantTypeTFC getEnumPlantTypeTFC()
+    public final TFCEnumPlantType getEnumPlantTypeTFC()
     {
         switch (plantType)
         {
             case DESERT:
             case DESERT_TALL_PLANT:
-                if (isClayMarking) return EnumPlantTypeTFC.DESERT_CLAY;
-                else return EnumPlantTypeTFC.NONE;
+                if (isClayMarking) return TFCEnumPlantType.DESERT_CLAY;
+                else return TFCEnumPlantType.NONE;
             case DRY:
             case DRY_TALL_PLANT:
-                if (isClayMarking) return EnumPlantTypeTFC.DRY_CLAY;
-                else return EnumPlantTypeTFC.DRY;
+                if (isClayMarking) return TFCEnumPlantType.DRY_CLAY;
+                else return TFCEnumPlantType.DRY;
             case REED:
             case TALL_REED:
-                return EnumPlantTypeTFC.FRESH_BEACH;
+                return TFCEnumPlantType.FRESH_BEACH;
             case REED_SEA:
             case TALL_REED_SEA:
-                return EnumPlantTypeTFC.SALT_BEACH;
+                return TFCEnumPlantType.SALT_BEACH;
             case WATER:
             case TALL_WATER:
             case EMERGENT_TALL_WATER:
-                return EnumPlantTypeTFC.WATER;
+                return TFCEnumPlantType.WATER;
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
-                return EnumPlantTypeTFC.SEA_WATER;
+                return TFCEnumPlantType.SEA_WATER;
             default:
-                if (isClayMarking) return EnumPlantTypeTFC.CLAY;
-                else return EnumPlantTypeTFC.NONE;
+                if (isClayMarking) return TFCEnumPlantType.CLAY;
+                else return TFCEnumPlantType.NONE;
         }
     }
 
@@ -354,41 +354,43 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
     // todo: switch usages to interface from enum, it will make custom plants by addons easier down the line. It's also a better design
     public enum PlantType implements IPlantType
     {
-        STANDARD(BlockPlantTFC::new),
-        TALL_PLANT(BlockTallPlantTFC::new),
-        CREEPING(BlockCreepingPlantTFC::new),
-        HANGING(BlockHangingPlantTFC::new),
-        FLOATING(BlockFloatingWaterTFC::new),
-        FLOATING_SEA(BlockFloatingWaterTFC::new),
-        DESERT(BlockPlantTFC::new),
-        DESERT_TALL_PLANT(BlockTallPlantTFC::new),
-        DRY(BlockPlantTFC::new),
-        DRY_TALL_PLANT(BlockTallPlantTFC::new),
-        CACTUS(BlockCactusTFC::new),
-        SHORT_GRASS(BlockShortGrassTFC::new),
-        TALL_GRASS(BlockTallGrassTFC::new),
-        EPIPHYTE(BlockEpiphyteTFC::new),
-        REED(BlockPlantTFC::new),
-        REED_SEA(BlockPlantTFC::new),
-        TALL_REED(BlockTallPlantTFC::new),
-        TALL_REED_SEA(BlockTallPlantTFC::new),
-        WATER(BlockWaterPlantTFC::new),
-        WATER_SEA(BlockWaterPlantTFC::new),
-        TALL_WATER(BlockTallWaterPlantTFC::new),
-        TALL_WATER_SEA(BlockTallWaterPlantTFC::new),
-        EMERGENT_TALL_WATER(BlockEmergentTallWaterPlantTFC::new),
-        EMERGENT_TALL_WATER_SEA(BlockEmergentTallWaterPlantTFC::new),
-        MUSHROOM(BlockMushroomTFC::new);
+        STANDARD(TFCBlockPlant::new),
+        TALL_PLANT(TFCBlockTallPlant::new),
+        CREEPING(TFCBlockCreepingPlant::new),
+        HANGING(TFCBlockHangingPlant::new),
+        FLOATING(TFCBlockFloatingWater::new),
+        FLOATING_SEA(TFCBlockFloatingWater::new),
+        DESERT(TFCBlockPlant::new),
+        DESERT_TALL_PLANT(TFCBlockTallPlant::new),
+        DRY(TFCBlockPlant::new),
+        DRY_TALL_PLANT(TFCBlockTallPlant::new),
+        CACTUS(TFCBlockCactus::new),
+        SAGUARO_CACTUS(TFCBlockSaguaroCactus::new),
+        SHORT_GRASS(TFCBlockShortGrass::new),
+        TALL_GRASS(TFCBlockTallGrass::new),
+        EPIPHYTE(TFCBlockEpiphyte::new),
+        REED(TFCBlockPlant::new),
+        REED_SEA(TFCBlockPlant::new),
+        TALL_REED(TFCBlockTallPlant::new),
+        TALL_REED_SEA(TFCBlockTallPlant::new),
+        WATER(TFCBlockWaterPlant::new),
+        WATER_SEA(TFCBlockWaterPlant::new),
+        TALL_WATER(TFCBlockTallWaterPlant::new),
+        TALL_WATER_SEA(TFCBlockTallWaterPlant::new),
+        TALL_WATER_GRASS(TFCBlockTallGrassWater::new),
+        EMERGENT_TALL_WATER(TFCBlockEmergentTallWaterPlant::new),
+        EMERGENT_TALL_WATER_SEA(TFCBlockEmergentTallWaterPlant::new),
+        MUSHROOM(TFCBlockMushroom::new);
 
-        private final Function<Plant, BlockPlantTFC> supplier;
+        private final Function<Plant, TFCBlockPlant> supplier;
 
-        PlantType(@Nonnull Function<Plant, BlockPlantTFC> supplier)
+        PlantType(@Nonnull Function<Plant, TFCBlockPlant> supplier)
         {
             this.supplier = supplier;
         }
 
         @Override
-        public BlockPlantTFC create(Plant plant)
+        public TFCBlockPlant create(Plant plant)
         {
             return supplier.apply(plant);
         }
@@ -417,7 +419,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant>
         }
     }
 
-    public enum EnumPlantTypeTFC
+    public enum TFCEnumPlantType
     {
         CLAY,
         DESERT_CLAY,

@@ -44,7 +44,7 @@ import net.dries007.tfc.objects.blocks.devices.BlockFirePit;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
@@ -825,15 +825,15 @@ public class TEFirePit extends TETickableInventory implements ICalendarTickable,
         switch (soupNutrient)
         {
             case GRAIN:
-                return ItemFoodTFC.get(Food.SOUP_GRAIN);
+                return TFCItemFood.get(Food.SOUP_GRAIN);
             case VEGETABLES:
-                return ItemFoodTFC.get(Food.SOUP_VEGETABLE);
+                return TFCItemFood.get(Food.SOUP_VEGETABLE);
             case FRUIT:
-                return ItemFoodTFC.get(Food.SOUP_FRUIT);
+                return TFCItemFood.get(Food.SOUP_FRUIT);
             case PROTEIN:
-                return ItemFoodTFC.get(Food.SOUP_MEAT);
+                return TFCItemFood.get(Food.SOUP_MEAT);
             default:
-                return ItemFoodTFC.get(Food.SOUP_DAIRY);
+                return TFCItemFood.get(Food.SOUP_DAIRY);
         }
     }
 

@@ -3,7 +3,8 @@ package net.dries007.tfc.objects.blocks.wood.cinnamon;
 import java.util.Random;
 import javax.annotation.Nonnull;
 
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.TFCItems;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -25,12 +26,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.Month;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static net.dries007.tfc.api.stateproperty.StatePropertiesTFC.*;
@@ -118,7 +117,7 @@ public class BlockCassiaCinnamonLog extends Block
                 {
                     world.setBlockState(pos, state.withProperty(GROWN, false));
                     held.damageItem(1, player);
-                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ItemFoodTFC.get(Food.CASSIA_CINNAMON_BARK), 1));
+                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(TFCItemFood.get(Food.CASSIA_CINNAMON_BARK), 1));
                 }
 
             }
@@ -129,7 +128,7 @@ public class BlockCassiaCinnamonLog extends Block
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        drops.add(new ItemStack(ItemsTFCF.CASSIA_CINNAMON_POLE, 1));
+        drops.add(new ItemStack(TFCItems.CASSIA_CINNAMON_POLE, 1));
     }
 
     @Override
@@ -139,7 +138,7 @@ public class BlockCassiaCinnamonLog extends Block
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
         IBlockState downState = worldIn.getBlockState(pos.down());
         boolean shouldDestroy = true;
-        if (downState.getBlock() instanceof BlockCassiaCinnamonLog || BlocksTFC.isGrowableSoil(downState))
+        if (downState.getBlock() instanceof BlockCassiaCinnamonLog || TFCBlocks.isGrowableSoil(downState))
             shouldDestroy = false;
         if (shouldDestroy)
         {

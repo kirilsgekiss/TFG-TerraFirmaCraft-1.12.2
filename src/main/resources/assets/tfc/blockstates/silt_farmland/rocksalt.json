@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/silt/rocksalt",
-      "particle": "tfcflorae:blocks/stonetypes/silt/rocksalt",
-      "top": "tfcflorae:blocks/stonetypes/silt_farmland/rocksalt"
+      "dirt": "tfc:blocks/stonetypes/silt/rocksalt",
+      "particle": "tfc:blocks/stonetypes/silt/rocksalt",
+      "top": "tfc:blocks/stonetypes/silt_farmland/rocksalt"
     }
   },
   "variants": {

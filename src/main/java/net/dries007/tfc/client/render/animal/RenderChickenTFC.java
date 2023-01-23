@@ -17,14 +17,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.client.model.animal.ModelChickenTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityChickenTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityChicken;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderChickenTFC extends RenderLiving<EntityChickenTFC>
+public class RenderChickenTFC extends RenderLiving<TFCEntityChicken>
 {
     private static final ResourceLocation CHICKEN_YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/chicken_young.png");
     private static final ResourceLocation CHICKEN_OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/chicken_old.png");
@@ -40,14 +40,14 @@ public class RenderChickenTFC extends RenderLiving<EntityChickenTFC>
     }
 
     @Override
-    public void doRender(EntityChickenTFC chicken, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(TFCEntityChicken chicken, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.15f + chicken.getPercentToAdulthood() * 0.15f);
         super.doRender(chicken, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityChickenTFC chicken)
+    protected ResourceLocation getEntityTexture(TFCEntityChicken chicken)
     {
         float percent = (float) chicken.getPercentToAdulthood();
 
@@ -55,7 +55,7 @@ public class RenderChickenTFC extends RenderLiving<EntityChickenTFC>
         {
             return CHICK_TEXTURE;
         }
-        else if (chicken.getGender() == EntityAnimalTFC.Gender.MALE)
+        else if (chicken.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             return chicken.getAge() == IAnimalTFC.Age.OLD ? ROOSTER_OLD : ROOSTER_YOUNG;
         }
@@ -66,7 +66,7 @@ public class RenderChickenTFC extends RenderLiving<EntityChickenTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityChickenTFC livingBase, float partialTicks)
+    protected float handleRotationFloat(TFCEntityChicken livingBase, float partialTicks)
     {
         float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTicks;
         float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTicks;
@@ -74,7 +74,7 @@ public class RenderChickenTFC extends RenderLiving<EntityChickenTFC>
     }
 
     @Override
-    protected void preRenderCallback(EntityChickenTFC bear, float par2)
+    protected void preRenderCallback(TFCEntityChicken bear, float par2)
     {
         GlStateManager.scale(0.7f, 0.7f, 0.7f);
     }

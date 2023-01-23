@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/diorite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/diorite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/diorite"
+      "dirt": "tfc:blocks/stonetypes/humus/diorite",
+      "particle": "tfc:blocks/stonetypes/humus/diorite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/diorite"
     }
   },
   "variants": {

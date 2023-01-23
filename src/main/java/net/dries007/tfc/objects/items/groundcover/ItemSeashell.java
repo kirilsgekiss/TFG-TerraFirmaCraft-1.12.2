@@ -9,14 +9,14 @@ import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 
 import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceSeashells;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemSeashell extends ItemBlockTFC
+public class ItemSeashell extends TFCItemBlock
 {
     public ItemSeashell(BlockSurfaceSeashells block)
     {

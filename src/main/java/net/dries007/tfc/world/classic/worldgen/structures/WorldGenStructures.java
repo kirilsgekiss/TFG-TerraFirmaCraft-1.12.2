@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.structures;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -11,10 +12,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
-import tfcflorae.ConfigTFCF;
 
 public class WorldGenStructures implements IWorldGenerator
 {
@@ -30,11 +29,11 @@ public class WorldGenStructures implements IWorldGenerator
 			ChunkDataTFC data = ChunkDataTFC.get(world, pos);
             IBlockState down = world.getBlockState(pos.down());
 
-            if (ConfigTFCF.General.STRUCTURES.activateStructureGeneration)
+            if (ConfigTFC.FloraeGeneral.STRUCTURES.activateStructureGeneration)
             {
-				if (!(world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.LAKE || b == BiomesTFC.RIVER || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
+				if (!(world.getBlockState(pos).getBlock() == ChunkGenTFC.WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock() || world.getBlockState(pos).getBlock() == ChunkGenTFC.HOT_WATER.getBlock() || b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.LAKE || b == TFCBiomes.RIVER || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH))
 				{
-					if (data.isInitialized() && data.getRainfall() >= 100f && random.nextInt(ConfigTFCF.General.STRUCTURES.spawnChanceRuins) == 0)
+					if (data.isInitialized() && data.getRainfall() >= 100f && random.nextInt(ConfigTFC.FloraeGeneral.STRUCTURES.spawnChanceRuins) == 0)
 					{
 						int chance = random.nextInt(7);
 
@@ -53,7 +52,7 @@ public class WorldGenStructures implements IWorldGenerator
 						else if (chance == 6)
 							generateStructure(StructureList.RUIN_TEMPLE_1B, world, random, pos);
 					}
-					if (data.isInitialized() && data.getRainfall() >= 320f && data.getFloraDensity() >= 0.3f && data.getAverageTemp() >= 9f && random.nextInt(ConfigTFCF.General.STRUCTURES.spawnChanceMoai) == 0)
+					if (data.isInitialized() && data.getRainfall() >= 320f && data.getFloraDensity() >= 0.3f && data.getAverageTemp() >= 9f && random.nextInt(ConfigTFC.FloraeGeneral.STRUCTURES.spawnChanceMoai) == 0)
 					{
 						int chance = random.nextInt(6);
 
@@ -70,7 +69,7 @@ public class WorldGenStructures implements IWorldGenerator
 						else if (chance == 5)
 							generateStructure(StructureList.MOAI_2B, world, random, pos);
 					}
-					if (data.isInitialized() && data.getRainfall() >= 320f && data.getFloraDensity() >= 0.2f && data.getAverageTemp() >= 13f && random.nextInt(ConfigTFCF.General.STRUCTURES.spawnChanceMaya) == 0)
+					if (data.isInitialized() && data.getRainfall() >= 320f && data.getFloraDensity() >= 0.2f && data.getAverageTemp() >= 13f && random.nextInt(ConfigTFC.FloraeGeneral.STRUCTURES.spawnChanceMaya) == 0)
 					{
 						generateStructure(StructureList.MAYAN_TEMPLE_1A, world, random, pos);
 					}

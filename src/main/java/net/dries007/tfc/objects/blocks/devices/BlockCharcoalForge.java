@@ -21,7 +21,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -44,7 +43,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
 import net.dries007.tfc.objects.te.TEBellows;
@@ -64,7 +63,7 @@ public class BlockCharcoalForge extends Block implements IBellowsConsumerBlock, 
         BiPredicate<World, BlockPos> isValidSide = (world, pos) -> BlockCharcoalForge.isValidSide(world.getBlockState(pos));
         CHARCOAL_FORGE_MULTIBLOCK = new Multiblock()
             // Top block
-            .match(new BlockPos(0, 1, 0), state -> state.getBlock() == BlocksTFC.CRUCIBLE || state.getBlock() == Blocks.AIR)
+            .match(new BlockPos(0, 1, 0), state -> state.getBlock() == TFCBlocks.CRUCIBLE || state.getBlock() == Blocks.AIR)
             // Chimney
             .matchOneOf(new BlockPos(0, 1, 0), new Multiblock()
                 .match(new BlockPos(0, 0, 0), skyMatcher)

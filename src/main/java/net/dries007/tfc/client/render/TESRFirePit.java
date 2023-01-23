@@ -7,7 +7,6 @@ package net.dries007.tfc.client.render;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.FluidRegistry;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.block.state.IBlockState;
@@ -29,7 +28,6 @@ import net.minecraftforge.items.IItemHandler;
 
 import net.dries007.tfc.client.FluidSpriteCache;
 import net.dries007.tfc.objects.blocks.devices.BlockFirePit;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.te.TEFirePit;
 
 import static net.dries007.tfc.objects.te.TEFirePit.SLOT_EXTRA_INPUT_END;

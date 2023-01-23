@@ -8,6 +8,8 @@ package net.dries007.tfc.api.capability.size;
 import java.util.List;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.objects.items.TFCItem;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -23,8 +25,8 @@ import net.dries007.tfc.util.Helpers;
  * If you implement the capability, TFC will try and auto-adjust the max stacksize of the item for you
  * Otherwise, your item will be assigned a default capability on creation
  *
- * @see net.dries007.tfc.objects.items.ItemTFC
- * @see net.dries007.tfc.objects.items.itemblock.ItemBlockTFC
+ * @see TFCItem
+ * @see TFCItemBlock
  */
 public interface IItemSize
 {

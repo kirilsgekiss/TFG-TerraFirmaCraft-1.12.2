@@ -37,9 +37,8 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
-import tfcflorae.TFCFlorae;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockStickBundle;
 import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import net.dries007.tfc.objects.te.TEStickBundle;
@@ -112,16 +111,16 @@ public class BlockStickBundle extends Block implements IItemSize, ITallPlant
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-    	if (state.getValue(PART) == BlockStickBundle.EnumBlockPart.UPPER) drops.add(new ItemStack(ItemsTFC.STICK_BUNCH, 1));
+    	if (state.getValue(PART) == BlockStickBundle.EnumBlockPart.UPPER) drops.add(new ItemStack(TFCItems.STICK_BUNCH, 1));
     	/*switch(state.getValue(GROWTH))
         {
 			case 4:
-				drops.add(new ItemStack(ItemsTFCF.SILK_WORM_COCOON, 1));
+				drops.add(new ItemStack(ItemsTFC.SILK_WORM_COCOON, 1));
 				break;
 			case 3:
 			case 2:
 			case 1:
-				drops.add(new ItemStack(ItemsTFCF.SILK_WORM, 1));
+				drops.add(new ItemStack(ItemsTFC.SILK_WORM, 1));
 				break;
 			default:
 		}*/

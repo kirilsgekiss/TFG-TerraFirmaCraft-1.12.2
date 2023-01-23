@@ -17,8 +17,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityGoatTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityGoat;
 
 /**
  * ModelGoatTFC
@@ -177,12 +177,12 @@ public class ModelGoatTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityGoatTFC goat = ((EntityGoatTFC) entity);
+        TFCEntityGoat goat = ((TFCEntityGoat) entity);
 
         float percent = (float) goat.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
-        if (goat.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (goat.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             if (percent < 0.5)
             {
@@ -272,7 +272,7 @@ public class ModelGoatTFC extends ModelBase
     @Override
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity ent)
     {
-        if (!(((EntityGoatTFC) ent).sheepTimer > 0))
+        if (!(((TFCEntityGoat) ent).sheepTimer > 0))
         {
             this.head1.rotateAngleX = par5 / (180F / (float) Math.PI);
             this.head2.rotateAngleX = par5 / (180F / (float) Math.PI);
@@ -291,10 +291,10 @@ public class ModelGoatTFC extends ModelBase
     public void setLivingAnimations(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float partialTicks)
     {
         super.setLivingAnimations(entity, limbSwing, limbSwingAmount, partialTicks);
-        head2.rotationPointZ = ((EntityGoatTFC) entity).sheepTimer > 0 ? -7.0F : -5.0F;
-        neck.rotationPointY = ((EntityGoatTFC) entity).sheepTimer > 0 ? 13.0F : 10.0F;
+        head2.rotationPointZ = ((TFCEntityGoat) entity).sheepTimer > 0 ? -7.0F : -5.0F;
+        neck.rotationPointY = ((TFCEntityGoat) entity).sheepTimer > 0 ? 13.0F : 10.0F;
 
-        float rotX = ((EntityGoatTFC) entity).getHeadRotationAngleX(partialTicks);
+        float rotX = ((TFCEntityGoat) entity).getHeadRotationAngleX(partialTicks);
         head1.rotateAngleX = rotX;
         head2.rotateAngleX = rotX;
     }

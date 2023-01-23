@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.FoodTrait;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.inventory.ingredient.IngredientItemFoodTrait;
 import net.dries007.tfc.util.Helpers;
@@ -26,7 +26,7 @@ public class BarrelRecipeFoodPreservation extends BarrelRecipe
 {
     public static BarrelRecipe vinegar(@Nonnull IIngredient<ItemStack> inputStack)
     {
-        return new BarrelRecipeFoodPreservation(IIngredient.of(FluidsTFC.VINEGAR.get(), 125), new IngredientItemFoodTrait(inputStack, FoodTrait.PICKLED), FoodTrait.VINEGAR, "barrel_recipe_vinegar");
+        return new BarrelRecipeFoodPreservation(IIngredient.of(TFCFluids.VINEGAR.get(), 125), new IngredientItemFoodTrait(inputStack, FoodTrait.PICKLED), FoodTrait.VINEGAR, "barrel_recipe_vinegar");
     }
 
     private final FoodTrait trait;

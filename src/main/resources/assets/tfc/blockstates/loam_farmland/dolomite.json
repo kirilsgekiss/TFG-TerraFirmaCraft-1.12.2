@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loam/dolomite",
-      "particle": "tfcflorae:blocks/stonetypes/loam/dolomite",
-      "top": "tfcflorae:blocks/stonetypes/loam_farmland/dolomite"
+      "dirt": "tfc:blocks/stonetypes/loam/dolomite",
+      "particle": "tfc:blocks/stonetypes/loam/dolomite",
+      "top": "tfc:blocks/stonetypes/loam_farmland/dolomite"
     }
   },
   "variants": {

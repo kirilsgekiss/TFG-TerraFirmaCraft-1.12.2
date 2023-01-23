@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityWolfTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityWolf;
 
 /**
  * Need this for not insta-growing
@@ -145,7 +145,7 @@ public class ModelWolfTFC extends ModelBase
     @Override
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
     {
-        EntityWolfTFC entitywolf = (EntityWolfTFC) entitylivingbaseIn;
+        TFCEntityWolf entitywolf = (TFCEntityWolf) entitylivingbaseIn;
 
         if (entitywolf.isAngry())
         {

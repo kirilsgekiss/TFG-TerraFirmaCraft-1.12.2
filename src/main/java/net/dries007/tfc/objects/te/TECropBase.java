@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 
@@ -28,7 +28,7 @@ public class TECropBase extends TETickCounter implements ICalendarTickable, ITic
     @Override
     public void onCalendarUpdate(long playerTickDelta)
     {
-        BlockCropTFC block = (BlockCropTFC) getBlockType();
+        TFCBlockCrop block = (TFCBlockCrop) getBlockType();
         block.checkGrowth(world, pos, world.getBlockState(pos), world.rand);
     }
 

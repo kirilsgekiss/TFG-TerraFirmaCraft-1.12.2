@@ -17,14 +17,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.client.model.animal.ModelGrouseTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityGrouseTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityGrouse;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderGrouseTFC extends RenderLiving<EntityGrouseTFC>
+public class RenderGrouseTFC extends RenderLiving<TFCEntityGrouse>
 {
     private static final ResourceLocation FEMALE_YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/grousef_young.png");
     private static final ResourceLocation FEMALE_OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/grousef_old.png");
@@ -40,14 +40,14 @@ public class RenderGrouseTFC extends RenderLiving<EntityGrouseTFC>
     }
 
     @Override
-    public void doRender(EntityGrouseTFC grouse, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(TFCEntityGrouse grouse, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.15f + grouse.getPercentToAdulthood() * 0.15f);
         super.doRender(grouse, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityGrouseTFC grouse)
+    protected ResourceLocation getEntityTexture(TFCEntityGrouse grouse)
     {
         float percent = (float) grouse.getPercentToAdulthood();
 
@@ -55,7 +55,7 @@ public class RenderGrouseTFC extends RenderLiving<EntityGrouseTFC>
         {
             return CHICK_TEXTURE;
         }
-        else if (grouse.getGender() == EntityAnimalTFC.Gender.MALE)
+        else if (grouse.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             return grouse.getAge() == IAnimalTFC.Age.OLD ? MALE_YOUNG : MALE_OLD;
         }
@@ -66,7 +66,7 @@ public class RenderGrouseTFC extends RenderLiving<EntityGrouseTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityGrouseTFC livingBase, float partialTicks)
+    protected float handleRotationFloat(TFCEntityGrouse livingBase, float partialTicks)
     {
         float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTicks;
         float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTicks;
@@ -74,7 +74,7 @@ public class RenderGrouseTFC extends RenderLiving<EntityGrouseTFC>
     }
 
     @Override
-    protected void preRenderCallback(EntityGrouseTFC grouse, float par2)
+    protected void preRenderCallback(TFCEntityGrouse grouse, float par2)
     {
         GlStateManager.scale(0.85f, 0.85f, 0.85f);
     }

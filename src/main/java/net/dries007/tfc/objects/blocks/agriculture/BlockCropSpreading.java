@@ -22,7 +22,7 @@ import net.dries007.tfc.util.Helpers;
 
 @Deprecated // For now, unused, needs design work
 @ParametersAreNonnullByDefault
-public abstract class BlockCropSpreading extends BlockCropTFC
+public abstract class BlockCropSpreading extends TFCBlockCrop
 {
     private static final int MAX_SPREAD_AGE = 16;
 

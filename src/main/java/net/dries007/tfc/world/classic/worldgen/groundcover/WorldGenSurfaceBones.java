@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.groundcover;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -9,12 +10,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenSurfaceBones implements IWorldGenerator
 {
@@ -54,8 +52,8 @@ public class WorldGenSurfaceBones implements IWorldGenerator
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
-            //for (int i = 0; i < ConfigTFCF.General.WORLD.groundcoverBonesFrequency * factor; i++)
-            for (int i = 0; i < getBoneFrequency(world, chunkBlockPos, ConfigTFCF.General.WORLD.groundcoverBonesFrequency); i++)
+            //for (int i = 0; i < ConfigTFC.FloraeGeneral.WORLD.groundcoverBonesFrequency * factor; i++)
+            for (int i = 0; i < getBoneFrequency(world, chunkBlockPos, ConfigTFC.FloraeGeneral.WORLD.groundcoverBonesFrequency); i++)
             {
                 BlockPos pos = new BlockPos(
                     xoff + random.nextInt(16),
@@ -72,9 +70,9 @@ public class WorldGenSurfaceBones implements IWorldGenerator
         ChunkDataTFC data = ChunkDataTFC.get(world, pos);
         if (pos.getY() > 146 && pos.getY() < 170 && data.getRainfall() <= 75)
         {
-            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(world.getBlockState(pos.down())))
+            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down())))
             {
-                world.setBlockState(pos, BlocksTFCF.BONES.getDefaultState());
+                world.setBlockState(pos, TFCBlocks.BONES.getDefaultState());
             }
         }
     }

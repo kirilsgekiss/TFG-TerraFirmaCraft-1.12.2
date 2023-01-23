@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/sandy_loam/foidolite",
-      "particle": "tfcflorae:blocks/stonetypes/sandy_loam/foidolite",
-      "top": "tfcflorae:blocks/stonetypes/sandy_loam_farmland/foidolite"
+      "dirt": "tfc:blocks/stonetypes/sandy_loam/foidolite",
+      "particle": "tfc:blocks/stonetypes/sandy_loam/foidolite",
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/foidolite"
     }
   },
   "variants": {

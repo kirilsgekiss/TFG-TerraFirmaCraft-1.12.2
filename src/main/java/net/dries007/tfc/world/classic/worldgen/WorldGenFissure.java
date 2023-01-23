@@ -18,11 +18,10 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 import static net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC.getRock3;
@@ -48,7 +47,7 @@ public class WorldGenFissure implements IWorldGenerator
         BlockPos start = new ChunkPos(chunkX, chunkZ).getBlock(random.nextInt(14) + 9, 0, random.nextInt(14) + 9);
         Biome biome = world.getBiome(start);
 
-        if (biome == BiomesTFC.BEACH || biome == BiomesTFC.OCEAN || biome == BiomesTFC.GRAVEL_BEACH || biome == BiomesTFC.LAKE || biome == BiomesTFC.RIVER || biome == BiomesTFC.DEEP_OCEAN)
+        if (biome == TFCBiomes.BEACH || biome == TFCBiomes.OCEAN || biome == TFCBiomes.GRAVEL_BEACH || biome == TFCBiomes.LAKE || biome == TFCBiomes.RIVER || biome == TFCBiomes.DEEP_OCEAN)
         {
             return;
         }
@@ -61,7 +60,7 @@ public class WorldGenFissure implements IWorldGenerator
             return;
         }
 
-        final IBlockState rock = BlockRockVariant.get(getRock3(world, start), Type.RAW).getDefaultState();
+        final IBlockState rock = TFCBlockRockVariant.get(getRock3(world, start), Type.RAW).getDefaultState();
 
         int depth = 2 + random.nextInt(3);
         int radius = 1 + random.nextInt(2);
@@ -73,7 +72,7 @@ public class WorldGenFissure implements IWorldGenerator
             for (BlockPos pos : clearing)
             {
                 IBlockState block = world.getBlockState(pos.up(y));
-                if (BlocksTFC.isWater(block) && !BlocksTFC.isGround(block)) return;
+                if (TFCBlocks.isWater(block) && !TFCBlocks.isGround(block)) return;
             }
         }
 

@@ -14,13 +14,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelWildebeestTFC;
-import net.dries007.tfc.objects.entity.animal.EntityWildebeestTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityWildebeest;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderWildebeestTFC extends RenderLiving<EntityWildebeestTFC>
+public class RenderWildebeestTFC extends RenderLiving<TFCEntityWildebeest>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/animal/huntable/wildebeest.png");
 
@@ -30,13 +30,13 @@ public class RenderWildebeestTFC extends RenderLiving<EntityWildebeestTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityWildebeestTFC wildebeest, float par2)
+    protected float handleRotationFloat(TFCEntityWildebeest wildebeest, float par2)
     {
         return 1.0f;
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityWildebeestTFC entity)
+    protected ResourceLocation getEntityTexture(TFCEntityWildebeest entity)
     {
         return TEXTURE;
     }

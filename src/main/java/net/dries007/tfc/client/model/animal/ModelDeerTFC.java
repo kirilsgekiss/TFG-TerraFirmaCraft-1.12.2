@@ -16,8 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityDeerTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDeer;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -333,7 +333,7 @@ public class ModelDeerTFC extends ModelBase
         super.render(entity, f, f1, f2, f3, f4, f5);
         this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
-        EntityDeerTFC deer = ((EntityDeerTFC) entity);
+        TFCEntityDeer deer = ((TFCEntityDeer) entity);
 
         running = false;
         //running = ((EntityDeer)entity).getRunning();
@@ -345,7 +345,7 @@ public class ModelDeerTFC extends ModelBase
         float ab = (float) Math.sqrt(1.0F / aa);
         GlStateManager.scale(ab, ab, ab);
         GlStateManager.translate(0.0F, 22F * f5 * age / (float) Math.pow(aa, 0.4), 2F * f5 * age / ab);
-        if (deer.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (deer.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             if (aa <= 1.75)
             {

@@ -23,7 +23,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.te.TEBloom;
 import net.dries007.tfc.util.Helpers;
 
@@ -100,6 +100,6 @@ public class BlockBloom extends Block
                 }
             }
         }
-        return new ItemStack(ItemsTFC.UNREFINED_BLOOM);
+        return new ItemStack(TFCItems.UNREFINED_BLOOM);
     }
 }

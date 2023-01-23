@@ -14,7 +14,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 
-public class ItemBlockHeat extends ItemBlockTFC
+public class ItemBlockHeat extends TFCItemBlock
 {
     private final float heatCapacity;
     private final float meltingPoint;

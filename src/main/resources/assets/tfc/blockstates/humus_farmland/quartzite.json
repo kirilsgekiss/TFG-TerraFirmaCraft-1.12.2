@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/quartzite",
-      "particle": "tfcflorae:blocks/stonetypes/humus/quartzite",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/quartzite"
+      "dirt": "tfc:blocks/stonetypes/humus/quartzite",
+      "particle": "tfc:blocks/stonetypes/humus/quartzite",
+      "top": "tfc:blocks/stonetypes/humus_farmland/quartzite"
     }
   },
   "variants": {

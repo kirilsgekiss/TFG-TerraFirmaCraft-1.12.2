@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariantConnected;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariantConnected;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -58,24 +58,24 @@ public class BlockPeatGrass extends BlockPeat
     public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         pos = pos.add(0, -1, 0);
-        return state.withProperty(NORTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.NORTH))))
-            .withProperty(EAST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.EAST))))
-            .withProperty(SOUTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.SOUTH))))
-            .withProperty(WEST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.WEST))));
+        return state.withProperty(NORTH, TFCBlocks.isGrass(world.getBlockState(pos.offset(EnumFacing.NORTH))))
+            .withProperty(EAST, TFCBlocks.isGrass(world.getBlockState(pos.offset(EnumFacing.EAST))))
+            .withProperty(SOUTH, TFCBlocks.isGrass(world.getBlockState(pos.offset(EnumFacing.SOUTH))))
+            .withProperty(WEST, TFCBlocks.isGrass(world.getBlockState(pos.offset(EnumFacing.WEST))));
     }
 
     @Override
     public void randomTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
         if (world.isRemote) return;
-        BlockRockVariantConnected.spreadGrass(world, pos, state, rand);
+        TFCBlockRockVariantConnected.spreadGrass(world, pos, state, rand);
     }
 
     @Override
     @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(BlocksTFC.PEAT);
+        return Item.getItemFromBlock(TFCBlocks.PEAT);
     }
 
     @Override

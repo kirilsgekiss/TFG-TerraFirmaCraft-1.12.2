@@ -19,7 +19,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.VanillaDoubleChestItemHandler;
 
-import net.dries007.tfc.objects.te.TEChestTFC;
+import net.dries007.tfc.objects.te.TEChest;
 
 @SuppressWarnings("WeakerAccess")
 public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
@@ -66,15 +66,15 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Override
     public int getSlots()
     {
-        return TEChestTFC.SIZE * 2;
+        return TEChest.SIZE * 2;
     }
 
     @Override
     @Nonnull
     public ItemStack getStackInSlot(int slot)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
-        int targetSlot = accessingUpperChest ? slot : slot - TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
+        int targetSlot = accessingUpperChest ? slot : slot - TEChest.SIZE;
         TileEntityChest chest = getChest(accessingUpperChest);
         return chest != null ? chest.getStackInSlot(targetSlot) : ItemStack.EMPTY;
     }
@@ -82,8 +82,8 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Override
     public void setStackInSlot(int slot, @Nonnull ItemStack stack)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
-        int targetSlot = accessingUpperChest ? slot : slot - TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
+        int targetSlot = accessingUpperChest ? slot : slot - TEChest.SIZE;
         TileEntityChest chest = getChest(accessingUpperChest);
         if (chest != null)
         {
@@ -105,8 +105,8 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Nonnull
     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
-        int targetSlot = accessingUpperChest ? slot : slot - TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
+        int targetSlot = accessingUpperChest ? slot : slot - TEChest.SIZE;
         TileEntityChest chest = getChest(accessingUpperChest);
         if (chest == null)
         {
@@ -135,8 +135,8 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Nonnull
     public ItemStack extractItem(int slot, int amount, boolean simulate)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
-        int targetSlot = accessingUpperChest ? slot : slot - TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
+        int targetSlot = accessingUpperChest ? slot : slot - TEChest.SIZE;
         TileEntityChest chest = getChest(accessingUpperChest);
         if (chest == null)
         {
@@ -159,7 +159,7 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Override
     public int getSlotLimit(int slot)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
         //noinspection ConstantConditions
         return getChest(accessingUpperChest).getInventoryStackLimit();
     }
@@ -167,8 +167,8 @@ public class TFCDoubleChestItemHandler extends VanillaDoubleChestItemHandler
     @Override
     public boolean isItemValid(int slot, @Nonnull ItemStack stack)
     {
-        boolean accessingUpperChest = slot < TEChestTFC.SIZE;
-        int targetSlot = accessingUpperChest ? slot : slot - TEChestTFC.SIZE;
+        boolean accessingUpperChest = slot < TEChest.SIZE;
+        int targetSlot = accessingUpperChest ? slot : slot - TEChest.SIZE;
         TileEntityChest chest = getChest(accessingUpperChest);
         if (chest != null)
         {

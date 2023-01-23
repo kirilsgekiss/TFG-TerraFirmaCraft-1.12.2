@@ -14,12 +14,12 @@ import net.minecraft.world.gen.layer.IntCache;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
 
 public class GenLayerBiomeTFC extends GenLayerTFC
 {
-    private final int[] biomes = BiomesTFC.getWorldGenBiomes().stream().mapToInt(Biome::getIdForBiome).toArray();
+    private final int[] biomes = TFCBiomes.getWorldGenBiomes().stream().mapToInt(Biome::getIdForBiome).toArray();
 
     public GenLayerBiomeTFC(long seed, GenLayer parent)
     {

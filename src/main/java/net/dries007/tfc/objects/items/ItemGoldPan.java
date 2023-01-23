@@ -30,8 +30,6 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.items.rock.ItemRock;
@@ -51,7 +49,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemGoldPan extends ItemTFC
+public class ItemGoldPan extends TFCItem
 {
     public static final String[] TYPES = new String[] {"empty", "sand", "gravel", "clay", "dirt"};
 

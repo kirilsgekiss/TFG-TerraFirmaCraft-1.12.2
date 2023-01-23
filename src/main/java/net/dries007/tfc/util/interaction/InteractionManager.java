@@ -10,6 +10,9 @@ import java.util.Map;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
 
+import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -28,7 +31,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TELogPile;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -45,6 +48,39 @@ public final class InteractionManager
 
     static
     {
+        USE_ACTIONS.put(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "stickBundle"), (stack, player, worldIn, pos, hand, direction, hitX, hitY, hitZ) -> {
+            if (direction == EnumFacing.DOWN)
+            {
+                IBlockState state = worldIn.getBlockState(pos);
+                Block block = state.getBlock();
+                if (!block.isReplaceable(worldIn, pos)) pos = pos.down();
+                BlockPos posDown = pos.down();
+                // ItemStack itemStack = player.getHeldItem(hand);
+
+                if (player.canPlayerEdit(pos, direction, stack) && player.canPlayerEdit(posDown, direction, stack))
+                {
+                    IBlockState stateDown = worldIn.getBlockState(posDown);
+                    boolean canPutBlock = block.isReplaceable(worldIn, pos) || worldIn.isAirBlock(pos);
+                    boolean canPutBlockDown = stateDown.getBlock().isReplaceable(worldIn, posDown) || worldIn.isAirBlock(posDown);
+                    if (canPutBlock && canPutBlockDown)
+                    {
+                        if (!worldIn.isRemote)
+                        {
+                            worldIn.setBlockState(pos, TFCBlocks.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
+                            worldIn.setBlockState(posDown, TFCBlocks.STICK_BUNDLE.getDefaultState(), 10);
+                            SoundType soundtype = TFCBlocks.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
+                            worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                            //itemStack.shrink(1);
+                            stack.shrink(1);
+                            player.setHeldItem(hand, stack);
+                        }
+                        return EnumActionResult.SUCCESS;
+                    }
+                }
+            }
+            return EnumActionResult.FAIL;
+        });
+
         // Clay knapping
         putBoth(stack -> OreDictionaryHelper.doesStackMatchOre(stack, "clay") && stack.getCount() >= KnappingType.CLAY.getAmountToConsume(), (worldIn, playerIn, handIn) -> {
             if (!worldIn.isRemote)
@@ -211,7 +247,7 @@ public final class InteractionManager
             if (direction != null)
             {
                 IBlockState stateAt = worldIn.getBlockState(pos);
-                if (stateAt.getBlock() == BlocksTFC.LOG_PILE)
+                if (stateAt.getBlock() == TFCBlocks.LOG_PILE)
                 {
                     // Clicked on a log pile, so try to insert into the original
                     // This is called first when player is sneaking, otherwise the call chain is passed to the BlockLogPile#onBlockActivated
@@ -255,12 +291,12 @@ public final class InteractionManager
                     {
                         posAt = posAt.offset(direction);
                     }
-                    if (worldIn.getBlockState(posAt.down()).isNormalCube() && worldIn.mayPlace(BlocksTFC.LOG_PILE, posAt, false, direction, null))
+                    if (worldIn.getBlockState(posAt.down()).isNormalCube() && worldIn.mayPlace(TFCBlocks.LOG_PILE, posAt, false, direction, null))
                     {
                         // Place log pile
                         if (!worldIn.isRemote)
                         {
-                            worldIn.setBlockState(posAt, BlocksTFC.LOG_PILE.getStateForPlacement(worldIn, posAt, direction, 0, 0, 0, 0, player));
+                            worldIn.setBlockState(posAt, TFCBlocks.LOG_PILE.getStateForPlacement(worldIn, posAt, direction, 0, 0, 0, 0, player));
 
                             TELogPile te = Helpers.getTE(worldIn, posAt, TELogPile.class);
                             if (te != null)
@@ -287,7 +323,7 @@ public final class InteractionManager
             if (direction != null)
             {
                 IBlockState state = worldIn.getBlockState(pos);
-                if (state.getBlock() == BlocksTFC.CHARCOAL_PILE && state.getValue(LAYERS) < 8)
+                if (state.getBlock() == TFCBlocks.CHARCOAL_PILE && state.getValue(LAYERS) < 8)
                 {
                     // Check the player isn't standing inside the placement area for the next layer
                     IBlockState stateToPlace = state.withProperty(LAYERS, state.getValue(LAYERS) + 1);
@@ -310,7 +346,7 @@ public final class InteractionManager
                 }
                 if (worldIn.getBlockState(posAt.down()).isSideSolid(worldIn, posAt.down(), EnumFacing.UP) && worldIn.getBlockState(posAt).getBlock().isReplaceable(worldIn, pos))
                 {
-                    IBlockState stateToPlace = BlocksTFC.CHARCOAL_PILE.getDefaultState().withProperty(LAYERS, 1);
+                    IBlockState stateToPlace = TFCBlocks.CHARCOAL_PILE.getDefaultState().withProperty(LAYERS, 1);
                     if (worldIn.checkNoEntityCollision(stateToPlace.getBoundingBox(worldIn, posAt).offset(posAt)))
                     {
                         // Create a new charcoal pile

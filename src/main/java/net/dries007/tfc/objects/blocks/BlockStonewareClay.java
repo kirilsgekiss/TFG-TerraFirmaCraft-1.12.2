@@ -4,7 +4,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.items.ItemsTFC;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -16,7 +16,6 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -40,7 +39,7 @@ public class BlockStonewareClay extends Block implements IItemSize
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemsTFC.STONEWARE_CLAY;
+        return TFCItems.STONEWARE_CLAY;
     }
 
     @Nonnull

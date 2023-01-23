@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/earthenware_clay_humus/chalk"
+      "all": "tfc:blocks/stonetypes/earthenware_clay_humus/chalk"
     }
   },
   "variants": {

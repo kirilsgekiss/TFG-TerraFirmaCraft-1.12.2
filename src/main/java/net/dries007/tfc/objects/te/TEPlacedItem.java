@@ -24,7 +24,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.Helpers;
 
 @ParametersAreNonnullByDefault
@@ -49,7 +49,7 @@ public class TEPlacedItem extends TEInventory
                 }
             }
             // Replace the block
-            world.setBlockState(pos, BlocksTFC.PLACED_ITEM.getDefaultState());
+            world.setBlockState(pos, TFCBlocks.PLACED_ITEM.getDefaultState());
 
             // Replace inventory items
             TEPlacedItem teNew = Helpers.getTE(world, pos, TEPlacedItem.class);

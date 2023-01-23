@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IFruitTree;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
@@ -122,7 +122,7 @@ public enum FruitTree implements IFruitTree
     @Override
     public ItemStack getFoodDrop()
     {
-        return new ItemStack(ItemFoodTFC.get(this.getFruit()));
+        return new ItemStack(TFCItemFood.get(this.getFruit()));
     }
 
     @Override

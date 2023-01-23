@@ -15,8 +15,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAlpacaTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAlpaca;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
 
 /**
  * ModelAlpacaBodyTFC
@@ -132,12 +132,12 @@ public class ModelAlpacaBodyTFC extends ModelBase
     public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-        EntityAlpacaTFC alpaca = ((EntityAlpacaTFC) entity);
+        TFCEntityAlpaca alpaca = ((TFCEntityAlpaca) entity);
 
         float percent = (float) alpaca.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
-        if (alpaca.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (alpaca.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             udders.isHidden = true;
             ear1f.isHidden = true;

@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loam/komatiite",
-      "particle": "tfcflorae:blocks/stonetypes/loam/komatiite",
-      "top": "tfcflorae:blocks/stonetypes/loam_farmland/komatiite"
+      "dirt": "tfc:blocks/stonetypes/loam/komatiite",
+      "particle": "tfc:blocks/stonetypes/loam/komatiite",
+      "top": "tfc:blocks/stonetypes/loam_farmland/komatiite"
     }
   },
   "variants": {

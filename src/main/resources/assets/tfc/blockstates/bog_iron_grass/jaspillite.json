@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/bog_iron/jaspillite",
+      "all": "tfc:blocks/stonetypes/bog_iron/jaspillite",
       "particle": "tfc:blocks/grass_top",
       "top": "tfc:blocks/grass_top",
       "north": "tfc:blocks/grass_side",

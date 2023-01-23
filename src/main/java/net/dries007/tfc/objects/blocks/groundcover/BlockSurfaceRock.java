@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.objects.items.food.ItemFoodTFC;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -41,11 +41,9 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.farmland.BlockFarmlandTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.items.rock.ItemRock;
-import tfcflorae.objects.blocks.BlocksTFCF;
-import tfcflorae.objects.items.ItemsTFCF;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
@@ -99,7 +97,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
 
     public Item getSpecialItemDropped(Random rand)
     {
-        Item[] drops = {ItemFoodTFC.get(Food.RAW_SNAIL), ItemFoodTFC.get(Food.RAW_WORM)};
+        Item[] drops = {TFCItemFood.get(Food.RAW_SNAIL), TFCItemFood.get(Food.RAW_WORM)};
         int dropIndex = rand.nextInt(drops.length);
         return drops[dropIndex];
     }
@@ -211,7 +209,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-        if (!worldIn.isSideSolid(pos.down(), EnumFacing.UP) && !(worldIn.getBlockState(pos.down()).getBlock() instanceof BlockFarmlandTFC))
+        if (!worldIn.isSideSolid(pos.down(), EnumFacing.UP) && !(worldIn.getBlockState(pos.down()).getBlock() instanceof TFCBlockFarmland))
         {
             worldIn.setBlockToAir(pos);
         }
@@ -264,7 +262,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
 
         if (state.getBlock() == this)
         {
-            return (BlocksTFC.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
+            return (TFCBlocks.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(TFCBlocks.isSeaWater(soil) || TFCBlocks.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
     }

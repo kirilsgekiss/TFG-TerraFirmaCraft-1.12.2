@@ -19,8 +19,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityLionTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityLion;
 
 /**
  * ModelLionTFC
@@ -244,12 +244,12 @@ public class ModelLionTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityLionTFC lion = ((EntityLionTFC) entity);
+        TFCEntityLion lion = ((TFCEntityLion) entity);
 
         float percent = (float) lion.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
-        if (lion.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (lion.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             earFL.isHidden = true;
             earFR.isHidden = true;
@@ -313,7 +313,7 @@ public class ModelLionTFC extends ModelBase
     @Override
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity ent)
     {
-        EntityLionTFC lion = ((EntityLionTFC) ent);
+        TFCEntityLion lion = ((TFCEntityLion) ent);
         int mouthTicks = lion.getMouthTicks();
         float mouthAngle;
 

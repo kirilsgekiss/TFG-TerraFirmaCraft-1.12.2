@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityDireWolfTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDireWolf;
 
 /**
  * ModelDireWolfTFC
@@ -217,7 +217,7 @@ public class ModelDireWolfTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityDireWolfTFC direwolf = ((EntityDireWolfTFC) entity);
+        TFCEntityDireWolf direwolf = ((TFCEntityDireWolf) entity);
 
         float percent = (float) direwolf.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

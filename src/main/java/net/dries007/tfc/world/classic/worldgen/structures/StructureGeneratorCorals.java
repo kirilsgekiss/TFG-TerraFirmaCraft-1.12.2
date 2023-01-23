@@ -30,12 +30,9 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
-
-import tfcflorae.TFCFlorae;
-import tfcflorae.objects.blocks.BlocksTFCF;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 
 public class StructureGeneratorCorals extends WorldGenerator
 {
@@ -52,13 +49,13 @@ public class StructureGeneratorCorals extends WorldGenerator
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(TFCFlorae.TFCFLORAE_MODID, structureName));
+		Template template = templateManager.get(minecraftServer, new ResourceLocation(TerraFirmaCraft.MOD_ID, structureName));
 		final Biome b = world.getBiome(position);
 		int variation = 3;
 
 		if (template == null)
         {
-			TerraFirmaCraft.getLog().info("TFCFlorae: Structure '" + structureName + "' does not exist ");
+			TerraFirmaCraft.getLog().info("TerraFirmaCraft: Structure '" + structureName + "' does not exist ");
 			return false;
 		}
 		if (structureName.endsWith("_bury"))
@@ -131,7 +128,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 			}
 
 			// Places foundations under flying structures
-			if ((!structureName.startsWith("underground_") || world.provider.getDimension() != DimensionType.NETHER.getId()) || !(b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH || b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
+			if ((!structureName.startsWith("underground_") || world.provider.getDimension() != DimensionType.NETHER.getId()) || !(b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH || b == TFCBiomes.BAYOU || b == TFCBiomes.MANGROVE || b == TFCBiomes.MARSH))
             {
 				final int searchRange = 10;
 				int posX = position.getX();
@@ -275,7 +272,7 @@ public class StructureGeneratorCorals extends WorldGenerator
 		while (!foundGround && y-- > 0)
 		{
 			IBlockState current = world.getBlockState(new BlockPos(x, y, z));
-			foundGround = BlocksTFC.isGround(current);
+			foundGround = TFCBlocks.isGround(current);
 		}
 		BlockPos pos = new BlockPos(x, y, z);
 
@@ -288,7 +285,7 @@ public class StructureGeneratorCorals extends WorldGenerator
             world.getBlockState(pos).getBlock() == Blocks.AIR || 
             world.getBlockState(pos).getBlock() == Blocks.ICE || 
             world.getBlockState(pos).getBlock() == Blocks.PACKED_ICE || 
-            world.getBlockState(pos).getBlock() == BlocksTFC.SEA_ICE)
+            world.getBlockState(pos).getBlock() == TFCBlocks.SEA_ICE)
         {	
 			y = -99;
 		}

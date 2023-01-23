@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +21,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -37,8 +35,7 @@ import net.dries007.tfc.api.capability.food.FoodTrait;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.util.Alloy;
@@ -330,7 +327,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     {
         // Only carry to itemstack the alloy fluid
         super.onBreakBlock(world, pos, state);
-        ItemStack stack = new ItemStack(BlocksTFC.CRUCIBLE);
+        ItemStack stack = new ItemStack(TFCBlocks.CRUCIBLE);
         if (alloy.getAmount() > 0)
         {
             stack.setTagCompound(this.writeToItemTag());

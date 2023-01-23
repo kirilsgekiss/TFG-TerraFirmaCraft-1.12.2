@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.structures;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -10,13 +11,12 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import tfcflorae.ConfigTFCF;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 
 public class WorldGenStructuresCorals implements IWorldGenerator
@@ -37,11 +37,11 @@ public class WorldGenStructuresCorals implements IWorldGenerator
 				IBlockState down = world.getBlockState(pos.down());
 				IBlockState up = world.getBlockState(pos.up());
 
-				if (ConfigTFCF.General.STRUCTURES.activateStructureGeneration)
+				if (ConfigTFC.FloraeGeneral.STRUCTURES.activateStructureGeneration)
 				{
-					if (data.isInitialized() && (b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH))
+					if (data.isInitialized() && (b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH))
 					{
-						if ((up.getBlock() instanceof BlockCoral || world.getBlockState(pos).getBlock() instanceof BlockCoral || BlocksTFC.isGround(down) || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && (pos.getY() < WorldTypeTFC.SEALEVEL - 7 && pos.getY() > 119 && data.getFloraDiversity() >= 0.3f && data.getFloraDensity() >= 0.4f && data.getFloraDensity() <= 0.6f && data.getFloraDiversity() <= 0.5f && data.getAverageTemp() >= 10f && data.getAverageTemp() <= 28f && data.getRainfall() >= 150f))
+						if ((up.getBlock() instanceof BlockCoral || world.getBlockState(pos).getBlock() instanceof BlockCoral || TFCBlocks.isGround(down) || world.getBlockState(pos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && (pos.getY() < WorldTypeTFC.SEALEVEL - 7 && pos.getY() > 119 && data.getFloraDiversity() >= 0.3f && data.getFloraDensity() >= 0.4f && data.getFloraDensity() <= 0.6f && data.getFloraDiversity() <= 0.5f && data.getAverageTemp() >= 10f && data.getAverageTemp() <= 28f && data.getRainfall() >= 150f))
 						{
 							int chance = random.nextInt(5);
 

@@ -81,7 +81,7 @@ public final class Helpers
                 "dandelion_tea",
                 "labrador_tea",
                 "coffee",
-                "agave_wine",
+                "sisal_wine",
                 "barley_wine",
                 "banana_wine",
                 "berry_wine",
@@ -154,7 +154,7 @@ public final class Helpers
                 "juice_snow_berry",
                 "juice_strawberry",
                 "juice_wintergreen_berry",
-                "juice_agave",
+                "juice_sisal",
                 "juice_apple",
                 "juice_banana",
                 "juice_cherry",
@@ -228,19 +228,19 @@ public final class Helpers
         PREVENT_ON_SURFACE.add(EntityZombieHorse.class);
         PREVENT_ON_SURFACE.add(EntitySkeletonHorse.class);
         VANILLA_REPLACEMENTS = new HashMap<>();
-        VANILLA_REPLACEMENTS.put(EntityCow.class, EntityCowTFC.class);
-        VANILLA_REPLACEMENTS.put(EntitySheep.class, EntitySheepTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityPig.class, EntityPigTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityMule.class, EntityMuleTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityHorse.class, EntityHorseTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityDonkey.class, EntityDonkeyTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityChicken.class, EntityChickenTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityRabbit.class, EntityRabbitTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityWolf.class, EntityWolfTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityOcelot.class, EntityOcelotTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityPolarBear.class, EntityPolarBearTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityParrot.class, EntityParrotTFC.class);
-        VANILLA_REPLACEMENTS.put(EntityLlama.class, EntityLlamaTFC.class);
+        VANILLA_REPLACEMENTS.put(EntityCow.class, TFCEntityCow.class);
+        VANILLA_REPLACEMENTS.put(EntitySheep.class, TFCEntitySheep.class);
+        VANILLA_REPLACEMENTS.put(EntityPig.class, TFCEntityPig.class);
+        VANILLA_REPLACEMENTS.put(EntityMule.class, TFCEntityMule.class);
+        VANILLA_REPLACEMENTS.put(EntityHorse.class, TFCEntityHorse.class);
+        VANILLA_REPLACEMENTS.put(EntityDonkey.class, TFCEntityDonkey.class);
+        VANILLA_REPLACEMENTS.put(EntityChicken.class, TFCEntityChicken.class);
+        VANILLA_REPLACEMENTS.put(EntityRabbit.class, TFCEntityRabbit.class);
+        VANILLA_REPLACEMENTS.put(EntityWolf.class, TFCEntityWolf.class);
+        VANILLA_REPLACEMENTS.put(EntityOcelot.class, TFCEntityOcelot.class);
+        VANILLA_REPLACEMENTS.put(EntityPolarBear.class, TFCEntityPolarBear.class);
+        VANILLA_REPLACEMENTS.put(EntityParrot.class, TFCEntityParrot.class);
+        VANILLA_REPLACEMENTS.put(EntityLlama.class, TFCEntityLlama.class);
     }
 
     public static boolean isJEIEnabled()

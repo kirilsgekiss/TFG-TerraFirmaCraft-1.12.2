@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityBlackBearTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityBlackBear;
 
 /**
  * ModelBlackBearTFC
@@ -169,7 +169,7 @@ public class ModelBlackBearTFC extends ModelBase
         leg3.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
         leg4.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-        float f1 = ((EntityBlackBearTFC) entityIn).getStandingAnimationScale(ageInTicks);
+        float f1 = ((TFCEntityBlackBear) entityIn).getStandingAnimationScale(ageInTicks);
         f1 *= f1;
         float f2 = 1.0F - f1;
         this.frontBody.rotateAngleX = 1.5707964F - f1 * 3.1415927F * 0.35F;

@@ -25,7 +25,7 @@ import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockCropDeadWaterTFC extends ItemBlockTFC
+public class ItemBlockCropDeadWaterTFC extends TFCItemBlock
 {
     protected final BlockCropDead block;
 

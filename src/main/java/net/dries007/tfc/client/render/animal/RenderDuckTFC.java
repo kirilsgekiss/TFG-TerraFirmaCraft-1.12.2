@@ -17,14 +17,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.client.model.animal.ModelDuckTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityDuckTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDuck;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderDuckTFC extends RenderLiving<EntityDuckTFC>
+public class RenderDuckTFC extends RenderLiving<TFCEntityDuck>
 {
     private static final ResourceLocation DUCK_OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/duck_old.png");
     private static final ResourceLocation DUCK_YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/duck_young.png");
@@ -40,14 +40,14 @@ public class RenderDuckTFC extends RenderLiving<EntityDuckTFC>
     }
 
     @Override
-    public void doRender(EntityDuckTFC duck, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(TFCEntityDuck duck, double par2, double par4, double par6, float par8, float par9)
     {
         this.shadowSize = (float) (0.15f + duck.getPercentToAdulthood() * 0.15f);
         super.doRender(duck, par2, par4, par6, par8, par9);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityDuckTFC duck)
+    protected ResourceLocation getEntityTexture(TFCEntityDuck duck)
     {
         float percent = (float) duck.getPercentToAdulthood();
 
@@ -55,7 +55,7 @@ public class RenderDuckTFC extends RenderLiving<EntityDuckTFC>
         {
             return DUCKLING_TEXTURE;
         }
-        else if (duck.getGender() == EntityAnimalTFC.Gender.MALE)
+        else if (duck.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             return duck.getAge() == IAnimalTFC.Age.OLD ? DRAKE_OLD : DRAKE_YOUNG;
         }
@@ -66,7 +66,7 @@ public class RenderDuckTFC extends RenderLiving<EntityDuckTFC>
     }
 
     @Override
-    protected float handleRotationFloat(EntityDuckTFC livingBase, float partialTicks)
+    protected float handleRotationFloat(TFCEntityDuck livingBase, float partialTicks)
     {
         float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTicks;
         float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTicks;
@@ -74,7 +74,7 @@ public class RenderDuckTFC extends RenderLiving<EntityDuckTFC>
     }
 
     @Override
-    protected void preRenderCallback(EntityDuckTFC bear, float par2)
+    protected void preRenderCallback(TFCEntityDuck bear, float par2)
     {
         GlStateManager.scale(0.7f, 0.7f, 0.7f);
     }

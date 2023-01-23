@@ -2,13 +2,13 @@ package net.dries007.tfc.world.classic.worldgen.cave;
 
 import java.util.*;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import tfcflorae.ConfigTFCF;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -16,7 +16,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGeneratorUnderground implements IWorldGenerator
@@ -27,10 +27,10 @@ public class WorldGeneratorUnderground implements IWorldGenerator
     private final WorldGenCaveCreepingVines undergroundCreepingVines;
     //private final WorldGenUnderground undergroundPlant = new WorldGenUnderground();
 
-    private float fungiUndergroundCount = ConfigTFCF.General.WORLD.fungiUndergroundCount;
-    private float hangingVinesUndergroundCount = ConfigTFCF.General.WORLD.hangingVinesUndergroundCount;
-    private float creepingVinesUndergroundCount = ConfigTFCF.General.WORLD.creepingVinesUndergroundCount;
-    private float creepingUndergroundCount = ConfigTFCF.General.WORLD.creepingUndergroundCount;
+    private float fungiUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.fungiUndergroundCount;
+    private float hangingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.hangingVinesUndergroundCount;
+    private float creepingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingVinesUndergroundCount;
+    private float creepingUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingUndergroundCount;
 
     public WorldGeneratorUnderground()
     {
@@ -89,7 +89,7 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                         {
                             case 0:
                             {
-                                if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
+                                if ((b != TFCBiomes.OCEAN || b != TFCBiomes.OCEAN) && (
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) || 
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
@@ -114,7 +114,7 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                             }
                             case 1:
                             {
-                                if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
+                                if ((b != TFCBiomes.OCEAN || b != TFCBiomes.OCEAN) && (
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) || 
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) || 
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.HANGING_VINE) || 
@@ -142,7 +142,7 @@ public class WorldGeneratorUnderground implements IWorldGenerator
                     }
                     case CREEPING:
                     {
-                        if ((b != BiomesTFC.OCEAN || b != BiomesTFC.OCEAN) && (
+                        if ((b != TFCBiomes.OCEAN || b != TFCBiomes.OCEAN) && (
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TACKWEED) || 
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TAKAKIA) || 
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.IVY) || 

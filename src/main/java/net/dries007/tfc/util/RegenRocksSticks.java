@@ -8,9 +8,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 
 import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.plants.BlockShortGrassTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockShortGrass;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.world.classic.worldgen.WorldGenLooseRocks;
@@ -55,6 +54,6 @@ public class RegenRocksSticks extends WorldGenLooseRocks
     {
         // Modified to allow replacement of grass during spring regen
         Block test = world.getBlockState(pos).getBlock();
-        return test instanceof BlockShortGrassTFC || test.isAir(world.getBlockState(pos), world, pos);
+        return test instanceof TFCBlockShortGrass || test.isAir(world.getBlockState(pos), world, pos);
     }
 }

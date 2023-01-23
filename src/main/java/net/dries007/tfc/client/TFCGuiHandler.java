@@ -113,7 +113,7 @@ public class TFCGuiHandler implements IGuiHandler
                 return new ContainerCharcoalForge(player.inventory, Helpers.getTE(world, pos, TECharcoalForge.class));
             case ANVIL:
                 //noinspection ConstantConditions
-                return new ContainerAnvilTFC(player.inventory, Helpers.getTE(world, pos, TEAnvilTFC.class));
+                return new ContainerAnvil(player.inventory, Helpers.getTE(world, pos, TEAnvilTFC.class));
             case ANVIL_PLAN:
                 return new ContainerAnvilPlan(player.inventory, Helpers.getTE(world, pos, TEAnvilTFC.class));
             case KNAPPING_STONE:
@@ -148,7 +148,7 @@ public class TFCGuiHandler implements IGuiHandler
                     {
                         return null;
                     }
-                    return new ContainerChestTFC(player.inventory, chestContainer, player);
+                    return new ContainerChest(player.inventory, chestContainer, player);
                 }
                 return null;
             case SALAD:
@@ -254,9 +254,9 @@ public class TFCGuiHandler implements IGuiHandler
             case QUIVER:
                 return new GuiContainerTFC(container, player.inventory, QUIVER_BACKGROUND);
             case CHEST:
-                if (container instanceof ContainerChestTFC)
+                if (container instanceof ContainerChest)
                 {
-                    return new GuiChestTFC((ContainerChestTFC) container, player.inventory);
+                    return new GuiChestTFC((ContainerChest) container, player.inventory);
                 }
                 return null;
             case SALAD:

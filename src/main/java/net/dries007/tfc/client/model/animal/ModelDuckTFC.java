@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityDuckTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityDuck;
 
 /**
  * ModelDuckTFC
@@ -181,7 +181,7 @@ public class ModelDuckTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityDuckTFC duck = ((EntityDuckTFC) entity);
+        TFCEntityDuck duck = ((TFCEntityDuck) entity);
 
         float percent = (float) duck.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

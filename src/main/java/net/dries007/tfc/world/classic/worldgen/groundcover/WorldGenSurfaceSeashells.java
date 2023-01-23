@@ -2,6 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.groundcover;
 
 import java.util.Random;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -10,14 +11,11 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-
-import tfcflorae.ConfigTFCF;
-import tfcflorae.objects.blocks.BlocksTFCF;
 
 public class WorldGenSurfaceSeashells implements IWorldGenerator
 {
@@ -46,7 +44,7 @@ public class WorldGenSurfaceSeashells implements IWorldGenerator
             final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
             final ChunkDataTFC baseChunkData = ChunkDataTFC.get(world, chunkBlockPos);
 
-            for (int i = 0; i < ((1 + baseChunkData.getRainfall()) / ConfigTFCF.General.WORLD.groundcoverSeashellFrequency) * factor; i++)
+            for (int i = 0; i < ((1 + baseChunkData.getRainfall()) / ConfigTFC.FloraeGeneral.WORLD.groundcoverSeashellFrequency) * factor; i++)
             {
                 BlockPos pos = new BlockPos(
                     xoff + random.nextInt(16),
@@ -63,11 +61,11 @@ public class WorldGenSurfaceSeashells implements IWorldGenerator
         if (pos.getY() >= WorldTypeTFC.SEALEVEL && pos.getY() < WorldTypeTFC.SEALEVEL + 2)
         {
             final Biome b = world.getBiome(pos);
-            if (b == BiomesTFC.OCEAN || b == BiomesTFC.DEEP_OCEAN || b == BiomesTFC.BEACH || b == BiomesTFC.GRAVEL_BEACH)
+            if (b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH)
             {
-                if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(world.getBlockState(pos.down())))
+                if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down())))
                 {
-                    world.setBlockState(pos, BlocksTFCF.SEASHELLS.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.SEASHELLS.getDefaultState());
                 }
             }
         }

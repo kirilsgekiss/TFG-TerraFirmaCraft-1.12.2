@@ -7,13 +7,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 import net.dries007.tfc.client.model.animal.ModelSilkMoth;
-import net.dries007.tfc.objects.entity.animal.EntitySilkMoth;
+import net.dries007.tfc.objects.entity.animal.TFCEntitySilkMoth;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class RendererSilkMoth extends RenderLiving<EntitySilkMoth> implements IRenderFactory
+public class RendererSilkMoth extends RenderLiving<TFCEntitySilkMoth> implements IRenderFactory
 {
-	public static final IRenderFactory<EntitySilkMoth> FACTORY = RendererSilkMoth::new;
+	public static final IRenderFactory<TFCEntitySilkMoth> FACTORY = RendererSilkMoth::new;
 
 	private RendererSilkMoth(RenderManager renderManagerIn)
     {
@@ -21,7 +21,7 @@ public class RendererSilkMoth extends RenderLiving<EntitySilkMoth> implements IR
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntitySilkMoth entity)
+	protected ResourceLocation getEntityTexture(TFCEntitySilkMoth entity)
     {
 		return new ResourceLocation(MOD_ID, "textures/entity/animal/silk_moth.png");
 	}
@@ -29,6 +29,6 @@ public class RendererSilkMoth extends RenderLiving<EntitySilkMoth> implements IR
 	@Override
 	public Render createRenderFor(RenderManager manager)
     {
-		return manager.getEntityClassRenderObject(EntitySilkMoth.class);
+		return manager.getEntityClassRenderObject(TFCEntitySilkMoth.class);
 	}
 }

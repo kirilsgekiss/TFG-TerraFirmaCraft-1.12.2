@@ -14,14 +14,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.client.model.animal.ModelMuskOxBodyTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityMuskOxTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityMuskOx;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class RenderMuskOxTFC extends RenderAnimalTFC<EntityMuskOxTFC>
+public class RenderMuskOxTFC extends RenderAnimalTFC<TFCEntityMuskOx>
 {
     private static final ResourceLocation TEXTURE_YOUNG = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/muskox_young.png");
     private static final ResourceLocation TEXTURE_OLD = new ResourceLocation(MOD_ID, "textures/entity/animal/livestock/muskox_old.png");
@@ -33,9 +33,9 @@ public class RenderMuskOxTFC extends RenderAnimalTFC<EntityMuskOxTFC>
     }
 
     @Override
-    protected void preRenderCallback(EntityMuskOxTFC muskoxTFC, float par2)
+    protected void preRenderCallback(TFCEntityMuskOx muskoxTFC, float par2)
     {
-        if (muskoxTFC.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (muskoxTFC.getGender() == TFCEntityAnimal.Gender.MALE)
             GlStateManager.scale(1.2f, 1.2f, 1.2f);
         else
         {

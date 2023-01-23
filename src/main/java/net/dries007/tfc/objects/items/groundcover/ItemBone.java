@@ -9,14 +9,14 @@ import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 
 import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceBones;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemBone extends ItemBlockTFC
+public class ItemBone extends TFCItemBlock
 {
     public ItemBone(BlockSurfaceBones block)
     {

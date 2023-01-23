@@ -33,7 +33,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemStackHandler;
 
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
 import net.dries007.tfc.objects.te.TECondenser;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -41,7 +40,7 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
 
-public class ItemBlockCondenser extends ItemBlockTFC
+public class ItemBlockCondenser extends TFCItemBlock
 {
     private int tankCapacity = 1000;
 

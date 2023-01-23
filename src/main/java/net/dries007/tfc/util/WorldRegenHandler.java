@@ -37,11 +37,10 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
-import net.dries007.tfc.objects.blocks.plants.BlockMushroomTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockMushroom;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.types.DefaultPlants;
@@ -54,7 +53,7 @@ import net.dries007.tfc.world.classic.worldgen.WorldGenPlantTFC;
 import net.dries007.tfc.world.classic.worldgen.WorldGenTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC.WILD;
+import static net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop.WILD;
 
 
 /**
@@ -182,12 +181,12 @@ public class WorldRegenHandler
                 // If I'm not completely missing the point, then we have the top block for each in a chunk. Which is apparently not the top solid block ffs.
                 IBlockState topState = world.getBlockState(topPos);
                 Block topBlock = topState.getBlock();
-                if (!topState.getMaterial().isLiquid() && (topBlock instanceof BlockCropDead || topBlock instanceof BlockMushroomTFC))
+                if (!topState.getMaterial().isLiquid() && (topBlock instanceof BlockCropDead || topBlock instanceof TFCBlockMushroom))
                 {
                     IBlockState soil = world.getBlockState(topPos.down());
-                    if (soil.getBlock() instanceof BlockRockVariant)
+                    if (soil.getBlock() instanceof TFCBlockRockVariant)
                     {
-                        BlockRockVariant soilRock = (BlockRockVariant) soil.getBlock();
+                        TFCBlockRockVariant soilRock = (TFCBlockRockVariant) soil.getBlock();
                         //Stop removing dead crops from farmland please!
                         if (soilRock.getType() != Type.FARMLAND)
                         {
@@ -222,7 +221,7 @@ public class WorldRegenHandler
         for (ClassInheritanceMultiMap<Entity> target : world.getChunk(pos.x, pos.z).getEntityLists())
         {
             target.forEach(entity -> {
-                if (entity instanceof EntityItem && ((EntityItem) entity).getItem().getItem() instanceof ItemSeedsTFC)
+                if (entity instanceof EntityItem && ((EntityItem) entity).getItem().getItem() instanceof TFCItemSeeds)
                 {
                     removals.add(entity);
                 }

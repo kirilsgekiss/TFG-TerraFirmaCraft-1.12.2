@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/humus/soapstone",
-      "particle": "tfcflorae:blocks/stonetypes/humus/soapstone",
-      "top": "tfcflorae:blocks/stonetypes/humus_farmland/soapstone"
+      "dirt": "tfc:blocks/stonetypes/humus/soapstone",
+      "particle": "tfc:blocks/stonetypes/humus/soapstone",
+      "top": "tfc:blocks/stonetypes/humus_farmland/soapstone"
     }
   },
   "variants": {

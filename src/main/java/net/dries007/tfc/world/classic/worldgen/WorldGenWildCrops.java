@@ -19,21 +19,20 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import tfcflorae.objects.blocks.BlocksTFCF;
-import net.dries007.tfc.objects.blocks.plants.BlockTallGrassWater;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockTallGrassWater;
 import net.dries007.tfc.types.DefaultPlants;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 @ParametersAreNonnullByDefault
@@ -74,7 +73,7 @@ public class WorldGenWildCrops implements IWorldGenerator
                 {
                     if ((random.nextInt(ConfigTFC.General.FOOD.cropRarity)) <= 2)
                     {
-                        BlockCropTFC cropBlock = BlockCropTFC.get(crop);
+                        TFCBlockCrop cropBlock = TFCBlockCrop.get(crop);
                         int cropsInChunk = 5 + random.nextInt(15);
                         for (int i = 0; i < cropsInChunk; i++)
                         {
@@ -88,7 +87,7 @@ public class WorldGenWildCrops implements IWorldGenerator
                                 int growth = (int) (yearProgress * maxStage) + 3 - random.nextInt(2);
                                 if (growth > maxStage)
                                     growth = maxStage;
-                                world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(BlockCropTFC.WILD, true), 2);
+                                world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(TFCBlockCrop.WILD, true), 2);
                             }
                         }
                     }
@@ -99,20 +98,20 @@ public class WorldGenWildCrops implements IWorldGenerator
                         crop == Crop.RYE ||
                         crop == Crop.WHEAT)
                 {
-                    BlockCropTFC cropBlock = BlockCropTFC.get(crop);
+                    TFCBlockCrop cropBlock = TFCBlockCrop.get(crop);
                     int cropsInChunk = 10 + random.nextInt(20);
                     for (int i = random.nextInt(Math.round((ConfigTFC.General.FOOD.cropRarity / 5) / floraDiversity)); i < (3 + floraDensity) * cropsInChunk; i++)
                     {
                         BlockPos pos = world.getHeight(chunkBlockPos.add(random.nextInt(16) + 8, 0, random.nextInt(16) + 8));
 
-                        if (isValidPosition(world, pos) && floraDensity <= Math.abs(0.2f - (random.nextGaussian() / 20)) && b == BiomesTFC.FIELDS)
+                        if (isValidPosition(world, pos) && floraDensity <= Math.abs(0.2f - (random.nextGaussian() / 20)) && b == TFCBiomes.FIELDS)
                         {
                             double yearProgress = CalendarTFC.CALENDAR_TIME.getMonthOfYear().ordinal() / 11.0;
                             int maxStage = crop.getMaxStage();
                             int growth = (int) (yearProgress * maxStage) + 3 - random.nextInt(2);
                             if (growth > maxStage)
                                 growth = maxStage;
-                            world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(BlockCropTFC.WILD, true), 2);
+                            world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(TFCBlockCrop.WILD, true), 2);
                         }
                     }
                 }
@@ -120,11 +119,11 @@ public class WorldGenWildCrops implements IWorldGenerator
                 {
                     // Can't be arsed to make this any different. If it works, it works, hurray for that.
                     Plant plant = TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS);
-                    BlockTallGrassWater plantBlock = BlockTallGrassWater.get(plant);
+                    TFCBlockTallGrassWater plantBlock = TFCBlockTallGrassWater.get(plant);
                     IBlockState state = plantBlock.getDefaultState();
                     IBlockState water = plant.getWaterType();
 
-                    BlockCropTFC cropBlock = BlockCropTFC.get(crop);
+                    TFCBlockCrop cropBlock = TFCBlockCrop.get(crop);
                     int cropsInChunk = 10 + random.nextInt(20);
                     for (int i = random.nextInt(Math.round((ConfigTFC.General.FOOD.cropRarity / 5) / floraDiversity)); i < (3 + floraDensity) * cropsInChunk; i++)
                     {
@@ -140,7 +139,7 @@ public class WorldGenWildCrops implements IWorldGenerator
                             int growth = (int) (yearProgress * maxStage) + 3 - random.nextInt(2);
                             if (growth > maxStage)
                                 growth = maxStage;
-                            world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(BlockCropTFC.WILD, true), 2);
+                            world.setBlockState(pos, cropBlock.getDefaultState().withProperty(cropBlock.getStageProperty(), growth).withProperty(TFCBlockCrop.WILD, true), 2);
                         }
                     }
                 }
@@ -150,6 +149,6 @@ public class WorldGenWildCrops implements IWorldGenerator
 
     protected boolean isValidPosition(World world, BlockPos pos)
     {
-        return world.isAirBlock(pos) && BlocksTFC.isSoil(world.getBlockState(pos.down()));
+        return world.isAirBlock(pos) && TFCBlocks.isSoil(world.getBlockState(pos.down()));
     }
 }

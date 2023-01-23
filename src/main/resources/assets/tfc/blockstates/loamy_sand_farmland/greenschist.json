@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfcflorae:blocks/stonetypes/loamy_sand/greenschist",
-      "particle": "tfcflorae:blocks/stonetypes/loamy_sand/greenschist",
-      "top": "tfcflorae:blocks/stonetypes/loamy_sand_farmland/greenschist"
+      "dirt": "tfc:blocks/stonetypes/loamy_sand/greenschist",
+      "particle": "tfc:blocks/stonetypes/loamy_sand/greenschist",
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/greenschist"
     }
   },
   "variants": {

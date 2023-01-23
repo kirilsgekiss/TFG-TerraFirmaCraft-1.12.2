@@ -74,18 +74,9 @@ public enum Food
     GREEN_GRAPE(FRUIT,4, 0.5f, 5f, 0f, 0f, 0.75f, 0f, 0f, 2.8f),
     LIQUORICE_ROOT(VEGETABLE,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.2f),
     COFFEA_CHERRIES(FRUIT,4, 0.5f, 0.5f, 0f, 1f, 0f, 0f, 0f, 1.9f),
-//    AGAVE(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.8f),
     COCA_LEAF(OTHER,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.8f),
-//    COTTON(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
-//    FLAX(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
     CANNABIS_BUD(OTHER,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.8f),
-//    HOP(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
-//    INDIGO(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
-//    MADDER(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
     OPIUM_POPPY_BULB(OTHER,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.5f),
-//    RAPE(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
-//    WELD(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
-//    WOAD(OTHER,4, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1f),
     TOBACCO_LEAF(OTHER,4, 0f, 0.5f, 0f, 0f, 1f, 0f, 0f, 0.8f),
 
 

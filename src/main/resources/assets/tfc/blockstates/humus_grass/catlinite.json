@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/humus/catlinite",
+      "all": "tfc:blocks/stonetypes/humus/catlinite",
       "particle": "tfc:blocks/grass_top",
       "top": "tfc:blocks/grass_top",
       "north": "tfc:blocks/grass_side",

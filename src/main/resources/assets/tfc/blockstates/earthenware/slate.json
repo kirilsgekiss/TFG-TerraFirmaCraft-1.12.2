@@ -12,115 +12,115 @@
 	"variants":{
 		"normal":[
 			{
-				"model":"tfcflorae:groundcover/ore/rock_1",
+				"model":"tfc:groundcover/ore/rock_1",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_2",
+				"model":"tfc:groundcover/ore/rock_2",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_2_ne",
+				"model":"tfc:groundcover/ore/rock_2_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_2_none",
+				"model":"tfc:groundcover/ore/rock_2_none",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_2_nse",
+				"model":"tfc:groundcover/ore/rock_2_nse",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_3",
+				"model":"tfc:groundcover/ore/rock_3",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_3_n",
+				"model":"tfc:groundcover/ore/rock_3_n",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_3_ne",
+				"model":"tfc:groundcover/ore/rock_3_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_3_none",
+				"model":"tfc:groundcover/ore/rock_3_none",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_4",
+				"model":"tfc:groundcover/ore/rock_4",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_5",
+				"model":"tfc:groundcover/ore/rock_5",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_5_ne",
+				"model":"tfc:groundcover/ore/rock_5_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_5_none",
+				"model":"tfc:groundcover/ore/rock_5_none",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_5_nse",
+				"model":"tfc:groundcover/ore/rock_5_nse",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_6",
+				"model":"tfc:groundcover/ore/rock_6",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_6_n",
+				"model":"tfc:groundcover/ore/rock_6_n",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_6_ne",
+				"model":"tfc:groundcover/ore/rock_6_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_6_nse",
+				"model":"tfc:groundcover/ore/rock_6_nse",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7",
+				"model":"tfc:groundcover/ore/rock_7",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7_n",
+				"model":"tfc:groundcover/ore/rock_7_n",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7_ne",
+				"model":"tfc:groundcover/ore/rock_7_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7_none",
+				"model":"tfc:groundcover/ore/rock_7_none",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7_ns",
+				"model":"tfc:groundcover/ore/rock_7_ns",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_7_nse",
+				"model":"tfc:groundcover/ore/rock_7_nse",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_8",
+				"model":"tfc:groundcover/ore/rock_8",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_8_n",
+				"model":"tfc:groundcover/ore/rock_8_n",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_8_ne",
+				"model":"tfc:groundcover/ore/rock_8_ne",
 				"weight":1
 			},
 			{
-				"model":"tfcflorae:groundcover/ore/rock_8_none",
+				"model":"tfc:groundcover/ore/rock_8_none",
 				"weight":1
 			}
 		]

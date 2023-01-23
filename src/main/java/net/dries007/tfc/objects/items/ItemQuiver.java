@@ -38,7 +38,7 @@ import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class ItemQuiver extends ItemArmorTFC
+public class ItemQuiver extends TFCItemArmor
 {
     public static void replenishJavelin(InventoryPlayer playerInv)
     {

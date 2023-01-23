@@ -20,14 +20,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.plants.BlockTallGrassWater;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockTallGrassWater;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockTallGrassWater extends ItemBlockTFC
+public class ItemBlockTallGrassWater extends TFCItemBlock
 {
-    protected final BlockTallGrassWater block;
+    protected final TFCBlockTallGrassWater block;
 
-    public ItemBlockTallGrassWater(BlockTallGrassWater block)
+    public ItemBlockTallGrassWater(TFCBlockTallGrassWater block)
     {
         super(block);
         this.block = block;

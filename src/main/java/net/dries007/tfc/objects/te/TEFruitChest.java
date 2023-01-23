@@ -28,7 +28,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.container.ContainerChestTFC;
+import net.dries007.tfc.objects.container.ContainerChest;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.TFCDoubleChestItemHandler;
 
@@ -104,9 +104,9 @@ public class TEFruitChest extends TileEntityChest implements ISlotCallback
 
             for (EntityPlayer player : world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos.add(-5, -5, -5), pos.add(6, 6, 6))))
             {
-                if (player.openContainer instanceof ContainerChestTFC)
+                if (player.openContainer instanceof ContainerChest)
                 {
-                    IInventory iinventory = ((ContainerChestTFC) player.openContainer).getLowerChestInventory();
+                    IInventory iinventory = ((ContainerChest) player.openContainer).getLowerChestInventory();
                     if (iinventory == this || iinventory instanceof InventoryLargeChest && ((InventoryLargeChest) iinventory).isPartOfLargeChest(this))
                     {
                         ++numPlayersUsing;

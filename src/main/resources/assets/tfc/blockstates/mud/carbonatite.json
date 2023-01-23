@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfcflorae:blocks/stonetypes/mud/carbonatite"
+      "all": "tfc:blocks/stonetypes/mud/carbonatite"
     }
   },
   "variants": {

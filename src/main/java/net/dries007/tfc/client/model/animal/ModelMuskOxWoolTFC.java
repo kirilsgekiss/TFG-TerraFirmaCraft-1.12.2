@@ -14,7 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityMuskOxTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityMuskOx;
 
 /**
  * ModelAlpacaWoolTFC
@@ -54,7 +54,7 @@ public class ModelMuskOxWoolTFC extends ModelBase
     public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-        EntityMuskOxTFC muskox = ((EntityMuskOxTFC) entity);
+        TFCEntityMuskOx muskox = ((TFCEntityMuskOx) entity);
 
         float percent = (float) muskox.getPercentToAdulthood();
         float ageScale = 2.0F - percent;

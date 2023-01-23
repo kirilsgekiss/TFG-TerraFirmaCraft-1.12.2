@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.items.wood.ItemDoorTFC;
+import net.dries007.tfc.objects.items.wood.TFCItemDoor;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -56,7 +56,7 @@ public class TFCBlockWoodDoor extends BlockDoor
     // @Override
     public Item getItem()
     {
-        return ItemDoorTFC.get(wood);
+        return TFCItemDoor.get(wood);
     }
 
     @Override

@@ -9,12 +9,12 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.api.types.Rock.Type;
 
 public class WorldGenMossyRaw implements IWorldGenerator
@@ -44,10 +44,10 @@ public class WorldGenMossyRaw implements IWorldGenerator
                 for (int i = random.nextInt(Math.round(1 + floraDiversity)); i < (mossyCount + floraDensity) * 10; i++)
                 {
                     BlockPos blockPos = chunkBlockPos.add(random.nextInt(16) + 8, random.nextInt(16), random.nextInt(16) + 8);
-                    if (BlocksTFC.isRawStone(world.getBlockState(blockPos)) && (world.isAirBlock(blockPos.up()) || world.isAirBlock(blockPos.down()) || world.isAirBlock(blockPos.north()) || world.isAirBlock(blockPos.south()) || world.isAirBlock(blockPos.east()) || world.isAirBlock(blockPos.west())) && 
+                    if (TFCBlocks.isRawStone(world.getBlockState(blockPos)) && (world.isAirBlock(blockPos.up()) || world.isAirBlock(blockPos.down()) || world.isAirBlock(blockPos.north()) || world.isAirBlock(blockPos.south()) || world.isAirBlock(blockPos.east()) || world.isAirBlock(blockPos.west())) &&
                         world.getLightFor(EnumSkyBlock.SKY, blockPos) < 14 && !world.canSeeSky(blockPos))
                     {
-                        world.setBlockState(blockPos, BlockRockVariant
+                        world.setBlockState(blockPos, TFCBlockRockVariant
                                 .get(ChunkDataTFC.getRockHeight(world, blockPos), Type.MOSSY_RAW).getDefaultState(), 2);
                     }
                 }

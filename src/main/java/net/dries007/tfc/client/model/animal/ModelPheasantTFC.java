@@ -15,7 +15,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityPheasantTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityPheasant;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -130,7 +130,7 @@ public class ModelPheasantTFC extends ModelBase
     public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-        float percent = (float) ((EntityPheasantTFC) entity).getPercentToAdulthood();
+        float percent = (float) ((TFCEntityPheasant) entity).getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
         GlStateManager.pushMatrix();

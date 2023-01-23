@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/seeds/agave"
+    "layer0": "tfc:items/crop/seeds/sisal"
   }
 }

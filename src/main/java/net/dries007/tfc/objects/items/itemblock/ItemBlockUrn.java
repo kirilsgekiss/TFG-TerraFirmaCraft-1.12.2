@@ -9,12 +9,11 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTFC;
 
 import net.dries007.tfc.objects.blocks.BlockUrn;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockUrn extends ItemBlockTFC implements IItemSize
+public class ItemBlockUrn extends TFCItemBlock implements IItemSize
 {
     public ItemBlockUrn(BlockUrn block)
     {

@@ -16,8 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityGrouseTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityGrouse;
 
 /**
  * ModelGrouseTFC
@@ -187,12 +187,12 @@ public class ModelGrouseTFC extends ModelBase
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 
-        EntityGrouseTFC grouse = ((EntityGrouseTFC) entity);
+        TFCEntityGrouse grouse = ((TFCEntityGrouse) entity);
 
         float percent = (float) grouse.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
-        if (grouse.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (grouse.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             if (percent < 0.5)
             {

@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.ConfigTFC;
 import net.minecraft.block.BlockHardenedClay;
 import net.minecraft.block.BlockStainedHardenedClay;
 import net.minecraft.block.state.IBlockState;
@@ -21,9 +22,8 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.types.DefaultPlants;
 import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.biomes.BiomesTFC;
+import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import tfcflorae.ConfigTFCF;
 
 @ParametersAreNonnullByDefault
 public class WorldGeneratorPlants implements IWorldGenerator
@@ -39,18 +39,18 @@ public class WorldGeneratorPlants implements IWorldGenerator
     private int dryCount = 1;
     private int standardCount = 1;
 
-    private float waterCountConfig = ConfigTFCF.General.WORLD.waterCount;
-    private float waterTallCountConfig = ConfigTFCF.General.WORLD.waterTallCount;
-    private float waterSeaCountConfig = ConfigTFCF.General.WORLD.waterSeaCount;
-    private float waterTallSeaCountConfig = ConfigTFCF.General.WORLD.waterTallSeaCount;
-    private float waterSeaAlgaeCountConfig = ConfigTFCF.General.WORLD.waterSeaAlgaeCount;
-    private float hangingCountConfig = ConfigTFCF.General.WORLD.hangingCount;
-    private float beardedMossConfig = ConfigTFCF.General.WORLD.beardedMossCount;
-    private float grassCountConfig = ConfigTFCF.General.WORLD.grassCount;
-    private float tallGrassCountConfig = ConfigTFCF.General.WORLD.tallGrassCount;
-    private float tallCountConfig = ConfigTFCF.General.WORLD.tallPlantCount;
-    private float epiphyteCountConfig = ConfigTFCF.General.WORLD.epiphyteCount;
-    private float standardCountConfig = ConfigTFCF.General.WORLD.standardCount;
+    private float waterCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterCount;
+    private float waterTallCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterTallCount;
+    private float waterSeaCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterSeaCount;
+    private float waterTallSeaCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterTallSeaCount;
+    private float waterSeaAlgaeCountConfig = ConfigTFC.FloraeGeneral.WORLD.waterSeaAlgaeCount;
+    private float hangingCountConfig = ConfigTFC.FloraeGeneral.WORLD.hangingCount;
+    private float beardedMossConfig = ConfigTFC.FloraeGeneral.WORLD.beardedMossCount;
+    private float grassCountConfig = ConfigTFC.FloraeGeneral.WORLD.grassCount;
+    private float tallGrassCountConfig = ConfigTFC.FloraeGeneral.WORLD.tallGrassCount;
+    private float tallCountConfig = ConfigTFC.FloraeGeneral.WORLD.tallPlantCount;
+    private float epiphyteCountConfig = ConfigTFC.FloraeGeneral.WORLD.epiphyteCount;
+    private float standardCountConfig = ConfigTFC.FloraeGeneral.WORLD.standardCount;
 
     public WorldGeneratorPlants()
     {
@@ -241,7 +241,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) && (b == BiomesTFC.SWAMPLAND || b == BiomesTFC.LAKE || b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
+                            else if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) && (b == TFCBiomes.SWAMPLAND || b == TFCBiomes.LAKE || b == TFCBiomes.BAYOU || b == TFCBiomes.MANGROVE || b == TFCBiomes.MARSH))
                             {
                                 for (float i = rng.nextInt(Math.round(hangingCount / floraDiversity)); i < (2 + floraDensity) * beardedMossConfig; i++)
                                 {
@@ -281,7 +281,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                             {
                                 for (float i = rng.nextInt(Math.round((tallCount + 2) / floraDiversity)); i < (2 + floraDensity + floraDiversity) * tallCountConfig; i++)
                                 {
-                                    if (floraDensity <= Math.abs(0.2f - (rng.nextGaussian() / 20)) && b == BiomesTFC.MEADOWS)
+                                    if (floraDensity <= Math.abs(0.2f - (rng.nextGaussian() / 20)) && b == TFCBiomes.MEADOWS)
                                     {
                                         BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
                                         IBlockState blockPosState = world.getBlockState(blockPos.down());
@@ -300,7 +300,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                             {
                                 for (float i = rng.nextInt(Math.round((dryCount + 8) / floraDiversity)); i < (3 + floraDensity) * tallGrassCountConfig; i++)
                                 {
-                                    if (floraDensity <= Math.abs(0.3f - (rng.nextGaussian() / 20)) && (b != BiomesTFC.BEACH || b != BiomesTFC.GRAVEL_BEACH || b != BiomesTFC.MESA || b != BiomesTFC.MESA_BRYCE || b != BiomesTFC.MESA_PLATEAU || b != BiomesTFC.MESA_PLATEAU_M))
+                                    if (floraDensity <= Math.abs(0.3f - (rng.nextGaussian() / 20)) && (b != TFCBiomes.BEACH || b != TFCBiomes.GRAVEL_BEACH || b != TFCBiomes.MESA || b != TFCBiomes.MESA_BRYCE || b != TFCBiomes.MESA_PLATEAU || b != TFCBiomes.MESA_PLATEAU_M))
                                     {
                                         BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
                                         IBlockState blockPosState = world.getBlockState(blockPos.down());
@@ -369,7 +369,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                             {
                                 for (float i = rng.nextInt(Math.round(standardCount / floraDiversity)); i < (3 + floraDensity + floraDiversity) * standardCountConfig; i++)
                                 {
-                                    if (floraDensity <= Math.abs(0.2f - (rng.nextGaussian() / 20)) && b == BiomesTFC.MEADOWS)
+                                    if (floraDensity <= Math.abs(0.2f - (rng.nextGaussian() / 20)) && b == TFCBiomes.MEADOWS)
                                     {
                                         BlockPos blockPos = world.getHeight(chunkPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8));
                                         IBlockState blockPosState = world.getBlockState(blockPos.down());
@@ -495,7 +495,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && b == BiomesTFC.MARSH)
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && b == TFCBiomes.MARSH)
                             {
                                 for (int k = rng.nextInt(Math.round(grassCount / floraDiversity)); k < (5 + floraDensity) * grassCountConfig; k++)
                                 {
@@ -507,7 +507,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && (b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS) && (b == TFCBiomes.BAYOU || b == TFCBiomes.MANGROVE))
                             {
                                 for (int k = rng.nextInt(Math.round(grassCount / floraDiversity)); k < (3 + floraDensity) * tallGrassCountConfig; k++)
                                 {
@@ -519,7 +519,7 @@ public class WorldGeneratorPlants implements IWorldGenerator
                                     }
                                 }
                             }
-                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.PAMPAS_GRASS) && (b == BiomesTFC.BAYOU || b == BiomesTFC.MANGROVE || b == BiomesTFC.MARSH))
+                            if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.PAMPAS_GRASS) && (b == TFCBiomes.BAYOU || b == TFCBiomes.MANGROVE || b == TFCBiomes.MARSH))
                             {
                                 for (int k = rng.nextInt(Math.round(grassCount / floraDiversity)); k < (2 + floraDensity) * tallGrassCountConfig; k++)
                                 {

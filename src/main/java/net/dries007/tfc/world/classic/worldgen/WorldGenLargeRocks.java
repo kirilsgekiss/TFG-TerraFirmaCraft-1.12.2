@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import net.dries007.tfc.api.types.Rock.*;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGenLargeRocks implements IWorldGenerator
@@ -26,7 +26,7 @@ public class WorldGenLargeRocks implements IWorldGenerator
     {
         final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
         BlockPos start = world.getTopSolidOrLiquidBlock(chunkBlockPos.add(8 + rng.nextInt(16), 0, 8 + rng.nextInt(16))).add(0, -1, 0);
-        if (start.getY() > 155 && !BlocksTFC.isSoil(world.getBlockState(start))) return;
+        if (start.getY() > 155 && !TFCBlocks.isSoil(world.getBlockState(start))) return;
 
         int y = 1;
         boolean isFlatEnough = false;
@@ -64,7 +64,7 @@ public class WorldGenLargeRocks implements IWorldGenerator
                 for (int y = -2; y <= 2; y++)
                 {
                     if (x * x + z * z + y * y > size * size) continue;
-                    world.setBlockState(start.add(x, y, z), BlockRockVariant.get(rock, Type.RAW).getDefaultState());
+                    world.setBlockState(start.add(x, y, z), TFCBlockRockVariant.get(rock, Type.RAW).getDefaultState());
                 }
             }
         }

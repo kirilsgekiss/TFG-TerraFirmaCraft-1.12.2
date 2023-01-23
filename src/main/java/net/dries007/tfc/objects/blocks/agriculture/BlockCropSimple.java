@@ -20,13 +20,13 @@ import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.items.ItemSeedsTFC;
+import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 
 @ParametersAreNonnullByDefault
-public abstract class BlockCropSimple extends BlockCropTFC
+public abstract class BlockCropSimple extends TFCBlockCrop
 {
     public static BlockCropSimple create(ICrop crop, boolean isPickable)
     {
@@ -75,7 +75,7 @@ public abstract class BlockCropSimple extends BlockCropTFC
             ItemStack foodDrop = getCrop().getFoodDrop(state.getValue(getStageProperty()));
             if (!foodDrop.isEmpty())
             {
-                ItemStack seedDrop = new ItemStack(ItemSeedsTFC.get(getCrop()), 0);
+                ItemStack seedDrop = new ItemStack(TFCItemSeeds.get(getCrop()), 0);
                 SimpleSkill skill = CapabilityPlayerData.getSkill(playerIn, SkillType.AGRICULTURE);
 
                 if (skill != null)

@@ -31,7 +31,7 @@ import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
-public class ItemSack extends ItemTFC
+public class ItemSack extends TFCItem
 {
     public ItemSack(Object... oreNameParts) 
     {

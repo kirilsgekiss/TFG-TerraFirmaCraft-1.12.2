@@ -18,7 +18,6 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -37,7 +36,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandler;
 import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
@@ -117,7 +116,7 @@ public class ItemJug extends ItemPottery
             FluidStack fluidConsumed = jugCap.drain(CAPACITY, true);
             if (fluidConsumed != null && entityLiving instanceof EntityPlayer)
             {
-                DrinkableProperty drinkable = FluidsTFC.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
+                DrinkableProperty drinkable = TFCFluids.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
                 if (drinkable != null)
                 {
                     drinkable.onDrink((EntityPlayer) entityLiving);
@@ -168,7 +167,7 @@ public class ItemJug extends ItemPottery
         if (isInCreativeTab(tab))
         {
             items.add(new ItemStack(this));
-            for (FluidWrapper wrapper : FluidsTFC.getAllWrappers())
+            for (FluidWrapper wrapper : TFCFluids.getAllWrappers())
             {
                 if (wrapper.get(DrinkableProperty.DRINKABLE) != null)
                 {
@@ -193,6 +192,6 @@ public class ItemJug extends ItemPottery
     @Override
     public ICapabilityProvider initCapabilities(@Nonnull ItemStack stack, @Nullable NBTTagCompound nbt)
     {
-        return new FluidWhitelistHandler(stack, CAPACITY, FluidsTFC.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
+        return new FluidWhitelistHandler(stack, CAPACITY, TFCFluids.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
     }
 }

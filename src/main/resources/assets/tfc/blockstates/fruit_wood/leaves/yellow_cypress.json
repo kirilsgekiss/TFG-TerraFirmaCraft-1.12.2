@@ -1,0 +1,50 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "leaves",
+    "textures": {
+      "all": "tfc:blocks/wood/leaves/cypress"
+    }
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": {
+      "model": "leaves",
+      "transform": "forge:default-block"
+    },
+    "state": {
+      "normal": {
+        "model": "leaves"
+      },
+      "flowering": {
+        "model": "leaves",
+        "textures": {
+          "all": "tfc:blocks/wood/leaves/cypress"
+        },
+        "submodel": "leaves"
+      },
+      "fruit": {
+        "model": "leaves",
+        "textures": {
+          "all": "tfc:blocks/wood/leaves/cypress"
+        },
+        "submodel": "leaves"
+      },
+      "autumn": {
+        "model": "leaves",
+        "textures": {
+          "all": "tfc:blocks/wood/leaves/yellow_cypress"
+        },
+        "submodel": "leaves"
+      },
+      "winter": {
+        "model": "tfc:wood/branch/branch",
+        "textures": {
+          "all": "tfc:blocks/wood/branch/branch"
+        }
+      }
+    }
+  }
+}

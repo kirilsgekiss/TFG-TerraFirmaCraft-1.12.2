@@ -4,8 +4,8 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.plants.BlockHangingGlowingPlant;
-import net.dries007.tfc.objects.blocks.plants.BlockHangingPlantTFCF;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingGlowingPlant;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingPlant;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
@@ -35,7 +35,7 @@ public class WorldGenCaveVines extends WorldGenerator
     {
         if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE))
         {
-            BlockHangingGlowingPlant plantBlock = BlockHangingGlowingPlant.get(plant);
+            TFCBlockHangingGlowingPlant plantBlock = TFCBlockHangingGlowingPlant.get(plant);
             IBlockState state = plantBlock.getDefaultState();
     
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 4; ++i)
@@ -55,7 +55,7 @@ public class WorldGenCaveVines extends WorldGenerator
                         plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k)))
                     {
                         int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(BlockHangingGlowingPlant.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingGlowingPlant.AGE, plantAge));
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class WorldGenCaveVines extends WorldGenerator
         }
         else
         {
-            BlockHangingPlantTFCF plantBlock = BlockHangingPlantTFCF.get(plant);
+            TFCBlockHangingPlant plantBlock = TFCBlockHangingPlant.get(plant);
             IBlockState state = plantBlock.getDefaultState();
     
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 4; ++i)
@@ -83,7 +83,7 @@ public class WorldGenCaveVines extends WorldGenerator
                         plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k)))
                     {
                         int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
-                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(BlockHangingPlantTFCF.AGE, plantAge));
+                        setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingPlant.AGE, plantAge));
                     }
                 }
             }

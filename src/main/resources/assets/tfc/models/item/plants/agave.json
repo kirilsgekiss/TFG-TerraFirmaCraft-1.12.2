@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tfc:blocks/plants/agave/agave_5"
+    "layer0": "tfc:blocks/plants/sisal/sisal_5"
   }
 }

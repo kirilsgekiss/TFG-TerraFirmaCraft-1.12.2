@@ -78,7 +78,7 @@ public class BlockSnowTFC extends BlockSnow implements ITemperatureBlock
         IBlockState stateDown = worldIn.getBlockState(pos.down());
         Block block = stateDown.getBlock();
 
-        if (block != Blocks.ICE && block != Blocks.PACKED_ICE && block != Blocks.BARRIER && block != BlocksTFC.SEA_ICE)
+        if (block != Blocks.ICE && block != Blocks.PACKED_ICE && block != Blocks.BARRIER && block != TFCBlocks.SEA_ICE)
         {
             return stateDown.getBlockFaceShape(worldIn, pos.down(), EnumFacing.UP) == BlockFaceShape.SOLID || stateDown.getBlock().isLeaves(stateDown, worldIn, pos.down()) || block == this && stateDown.getValue(LAYERS) == 8;
         }

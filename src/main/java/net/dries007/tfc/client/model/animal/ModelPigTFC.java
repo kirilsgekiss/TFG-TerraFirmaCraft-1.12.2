@@ -16,8 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.objects.entity.animal.EntityAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityPigTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimal;
+import net.dries007.tfc.objects.entity.animal.TFCEntityPig;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
@@ -52,13 +52,13 @@ public class ModelPigTFC extends ModelQuadruped
     @Override
     public void render(@Nonnull Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
-        EntityPigTFC pig = ((EntityPigTFC) entity);
+        TFCEntityPig pig = ((TFCEntityPig) entity);
 
         float percent = (float) pig.getPercentToAdulthood();
         float ageScale = 2.0F - percent;
 
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-        if (pig.getGender() == EntityAnimalTFC.Gender.MALE)
+        if (pig.getGender() == TFCEntityAnimal.Gender.MALE)
         {
             if (!pig.isChild())
             {
