@@ -553,9 +553,12 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("armor/boots/yucca_canvas")
     public static final TFCItemArmor YUCCA_CANVAS_BOOTS = getNull();
 
-    //=== Armor ======================================================================================================//
+    //=== Devices ====================================================================================================//
 
-
+    @GameRegistry.ObjectHolder("devices/flora_density_meter")
+    public static final ItemFloraDensity FLORA_DENSITY_METER = getNull();
+    @GameRegistry.ObjectHolder("devices/season_clock")
+    public static final ItemCalendarClock CALENDAR_CLOCK = getNull();
 
 
 
@@ -584,10 +587,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("animal/product/wool_yarn")
     public static final ItemMisc WOOL_YARN = getNull();
 
-    @GameRegistry.ObjectHolder("devices/flora_density_meter")
-    public static final ItemFloraDensity FLORA_DENSITY_METER = getNull();
-    @GameRegistry.ObjectHolder("devices/season_clock")
-    public static final ItemCalendarClock CALENDAR_CLOCK = getNull();
+
 
 
 
