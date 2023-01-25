@@ -104,7 +104,6 @@ public final class TFCItems
 
     //=== Crop Product ===============================================================================================//
 
-
     @GameRegistry.ObjectHolder("crop/product/jute")
     public static final ItemMisc JUTE = getNull();
     @GameRegistry.ObjectHolder("crop/product/sisal")
@@ -122,6 +121,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/silk")
     public static final ItemMisc SILK = getNull();
 
+    //=== Crop fiber =================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/jute_fiber")
     public static final ItemMisc JUTE_FIBER = getNull();
@@ -140,6 +140,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/silk_fiber")
     public static final ItemMisc SILK_FIBER = getNull();
 
+    //=== Crop string ================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/jute_string")
     public static final ItemMisc JUTE_STRING = getNull();
@@ -154,6 +155,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/yucca_string")
     public static final ItemMisc YUCCA_STRING = getNull();
 
+    //=== Crop cloth =================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/jute_cloth")
     public static final ItemMisc JUTE_CLOTH = getNull();
@@ -177,7 +179,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/papyrus_pulp")
     public static final ItemMisc PAPYRUS_PULP = getNull();
 
-
+    //=== Crop disc ==================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/jute_disc")
     public static final ItemMisc JUTE_DISC = getNull();
@@ -196,6 +198,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/silk_disc")
     public static final ItemMisc SILK_DISC = getNull();
 
+    //=== Crop olive disc ============================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/olive_jute_disc")
     public static final ItemMisc OLIVE_JUTE_DISC = getNull();
@@ -214,6 +217,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/olive_silk_disc")
     public static final ItemMisc OLIVE_SILK_DISC = getNull();
 
+    //=== Crop soybean disc ==========================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/soybean_jute_disc")
     public static final ItemMisc SOYBEAN_JUTE_DISC = getNull();
@@ -232,6 +236,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/soybean_silk_disc")
     public static final ItemMisc SOYBEAN_SILK_DISC = getNull();
 
+    //=== Crop linseed disc ==========================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/linseed_jute_disc")
     public static final ItemMisc LINSEED_JUTE_DISC = getNull();
@@ -250,6 +255,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/linseed_silk_disc")
     public static final ItemMisc LINSEED_SILK_DISC = getNull();
 
+    //=== Crop rape seed disc ========================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/rape_seed_jute_disc")
     public static final ItemMisc RAPE_SEED_JUTE_DISC = getNull();
@@ -268,6 +274,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/rape_seed_silk_disc")
     public static final ItemMisc RAPE_SEED_SILK_DISC = getNull();
 
+    //=== Crop sunflower seed disc ===================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_jute_disc")
     public static final ItemMisc SUNFLOWER_SEED_JUTE_DISC = getNull();
@@ -286,6 +293,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/sunflower_seed_silk_disc")
     public static final ItemMisc SUNFLOWER_SEED_SILK_DISC = getNull();
 
+    //=== Crop opium poppy seed disc =================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_jute_disc")
     public static final ItemMisc OPIUM_POPPY_SEED_JUTE_DISC = getNull();
@@ -304,6 +312,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/opium_poppy_seed_silk_disc")
     public static final ItemMisc OPIUM_POPPY_SEED_SILK_DISC = getNull();
 
+    //=== Crop sugar beet disc =======================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_jute_disc")
     public static final ItemMisc SUGAR_BEET_JUTE_DISC = getNull();
@@ -322,6 +331,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/sugar_beet_silk_disc")
     public static final ItemMisc SUGAR_BEET_SILK_DISC = getNull();
 
+    //=== Crop sugar cane disc =======================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_jute_disc")
     public static final ItemMisc SUGAR_CANE_JUTE_DISC = getNull();
@@ -340,6 +350,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/sugar_cane_silk_disc")
     public static final ItemMisc SUGAR_CANE_SILK_DISC = getNull();
 
+    //=== Crop net ===================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/jute_net")
     public static final ItemMisc JUTE_NET = getNull();
@@ -358,7 +369,7 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/silk_net")
     public static final ItemMisc SILK_NET = getNull();
 
-
+    //=== Crop dirty net =============================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/dirty_jute_net")
     public static final ItemMisc DIRTY_JUTE_NET = getNull();
@@ -377,41 +388,30 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/dirty_silk_net")
     public static final ItemMisc DIRTY_SILK_NET = getNull();
 
+    //=== Crop head ==================================================================================================//
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Crop product
     @GameRegistry.ObjectHolder("crop/product/chamomile_head")
     public static final ItemMisc CHAMOMILE_HEAD = getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/chamomile_head")
-    public static final ItemMisc DRIED_CHAMOMILE_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dandelion_head")
     public static final ItemMisc DANDELION_HEAD = getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/dandelion_head")
-    public static final ItemMisc DRIED_DANDELION_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/labrador_tea_head")
     public static final ItemMisc LABRADOR_TEA_HEAD = getNull();
-    @GameRegistry.ObjectHolder("crop/product/dried/labrador_tea_head")
-    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/sunflower_head")
     public static final ItemMisc SUNFLOWER_HEAD = getNull();
+
+    //=== Crop dried head ============================================================================================//
+
+    @GameRegistry.ObjectHolder("crop/product/dried/chamomile_head")
+    public static final ItemMisc DRIED_CHAMOMILE_HEAD = getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/dandelion_head")
+    public static final ItemMisc DRIED_DANDELION_HEAD = getNull();
+    @GameRegistry.ObjectHolder("crop/product/dried/labrador_tea_head")
+    public static final ItemMisc DRIED_LABRADOR_TEA_HEAD = getNull();
     @GameRegistry.ObjectHolder("crop/product/dried/sunflower_head")
     public static final ItemMisc DRIED_SUNFLOWER_HEAD = getNull();
 
-    // Miscellaneous Food Stuff
+    //=== Malt =======================================================================================================//
+
     @GameRegistry.ObjectHolder("crop/product/malt_barley")
     public static final ItemMisc MALT_BARLEY = getNull();
     @GameRegistry.ObjectHolder("crop/product/malt_corn")
@@ -435,8 +435,8 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("crop/product/malt_spelt")
     public static final ItemMisc MALT_SPELT = getNull();
 
+    //=== Container ==================================================================================================//
 
-    // Container
     @GameRegistry.ObjectHolder("container/leather_bag_piece")
     public static final ItemMisc LEATHER_BAG_PIECE = getNull();
     @GameRegistry.ObjectHolder("container/leather_bag")
@@ -478,33 +478,8 @@ public final class TFCItems
     @GameRegistry.ObjectHolder("container/yucca_sack")
     public static final ItemSack YUCCA_SACK = getNull();
 
+    //=== Armor ======================================================================================================//
 
-
-    @GameRegistry.ObjectHolder("pomace")
-    public static final ItemMisc POMACE = getNull();
-    @GameRegistry.ObjectHolder("charred_bones")
-    public static final ItemMisc CHARRED_BONES = getNull();
-
-    // Normal Trees Nuts
-    @GameRegistry.ObjectHolder("food/pinecone")
-    public static final TFCItemFood PINECONE = getNull();
-
-
-
-
-    public static final ItemMisc STRAW = getNull();
-
-    @GameRegistry.ObjectHolder("animal/product/wool")
-    public static final ItemMisc WOOL = getNull();
-    @GameRegistry.ObjectHolder("animal/product/wool_yarn")
-    public static final ItemMisc WOOL_YARN = getNull();
-
-    @GameRegistry.ObjectHolder("devices/flora_density_meter")
-    public static final ItemFloraDensity FLORA_DENSITY_METER = getNull();
-    @GameRegistry.ObjectHolder("devices/season_clock")
-    public static final ItemCalendarClock CALENDAR_CLOCK = getNull();
-
-    // Armor
     @GameRegistry.ObjectHolder("armor/helmet/pineapple_leather")
     public static final TFCItemArmor PINEAPPLE_LEATHER_HELMET = getNull();
     @GameRegistry.ObjectHolder("armor/chestplate/pineapple_leather")
@@ -577,6 +552,48 @@ public final class TFCItems
     public static final TFCItemArmor YUCCA_CANVAS_LEGGINGS = getNull();
     @GameRegistry.ObjectHolder("armor/boots/yucca_canvas")
     public static final TFCItemArmor YUCCA_CANVAS_BOOTS = getNull();
+
+    //=== Armor ======================================================================================================//
+
+
+
+
+
+
+
+
+
+
+
+    @GameRegistry.ObjectHolder("pomace")
+    public static final ItemMisc POMACE = getNull();
+    @GameRegistry.ObjectHolder("charred_bones")
+    public static final ItemMisc CHARRED_BONES = getNull();
+
+    // Normal Trees Nuts
+    @GameRegistry.ObjectHolder("food/pinecone")
+    public static final TFCItemFood PINECONE = getNull();
+
+
+
+
+    public static final ItemMisc STRAW = getNull();
+
+    @GameRegistry.ObjectHolder("animal/product/wool")
+    public static final ItemMisc WOOL = getNull();
+    @GameRegistry.ObjectHolder("animal/product/wool_yarn")
+    public static final ItemMisc WOOL_YARN = getNull();
+
+    @GameRegistry.ObjectHolder("devices/flora_density_meter")
+    public static final ItemFloraDensity FLORA_DENSITY_METER = getNull();
+    @GameRegistry.ObjectHolder("devices/season_clock")
+    public static final ItemCalendarClock CALENDAR_CLOCK = getNull();
+
+
+
+
+
+
 
     @GameRegistry.ObjectHolder("ceramics/clay/unfired/fire_brick")
     public static final ItemPottery UNFIRED_FIRE_BRICK = getNull();
