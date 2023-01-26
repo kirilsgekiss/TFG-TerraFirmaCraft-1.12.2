@@ -28,7 +28,8 @@ import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import org.labellum.mc.dynamictreestfc.blocks.BlockLogDTTFC;
 import org.labellum.mc.dynamictreestfc.trees.TreeFamilyTFC;
 
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
+
 
 public class ModTrees
 {
