@@ -1085,7 +1085,7 @@ public class ChunkGenTFC implements IChunkGenerator
                         {
                             subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.SAND).getDefaultState();
                         }
-                        else if (biome == TFCBiomes.GRAVEL_BEACH || biome == TFCBiomes.ESTUARY || biome == TFCBiomes.RIVER || biome == TFCBiomes.RIVERBANK || biome == TFCBiomes.LAKESHORE/* || biome == BiomesTFC.RIVER_SOURCE*/)
+                        else if (biome == TFCBiomes.GRAVEL_BEACH || biome == TFCBiomes.ESTUARY || biome == TFCBiomes.RIVER || biome == TFCBiomes.RIVERBANK || biome == TFCBiomes.LAKESHORE /* || biome == BiomesTFC.RIVER_SOURCE*/)
                         {
                             subSurfaceBlock = surfaceBlock = TFCBlockRockVariant.get(rock1, Type.GRAVEL).getDefaultState();
                         }
