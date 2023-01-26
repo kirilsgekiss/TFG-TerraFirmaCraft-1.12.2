@@ -1,6 +1,7 @@
 package net.dries007.tfc.objects.blocks.wood;
 
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;

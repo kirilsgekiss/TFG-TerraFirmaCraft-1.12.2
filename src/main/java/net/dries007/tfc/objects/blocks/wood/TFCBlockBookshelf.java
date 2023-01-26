@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

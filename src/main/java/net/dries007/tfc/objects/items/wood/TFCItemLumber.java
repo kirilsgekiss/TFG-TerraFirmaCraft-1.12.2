@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.wood.IWoodHandler;
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.minecraft.item.ItemStack;
 
 import mcp.MethodsReturnNonnullByDefault;

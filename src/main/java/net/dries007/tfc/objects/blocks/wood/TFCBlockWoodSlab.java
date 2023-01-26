@@ -2,6 +2,7 @@ package net.dries007.tfc.objects.blocks.wood;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;

@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.api.stateproperty.StatePropertiesTFC;
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
