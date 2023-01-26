@@ -26,7 +26,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -149,6 +149,6 @@ public class WorldGenWildCrops implements IWorldGenerator
 
     protected boolean isValidPosition(World world, BlockPos pos)
     {
-        return world.isAirBlock(pos) && TFCBlocks.isSoil(world.getBlockState(pos.down()));
+        return world.isAirBlock(pos) && BlocksTFC.isSoil(world.getBlockState(pos.down()));
     }
 }

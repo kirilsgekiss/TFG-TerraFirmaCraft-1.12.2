@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.AIR;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.LAVA;
@@ -125,7 +125,7 @@ public class MapGenRavineTFC extends MapGenBase
                 {
                     for (int y = Math.min(yMax + 1, 250); y >= Math.max(yMin - 2, 1); --y)
                     {
-                        if (TFCBlocks.isWater(primer.getBlockState(x, y, z)))
+                        if (BlocksTFC.isWater(primer.getBlockState(x, y, z)))
                             continue outer;
                     }
                 }
@@ -147,9 +147,9 @@ public class MapGenRavineTFC extends MapGenBase
 
                         if (!((xNormalized * xNormalized + zNormalized * zNormalized) * multipliers[y] + yNormalized * yNormalized / 6.0D < 1.0D))
                             continue;
-                        if (!TFCBlocks.isGround(primer.getBlockState(x, y, z))) continue;
+                        if (!BlocksTFC.isGround(primer.getBlockState(x, y, z))) continue;
 
-                        for (int upCount = 1; TFCBlocks.isSoilOrGravel(primer.getBlockState(x, y + upCount, z)); upCount++)
+                        for (int upCount = 1; BlocksTFC.isSoilOrGravel(primer.getBlockState(x, y + upCount, z)); upCount++)
                             primer.setBlockState(x, y + upCount, z, AIR);
 
                         primer.setBlockState(x, y, z, y < 20 /*todo: make option, was 10*/ ? LAVA : AIR); // todo: check stability?

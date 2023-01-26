@@ -1,0 +1,7 @@
+{
+  "parent": "dynamictrees:item/branch",
+  "textures": {
+    "bark": "tfc:blocks/materials/wood/log/side/acacia",
+    "rings": "tfc:blocks/materials/wood/log/top/acacia"
+  }
+}

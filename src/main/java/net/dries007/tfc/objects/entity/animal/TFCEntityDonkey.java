@@ -53,7 +53,7 @@ import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.api.util.IRidable;
 import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -230,7 +230,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
             && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
             && !this.world.containsAnyLiquid(getEntityBoundingBox())
-            && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
+            && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Override

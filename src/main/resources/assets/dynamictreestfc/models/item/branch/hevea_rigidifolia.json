@@ -1,0 +1,7 @@
+{
+  "parent": "dynamictrees:item/branch",
+  "textures": {
+    "bark": "tfc:blocks/materials/wood/log/side/hevea_rigidifolia",
+    "rings": "tfc:blocks/materials/wood/log/top/hevea_rigidifolia"
+  }
+}

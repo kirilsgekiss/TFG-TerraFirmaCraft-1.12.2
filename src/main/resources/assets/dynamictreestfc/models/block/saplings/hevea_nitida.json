@@ -1,0 +1,7 @@
+{   "parent": "dynamictrees:block/sapling",
+  "textures": {
+    "particle": "tfc:blocks/materials/wood/leaves/hevea_nitida",
+    "log": "tfc:blocks/materials/wood/log/side/hevea_nitida",
+    "leaves": "tfc:blocks/materials/wood/leaves/hevea_nitida"
+  }
+}

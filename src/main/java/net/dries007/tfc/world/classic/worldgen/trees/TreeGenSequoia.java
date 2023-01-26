@@ -18,13 +18,13 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
 
 public class TreeGenSequoia implements ITreeGenerator
 {
@@ -42,7 +42,7 @@ public class TreeGenSequoia implements ITreeGenerator
         final int layers = 4 + rand.nextInt(3);
         final int height = 3 + rand.nextInt(4);
 
-        trunk = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
+        trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
 
         for (int i = -2; i < height; i++)
         {
@@ -70,13 +70,13 @@ public class TreeGenSequoia implements ITreeGenerator
     {
         for (BlockPos p1 : OFFSETS)
         {
-            if (!TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down())))
+            if (!BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down())))
             {
                 if (world.getBlockState(pos.add(p1)).getMaterial().isReplaceable())
                 {
-                    if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(1))))
+                    if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(1))))
                         continue;
-                    if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
+                    if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
                         continue;
                 }
                 return false;
@@ -113,7 +113,7 @@ public class TreeGenSequoia implements ITreeGenerator
 
     private void checkAndPlace(World world, BlockPos pos)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
         {
             world.setBlockState(pos, trunk);
         }

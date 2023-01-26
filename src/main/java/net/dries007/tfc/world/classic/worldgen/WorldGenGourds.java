@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -47,7 +47,7 @@ public class WorldGenGourds implements IWorldGenerator
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (TFCBlocks.isSoil(world.getBlockState(pos.down()))))
+                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down()))))
                 {
                     final int rotationValue = random.nextInt(4);
                 }
@@ -73,7 +73,7 @@ public class WorldGenGourds implements IWorldGenerator
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (TFCBlocks.isSoil(world.getBlockState(pos.down()))))
+                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down()))))
                 {
                     final int rotationValue = random.nextInt(4);
                 }

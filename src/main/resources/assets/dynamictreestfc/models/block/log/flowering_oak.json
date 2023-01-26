@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "tfc:blocks/materials/wood/log/top/flowering_oak",
+    "side": "tfc:blocks/materials/wood/log/side/flowering_oak"
+  }
+}

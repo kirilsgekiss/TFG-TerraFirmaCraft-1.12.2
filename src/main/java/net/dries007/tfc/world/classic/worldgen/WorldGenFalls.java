@@ -15,7 +15,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 
 public class WorldGenFalls implements IWorldGenerator
@@ -38,7 +38,7 @@ public class WorldGenFalls implements IWorldGenerator
             int z = random.nextInt(16) + 8;
             int y = random.nextInt(WorldTypeTFC.SEALEVEL - 50) + 30;
             BlockPos pos = new BlockPos(chunkX << 4, y, chunkZ << 4).add(x, 0, z);
-            if (!TFCBlocks.isRawStone(world.getBlockState(pos.down())) && !TFCBlocks.isRawStone(world.getBlockState(pos.up())) && (!TFCBlocks.isRawStone(world.getBlockState(pos)) || !world.isAirBlock(pos)))
+            if (!BlocksTFC.isRawStone(world.getBlockState(pos.down())) && !BlocksTFC.isRawStone(world.getBlockState(pos.up())) && (!BlocksTFC.isRawStone(world.getBlockState(pos)) || !world.isAirBlock(pos)))
             {
                 continue;
             }
@@ -49,7 +49,7 @@ public class WorldGenFalls implements IWorldGenerator
                 {
                     airHorizontal++;
                 }
-                else if (TFCBlocks.isRawStone(world.getBlockState(pos.offset(facing))))
+                else if (BlocksTFC.isRawStone(world.getBlockState(pos.offset(facing))))
                 {
                     rawHorizontal++;
                 }

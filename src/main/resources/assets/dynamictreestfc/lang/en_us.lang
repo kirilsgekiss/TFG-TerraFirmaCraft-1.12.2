@@ -1,0 +1,104 @@
+
+# ================ Seeds ================ #
+
+item.dynamictreestfc:seed/douglas_fir.name=Douglas Fir Cone
+item.dynamictreestfc:seed/white_elm.name=White Elm Seed
+item.dynamictreestfc:seed/acacia.name=Acacia Seed
+item.dynamictreestfc:seed/ash.name=Ash Key
+item.dynamictreestfc:seed/aspen.name=Aspen Catkin
+item.dynamictreestfc:seed/birch.name=Birch Catkin
+item.dynamictreestfc:seed/chestnut.name=Chestnut
+
+# Oak Seeds
+item.dynamictreestfc:seed/oak.name=Oak Acorn
+item.dynamictreestfc:seed/dark_oak.name=Dark Oak Acorn
+item.dynamictreestfc:seed/flowering_oak.name=Flowering Oak Acorn
+
+item.dynamictreestfc:seed/hickory.name=Hickory Nut
+item.dynamictreestfc:seed/kapok.name=Kapok Pod
+item.dynamictreestfc:seed/maple.name=Maple Seed
+item.dynamictreestfc:seed/pine.name=Pine Cone
+
+# Spruce Seeds
+item.dynamictreestfc:seed/spruce.name=Spruce Cone
+item.dynamictreestfc:seed/japanese_spruce.name=Japanese Spruce Cone
+item.dynamictreestfc:seed/norway_spruce.name=Norway Spruce Cone
+
+item.dynamictreestfc:seed/white_cedar.name=White Cedar Seed
+item.dynamictreestfc:seed/white_elm.name=White Elm Seed
+
+# Willow Seeds
+item.dynamictreestfc:seed/willow.name=Willow Seed
+item.dynamictreestfc:seed/weeping_willow.name=Weeping Willow Seed
+
+item.dynamictreestfc:seed/sycamore.name=Sycamore Key
+item.dynamictreestfc:seed/sequoia.name=Sequoia Cone
+item.dynamictreestfc:seed/silver_birch.name=Silver Birch Catkin
+item.dynamictreestfc:seed/rosewood.name=Rosewood Seed
+item.dynamictreestfc:seed/blackwood.name=Blackwood Seed
+item.dynamictreestfc:seed/palm.name=Palm Pod
+
+# Hevea Seeds
+item.dynamictreestfc:seed/hevea_benthamiana.name=Hevea Benthamiana Seed
+item.dynamictreestfc:seed/hevea_braziliensis.name=Hevea Braziliensis Seed
+item.dynamictreestfc:seed/hevea_camargoana.name=Hevea Camargoana Seed
+item.dynamictreestfc:seed/hevea_camporium.name=Hevea Camporium Seed
+item.dynamictreestfc:seed/hevea_guianensis.name=Hevea Guianensis Seed
+item.dynamictreestfc:seed/hevea_microphylla.name=Hevea Microphylla Seed
+item.dynamictreestfc:seed/hevea_nitida.name=Hevea Nitida Seed
+item.dynamictreestfc:seed/hevea_pauciflora.name=Hevea Pauciflora Seed
+item.dynamictreestfc:seed/hevea_rigidifolia.name=Hevea Rigidfolia Seed
+item.dynamictreestfc:seed/hevea_spruceana.name=Hevea Spruceana Seed
+
+
+
+# ================ Branches ================ #
+
+tile.branch/douglas_fir.name=Douglas Fir Branch
+tile.branch/white_elm.name=White Elm Branch
+tile.branch/acacia.name=Acacia Branch
+tile.branch/ash.name=Ash Branch
+tile.branch/aspen.name=Aspen Branch
+tile.branch/birch.name=Birch Branch
+tile.branch/chestnut.name=Chestnut Branch
+
+# Oak Branches
+tile.branch/oak.name=Oak Branch
+tile.branch/dark_oak.name=Dark Oak Branch
+tile.branch/flowering_oak.name=Flowering Oak Branch
+
+tile.branch/hickory.name=Hickory Branch
+tile.branch/kapok.name=Kapok Branch
+tile.branch/maple.name=Maple Branch
+tile.branch/pine.name=Pine Branch
+
+# Spruce Branches
+tile.branch/spruce.name=Spruce Branch
+tile.branch/japanese_spruce.name=Japanese Spruce Branch
+tile.branch/norway_spruce.name=Norway Spruce Branch
+
+tile.branch/white_cedar.name=White Cedar Branch
+tile.branch/white_elm.name=White Elm Branch
+
+# Willow Branches
+tile.branch/willow.name=Willow Branch
+tile.branch/weeping_willow.name=Weeping Willow Branch
+
+tile.branch/sycamore.name=Sycamore Branch
+tile.branch/sequoia.name=Sequoia Branch
+tile.branch/silver_birch.name=Silver Birch Branch
+tile.branch/rosewood.name=Rosewood Branch
+tile.branch/blackwood.name=Blackwood Branch
+tile.branch/palm.name=Palm Branch
+
+# Hevea Branches
+tile.branch/hevea_benthamiana.name=Hevea Benthamiana Branch
+tile.branch/hevea_braziliensis.name=Hevea Braziliensis Branch
+tile.branch/hevea_camargoana.name=Hevea Camargoana Branch
+tile.branch/hevea_camporium.name=Hevea Camporium Branch
+tile.branch/hevea_guianensis.name=Hevea Guianensis Branch
+tile.branch/hevea_microphylla.name=Hevea Microphylla Branch
+tile.branch/hevea_nitida.name=Hevea Nitida Branch
+tile.branch/hevea_pauciflora.name=Hevea Pauciflora Branch
+tile.branch/hevea_rigidifolia.name=Hevea Rigidfolia Branch
+tile.branch/hevea_spruceana.name=Hevea Spruceana Branch

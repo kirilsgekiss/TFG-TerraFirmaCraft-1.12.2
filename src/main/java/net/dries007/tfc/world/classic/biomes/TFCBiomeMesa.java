@@ -15,7 +15,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -107,7 +107,7 @@ public class TFCBiomeMesa extends TFCBiome
         {
             if (chunkPrimerIn.getBlockState(l1, j1, k1).getMaterial() == Material.AIR && j1 < (int)d4)
             {
-                chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState());
+                chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState());
             }
 
             if (j1 <= rand.nextInt(5))
@@ -122,7 +122,7 @@ public class TFCBiomeMesa extends TFCBiome
                 {
                     l = -1;
                 }
-                else if (iblockstate1.getBlock() == TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState())
+                else if (iblockstate1.getBlock() == BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState())
                 {
                     if (l == -1)
                     {
@@ -131,7 +131,7 @@ public class TFCBiomeMesa extends TFCBiome
                         if (k <= 0)
                         {
                             iblockstate = AIR;
-                            iblockstate3 = TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState();
+                            iblockstate3 = BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState();
                         }
                         else if (j1 >= i2 - 4 && j1 <= i2 + 1)
                         {
@@ -152,11 +152,11 @@ public class TFCBiomeMesa extends TFCBiome
                             {
                                 if (flag)
                                 {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.DIRT).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.DIRT).getDefaultState());
                                 }
                                 else
                                 {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.GRASS).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.GRASS).getDefaultState());
                                 }
                             }
                             else if (j1 > i2 + 3 + k)

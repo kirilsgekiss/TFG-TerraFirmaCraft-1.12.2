@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.IGrowingPlant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.ICalendar;
@@ -84,7 +84,7 @@ public class BlockJoshuaTreeSapling extends BlockBush implements IGrowable, IGro
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         Block block = worldIn.getBlockState(pos.down()).getBlock();
-        return (super.canPlaceBlockAt(worldIn, pos) || TFCBlocks.isSand(worldIn.getBlockState(pos.down())) || TFCBlocks.isSoilOrGravel(worldIn.getBlockState(pos.down())) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY);
+        return (super.canPlaceBlockAt(worldIn, pos) || BlocksTFC.isSand(worldIn.getBlockState(pos.down())) || BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY);
     }
 
     @Override
@@ -219,7 +219,7 @@ public class BlockJoshuaTreeSapling extends BlockBush implements IGrowable, IGro
             {
                 int k1 = j1 - 1;
                 Block block = world.getBlockState(pos.down()).getBlock();
-                if (world.isAirBlock(pos.add(l, k1 + 1, i1)) && (TFCBlocks.isSand(world.getBlockState(pos.add(l, k1, i1))) || TFCBlocks.isSoilOrGravel(world.getBlockState(pos.add(l, k1, i1))) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY))
+                if (world.isAirBlock(pos.add(l, k1 + 1, i1)) && (BlocksTFC.isSand(world.getBlockState(pos.add(l, k1, i1))) || BlocksTFC.isSoilOrGravel(world.getBlockState(pos.add(l, k1, i1))) || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY))
                 {
                     BlockJoshuaTreeFlower.get(wood).generatePlant(world, pos.add(l, k1 + 1, i1), rand, 8);
                 }

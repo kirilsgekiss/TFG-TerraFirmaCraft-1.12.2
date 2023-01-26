@@ -3,7 +3,7 @@ package net.dries007.tfc.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
@@ -61,12 +61,12 @@ public class TESRFruitChest extends TileEntitySpecialRenderer<TEFruitChest>
             TRAP_DOUBLE_TEXTURES.put(fruitTree, new ResourceLocation(MOD_ID, "textures/entity/wood/fruit_tree/chests/chest_trap_double/" + name + ".png"));
         }
 
-        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
+        for (int i = 0; i < BlocksTFC.bamboo.length; i++)
         {
-            SINGLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest/" + TFCBlocks.bamboo[i] + ".png"));
-            DOUBLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_double/" + TFCBlocks.bamboo[i] + ".png"));
-            TRAP_SINGLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap/" + TFCBlocks.bamboo[i] + ".png"));
-            TRAP_DOUBLE_TEXTURES_TREE.put(TFCBlocks.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap_double/" + TFCBlocks.bamboo[i] + ".png"));
+            SINGLE_TEXTURES_TREE.put(BlocksTFC.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest/" + BlocksTFC.bamboo[i] + ".png"));
+            DOUBLE_TEXTURES_TREE.put(BlocksTFC.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_double/" + BlocksTFC.bamboo[i] + ".png"));
+            TRAP_SINGLE_TEXTURES_TREE.put(BlocksTFC.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap/" + BlocksTFC.bamboo[i] + ".png"));
+            TRAP_DOUBLE_TEXTURES_TREE.put(BlocksTFC.bambooTrees[i], new ResourceLocation(MOD_ID, "textures/entity/chests/chest_trap_double/" + BlocksTFC.bamboo[i] + ".png"));
         }
 
         SINGLE_TEXTURES_TREE.put(DefaultTrees.CASSIA_CINNAMON_TREE, new ResourceLocation(MOD_ID, "textures/entity/wood/fruit_tree/chests/chest/cassia_cinnamon.png"));

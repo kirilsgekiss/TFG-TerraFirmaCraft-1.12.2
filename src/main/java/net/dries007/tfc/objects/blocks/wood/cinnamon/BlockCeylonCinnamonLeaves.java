@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -19,11 +19,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockCeylonCinnamonLeaves extends TFCBlockLeaves
+public class BlockCeylonCinnamonLeaves extends BlockLeavesTFC
 {
     public BlockCeylonCinnamonLeaves()
     {
@@ -31,7 +31,7 @@ public class BlockCeylonCinnamonLeaves extends TFCBlockLeaves
         setSoundType(SoundType.PLANT);
         setDefaultState(blockState.getBaseState().withProperty(DECAYABLE, true));
         OreDictionaryHelper.register(this, "tree", "leaves");
-        OreDictionaryHelper.register(this, "tree", "leaves", wood.getRegistryName().getPath());
+        OreDictionaryHelper.register(this, "tree", "leaves", tree.getRegistryName().getPath());
     }
 
     @Override
@@ -40,7 +40,7 @@ public class BlockCeylonCinnamonLeaves extends TFCBlockLeaves
         int chance = 10;
         if (RANDOM.nextInt(101) < chance)
         {
-            drops.add(new ItemStack(TFCBlocks.CEYLON_CINNAMON_SAPLING));
+            drops.add(new ItemStack(BlocksTFC.CEYLON_CINNAMON_SAPLING));
         }
     }
 

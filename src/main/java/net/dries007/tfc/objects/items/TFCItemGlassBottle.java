@@ -20,7 +20,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.fluids.TFCFluids;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 
 /**
  * todo: as per comment in ItemsTFC, turn this into a proper fluid handler item?
@@ -38,7 +38,7 @@ public class TFCItemGlassBottle extends ItemGlassBottle
         if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
         {
             IBlockState targetState = worldIn.getBlockState(result.getBlockPos());
-            if (targetState.getMaterial() == Material.WATER && targetState.getBlock() != Blocks.WATER && targetState.getBlock() != TFCFluids.FRESH_WATER.get().getBlock())
+            if (targetState.getMaterial() == Material.WATER && targetState.getBlock() != Blocks.WATER && targetState.getBlock() != FluidsTFC.FRESH_WATER.get().getBlock())
             {
                 return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
             }
