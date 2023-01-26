@@ -16,7 +16,8 @@ import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import org.labellum.mc.dynamictreestfc.blocks.BlockRootyDirtTFC;
 
-import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
 
 public class ModBlocks
 {

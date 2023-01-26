@@ -21,7 +21,7 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 import com.ferreusveritas.dynamictrees.blocks.MimicProperty;
 import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 
-import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class BakedModelBlockRootyTFC extends BakedModelBlockRooty
 {

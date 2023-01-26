@@ -13,7 +13,7 @@ import com.ferreusveritas.dynamictrees.trees.Species;
 import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import org.labellum.mc.dynamictreestfc.blocks.BlockLogDTTFC;
 
-import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class DropCreatorTFCLog extends DropCreator
 {
