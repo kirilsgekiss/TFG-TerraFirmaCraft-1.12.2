@@ -134,7 +134,7 @@ public class BlockLeavesTFC extends BlockLeaves
     @Override
     protected int getSaplingDropChance(IBlockState state)
     {
-        return tree == Tree.SEQUOIA ? 0 : 25;
+        return tree == null ? 0 : 25;
     }
 
     @SuppressWarnings("deprecation")
