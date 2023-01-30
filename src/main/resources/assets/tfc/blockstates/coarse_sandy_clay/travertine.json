@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_sandy_clay/travertine"
+      "all": "tfc:blocks/stonetypes/coarse_sandy_clay"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
