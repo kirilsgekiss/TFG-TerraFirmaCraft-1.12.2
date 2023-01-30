@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/silty_clay_loam/dacite"
+      "all": "tfc:blocks/stonetypes/silty_clay_loam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
