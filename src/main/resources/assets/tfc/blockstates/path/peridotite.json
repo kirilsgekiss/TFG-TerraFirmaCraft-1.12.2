@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/peridotite",
       "particle": "tfc:blocks/stonetypes/dirt/peridotite",
-      "top": "tfc:blocks/stonetypes/path/top/peridotite",
-      "side": "tfc:blocks/stonetypes/path/side/peridotite"
+      "top": "tfc:blocks/stonetypes/path/peridotite",
+      "side": "tfc:blocks/stonetypes/dirt/peridotite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

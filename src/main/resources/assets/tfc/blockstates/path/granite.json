@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/granite",
       "particle": "tfc:blocks/stonetypes/dirt/granite",
-      "top": "tfc:blocks/stonetypes/path/top/granite",
-      "side": "tfc:blocks/stonetypes/path/side/granite"
+      "top": "tfc:blocks/stonetypes/path/granite",
+      "side": "tfc:blocks/stonetypes/dirt/granite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/catlinite",
       "particle": "tfc:blocks/stonetypes/dirt/catlinite",
-      "top": "tfc:blocks/stonetypes/path/top/catlinite",
-      "side": "tfc:blocks/stonetypes/path/side/catlinite"
+      "top": "tfc:blocks/stonetypes/path/catlinite",
+      "side": "tfc:blocks/stonetypes/dirt/catlinite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

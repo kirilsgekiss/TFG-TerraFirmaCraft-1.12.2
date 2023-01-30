@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/rhyolite",
       "particle": "tfc:blocks/stonetypes/dirt/rhyolite",
-      "top": "tfc:blocks/stonetypes/path/top/rhyolite",
-      "side": "tfc:blocks/stonetypes/path/side/rhyolite"
+      "top": "tfc:blocks/stonetypes/path/rhyolite",
+      "side": "tfc:blocks/stonetypes/dirt/rhyolite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

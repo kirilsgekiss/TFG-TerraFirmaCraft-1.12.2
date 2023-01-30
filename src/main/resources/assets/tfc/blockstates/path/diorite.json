@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/diorite",
       "particle": "tfc:blocks/stonetypes/dirt/diorite",
-      "top": "tfc:blocks/stonetypes/path/top/diorite",
-      "side": "tfc:blocks/stonetypes/path/side/diorite"
+      "top": "tfc:blocks/stonetypes/path/diorite",
+      "side": "tfc:blocks/stonetypes/dirt/diorite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

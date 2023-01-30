@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/basalt",
       "particle": "tfc:blocks/stonetypes/dirt/basalt",
-      "top": "tfc:blocks/stonetypes/path/top/basalt",
-      "side": "tfc:blocks/stonetypes/path/side/basalt"
+      "top": "tfc:blocks/stonetypes/path/basalt",
+      "side": "tfc:blocks/stonetypes/dirt/basalt"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

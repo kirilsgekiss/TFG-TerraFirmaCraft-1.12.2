@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/greenschist",
       "particle": "tfc:blocks/stonetypes/dirt/greenschist",
-      "top": "tfc:blocks/stonetypes/path/top/greenschist",
-      "side": "tfc:blocks/stonetypes/path/side/greenschist"
+      "top": "tfc:blocks/stonetypes/path/greenschist",
+      "side": "tfc:blocks/stonetypes/dirt/greenschist"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

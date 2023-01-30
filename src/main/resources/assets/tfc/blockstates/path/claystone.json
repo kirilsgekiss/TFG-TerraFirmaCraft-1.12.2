@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/claystone",
       "particle": "tfc:blocks/stonetypes/dirt/claystone",
-      "top": "tfc:blocks/stonetypes/path/top/claystone",
-      "side": "tfc:blocks/stonetypes/path/side/claystone"
+      "top": "tfc:blocks/stonetypes/path/claystone",
+      "side": "tfc:blocks/stonetypes/dirt/claystone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

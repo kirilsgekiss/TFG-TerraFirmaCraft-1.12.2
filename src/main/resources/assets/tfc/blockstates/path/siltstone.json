@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/siltstone",
       "particle": "tfc:blocks/stonetypes/dirt/siltstone",
-      "top": "tfc:blocks/stonetypes/path/top/siltstone",
-      "side": "tfc:blocks/stonetypes/path/side/siltstone"
+      "top": "tfc:blocks/stonetypes/path/siltstone",
+      "side": "tfc:blocks/stonetypes/dirt/siltstone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

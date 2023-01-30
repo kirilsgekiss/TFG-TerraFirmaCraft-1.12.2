@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/porphyry",
       "particle": "tfc:blocks/stonetypes/dirt/porphyry",
-      "top": "tfc:blocks/stonetypes/path/top/porphyry",
-      "side": "tfc:blocks/stonetypes/path/side/porphyry"
+      "top": "tfc:blocks/stonetypes/path/porphyry",
+      "side": "tfc:blocks/stonetypes/dirt/porphyry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

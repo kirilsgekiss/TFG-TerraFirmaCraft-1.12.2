@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/mudstone",
       "particle": "tfc:blocks/stonetypes/dirt/mudstone",
-      "top": "tfc:blocks/stonetypes/path/top/mudstone",
-      "side": "tfc:blocks/stonetypes/path/side/mudstone"
+      "top": "tfc:blocks/stonetypes/path/mudstone",
+      "side": "tfc:blocks/stonetypes/dirt/mudstone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

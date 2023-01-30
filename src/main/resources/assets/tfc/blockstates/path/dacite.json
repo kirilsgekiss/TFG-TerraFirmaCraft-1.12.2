@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/dacite",
       "particle": "tfc:blocks/stonetypes/dirt/dacite",
-      "top": "tfc:blocks/stonetypes/path/top/dacite",
-      "side": "tfc:blocks/stonetypes/path/side/dacite"
+      "top": "tfc:blocks/stonetypes/path/dacite",
+      "side": "tfc:blocks/stonetypes/dirt/dacite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

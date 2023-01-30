@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/gabbro",
       "particle": "tfc:blocks/stonetypes/dirt/gabbro",
-      "top": "tfc:blocks/stonetypes/path/top/gabbro",
-      "side": "tfc:blocks/stonetypes/path/side/gabbro"
+      "top": "tfc:blocks/stonetypes/path/gabbro",
+      "side": "tfc:blocks/stonetypes/dirt/gabbro"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

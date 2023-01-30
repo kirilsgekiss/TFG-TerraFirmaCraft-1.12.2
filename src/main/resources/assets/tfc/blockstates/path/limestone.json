@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/limestone",
       "particle": "tfc:blocks/stonetypes/dirt/limestone",
-      "top": "tfc:blocks/stonetypes/path/top/limestone",
-      "side": "tfc:blocks/stonetypes/path/side/limestone"
+      "top": "tfc:blocks/stonetypes/path/limestone",
+      "side": "tfc:blocks/stonetypes/dirt/limestone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

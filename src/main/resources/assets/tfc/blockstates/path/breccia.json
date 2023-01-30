@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/breccia",
       "particle": "tfc:blocks/stonetypes/dirt/breccia",
-      "top": "tfc:blocks/stonetypes/path/top/breccia",
-      "side": "tfc:blocks/stonetypes/path/side/breccia"
+      "top": "tfc:blocks/stonetypes/path/breccia",
+      "side": "tfc:blocks/stonetypes/dirt/breccia"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

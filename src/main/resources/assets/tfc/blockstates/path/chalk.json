@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/chalk",
       "particle": "tfc:blocks/stonetypes/dirt/chalk",
-      "top": "tfc:blocks/stonetypes/path/top/chalk",
-      "side": "tfc:blocks/stonetypes/path/side/chalk"
+      "top": "tfc:blocks/stonetypes/path/chalk",
+      "side": "tfc:blocks/stonetypes/dirt/chalk"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

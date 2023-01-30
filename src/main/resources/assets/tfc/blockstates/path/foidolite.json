@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/foidolite",
       "particle": "tfc:blocks/stonetypes/dirt/foidolite",
-      "top": "tfc:blocks/stonetypes/path/top/foidolite",
-      "side": "tfc:blocks/stonetypes/path/side/foidolite"
+      "top": "tfc:blocks/stonetypes/path/foidolite",
+      "side": "tfc:blocks/stonetypes/dirt/foidolite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

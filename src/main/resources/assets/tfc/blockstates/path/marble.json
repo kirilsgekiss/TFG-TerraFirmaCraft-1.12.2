@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/marble",
       "particle": "tfc:blocks/stonetypes/dirt/marble",
-      "top": "tfc:blocks/stonetypes/path/top/marble",
-      "side": "tfc:blocks/stonetypes/path/side/marble"
+      "top": "tfc:blocks/stonetypes/path/marble",
+      "side": "tfc:blocks/stonetypes/dirt/marble"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

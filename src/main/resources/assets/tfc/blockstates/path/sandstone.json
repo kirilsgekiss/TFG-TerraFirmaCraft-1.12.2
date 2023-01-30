@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/sandstone",
       "particle": "tfc:blocks/stonetypes/dirt/sandstone",
-      "top": "tfc:blocks/stonetypes/path/top/sandstone",
-      "side": "tfc:blocks/stonetypes/path/side/sandstone"
+      "top": "tfc:blocks/stonetypes/path/sandstone",
+      "side": "tfc:blocks/stonetypes/dirt/sandstone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

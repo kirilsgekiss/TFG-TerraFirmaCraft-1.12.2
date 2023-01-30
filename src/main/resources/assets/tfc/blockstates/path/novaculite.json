@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/novaculite",
       "particle": "tfc:blocks/stonetypes/dirt/novaculite",
-      "top": "tfc:blocks/stonetypes/path/top/novaculite",
-      "side": "tfc:blocks/stonetypes/path/side/novaculite"
+      "top": "tfc:blocks/stonetypes/path/novaculite",
+      "side": "tfc:blocks/stonetypes/dirt/novaculite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

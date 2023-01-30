@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/soapstone",
       "particle": "tfc:blocks/stonetypes/dirt/soapstone",
-      "top": "tfc:blocks/stonetypes/path/top/soapstone",
-      "side": "tfc:blocks/stonetypes/path/side/soapstone"
+      "top": "tfc:blocks/stonetypes/path/soapstone",
+      "side": "tfc:blocks/stonetypes/dirt/soapstone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

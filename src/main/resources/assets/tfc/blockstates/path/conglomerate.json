@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/conglomerate",
       "particle": "tfc:blocks/stonetypes/dirt/conglomerate",
-      "top": "tfc:blocks/stonetypes/path/top/conglomerate",
-      "side": "tfc:blocks/stonetypes/path/side/conglomerate"
+      "top": "tfc:blocks/stonetypes/path/conglomerate",
+      "side": "tfc:blocks/stonetypes/dirt/conglomerate"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

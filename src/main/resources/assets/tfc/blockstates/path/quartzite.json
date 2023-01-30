@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/quartzite",
       "particle": "tfc:blocks/stonetypes/dirt/quartzite",
-      "top": "tfc:blocks/stonetypes/path/top/quartzite",
-      "side": "tfc:blocks/stonetypes/path/side/quartzite"
+      "top": "tfc:blocks/stonetypes/path/quartzite",
+      "side": "tfc:blocks/stonetypes/dirt/quartzite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/shale",
       "particle": "tfc:blocks/stonetypes/dirt/shale",
-      "top": "tfc:blocks/stonetypes/path/top/shale",
-      "side": "tfc:blocks/stonetypes/path/side/shale"
+      "top": "tfc:blocks/stonetypes/path/shale",
+      "side": "tfc:blocks/stonetypes/dirt/shale"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

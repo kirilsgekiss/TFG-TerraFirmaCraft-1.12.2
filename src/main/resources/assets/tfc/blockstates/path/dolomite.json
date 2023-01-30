@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/dolomite",
       "particle": "tfc:blocks/stonetypes/dirt/dolomite",
-      "top": "tfc:blocks/stonetypes/path/top/dolomite",
-      "side": "tfc:blocks/stonetypes/path/side/dolomite"
+      "top": "tfc:blocks/stonetypes/path/dolomite",
+      "side": "tfc:blocks/stonetypes/dirt/dolomite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

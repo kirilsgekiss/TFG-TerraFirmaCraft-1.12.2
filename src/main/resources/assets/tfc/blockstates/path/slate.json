@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/slate",
       "particle": "tfc:blocks/stonetypes/dirt/slate",
-      "top": "tfc:blocks/stonetypes/path/top/slate",
-      "side": "tfc:blocks/stonetypes/path/side/slate"
+      "top": "tfc:blocks/stonetypes/path/slate",
+      "side": "tfc:blocks/stonetypes/dirt/slate"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

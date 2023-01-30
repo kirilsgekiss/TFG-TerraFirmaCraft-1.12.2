@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/chert",
       "particle": "tfc:blocks/stonetypes/dirt/chert",
-      "top": "tfc:blocks/stonetypes/path/top/chert",
-      "side": "tfc:blocks/stonetypes/path/side/chert"
+      "top": "tfc:blocks/stonetypes/path/chert",
+      "side": "tfc:blocks/stonetypes/dirt/chert"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

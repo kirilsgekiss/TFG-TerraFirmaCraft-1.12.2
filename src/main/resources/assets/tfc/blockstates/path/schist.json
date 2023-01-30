@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/schist",
       "particle": "tfc:blocks/stonetypes/dirt/schist",
-      "top": "tfc:blocks/stonetypes/path/top/schist",
-      "side": "tfc:blocks/stonetypes/path/side/schist"
+      "top": "tfc:blocks/stonetypes/path/schist",
+      "side": "tfc:blocks/stonetypes/dirt/schist"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

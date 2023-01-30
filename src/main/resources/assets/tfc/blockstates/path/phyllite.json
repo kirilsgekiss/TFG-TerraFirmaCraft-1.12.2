@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/phyllite",
       "particle": "tfc:blocks/stonetypes/dirt/phyllite",
-      "top": "tfc:blocks/stonetypes/path/top/phyllite",
-      "side": "tfc:blocks/stonetypes/path/side/phyllite"
+      "top": "tfc:blocks/stonetypes/path/phyllite",
+      "side": "tfc:blocks/stonetypes/dirt/phyllite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

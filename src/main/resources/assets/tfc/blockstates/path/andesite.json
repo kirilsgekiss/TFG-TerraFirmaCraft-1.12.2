@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/andesite",
       "particle": "tfc:blocks/stonetypes/dirt/andesite",
-      "top": "tfc:blocks/stonetypes/path/top/andesite",
-      "side": "tfc:blocks/stonetypes/path/side/andesite"
+      "top": "tfc:blocks/stonetypes/path/andesite",
+      "side": "tfc:blocks/stonetypes/dirt/andesite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

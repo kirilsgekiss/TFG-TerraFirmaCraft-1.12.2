@@ -6,13 +6,11 @@
     "textures": {
       "bottom": "tfc:blocks/stonetypes/dirt/blueschist",
       "particle": "tfc:blocks/stonetypes/dirt/blueschist",
-      "top": "tfc:blocks/stonetypes/path/top/blueschist",
-      "side": "tfc:blocks/stonetypes/path/side/blueschist"
+      "top": "tfc:blocks/stonetypes/path/blueschist",
+      "side": "tfc:blocks/stonetypes/dirt/blueschist"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
