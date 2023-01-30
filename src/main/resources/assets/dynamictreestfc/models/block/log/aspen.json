@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:blocks/materials/wood/log/top/aspen",
-    "side": "tfc:blocks/materials/wood/log/side/aspen"
+    "end": "tfc:blocks/material_set/wood/log/top/aspen",
+    "side": "tfc:blocks/material_set/wood/log/side/aspen"
   }
 }

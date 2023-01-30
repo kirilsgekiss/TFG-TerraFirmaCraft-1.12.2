@@ -1,7 +1,8 @@
-{   "parent": "dynamictrees:block/sapling",
+{
+  "parent": "dynamictrees:block/sapling",
   "textures": {
-    "particle": "tfc:blocks/materials/wood/leaves/hevea_pauciflora",
-    "log": "tfc:blocks/materials/wood/log/side/hevea_pauciflora",
-    "leaves": "tfc:blocks/materials/wood/leaves/hevea_pauciflora"
+    "particle": "tfc:blocks/material_set/wood/leaves/hevea_pauciflora",
+    "log": "tfc:blocks/material_set/wood/log/side/hevea_pauciflora",
+    "leaves": "tfc:blocks/material_set/wood/leaves/hevea_pauciflora"
   }
 }

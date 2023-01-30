@@ -1,7 +1,7 @@
 {
   "parent": "dynamictrees:item/branch",
   "textures": {
-    "bark": "tfc:blocks/materials/wood/log/side/hevea_camporium",
-    "rings": "tfc:blocks/materials/wood/log/top/hevea_camporium"
+    "bark": "tfc:blocks/material_set/wood/log/side/hevea_camporium",
+    "rings": "tfc:blocks/material_set/wood/log/top/hevea_camporium"
   }
 }

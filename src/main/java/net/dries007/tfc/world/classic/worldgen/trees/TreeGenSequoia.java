@@ -35,12 +35,12 @@ public class TreeGenSequoia implements ITreeGenerator
     private IBlockState trunk;
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
-        final int baseVariant = 1 + rand.nextInt(3);
-        final int topVariant = 1 + rand.nextInt(3);
-        final int layers = 4 + rand.nextInt(3);
-        final int height = 3 + rand.nextInt(4);
+        final int baseVariant = 1 + random.nextInt(3);
+        final int topVariant = 1 + random.nextInt(3);
+        final int layers = 4 + random.nextInt(3);
+        final int height = 3 + random.nextInt(4);
 
         trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
 
@@ -52,7 +52,7 @@ public class TreeGenSequoia implements ITreeGenerator
         int k = height;
         for (int j = 0; j < layers; j++)
         {
-            if (j == layers - 1 || (j == layers - 2 && rand.nextBoolean()))
+            if (j == layers - 1 || (j == layers - 2 && random.nextBoolean()))
             {
                 k += placeLayer(manager, world, pos.up(k), tree.getRegistryName() + "/mid" + baseVariant);
             }

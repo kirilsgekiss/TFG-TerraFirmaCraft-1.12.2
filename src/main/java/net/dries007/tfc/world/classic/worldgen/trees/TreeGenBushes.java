@@ -28,7 +28,7 @@ import static net.minecraft.block.BlockLog.LOG_AXIS;
 public class TreeGenBushes implements ITreeGenerator
 {
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
         IBlockState leaves = BlockLeavesTFC.get(tree).getDefaultState().withProperty(DECAYABLE, true);
 
@@ -38,14 +38,14 @@ public class TreeGenBushes implements ITreeGenerator
 
         for (EnumFacing face : EnumFacing.HORIZONTALS)
         {
-            if (rand.nextFloat() < 0.9)
+            if (random.nextFloat() < 0.9)
             {
                 checkAndPlace(leaves, world, pos.offset(face));
                 checkAndPlace(leaves, world, pos.offset(face).add(0, -1, 0));
-                if (rand.nextFloat() < 0.7)
+                if (random.nextFloat() < 0.7)
                     checkAndPlace(leaves, world, pos.offset(face).add(0, 1, 0));
 
-                if (rand.nextFloat() < 0.5)
+                if (random.nextFloat() < 0.5)
                     checkAndPlace(leaves, world, pos.offset(face).offset(face.rotateY()));
             }
 

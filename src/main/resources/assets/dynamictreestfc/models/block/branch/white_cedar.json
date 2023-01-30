@@ -1,7 +1,7 @@
 {
   "parent": "dynamictrees:block/smartmodel/branch",
   "textures": {
-    "rings": "tfc:blocks/materials/wood/log/top/white_cedar",
-    "bark": "tfc:blocks/materials/wood/log/side/white_cedar"
+    "rings": "tfc:blocks/material_set/wood/log/top/white_cedar",
+    "bark": "tfc:blocks/material_set/wood/log/side/white_cedar"
   }
 }

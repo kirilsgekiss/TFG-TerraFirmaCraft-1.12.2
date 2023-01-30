@@ -1,7 +1,7 @@
 {
   "parent": "dynamictrees:block/smartmodel/branch",
   "textures": {
-    "rings": "tfc:blocks/materials/wood/log/top/hevea_nitida",
-    "bark": "tfc:blocks/materials/wood/log/side/hevea_nitida"
+    "rings": "tfc:blocks/material_set/wood/log/top/hevea_nitida",
+    "bark": "tfc:blocks/material_set/wood/log/side/hevea_nitida"
   }
 }

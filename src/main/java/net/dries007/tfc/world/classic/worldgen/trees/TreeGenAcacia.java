@@ -38,14 +38,14 @@ public class TreeGenAcacia implements ITreeGenerator
     private IBlockState bark;
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
         trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
         bark = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
 
-        final boolean smallBranch = rand.nextBoolean();
-        final int branches = 2 + rand.nextInt(2);
-        final int height = 5 + rand.nextInt(4);
+        final boolean smallBranch = random.nextBoolean();
+        final int branches = 2 + random.nextInt(2);
+        final int height = 5 + random.nextInt(4);
         List<EnumFacing> sides = Arrays.stream(EnumFacing.HORIZONTALS).collect(Collectors.toList());
         EnumFacing face;
 
@@ -53,20 +53,20 @@ public class TreeGenAcacia implements ITreeGenerator
         EnumFacing side = EnumFacing.UP;
         if (smallBranch)
         {
-            y3 = rand.nextInt(3) + 2;
-            side = sides.get(rand.nextInt(sides.size()));
+            y3 = random.nextInt(3) + 2;
+            side = sides.get(random.nextInt(sides.size()));
             placeBranch(manager, world, pos.offset(side).add(0, y3, 0), tree.getRegistryName() + "/branch3");
         }
         for (int i = 0; i < branches; i++)
         {
-            x1 = 2 + rand.nextInt(3);
-            y1 = 4 + rand.nextInt(height - 2);
+            x1 = 2 + random.nextInt(3);
+            y1 = 4 + random.nextInt(height - 2);
             if (y1 > y2)
                 y2 = y1;
-            face = sides.remove(rand.nextInt(sides.size()));
+            face = sides.remove(random.nextInt(sides.size()));
             for (int j = 1; j < x1; j++)
                 placeLog(world, pos.add(0, y1 - j, 0).offset(face, x1 - j), true);
-            int branch = 1 + rand.nextInt(2);
+            int branch = 1 + random.nextInt(2);
             placeBranch(manager, world, pos.add(0, y1, 0).offset(face, x1), tree.getRegistryName() + "/branch" + branch);
         }
         for (int i = 0; i < height; i++)

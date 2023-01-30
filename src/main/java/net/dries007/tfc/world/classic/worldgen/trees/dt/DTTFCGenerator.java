@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc;
+package net.dries007.tfc.world.classic.worldgen.trees.dt;
 
 import java.util.Random;
 
@@ -16,6 +16,7 @@ import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import org.labellum.mc.dynamictreestfc.ModTrees;
 import org.labellum.mc.dynamictreestfc.trees.TreeFamilyTFC;
 
 
@@ -29,11 +30,11 @@ public class DTTFCGenerator implements ITreeGenerator
     }
 
     @Override
-    public void generateTree(TemplateManager templateManager, World world, BlockPos blockPos, Tree tree, Random random, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
         Species dtSpecies = ModTrees.tfcSpecies.get(tree.toString());
-        SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(blockPos).getPos());
-        dtSpecies.generate(world, blockPos.down(), world.getBiome(blockPos), random, leavesRadius <= 0 ? dtSpecies.maxBranchRadius() / 3 : leavesRadius, bounds);
+        SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(pos).getPos());
+        dtSpecies.generate(world, pos.down(), world.getBiome(pos), random, leavesRadius <= 0 ? dtSpecies.maxBranchRadius() / 3 : leavesRadius, bounds);
         //dtSpecies.getJoCode("JP").setCareful(true).generate(world, dtSpecies, blockPos, world.getBiome(blockPos), EnumFacing.SOUTH, 8, SafeChunkBounds.ANY);
     }
 

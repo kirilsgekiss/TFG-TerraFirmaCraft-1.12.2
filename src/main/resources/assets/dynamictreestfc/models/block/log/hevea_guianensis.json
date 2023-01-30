@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:blocks/materials/wood/log/top/hevea_guianensis",
-    "side": "tfc:blocks/materials/wood/log/side/hevea_guianensis"
+    "end": "tfc:blocks/material_set/wood/log/top/hevea_guianensis",
+    "side": "tfc:blocks/material_set/wood/log/side/hevea_guianensis"
   }
 }

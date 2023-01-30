@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:blocks/materials/wood/log/top/sapodilla",
-    "side": "tfc:blocks/materials/wood/log/side/sapodilla"
+    "end": "tfc:blocks/material_set/wood/log/top/sapodilla",
+    "side": "tfc:blocks/material_set/wood/log/side/sapodilla"
   }
 }

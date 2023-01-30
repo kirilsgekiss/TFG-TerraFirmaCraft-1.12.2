@@ -1,7 +1,8 @@
-{   "parent": "dynamictrees:block/sapling",
+{
+  "parent": "dynamictrees:block/sapling",
   "textures": {
-    "particle": "tfc:blocks/materials/wood/leaves/japanese_spruce",
-    "log": "tfc:blocks/materials/wood/log/side/japanese_spruce",
-    "leaves": "tfc:blocks/materials/wood/leaves/japanese_spruce"
+    "particle": "tfc:blocks/material_set/wood/leaves/japanese_spruce",
+    "log": "tfc:blocks/material_set/wood/log/side/japanese_spruce",
+    "leaves": "tfc:blocks/material_set/wood/leaves/japanese_spruce"
   }
 }

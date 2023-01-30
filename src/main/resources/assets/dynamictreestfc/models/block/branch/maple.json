@@ -1,7 +1,7 @@
 {
   "parent": "dynamictrees:block/smartmodel/branch",
   "textures": {
-    "rings": "tfc:blocks/materials/wood/log/top/acacia",
-    "bark": "tfc:blocks/materials/wood/log/side/acacia"
+    "rings": "tfc:blocks/material_set/wood/log/top/acacia",
+    "bark": "tfc:blocks/material_set/wood/log/side/acacia"
   }
 }

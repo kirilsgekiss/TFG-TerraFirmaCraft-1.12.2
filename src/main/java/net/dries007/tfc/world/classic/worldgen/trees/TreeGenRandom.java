@@ -41,9 +41,9 @@ public class TreeGenRandom implements ITreeGenerator
     }
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
-        int tmp = rand.nextInt(variant) + 1;
+        int tmp = random.nextInt(variant) + 1;
 
         ResourceLocation base = new ResourceLocation(tree.getRegistryName() + "/base_" + tmp);
         ResourceLocation overlay = new ResourceLocation(tree.getRegistryName() + "/overlay_" + tmp);
@@ -57,7 +57,7 @@ public class TreeGenRandom implements ITreeGenerator
             return;
         }
 
-        int height = heightMin + (heightRange > 0 ? rand.nextInt(heightRange) : 0);
+        int height = heightMin + (heightRange > 0 ? random.nextInt(heightRange) : 0);
 
         BlockPos size = structureBase.getSize();
         pos = pos.add(-size.getX() / 2, height, -size.getZ() / 2);

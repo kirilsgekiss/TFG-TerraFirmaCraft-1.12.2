@@ -2,7 +2,7 @@ package org.labellum.mc.dynamictreestfc.proxy;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import org.labellum.mc.dynamictreestfc.DTTFCGenerator;
+import net.dries007.tfc.world.classic.worldgen.trees.dt.DTTFCGenerator;
 import org.labellum.mc.dynamictreestfc.ModBlocks;
 import org.labellum.mc.dynamictreestfc.ModTrees;
 

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "tfc:blocks/materials/wood/log/top/silver_birch",
-    "side": "tfc:blocks/materials/wood/log/side/silver_birch"
+    "end": "tfc:blocks/material_set/wood/log/top/silver_birch",
+    "side": "tfc:blocks/material_set/wood/log/side/silver_birch"
   }
 }

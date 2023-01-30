@@ -35,18 +35,18 @@ public class TreeGenComposite implements ITreeGenerator
     }
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
         if (gens.isEmpty())
             return;
-        float r = rand.nextFloat() * totalWeight;
+        float r = random.nextFloat() * totalWeight;
         float countWeight = 0f;
         for (Map.Entry<Float, ITreeGenerator> entry : gens.entries())
         {
             countWeight += entry.getKey();
             if (countWeight >= r)
             {
-                entry.getValue().generateTree(manager, world, pos, tree, rand, isWorldGen);
+                entry.getValue().generateTree(manager, world, pos, tree, random, isWorldGen);
                 return;
             }
         }

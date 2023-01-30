@@ -1,7 +1,8 @@
-{   "parent": "dynamictrees:block/sapling",
+{
+  "parent": "dynamictrees:block/sapling",
   "textures": {
-    "particle": "tfc:blocks/materials/wood/leaves/dark_oak",
-    "log": "tfc:blocks/materials/wood/log/side/dark_oak",
-    "leaves": "tfc:blocks/materials/wood/leaves/dark_oak"
+    "particle": "tfc:blocks/material_set/wood/leaves/dark_oak",
+    "log": "tfc:blocks/material_set/wood/log/side/dark_oak",
+    "leaves": "tfc:blocks/material_set/wood/leaves/dark_oak"
   }
 }

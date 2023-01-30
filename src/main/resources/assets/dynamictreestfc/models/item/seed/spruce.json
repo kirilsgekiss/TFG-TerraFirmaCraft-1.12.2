@@ -1,6 +1,6 @@
 {
-  "parent":"item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0":"tfc:items/materials/flora/tree/seed/spruce"
+    "layer0": "tfc:items/material_set/flora/tree/seed/spruce"
   }
 }

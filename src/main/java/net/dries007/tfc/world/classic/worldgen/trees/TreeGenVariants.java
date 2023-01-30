@@ -51,9 +51,9 @@ public class TreeGenVariants implements ITreeGenerator
     }
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
-        String variant = variants[variants.length == 1 ? 0 : rand.nextInt(variants.length)];
+        String variant = variants[variants.length == 1 ? 0 : random.nextInt(variants.length)];
         ResourceLocation base = new ResourceLocation(tree.getRegistryName() + "/" + variant);
 
         Template structureBase = manager.get(world.getMinecraftServer(), base);
@@ -63,7 +63,7 @@ public class TreeGenVariants implements ITreeGenerator
             return;
         }
 
-        PlacementSettings settings2 = useRotation ? StructureHelper.getRandomSettings(rand) : settings;
+        PlacementSettings settings2 = useRotation ? StructureHelper.getRandomSettings(random) : settings;
 
         BlockPos size = structureBase.getSize().rotate(settings2.getRotation());
         // Begin rotation things
