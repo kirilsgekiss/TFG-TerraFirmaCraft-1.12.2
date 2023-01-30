@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/claystone",
-      "particle": "tfc:blocks/stonetypes/loam/claystone",
+      "dirt": "tfc:blocks/stonetypes/loam",
+      "particle": "tfc:blocks/stonetypes/loam",
       "top": "tfc:blocks/stonetypes/loam_farmland/claystone"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

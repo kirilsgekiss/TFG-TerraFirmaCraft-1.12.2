@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loam/novaculite",
-      "particle": "tfc:blocks/stonetypes/loam/novaculite",
+      "dirt": "tfc:blocks/stonetypes/loam",
+      "particle": "tfc:blocks/stonetypes/loam",
       "top": "tfc:blocks/stonetypes/loam_farmland/novaculite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
