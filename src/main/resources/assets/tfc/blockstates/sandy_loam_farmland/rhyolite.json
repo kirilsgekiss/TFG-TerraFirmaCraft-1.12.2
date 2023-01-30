@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/rhyolite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/rhyolite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/rhyolite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

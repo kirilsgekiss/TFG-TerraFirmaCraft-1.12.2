@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/gabbro",
       "particle": "tfc:blocks/stonetypes/sandy_loam/gabbro",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/gabbro"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/boninite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/boninite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/boninite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

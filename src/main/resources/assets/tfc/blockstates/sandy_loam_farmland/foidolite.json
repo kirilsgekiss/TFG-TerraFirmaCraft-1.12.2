@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/foidolite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/foidolite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/foidolite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

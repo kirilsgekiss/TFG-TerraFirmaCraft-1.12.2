@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/siltstone",
       "particle": "tfc:blocks/stonetypes/sandy_loam/siltstone",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/siltstone"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

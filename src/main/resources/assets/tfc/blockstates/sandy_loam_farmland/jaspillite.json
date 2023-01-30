@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/jaspillite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/jaspillite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/jaspillite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/schist",
       "particle": "tfc:blocks/stonetypes/sandy_loam/schist",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/schist"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

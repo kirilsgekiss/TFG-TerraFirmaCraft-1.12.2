@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/gneiss",
       "particle": "tfc:blocks/stonetypes/sandy_loam/gneiss",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/gneiss"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

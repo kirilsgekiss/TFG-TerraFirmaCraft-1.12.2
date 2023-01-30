@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/andesite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/andesite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/andesite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

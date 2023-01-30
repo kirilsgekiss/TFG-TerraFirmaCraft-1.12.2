@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/basalt",
       "particle": "tfc:blocks/stonetypes/sandy_loam/basalt",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/basalt"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

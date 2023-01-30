@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/dolomite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/dolomite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/dolomite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

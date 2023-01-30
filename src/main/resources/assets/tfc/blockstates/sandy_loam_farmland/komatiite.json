@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/sandy_loam/komatiite",
       "particle": "tfc:blocks/stonetypes/sandy_loam/komatiite",
-      "top": "tfc:blocks/stonetypes/sandy_loam_farmland/komatiite"
+      "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
