@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/mango",
-      "particle": "tfc:blocks/wood/fruit_tree/log/mango"
+      "texture": "tfc:blocks/material_set/wood/log/side/mango",
+      "particle": "tfc:blocks/material_set/wood/log/side/mango"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

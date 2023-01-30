@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/jujube",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/jujube"
+      "texture": "tfc:blocks/material_set/wood/sheet/jujube",
+      "particle": "tfc:blocks/material_set/wood/sheet/jujube"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

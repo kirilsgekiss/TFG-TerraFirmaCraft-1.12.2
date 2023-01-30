@@ -28,7 +28,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/maclura",
-          "texture": "tfc:blocks/wood/fruit/maclura"
+          "texture": "tfc:blocks/material_set/wood/fruit/maclura"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

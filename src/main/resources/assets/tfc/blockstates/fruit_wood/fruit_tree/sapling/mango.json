@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/mango",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/mango"
+      "cross": "tfc:blocks/material_set/wood/sapling/mango",
+      "layer0": "tfc:blocks/material_set/wood/sapling/mango"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/nutmeg"
+      "all": "tfc:blocks/material_set/wood/leaves/nutmeg"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/nutmeg",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/nutmeg"
+          "all": "tfc:blocks/material_set/wood/leaves/nutmeg",
+          "texture": "tfc:blocks/material_set/wood/flowers/nutmeg"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/nutmeg",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/nutmeg"
+          "all": "tfc:blocks/material_set/wood/leaves/nutmeg",
+          "texture": "tfc:blocks/material_set/wood/fruit/nutmeg"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

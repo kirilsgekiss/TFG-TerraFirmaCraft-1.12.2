@@ -4,7 +4,7 @@
   "defaults": {
     "model": "",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/ginkgo_nut"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern"
     },
     "uvlock": true
   },

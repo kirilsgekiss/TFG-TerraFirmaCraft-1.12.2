@@ -4,7 +4,7 @@
   "defaults": {
     "model": "fence_post",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/soursop"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

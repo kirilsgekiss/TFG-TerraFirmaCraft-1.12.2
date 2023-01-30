@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:tool_rack",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/sapodilla",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/sapodilla"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "south": {},
       "west": {

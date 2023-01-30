@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/almond",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/almond"
+      "texture": "tfc:blocks/material_set/wood/sheet/almond",
+      "particle": "tfc:blocks/material_set/wood/sheet/almond"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

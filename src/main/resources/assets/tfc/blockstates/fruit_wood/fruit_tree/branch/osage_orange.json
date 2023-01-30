@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/osage_orange",
-      "particle": "tfc:blocks/wood/fruit_tree/log/osage_orange"
+      "texture": "tfc:blocks/material_set/wood/log/side/osage_orange",
+      "particle": "tfc:blocks/material_set/wood/log/side/osage_orange"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

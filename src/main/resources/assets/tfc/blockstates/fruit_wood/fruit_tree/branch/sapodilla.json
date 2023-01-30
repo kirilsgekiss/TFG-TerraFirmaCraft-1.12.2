@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/sapodilla",
-      "particle": "tfc:blocks/wood/fruit_tree/log/sapodilla"
+      "texture": "tfc:blocks/material_set/wood/log/side/sapodilla",
+      "particle": "tfc:blocks/material_set/wood/log/side/sapodilla"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

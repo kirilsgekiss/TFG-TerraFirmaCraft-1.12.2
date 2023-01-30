@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/sand_pear",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/sand_pear"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/sand_pear",
+      "top": "tfc:blocks/material_set/wood/door/upper/sand_pear"
     }
   },
   "variants": {

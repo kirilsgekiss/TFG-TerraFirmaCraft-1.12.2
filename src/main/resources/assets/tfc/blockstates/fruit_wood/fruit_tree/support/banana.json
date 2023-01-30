@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/banana",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/banana"
+      "texture": "tfc:blocks/material_set/wood/sheet/banana",
+      "particle": "tfc:blocks/material_set/wood/sheet/banana"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

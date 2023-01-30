@@ -28,7 +28,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/pink_cherry",
-          "texture": "tfc:blocks/wood/fruit/cherry"
+          "texture": "tfc:blocks/material_set/wood/fruit/cherry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
@@ -42,7 +42,7 @@
       "winter": {
         "model": "tfc:wood/branch/branch",
         "textures": {
-          "all": "tfc:blocks/wood/branch/branch"
+          "all": "tfc:blocks/material_set/wood/branch/branch"
         }
       }
     }

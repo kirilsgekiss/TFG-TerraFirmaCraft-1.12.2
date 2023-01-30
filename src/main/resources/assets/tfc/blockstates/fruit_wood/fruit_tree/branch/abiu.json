@@ -3,8 +3,8 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/abiu",
-      "particle": "tfc:blocks/wood/fruit_tree/log/abiu"
+      "texture": "tfc:blocks/material_set/wood/log/side/abiu",
+      "particle": "tfc:blocks/material_set/wood/log/side/abiu"
     }
   },
   "variants": {

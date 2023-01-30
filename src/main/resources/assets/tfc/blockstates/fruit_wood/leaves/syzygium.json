@@ -28,7 +28,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/syzygium",
-          "texture": "tfc:blocks/wood/fruit/syzygium"
+          "texture": "tfc:blocks/material_set/wood/fruit/syzygium"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

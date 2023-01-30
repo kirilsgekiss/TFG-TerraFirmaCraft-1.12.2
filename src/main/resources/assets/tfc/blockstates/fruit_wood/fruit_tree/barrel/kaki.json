@@ -4,24 +4,20 @@
   "defaults": {
     "model": "tfc:barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/fruit_tree/planks/kaki",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kaki",
-      "sheet": "tfc:blocks/wood/fruit_tree/sheets/kaki",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "sheet": "tfc:blocks/material_set/wood/sheet/kaki",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

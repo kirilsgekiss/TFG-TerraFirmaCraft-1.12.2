@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/juniper",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/juniper"
+      "texture": "tfc:blocks/material_set/wood/sheet/juniper",
+      "particle": "tfc:blocks/material_set/wood/sheet/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

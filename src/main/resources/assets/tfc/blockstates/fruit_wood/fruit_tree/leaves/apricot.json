@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/apricot"
+      "all": "tfc:blocks/material_set/wood/leaves/apricot"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/apricot",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/apricot"
+          "all": "tfc:blocks/material_set/wood/leaves/apricot",
+          "texture": "tfc:blocks/material_set/wood/flowers/apricot"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/apricot",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/apricot"
+          "all": "tfc:blocks/material_set/wood/leaves/apricot",
+          "texture": "tfc:blocks/material_set/wood/fruit/apricot"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

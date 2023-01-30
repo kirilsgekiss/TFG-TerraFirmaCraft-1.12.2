@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/quince",
-      "particle": "tfc:blocks/wood/fruit_tree/log/quince"
+      "texture": "tfc:blocks/material_set/wood/log/side/quince",
+      "particle": "tfc:blocks/material_set/wood/log/side/quince"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

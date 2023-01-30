@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/finger_lime",
-      "log": "tfc:blocks/wood/fruit_tree/log/finger_lime",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/finger_lime",
-      "particle": "tfc:blocks/wood/fruit_tree/log/finger_lime"
+      "top": "tfc:blocks/material_set/wood/log/top/finger_lime",
+      "log": "tfc:blocks/material_set/wood/log/side/finger_lime",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/finger_lime"
     }
   },
   "variants": {

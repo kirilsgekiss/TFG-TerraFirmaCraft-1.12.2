@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/sour_cherry",
-      "particle": "tfc:blocks/wood/fruit_tree/log/sour_cherry"
+      "texture": "tfc:blocks/material_set/wood/log/side/sour_cherry",
+      "particle": "tfc:blocks/material_set/wood/log/side/sour_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

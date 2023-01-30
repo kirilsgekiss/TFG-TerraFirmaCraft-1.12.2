@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/ceylon_cinnamon",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/ceylon_cinnamon"
+      "texture": "tfc:blocks/material_set/wood/sheet/ceylon_cinnamon",
+      "particle": "tfc:blocks/material_set/wood/sheet/ceylon_cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

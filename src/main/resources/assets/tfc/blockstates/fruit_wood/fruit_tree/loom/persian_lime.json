@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:loom",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/persian_lime",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/persian_lime"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "south": {},
       "west": {

@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/red_apple"
+      "all": "tfc:blocks/material_set/wood/leaves/red_apple"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/red_apple",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/red_apple"
+          "all": "tfc:blocks/material_set/wood/leaves/red_apple",
+          "texture": "tfc:blocks/material_set/wood/flowers/red_apple"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/red_apple",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/red_apple"
+          "all": "tfc:blocks/material_set/wood/leaves/red_apple",
+          "texture": "tfc:blocks/material_set/wood/fruit/red_apple"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

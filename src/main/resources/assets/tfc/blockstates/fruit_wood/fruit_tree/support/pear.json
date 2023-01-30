@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/pear",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/pear"
+      "texture": "tfc:blocks/material_set/wood/sheet/pear",
+      "particle": "tfc:blocks/material_set/wood/sheet/pear"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -40,7 +40,7 @@
       "winter": {
         "model": "tfc:wood/branch/branch",
         "textures": {
-          "all": "tfc:blocks/wood/branch/branch"
+          "all": "tfc:blocks/material_set/wood/branch/branch"
         }
       }
     }

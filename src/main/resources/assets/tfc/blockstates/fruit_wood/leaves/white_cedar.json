@@ -28,7 +28,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/white_cedar",
-          "texture": "tfc:blocks/wood/fruit/white_cedar"
+          "texture": "tfc:blocks/material_set/wood/fruit/white_cedar"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

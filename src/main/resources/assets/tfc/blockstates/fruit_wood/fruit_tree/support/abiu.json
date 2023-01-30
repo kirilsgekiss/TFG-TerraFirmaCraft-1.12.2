@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/abiu",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/abiu"
+      "texture": "tfc:blocks/material_set/wood/sheet/abiu",
+      "particle": "tfc:blocks/material_set/wood/sheet/abiu"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/kukui",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/kukui"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/kukui",
+      "top": "tfc:blocks/material_set/wood/door/upper/kukui"
     }
   },
   "variants": {

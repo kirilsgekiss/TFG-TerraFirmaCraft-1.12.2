@@ -4,24 +4,20 @@
   "defaults": {
     "model": "tfc:barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/fruit_tree/planks/brazil_nut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/brazil_nut",
-      "sheet": "tfc:blocks/wood/fruit_tree/sheets/brazil_nut",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "sheet": "tfc:blocks/material_set/wood/sheet/brazil_nut",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

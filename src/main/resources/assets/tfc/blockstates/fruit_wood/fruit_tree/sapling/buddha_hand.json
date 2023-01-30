@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/buddha_hand",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/buddha_hand"
+      "cross": "tfc:blocks/material_set/wood/sapling/buddha_hand",
+      "layer0": "tfc:blocks/material_set/wood/sapling/buddha_hand"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

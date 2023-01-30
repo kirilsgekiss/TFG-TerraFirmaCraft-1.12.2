@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/abiu",
-      "log": "tfc:blocks/wood/fruit_tree/log/abiu",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/abiu",
-      "particle": "tfc:blocks/wood/fruit_tree/log/abiu"
+      "top": "tfc:blocks/material_set/wood/log/top/abiu",
+      "log": "tfc:blocks/material_set/wood/log/side/abiu",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/abiu"
     }
   },
   "variants": {

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/candlenut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/candlenut"
+      "texture": "tfc:blocks/material_set/wood/log/side/candlenut",
+      "particle": "tfc:blocks/material_set/wood/log/side/candlenut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

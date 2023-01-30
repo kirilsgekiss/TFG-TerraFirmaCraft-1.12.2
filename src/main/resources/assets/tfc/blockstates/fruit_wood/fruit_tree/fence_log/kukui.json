@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/kukui",
-      "log": "tfc:blocks/wood/fruit_tree/log/kukui",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kukui",
-      "particle": "tfc:blocks/wood/fruit_tree/log/kukui"
+      "top": "tfc:blocks/material_set/wood/log/top/kukui",
+      "log": "tfc:blocks/material_set/wood/log/side/kukui",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/kukui"
     }
   },
   "variants": {

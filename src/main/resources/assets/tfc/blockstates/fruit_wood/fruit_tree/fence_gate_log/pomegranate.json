@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/fruit_tree/log/pomegranate",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/pomegranate",
-      "particle": "tfc:blocks/wood/fruit_tree/log/pomegranate"
+      "log": "tfc:blocks/material_set/wood/log/side/pomegranate",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/pomegranate"
     },
     "uvlock": true
   },

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/green_apple",
-      "particle": "tfc:blocks/wood/fruit_tree/log/green_apple"
+      "texture": "tfc:blocks/material_set/wood/log/side/green_apple",
+      "particle": "tfc:blocks/material_set/wood/log/side/green_apple"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

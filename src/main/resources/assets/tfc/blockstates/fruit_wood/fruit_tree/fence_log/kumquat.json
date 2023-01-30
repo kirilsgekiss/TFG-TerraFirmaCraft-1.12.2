@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/kumquat",
-      "log": "tfc:blocks/wood/fruit_tree/log/kumquat",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kumquat",
-      "particle": "tfc:blocks/wood/fruit_tree/log/kumquat"
+      "top": "tfc:blocks/material_set/wood/log/top/kumquat",
+      "log": "tfc:blocks/material_set/wood/log/side/kumquat",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/kumquat"
     }
   },
   "variants": {

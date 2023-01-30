@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/kumquat",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/kumquat"
+      "texture": "tfc:blocks/material_set/wood/sheet/kumquat",
+      "particle": "tfc:blocks/material_set/wood/sheet/kumquat"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

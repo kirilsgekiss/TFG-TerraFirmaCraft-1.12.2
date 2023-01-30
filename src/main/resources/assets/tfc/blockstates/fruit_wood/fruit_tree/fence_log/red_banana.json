@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/red_banana",
-      "log": "tfc:blocks/wood/fruit_tree/log/red_banana",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/red_banana",
-      "particle": "tfc:blocks/wood/fruit_tree/log/red_banana"
+      "top": "tfc:blocks/material_set/wood/log/top/red_banana",
+      "log": "tfc:blocks/material_set/wood/log/side/red_banana",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/red_banana"
     }
   },
   "variants": {

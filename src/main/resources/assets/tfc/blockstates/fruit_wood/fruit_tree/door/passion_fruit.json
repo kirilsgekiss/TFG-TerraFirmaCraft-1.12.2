@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/passion_fruit",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/passion_fruit"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/passion_fruit",
+      "top": "tfc:blocks/material_set/wood/door/upper/passion_fruit"
     }
   },
   "variants": {

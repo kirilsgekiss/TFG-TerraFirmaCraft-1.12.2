@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/cassia_cinnamon",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/cassia_cinnamon"
+      "cross": "tfc:blocks/material_set/wood/sapling/cassia_cinnamon",
+      "layer0": "tfc:blocks/material_set/wood/sapling/cassia_cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

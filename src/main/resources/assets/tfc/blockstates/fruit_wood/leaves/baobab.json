@@ -28,7 +28,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/baobab",
-          "texture": "tfc:blocks/wood/fruit/baobab"
+          "texture": "tfc:blocks/material_set/wood/fruit/baobab"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

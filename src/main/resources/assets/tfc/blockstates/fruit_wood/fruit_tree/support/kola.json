@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/kola",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/kola"
+      "texture": "tfc:blocks/material_set/wood/sheet/kola",
+      "particle": "tfc:blocks/material_set/wood/sheet/kola"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

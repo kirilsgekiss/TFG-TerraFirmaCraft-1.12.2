@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/pecan",
-      "log": "tfc:blocks/wood/fruit_tree/log/pecan",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/pecan",
-      "particle": "tfc:blocks/wood/fruit_tree/log/pecan"
+      "top": "tfc:blocks/material_set/wood/log/top/pecan",
+      "log": "tfc:blocks/material_set/wood/log/side/pecan",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/pecan"
     }
   },
   "variants": {

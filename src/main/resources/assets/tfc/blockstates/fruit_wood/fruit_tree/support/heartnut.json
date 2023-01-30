@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/heartnut",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/heartnut"
+      "texture": "tfc:blocks/material_set/wood/sheet/heartnut",
+      "particle": "tfc:blocks/material_set/wood/sheet/heartnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

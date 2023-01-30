@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/buddha_hand",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/buddha_hand"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/buddha_hand",
+      "top": "tfc:blocks/material_set/wood/door/upper/buddha_hand"
     }
   },
   "variants": {

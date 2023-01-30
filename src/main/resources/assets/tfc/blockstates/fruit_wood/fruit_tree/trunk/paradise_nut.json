@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/paradise_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/paradise_nut"
+      "texture": "tfc:blocks/material_set/wood/log/side/paradise_nut",
+      "particle": "tfc:blocks/material_set/wood/log/side/paradise_nut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

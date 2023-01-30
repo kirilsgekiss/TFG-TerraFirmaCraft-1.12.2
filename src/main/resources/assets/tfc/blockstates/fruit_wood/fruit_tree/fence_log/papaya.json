@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/papaya",
-      "log": "tfc:blocks/wood/fruit_tree/log/papaya",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/papaya",
-      "particle": "tfc:blocks/wood/fruit_tree/log/papaya"
+      "top": "tfc:blocks/material_set/wood/log/top/papaya",
+      "log": "tfc:blocks/material_set/wood/log/side/papaya",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/papaya"
     }
   },
   "variants": {

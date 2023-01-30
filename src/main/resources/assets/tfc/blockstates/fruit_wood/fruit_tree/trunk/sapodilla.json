@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/sapodilla",
-      "particle": "tfc:blocks/wood/fruit_tree/log/sapodilla"
+      "texture": "tfc:blocks/material_set/wood/log/side/sapodilla",
+      "particle": "tfc:blocks/material_set/wood/log/side/sapodilla"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

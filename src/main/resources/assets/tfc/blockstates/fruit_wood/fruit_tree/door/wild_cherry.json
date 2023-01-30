@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/wild_cherry",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/wild_cherry"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/wild_cherry",
+      "top": "tfc:blocks/material_set/wood/door/upper/wild_cherry"
     }
   },
   "variants": {

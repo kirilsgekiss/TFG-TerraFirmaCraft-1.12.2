@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/apricot",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/apricot"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/apricot",
+      "top": "tfc:blocks/material_set/wood/door/upper/apricot"
     }
   },
   "variants": {

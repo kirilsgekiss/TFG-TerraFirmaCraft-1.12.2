@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/longan"
+      "all": "tfc:blocks/material_set/wood/leaves/longan"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/longan",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/longan"
+          "all": "tfc:blocks/material_set/wood/leaves/longan",
+          "texture": "tfc:blocks/material_set/wood/flowers/longan"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/longan",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/longan"
+          "all": "tfc:blocks/material_set/wood/leaves/longan",
+          "texture": "tfc:blocks/material_set/wood/fruit/longan"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

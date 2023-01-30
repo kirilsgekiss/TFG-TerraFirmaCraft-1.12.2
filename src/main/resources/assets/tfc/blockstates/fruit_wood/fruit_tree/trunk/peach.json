@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/peach",
-      "particle": "tfc:blocks/wood/fruit_tree/log/peach"
+      "texture": "tfc:blocks/material_set/wood/log/side/peach",
+      "particle": "tfc:blocks/material_set/wood/log/side/peach"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/peach"
+      "all": "tfc:blocks/material_set/wood/leaves/peach"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/peach",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/peach"
+          "all": "tfc:blocks/material_set/wood/leaves/peach",
+          "texture": "tfc:blocks/material_set/wood/flowers/peach"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/peach",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/peach"
+          "all": "tfc:blocks/material_set/wood/leaves/peach",
+          "texture": "tfc:blocks/material_set/wood/fruit/peach"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

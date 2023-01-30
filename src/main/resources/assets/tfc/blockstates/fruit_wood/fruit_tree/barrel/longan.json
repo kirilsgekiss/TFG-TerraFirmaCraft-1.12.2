@@ -4,24 +4,20 @@
   "defaults": {
     "model": "tfc:barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/fruit_tree/planks/longan",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/longan",
-      "sheet": "tfc:blocks/wood/fruit_tree/sheets/longan",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "sheet": "tfc:blocks/material_set/wood/sheet/longan",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

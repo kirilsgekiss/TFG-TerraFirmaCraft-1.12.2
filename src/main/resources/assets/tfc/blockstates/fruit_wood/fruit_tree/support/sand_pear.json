@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/sand_pear",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/sand_pear"
+      "texture": "tfc:blocks/material_set/wood/sheet/sand_pear",
+      "particle": "tfc:blocks/material_set/wood/sheet/sand_pear"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

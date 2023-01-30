@@ -4,8 +4,8 @@
   "defaults": {
     "model": "button",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/beechnut",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/beechnut"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/cashew",
-      "particle": "tfc:blocks/wood/fruit_tree/log/cashew"
+      "texture": "tfc:blocks/material_set/wood/log/side/cashew",
+      "particle": "tfc:blocks/material_set/wood/log/side/cashew"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

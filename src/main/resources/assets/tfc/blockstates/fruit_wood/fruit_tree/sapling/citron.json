@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/citron",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/citron"
+      "cross": "tfc:blocks/material_set/wood/sapling/citron",
+      "layer0": "tfc:blocks/material_set/wood/sapling/citron"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

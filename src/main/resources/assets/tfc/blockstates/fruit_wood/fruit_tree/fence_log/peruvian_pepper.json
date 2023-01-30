@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/peruvian_pepper",
-      "log": "tfc:blocks/wood/fruit_tree/log/peruvian_pepper",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/peruvian_pepper",
-      "particle": "tfc:blocks/wood/fruit_tree/log/peruvian_pepper"
+      "top": "tfc:blocks/material_set/wood/log/top/peruvian_pepper",
+      "log": "tfc:blocks/material_set/wood/log/side/peruvian_pepper",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/peruvian_pepper"
     }
   },
   "variants": {

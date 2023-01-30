@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/ohia_ai",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/ohia_ai"
+      "cross": "tfc:blocks/material_set/wood/sapling/ohia_ai",
+      "layer0": "tfc:blocks/material_set/wood/sapling/ohia_ai"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

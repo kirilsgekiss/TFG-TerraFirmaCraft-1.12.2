@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/tangerine"
+      "all": "tfc:blocks/material_set/wood/leaves/tangerine"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/tangerine",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/tangerine"
+          "all": "tfc:blocks/material_set/wood/leaves/tangerine",
+          "texture": "tfc:blocks/material_set/wood/flowers/tangerine"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/tangerine",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/tangerine"
+          "all": "tfc:blocks/material_set/wood/leaves/tangerine",
+          "texture": "tfc:blocks/material_set/wood/fruit/tangerine"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

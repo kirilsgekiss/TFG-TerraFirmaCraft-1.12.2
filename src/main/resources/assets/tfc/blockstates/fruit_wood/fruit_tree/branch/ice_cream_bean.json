@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/ice_cream_bean",
-      "particle": "tfc:blocks/wood/fruit_tree/log/ice_cream_bean"
+      "texture": "tfc:blocks/material_set/wood/log/side/ice_cream_bean",
+      "particle": "tfc:blocks/material_set/wood/log/side/ice_cream_bean"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

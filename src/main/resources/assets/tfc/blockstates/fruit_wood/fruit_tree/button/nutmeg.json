@@ -4,8 +4,8 @@
   "defaults": {
     "model": "button",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/nutmeg",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/nutmeg"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

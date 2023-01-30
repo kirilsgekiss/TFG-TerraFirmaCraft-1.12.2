@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/fruit_tree/log/satsuma",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/satsuma",
-      "particle": "tfc:blocks/wood/fruit_tree/log/satsuma"
+      "log": "tfc:blocks/material_set/wood/log/side/satsuma",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/satsuma"
     },
     "uvlock": true
   },

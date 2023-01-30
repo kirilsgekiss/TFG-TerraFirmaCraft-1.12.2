@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/black_walnut",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/black_walnut"
+      "texture": "tfc:blocks/material_set/wood/sheet/black_walnut",
+      "particle": "tfc:blocks/material_set/wood/sheet/black_walnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

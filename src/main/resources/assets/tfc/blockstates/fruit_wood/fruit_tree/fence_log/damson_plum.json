@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/damson_plum",
-      "log": "tfc:blocks/wood/fruit_tree/log/damson_plum",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/damson_plum",
-      "particle": "tfc:blocks/wood/fruit_tree/log/damson_plum"
+      "top": "tfc:blocks/material_set/wood/log/top/damson_plum",
+      "log": "tfc:blocks/material_set/wood/log/side/damson_plum",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/damson_plum"
     }
   },
   "variants": {

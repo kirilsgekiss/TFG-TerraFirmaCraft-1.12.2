@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/tangerine",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/tangerine"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/tangerine",
+      "top": "tfc:blocks/material_set/wood/door/upper/tangerine"
     }
   },
   "variants": {

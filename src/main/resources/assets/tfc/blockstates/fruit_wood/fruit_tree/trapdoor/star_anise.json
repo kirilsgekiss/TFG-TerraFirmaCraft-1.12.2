@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/trapdoor/star_anise"
+      "texture": "tfc:blocks/material_set/wood/trapdoor/star_anise"
     }
   },
   "variants": {

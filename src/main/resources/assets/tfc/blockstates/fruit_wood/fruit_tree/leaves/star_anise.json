@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/star_anise"
+      "all": "tfc:blocks/material_set/wood/leaves/star_anise"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/star_anise",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/star_anise"
+          "all": "tfc:blocks/material_set/wood/leaves/star_anise",
+          "texture": "tfc:blocks/material_set/wood/flowers/star_anise"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/star_anise",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/star_anise"
+          "all": "tfc:blocks/material_set/wood/leaves/star_anise",
+          "texture": "tfc:blocks/material_set/wood/fruit/star_anise"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

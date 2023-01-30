@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/butternut",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/butternut"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/butternut",
+      "top": "tfc:blocks/material_set/wood/door/upper/butternut"
     }
   },
   "variants": {

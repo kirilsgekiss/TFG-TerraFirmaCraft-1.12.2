@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/coffea",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/coffea"
+      "texture": "tfc:blocks/material_set/wood/sheet/coffea",
+      "particle": "tfc:blocks/material_set/wood/sheet/coffea"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

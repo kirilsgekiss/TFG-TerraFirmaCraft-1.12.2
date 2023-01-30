@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/kaki",
-      "log": "tfc:blocks/wood/fruit_tree/log/kaki",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kaki",
-      "particle": "tfc:blocks/wood/fruit_tree/log/kaki"
+      "top": "tfc:blocks/material_set/wood/log/top/kaki",
+      "log": "tfc:blocks/material_set/wood/log/side/kaki",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/kaki"
     }
   },
   "variants": {

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/heartnut",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/heartnut"
+      "cross": "tfc:blocks/material_set/wood/sapling/heartnut",
+      "layer0": "tfc:blocks/material_set/wood/sapling/heartnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

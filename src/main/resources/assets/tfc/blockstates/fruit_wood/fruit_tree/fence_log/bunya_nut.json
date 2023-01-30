@@ -4,10 +4,10 @@
   "defaults": {
     "model": "",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/bunya_nut",
-      "log": "tfc:blocks/wood/fruit_tree/log/bunya_nut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/bunya_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/bunya_nut"
+      "top": "tfc:blocks/material_set/wood/log/top/bunya_nut",
+      "log": "tfc:blocks/material_set/wood/log/side/bunya_nut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/bunya_nut"
     }
   },
   "variants": {

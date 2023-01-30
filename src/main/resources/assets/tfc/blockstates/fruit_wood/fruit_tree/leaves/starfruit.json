@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/starfruit"
+      "all": "tfc:blocks/material_set/wood/leaves/starfruit"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/starfruit",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/starfruit"
+          "all": "tfc:blocks/material_set/wood/leaves/starfruit",
+          "texture": "tfc:blocks/material_set/wood/flowers/starfruit"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/starfruit",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/starfruit"
+          "all": "tfc:blocks/material_set/wood/leaves/starfruit",
+          "texture": "tfc:blocks/material_set/wood/fruit/starfruit"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

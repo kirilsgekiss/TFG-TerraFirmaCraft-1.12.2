@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:bookshelf",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/planks/nutmeg",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/nutmeg",
+      "all": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
       "north": "tfc:blocks/wood/bookshelf",
       "south": "tfc:blocks/wood/bookshelf",
       "east": "tfc:blocks/wood/bookshelf",
@@ -13,8 +13,6 @@
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

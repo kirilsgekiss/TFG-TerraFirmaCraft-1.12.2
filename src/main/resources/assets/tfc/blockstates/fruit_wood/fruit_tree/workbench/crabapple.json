@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:workbench",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/planks/crabapple",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/crabapple",
+      "all": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
       "top": "tfc:blocks/wood/workbench_top",
       "north": "tfc:blocks/wood/workbench_front",
       "south": "tfc:blocks/wood/workbench_front",
@@ -14,8 +14,6 @@
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

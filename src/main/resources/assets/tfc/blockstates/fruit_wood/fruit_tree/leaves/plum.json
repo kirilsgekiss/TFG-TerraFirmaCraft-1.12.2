@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/plum"
+      "all": "tfc:blocks/material_set/wood/leaves/plum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/plum",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/plum"
+          "all": "tfc:blocks/material_set/wood/leaves/plum",
+          "texture": "tfc:blocks/material_set/wood/flowers/plum"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/plum",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/plum"
+          "all": "tfc:blocks/material_set/wood/leaves/plum",
+          "texture": "tfc:blocks/material_set/wood/fruit/plum"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

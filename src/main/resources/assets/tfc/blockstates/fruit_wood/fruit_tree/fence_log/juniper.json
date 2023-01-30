@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/juniper",
-      "log": "tfc:blocks/wood/fruit_tree/log/juniper",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/juniper",
-      "particle": "tfc:blocks/wood/fruit_tree/log/juniper"
+      "top": "tfc:blocks/material_set/wood/log/top/juniper",
+      "log": "tfc:blocks/material_set/wood/log/side/juniper",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/juniper"
     }
   },
   "variants": {

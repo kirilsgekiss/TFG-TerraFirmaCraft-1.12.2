@@ -4,7 +4,7 @@
   "defaults": {
     "model": "fence_gate_closed",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/ice_cream_bean"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern"
     },
     "uvlock": true
   },
