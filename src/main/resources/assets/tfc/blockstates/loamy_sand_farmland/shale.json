@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/shale",
       "particle": "tfc:blocks/stonetypes/loamy_sand/shale",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/shale"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

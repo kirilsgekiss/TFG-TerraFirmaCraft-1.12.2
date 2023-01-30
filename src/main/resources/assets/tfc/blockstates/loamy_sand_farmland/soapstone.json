@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/soapstone",
       "particle": "tfc:blocks/stonetypes/loamy_sand/soapstone",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/soapstone"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

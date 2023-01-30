@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/peridotite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/peridotite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/peridotite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

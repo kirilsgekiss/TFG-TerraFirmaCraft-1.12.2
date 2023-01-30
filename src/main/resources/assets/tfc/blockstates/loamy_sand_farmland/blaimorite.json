@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/blaimorite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/blaimorite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/blaimorite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

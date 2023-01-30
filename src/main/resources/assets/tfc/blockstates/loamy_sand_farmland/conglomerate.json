@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/conglomerate",
       "particle": "tfc:blocks/stonetypes/loamy_sand/conglomerate",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/conglomerate"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

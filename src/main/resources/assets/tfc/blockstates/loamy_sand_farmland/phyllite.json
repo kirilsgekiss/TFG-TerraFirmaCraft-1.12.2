@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/phyllite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/phyllite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/phyllite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

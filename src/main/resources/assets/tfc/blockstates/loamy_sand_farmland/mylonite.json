@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/mylonite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/mylonite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/mylonite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

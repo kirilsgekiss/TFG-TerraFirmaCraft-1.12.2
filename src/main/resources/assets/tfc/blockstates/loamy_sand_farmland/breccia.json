@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/breccia",
       "particle": "tfc:blocks/stonetypes/loamy_sand/breccia",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/breccia"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

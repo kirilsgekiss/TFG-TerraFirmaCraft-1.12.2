@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/wackestone",
       "particle": "tfc:blocks/stonetypes/loamy_sand/wackestone",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/wackestone"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

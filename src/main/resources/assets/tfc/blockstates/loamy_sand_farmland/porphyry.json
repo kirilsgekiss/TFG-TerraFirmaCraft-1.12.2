@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/porphyry",
       "particle": "tfc:blocks/stonetypes/loamy_sand/porphyry",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/porphyry"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

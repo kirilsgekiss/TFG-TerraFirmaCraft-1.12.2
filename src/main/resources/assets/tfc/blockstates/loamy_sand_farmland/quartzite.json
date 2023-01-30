@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/quartzite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/quartzite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/quartzite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

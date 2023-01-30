@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/diorite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/diorite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/diorite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

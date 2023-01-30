@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/basalt",
       "particle": "tfc:blocks/stonetypes/loamy_sand/basalt",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/basalt"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

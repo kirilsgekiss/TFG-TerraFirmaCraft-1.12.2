@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/cataclasite",
       "particle": "tfc:blocks/stonetypes/loamy_sand/cataclasite",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/cataclasite"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

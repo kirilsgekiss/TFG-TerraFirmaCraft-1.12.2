@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/mudstone",
       "particle": "tfc:blocks/stonetypes/loamy_sand/mudstone",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/mudstone"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

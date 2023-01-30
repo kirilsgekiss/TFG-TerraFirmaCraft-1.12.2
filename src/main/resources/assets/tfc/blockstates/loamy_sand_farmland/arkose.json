@@ -6,12 +6,10 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loamy_sand/arkose",
       "particle": "tfc:blocks/stonetypes/loamy_sand/arkose",
-      "top": "tfc:blocks/stonetypes/loamy_sand_farmland/arkose"
+      "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
