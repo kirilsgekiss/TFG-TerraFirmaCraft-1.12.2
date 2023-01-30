@@ -19,8 +19,8 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/flowers/white_ipe",
-          "texture": "tfc:blocks/wood/flowers/white_ipe"
+          "all": "tfc:blocks/material_set/wood/flowers/white_ipe",
+          "texture": "tfc:blocks/material_set/wood/flowers/white_ipe"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

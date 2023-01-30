@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/pink_ivory",
-          "texture": "tfc:blocks/wood/flowers/pink_ivory"
+          "texture": "tfc:blocks/material_set/wood/flowers/pink_ivory"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

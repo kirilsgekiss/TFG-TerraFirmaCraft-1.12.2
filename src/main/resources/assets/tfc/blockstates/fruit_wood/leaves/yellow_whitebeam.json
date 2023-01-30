@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/whitebeam",
-          "texture": "tfc:blocks/wood/flowers/rowan"
+          "texture": "tfc:blocks/material_set/wood/flowers/rowan"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

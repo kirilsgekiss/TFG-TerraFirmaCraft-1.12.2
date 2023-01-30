@@ -19,8 +19,8 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/flowers/pink_cherry",
-          "texture": "tfc:blocks/wood/flowers/pink_cherry"
+          "all": "tfc:blocks/material_set/wood/flowers/pink_cherry",
+          "texture": "tfc:blocks/material_set/wood/flowers/pink_cherry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

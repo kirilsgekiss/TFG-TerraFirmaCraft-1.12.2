@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/snow_gum_eucalyptus",
-          "texture": "tfc:blocks/wood/flowers/snow_gum_eucalyptus"
+          "texture": "tfc:blocks/material_set/wood/flowers/snow_gum_eucalyptus"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

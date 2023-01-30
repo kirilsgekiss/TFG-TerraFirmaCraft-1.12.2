@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/hawthorn",
-          "texture": "tfc:blocks/wood/flowers/hawthorn"
+          "texture": "tfc:blocks/material_set/wood/flowers/hawthorn"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

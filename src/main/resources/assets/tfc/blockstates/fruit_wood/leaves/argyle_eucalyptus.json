@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/argyle_eucalyptus",
-          "texture": "tfc:blocks/wood/flowers/argyle_eucalyptus"
+          "texture": "tfc:blocks/material_set/wood/flowers/argyle_eucalyptus"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/juniper",
-          "texture": "tfc:blocks/wood/flowers/juniper"
+          "texture": "tfc:blocks/material_set/wood/flowers/juniper"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },

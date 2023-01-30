@@ -20,7 +20,7 @@
         "model": "leaves",
         "textures": {
           "all": "tfc:blocks/material_set/wood/leaves/yew",
-          "texture": "tfc:blocks/wood/flowers/yew"
+          "texture": "tfc:blocks/material_set/wood/flowers/yew"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
