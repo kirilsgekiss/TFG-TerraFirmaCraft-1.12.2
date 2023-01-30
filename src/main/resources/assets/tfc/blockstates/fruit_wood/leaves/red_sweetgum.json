@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/sweetgum"
+      "all": "tfc:blocks/material_set/wood/leaves/sweetgum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,21 +19,21 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/sweetgum"
+          "all": "tfc:blocks/material_set/wood/leaves/sweetgum"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/sweetgum"
+          "all": "tfc:blocks/material_set/wood/leaves/sweetgum"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_sweetgum"
+          "all": "tfc:blocks/material_set/wood/leaves/red_sweetgum"
         },
         "submodel": "leaves"
       },

@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/pink_cherry"
+      "all": "tfc:blocks/material_set/wood/leaves/pink_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -29,7 +27,7 @@
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/pink_cherry",
+          "all": "tfc:blocks/material_set/wood/leaves/pink_cherry",
           "texture": "tfc:blocks/wood/fruit/cherry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -37,7 +35,7 @@
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_pink_cherry"
+          "all": "tfc:blocks/material_set/wood/leaves/red_pink_cherry"
         },
         "submodel": "leaves"
       },

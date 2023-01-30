@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/aspen"
+      "all": "tfc:blocks/material_set/wood/leaves/aspen"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,21 +19,21 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/aspen"
+          "all": "tfc:blocks/material_set/wood/leaves/aspen"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/aspen"
+          "all": "tfc:blocks/material_set/wood/leaves/aspen"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_aspen"
+          "all": "tfc:blocks/material_set/wood/leaves/red_aspen"
         },
         "submodel": "leaves"
       },

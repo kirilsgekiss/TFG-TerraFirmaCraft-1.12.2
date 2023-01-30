@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/hawthorn"
+      "all": "tfc:blocks/material_set/wood/leaves/hawthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,7 +19,7 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/hawthorn",
+          "all": "tfc:blocks/material_set/wood/leaves/hawthorn",
           "texture": "tfc:blocks/wood/flowers/hawthorn"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -29,7 +27,7 @@
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/hawthorn",
+          "all": "tfc:blocks/material_set/wood/leaves/hawthorn",
           "texture": "tfc:blocks/wood/fruit/hawthorn"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -37,7 +35,7 @@
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_hawthorn"
+          "all": "tfc:blocks/material_set/wood/leaves/red_hawthorn"
         },
         "submodel": "leaves"
       },

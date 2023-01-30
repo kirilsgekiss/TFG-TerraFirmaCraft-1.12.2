@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/cypress"
+      "all": "tfc:blocks/material_set/wood/leaves/cypress"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,21 +19,21 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/cypress"
+          "all": "tfc:blocks/material_set/wood/leaves/cypress"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/cypress"
+          "all": "tfc:blocks/material_set/wood/leaves/cypress"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/orange_cypress"
+          "all": "tfc:blocks/material_set/wood/leaves/orange_cypress"
         },
         "submodel": "leaves"
       },

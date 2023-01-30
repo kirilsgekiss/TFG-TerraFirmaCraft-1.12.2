@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/chestnut"
+      "all": "tfc:blocks/material_set/wood/leaves/chestnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,21 +19,21 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/chestnut"
+          "all": "tfc:blocks/material_set/wood/leaves/chestnut"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/chestnut"
+          "all": "tfc:blocks/material_set/wood/leaves/chestnut"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/yellow_chestnut"
+          "all": "tfc:blocks/material_set/wood/leaves/yellow_chestnut"
         },
         "submodel": "leaves"
       },

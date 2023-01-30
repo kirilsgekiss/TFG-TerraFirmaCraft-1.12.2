@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/whitebeam"
+      "all": "tfc:blocks/material_set/wood/leaves/whitebeam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,7 +19,7 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/whitebeam",
+          "all": "tfc:blocks/material_set/wood/leaves/whitebeam",
           "texture": "tfc:blocks/wood/flowers/rowan"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -29,7 +27,7 @@
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/whitebeam",
+          "all": "tfc:blocks/material_set/wood/leaves/whitebeam",
           "texture": "tfc:blocks/wood/fruit/rowan"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -37,7 +35,7 @@
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/yellow_whitebeam"
+          "all": "tfc:blocks/material_set/wood/leaves/yellow_whitebeam"
         },
         "submodel": "leaves"
       },

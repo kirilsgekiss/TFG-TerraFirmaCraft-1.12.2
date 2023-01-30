@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/white_cedar"
+      "all": "tfc:blocks/material_set/wood/leaves/white_cedar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,7 +19,7 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/white_cedar",
+          "all": "tfc:blocks/material_set/wood/leaves/white_cedar",
           "texture": "tfc:blocks/wood/flowers/white_cedar"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -29,7 +27,7 @@
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/white_cedar",
+          "all": "tfc:blocks/material_set/wood/leaves/white_cedar",
           "texture": "tfc:blocks/wood/fruit/white_cedar"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
@@ -37,14 +35,14 @@
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_white_cedar"
+          "all": "tfc:blocks/material_set/wood/leaves/red_white_cedar"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_white_cedar"
+          "all": "tfc:blocks/material_set/wood/leaves/red_white_cedar"
         },
         "submodel": "leaves"
       }

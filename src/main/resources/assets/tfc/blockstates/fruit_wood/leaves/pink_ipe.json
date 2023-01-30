@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/ipe"
+      "all": "tfc:blocks/material_set/wood/leaves/ipe"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -29,22 +27,22 @@
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/ipe",
-          "texture": "tfc:blocks/wood/leaves/ipe"
+          "all": "tfc:blocks/material_set/wood/leaves/ipe",
+          "texture": "tfc:blocks/material_set/wood/leaves/ipe"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/ipe"
+          "all": "tfc:blocks/material_set/wood/leaves/ipe"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/ipe"
+          "all": "tfc:blocks/material_set/wood/leaves/ipe"
         },
         "submodel": "leaves"
       }

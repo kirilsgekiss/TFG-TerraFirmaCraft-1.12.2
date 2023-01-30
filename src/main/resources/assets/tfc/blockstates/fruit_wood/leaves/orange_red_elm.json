@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/red_elm"
+      "all": "tfc:blocks/material_set/wood/leaves/red_elm"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,21 +19,21 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_elm"
+          "all": "tfc:blocks/material_set/wood/leaves/red_elm"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/red_elm"
+          "all": "tfc:blocks/material_set/wood/leaves/red_elm"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/orange_red_elm"
+          "all": "tfc:blocks/material_set/wood/leaves/orange_red_elm"
         },
         "submodel": "leaves"
       },
