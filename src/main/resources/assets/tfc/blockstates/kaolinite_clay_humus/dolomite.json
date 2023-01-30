@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/kaolinite_clay_humus/dolomite"
+      "all": "tfc:blocks/stonetypes/kaolinite_clay_humus"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
