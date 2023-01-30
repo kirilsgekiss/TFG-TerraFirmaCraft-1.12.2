@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_kaolinite_clay_loam/rhyolite"
+      "all": "tfc:blocks/stonetypes/coarse_kaolinite_clay_loam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
