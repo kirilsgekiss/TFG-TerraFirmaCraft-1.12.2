@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/ipe",
       "side": "tfc:blocks/material_set/wood/log/side/ipe",
-      "end": "tfc:blocks/wood/top/ipe",
+      "end": "tfc:blocks/material_set/wood/log/top/ipe",
       "layer0": "tfc:items/wood/log/ipe"
     }
   },

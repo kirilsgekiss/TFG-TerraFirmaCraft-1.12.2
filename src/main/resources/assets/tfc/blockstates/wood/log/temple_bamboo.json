@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/temple_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/temple_bamboo",
-      "end": "tfc:blocks/wood/top/temple_bamboo",
+      "end": "tfc:blocks/material_set/wood/log/top/temple_bamboo",
       "layer0": "tfc:items/wood/log/temple_bamboo"
     }
   },

@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/cinnamon",
+      "top": "tfc:blocks/material_set/wood/log/top/cinnamon",
       "log": "tfc:blocks/material_set/wood/log/side/cinnamon",
       "planks": "tfc:blocks/wood/planks/cinnamon",
       "particle": "tfc:blocks/material_set/wood/log/side/cinnamon"

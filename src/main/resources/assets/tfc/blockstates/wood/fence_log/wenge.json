@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/wenge",
+      "top": "tfc:blocks/material_set/wood/log/top/wenge",
       "log": "tfc:blocks/material_set/wood/log/side/wenge",
       "planks": "tfc:blocks/wood/planks/wenge",
       "particle": "tfc:blocks/material_set/wood/log/side/wenge"

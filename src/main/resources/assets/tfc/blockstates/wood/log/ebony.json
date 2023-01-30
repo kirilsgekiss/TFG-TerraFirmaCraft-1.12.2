@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/ebony",
       "side": "tfc:blocks/material_set/wood/log/side/ebony",
-      "end": "tfc:blocks/wood/top/ebony",
+      "end": "tfc:blocks/material_set/wood/log/top/ebony",
       "layer0": "tfc:items/wood/log/ebony"
     }
   },

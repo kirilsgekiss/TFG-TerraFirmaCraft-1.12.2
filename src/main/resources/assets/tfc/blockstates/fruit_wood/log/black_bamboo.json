@@ -4,7 +4,7 @@
     "model": "tfc:wood/bamboo/log/log_thin",
     "textures": {
       "side": "tfc:blocks/material_set/wood/log/side/black_bamboo",
-      "top": "tfc:blocks/wood/top/black_bamboo",
+      "top": "tfc:blocks/material_set/wood/log/top/black_bamboo",
       "particle": "tfc:blocks/material_set/wood/log/side/black_bamboo"
     }
   },

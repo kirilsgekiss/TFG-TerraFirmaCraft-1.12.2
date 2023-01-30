@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/hemlock",
       "side": "tfc:blocks/material_set/wood/log/side/hemlock",
-      "end": "tfc:blocks/wood/top/hemlock",
+      "end": "tfc:blocks/material_set/wood/log/top/hemlock",
       "layer0": "tfc:items/wood/log/hemlock"
     }
   },

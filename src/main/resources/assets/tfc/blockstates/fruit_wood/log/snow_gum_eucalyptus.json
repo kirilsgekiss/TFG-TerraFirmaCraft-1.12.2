@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/snow_gum_eucalyptus",
       "side": "tfc:blocks/material_set/wood/log/side/snow_gum_eucalyptus",
-      "end": "tfc:blocks/wood/top/snow_gum_eucalyptus",
+      "end": "tfc:blocks/material_set/wood/log/top/snow_gum_eucalyptus",
       "layer0": "tfc:items/wood/log/snow_gum_eucalyptus"
     }
   },

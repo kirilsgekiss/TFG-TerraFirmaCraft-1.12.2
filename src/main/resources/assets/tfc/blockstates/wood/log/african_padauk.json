@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/african_padauk",
       "side": "tfc:blocks/material_set/wood/log/side/african_padauk",
-      "end": "tfc:blocks/wood/top/african_padauk",
+      "end": "tfc:blocks/material_set/wood/log/top/african_padauk",
       "layer0": "tfc:items/wood/log/african_padauk"
     }
   },

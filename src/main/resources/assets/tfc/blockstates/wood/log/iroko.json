@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/iroko",
       "side": "tfc:blocks/material_set/wood/log/side/iroko",
-      "end": "tfc:blocks/wood/top/iroko",
+      "end": "tfc:blocks/material_set/wood/log/top/iroko",
       "layer0": "tfc:items/wood/log/iroko"
     }
   },

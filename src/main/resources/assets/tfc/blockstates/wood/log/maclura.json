@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/maclura",
       "side": "tfc:blocks/material_set/wood/log/side/maclura",
-      "end": "tfc:blocks/wood/top/maclura",
+      "end": "tfc:blocks/material_set/wood/log/top/maclura",
       "layer0": "tfc:items/wood/log/maclura"
     }
   },

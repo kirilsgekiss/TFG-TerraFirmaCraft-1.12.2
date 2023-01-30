@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/oak",
       "side": "tfc:blocks/material_set/wood/log/side/oak",
-      "end": "tfc:blocks/wood/top/oak",
+      "end": "tfc:blocks/material_set/wood/log/top/oak",
       "layer0": "tfc:items/wood/log/oak"
     }
   },

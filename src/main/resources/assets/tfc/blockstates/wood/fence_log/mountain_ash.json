@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/mountain_ash",
+      "top": "tfc:blocks/material_set/wood/log/top/mountain_ash",
       "log": "tfc:blocks/material_set/wood/log/side/mountain_ash",
       "planks": "tfc:blocks/wood/planks/mountain_ash",
       "particle": "tfc:blocks/material_set/wood/log/side/mountain_ash"

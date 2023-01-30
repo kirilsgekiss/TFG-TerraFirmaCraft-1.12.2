@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/ebony",
+      "top": "tfc:blocks/material_set/wood/log/top/ebony",
       "log": "tfc:blocks/material_set/wood/log/side/ebony",
       "planks": "tfc:blocks/wood/planks/ebony",
       "particle": "tfc:blocks/material_set/wood/log/side/ebony"

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/lime",
       "side": "tfc:blocks/material_set/wood/log/side/lime",
-      "end": "tfc:blocks/wood/top/lime",
+      "end": "tfc:blocks/material_set/wood/log/top/lime",
       "layer0": "tfc:items/wood/log/lime"
     }
   },

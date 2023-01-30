@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/white_cherry",
+      "top": "tfc:blocks/material_set/wood/log/top/white_cherry",
       "log": "tfc:blocks/material_set/wood/log/side/white_cherry",
       "planks": "tfc:blocks/wood/planks/white_cherry",
       "particle": "tfc:blocks/material_set/wood/log/side/white_cherry"

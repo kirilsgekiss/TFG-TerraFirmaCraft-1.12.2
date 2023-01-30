@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/plum",
+      "top": "tfc:blocks/material_set/wood/log/top/plum",
       "log": "tfc:blocks/material_set/wood/log/side/plum",
       "planks": "tfc:blocks/wood/planks/plum",
       "particle": "tfc:blocks/material_set/wood/log/side/plum"

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/yellow_meranti",
       "side": "tfc:blocks/material_set/wood/log/side/yellow_meranti",
-      "end": "tfc:blocks/wood/top/yellow_meranti",
+      "end": "tfc:blocks/material_set/wood/log/top/yellow_meranti",
       "layer0": "tfc:items/wood/log/yellow_meranti"
     }
   },

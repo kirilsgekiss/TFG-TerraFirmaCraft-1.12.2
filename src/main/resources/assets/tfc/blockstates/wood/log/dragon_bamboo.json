@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/dragon_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/dragon_bamboo",
-      "end": "tfc:blocks/wood/top/dragon_bamboo",
+      "end": "tfc:blocks/material_set/wood/log/top/dragon_bamboo",
       "layer0": "tfc:items/wood/log/dragon_bamboo"
     }
   },

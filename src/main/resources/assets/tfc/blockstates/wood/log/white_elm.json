@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/white_elm",
       "side": "tfc:blocks/material_set/wood/log/side/white_elm",
-      "end": "tfc:blocks/wood/top/white_elm",
+      "end": "tfc:blocks/material_set/wood/log/top/white_elm",
       "layer0": "tfc:items/wood/log/white_elm"
     }
   },

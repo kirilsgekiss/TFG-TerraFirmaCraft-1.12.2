@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/sweetgum",
       "side": "tfc:blocks/material_set/wood/log/side/sweetgum",
-      "end": "tfc:blocks/wood/top/sweetgum",
+      "end": "tfc:blocks/material_set/wood/log/top/sweetgum",
       "layer0": "tfc:items/wood/log/sweetgum"
     }
   },

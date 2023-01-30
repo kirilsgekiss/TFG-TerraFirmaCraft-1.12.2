@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/rosewood",
       "side": "tfc:blocks/material_set/wood/log/side/rosewood",
-      "end": "tfc:blocks/wood/top/rosewood",
+      "end": "tfc:blocks/material_set/wood/log/top/rosewood",
       "layer0": "tfc:items/wood/log/rosewood"
     }
   },

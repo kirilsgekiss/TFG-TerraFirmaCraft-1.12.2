@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/red_elm",
+      "top": "tfc:blocks/material_set/wood/log/top/red_elm",
       "log": "tfc:blocks/material_set/wood/log/side/red_elm",
       "planks": "tfc:blocks/wood/planks/red_elm",
       "particle": "tfc:blocks/material_set/wood/log/side/red_elm"

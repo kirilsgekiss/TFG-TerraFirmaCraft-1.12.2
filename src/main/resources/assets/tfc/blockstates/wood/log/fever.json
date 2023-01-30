@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/fever",
       "side": "tfc:blocks/material_set/wood/log/side/fever",
-      "end": "tfc:blocks/wood/top/fever",
+      "end": "tfc:blocks/material_set/wood/log/top/fever",
       "layer0": "tfc:items/wood/log/fever"
     }
   },

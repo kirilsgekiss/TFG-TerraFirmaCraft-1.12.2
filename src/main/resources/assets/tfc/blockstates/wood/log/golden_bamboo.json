@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/golden_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/golden_bamboo",
-      "end": "tfc:blocks/wood/top/golden_bamboo",
+      "end": "tfc:blocks/material_set/wood/log/top/golden_bamboo",
       "layer0": "tfc:items/wood/log/golden_bamboo"
     }
   },

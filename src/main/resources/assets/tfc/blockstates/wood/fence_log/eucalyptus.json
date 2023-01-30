@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/eucalyptus",
+      "top": "tfc:blocks/material_set/wood/log/top/eucalyptus",
       "log": "tfc:blocks/material_set/wood/log/side/eucalyptus",
       "planks": "tfc:blocks/wood/planks/eucalyptus",
       "particle": "tfc:blocks/material_set/wood/log/side/eucalyptus"

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/hickory",
       "side": "tfc:blocks/material_set/wood/log/side/hickory",
-      "end": "tfc:blocks/wood/top/hickory",
+      "end": "tfc:blocks/material_set/wood/log/top/hickory",
       "layer0": "tfc:items/wood/log/hickory"
     }
   },

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/mountain_ash",
       "side": "tfc:blocks/material_set/wood/log/side/mountain_ash",
-      "end": "tfc:blocks/wood/top/mountain_ash",
+      "end": "tfc:blocks/material_set/wood/log/top/mountain_ash",
       "layer0": "tfc:items/wood/log/mountain_ash"
     }
   },

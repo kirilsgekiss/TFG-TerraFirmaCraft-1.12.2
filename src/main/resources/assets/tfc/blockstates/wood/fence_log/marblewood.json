@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/marblewood",
+      "top": "tfc:blocks/material_set/wood/log/top/marblewood",
       "log": "tfc:blocks/material_set/wood/log/side/marblewood",
       "planks": "tfc:blocks/wood/planks/marblewood",
       "particle": "tfc:blocks/material_set/wood/log/side/marblewood"

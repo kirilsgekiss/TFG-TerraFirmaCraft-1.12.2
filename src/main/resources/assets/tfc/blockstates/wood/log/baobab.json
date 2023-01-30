@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/baobab",
       "side": "tfc:blocks/material_set/wood/log/side/baobab",
-      "end": "tfc:blocks/wood/top/baobab",
+      "end": "tfc:blocks/material_set/wood/log/top/baobab",
       "layer0": "tfc:items/wood/log/baobab"
     }
   },

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/walnut",
       "side": "tfc:blocks/material_set/wood/log/side/walnut",
-      "end": "tfc:blocks/wood/top/walnut",
+      "end": "tfc:blocks/material_set/wood/log/top/walnut",
       "layer0": "tfc:items/wood/log/walnut"
     }
   },

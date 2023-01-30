@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/whitebeam",
       "side": "tfc:blocks/material_set/wood/log/side/whitebeam",
-      "end": "tfc:blocks/wood/top/whitebeam",
+      "end": "tfc:blocks/material_set/wood/log/top/whitebeam",
       "layer0": "tfc:items/wood/log/whitebeam"
     }
   },

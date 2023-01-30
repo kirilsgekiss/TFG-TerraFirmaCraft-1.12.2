@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/hawthorn",
       "side": "tfc:blocks/material_set/wood/log/side/hawthorn",
-      "end": "tfc:blocks/wood/top/hawthorn",
+      "end": "tfc:blocks/material_set/wood/log/top/hawthorn",
       "layer0": "tfc:items/wood/log/hawthorn"
     }
   },

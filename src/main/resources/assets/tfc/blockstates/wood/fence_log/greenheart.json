@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/greenheart",
+      "top": "tfc:blocks/material_set/wood/log/top/greenheart",
       "log": "tfc:blocks/material_set/wood/log/side/greenheart",
       "planks": "tfc:blocks/wood/planks/greenheart",
       "particle": "tfc:blocks/material_set/wood/log/side/greenheart"

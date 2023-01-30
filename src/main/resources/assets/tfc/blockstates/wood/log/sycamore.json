@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/sycamore",
       "side": "tfc:blocks/material_set/wood/log/side/sycamore",
-      "end": "tfc:blocks/wood/top/sycamore",
+      "end": "tfc:blocks/material_set/wood/log/top/sycamore",
       "layer0": "tfc:items/wood/log/sycamore"
     }
   },

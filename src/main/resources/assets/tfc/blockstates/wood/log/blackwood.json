@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/blackwood",
       "side": "tfc:blocks/material_set/wood/log/side/blackwood",
-      "end": "tfc:blocks/wood/top/blackwood",
+      "end": "tfc:blocks/material_set/wood/log/top/blackwood",
       "layer0": "tfc:items/wood/log/blackwood"
     }
   },

@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/hevea",
       "side": "tfc:blocks/material_set/wood/log/side/hevea",
-      "end": "tfc:blocks/wood/top/hevea",
+      "end": "tfc:blocks/material_set/wood/log/top/hevea",
       "layer0": "tfc:items/wood/log/hevea"
     }
   },

@@ -14,7 +14,7 @@
         "textures": {
           "particle": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
           "side": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
-          "end": "tfc:blocks/wood/top/arrow_bamboo"
+          "end": "tfc:blocks/material_set/wood/log/top/arrow_bamboo"
         },
         "model": "tfc:block/wood/log/arrow_bamboo"
       }

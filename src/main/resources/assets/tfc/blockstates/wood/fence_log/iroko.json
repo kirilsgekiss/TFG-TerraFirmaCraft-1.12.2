@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/iroko",
+      "top": "tfc:blocks/material_set/wood/log/top/iroko",
       "log": "tfc:blocks/material_set/wood/log/side/iroko",
       "planks": "tfc:blocks/wood/planks/iroko",
       "particle": "tfc:blocks/material_set/wood/log/side/iroko"

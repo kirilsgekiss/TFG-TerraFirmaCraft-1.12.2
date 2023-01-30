@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/log/side/elder",
       "side": "tfc:blocks/material_set/wood/log/side/elder",
-      "end": "tfc:blocks/wood/top/elder",
+      "end": "tfc:blocks/material_set/wood/log/top/elder",
       "layer0": "tfc:items/wood/log/elder"
     }
   },
