@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/mylonite",
-      "particle": "tfc:blocks/stonetypes/humus/mylonite",
+      "dirt": "tfc:blocks/stonetypes/humus",
+      "particle": "tfc:blocks/stonetypes/humus",
       "top": "tfc:blocks/stonetypes/humus_farmland/mylonite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/humus/marble",
-      "particle": "tfc:blocks/stonetypes/humus/marble",
+      "dirt": "tfc:blocks/stonetypes/humus",
+      "particle": "tfc:blocks/stonetypes/humus",
       "top": "tfc:blocks/stonetypes/humus_farmland/marble"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
