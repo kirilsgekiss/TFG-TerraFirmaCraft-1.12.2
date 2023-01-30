@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/blueschist",
-      "particle": "tfc:blocks/stonetypes/silt/blueschist",
+      "dirt": "tfc:blocks/stonetypes/silt",
+      "particle": "tfc:blocks/stonetypes/silt",
       "top": "tfc:blocks/stonetypes/silt_farmland/blueschist"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

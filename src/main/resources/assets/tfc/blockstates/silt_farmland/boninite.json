@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/boninite",
-      "particle": "tfc:blocks/stonetypes/silt/boninite",
+      "dirt": "tfc:blocks/stonetypes/silt",
+      "particle": "tfc:blocks/stonetypes/silt",
       "top": "tfc:blocks/stonetypes/silt_farmland/boninite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

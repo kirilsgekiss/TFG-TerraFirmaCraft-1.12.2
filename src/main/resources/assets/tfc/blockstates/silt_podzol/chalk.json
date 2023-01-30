@@ -4,7 +4,7 @@
   "defaults": {
     "model": "tfc:grass",
     "textures": {
-      "all": "tfc:blocks/stonetypes/silt/chalk",
+      "all": "tfc:blocks/stonetypes/silt",
       "particle": "tfc:blocks/podzol_top",
       "top": "tfc:blocks/podzol_top",
       "north": "tfc:blocks/podzol_side",
@@ -14,9 +14,7 @@
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "textures": {

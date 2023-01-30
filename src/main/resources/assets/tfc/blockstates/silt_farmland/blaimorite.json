@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/silt/blaimorite",
-      "particle": "tfc:blocks/stonetypes/silt/blaimorite",
+      "dirt": "tfc:blocks/stonetypes/silt",
+      "particle": "tfc:blocks/stonetypes/silt",
       "top": "tfc:blocks/stonetypes/silt_farmland/blaimorite"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
