@@ -4,25 +4,21 @@
   "defaults": {
     "model": "tfc:wood/barrel",
     "textures": {
-      "particle": "tfc:blocks/materials/wood/planks/pattern",
-      "planks": "tfc:blocks/materials/wood/planks/pattern",
-      "lid": "tfc:blocks/materials/wood/barrel/lid/pattern",
-      "base": "tfc:blocks/materials/wood/barrel/base/pattern",
-      "hoop": "tfc:blocks/materials/wood/barrel/hoop/lacquered_wood"
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "lid": "tfc:blocks/material_set/wood/barrel/lid/pattern",
+      "base": "tfc:blocks/material_set/wood/barrel/base/pattern",
+      "hoop": "tfc:blocks/material_set/wood/barrel/hoop/lacquered_wood"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:wood/barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }
