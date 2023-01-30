@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/log/rosewood",
+      "log": "tfc:blocks/material_set/wood/log/side/rosewood",
       "planks": "tfc:blocks/wood/planks/rosewood",
-      "particle": "tfc:blocks/wood/log/rosewood"
+      "particle": "tfc:blocks/material_set/wood/log/side/rosewood"
     },
     "uvlock": true
   },

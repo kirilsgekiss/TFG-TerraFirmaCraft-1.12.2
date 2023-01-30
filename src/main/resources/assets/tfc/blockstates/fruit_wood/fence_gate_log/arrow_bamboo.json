@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/log/arrow_bamboo",
+      "log": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
       "planks": "tfc:blocks/wood/planks/arrow_bamboo",
-      "particle": "tfc:blocks/wood/log/arrow_bamboo"
+      "particle": "tfc:blocks/material_set/wood/log/side/arrow_bamboo"
     },
     "uvlock": true
   },

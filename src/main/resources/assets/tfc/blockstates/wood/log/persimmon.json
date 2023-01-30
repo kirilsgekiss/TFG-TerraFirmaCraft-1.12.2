@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/persimmon",
-      "side": "tfc:blocks/wood/log/persimmon",
+      "particle": "tfc:blocks/material_set/wood/log/side/persimmon",
+      "side": "tfc:blocks/material_set/wood/log/side/persimmon",
       "end": "tfc:blocks/wood/top/persimmon",
       "layer0": "tfc:items/wood/log/persimmon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/persimmon"
+          "end": "tfc:blocks/material_set/wood/log/side/persimmon"
         }
       }
     },

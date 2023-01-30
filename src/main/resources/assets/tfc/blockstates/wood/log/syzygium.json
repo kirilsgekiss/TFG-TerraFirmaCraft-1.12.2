@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/syzygium",
-      "side": "tfc:blocks/wood/log/syzygium",
+      "particle": "tfc:blocks/material_set/wood/log/side/syzygium",
+      "side": "tfc:blocks/material_set/wood/log/side/syzygium",
       "end": "tfc:blocks/wood/top/syzygium",
       "layer0": "tfc:items/wood/log/syzygium"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/syzygium"
+          "end": "tfc:blocks/material_set/wood/log/side/syzygium"
         }
       }
     },

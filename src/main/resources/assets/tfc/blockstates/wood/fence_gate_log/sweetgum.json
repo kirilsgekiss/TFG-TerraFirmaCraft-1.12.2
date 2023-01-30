@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/sweetgum",
+      "log": "tfc:blocks/material_set/wood/log/side/sweetgum",
       "planks": "tfc:blocks/wood/planks/sweetgum",
-      "particle": "tfc:blocks/wood/log/sweetgum"
+      "particle": "tfc:blocks/material_set/wood/log/side/sweetgum"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

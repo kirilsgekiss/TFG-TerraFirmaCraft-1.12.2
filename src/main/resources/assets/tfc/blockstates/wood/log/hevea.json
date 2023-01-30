@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/hevea",
-      "side": "tfc:blocks/wood/log/hevea",
+      "particle": "tfc:blocks/material_set/wood/log/side/hevea",
+      "side": "tfc:blocks/material_set/wood/log/side/hevea",
       "end": "tfc:blocks/wood/top/hevea",
       "layer0": "tfc:items/wood/log/hevea"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/birch"
+          "end": "tfc:blocks/material_set/wood/log/side/birch"
         }
       }
     },

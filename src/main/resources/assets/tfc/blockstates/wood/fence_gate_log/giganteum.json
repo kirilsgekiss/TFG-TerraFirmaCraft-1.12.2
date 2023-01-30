@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/giganteum",
+      "log": "tfc:blocks/material_set/wood/log/side/giganteum",
       "planks": "tfc:blocks/wood/planks/giganteum",
-      "particle": "tfc:blocks/wood/log/giganteum"
+      "particle": "tfc:blocks/material_set/wood/log/side/giganteum"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

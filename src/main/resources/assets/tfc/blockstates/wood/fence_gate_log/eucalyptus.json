@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/eucalyptus",
+      "log": "tfc:blocks/material_set/wood/log/side/eucalyptus",
       "planks": "tfc:blocks/wood/planks/eucalyptus",
-      "particle": "tfc:blocks/wood/log/eucalyptus"
+      "particle": "tfc:blocks/material_set/wood/log/side/eucalyptus"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

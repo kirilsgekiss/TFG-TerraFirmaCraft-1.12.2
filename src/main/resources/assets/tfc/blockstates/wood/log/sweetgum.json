@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/sweetgum",
-      "side": "tfc:blocks/wood/log/sweetgum",
+      "particle": "tfc:blocks/material_set/wood/log/side/sweetgum",
+      "side": "tfc:blocks/material_set/wood/log/side/sweetgum",
       "end": "tfc:blocks/wood/top/sweetgum",
       "layer0": "tfc:items/wood/log/sweetgum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/sweetgum"
+          "end": "tfc:blocks/material_set/wood/log/side/sweetgum"
         }
       }
     },

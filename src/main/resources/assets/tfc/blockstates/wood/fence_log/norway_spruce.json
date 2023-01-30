@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/norway_spruce",
-      "log": "tfc:blocks/wood/log/norway_spruce",
+      "log": "tfc:blocks/material_set/wood/log/side/norway_spruce",
       "planks": "tfc:blocks/wood/planks/norway_spruce",
-      "particle": "tfc:blocks/wood/log/norway_spruce"
+      "particle": "tfc:blocks/material_set/wood/log/side/norway_spruce"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

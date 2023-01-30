@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/persimmon",
-      "log": "tfc:blocks/wood/log/persimmon",
+      "log": "tfc:blocks/material_set/wood/log/side/persimmon",
       "planks": "tfc:blocks/wood/planks/persimmon",
-      "particle": "tfc:blocks/wood/log/persimmon"
+      "particle": "tfc:blocks/material_set/wood/log/side/persimmon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

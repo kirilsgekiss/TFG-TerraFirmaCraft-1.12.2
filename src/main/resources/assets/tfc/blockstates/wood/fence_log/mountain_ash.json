@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/mountain_ash",
-      "log": "tfc:blocks/wood/log/mountain_ash",
+      "log": "tfc:blocks/material_set/wood/log/side/mountain_ash",
       "planks": "tfc:blocks/wood/planks/mountain_ash",
-      "particle": "tfc:blocks/wood/log/mountain_ash"
+      "particle": "tfc:blocks/material_set/wood/log/side/mountain_ash"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

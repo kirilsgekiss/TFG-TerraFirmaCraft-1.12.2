@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/yellow_meranti",
+      "log": "tfc:blocks/material_set/wood/log/side/yellow_meranti",
       "planks": "tfc:blocks/wood/planks/yellow_meranti",
-      "particle": "tfc:blocks/wood/log/yellow_meranti"
+      "particle": "tfc:blocks/material_set/wood/log/side/yellow_meranti"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

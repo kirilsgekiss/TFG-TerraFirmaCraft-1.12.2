@@ -5,9 +5,9 @@
     "model": "tfc:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/dragon_bamboo",
-      "log": "tfc:blocks/wood/log/dragon_bamboo",
+      "log": "tfc:blocks/material_set/wood/log/side/dragon_bamboo",
       "planks": "tfc:blocks/wood/planks/dragon_bamboo",
-      "particle": "tfc:blocks/wood/log/dragon_bamboo"
+      "particle": "tfc:blocks/material_set/wood/log/side/dragon_bamboo"
     }
   },
   "variants": {

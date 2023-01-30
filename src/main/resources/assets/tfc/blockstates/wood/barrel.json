@@ -4,10 +4,11 @@
   "defaults": {
     "model": "tfc:wood/barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/planks/pattern",
-      "planks": "tfc:blocks/wood/planks/pattern",
-      "sheet": "tfc:blocks/wood/planks/pattern",
-      "hoop": "tfc:blocks/barrelhoop"
+      "particle": "tfc:blocks/materials/wood/planks/pattern",
+      "planks": "tfc:blocks/materials/wood/planks/pattern",
+      "lid": "tfc:blocks/materials/wood/barrel/lid/pattern",
+      "base": "tfc:blocks/materials/wood/barrel/base/pattern",
+      "hoop": "tfc:blocks/materials/wood/barrel/hoop/lacquered_wood"
     }
   },
   "variants": {

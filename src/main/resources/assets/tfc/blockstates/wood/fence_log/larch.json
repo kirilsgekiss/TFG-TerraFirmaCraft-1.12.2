@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/larch",
-      "log": "tfc:blocks/wood/log/larch",
+      "log": "tfc:blocks/material_set/wood/log/side/larch",
       "planks": "tfc:blocks/wood/planks/larch",
-      "particle": "tfc:blocks/wood/log/larch"
+      "particle": "tfc:blocks/material_set/wood/log/side/larch"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/brazilwood",
-      "log": "tfc:blocks/wood/log/brazilwood",
+      "log": "tfc:blocks/material_set/wood/log/side/brazilwood",
       "planks": "tfc:blocks/wood/planks/brazilwood",
-      "particle": "tfc:blocks/wood/log/brazilwood"
+      "particle": "tfc:blocks/material_set/wood/log/side/brazilwood"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

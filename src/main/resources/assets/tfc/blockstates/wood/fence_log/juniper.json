@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/juniper",
-      "log": "tfc:blocks/wood/log/juniper",
+      "log": "tfc:blocks/material_set/wood/log/side/juniper",
       "planks": "tfc:blocks/wood/planks/juniper",
-      "particle": "tfc:blocks/wood/log/juniper"
+      "particle": "tfc:blocks/material_set/wood/log/side/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

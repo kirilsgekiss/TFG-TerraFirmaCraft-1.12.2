@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/jacaranda",
-      "side": "tfc:blocks/wood/log/jacaranda",
+      "particle": "tfc:blocks/material_set/wood/log/side/jacaranda",
+      "side": "tfc:blocks/material_set/wood/log/side/jacaranda",
       "end": "tfc:blocks/wood/top/jacaranda",
       "layer0": "tfc:items/wood/log/jacaranda"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/jacaranda"
+          "end": "tfc:blocks/material_set/wood/log/side/jacaranda"
         }
       }
     },

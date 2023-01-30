@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/ginkgo",
-      "side": "tfc:blocks/wood/log/ginkgo",
+      "particle": "tfc:blocks/material_set/wood/log/side/ginkgo",
+      "side": "tfc:blocks/material_set/wood/log/side/ginkgo",
       "end": "tfc:blocks/wood/top/ginkgo",
       "layer0": "tfc:items/wood/log/ginkgo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/ginkgo"
+          "end": "tfc:blocks/material_set/wood/log/side/ginkgo"
         }
       }
     },

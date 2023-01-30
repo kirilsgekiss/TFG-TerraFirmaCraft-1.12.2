@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/palm",
-      "side": "tfc:blocks/wood/log/palm",
+      "particle": "tfc:blocks/material_set/wood/log/side/palm",
+      "side": "tfc:blocks/material_set/wood/log/side/palm",
       "end": "tfc:blocks/wood/top/palm",
       "layer0": "tfc:items/wood/log/palm"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/palm"
+          "end": "tfc:blocks/material_set/wood/log/side/palm"
         }
       }
     },

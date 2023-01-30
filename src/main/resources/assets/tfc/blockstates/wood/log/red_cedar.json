@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/red_cedar",
-      "side": "tfc:blocks/wood/log/red_cedar",
+      "particle": "tfc:blocks/material_set/wood/log/side/red_cedar",
+      "side": "tfc:blocks/material_set/wood/log/side/red_cedar",
       "end": "tfc:blocks/wood/top/red_cedar",
       "layer0": "tfc:items/wood/log/red_cedar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/red_cedar"
+          "end": "tfc:blocks/material_set/wood/log/side/red_cedar"
         }
       }
     },

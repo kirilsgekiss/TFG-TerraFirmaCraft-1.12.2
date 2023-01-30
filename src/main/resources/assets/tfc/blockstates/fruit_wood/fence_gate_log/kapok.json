@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/log/kapok",
+      "log": "tfc:blocks/material_set/wood/log/side/kapok",
       "planks": "tfc:blocks/wood/planks/kapok",
-      "particle": "tfc:blocks/wood/log/kapok"
+      "particle": "tfc:blocks/material_set/wood/log/side/kapok"
     },
     "uvlock": true
   },

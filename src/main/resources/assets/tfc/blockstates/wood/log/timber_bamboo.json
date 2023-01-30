@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/timber_bamboo",
-      "side": "tfc:blocks/wood/log/timber_bamboo",
+      "particle": "tfc:blocks/material_set/wood/log/side/timber_bamboo",
+      "side": "tfc:blocks/material_set/wood/log/side/timber_bamboo",
       "end": "tfc:blocks/wood/top/timber_bamboo",
       "layer0": "tfc:items/wood/log/timber_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/timber_bamboo"
+          "end": "tfc:blocks/material_set/wood/log/side/timber_bamboo"
         }
       }
     },

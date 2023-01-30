@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/angelim",
-      "side": "tfc:blocks/wood/log/angelim",
+      "particle": "tfc:blocks/material_set/wood/log/side/angelim",
+      "side": "tfc:blocks/material_set/wood/log/side/angelim",
       "end": "tfc:blocks/wood/top/angelim",
       "layer0": "tfc:items/wood/log/angelim"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/angelim"
+          "end": "tfc:blocks/material_set/wood/log/side/angelim"
         }
       }
     },

@@ -5,15 +5,13 @@
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
       "top": "tfc:blocks/wood/top/cypress",
-      "log": "tfc:blocks/wood/log/cypress",
+      "log": "tfc:blocks/material_set/wood/log/side/cypress",
       "planks": "tfc:blocks/wood/planks/cypress",
-      "particle": "tfc:blocks/wood/log/cypress"
+      "particle": "tfc:blocks/material_set/wood/log/side/cypress"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

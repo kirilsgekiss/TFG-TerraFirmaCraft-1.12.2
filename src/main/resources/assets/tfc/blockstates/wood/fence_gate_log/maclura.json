@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/maclura",
+      "log": "tfc:blocks/material_set/wood/log/side/maclura",
       "planks": "tfc:blocks/wood/planks/maclura",
-      "particle": "tfc:blocks/wood/log/maclura"
+      "particle": "tfc:blocks/material_set/wood/log/side/maclura"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

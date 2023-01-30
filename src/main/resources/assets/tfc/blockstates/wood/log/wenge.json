@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/wenge",
-      "side": "tfc:blocks/wood/log/wenge",
+      "particle": "tfc:blocks/material_set/wood/log/side/wenge",
+      "side": "tfc:blocks/material_set/wood/log/side/wenge",
       "end": "tfc:blocks/wood/top/wenge",
       "layer0": "tfc:items/wood/log/wenge"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/wenge"
+          "end": "tfc:blocks/material_set/wood/log/side/wenge"
         }
       }
     },

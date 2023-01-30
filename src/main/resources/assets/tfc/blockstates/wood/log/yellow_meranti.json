@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/yellow_meranti",
-      "side": "tfc:blocks/wood/log/yellow_meranti",
+      "particle": "tfc:blocks/material_set/wood/log/side/yellow_meranti",
+      "side": "tfc:blocks/material_set/wood/log/side/yellow_meranti",
       "end": "tfc:blocks/wood/top/yellow_meranti",
       "layer0": "tfc:items/wood/log/yellow_meranti"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/yellow_meranti"
+          "end": "tfc:blocks/material_set/wood/log/side/yellow_meranti"
         }
       }
     },

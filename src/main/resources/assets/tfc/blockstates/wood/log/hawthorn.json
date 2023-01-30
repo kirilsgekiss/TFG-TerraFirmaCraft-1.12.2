@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/hawthorn",
-      "side": "tfc:blocks/wood/log/hawthorn",
+      "particle": "tfc:blocks/material_set/wood/log/side/hawthorn",
+      "side": "tfc:blocks/material_set/wood/log/side/hawthorn",
       "end": "tfc:blocks/wood/top/hawthorn",
       "layer0": "tfc:items/wood/log/hawthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/hawthorn"
+          "end": "tfc:blocks/material_set/wood/log/side/hawthorn"
         }
       }
     },

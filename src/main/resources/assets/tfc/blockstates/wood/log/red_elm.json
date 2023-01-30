@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/red_elm",
-      "side": "tfc:blocks/wood/log/red_elm",
+      "particle": "tfc:blocks/material_set/wood/log/side/red_elm",
+      "side": "tfc:blocks/material_set/wood/log/side/red_elm",
       "end": "tfc:blocks/wood/top/red_elm",
       "layer0": "tfc:items/wood/log/red_elm"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/red_elm"
+          "end": "tfc:blocks/material_set/wood/log/side/red_elm"
         }
       }
     },

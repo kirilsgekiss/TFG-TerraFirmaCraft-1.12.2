@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/kauri",
-      "side": "tfc:blocks/wood/log/kauri",
+      "particle": "tfc:blocks/material_set/wood/log/side/kauri",
+      "side": "tfc:blocks/material_set/wood/log/side/kauri",
       "end": "tfc:blocks/wood/top/kauri",
       "layer0": "tfc:items/wood/log/kauri"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/kauri"
+          "end": "tfc:blocks/material_set/wood/log/side/kauri"
         }
       }
     },

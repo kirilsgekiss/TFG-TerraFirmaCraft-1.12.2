@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/black_walnut",
-      "side": "tfc:blocks/wood/log/black_walnut",
+      "particle": "tfc:blocks/material_set/wood/log/side/black_walnut",
+      "side": "tfc:blocks/material_set/wood/log/side/black_walnut",
       "end": "tfc:blocks/wood/top/black_walnut",
       "layer0": "tfc:items/wood/log/black_walnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/black_walnut"
+          "end": "tfc:blocks/material_set/wood/log/side/black_walnut"
         }
       }
     },

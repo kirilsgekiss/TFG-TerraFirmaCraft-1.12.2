@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/mahoe",
-      "side": "tfc:blocks/wood/log/mahoe",
+      "particle": "tfc:blocks/material_set/wood/log/side/mahoe",
+      "side": "tfc:blocks/material_set/wood/log/side/mahoe",
       "end": "tfc:blocks/wood/top/mahoe",
       "layer0": "tfc:items/wood/log/mahoe"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/mahoe"
+          "end": "tfc:blocks/material_set/wood/log/side/mahoe"
         }
       }
     },
