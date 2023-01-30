@@ -6,7 +6,7 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/loam",
       "particle": "tfc:blocks/stonetypes/loam",
-      "top": "tfc:blocks/stonetypes/loam_farmland/slate"
+      "top": "tfc:blocks/stonetypes/loam_farmland"
     }
   },
   "variants": {
