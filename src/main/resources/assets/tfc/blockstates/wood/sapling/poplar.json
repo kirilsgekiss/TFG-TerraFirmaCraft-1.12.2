@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/poplar",
-      "layer0": "tfc:blocks/saplings/poplar"
+      "cross": "tfc:blocks/material_set/wood/sapling/poplar",
+      "layer0": "tfc:blocks/material_set/wood/sapling/poplar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

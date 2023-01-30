@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/red_cedar",
-      "top": "tfc:blocks/wood/door/upper/red_cedar"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/red_cedar",
+      "top": "tfc:blocks/material_set/wood/door/upper/red_cedar"
     }
   },
   "variants": {

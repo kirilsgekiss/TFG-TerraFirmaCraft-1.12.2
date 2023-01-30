@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:wood/tool_rack",
     "textures": {
-      "texture": "tfc:blocks/wood/planks/pattern",
-      "particle": "tfc:blocks/wood/planks/pattern"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "south": {},
       "west": {

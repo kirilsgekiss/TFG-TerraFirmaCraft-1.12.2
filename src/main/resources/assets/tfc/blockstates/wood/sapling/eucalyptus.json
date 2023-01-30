@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/eucalyptus",
-      "layer0": "tfc:blocks/saplings/eucalyptus"
+      "cross": "tfc:blocks/material_set/wood/sapling/eucalyptus",
+      "layer0": "tfc:blocks/material_set/wood/sapling/eucalyptus"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/red_currant",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/red_currant"
+      "texture": "tfc:blocks/material_set/wood/sheet/red_currant",
+      "particle": "tfc:blocks/material_set/wood/sheet/red_currant"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

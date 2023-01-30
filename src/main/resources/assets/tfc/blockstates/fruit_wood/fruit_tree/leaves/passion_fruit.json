@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/passion_fruit"
+      "all": "tfc:blocks/material_set/wood/leaves/passion_fruit"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/passion_fruit",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/passion_fruit"
+          "all": "tfc:blocks/material_set/wood/leaves/passion_fruit",
+          "texture": "tfc:blocks/material_set/wood/flowers/passion_fruit"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/passion_fruit",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/passion_fruit"
+          "all": "tfc:blocks/material_set/wood/leaves/passion_fruit",
+          "texture": "tfc:blocks/material_set/wood/fruit/passion_fruit"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

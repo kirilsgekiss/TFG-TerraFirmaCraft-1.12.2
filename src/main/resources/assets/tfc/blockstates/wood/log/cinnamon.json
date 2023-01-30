@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/cinnamon",
-      "side": "tfc:blocks/wood/log/cinnamon",
-      "end": "tfc:blocks/wood/top/cinnamon",
+      "particle": "tfc:blocks/material_set/wood/log/side/cinnamon",
+      "side": "tfc:blocks/material_set/wood/log/side/cinnamon",
+      "end": "tfc:blocks/material_set/wood/log/top/cinnamon",
       "layer0": "tfc:items/wood/log/cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/cinnamon"
+          "end": "tfc:blocks/material_set/wood/log/side/cinnamon"
         }
       }
     },

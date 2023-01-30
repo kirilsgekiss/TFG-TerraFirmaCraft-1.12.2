@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/iroko",
-      "particle": "tfc:blocks/wood/sheets/iroko"
+      "texture": "tfc:blocks/material_set/wood/sheets/iroko",
+      "particle": "tfc:blocks/material_set/wood/sheets/iroko"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

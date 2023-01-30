@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/ipe",
-      "particle": "tfc:blocks/wood/sheets/ipe"
+      "texture": "tfc:blocks/material_set/wood/sheets/ipe",
+      "particle": "tfc:blocks/material_set/wood/sheets/ipe"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

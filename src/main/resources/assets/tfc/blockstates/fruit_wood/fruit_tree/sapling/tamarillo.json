@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/tamarillo",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/tamarillo"
+      "cross": "tfc:blocks/material_set/wood/sapling/tamarillo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/tamarillo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

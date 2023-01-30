@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/hawthorn",
-      "layer0": "tfc:blocks/saplings/hawthorn"
+      "cross": "tfc:blocks/material_set/wood/sapling/hawthorn",
+      "layer0": "tfc:blocks/material_set/wood/sapling/hawthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

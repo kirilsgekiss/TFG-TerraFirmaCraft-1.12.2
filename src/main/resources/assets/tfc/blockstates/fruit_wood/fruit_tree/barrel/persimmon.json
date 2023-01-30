@@ -4,24 +4,20 @@
   "defaults": {
     "model": "tfc:barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/fruit_tree/planks/persimmon",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/persimmon",
-      "sheet": "tfc:blocks/wood/fruit_tree/sheets/persimmon",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "sheet": "tfc:blocks/material_set/wood/sheet/persimmon",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

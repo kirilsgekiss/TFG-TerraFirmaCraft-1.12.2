@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/fruit_trees/bark/green_apple",
-      "particle": "tfc:blocks/fruit_trees/bark/green_apple"
+      "texture": "tfc:blocks/material_set/wood/log/side/green_apple",
+      "particle": "tfc:blocks/material_set/wood/log/side/green_apple"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"
@@ -36,28 +34,28 @@
     },
     "north": {
       "0": {},
-      "1": {"submodel": "tfc:fruit_trees/branch_vertical_connection"},
-      "2": {"submodel": "tfc:fruit_trees/branch_horizontal_connection"}
+      "1": { "submodel": "tfc:fruit_trees/branch_vertical_connection" },
+      "2": { "submodel": "tfc:fruit_trees/branch_horizontal_connection" }
     },
     "east": {
       "0": {},
-      "1": {"submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 90},
-      "2": {"submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 90}
+      "1": { "submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 90 },
+      "2": { "submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 90 }
     },
     "south": {
       "0": {},
-      "1": {"submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 180},
-      "2": {"submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 180}
+      "1": { "submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 180 },
+      "2": { "submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 180 }
     },
     "west": {
       "0": {},
-      "1": {"submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 270},
-      "2": {"submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 270}
+      "1": { "submodel": "tfc:fruit_trees/branch_vertical_connection", "y": 270 },
+      "2": { "submodel": "tfc:fruit_trees/branch_horizontal_connection", "y": 270 }
     },
     "up": {
       "0": {},
       "1": {},
-      "2": {"submodel": "tfc:fruit_trees/branch_horizontal_connection", "x": 270}
+      "2": { "submodel": "tfc:fruit_trees/branch_horizontal_connection", "x": 270 }
     }
   }
 }

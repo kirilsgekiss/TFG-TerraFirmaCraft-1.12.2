@@ -4,8 +4,8 @@
   "defaults": {
     "model": "pressure_plate",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/wild_cherry",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/wild_cherry"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

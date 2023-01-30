@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -55,7 +55,7 @@ public class WorldGenGlowPlant implements IWorldGenerator
             {
                 if (isValidPosition(world, pos) && pos.getY() < WorldTypeTFC.SEALEVEL - 1 && pos.getY() > 115 && floraDensity >= 0.4f && floraDiversity >= 0.3f && floraDensity <= 0.6f && floraDiversity <= 0.5f && avgTemperature >= 10f && avgTemperature <= 28f && rainfall >= 150f)
                 {
-                    world.setBlockState(pos, TFCBlocks.GLOWING_SEA_BANANA.getDefaultState());
+                    world.setBlockState(pos, BlocksTFC.GLOWING_SEA_BANANA.getDefaultState());
                 }
             }
         }

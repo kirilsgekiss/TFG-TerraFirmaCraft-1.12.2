@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.util.Helpers;
 
@@ -216,8 +216,8 @@ public class TFCBlockSaguaroCactus extends TFCBlockPlant implements IGrowable, I
         Block block2 = worldIn.getBlockState(pos.down()).getBlock();
 
         return (block2 == this || 
-                TFCBlocks.isSand(worldIn.getBlockState(pos.down())) ||
-                TFCBlocks.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
+                BlocksTFC.isSand(worldIn.getBlockState(pos.down())) ||
+                BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
                 block2 == Blocks.HARDENED_CLAY ||
                 block2 == Blocks.STAINED_HARDENED_CLAY) /*&& 
                 plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && 
@@ -253,8 +253,8 @@ public class TFCBlockSaguaroCactus extends TFCBlockPlant implements IGrowable, I
         Block block2 = worldIn.getBlockState(pos.down()).getBlock();
 
         return (block2 == this || 
-                TFCBlocks.isSand(worldIn.getBlockState(pos.down())) ||
-                TFCBlocks.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
+                BlocksTFC.isSand(worldIn.getBlockState(pos.down())) ||
+                BlocksTFC.isSoilOrGravel(worldIn.getBlockState(pos.down())) ||
                 block2 == Blocks.HARDENED_CLAY ||
                 block2 == Blocks.STAINED_HARDENED_CLAY) /*&& 
                 plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && 

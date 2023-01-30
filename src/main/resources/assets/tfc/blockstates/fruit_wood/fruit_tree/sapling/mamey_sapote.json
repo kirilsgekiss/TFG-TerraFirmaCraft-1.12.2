@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/mamey_sapote",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/mamey_sapote"
+      "cross": "tfc:blocks/material_set/wood/sapling/mamey_sapote",
+      "layer0": "tfc:blocks/material_set/wood/sapling/mamey_sapote"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

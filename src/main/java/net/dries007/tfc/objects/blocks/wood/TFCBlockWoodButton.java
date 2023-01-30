@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.BlockButtonWood;

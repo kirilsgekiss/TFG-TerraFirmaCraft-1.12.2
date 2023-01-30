@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/willow",
-      "layer0": "tfc:blocks/saplings/willow"
+      "cross": "tfc:blocks/material_set/wood/sapling/willow",
+      "layer0": "tfc:blocks/material_set/wood/sapling/willow"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

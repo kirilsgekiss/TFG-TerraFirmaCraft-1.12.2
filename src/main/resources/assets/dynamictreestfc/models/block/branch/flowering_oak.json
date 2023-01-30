@@ -1,0 +1,7 @@
+{
+  "parent": "dynamictrees:block/smartmodel/branch",
+  "textures": {
+    "rings": "tfc:blocks/material_set/wood/log/top/flowering_oak",
+    "bark": "tfc:blocks/material_set/wood/log/side/flowering_oak"
+  }
+}

@@ -4,12 +4,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/juniper"
+      "all": "tfc:blocks/material_set/wood/leaves/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

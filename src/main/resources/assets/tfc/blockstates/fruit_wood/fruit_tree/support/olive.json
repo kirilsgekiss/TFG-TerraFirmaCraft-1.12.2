@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/olive",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/olive"
+      "texture": "tfc:blocks/material_set/wood/sheet/olive",
+      "particle": "tfc:blocks/material_set/wood/sheet/olive"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

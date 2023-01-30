@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/norway_spruce",
-      "particle": "tfc:blocks/wood/sheets/norway_spruce"
+      "texture": "tfc:blocks/material_set/wood/sheets/norway_spruce",
+      "particle": "tfc:blocks/material_set/wood/sheets/norway_spruce"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

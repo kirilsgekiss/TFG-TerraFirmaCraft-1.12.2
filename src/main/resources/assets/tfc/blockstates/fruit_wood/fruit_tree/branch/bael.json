@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/bael",
-      "particle": "tfc:blocks/wood/fruit_tree/log/bael"
+      "texture": "tfc:blocks/material_set/wood/log/side/bael",
+      "particle": "tfc:blocks/material_set/wood/log/side/bael"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

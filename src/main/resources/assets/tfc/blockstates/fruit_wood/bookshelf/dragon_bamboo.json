@@ -4,17 +4,15 @@
   "defaults": {
     "model": "tfc:bookshelf",
     "textures": {
-      "all": "tfc:blocks/wood/planks/dragon_bamboo",
-      "particle": "tfc:blocks/wood/planks/dragon_bamboo",
-      "north": "tfc:blocks/wood/bookshelf",
-      "south": "tfc:blocks/wood/bookshelf",
-      "east": "tfc:blocks/wood/bookshelf",
-      "west": "tfc:blocks/wood/bookshelf"
+      "all": "tfc:blocks/material_set/wood/planks/bamboo",
+      "particle": "tfc:blocks/material_set/wood/planks/bamboo",
+      "north": "tfc:blocks/material_set/wood/bookshelf/bookshelf",
+      "south": "tfc:blocks/material_set/wood/bookshelf/bookshelf",
+      "east": "tfc:blocks/material_set/wood/bookshelf/bookshelf",
+      "west": "tfc:blocks/material_set/wood/bookshelf/bookshelf"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

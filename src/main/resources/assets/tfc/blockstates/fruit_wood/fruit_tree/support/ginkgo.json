@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/ginkgo",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/ginkgo"
+      "texture": "tfc:blocks/material_set/wood/sheet/ginkgo",
+      "particle": "tfc:blocks/material_set/wood/sheet/ginkgo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/allspice",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/allspice"
+      "texture": "tfc:blocks/material_set/wood/sheet/allspice",
+      "particle": "tfc:blocks/material_set/wood/sheet/allspice"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

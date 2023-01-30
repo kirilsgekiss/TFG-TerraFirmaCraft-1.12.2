@@ -10,7 +10,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -70,9 +70,9 @@ public class WorldGenSurfaceBones implements IWorldGenerator
         ChunkDataTFC data = ChunkDataTFC.get(world, pos);
         if (pos.getY() > 146 && pos.getY() < 170 && data.getRainfall() <= 75)
         {
-            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down())))
+            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(world.getBlockState(pos.down())))
             {
-                world.setBlockState(pos, TFCBlocks.BONES.getDefaultState());
+                world.setBlockState(pos, BlocksTFC.BONES.getDefaultState());
             }
         }
     }

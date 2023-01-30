@@ -21,13 +21,13 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 import static net.minecraft.block.BlockVine.*;
 
@@ -41,29 +41,29 @@ public class TreeGenKapok implements ITreeGenerator
     private IBlockState bark;
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
-        trunk = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
-        bark = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
+        trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
+        bark = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
 
-        int height = 12 + rand.nextInt(8);
-        int branches = 2 + rand.nextInt(3);
+        int height = 12 + random.nextInt(8);
+        int branches = 2 + random.nextInt(3);
 
         int x1, y1, z1, type;
         for (int i = 0; i < branches; i++)
         {
-            y1 = 6 + rand.nextInt(height - 8);
-            x1 = rand.nextInt(3);
-            z1 = rand.nextInt(3);
-            if (rand.nextBoolean())
+            y1 = 6 + random.nextInt(height - 8);
+            x1 = random.nextInt(3);
+            z1 = random.nextInt(3);
+            if (random.nextBoolean())
                 x1 = -x1 - 1;
-            if (rand.nextBoolean())
+            if (random.nextBoolean())
                 x1 = -z1 - 1;
             if (x1 == 0 || x1 == -1)
                 x1 = x1 * 3 + 1;
             if (z1 == 0 || z1 == -1)
                 z1 = z1 * 3 + 1;
-            type = 1 + rand.nextInt(3);
+            type = 1 + random.nextInt(3);
             placeBranch(manager, world, pos.add(x1, y1, z1), tree.getRegistryName() + "/branch" + type);
             checkAndPlace(world, pos.add(x1 - Math.abs(x1) / x1, y1 - 1, z1 - Math.abs(z1) / z1), true);
         }
@@ -79,13 +79,13 @@ public class TreeGenKapok implements ITreeGenerator
     {
         for (BlockPos p1 : trunkPos)
         {
-            if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1))))
+            if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1))))
                 continue;
             if (world.getBlockState(pos.add(p1)).getMaterial().isReplaceable())
             {
-                if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(1))))
+                if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(1))))
                     continue;
-                if (TFCBlocks.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
+                if (BlocksTFC.isSoil(world.getBlockState(pos.add(p1).down(2))) && world.getBlockState(pos.add(p1.down(1))).getMaterial().isReplaceable())
                     continue;
             }
             return false;
@@ -127,7 +127,7 @@ public class TreeGenKapok implements ITreeGenerator
 
     private void checkAndPlace(World world, BlockPos pos, boolean useBark)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
             world.setBlockState(pos, useBark ? bark : trunk);
     }
 

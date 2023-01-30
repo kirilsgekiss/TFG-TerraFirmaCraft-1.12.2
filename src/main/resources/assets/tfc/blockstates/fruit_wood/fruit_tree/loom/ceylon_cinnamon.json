@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:loom",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/ceylon_cinnamon",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/ceylon_cinnamon"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "south": {},
       "west": {

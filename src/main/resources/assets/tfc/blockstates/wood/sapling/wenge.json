@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/wenge",
-      "layer0": "tfc:blocks/saplings/wenge"
+      "cross": "tfc:blocks/material_set/wood/sapling/wenge",
+      "layer0": "tfc:blocks/material_set/wood/sapling/wenge"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

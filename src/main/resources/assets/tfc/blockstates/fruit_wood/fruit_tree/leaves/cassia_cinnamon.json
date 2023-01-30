@@ -3,12 +3,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/cassia_cinnamon"
+      "all": "tfc:blocks/material_set/wood/leaves/cassia_cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

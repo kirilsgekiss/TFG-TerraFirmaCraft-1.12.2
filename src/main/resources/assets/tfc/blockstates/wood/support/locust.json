@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/locust",
-      "particle": "tfc:blocks/wood/sheets/locust"
+      "texture": "tfc:blocks/material_set/wood/sheets/locust",
+      "particle": "tfc:blocks/material_set/wood/sheets/locust"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

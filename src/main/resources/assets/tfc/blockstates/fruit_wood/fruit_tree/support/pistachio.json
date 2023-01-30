@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/pistachio",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/pistachio"
+      "texture": "tfc:blocks/material_set/wood/sheet/pistachio",
+      "particle": "tfc:blocks/material_set/wood/sheet/pistachio"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

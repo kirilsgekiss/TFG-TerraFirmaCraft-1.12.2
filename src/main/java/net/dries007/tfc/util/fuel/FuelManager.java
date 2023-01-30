@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
@@ -50,7 +50,7 @@ public final class FuelManager
     {
         for (Tree wood : TFCRegistries.TREES.getValuesCollection())
         {
-            TFCBlockLog log = TFCBlockLog.get(wood);
+            BlockLogTFC log = BlockLogTFC.get(wood);
             FUELS.add(new Fuel(IIngredient.of(new ItemStack(log)), wood.getBurnTicks(), wood.getBurnTemp()));
             BlockFruitLog logf = BlockFruitLog.get(wood);
             FUELS.add(new Fuel(IIngredient.of(new ItemStack(logf)), wood.getBurnTicks(), wood.getBurnTemp()));

@@ -62,10 +62,10 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
@@ -941,20 +941,20 @@ public final class TFCItems
             }
         }
 
-        TFCBlocks.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
-        TFCBlocks.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
-        TFCBlocks.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
+        BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
+        BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
+        BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : TFCBlocks.getAllLogBlocks())
+        for (BlockLogTFC log : BlocksTFC.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : TFCBlocks.getAllDoorBlocks())
+        for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new TFCItemDoor(door), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllRockSlabBlocks())
+        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllWoodSlabBlocks())
+        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Tree wood : TFCRegistries.TREES.getValuesCollection())
@@ -1380,7 +1380,7 @@ public final class TFCItems
         simpleItems.add(register(r, "firma_cola_oils", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "oils_firma_cola"), CT_MISC));
         simpleItems.add(register(r, "firma_cola_blend", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "blend_firma_cola"), CT_MISC));
 
-        for (BlockFruitLog log : TFCBlocks.getAllNormalTreeLog())
+        for (BlockFruitLog log : BlocksTFC.getAllNormalTreeLog())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
         // Tools
@@ -1449,18 +1449,18 @@ public final class TFCItems
 
         simpleItems.add(register(r, "wood/fruit_tree/boat/ceylon_cinnamon", new TFCItemBoat(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
 
-        for (int i = 0; i < TFCBlocks.bamboo.length; i++)
+        for (int i = 0; i < BlocksTFC.bamboo.length; i++)
         {
             ItemMisc bambooPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
-            simpleItems.add(register(r, "wood/pole/" + TFCBlocks.bamboo[i], bambooPole, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + TFCBlocks.bamboo[i]), bambooPole);
-            ((BlockBambooLog) TFCBlocks.getAllBambooLog().get(i)).setDrop(bambooPole);
+            simpleItems.add(register(r, "wood/pole/" + BlocksTFC.bamboo[i], bambooPole, CT_WOOD));
+            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + BlocksTFC.bamboo[i]), bambooPole);
+            ((BlockBambooLog) BlocksTFC.getAllBambooLog().get(i)).setDrop(bambooPole);
 
             ItemMisc bambooLumber = new ItemMisc(Size.SMALL, Weight.VERY_LIGHT);
-            simpleItems.add(register(r, "wood/lumber/" + TFCBlocks.bamboo[i], bambooLumber, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + TFCBlocks.bamboo[i]), bambooLumber);
+            simpleItems.add(register(r, "wood/lumber/" + BlocksTFC.bamboo[i], bambooLumber, CT_WOOD));
+            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + BlocksTFC.bamboo[i]), bambooLumber);
 
-            simpleItems.add(register(r, "wood/boat/" + TFCBlocks.bamboo[i], new ItemFruitBoat(TFCBlocks.bambooTrees[i]), CT_WOOD));
+            simpleItems.add(register(r, "wood/boat/" + BlocksTFC.bamboo[i], new ItemFruitBoat(BlocksTFC.bambooTrees[i]), CT_WOOD));
         }
 
         /*for (SeasonalTrees fruitTree : SeasonalTrees.values())
@@ -1587,7 +1587,7 @@ public final class TFCItems
 
         ImmutableList.Builder<ItemFruitDoor> fruitDoors = ImmutableList.builder();
 
-        for (BlockFruitDoor blockDoor : TFCBlocks.getAllFruitDoors())
+        for (BlockFruitDoor blockDoor : BlocksTFC.getAllFruitDoors())
         {
             ItemFruitDoor itemDoor = new ItemFruitDoor(blockDoor);
             fruitDoors.add(register(r, blockDoor.getRegistryName().getPath(), itemDoor, CT_DECORATIONS));
@@ -1595,10 +1595,10 @@ public final class TFCItems
             OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood_" + blockDoor.Name), itemDoor);
         }
 
-        for (BlockFruitSlab.Half slab : TFCBlocks.getAllFruitSlabBlocks())
+        for (BlockFruitSlab.Half slab : BlocksTFC.getAllFruitSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllSlabBlocksTFC())
+        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllSlabBlocksTFC())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 

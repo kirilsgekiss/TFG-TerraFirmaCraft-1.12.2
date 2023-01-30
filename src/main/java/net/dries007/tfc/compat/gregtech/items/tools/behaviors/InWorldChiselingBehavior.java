@@ -7,7 +7,7 @@ import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
 import net.dries007.tfc.api.util.FallingBlockManager;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSmooth;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSmooth;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.ContainerEmpty;
 import net.dries007.tfc.util.OreDictionaryHelper;

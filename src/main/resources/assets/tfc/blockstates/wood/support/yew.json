@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/yew",
-      "particle": "tfc:blocks/wood/sheets/yew"
+      "texture": "tfc:blocks/material_set/wood/sheets/yew",
+      "particle": "tfc:blocks/material_set/wood/sheets/yew"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

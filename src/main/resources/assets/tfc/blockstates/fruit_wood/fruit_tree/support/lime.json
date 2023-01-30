@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/lime",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/lime"
+      "texture": "tfc:blocks/material_set/wood/sheet/lime",
+      "particle": "tfc:blocks/material_set/wood/sheet/lime"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

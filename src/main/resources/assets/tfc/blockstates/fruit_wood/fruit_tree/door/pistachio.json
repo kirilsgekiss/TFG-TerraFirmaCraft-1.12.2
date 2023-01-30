@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/pistachio",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/pistachio"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/pistachio",
+      "top": "tfc:blocks/material_set/wood/door/upper/pistachio"
     }
   },
   "variants": {

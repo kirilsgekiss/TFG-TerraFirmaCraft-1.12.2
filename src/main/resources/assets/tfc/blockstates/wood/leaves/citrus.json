@@ -4,12 +4,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/citrus"
+      "all": "tfc:blocks/material_set/wood/leaves/citrus"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

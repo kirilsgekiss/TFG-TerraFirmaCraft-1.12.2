@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/cassia_cinnamon",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/cassia_cinnamon"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/cassia_cinnamon",
+      "top": "tfc:blocks/material_set/wood/door/upper/cassia_cinnamon"
     }
   },
   "variants": {

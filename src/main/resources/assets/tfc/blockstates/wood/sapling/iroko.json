@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/iroko",
-      "layer0": "tfc:blocks/saplings/iroko"
+      "cross": "tfc:blocks/material_set/wood/sapling/iroko",
+      "layer0": "tfc:blocks/material_set/wood/sapling/iroko"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

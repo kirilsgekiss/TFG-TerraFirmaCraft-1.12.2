@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/loquat",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/loquat"
+      "texture": "tfc:blocks/material_set/wood/sheet/loquat",
+      "particle": "tfc:blocks/material_set/wood/sheet/loquat"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

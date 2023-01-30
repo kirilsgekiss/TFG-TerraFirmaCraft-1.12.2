@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/cassia_cinnamon",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/cassia_cinnamon"
+      "texture": "tfc:blocks/material_set/wood/sheet/cassia_cinnamon",
+      "particle": "tfc:blocks/material_set/wood/sheet/cassia_cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

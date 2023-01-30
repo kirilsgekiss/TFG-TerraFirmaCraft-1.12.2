@@ -1,6 +1,6 @@
 package net.dries007.tfc.util;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.types.DefaultTrees;
@@ -55,9 +55,9 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.STONEWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlockFruitLog.get(TFCRegistries.TREES.getValue(DefaultTrees.EUCALYPTUS))), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.STRAW), () -> new ItemHeatHandler(null, 1, 30));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCBlocks.TWIG), () -> new ItemHeatHandler(null, 1, 50));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCBlocks.DRIFTWOOD), () -> new ItemHeatHandler(null, 1, 60));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCBlocks.BONES), () -> new ItemHeatHandler(null, 1, 425));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFC.TWIG), () -> new ItemHeatHandler(null, 1, 50));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFC.DRIFTWOOD), () -> new ItemHeatHandler(null, 1, 60));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFC.BONES), () -> new ItemHeatHandler(null, 1, 425));
 
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItemFood.get(Food.BLACK_TEA)), () -> new ItemHeatHandler(null, 1, 480));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItemFood.get(Food.GREEN_TEA)), () -> new ItemHeatHandler(null, 1, 480));

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/ash",
-      "particle": "tfc:blocks/wood/sheets/ash"
+      "texture": "tfc:blocks/material_set/wood/sheets/ash",
+      "particle": "tfc:blocks/material_set/wood/sheets/ash"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

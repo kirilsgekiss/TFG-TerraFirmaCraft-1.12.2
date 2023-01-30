@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/papaya",
-      "particle": "tfc:blocks/wood/sheets/papaya"
+      "texture": "tfc:blocks/material_set/wood/sheets/papaya",
+      "particle": "tfc:blocks/material_set/wood/sheets/papaya"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

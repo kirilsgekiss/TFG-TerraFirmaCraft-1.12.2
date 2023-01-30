@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/beechnut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/beechnut"
+      "texture": "tfc:blocks/material_set/wood/log/side/beechnut",
+      "particle": "tfc:blocks/material_set/wood/log/side/beechnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

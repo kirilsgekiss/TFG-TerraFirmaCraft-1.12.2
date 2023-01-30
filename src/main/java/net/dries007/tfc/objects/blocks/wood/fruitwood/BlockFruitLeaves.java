@@ -7,9 +7,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.ImmutableList;
 
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
@@ -281,7 +281,7 @@ public class BlockFruitLeaves extends BlockLeaves implements IGrowingPlant
 		if(!worldIn.isRemote)
         {
             int dayTime = (int) CalendarTFC.CALENDAR_TIME.getTicks();
-            if (dayTime >= 12000 && dayTime <= 23000 && (fruitTree == SeasonalTrees.YELLOW_MULBERRY || fruitTree == SeasonalTrees.ORANGE_MULBERRY || fruitTree == SeasonalTrees.RED_MULBERRY || state == TFCBlockLeaves.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY))) &&
+            if (dayTime >= 12000 && dayTime <= 23000 && (fruitTree == SeasonalTrees.YELLOW_MULBERRY || fruitTree == SeasonalTrees.ORANGE_MULBERRY || fruitTree == SeasonalTrees.RED_MULBERRY || state == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY))) &&
                 (state.getValue(LEAF_STATE) != EnumLeafState.WINTER || state.getValue(LEAF_STATE) != EnumLeafState.AUTUMN) && state.getValue(DECAYABLE) == true)
             {
                 int bound = 900;
@@ -310,7 +310,7 @@ public class BlockFruitLeaves extends BlockLeaves implements IGrowingPlant
     {
         if (state.getValue(LEAF_STATE) != EnumLeafState.WINTER || fruitTree.hasDeadLeaves == false)
         {
-            return ConfigTFC.General.TREE.enableSaplings ? Item.getItemFromBlock(TFCBlockSapling.get(wood)) : Items.AIR;
+            return ConfigTFC.General.TREE.enableSaplings ? Item.getItemFromBlock(BlockSaplingTFC.get(wood)) : Items.AIR;
         }
         return null;
     }
@@ -440,7 +440,7 @@ public class BlockFruitLeaves extends BlockLeaves implements IGrowingPlant
                     if (evaluated.contains(pos1) || !world.isBlockLoaded(pos1))
                         continue;
                     state1 = world.getBlockState(pos1);
-                    if (state1.getBlock() == TFCBlockLog.get(wood) || state1.getBlock() == BlockFruitLog.get(fruitTree))
+                    if (state1.getBlock() == BlockLogTFC.get(wood) || state1.getBlock() == BlockFruitLog.get(fruitTree))
                         return;
                     if (state1.getBlock() == this)
                         pathsToAdd.add(pos1.toImmutable());

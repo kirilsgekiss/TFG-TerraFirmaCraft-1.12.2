@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/black_pepper",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/black_pepper"
+      "texture": "tfc:blocks/material_set/wood/sheet/black_pepper",
+      "particle": "tfc:blocks/material_set/wood/sheet/black_pepper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

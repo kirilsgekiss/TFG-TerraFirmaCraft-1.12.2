@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/elderberry",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/elderberry"
+      "texture": "tfc:blocks/material_set/wood/sheet/elderberry",
+      "particle": "tfc:blocks/material_set/wood/sheet/elderberry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/giganteum",
-      "log": "tfc:blocks/wood/log/giganteum",
-      "planks": "tfc:blocks/wood/planks/giganteum",
-      "particle": "tfc:blocks/wood/log/giganteum"
+      "top": "tfc:blocks/material_set/wood/log/top/giganteum",
+      "log": "tfc:blocks/material_set/wood/log/side/giganteum",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/giganteum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

@@ -179,7 +179,7 @@ public class BlockCharcoalPile extends Block implements ILightableBlock
         {
             if (!world.isRemote)
             {
-                world.setBlockState(pos, TFCBlocks.CHARCOAL_FORGE.getDefaultState().withProperty(LIT, true));
+                world.setBlockState(pos, BlocksTFC.CHARCOAL_FORGE.getDefaultState().withProperty(LIT, true));
                 TECharcoalForge te = Helpers.getTE(world, pos, TECharcoalForge.class);
                 if (te != null)
                 {

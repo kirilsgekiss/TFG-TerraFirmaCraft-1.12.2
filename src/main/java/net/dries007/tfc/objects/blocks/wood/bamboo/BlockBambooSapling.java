@@ -11,9 +11,9 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.IGrowingPlant;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 
-public class BlockBambooSapling extends TFCBlockSapling implements IGrowingPlant
+public class BlockBambooSapling extends BlockSaplingTFC implements IGrowingPlant
 {
     Block leaves;
     Block log;

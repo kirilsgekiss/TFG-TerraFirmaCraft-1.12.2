@@ -22,11 +22,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockBambooLeaves extends TFCBlockLeaves
+public class BlockBambooLeaves extends BlockLeavesTFC
 {
     private BlockBambooSapling sapling;
 
@@ -36,7 +36,7 @@ public class BlockBambooLeaves extends TFCBlockLeaves
         setSoundType(SoundType.PLANT);
         setDefaultState(blockState.getBaseState().withProperty(DECAYABLE, true));
         OreDictionaryHelper.register(this, "tree", "leaves");
-        OreDictionaryHelper.register(this, "tree", "leaves", wood.getRegistryName().getPath());
+        OreDictionaryHelper.register(this, "tree", "leaves", this.tree.getRegistryName().getPath());
     }
 
     public void setBambooSapling(BlockBambooSapling sapling)

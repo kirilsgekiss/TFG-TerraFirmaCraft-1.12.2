@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/pink_cherry",
-      "log": "tfc:blocks/wood/log/pink_cherry",
-      "planks": "tfc:blocks/wood/planks/pink_cherry",
-      "particle": "tfc:blocks/wood/log/pink_cherry"
+      "top": "tfc:blocks/material_set/wood/log/top/pink_cherry",
+      "log": "tfc:blocks/material_set/wood/log/side/pink_cherry",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/pink_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

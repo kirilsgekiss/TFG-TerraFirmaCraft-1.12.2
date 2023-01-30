@@ -3,7 +3,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "texture": "tfc:blocks/wood/trapdoor/limba"
+      "texture": "tfc:blocks/material_set/wood/trapdoor/limba"
     }
   },
   "variants": {

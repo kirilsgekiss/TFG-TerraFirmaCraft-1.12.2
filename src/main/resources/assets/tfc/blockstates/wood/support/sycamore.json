@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/sycamore",
-      "particle": "tfc:blocks/wood/sheets/sycamore"
+      "texture": "tfc:blocks/material_set/wood/sheets/sycamore",
+      "particle": "tfc:blocks/material_set/wood/sheets/sycamore"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/loquat"
+      "all": "tfc:blocks/material_set/wood/leaves/loquat"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/loquat",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/loquat"
+          "all": "tfc:blocks/material_set/wood/leaves/loquat",
+          "texture": "tfc:blocks/material_set/wood/flowers/loquat"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/loquat",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/loquat"
+          "all": "tfc:blocks/material_set/wood/leaves/loquat",
+          "texture": "tfc:blocks/material_set/wood/fruit/loquat"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

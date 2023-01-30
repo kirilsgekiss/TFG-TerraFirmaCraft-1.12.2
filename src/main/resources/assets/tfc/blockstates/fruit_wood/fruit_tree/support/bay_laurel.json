@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/bay_laurel",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/bay_laurel"
+      "texture": "tfc:blocks/material_set/wood/sheet/bay_laurel",
+      "particle": "tfc:blocks/material_set/wood/sheet/bay_laurel"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

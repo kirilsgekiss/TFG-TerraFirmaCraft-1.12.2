@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/juniper",
-      "layer0": "tfc:blocks/saplings/juniper"
+      "cross": "tfc:blocks/material_set/wood/sapling/juniper",
+      "layer0": "tfc:blocks/material_set/wood/sapling/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

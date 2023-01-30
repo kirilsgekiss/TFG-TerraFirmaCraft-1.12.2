@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/rowan",
-      "particle": "tfc:blocks/wood/sheets/rowan"
+      "texture": "tfc:blocks/material_set/wood/sheets/rowan",
+      "particle": "tfc:blocks/material_set/wood/sheets/rowan"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

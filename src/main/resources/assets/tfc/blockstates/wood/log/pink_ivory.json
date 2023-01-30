@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/pink_ivory",
-      "side": "tfc:blocks/wood/log/pink_ivory",
-      "end": "tfc:blocks/wood/top/pink_ivory",
+      "particle": "tfc:blocks/material_set/wood/log/side/pink_ivory",
+      "side": "tfc:blocks/material_set/wood/log/side/pink_ivory",
+      "end": "tfc:blocks/material_set/wood/log/top/pink_ivory",
       "layer0": "tfc:items/wood/log/pink_ivory"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/pink_ivory"
+          "end": "tfc:blocks/material_set/wood/log/side/pink_ivory"
         }
       }
     },

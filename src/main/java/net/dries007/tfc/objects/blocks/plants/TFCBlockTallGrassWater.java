@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -67,7 +67,7 @@ public class TFCBlockTallGrassWater extends TFCBlockShortGrass implements IGrowa
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-        return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == plant.getWaterType()) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant));
+        return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == plant.getWaterType()) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant));
     }
 
     @Override

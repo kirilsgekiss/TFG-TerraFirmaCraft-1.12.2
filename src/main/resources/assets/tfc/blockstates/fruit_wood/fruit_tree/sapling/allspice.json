@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/allspice",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/allspice"
+      "cross": "tfc:blocks/material_set/wood/sapling/allspice",
+      "layer0": "tfc:blocks/material_set/wood/sapling/allspice"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

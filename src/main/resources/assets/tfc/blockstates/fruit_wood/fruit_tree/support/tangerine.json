@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/tangerine",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/tangerine"
+      "texture": "tfc:blocks/material_set/wood/sheet/tangerine",
+      "particle": "tfc:blocks/material_set/wood/sheet/tangerine"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

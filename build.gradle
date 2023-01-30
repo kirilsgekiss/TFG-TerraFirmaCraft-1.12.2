@@ -93,7 +93,7 @@ dependencies {
 
     deobfCompile 'curse.maven:gregtech-557242:4325257'
 
-    // deobfCompile 'curse.maven:dramatictrees-637540:4312145'
+    deobfCompile 'curse.maven:dramatictrees-637540:4312145'
 
     compileOnly 'curse.maven:crafttweaker-239197:3935788'
     compileOnly 'curse.maven:groovyscript-687577:4329872'

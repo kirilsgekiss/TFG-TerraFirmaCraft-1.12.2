@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/fruit_trees/bark/lemon",
-      "particle": "tfc:blocks/fruit_trees/bark/lemon"
+      "texture": "tfc:blocks/material_set/wood/log/side/lemon",
+      "particle": "tfc:blocks/material_set/wood/log/side/lemon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

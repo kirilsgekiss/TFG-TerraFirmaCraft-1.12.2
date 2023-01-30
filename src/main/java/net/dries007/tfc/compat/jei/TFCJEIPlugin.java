@@ -49,7 +49,7 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.gui.*;
 import net.dries007.tfc.compat.jei.categories.*;
 import net.dries007.tfc.compat.jei.wrappers.*;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLoom;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
@@ -168,13 +168,13 @@ public final class TFCJEIPlugin implements IModPlugin
 
         // Recipe Catalysts
         {
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.QUERN), QUERN_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.FIREPIT), HEAT_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.CHARCOAL_FORGE), HEAT_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.QUERN), QUERN_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.FIREPIT), HEAT_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CHARCOAL_FORGE), HEAT_UID);
             for (Tree tree : TFCRegistries.TREES.getValuesCollection()) {
                 registry.addRecipeCatalyst(new ItemStack(TFCBlockLoom.get(tree)), LOOM_UID);
             }
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.CRUCIBLE), ALLOY_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), ALLOY_UID);
             registry.addRecipeCatalyst(new ItemStack(TFCItems.FIRED_VESSEL), ALLOY_UID);
             for (ItemStack stack : OreDictionary.getOres("clay")) {
                 registry.addRecipeCatalyst(stack, KNAP_CLAY_UID);
@@ -198,9 +198,9 @@ public final class TFCJEIPlugin implements IModPlugin
                 registry.addRecipeCatalyst(stack, KAOLINITE_UNMOLD_UID);
                 registry.addRecipeCatalyst(stack, STONEWARE_UNMOLD_UID);
             }
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.BLOOMERY), BLOOMERY_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.BLAST_FURNACE), BLAST_FURNACE_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.CRUCIBLE), METAL_HEAT_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLOOMERY), BLOOMERY_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.BLAST_FURNACE), BLAST_FURNACE_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), METAL_HEAT_UID);
             registry.addRecipeCatalyst(new ItemStack(TFCItems.FIRED_VESSEL), METAL_HEAT_UID);
             for (Material material : GregTechAPI.MATERIAL_REGISTRY) {
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
@@ -210,8 +210,8 @@ public final class TFCJEIPlugin implements IModPlugin
             }
             registry.addRecipeCatalyst(ToolItems.KNIFE.get(Materials.Iron), SCRAPING_UID);
             registry.addRecipeCatalyst(TFCToolItems.CHISEL.get(Materials.Iron), CHISEL_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.DRYER), DRY_UID);
-            registry.addRecipeCatalyst(new ItemStack(TFCBlocks.STICK_BUNDLE), STICK_BUNDLE_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.DRYER), DRY_UID);
+            registry.addRecipeCatalyst(new ItemStack(BlocksTFC.STICK_BUNDLE), STICK_BUNDLE_UID);
         }
         // Wrappers
         {
@@ -548,8 +548,8 @@ public final class TFCJEIPlugin implements IModPlugin
 
         // Add JEI descriptions for basic mechanics
 
-        registry.addIngredientInfo(new ItemStack(TFCBlocks.PIT_KILN, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.pit_kiln").getFormattedText());
-        registry.addIngredientInfo(new ItemStack(TFCBlocks.PLACED_ITEM, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.placed_item").getFormattedText());
+        registry.addIngredientInfo(new ItemStack(BlocksTFC.PIT_KILN, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.pit_kiln").getFormattedText());
+        registry.addIngredientInfo(new ItemStack(BlocksTFC.PLACED_ITEM, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.placed_item").getFormattedText());
         registry.addIngredientInfo(new ItemStack(Items.COAL, 1, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.charcoal_pit").getFormattedText());
 
         List<ScrapingWrapper> scrapingList = new ArrayList<>();

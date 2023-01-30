@@ -23,12 +23,12 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 
 public class TreeGenAcacia implements ITreeGenerator
@@ -38,14 +38,14 @@ public class TreeGenAcacia implements ITreeGenerator
     private IBlockState bark;
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
-        trunk = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
-        bark = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
+        trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
+        bark = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false).withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
 
-        final boolean smallBranch = rand.nextBoolean();
-        final int branches = 2 + rand.nextInt(2);
-        final int height = 5 + rand.nextInt(4);
+        final boolean smallBranch = random.nextBoolean();
+        final int branches = 2 + random.nextInt(2);
+        final int height = 5 + random.nextInt(4);
         List<EnumFacing> sides = Arrays.stream(EnumFacing.HORIZONTALS).collect(Collectors.toList());
         EnumFacing face;
 
@@ -53,20 +53,20 @@ public class TreeGenAcacia implements ITreeGenerator
         EnumFacing side = EnumFacing.UP;
         if (smallBranch)
         {
-            y3 = rand.nextInt(3) + 2;
-            side = sides.get(rand.nextInt(sides.size()));
+            y3 = random.nextInt(3) + 2;
+            side = sides.get(random.nextInt(sides.size()));
             placeBranch(manager, world, pos.offset(side).add(0, y3, 0), tree.getRegistryName() + "/branch3");
         }
         for (int i = 0; i < branches; i++)
         {
-            x1 = 2 + rand.nextInt(3);
-            y1 = 4 + rand.nextInt(height - 2);
+            x1 = 2 + random.nextInt(3);
+            y1 = 4 + random.nextInt(height - 2);
             if (y1 > y2)
                 y2 = y1;
-            face = sides.remove(rand.nextInt(sides.size()));
+            face = sides.remove(random.nextInt(sides.size()));
             for (int j = 1; j < x1; j++)
                 placeLog(world, pos.add(0, y1 - j, 0).offset(face, x1 - j), true);
-            int branch = 1 + rand.nextInt(2);
+            int branch = 1 + random.nextInt(2);
             placeBranch(manager, world, pos.add(0, y1, 0).offset(face, x1), tree.getRegistryName() + "/branch" + branch);
         }
         for (int i = 0; i < height; i++)
@@ -101,7 +101,7 @@ public class TreeGenAcacia implements ITreeGenerator
 
     private void placeLog(World world, BlockPos pos, boolean useBark)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
             world.setBlockState(pos, useBark ? bark : trunk);
     }
 }

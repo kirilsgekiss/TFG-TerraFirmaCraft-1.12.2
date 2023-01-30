@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/limba",
-      "layer0": "tfc:blocks/saplings/limba"
+      "cross": "tfc:blocks/material_set/wood/sapling/limba",
+      "layer0": "tfc:blocks/material_set/wood/sapling/limba"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

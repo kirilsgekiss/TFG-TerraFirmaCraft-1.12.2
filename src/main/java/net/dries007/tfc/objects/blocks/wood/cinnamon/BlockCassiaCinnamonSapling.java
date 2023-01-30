@@ -2,7 +2,7 @@ package net.dries007.tfc.objects.blocks.wood.cinnamon;
 
 import java.util.Random;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -11,9 +11,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.util.IGrowingPlant;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 
-public class BlockCassiaCinnamonSapling extends TFCBlockSapling implements IGrowingPlant
+public class BlockCassiaCinnamonSapling extends BlockSaplingTFC implements IGrowingPlant
 {
     public BlockCassiaCinnamonSapling()
     {
@@ -30,11 +30,11 @@ public class BlockCassiaCinnamonSapling extends TFCBlockSapling implements IGrow
                 return;
         }
         int height = 7 + rand.nextInt(5);
-        IBlockState leaves = TFCBlocks.CASSIA_CINNAMON_LEAVES.getDefaultState();
+        IBlockState leaves = BlocksTFC.CASSIA_CINNAMON_LEAVES.getDefaultState();
         for (int trunk = 0; trunk < height; trunk++)
         {
             BlockPos trunkPos = pos.offset(EnumFacing.UP, trunk);
-            world.setBlockState(trunkPos, TFCBlocks.CASSIA_CINNAMON_LOG.getDefaultState());
+            world.setBlockState(trunkPos, BlocksTFC.CASSIA_CINNAMON_LOG.getDefaultState());
             if (trunk < 3)
                 continue;
             for (EnumFacing d : EnumFacing.HORIZONTALS)

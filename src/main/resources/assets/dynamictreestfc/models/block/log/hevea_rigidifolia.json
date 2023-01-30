@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "tfc:blocks/material_set/wood/log/top/hevea_rigidifolia",
+    "side": "tfc:blocks/material_set/wood/log/side/hevea_rigidifolia"
+  }
+}

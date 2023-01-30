@@ -1,0 +1,8 @@
+{
+  "parent": "dynamictrees:block/sapling",
+  "textures": {
+    "particle": "tfc:blocks/material_set/wood/leaves/white_elm",
+    "log": "tfc:blocks/material_set/wood/log/side/white_elm",
+    "leaves": "tfc:blocks/material_set/wood/leaves/white_elm"
+  }
+}

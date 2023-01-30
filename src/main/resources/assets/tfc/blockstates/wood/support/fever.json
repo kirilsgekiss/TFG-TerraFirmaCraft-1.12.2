@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/fever",
-      "particle": "tfc:blocks/wood/sheets/fever"
+      "texture": "tfc:blocks/material_set/wood/sheets/fever",
+      "particle": "tfc:blocks/material_set/wood/sheets/fever"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

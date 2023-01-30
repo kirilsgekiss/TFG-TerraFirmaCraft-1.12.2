@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/butternut",
-      "particle": "tfc:blocks/wood/sheets/butternut"
+      "texture": "tfc:blocks/material_set/wood/sheets/butternut",
+      "particle": "tfc:blocks/material_set/wood/sheets/butternut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

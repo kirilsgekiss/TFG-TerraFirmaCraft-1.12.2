@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/thorny_bamboo",
-      "layer0": "tfc:blocks/saplings/thorny_bamboo"
+      "cross": "tfc:blocks/material_set/wood/sapling/thorny_bamboo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/thorny_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

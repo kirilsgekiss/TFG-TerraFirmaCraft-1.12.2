@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.*;
 
@@ -126,7 +126,7 @@ public class MapGenRiverRavine extends MapGenBase
                 {
                     for (int y = Math.min(yMax + 1, 250); y >= Math.max(yMin - 2, 1); --y)
                     {
-                        if (TFCBlocks.isWater(primer.getBlockState(x, y, z)))
+                        if (BlocksTFC.isWater(primer.getBlockState(x, y, z)))
                             continue outer;
                     }
                 }
@@ -145,7 +145,7 @@ public class MapGenRiverRavine extends MapGenBase
                         final double yNormalized = (y + 0.5D - startY) / max;
                         if ((xNormalized * xNormalized + zNormalized * zNormalized) * multipliers[y] + yNormalized * yNormalized / 6.0D >= 1.0D)
                             continue;
-                        if (!TFCBlocks.isRawStone(primer.getBlockState(x, y, z)) && !TFCBlocks.isSoil(primer.getBlockState(x, y, z)))
+                        if (!BlocksTFC.isRawStone(primer.getBlockState(x, y, z)) && !BlocksTFC.isSoil(primer.getBlockState(x, y, z)))
                             continue;
 
                         if (y < 20/* todo make option, was 10*/)

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/spruce",
-      "layer0": "tfc:blocks/saplings/spruce"
+      "cross": "tfc:blocks/material_set/wood/sapling/spruce",
+      "layer0": "tfc:blocks/material_set/wood/sapling/spruce"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

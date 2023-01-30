@@ -36,7 +36,7 @@ import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.recipes.BlastFurnaceRecipe;
 import net.dries007.tfc.api.util.IHeatConsumerBlock;
 import net.dries007.tfc.objects.blocks.BlockMolten;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.devices.BlockBlastFurnace;
 import net.dries007.tfc.util.Alloy;
 import net.dries007.tfc.util.Helpers;
@@ -147,7 +147,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
         // Dump everything in world
         for (int i = 1; i < 6; i++)
         {
-            if (world.getBlockState(pos.up(i)).getBlock() == TFCBlocks.MOLTEN)
+            if (world.getBlockState(pos.up(i)).getBlock() == BlocksTFC.MOLTEN)
             {
                 world.setBlockToAir(pos.up(i));
             }
@@ -518,18 +518,18 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
                 if (slagLayers >= 4)
                 {
                     slagLayers -= 4;
-                    world.setBlockState(pos.up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, 4));
+                    world.setBlockState(pos.up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, 4));
                 }
                 else
                 {
-                    world.setBlockState(pos.up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, slagLayers));
+                    world.setBlockState(pos.up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, slagLayers));
                     slagLayers = 0;
                 }
             }
             else
             {
                 //Remove any surplus slag(ie: after cooking/structure became compromised)
-                if (world.getBlockState(pos.up(i)).getBlock() == TFCBlocks.MOLTEN)
+                if (world.getBlockState(pos.up(i)).getBlock() == BlocksTFC.MOLTEN)
                 {
                     world.setBlockToAir(pos.up(i));
                 }

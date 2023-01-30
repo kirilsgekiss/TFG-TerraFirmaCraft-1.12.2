@@ -3,12 +3,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/blue_bamboo"
+      "all": "tfc:blocks/material_set/wood/leaves/blue_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/papaya",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/papaya"
+      "cross": "tfc:blocks/material_set/wood/sapling/papaya",
+      "layer0": "tfc:blocks/material_set/wood/sapling/papaya"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/soursop",
-      "log": "tfc:blocks/wood/fruit_tree/log/soursop",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/soursop",
-      "particle": "tfc:blocks/wood/fruit_tree/log/soursop"
+      "top": "tfc:blocks/material_set/wood/log/top/soursop",
+      "log": "tfc:blocks/material_set/wood/log/side/soursop",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/soursop"
     }
   },
   "variants": {

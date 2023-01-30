@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/amla",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/amla"
+      "cross": "tfc:blocks/material_set/wood/sapling/amla",
+      "layer0": "tfc:blocks/material_set/wood/sapling/amla"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

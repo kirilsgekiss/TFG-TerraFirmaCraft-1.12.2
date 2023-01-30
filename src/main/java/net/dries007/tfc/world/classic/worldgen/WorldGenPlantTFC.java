@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -118,7 +118,7 @@ public class WorldGenPlantTFC extends WorldGenerator
                         plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, blockpos)) &&
                         worldIn.isAirBlock(blockpos) &&
                         plantBlock.canBlockStay(worldIn, blockpos, state) &&
-                        !TFCBlocks.isSand(worldIn.getBlockState(blockpos.down())))
+                        !BlocksTFC.isSand(worldIn.getBlockState(blockpos.down())))
                     {
                         int plantAge = plant.getAgeForWorldgen(rand, ClimateTFC.getActualTemp(worldIn, blockpos));
                         setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockCreepingPlant.AGE, plantAge));

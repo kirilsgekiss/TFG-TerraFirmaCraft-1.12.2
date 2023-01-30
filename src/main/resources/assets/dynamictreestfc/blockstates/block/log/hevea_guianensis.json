@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "dynamictreestfc:log/hevea_guianensis"
+    },
+    "axis=z": {
+      "model": "dynamictreestfc:log/hevea_guianensis",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "dynamictreestfc:log/hevea_guianensis",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

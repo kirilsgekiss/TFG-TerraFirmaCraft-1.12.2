@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:fruit_trees/trunk",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/abiu",
-      "particle": "tfc:blocks/wood/fruit_tree/log/abiu"
+      "texture": "tfc:blocks/material_set/wood/log/side/abiu",
+      "particle": "tfc:blocks/material_set/wood/log/side/abiu"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "north": {
       "true": {
         "submodel": "tfc:fruit_trees/trunk_connection"

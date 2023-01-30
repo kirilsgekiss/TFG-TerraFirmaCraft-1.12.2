@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/date"
+      "all": "tfc:blocks/material_set/wood/leaves/date"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/date",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/date"
+          "all": "tfc:blocks/material_set/wood/leaves/date",
+          "texture": "tfc:blocks/material_set/wood/flowers/date"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/date",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/date"
+          "all": "tfc:blocks/material_set/wood/leaves/date",
+          "texture": "tfc:blocks/material_set/wood/fruit/date"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

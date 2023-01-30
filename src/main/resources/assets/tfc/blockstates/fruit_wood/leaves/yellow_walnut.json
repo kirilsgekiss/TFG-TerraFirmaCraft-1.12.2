@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/walnut"
+      "all": "tfc:blocks/material_set/wood/leaves/walnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,28 +19,28 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/walnut"
+          "all": "tfc:blocks/material_set/wood/leaves/walnut"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/walnut"
+          "all": "tfc:blocks/material_set/wood/leaves/walnut"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/yellow_walnut"
+          "all": "tfc:blocks/material_set/wood/leaves/yellow_walnut"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "tfc:wood/branch/branch",
         "textures": {
-          "all": "tfc:blocks/wood/branch/branch"
+          "all": "tfc:blocks/material_set/wood/branch/branch"
         }
       }
     }

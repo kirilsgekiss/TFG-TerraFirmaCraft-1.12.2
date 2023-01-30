@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/log/mountain_ash",
-      "planks": "tfc:blocks/wood/planks/mountain_ash",
-      "particle": "tfc:blocks/wood/log/mountain_ash"
+      "log": "tfc:blocks/material_set/wood/log/side/mountain_ash",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/mountain_ash"
     },
     "uvlock": true
   },

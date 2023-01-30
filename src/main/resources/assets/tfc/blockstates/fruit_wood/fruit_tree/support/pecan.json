@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/pecan",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/pecan"
+      "texture": "tfc:blocks/material_set/wood/sheet/pecan",
+      "particle": "tfc:blocks/material_set/wood/sheet/pecan"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

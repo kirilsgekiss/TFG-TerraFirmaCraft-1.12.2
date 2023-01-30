@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/guava",
-      "particle": "tfc:blocks/wood/fruit_tree/log/guava"
+      "texture": "tfc:blocks/material_set/wood/log/side/guava",
+      "particle": "tfc:blocks/material_set/wood/log/side/guava"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

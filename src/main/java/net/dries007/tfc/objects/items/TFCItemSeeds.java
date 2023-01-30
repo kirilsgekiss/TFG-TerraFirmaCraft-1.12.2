@@ -38,7 +38,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
-import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.util.agriculture.Crop;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;

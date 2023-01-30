@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/teak",
-      "side": "tfc:blocks/wood/log/teak",
-      "end": "tfc:blocks/wood/top/teak",
+      "particle": "tfc:blocks/material_set/wood/log/side/teak",
+      "side": "tfc:blocks/material_set/wood/log/side/teak",
+      "end": "tfc:blocks/material_set/wood/log/top/teak",
       "layer0": "tfc:items/wood/log/teak"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/teak"
+          "end": "tfc:blocks/material_set/wood/log/side/teak"
         }
       }
     },

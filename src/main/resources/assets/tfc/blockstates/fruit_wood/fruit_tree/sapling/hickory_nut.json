@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/hickory_nut",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/hickory_nut"
+      "cross": "tfc:blocks/material_set/wood/sapling/hickory_nut",
+      "layer0": "tfc:blocks/material_set/wood/sapling/hickory_nut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

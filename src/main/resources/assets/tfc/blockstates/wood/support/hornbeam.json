@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/hornbeam",
-      "particle": "tfc:blocks/wood/sheets/hornbeam"
+      "texture": "tfc:blocks/material_set/wood/sheets/hornbeam",
+      "particle": "tfc:blocks/material_set/wood/sheets/hornbeam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

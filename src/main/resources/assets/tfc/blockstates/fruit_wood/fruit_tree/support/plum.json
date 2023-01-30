@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/plum",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/plum"
+      "texture": "tfc:blocks/material_set/wood/sheet/plum",
+      "particle": "tfc:blocks/material_set/wood/sheet/plum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

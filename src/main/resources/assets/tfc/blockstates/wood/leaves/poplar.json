@@ -4,12 +4,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/poplar"
+      "all": "tfc:blocks/material_set/wood/leaves/poplar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

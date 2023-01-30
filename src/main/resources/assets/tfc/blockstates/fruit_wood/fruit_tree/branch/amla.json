@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/amla",
-      "particle": "tfc:blocks/wood/fruit_tree/log/amla"
+      "texture": "tfc:blocks/material_set/wood/log/side/amla",
+      "particle": "tfc:blocks/material_set/wood/log/side/amla"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

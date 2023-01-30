@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/log/giganteum",
-      "planks": "tfc:blocks/wood/planks/giganteum",
-      "particle": "tfc:blocks/wood/log/giganteum"
+      "log": "tfc:blocks/material_set/wood/log/side/giganteum",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/giganteum"
     },
     "uvlock": true
   },

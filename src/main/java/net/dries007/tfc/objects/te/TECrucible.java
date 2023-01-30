@@ -35,7 +35,7 @@ import net.dries007.tfc.api.capability.food.FoodTrait;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.util.Alloy;
@@ -327,7 +327,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     {
         // Only carry to itemstack the alloy fluid
         super.onBreakBlock(world, pos, state);
-        ItemStack stack = new ItemStack(TFCBlocks.CRUCIBLE);
+        ItemStack stack = new ItemStack(BlocksTFC.CRUCIBLE);
         if (alloy.getAmount() > 0)
         {
             stack.setTagCompound(this.writeToItemTag());

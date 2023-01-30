@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/alder",
-      "particle": "tfc:blocks/wood/sheets/alder"
+      "texture": "tfc:blocks/material_set/wood/sheets/alder",
+      "particle": "tfc:blocks/material_set/wood/sheets/alder"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

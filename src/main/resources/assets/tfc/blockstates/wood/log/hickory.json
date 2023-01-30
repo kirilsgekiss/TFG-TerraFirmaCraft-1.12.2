@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/hickory",
-      "side": "tfc:blocks/wood/log/hickory",
-      "end": "tfc:blocks/wood/top/hickory",
+      "particle": "tfc:blocks/material_set/wood/log/side/hickory",
+      "side": "tfc:blocks/material_set/wood/log/side/hickory",
+      "end": "tfc:blocks/material_set/wood/log/top/hickory",
       "layer0": "tfc:items/wood/log/hickory"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/hickory"
+          "end": "tfc:blocks/material_set/wood/log/side/hickory"
         }
       }
     },

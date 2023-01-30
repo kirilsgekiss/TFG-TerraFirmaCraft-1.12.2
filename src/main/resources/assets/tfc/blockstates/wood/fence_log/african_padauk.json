@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/african_padauk",
-      "log": "tfc:blocks/wood/log/african_padauk",
-      "planks": "tfc:blocks/wood/planks/african_padauk",
-      "particle": "tfc:blocks/wood/log/african_padauk"
+      "top": "tfc:blocks/material_set/wood/log/top/african_padauk",
+      "log": "tfc:blocks/material_set/wood/log/side/african_padauk",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/african_padauk"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

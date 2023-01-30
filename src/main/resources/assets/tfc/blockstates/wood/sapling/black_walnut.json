@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/black_walnut",
-      "layer0": "tfc:blocks/saplings/black_walnut"
+      "cross": "tfc:blocks/material_set/wood/sapling/black_walnut",
+      "layer0": "tfc:blocks/material_set/wood/sapling/black_walnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

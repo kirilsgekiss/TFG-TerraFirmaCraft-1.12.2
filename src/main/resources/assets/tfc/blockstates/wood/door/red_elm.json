@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/red_elm",
-      "top": "tfc:blocks/wood/door/upper/red_elm"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/red_elm",
+      "top": "tfc:blocks/material_set/wood/door/upper/red_elm"
     }
   },
   "variants": {

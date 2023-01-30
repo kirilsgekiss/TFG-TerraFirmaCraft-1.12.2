@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/persimmon",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/persimmon"
+      "texture": "tfc:blocks/material_set/wood/sheet/persimmon",
+      "particle": "tfc:blocks/material_set/wood/sheet/persimmon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

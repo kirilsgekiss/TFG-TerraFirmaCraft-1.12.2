@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/mamey_sapote",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/mamey_sapote"
+      "texture": "tfc:blocks/material_set/wood/sheet/mamey_sapote",
+      "particle": "tfc:blocks/material_set/wood/sheet/mamey_sapote"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

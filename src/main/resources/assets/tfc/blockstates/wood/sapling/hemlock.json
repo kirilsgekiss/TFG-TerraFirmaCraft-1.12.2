@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/hemlock",
-      "layer0": "tfc:blocks/saplings/hemlock"
+      "cross": "tfc:blocks/material_set/wood/sapling/hemlock",
+      "layer0": "tfc:blocks/material_set/wood/sapling/hemlock"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

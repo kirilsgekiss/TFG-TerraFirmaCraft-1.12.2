@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/fruitwood",
-      "side": "tfc:blocks/wood/log/fruitwood",
-      "end": "tfc:blocks/wood/top/fruitwood",
+      "particle": "tfc:blocks/material_set/wood/log/side/fruitwood",
+      "side": "tfc:blocks/material_set/wood/log/side/fruitwood",
+      "end": "tfc:blocks/material_set/wood/log/top/fruitwood",
       "layer0": "tfc:items/wood/log/fruitwood"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/fruitwood"
+          "end": "tfc:blocks/material_set/wood/log/side/fruitwood"
         }
       }
     },

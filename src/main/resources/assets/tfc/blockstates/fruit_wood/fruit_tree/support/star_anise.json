@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/star_anise",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/star_anise"
+      "texture": "tfc:blocks/material_set/wood/sheet/star_anise",
+      "particle": "tfc:blocks/material_set/wood/sheet/star_anise"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

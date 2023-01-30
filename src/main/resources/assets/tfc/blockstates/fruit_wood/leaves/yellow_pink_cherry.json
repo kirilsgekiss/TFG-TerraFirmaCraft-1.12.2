@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/pink_cherry"
+      "all": "tfc:blocks/material_set/wood/leaves/pink_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,30 +19,30 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/flowers/pink_cherry",
-          "texture": "tfc:blocks/wood/flowers/pink_cherry"
+          "all": "tfc:blocks/material_set/wood/flowers/pink_cherry",
+          "texture": "tfc:blocks/material_set/wood/flowers/pink_cherry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/pink_cherry",
-          "texture": "tfc:blocks/wood/fruit/cherry"
+          "all": "tfc:blocks/material_set/wood/leaves/pink_cherry",
+          "texture": "tfc:blocks/material_set/wood/fruit/cherry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/yellow_pink_cherry"
+          "all": "tfc:blocks/material_set/wood/leaves/yellow_pink_cherry"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "tfc:wood/branch/branch",
         "textures": {
-          "all": "tfc:blocks/wood/branch/branch"
+          "all": "tfc:blocks/material_set/wood/branch/branch"
         }
       }
     }

@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/trapdoor/black_walnut"
+      "texture": "tfc:blocks/material_set/wood/trapdoor/black_walnut"
     }
   },
   "variants": {

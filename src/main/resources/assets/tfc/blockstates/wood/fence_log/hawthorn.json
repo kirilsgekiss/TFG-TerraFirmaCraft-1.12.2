@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/hawthorn",
-      "log": "tfc:blocks/wood/log/hawthorn",
-      "planks": "tfc:blocks/wood/planks/hawthorn",
-      "particle": "tfc:blocks/wood/log/hawthorn"
+      "top": "tfc:blocks/material_set/wood/log/top/hawthorn",
+      "log": "tfc:blocks/material_set/wood/log/side/hawthorn",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/hawthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

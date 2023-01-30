@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/rubber_fig",
-      "side": "tfc:blocks/wood/log/rubber_fig",
-      "end": "tfc:blocks/wood/top/rubber_fig",
+      "particle": "tfc:blocks/material_set/wood/log/side/rubber_fig",
+      "side": "tfc:blocks/material_set/wood/log/side/rubber_fig",
+      "end": "tfc:blocks/material_set/wood/log/top/rubber_fig",
       "layer0": "tfc:items/wood/log/rubber_fig"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/rubber_fig"
+          "end": "tfc:blocks/material_set/wood/log/side/rubber_fig"
         }
       }
     },

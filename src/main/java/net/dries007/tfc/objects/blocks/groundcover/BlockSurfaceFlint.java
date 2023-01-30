@@ -33,8 +33,8 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -203,7 +203,7 @@ public class BlockSurfaceFlint extends BlockBush
 
         if (state.getBlock() == this)
         {
-            return (TFCBlocks.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(TFCBlocks.isSeaWater(soil) || TFCBlocks.isFreshWater(soil)); // todo: wtf check
+            return (BlocksTFC.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
     }

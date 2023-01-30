@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/teak",
-      "top": "tfc:blocks/wood/door/upper/teak"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/teak",
+      "top": "tfc:blocks/material_set/wood/door/upper/teak"
     }
   },
   "variants": {

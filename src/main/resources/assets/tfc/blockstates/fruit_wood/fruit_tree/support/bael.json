@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/bael",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/bael"
+      "texture": "tfc:blocks/material_set/wood/sheet/bael",
+      "particle": "tfc:blocks/material_set/wood/sheet/bael"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

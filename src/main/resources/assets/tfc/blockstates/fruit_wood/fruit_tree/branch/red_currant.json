@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/red_currant",
-      "particle": "tfc:blocks/wood/fruit_tree/log/red_currant"
+      "texture": "tfc:blocks/material_set/wood/log/side/red_currant",
+      "particle": "tfc:blocks/material_set/wood/log/side/red_currant"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/chestnut",
-      "layer0": "tfc:blocks/saplings/chestnut"
+      "cross": "tfc:blocks/material_set/wood/sapling/chestnut",
+      "layer0": "tfc:blocks/material_set/wood/sapling/chestnut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

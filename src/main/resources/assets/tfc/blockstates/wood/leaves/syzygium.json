@@ -4,12 +4,10 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/syzygium"
+      "all": "tfc:blocks/material_set/wood/leaves/syzygium"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

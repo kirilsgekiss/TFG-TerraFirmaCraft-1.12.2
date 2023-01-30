@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/bunya",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/bunya"
+      "texture": "tfc:blocks/material_set/wood/sheet/bunya",
+      "particle": "tfc:blocks/material_set/wood/sheet/bunya"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

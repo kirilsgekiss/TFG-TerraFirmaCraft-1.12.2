@@ -3,16 +3,14 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "log": "tfc:blocks/wood/log/cocobolo",
-      "planks": "tfc:blocks/wood/planks/cocobolo",
-      "particle": "tfc:blocks/wood/log/cocobolo"
+      "log": "tfc:blocks/material_set/wood/log/side/cocobolo",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/cocobolo"
     },
     "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing=south,in_wall=false,open=false": {
       "model": "tfc:wood/fence_gate/fence_gate_closed"
     },

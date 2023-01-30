@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/hickory",
-      "particle": "tfc:blocks/wood/sheets/hickory"
+      "texture": "tfc:blocks/material_set/wood/sheets/hickory",
+      "particle": "tfc:blocks/material_set/wood/sheets/hickory"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

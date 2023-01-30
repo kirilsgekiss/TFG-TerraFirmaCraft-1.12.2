@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/juniper",
-      "side": "tfc:blocks/wood/log/juniper",
-      "end": "tfc:blocks/wood/top/juniper",
+      "particle": "tfc:blocks/material_set/wood/log/side/juniper",
+      "side": "tfc:blocks/material_set/wood/log/side/juniper",
+      "end": "tfc:blocks/material_set/wood/log/top/juniper",
       "layer0": "tfc:items/wood/log/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/juniper"
+          "end": "tfc:blocks/material_set/wood/log/side/juniper"
         }
       }
     },

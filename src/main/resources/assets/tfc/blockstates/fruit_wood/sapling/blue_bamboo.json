@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/blue_bamboo",
-      "layer0": "tfc:blocks/saplings/blue_bamboo"
+      "cross": "tfc:blocks/material_set/wood/sapling/blue_bamboo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/blue_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

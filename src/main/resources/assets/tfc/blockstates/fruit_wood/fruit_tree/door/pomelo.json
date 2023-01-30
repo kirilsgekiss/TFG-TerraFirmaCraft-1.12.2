@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/pomelo",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/pomelo"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/pomelo",
+      "top": "tfc:blocks/material_set/wood/door/upper/pomelo"
     }
   },
   "variants": {

@@ -4,9 +4,9 @@
     "inventory": {
       "model": "forge:forgebucket",
       "textures": {
-        "base": "tfc:items/fluids/jug_empty",
-        "fluid": "tfc:items/fluids/jug_fluid",
-        "cover": "tfc:items/fluids/jug_overlay"
+        "base": "tfc:items/fluids/ceramics/clay/jug_empty",
+        "fluid": "tfc:items/fluids/ceramics/clay/jug_fluid",
+        "cover": "tfc:items/fluids/ceramics/clay/jug_overlay"
       },
       "transform": "forge:default-item",
       "custom": {

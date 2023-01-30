@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/weavers_bamboo",
-      "particle": "tfc:blocks/wood/sheets/weavers_bamboo"
+      "texture": "tfc:blocks/material_set/wood/sheets/weavers_bamboo",
+      "particle": "tfc:blocks/material_set/wood/sheets/weavers_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

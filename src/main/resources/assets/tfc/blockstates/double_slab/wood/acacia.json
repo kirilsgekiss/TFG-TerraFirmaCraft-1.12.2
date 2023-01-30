@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/wood/planks/acacia"
+      "all": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

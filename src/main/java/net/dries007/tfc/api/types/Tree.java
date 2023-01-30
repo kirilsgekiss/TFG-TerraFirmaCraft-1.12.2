@@ -33,9 +33,6 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class Tree extends IForgeRegistryEntry.Impl<Tree>
 {
-    @GameRegistry.ObjectHolder(MOD_ID + ":sequoia")
-    public static final Tree SEQUOIA = Helpers.getNull();
-
     private final int maxGrowthRadius;
     private final float dominance;
     private final int maxHeight;

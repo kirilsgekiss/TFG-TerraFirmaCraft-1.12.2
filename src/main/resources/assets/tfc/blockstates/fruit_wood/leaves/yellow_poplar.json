@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/poplar"
+      "all": "tfc:blocks/material_set/wood/leaves/poplar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,28 +19,28 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/poplar"
+          "all": "tfc:blocks/material_set/wood/leaves/poplar"
         },
         "submodel": "leaves"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/poplar"
+          "all": "tfc:blocks/material_set/wood/leaves/poplar"
         },
         "submodel": "leaves"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/yellow_poplar"
+          "all": "tfc:blocks/material_set/wood/leaves/yellow_poplar"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "tfc:wood/branch/branch",
         "textures": {
-          "all": "tfc:blocks/wood/branch/branch"
+          "all": "tfc:blocks/material_set/wood/branch/branch"
         }
       }
     }

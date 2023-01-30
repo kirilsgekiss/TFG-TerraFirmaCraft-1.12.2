@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/sequoia",
-      "side": "tfc:blocks/wood/log/sequoia",
-      "end": "tfc:blocks/wood/top/sequoia",
+      "particle": "tfc:blocks/material_set/wood/log/side/sequoia",
+      "side": "tfc:blocks/material_set/wood/log/side/sequoia",
+      "end": "tfc:blocks/material_set/wood/log/top/sequoia",
       "layer0": "tfc:items/wood/log/sequoia"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/sequoia"
+          "end": "tfc:blocks/material_set/wood/log/side/sequoia"
         }
       }
     },

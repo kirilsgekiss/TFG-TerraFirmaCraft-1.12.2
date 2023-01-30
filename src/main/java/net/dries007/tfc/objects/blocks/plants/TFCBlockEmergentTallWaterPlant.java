@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 
 import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
@@ -45,9 +45,9 @@ public class TFCBlockEmergentTallWaterPlant extends TFCBlockTallWaterPlant imple
         //noinspection StatementWithEmptyBody
         for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) ;
         if (water == SEA_WATER)
-            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
         else
-            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
+            return i < plant.getMaxHeight() && (worldIn.isAirBlock(pos.up()) || BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()))) && canBlockStay(worldIn, pos.up(), state);
     }
 
     public void shrink(World worldIn, BlockPos pos)
@@ -55,7 +55,7 @@ public class TFCBlockEmergentTallWaterPlant extends TFCBlockTallWaterPlant imple
         boolean flag = false;
         for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
         {
-            if (TFCBlocks.isFreshWater(worldIn.getBlockState(pos.offset(enumfacing))))
+            if (BlocksTFC.isFreshWater(worldIn.getBlockState(pos.offset(enumfacing))))
             {
                 flag = true;
             }
@@ -71,8 +71,8 @@ public class TFCBlockEmergentTallWaterPlant extends TFCBlockTallWaterPlant imple
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
         if (plant.getWaterType() == SEA_WATER)
-            return (soil.getBlock() == this || TFCBlocks.isSeaWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
-        return (soil.getBlock() == this || TFCBlocks.isWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
+            return (soil.getBlock() == this || BlocksTFC.isSeaWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
+        return (soil.getBlock() == this || BlocksTFC.isWater(worldIn.getBlockState(pos))) && this.canSustainBush(soil);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class TFCBlockEmergentTallWaterPlant extends TFCBlockTallWaterPlant imple
         boolean flag = false;
         for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
         {
-            if (TFCBlocks.isWater(world.getBlockState(pos.offset(enumfacing))))
+            if (BlocksTFC.isWater(world.getBlockState(pos.offset(enumfacing))))
             {
                 flag = true;
             }
@@ -101,7 +101,7 @@ public class TFCBlockEmergentTallWaterPlant extends TFCBlockTallWaterPlant imple
             boolean flag = false;
             for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
             {
-                if (TFCBlocks.isWater(worldIn.getBlockState(pos.offset(enumfacing))))
+                if (BlocksTFC.isWater(worldIn.getBlockState(pos.offset(enumfacing))))
                 {
                     flag = true;
                 }

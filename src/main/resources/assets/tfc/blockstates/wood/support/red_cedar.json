@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/red_cedar",
-      "particle": "tfc:blocks/wood/sheets/red_cedar"
+      "texture": "tfc:blocks/material_set/wood/sheets/red_cedar",
+      "particle": "tfc:blocks/material_set/wood/sheets/red_cedar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/sour_cherry",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/sour_cherry"
+      "texture": "tfc:blocks/material_set/wood/sheet/sour_cherry",
+      "particle": "tfc:blocks/material_set/wood/sheet/sour_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:loom",
     "textures": {
-      "texture": "tfc:blocks/wood/planks/blue_bamboo",
-      "particle": "tfc:blocks/wood/planks/blue_bamboo"
+      "texture": "tfc:blocks/material_set/wood/planks/bamboo",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "south": {},
       "west": {

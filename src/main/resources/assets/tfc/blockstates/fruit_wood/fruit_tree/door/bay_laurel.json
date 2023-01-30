@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/bay_laurel",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/bay_laurel"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/bay_laurel",
+      "top": "tfc:blocks/material_set/wood/door/upper/bay_laurel"
     }
   },
   "variants": {

@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/ohia_ai",
-      "particle": "tfc:blocks/wood/fruit_tree/log/ohia_ai"
+      "texture": "tfc:blocks/material_set/wood/log/side/ohia_ai",
+      "particle": "tfc:blocks/material_set/wood/log/side/ohia_ai"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

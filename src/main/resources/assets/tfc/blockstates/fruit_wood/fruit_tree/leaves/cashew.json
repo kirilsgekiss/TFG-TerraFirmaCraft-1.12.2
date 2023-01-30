@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/cashew"
+      "all": "tfc:blocks/material_set/wood/leaves/cashew"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/cashew",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/cashew"
+          "all": "tfc:blocks/material_set/wood/leaves/cashew",
+          "texture": "tfc:blocks/material_set/wood/flowers/cashew"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/cashew",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/cashew"
+          "all": "tfc:blocks/material_set/wood/leaves/cashew",
+          "texture": "tfc:blocks/material_set/wood/fruit/cashew"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

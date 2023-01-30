@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/jacaranda",
-      "particle": "tfc:blocks/wood/sheets/jacaranda"
+      "texture": "tfc:blocks/material_set/wood/sheets/jacaranda",
+      "particle": "tfc:blocks/material_set/wood/sheets/jacaranda"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

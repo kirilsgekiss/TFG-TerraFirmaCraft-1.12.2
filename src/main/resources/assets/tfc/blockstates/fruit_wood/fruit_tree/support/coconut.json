@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/coconut",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/coconut"
+      "texture": "tfc:blocks/material_set/wood/sheet/coconut",
+      "particle": "tfc:blocks/material_set/wood/sheet/coconut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

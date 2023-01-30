@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/nordmann_fir",
-      "layer0": "tfc:blocks/saplings/nordmann_fir"
+      "cross": "tfc:blocks/material_set/wood/sapling/nordmann_fir",
+      "layer0": "tfc:blocks/material_set/wood/sapling/nordmann_fir"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

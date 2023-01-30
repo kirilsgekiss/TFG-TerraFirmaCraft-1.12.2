@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/crabapple",
-      "log": "tfc:blocks/wood/fruit_tree/log/crabapple",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/crabapple",
-      "particle": "tfc:blocks/wood/fruit_tree/log/crabapple"
+      "top": "tfc:blocks/material_set/wood/log/top/crabapple",
+      "log": "tfc:blocks/material_set/wood/log/side/crabapple",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/crabapple"
     }
   },
   "variants": {

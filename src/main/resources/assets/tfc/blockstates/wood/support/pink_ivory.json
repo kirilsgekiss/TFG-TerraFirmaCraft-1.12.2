@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/pink_ivory",
-      "particle": "tfc:blocks/wood/sheets/pink_ivory"
+      "texture": "tfc:blocks/material_set/wood/sheets/pink_ivory",
+      "particle": "tfc:blocks/material_set/wood/sheets/pink_ivory"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

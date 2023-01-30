@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/blackthorn"
+      "all": "tfc:blocks/material_set/wood/leaves/blackthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/blackthorn",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/blackthorn"
+          "all": "tfc:blocks/material_set/wood/leaves/blackthorn",
+          "texture": "tfc:blocks/material_set/wood/flowers/blackthorn"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/blackthorn",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/blackthorn"
+          "all": "tfc:blocks/material_set/wood/leaves/blackthorn",
+          "texture": "tfc:blocks/material_set/wood/fruit/blackthorn"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

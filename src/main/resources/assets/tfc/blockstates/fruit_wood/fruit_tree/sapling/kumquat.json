@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/kumquat",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/kumquat"
+      "cross": "tfc:blocks/material_set/wood/sapling/kumquat",
+      "layer0": "tfc:blocks/material_set/wood/sapling/kumquat"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

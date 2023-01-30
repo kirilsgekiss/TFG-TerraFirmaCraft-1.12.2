@@ -4,9 +4,9 @@
   "defaults": {
     "model": "",
     "textures": {
-      "log": "tfc:blocks/wood/fruit_tree/log/ginkgo_nut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/ginkgo_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/ginkgo_nut"
+      "log": "tfc:blocks/material_set/wood/log/side/ginkgo_nut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/ginkgo_nut"
     },
     "uvlock": true
   },

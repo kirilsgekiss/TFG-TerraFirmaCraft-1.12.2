@@ -4,10 +4,10 @@
   "defaults": {
     "model": "",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/kola_nut",
-      "log": "tfc:blocks/wood/fruit_tree/log/kola_nut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kola_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/kola_nut"
+      "top": "tfc:blocks/material_set/wood/log/top/kola_nut",
+      "log": "tfc:blocks/material_set/wood/log/side/kola_nut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/kola_nut"
     }
   },
   "variants": {

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockCaveMushroom;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -24,7 +24,7 @@ public class WorldGenCaveMushrooms extends WorldGenerator
         int chance = rng.nextInt(5);
         if (chance == 0)
         {
-            TFCBlockCaveMushroom mushroomBlock = TFCBlocks.BLUESHROOM;
+            TFCBlockCaveMushroom mushroomBlock = BlocksTFC.BLUESHROOM;
             IBlockState state = mushroomBlock.getDefaultState();
 
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)
@@ -43,7 +43,7 @@ public class WorldGenCaveMushrooms extends WorldGenerator
         }
         else if (chance == 1)
         {
-            TFCBlockCaveMushroom mushroomBlock = TFCBlocks.GLOWSHROOM;
+            TFCBlockCaveMushroom mushroomBlock = BlocksTFC.GLOWSHROOM;
             IBlockState state = mushroomBlock.getDefaultState();
 
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)
@@ -62,7 +62,7 @@ public class WorldGenCaveMushrooms extends WorldGenerator
         }
         else if (chance == 2)
         {
-            TFCBlockCaveMushroom mushroomBlock = TFCBlocks.MAGMA_SHROOM;
+            TFCBlockCaveMushroom mushroomBlock = BlocksTFC.MAGMA_SHROOM;
             IBlockState state = mushroomBlock.getDefaultState();
 
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)
@@ -81,7 +81,7 @@ public class WorldGenCaveMushrooms extends WorldGenerator
         }
         else if (chance == 3)
         {
-            TFCBlockCaveMushroom mushroomBlock = TFCBlocks.POISON_SHROOM;
+            TFCBlockCaveMushroom mushroomBlock = BlocksTFC.POISON_SHROOM;
             IBlockState state = mushroomBlock.getDefaultState();
 
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)
@@ -100,7 +100,7 @@ public class WorldGenCaveMushrooms extends WorldGenerator
         }
         else if (chance == 4)
         {
-            TFCBlockCaveMushroom mushroomBlock = TFCBlocks.SULPHUR_SHROOM;
+            TFCBlockCaveMushroom mushroomBlock = BlocksTFC.SULPHUR_SHROOM;
             IBlockState state = mushroomBlock.getDefaultState();
 
             for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i)

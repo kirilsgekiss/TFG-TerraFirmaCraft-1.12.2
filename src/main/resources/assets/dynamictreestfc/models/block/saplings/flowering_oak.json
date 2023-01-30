@@ -1,0 +1,8 @@
+{
+  "parent": "dynamictrees:block/sapling",
+  "textures": {
+    "particle": "tfc:blocks/material_set/wood/leaves/flowering_oak",
+    "log": "tfc:blocks/material_set/wood/log/side/flowering_oak",
+    "leaves": "tfc:blocks/material_set/wood/leaves/flowering_oak"
+  }
+}

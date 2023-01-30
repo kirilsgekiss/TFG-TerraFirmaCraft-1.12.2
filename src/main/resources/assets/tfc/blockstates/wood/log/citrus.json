@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/citrus",
-      "side": "tfc:blocks/wood/log/citrus",
-      "end": "tfc:blocks/wood/top/citrus",
+      "particle": "tfc:blocks/material_set/wood/log/side/citrus",
+      "side": "tfc:blocks/material_set/wood/log/side/citrus",
+      "end": "tfc:blocks/material_set/wood/log/top/citrus",
       "layer0": "tfc:items/wood/log/citrus"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/citrus"
+          "end": "tfc:blocks/material_set/wood/log/side/citrus"
         }
       }
     },

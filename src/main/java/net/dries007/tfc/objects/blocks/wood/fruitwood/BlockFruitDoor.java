@@ -3,7 +3,7 @@ package net.dries007.tfc.objects.blocks.wood.fruitwood;
 import java.util.Iterator;
 import java.util.Random;
 
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
@@ -37,7 +37,7 @@ public class BlockFruitDoor extends BlockDoor
     public Item getItem() //From the way we build the ImmutableLists these two should always be sorted
     {
         Iterator<ItemFruitDoor> ifd = TFCItems.getAllFruitDoors().iterator();
-        Iterator<BlockFruitDoor> bfd = TFCBlocks.getAllFruitDoors().iterator();
+        Iterator<BlockFruitDoor> bfd = BlocksTFC.getAllFruitDoors().iterator();
         while (ifd.hasNext() && bfd.hasNext())
         {
             ItemFruitDoor i = ifd.next();

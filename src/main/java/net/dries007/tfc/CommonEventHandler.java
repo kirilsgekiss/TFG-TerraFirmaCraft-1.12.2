@@ -106,16 +106,16 @@ import net.dries007.tfc.network.PacketPlayerDataUpdate;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.blocks.BlockFluidTFC;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockAnvil;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.fluids.TFCFluids;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.ItemQuiver;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
@@ -324,11 +324,11 @@ public final class CommonEventHandler
                 event.setNewSpeed(event.getNewSpeed() + (event.getNewSpeed() * skillModifier));
             }
         }
-        if (event.getState().getBlock() instanceof TFCBlockRockVariant)
+        if (event.getState().getBlock() instanceof BlockRockVariant)
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
         }
-        if (event.getState().getBlock() instanceof TFCBlockLog)
+        if (event.getState().getBlock() instanceof BlockLogTFC)
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.logMiningTimeModifier));
         }
@@ -364,7 +364,7 @@ public final class CommonEventHandler
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK)
             {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isWater = TFCBlocks.isWater(waterState), isSaltWater = TFCBlocks.isSeaWater(waterState);
+                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSeaWater(waterState);
                 if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true)))
                 {
                     //Simulated so client will check if he would drink before updating stats
@@ -401,15 +401,15 @@ public final class CommonEventHandler
 
         if (ConfigTFC.General.OVERRIDES.enableHoeing)
         {
-            if (block instanceof TFCBlockRockVariant)
+            if (block instanceof BlockRockVariant)
             {
-                TFCBlockRockVariant blockRock = (TFCBlockRockVariant) block;
+                BlockRockVariant blockRock = (BlockRockVariant) block;
                 if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DIRT)
                 {
                     if (!world.isRemote)
                     {
                         world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        world.setBlockState(pos, TFCBlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
+                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
                     }
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -756,7 +756,7 @@ public final class CommonEventHandler
             {
                 // Prevents squids spawning outside of salt water (eg: oceans)
                 Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
-                if (TFCFluids.SEA_WATER.get() != fluid)
+                if (FluidsTFC.SEA_WATER.get() != fluid)
                 {
                     event.setResult(Event.Result.DENY);
                 }
@@ -795,7 +795,7 @@ public final class CommonEventHandler
 
         // Stop mob spawning in thatch - the list of non-spawnable light-blocking, non-collidable blocks is hardcoded in WorldEntitySpawner#canEntitySpawnBody
         // This is intentionally outside the previous world type check as this is a fix for the thatch block, not a generic spawning check.
-        if (event.getWorld().getBlockState(pos).getBlock() == TFCBlocks.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == TFCBlocks.THATCH)
+        if (event.getWorld().getBlockState(pos).getBlock() == BlocksTFC.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == BlocksTFC.THATCH)
         {
             event.setResult(Event.Result.DENY);
         }
@@ -1057,11 +1057,11 @@ public final class CommonEventHandler
         {
             if (event.getNewState().getBlock() == Blocks.STONE)
             {
-                event.setNewState(TFCBlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(BlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
             if (event.getNewState().getBlock() == Blocks.COBBLESTONE)
             {
-                event.setNewState(TFCBlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
         }
     }

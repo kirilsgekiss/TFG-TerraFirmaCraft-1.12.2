@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/maclura",
-      "layer0": "tfc:blocks/saplings/maclura"
+      "cross": "tfc:blocks/material_set/wood/sapling/maclura",
+      "layer0": "tfc:blocks/material_set/wood/sapling/maclura"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

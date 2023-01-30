@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/mahogany"
+      "all": "tfc:blocks/material_set/wood/leaves/mahogany"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,30 +19,30 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/mahogany",
-          "texture": "tfc:blocks/wood/flowers/mahogany"
+          "all": "tfc:blocks/material_set/wood/leaves/mahogany",
+          "texture": "tfc:blocks/material_set/wood/flowers/mahogany"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/mahogany",
-          "texture": "tfc:blocks/wood/fruit/mahogany"
+          "all": "tfc:blocks/material_set/wood/leaves/mahogany",
+          "texture": "tfc:blocks/material_set/wood/fruit/mahogany"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/mahogany"
+          "all": "tfc:blocks/material_set/wood/leaves/mahogany"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/mahogany"
+          "all": "tfc:blocks/material_set/wood/leaves/mahogany"
         },
         "submodel": "leaves"
       }

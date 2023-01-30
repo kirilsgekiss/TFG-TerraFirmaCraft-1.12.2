@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/elder",
-      "layer0": "tfc:blocks/saplings/elder"
+      "cross": "tfc:blocks/material_set/wood/sapling/elder",
+      "layer0": "tfc:blocks/material_set/wood/sapling/elder"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

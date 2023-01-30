@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/finger_lime"
+      "all": "tfc:blocks/material_set/wood/leaves/finger_lime"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/finger_lime",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/finger_lime"
+          "all": "tfc:blocks/material_set/wood/leaves/finger_lime",
+          "texture": "tfc:blocks/material_set/wood/flowers/finger_lime"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/finger_lime",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/finger_lime"
+          "all": "tfc:blocks/material_set/wood/leaves/finger_lime",
+          "texture": "tfc:blocks/material_set/wood/fruit/finger_lime"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

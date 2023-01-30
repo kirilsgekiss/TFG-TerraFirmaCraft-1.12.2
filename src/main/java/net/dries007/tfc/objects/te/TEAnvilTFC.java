@@ -36,7 +36,7 @@ import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockAnvil;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemStackHandlerCallback;
 import net.dries007.tfc.util.Helpers;

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/mahoe",
-      "particle": "tfc:blocks/wood/sheets/mahoe"
+      "texture": "tfc:blocks/material_set/wood/sheets/mahoe",
+      "particle": "tfc:blocks/material_set/wood/sheets/mahoe"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

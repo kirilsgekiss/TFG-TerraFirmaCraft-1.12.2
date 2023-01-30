@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/mahoe",
-      "log": "tfc:blocks/wood/log/mahoe",
-      "planks": "tfc:blocks/wood/planks/mahoe",
-      "particle": "tfc:blocks/wood/log/mahoe"
+      "top": "tfc:blocks/material_set/wood/log/top/mahoe",
+      "log": "tfc:blocks/material_set/wood/log/side/mahoe",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/mahoe"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

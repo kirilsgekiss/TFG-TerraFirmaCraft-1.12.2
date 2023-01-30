@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/sycamore",
-      "layer0": "tfc:blocks/saplings/sycamore"
+      "cross": "tfc:blocks/material_set/wood/sapling/sycamore",
+      "layer0": "tfc:blocks/material_set/wood/sapling/sycamore"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

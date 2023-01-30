@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/pistachio"
+      "all": "tfc:blocks/material_set/wood/leaves/pistachio"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/pistachio",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/pistachio"
+          "all": "tfc:blocks/material_set/wood/leaves/pistachio",
+          "texture": "tfc:blocks/material_set/wood/flowers/pistachio"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/pistachio",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/pistachio"
+          "all": "tfc:blocks/material_set/wood/leaves/pistachio",
+          "texture": "tfc:blocks/material_set/wood/fruit/pistachio"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

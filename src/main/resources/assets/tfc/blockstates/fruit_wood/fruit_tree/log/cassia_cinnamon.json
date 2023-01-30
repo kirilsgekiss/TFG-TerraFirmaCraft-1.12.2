@@ -1,39 +1,41 @@
 {
-	"forge_marker": 1,
-	"defaults": {
-		"textures": {
-			"side": "tfc:blocks/wood/fruit_tree/log/cassia_cinnamon",
-			"top": "tfc:blocks/wood/fruit_tree/top/cassia_cinnamon",
-			"particle": "tfc:blocks/wood/fruit_tree/log/cassia_cinnamon"
-		},
-		"model": "tfc:wood/fruit_tree/log/log_thin"
-	},
-	"variants": {
-		"grown": {
-			"true": {
-				"textures": {
-					"particle": "tfc:blocks/wood/fruit_tree/log/cassia_cinnamon",
-					"side": "tfc:blocks/wood/fruit_tree/log/cassia_cinnamon"
-				}
-			},
-			"false": {
-				"textures": {
-					"particle": "tfc:blocks/wood/fruit_tree/sheets/cassia_cinnamon",
-					"side": "tfc:blocks/wood/fruit_tree/sheets/cassia_cinnamon"
-				},
-				"model": "tfc:wood/fruit_tree/log/log_stripped"
-			}
-		},
-		"connected": {
-			"true": {
-				"model": "tfc:wood/fruit_tree/log/log_connected"
-			},
-			"false": {}
-		},
-		"inventory": [{}],
-		"normal": [{
-			"transform": "forge:default-block",
-			"model": "tfc:wood/fruit_tree/log/log_thin"
-		}]
-	}
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "side": "tfc:blocks/material_set/wood/log/side/cassia_cinnamon",
+      "top": "tfc:blocks/material_set/wood/log/top/cassia_cinnamon",
+      "particle": "tfc:blocks/material_set/wood/log/side/cassia_cinnamon"
+    },
+    "model": "tfc:wood/fruit_tree/log/log_thin"
+  },
+  "variants": {
+    "grown": {
+      "true": {
+        "textures": {
+          "particle": "tfc:blocks/material_set/wood/log/side/cassia_cinnamon",
+          "side": "tfc:blocks/material_set/wood/log/side/cassia_cinnamon"
+        }
+      },
+      "false": {
+        "textures": {
+          "particle": "tfc:blocks/material_set/wood/sheet/cassia_cinnamon",
+          "side": "tfc:blocks/material_set/wood/sheet/cassia_cinnamon"
+        },
+        "model": "tfc:wood/fruit_tree/log/log_stripped"
+      }
+    },
+    "connected": {
+      "true": {
+        "model": "tfc:wood/fruit_tree/log/log_connected"
+      },
+      "false": {}
+    },
+    "inventory": [{}],
+    "normal": [
+      {
+        "transform": "forge:default-block",
+        "model": "tfc:wood/fruit_tree/log/log_thin"
+      }
+    ]
+  }
 }

@@ -18,12 +18,12 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockLog;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.TFCBlockLog.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 
 /**
@@ -39,7 +39,7 @@ public class TreeGenWillow implements ITreeGenerator
     private Template structureOverlay;
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen)
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
     {
         //noinspection ConstantConditions
         ResourceLocation base = new ResourceLocation(TerraFirmaCraft.MOD_ID, tree.getRegistryName().getPath() + "/base");
@@ -54,8 +54,8 @@ public class TreeGenWillow implements ITreeGenerator
             return;
         }
 
-        int height = 5 + rand.nextInt(3),
-            branches = 2 + rand.nextInt(3), x1, z1, y1;
+        int height = 5 + random.nextInt(3),
+            branches = 2 + random.nextInt(3), x1, z1, y1;
         for (int n = 0; n <= height; n++)
         {
             if (n > 3)
@@ -65,11 +65,11 @@ public class TreeGenWillow implements ITreeGenerator
 
         for (int n = 0; n < branches; n++)
         {
-            x1 = (rand.nextBoolean() ? 1 : -1) * (1 + rand.nextInt(3));
-            z1 = (rand.nextBoolean() ? 1 : -1) * (1 + rand.nextInt(3));
-            y1 = 3 + rand.nextInt(2);
+            x1 = (random.nextBoolean() ? 1 : -1) * (1 + random.nextInt(3));
+            z1 = (random.nextBoolean() ? 1 : -1) * (1 + random.nextInt(3));
+            y1 = 3 + random.nextInt(2);
             createLeafGroup(world, pos.add(x1, y1, z1));
-            createBranch(world, pos, x1, y1, z1, rand, tree);
+            createBranch(world, pos, x1, y1, z1, random, tree);
         }
     }
 
@@ -101,7 +101,7 @@ public class TreeGenWillow implements ITreeGenerator
 
     private void tryPlaceLog(World world, BlockPos pos, Tree tree, BlockLog.EnumAxis axis)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
-            world.setBlockState(pos, TFCBlockLog.get(tree).getDefaultState().withProperty(LOG_AXIS, axis).withProperty(PLACED, false));
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
+            world.setBlockState(pos, BlockLogTFC.get(tree).getDefaultState().withProperty(LOG_AXIS, axis).withProperty(PLACED, false));
     }
 }

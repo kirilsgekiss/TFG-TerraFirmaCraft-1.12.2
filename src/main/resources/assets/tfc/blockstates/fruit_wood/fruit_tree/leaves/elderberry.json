@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/elderberry"
+      "all": "tfc:blocks/material_set/wood/leaves/elderberry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/elderberry",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/elderberry"
+          "all": "tfc:blocks/material_set/wood/leaves/elderberry",
+          "texture": "tfc:blocks/material_set/wood/flowers/elderberry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/elderberry",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/elderberry"
+          "all": "tfc:blocks/material_set/wood/leaves/elderberry",
+          "texture": "tfc:blocks/material_set/wood/fruit/elderberry"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

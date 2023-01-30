@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/yellow_meranti",
-      "particle": "tfc:blocks/wood/sheets/yellow_meranti"
+      "texture": "tfc:blocks/material_set/wood/sheets/yellow_meranti",
+      "particle": "tfc:blocks/material_set/wood/sheets/yellow_meranti"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

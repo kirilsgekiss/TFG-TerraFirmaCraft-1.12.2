@@ -4,18 +4,16 @@
   "defaults": {
     "model": "tfc:workbench",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/planks/plum",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/plum",
-      "top": "tfc:blocks/wood/workbench_top",
-      "north": "tfc:blocks/wood/workbench_front",
-      "south": "tfc:blocks/wood/workbench_front",
-      "east": "tfc:blocks/wood/workbench_side",
-      "west": "tfc:blocks/wood/workbench_side"
+      "all": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern",
+      "top": "tfc:blocks/material_set/wood/workbench/workbench_top",
+      "north": "tfc:blocks/material_set/wood/workbench/workbench_front",
+      "south": "tfc:blocks/material_set/wood/workbench/workbench_front",
+      "east": "tfc:blocks/material_set/wood/workbench/workbench_side",
+      "west": "tfc:blocks/material_set/wood/workbench/workbench_side"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

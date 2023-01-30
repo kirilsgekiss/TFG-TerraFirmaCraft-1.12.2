@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/hazelnut",
-      "log": "tfc:blocks/wood/fruit_tree/log/hazelnut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/hazelnut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/hazelnut"
+      "top": "tfc:blocks/material_set/wood/log/top/hazelnut",
+      "log": "tfc:blocks/material_set/wood/log/side/hazelnut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/hazelnut"
     }
   },
   "variants": {

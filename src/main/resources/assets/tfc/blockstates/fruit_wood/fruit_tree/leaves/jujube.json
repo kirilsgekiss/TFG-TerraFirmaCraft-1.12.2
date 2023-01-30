@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/jujube"
+      "all": "tfc:blocks/material_set/wood/leaves/jujube"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/jujube",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/jujube"
+          "all": "tfc:blocks/material_set/wood/leaves/jujube",
+          "texture": "tfc:blocks/material_set/wood/flowers/jujube"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/jujube",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/jujube"
+          "all": "tfc:blocks/material_set/wood/leaves/jujube",
+          "texture": "tfc:blocks/material_set/wood/fruit/jujube"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

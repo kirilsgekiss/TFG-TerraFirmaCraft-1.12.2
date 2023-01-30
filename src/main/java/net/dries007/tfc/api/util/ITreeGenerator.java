@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockSapling;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
 
 public interface ITreeGenerator
 {
@@ -27,9 +27,9 @@ public interface ITreeGenerator
      * @param world   The world
      * @param pos     The position where the sapling was / would've been
      * @param tree    The tree type to spawn
-     * @param rand    A random to use in generation
+     * @param random    A random to use in generation
      */
-    void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random rand, boolean isWorldGen);
+    void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen);
 
     /**
      * Checks if a tree can be generated. This implementation checks height, radius, and light level
@@ -66,13 +66,13 @@ public interface ITreeGenerator
         }
 
         // Check if there is a solid block beneath
-        if (!TFCBlocks.isGrowableSoil(world.getBlockState(pos.down())))
+        if (!BlocksTFC.isGrowableSoil(world.getBlockState(pos.down())))
         {
             return false;
         }
 
         // Check the position for liquids, etc.
         IBlockState stateAt = world.getBlockState(pos);
-        return !stateAt.getMaterial().isLiquid() && (stateAt.getMaterial().isReplaceable() || stateAt.getBlock() instanceof TFCBlockSapling);
+        return !stateAt.getMaterial().isLiquid() && (stateAt.getMaterial().isReplaceable() || stateAt.getBlock() instanceof BlockSaplingTFC);
     }
 }

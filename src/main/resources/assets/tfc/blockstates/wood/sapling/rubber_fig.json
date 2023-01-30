@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/rubber_fig",
-      "layer0": "tfc:blocks/saplings/rubber_fig"
+      "cross": "tfc:blocks/material_set/wood/sapling/rubber_fig",
+      "layer0": "tfc:blocks/material_set/wood/sapling/rubber_fig"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

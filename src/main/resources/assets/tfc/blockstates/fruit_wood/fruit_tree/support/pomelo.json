@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/pomelo",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/pomelo"
+      "texture": "tfc:blocks/material_set/wood/sheet/pomelo",
+      "particle": "tfc:blocks/material_set/wood/sheet/pomelo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

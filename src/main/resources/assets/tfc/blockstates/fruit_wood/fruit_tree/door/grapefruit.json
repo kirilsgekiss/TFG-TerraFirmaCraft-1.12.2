@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/fruit_tree/door/lower/grapefruit",
-      "top": "tfc:blocks/wood/fruit_tree/door/upper/grapefruit"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/grapefruit",
+      "top": "tfc:blocks/material_set/wood/door/upper/grapefruit"
     }
   },
   "variants": {

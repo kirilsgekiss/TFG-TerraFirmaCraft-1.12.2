@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "dynamictreestfc:log/weeping_willow"
+    },
+    "axis=z": {
+      "model": "dynamictreestfc:log/weeping_willow",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "dynamictreestfc:log/weeping_willow",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

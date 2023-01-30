@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/whitebeam",
-      "side": "tfc:blocks/wood/log/whitebeam",
-      "end": "tfc:blocks/wood/top/whitebeam",
+      "particle": "tfc:blocks/material_set/wood/log/side/whitebeam",
+      "side": "tfc:blocks/material_set/wood/log/side/whitebeam",
+      "end": "tfc:blocks/material_set/wood/log/top/whitebeam",
       "layer0": "tfc:items/wood/log/whitebeam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/whitebeam"
+          "end": "tfc:blocks/material_set/wood/log/side/whitebeam"
         }
       }
     },

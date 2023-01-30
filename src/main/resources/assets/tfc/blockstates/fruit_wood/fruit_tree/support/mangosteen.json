@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/sheets/mangosteen",
-      "particle": "tfc:blocks/wood/fruit_tree/sheets/mangosteen"
+      "texture": "tfc:blocks/material_set/wood/sheet/mangosteen",
+      "particle": "tfc:blocks/material_set/wood/sheet/mangosteen"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

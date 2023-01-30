@@ -4,9 +4,9 @@
   "defaults": {
     "model": "",
     "textures": {
-      "log": "tfc:blocks/wood/fruit_tree/log/kukui_nut",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/kukui_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/kukui_nut"
+      "log": "tfc:blocks/material_set/wood/log/side/kukui_nut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/kukui_nut"
     },
     "uvlock": true
   },

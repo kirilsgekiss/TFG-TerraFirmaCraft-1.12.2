@@ -4,9 +4,9 @@
   "defaults": {
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
-      "log": "tfc:blocks/wood/fruit_tree/log/loquat",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/loquat",
-      "particle": "tfc:blocks/wood/fruit_tree/log/loquat"
+      "log": "tfc:blocks/material_set/wood/log/side/loquat",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/loquat"
     },
     "uvlock": true
   },

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/maclura",
-      "particle": "tfc:blocks/wood/sheets/maclura"
+      "texture": "tfc:blocks/material_set/wood/sheets/maclura",
+      "particle": "tfc:blocks/material_set/wood/sheets/maclura"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

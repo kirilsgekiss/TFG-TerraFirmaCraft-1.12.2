@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/pomegranate"
+      "all": "tfc:blocks/material_set/wood/leaves/pomegranate"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/pomegranate",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/pomegranate"
+          "all": "tfc:blocks/material_set/wood/leaves/pomegranate",
+          "texture": "tfc:blocks/material_set/wood/flowers/pomegranate"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/pomegranate",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/pomegranate"
+          "all": "tfc:blocks/material_set/wood/leaves/pomegranate",
+          "texture": "tfc:blocks/material_set/wood/fruit/pomegranate"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/alder",
-      "side": "tfc:blocks/wood/log/alder",
-      "end": "tfc:blocks/wood/top/alder",
+      "particle": "tfc:blocks/material_set/wood/log/side/alder",
+      "side": "tfc:blocks/material_set/wood/log/side/alder",
+      "end": "tfc:blocks/material_set/wood/log/top/alder",
       "layer0": "tfc:items/wood/log/alder"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/alder"
+          "end": "tfc:blocks/material_set/wood/log/side/alder"
         }
       }
     },

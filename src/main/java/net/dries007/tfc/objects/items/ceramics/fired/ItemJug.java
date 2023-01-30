@@ -36,7 +36,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.fluids.TFCFluids;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandler;
 import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
@@ -116,7 +116,7 @@ public class ItemJug extends ItemPottery
             FluidStack fluidConsumed = jugCap.drain(CAPACITY, true);
             if (fluidConsumed != null && entityLiving instanceof EntityPlayer)
             {
-                DrinkableProperty drinkable = TFCFluids.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
+                DrinkableProperty drinkable = FluidsTFC.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
                 if (drinkable != null)
                 {
                     drinkable.onDrink((EntityPlayer) entityLiving);
@@ -167,7 +167,7 @@ public class ItemJug extends ItemPottery
         if (isInCreativeTab(tab))
         {
             items.add(new ItemStack(this));
-            for (FluidWrapper wrapper : TFCFluids.getAllWrappers())
+            for (FluidWrapper wrapper : FluidsTFC.getAllWrappers())
             {
                 if (wrapper.get(DrinkableProperty.DRINKABLE) != null)
                 {
@@ -192,6 +192,6 @@ public class ItemJug extends ItemPottery
     @Override
     public ICapabilityProvider initCapabilities(@Nonnull ItemStack stack, @Nullable NBTTagCompound nbt)
     {
-        return new FluidWhitelistHandler(stack, CAPACITY, TFCFluids.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
+        return new FluidWhitelistHandler(stack, CAPACITY, FluidsTFC.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
     }
 }

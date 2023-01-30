@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/beech",
-      "log": "tfc:blocks/wood/log/beech",
-      "planks": "tfc:blocks/wood/planks/beech",
-      "particle": "tfc:blocks/wood/log/beech"
+      "top": "tfc:blocks/material_set/wood/log/top/beech",
+      "log": "tfc:blocks/material_set/wood/log/side/beech",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/beech"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

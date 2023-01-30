@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/golden_bamboo",
-      "layer0": "tfc:blocks/saplings/golden_bamboo"
+      "cross": "tfc:blocks/material_set/wood/sapling/golden_bamboo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/golden_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

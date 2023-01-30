@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/fruit_tree/leaves/sapodilla"
+      "all": "tfc:blocks/material_set/wood/leaves/sapodilla"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,16 +19,16 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/sapodilla",
-          "texture": "tfc:blocks/wood/fruit_tree/flowers/sapodilla"
+          "all": "tfc:blocks/material_set/wood/leaves/sapodilla",
+          "texture": "tfc:blocks/material_set/wood/flowers/sapodilla"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/fruit_tree/leaves/sapodilla",
-          "texture": "tfc:blocks/wood/fruit_tree/fruit/sapodilla"
+          "all": "tfc:blocks/material_set/wood/leaves/sapodilla",
+          "texture": "tfc:blocks/material_set/wood/fruit/sapodilla"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       }

@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlockFireBrick;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
@@ -55,7 +55,7 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
             return false;
         };
         BLAST_FURNACE_CHIMNEY = new Multiblock()
-            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == TFCBlocks.MOLTEN || state.getMaterial().isReplaceable())
+            .match(new BlockPos(0, 0, 0), state -> state.getBlock() == BlocksTFC.MOLTEN || state.getMaterial().isReplaceable())
             .match(new BlockPos(0, 0, 1), stoneMatcher)
             .match(new BlockPos(0, 0, -1), stoneMatcher)
             .match(new BlockPos(1, 0, 0), stoneMatcher)

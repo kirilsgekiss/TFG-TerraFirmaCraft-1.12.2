@@ -4,10 +4,10 @@
   "defaults": {
     "model": "tfc:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/fruit_tree/top/sapodilla",
-      "log": "tfc:blocks/wood/fruit_tree/log/sapodilla",
-      "planks": "tfc:blocks/wood/fruit_tree/planks/sapodilla",
-      "particle": "tfc:blocks/wood/fruit_tree/log/sapodilla"
+      "top": "tfc:blocks/material_set/wood/log/top/sapodilla",
+      "log": "tfc:blocks/material_set/wood/log/side/sapodilla",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/sapodilla"
     }
   },
   "variants": {

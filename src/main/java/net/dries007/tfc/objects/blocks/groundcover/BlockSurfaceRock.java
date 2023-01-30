@@ -41,8 +41,8 @@ import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
@@ -262,7 +262,7 @@ public class BlockSurfaceRock extends BlockBush implements IRockObject
 
         if (state.getBlock() == this)
         {
-            return (TFCBlocks.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(TFCBlocks.isSeaWater(soil) || TFCBlocks.isFreshWater(soil)); // todo: wtf check
+            return (BlocksTFC.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
     }

@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/white_cherry",
-      "side": "tfc:blocks/wood/log/white_cherry",
-      "end": "tfc:blocks/wood/top/white_cherry",
+      "particle": "tfc:blocks/material_set/wood/log/side/white_cherry",
+      "side": "tfc:blocks/material_set/wood/log/side/white_cherry",
+      "end": "tfc:blocks/material_set/wood/log/top/white_cherry",
       "layer0": "tfc:items/wood/log/white_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/white_cherry"
+          "end": "tfc:blocks/material_set/wood/log/side/white_cherry"
         }
       }
     },

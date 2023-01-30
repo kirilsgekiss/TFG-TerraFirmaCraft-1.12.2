@@ -3,14 +3,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/wood/fruit_tree/sapling/monkey_puzzle",
-      "layer0": "tfc:blocks/wood/fruit_tree/sapling/monkey_puzzle"
+      "cross": "tfc:blocks/material_set/wood/sapling/monkey_puzzle",
+      "layer0": "tfc:blocks/material_set/wood/sapling/monkey_puzzle"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

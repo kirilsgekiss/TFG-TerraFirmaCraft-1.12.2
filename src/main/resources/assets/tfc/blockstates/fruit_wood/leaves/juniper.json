@@ -3,13 +3,11 @@
   "defaults": {
     "model": "leaves",
     "textures": {
-      "all": "tfc:blocks/wood/leaves/juniper"
+      "all": "tfc:blocks/material_set/wood/leaves/juniper"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "leaves",
       "transform": "forge:default-block"
@@ -21,30 +19,30 @@
       "flowering": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/juniper",
-          "texture": "tfc:blocks/wood/flowers/juniper"
+          "all": "tfc:blocks/material_set/wood/leaves/juniper",
+          "texture": "tfc:blocks/material_set/wood/flowers/juniper"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "fruit": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/juniper",
-          "texture": "tfc:blocks/wood/fruit/juniper"
+          "all": "tfc:blocks/material_set/wood/leaves/juniper",
+          "texture": "tfc:blocks/material_set/wood/fruit/juniper"
         },
         "submodel": "tfc:fruit_trees/leaves_overlay"
       },
       "autumn": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/juniper"
+          "all": "tfc:blocks/material_set/wood/leaves/juniper"
         },
         "submodel": "leaves"
       },
       "winter": {
         "model": "leaves",
         "textures": {
-          "all": "tfc:blocks/wood/leaves/juniper"
+          "all": "tfc:blocks/material_set/wood/leaves/juniper"
         },
         "submodel": "leaves"
       }

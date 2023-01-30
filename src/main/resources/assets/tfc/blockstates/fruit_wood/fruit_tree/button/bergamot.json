@@ -4,8 +4,8 @@
   "defaults": {
     "model": "button",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/planks/bergamot",
-      "particle": "tfc:blocks/wood/fruit_tree/planks/bergamot"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {

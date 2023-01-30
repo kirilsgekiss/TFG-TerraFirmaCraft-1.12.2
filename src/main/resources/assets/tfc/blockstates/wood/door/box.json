@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/box",
-      "top": "tfc:blocks/wood/door/upper/box"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/box",
+      "top": "tfc:blocks/material_set/wood/door/upper/box"
     }
   },
   "variants": {

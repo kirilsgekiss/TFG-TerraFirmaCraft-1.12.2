@@ -33,8 +33,8 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -156,42 +156,42 @@ public class StructureGenerator extends WorldGenerator
                                     world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() == TFCBlockPlant.get(plant))
                                 {
                                     final IBlockState current = world.getBlockState(position);
-                                    if (TFCBlocks.isSand(current))
+                                    if (BlocksTFC.isSand(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.SAND)
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (TFCBlocks.isDirt(current))
+                                    else if (BlocksTFC.isDirt(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.DIRT)
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (TFCBlocks.isDryGrass(current))
+                                    else if (BlocksTFC.isDryGrass(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.DRY_GRASS)
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (TFCBlocks.isGrass(current))
+                                    else if (BlocksTFC.isGrass(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.GRASS)
 																	.getDefaultState(),
 															2);
                                     }
-                                    else if (TFCBlocks.isSparseGrass(current))
+                                    else if (BlocksTFC.isSparseGrass(current))
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.SPARSE_GRASS)
 																	.getDefaultState(),
 															2);
@@ -199,7 +199,7 @@ public class StructureGenerator extends WorldGenerator
                                     else
                                     {
 													world.setBlockState(new BlockPos(posX, posY, posZ),
-															TFCBlockRockVariant
+															BlockRockVariant
 																	.get(ChunkDataTFC.getRockHeight(world, position), Type.DIRT)
 																	.getDefaultState(),
 															2);
@@ -308,7 +308,7 @@ public class StructureGenerator extends WorldGenerator
 		while (!foundGround && y-- > 0)
 		{
 			IBlockState current = world.getBlockState(new BlockPos(x, y, z));
-			foundGround = TFCBlocks.isGround(current);
+			foundGround = BlocksTFC.isGround(current);
 		}
 		BlockPos pos = new BlockPos(x, y - 1, z);
 
@@ -321,7 +321,7 @@ public class StructureGenerator extends WorldGenerator
             world.getBlockState(pos).getBlock() == Blocks.AIR || 
             world.getBlockState(pos).getBlock() == Blocks.ICE || 
             world.getBlockState(pos).getBlock() == Blocks.PACKED_ICE || 
-            world.getBlockState(pos).getBlock() == TFCBlocks.SEA_ICE)
+            world.getBlockState(pos).getBlock() == BlocksTFC.SEA_ICE)
         {	
 			y = -99;
 		}

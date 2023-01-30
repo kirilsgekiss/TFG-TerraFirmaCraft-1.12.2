@@ -3,14 +3,12 @@
   "defaults": {
     "model": "tfc:empty",
     "textures": {
-      "texture": "tfc:blocks/wood/fruit_tree/log/brazil_nut",
-      "particle": "tfc:blocks/wood/fruit_tree/log/brazil_nut"
+      "texture": "tfc:blocks/material_set/wood/log/side/brazil_nut",
+      "particle": "tfc:blocks/material_set/wood/log/side/brazil_nut"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "facing": {
       "up": {
         "submodel": "tfc:fruit_trees/branch_vertical"

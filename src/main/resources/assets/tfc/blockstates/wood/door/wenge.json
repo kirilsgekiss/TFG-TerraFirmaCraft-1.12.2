@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/wenge",
-      "top": "tfc:blocks/wood/door/upper/wenge"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/wenge",
+      "top": "tfc:blocks/material_set/wood/door/upper/wenge"
     }
   },
   "variants": {

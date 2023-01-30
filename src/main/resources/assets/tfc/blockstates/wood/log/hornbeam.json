@@ -4,16 +4,14 @@
   "defaults": {
     "model": "item/generated",
     "textures": {
-      "particle": "tfc:blocks/wood/log/hornbeam",
-      "side": "tfc:blocks/wood/log/hornbeam",
-      "end": "tfc:blocks/wood/top/hornbeam",
+      "particle": "tfc:blocks/material_set/wood/log/side/hornbeam",
+      "side": "tfc:blocks/material_set/wood/log/side/hornbeam",
+      "end": "tfc:blocks/material_set/wood/log/top/hornbeam",
       "layer0": "tfc:items/wood/log/hornbeam"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "axis": {
       "y": {
         "model": "cube_column"
@@ -30,7 +28,7 @@
       "none": {
         "model": "cube_column",
         "textures": {
-          "end": "tfc:blocks/wood/log/hornbeam"
+          "end": "tfc:blocks/material_set/wood/log/side/hornbeam"
         }
       }
     },

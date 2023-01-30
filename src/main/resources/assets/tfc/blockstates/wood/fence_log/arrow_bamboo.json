@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/arrow_bamboo",
-      "log": "tfc:blocks/wood/log/arrow_bamboo",
-      "planks": "tfc:blocks/wood/planks/arrow_bamboo",
-      "particle": "tfc:blocks/wood/log/arrow_bamboo"
+      "top": "tfc:blocks/material_set/wood/log/top/arrow_bamboo",
+      "log": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
+      "planks": "tfc:blocks/material_set/wood/planks/bamboo",
+      "particle": "tfc:blocks/material_set/wood/log/side/arrow_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },

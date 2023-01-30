@@ -4,16 +4,14 @@
   "defaults": {
     "model": "tfc_decoration:wood/fence/fence_post",
     "textures": {
-      "top": "tfc:blocks/wood/top/nordmann_fir",
-      "log": "tfc:blocks/wood/log/nordmann_fir",
-      "planks": "tfc:blocks/wood/planks/nordmann_fir",
-      "particle": "tfc:blocks/wood/log/nordmann_fir"
+      "top": "tfc:blocks/material_set/wood/log/top/nordmann_fir",
+      "log": "tfc:blocks/material_set/wood/log/side/nordmann_fir",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
+      "particle": "tfc:blocks/material_set/wood/log/side/nordmann_fir"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc_decoration:wood/fence/fence_inventory"
     },
