@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/holly",
-      "layer0": "tfc:blocks/saplings/holly"
+      "cross": "tfc:blocks/material_set/wood/sapling/holly",
+      "layer0": "tfc:blocks/material_set/wood/sapling/holly"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

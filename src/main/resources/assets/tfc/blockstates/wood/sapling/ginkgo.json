@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/ginkgo",
-      "layer0": "tfc:blocks/saplings/ginkgo"
+      "cross": "tfc:blocks/material_set/wood/sapling/ginkgo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/ginkgo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

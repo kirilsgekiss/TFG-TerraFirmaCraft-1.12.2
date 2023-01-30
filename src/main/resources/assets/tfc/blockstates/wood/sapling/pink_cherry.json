@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/pink_cherry",
-      "layer0": "tfc:blocks/saplings/pink_cherry"
+      "cross": "tfc:blocks/material_set/wood/sapling/pink_cherry",
+      "layer0": "tfc:blocks/material_set/wood/sapling/pink_cherry"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

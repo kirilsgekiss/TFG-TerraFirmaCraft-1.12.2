@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/cocobolo",
-      "layer0": "tfc:blocks/saplings/cocobolo"
+      "cross": "tfc:blocks/material_set/wood/sapling/cocobolo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/cocobolo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

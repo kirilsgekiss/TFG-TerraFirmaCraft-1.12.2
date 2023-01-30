@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/hazel",
-      "layer0": "tfc:blocks/saplings/hazel"
+      "cross": "tfc:blocks/material_set/wood/sapling/hazel",
+      "layer0": "tfc:blocks/material_set/wood/sapling/hazel"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

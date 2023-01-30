@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/black_bamboo",
-      "layer0": "tfc:blocks/saplings/black_bamboo"
+      "cross": "tfc:blocks/material_set/wood/sapling/black_bamboo",
+      "layer0": "tfc:blocks/material_set/wood/sapling/black_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

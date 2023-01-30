@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/blackwood",
-      "layer0": "tfc:blocks/saplings/blackwood"
+      "cross": "tfc:blocks/material_set/wood/sapling/blackwood",
+      "layer0": "tfc:blocks/material_set/wood/sapling/blackwood"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

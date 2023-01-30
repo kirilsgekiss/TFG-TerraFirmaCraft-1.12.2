@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/hickory",
-      "layer0": "tfc:blocks/saplings/hickory"
+      "cross": "tfc:blocks/material_set/wood/sapling/hickory",
+      "layer0": "tfc:blocks/material_set/wood/sapling/hickory"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/teak",
-      "layer0": "tfc:blocks/saplings/teak"
+      "cross": "tfc:blocks/material_set/wood/sapling/teak",
+      "layer0": "tfc:blocks/material_set/wood/sapling/teak"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

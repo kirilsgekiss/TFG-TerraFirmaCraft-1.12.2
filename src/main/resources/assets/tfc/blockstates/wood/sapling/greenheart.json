@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/greenheart",
-      "layer0": "tfc:blocks/saplings/greenheart"
+      "cross": "tfc:blocks/material_set/wood/sapling/greenheart",
+      "layer0": "tfc:blocks/material_set/wood/sapling/greenheart"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

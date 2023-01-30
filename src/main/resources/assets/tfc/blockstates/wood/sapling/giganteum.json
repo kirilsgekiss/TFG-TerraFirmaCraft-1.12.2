@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/giganteum",
-      "layer0": "tfc:blocks/saplings/giganteum"
+      "cross": "tfc:blocks/material_set/wood/sapling/giganteum",
+      "layer0": "tfc:blocks/material_set/wood/sapling/giganteum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/angelim",
-      "layer0": "tfc:blocks/saplings/angelim"
+      "cross": "tfc:blocks/material_set/wood/sapling/angelim",
+      "layer0": "tfc:blocks/material_set/wood/sapling/angelim"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

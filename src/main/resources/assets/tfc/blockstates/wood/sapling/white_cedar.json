@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/white_cedar",
-      "layer0": "tfc:blocks/saplings/white_cedar"
+      "cross": "tfc:blocks/material_set/wood/sapling/white_cedar",
+      "layer0": "tfc:blocks/material_set/wood/sapling/white_cedar"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/rowan",
-      "layer0": "tfc:blocks/saplings/rowan"
+      "cross": "tfc:blocks/material_set/wood/sapling/rowan",
+      "layer0": "tfc:blocks/material_set/wood/sapling/rowan"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"

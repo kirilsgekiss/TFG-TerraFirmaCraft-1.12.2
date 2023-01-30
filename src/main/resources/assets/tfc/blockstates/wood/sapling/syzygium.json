@@ -4,14 +4,12 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "tfc:blocks/saplings/syzygium",
-      "layer0": "tfc:blocks/saplings/syzygium"
+      "cross": "tfc:blocks/material_set/wood/sapling/syzygium",
+      "layer0": "tfc:blocks/material_set/wood/sapling/syzygium"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "builtin/generated",
       "transform": "forge:default-item"
