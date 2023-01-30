@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/cinnamon",
-      "particle": "tfc:blocks/wood/sheets/cinnamon"
+      "texture": "tfc:blocks/material_set/wood/sheets/cinnamon",
+      "particle": "tfc:blocks/material_set/wood/sheets/cinnamon"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

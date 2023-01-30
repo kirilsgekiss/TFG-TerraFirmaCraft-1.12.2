@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/dragon_bamboo",
-      "particle": "tfc:blocks/wood/sheets/dragon_bamboo"
+      "texture": "tfc:blocks/material_set/wood/sheets/dragon_bamboo",
+      "particle": "tfc:blocks/material_set/wood/sheets/dragon_bamboo"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

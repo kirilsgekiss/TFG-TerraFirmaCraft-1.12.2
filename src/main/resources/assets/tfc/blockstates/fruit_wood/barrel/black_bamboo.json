@@ -6,7 +6,7 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/planks/bamboo",
       "planks": "tfc:blocks/material_set/wood/planks/bamboo",
-      "sheet": "tfc:blocks/wood/sheets/black_bamboo",
+      "sheet": "tfc:blocks/material_set/wood/sheets/black_bamboo",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },

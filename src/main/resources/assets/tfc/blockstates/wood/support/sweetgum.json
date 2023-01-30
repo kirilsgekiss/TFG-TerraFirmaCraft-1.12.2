@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/sweetgum",
-      "particle": "tfc:blocks/wood/sheets/sweetgum"
+      "texture": "tfc:blocks/material_set/wood/sheets/sweetgum",
+      "particle": "tfc:blocks/material_set/wood/sheets/sweetgum"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

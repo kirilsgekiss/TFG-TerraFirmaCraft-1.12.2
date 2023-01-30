@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/syzygium",
-      "particle": "tfc:blocks/wood/sheets/syzygium"
+      "texture": "tfc:blocks/material_set/wood/sheets/syzygium",
+      "particle": "tfc:blocks/material_set/wood/sheets/syzygium"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/wenge",
-      "particle": "tfc:blocks/wood/sheets/wenge"
+      "texture": "tfc:blocks/material_set/wood/sheets/wenge",
+      "particle": "tfc:blocks/material_set/wood/sheets/wenge"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

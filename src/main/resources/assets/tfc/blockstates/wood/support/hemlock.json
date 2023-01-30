@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/hemlock",
-      "particle": "tfc:blocks/wood/sheets/hemlock"
+      "texture": "tfc:blocks/material_set/wood/sheets/hemlock",
+      "particle": "tfc:blocks/material_set/wood/sheets/hemlock"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

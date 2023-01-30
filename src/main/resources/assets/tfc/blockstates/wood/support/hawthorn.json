@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/hawthorn",
-      "particle": "tfc:blocks/wood/sheets/hawthorn"
+      "texture": "tfc:blocks/material_set/wood/sheets/hawthorn",
+      "particle": "tfc:blocks/material_set/wood/sheets/hawthorn"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

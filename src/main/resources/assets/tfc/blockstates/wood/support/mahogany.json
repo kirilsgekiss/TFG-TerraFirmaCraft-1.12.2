@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/mahogany",
-      "particle": "tfc:blocks/wood/sheets/mahogany"
+      "texture": "tfc:blocks/material_set/wood/sheets/mahogany",
+      "particle": "tfc:blocks/material_set/wood/sheets/mahogany"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

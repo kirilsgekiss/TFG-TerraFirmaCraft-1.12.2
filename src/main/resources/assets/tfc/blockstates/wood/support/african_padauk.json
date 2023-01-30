@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/african_padauk",
-      "particle": "tfc:blocks/wood/sheets/african_padauk"
+      "texture": "tfc:blocks/material_set/wood/sheets/african_padauk",
+      "particle": "tfc:blocks/material_set/wood/sheets/african_padauk"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

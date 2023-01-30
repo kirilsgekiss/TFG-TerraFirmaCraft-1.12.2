@@ -6,22 +6,18 @@
     "textures": {
       "particle": "tfc:blocks/material_set/wood/planks/bamboo",
       "planks": "tfc:blocks/material_set/wood/planks/bamboo",
-      "sheet": "tfc:blocks/wood/sheets/arrow_bamboo",
+      "sheet": "tfc:blocks/material_set/wood/sheets/arrow_bamboo",
       "hoop": "tfc:blocks/barrelhoop"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "sealed": {
       "true": {
         "model": "tfc:barrel_sealed"
       },
       "false": {}
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

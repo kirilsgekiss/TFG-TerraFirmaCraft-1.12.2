@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/hazel",
-      "particle": "tfc:blocks/wood/sheets/hazel"
+      "texture": "tfc:blocks/material_set/wood/sheets/hazel",
+      "particle": "tfc:blocks/material_set/wood/sheets/hazel"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

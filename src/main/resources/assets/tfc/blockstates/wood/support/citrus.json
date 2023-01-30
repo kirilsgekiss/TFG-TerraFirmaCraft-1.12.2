@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/citrus",
-      "particle": "tfc:blocks/wood/sheets/citrus"
+      "texture": "tfc:blocks/material_set/wood/sheets/citrus",
+      "particle": "tfc:blocks/material_set/wood/sheets/citrus"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },

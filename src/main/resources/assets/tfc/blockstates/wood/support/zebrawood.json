@@ -4,14 +4,12 @@
   "defaults": {
     "model": "tfc:support/vertical",
     "textures": {
-      "texture": "tfc:blocks/wood/sheets/zebrawood",
-      "particle": "tfc:blocks/wood/sheets/zebrawood"
+      "texture": "tfc:blocks/material_set/wood/sheets/zebrawood",
+      "particle": "tfc:blocks/material_set/wood/sheets/zebrawood"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:support/inventory"
     },
