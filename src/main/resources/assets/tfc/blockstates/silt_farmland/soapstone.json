@@ -6,7 +6,7 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/silt",
       "particle": "tfc:blocks/stonetypes/silt",
-      "top": "tfc:blocks/stonetypes/silt_farmland/soapstone"
+      "top": "tfc:blocks/stonetypes/silt_farmland"
     }
   },
   "variants": {
