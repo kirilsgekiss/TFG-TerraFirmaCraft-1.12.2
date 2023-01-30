@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/brazilwood",
       "log": "tfc:blocks/material_set/wood/log/side/brazilwood",
-      "planks": "tfc:blocks/wood/planks/brazilwood",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/brazilwood"
     }
   },

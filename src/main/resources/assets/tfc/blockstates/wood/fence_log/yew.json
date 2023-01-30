@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/yew",
       "log": "tfc:blocks/material_set/wood/log/side/yew",
-      "planks": "tfc:blocks/wood/planks/yew",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/yew"
     }
   },

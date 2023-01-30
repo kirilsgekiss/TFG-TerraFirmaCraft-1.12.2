@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/zebrawood",
       "log": "tfc:blocks/material_set/wood/log/side/zebrawood",
-      "planks": "tfc:blocks/wood/planks/zebrawood",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/zebrawood"
     }
   },

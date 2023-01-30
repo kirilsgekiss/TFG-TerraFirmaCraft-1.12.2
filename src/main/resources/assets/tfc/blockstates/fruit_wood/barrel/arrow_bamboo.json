@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:barrel",
     "textures": {
-      "particle": "tfc:blocks/wood/planks/arrow_bamboo",
-      "planks": "tfc:blocks/wood/planks/arrow_bamboo",
+      "particle": "tfc:blocks/material_set/wood/planks/bamboo",
+      "planks": "tfc:blocks/material_set/wood/planks/bamboo",
       "sheet": "tfc:blocks/wood/sheets/arrow_bamboo",
       "hoop": "tfc:blocks/barrelhoop"
     }

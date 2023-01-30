@@ -4,13 +4,11 @@
   "defaults": {
     "model": "tfc:wood/fence_post",
     "textures": {
-      "texture": "tfc:blocks/wood/planks/pattern"
+      "texture": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "inventory": {
       "model": "tfc:wood/fence_inventory"
     },

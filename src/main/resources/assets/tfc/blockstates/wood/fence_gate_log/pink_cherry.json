@@ -4,7 +4,7 @@
   "defaults": {
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/pink_cherry",
-      "planks": "tfc:blocks/wood/planks/pink_cherry",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/pink_cherry"
     },
     "uvlock": true

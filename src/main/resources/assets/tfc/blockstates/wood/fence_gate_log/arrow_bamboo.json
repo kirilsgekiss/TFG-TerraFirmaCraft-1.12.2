@@ -4,7 +4,7 @@
   "defaults": {
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
-      "planks": "tfc:blocks/wood/planks/arrow_bamboo",
+      "planks": "tfc:blocks/material_set/wood/planks/bamboo",
       "particle": "tfc:blocks/material_set/wood/log/side/arrow_bamboo"
     },
     "uvlock": true

@@ -4,15 +4,13 @@
   "defaults": {
     "model": "half_slab",
     "textures": {
-      "top": "tfc:blocks/wood/planks/fir",
-      "bottom": "tfc:blocks/wood/planks/fir",
-      "side": "tfc:blocks/wood/planks/fir"
+      "top": "tfc:blocks/material_set/wood/planks/pattern",
+      "bottom": "tfc:blocks/material_set/wood/planks/pattern",
+      "side": "tfc:blocks/material_set/wood/planks/pattern"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ],
+    "normal": [{}],
     "half": {
       "bottom": {},
       "top": {

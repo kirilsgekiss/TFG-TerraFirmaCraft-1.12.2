@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "tfc:blocks/wood/planks/cinnamon",
-      "bottom": "tfc:blocks/wood/planks/cinnamon",
-      "side": "tfc:blocks/wood/planks/cinnamon"
+      "top": "tfc:blocks/material_set/wood/planks/pattern",
+      "bottom": "tfc:blocks/material_set/wood/planks/pattern",
+      "side": "tfc:blocks/material_set/wood/planks/pattern"
     },
     "uvlock": true
   },

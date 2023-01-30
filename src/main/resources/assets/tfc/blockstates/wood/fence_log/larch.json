@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/larch",
       "log": "tfc:blocks/material_set/wood/log/side/larch",
-      "planks": "tfc:blocks/wood/planks/larch",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/larch"
     }
   },

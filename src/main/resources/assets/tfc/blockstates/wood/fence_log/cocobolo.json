@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/cocobolo",
       "log": "tfc:blocks/material_set/wood/log/side/cocobolo",
-      "planks": "tfc:blocks/wood/planks/cocobolo",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/cocobolo"
     }
   },

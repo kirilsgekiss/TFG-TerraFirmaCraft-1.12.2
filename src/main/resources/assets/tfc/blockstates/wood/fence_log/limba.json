@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/limba",
       "log": "tfc:blocks/material_set/wood/log/side/limba",
-      "planks": "tfc:blocks/wood/planks/limba",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/limba"
     }
   },

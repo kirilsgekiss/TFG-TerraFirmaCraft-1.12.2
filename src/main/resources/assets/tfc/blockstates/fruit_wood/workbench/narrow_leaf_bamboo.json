@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:workbench",
     "textures": {
-      "all": "tfc:blocks/wood/planks/narrow_leaf_bamboo",
-      "particle": "tfc:blocks/wood/planks/narrow_leaf_bamboo",
+      "all": "tfc:blocks/material_set/wood/planks/bamboo",
+      "particle": "tfc:blocks/material_set/wood/planks/bamboo",
       "top": "tfc:blocks/wood/workbench_top",
       "north": "tfc:blocks/wood/workbench_front",
       "south": "tfc:blocks/wood/workbench_front",
@@ -14,8 +14,6 @@
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }

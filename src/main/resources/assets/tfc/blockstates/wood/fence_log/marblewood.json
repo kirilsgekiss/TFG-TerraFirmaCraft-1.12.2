@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/marblewood",
       "log": "tfc:blocks/material_set/wood/log/side/marblewood",
-      "planks": "tfc:blocks/wood/planks/marblewood",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/marblewood"
     }
   },

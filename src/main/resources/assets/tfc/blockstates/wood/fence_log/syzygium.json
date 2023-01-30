@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/syzygium",
       "log": "tfc:blocks/material_set/wood/log/side/syzygium",
-      "planks": "tfc:blocks/wood/planks/syzygium",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/syzygium"
     }
   },

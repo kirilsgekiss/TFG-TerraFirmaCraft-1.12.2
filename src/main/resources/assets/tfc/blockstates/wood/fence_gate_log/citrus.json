@@ -4,7 +4,7 @@
   "defaults": {
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/citrus",
-      "planks": "tfc:blocks/wood/planks/citrus",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/citrus"
     },
     "uvlock": true

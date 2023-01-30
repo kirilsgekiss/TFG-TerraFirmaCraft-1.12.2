@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/eucalyptus",
       "log": "tfc:blocks/material_set/wood/log/side/eucalyptus",
-      "planks": "tfc:blocks/wood/planks/eucalyptus",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/eucalyptus"
     }
   },

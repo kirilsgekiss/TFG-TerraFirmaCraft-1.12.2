@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/mahogany",
       "log": "tfc:blocks/material_set/wood/log/side/mahogany",
-      "planks": "tfc:blocks/wood/planks/mahogany",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/mahogany"
     }
   },

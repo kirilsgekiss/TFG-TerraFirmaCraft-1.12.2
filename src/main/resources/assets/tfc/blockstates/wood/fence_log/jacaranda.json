@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/jacaranda",
       "log": "tfc:blocks/material_set/wood/log/side/jacaranda",
-      "planks": "tfc:blocks/wood/planks/jacaranda",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/jacaranda"
     }
   },

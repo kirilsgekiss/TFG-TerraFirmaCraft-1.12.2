@@ -5,7 +5,7 @@
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/temple_bamboo",
-      "planks": "tfc:blocks/wood/planks/temple_bamboo",
+      "planks": "tfc:blocks/material_set/wood/planks/bamboo",
       "particle": "tfc:blocks/material_set/wood/log/side/temple_bamboo"
     },
     "uvlock": true

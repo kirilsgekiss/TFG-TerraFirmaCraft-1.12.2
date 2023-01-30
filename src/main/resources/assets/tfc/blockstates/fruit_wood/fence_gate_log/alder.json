@@ -5,7 +5,7 @@
     "model": "tfc:wood/fence_gate/fence_gate_closed",
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/alder",
-      "planks": "tfc:blocks/wood/planks/alder",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/alder"
     },
     "uvlock": true

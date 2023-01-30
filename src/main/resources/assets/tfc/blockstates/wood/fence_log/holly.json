@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/holly",
       "log": "tfc:blocks/material_set/wood/log/side/holly",
-      "planks": "tfc:blocks/wood/planks/holly",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/holly"
     }
   },

@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "tfc:blocks/wood/planks/tinwa_bamboo",
-      "bottom": "tfc:blocks/wood/planks/tinwa_bamboo",
-      "side": "tfc:blocks/wood/planks/tinwa_bamboo"
+      "top": "tfc:blocks/material_set/wood/planks/bamboo",
+      "bottom": "tfc:blocks/material_set/wood/planks/bamboo",
+      "side": "tfc:blocks/material_set/wood/planks/pattern"
     },
     "uvlock": true
   },

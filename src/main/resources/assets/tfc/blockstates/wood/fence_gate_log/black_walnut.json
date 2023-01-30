@@ -4,7 +4,7 @@
   "defaults": {
     "textures": {
       "log": "tfc:blocks/material_set/wood/log/side/black_walnut",
-      "planks": "tfc:blocks/wood/planks/black_walnut",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/black_walnut"
     },
     "uvlock": true

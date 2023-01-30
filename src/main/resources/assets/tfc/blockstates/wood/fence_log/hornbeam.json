@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/hornbeam",
       "log": "tfc:blocks/material_set/wood/log/side/hornbeam",
-      "planks": "tfc:blocks/wood/planks/hornbeam",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/hornbeam"
     }
   },

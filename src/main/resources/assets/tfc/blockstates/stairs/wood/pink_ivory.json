@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "tfc:blocks/wood/planks/pink_ivory",
-      "bottom": "tfc:blocks/wood/planks/pink_ivory",
-      "side": "tfc:blocks/wood/planks/pink_ivory"
+      "top": "tfc:blocks/material_set/wood/planks/pattern",
+      "bottom": "tfc:blocks/material_set/wood/planks/pattern",
+      "side": "tfc:blocks/material_set/wood/planks/pattern"
     },
     "uvlock": true
   },

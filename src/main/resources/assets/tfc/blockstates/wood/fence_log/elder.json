@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/elder",
       "log": "tfc:blocks/material_set/wood/log/side/elder",
-      "planks": "tfc:blocks/wood/planks/elder",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/elder"
     }
   },

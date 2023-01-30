@@ -6,7 +6,7 @@
     "textures": {
       "top": "tfc:blocks/material_set/wood/log/top/greenheart",
       "log": "tfc:blocks/material_set/wood/log/side/greenheart",
-      "planks": "tfc:blocks/wood/planks/greenheart",
+      "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "particle": "tfc:blocks/material_set/wood/log/side/greenheart"
     }
   },
