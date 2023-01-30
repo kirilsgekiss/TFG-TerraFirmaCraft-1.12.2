@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/norway_spruce",
       "side": "tfc:blocks/material_set/wood/log/side/norway_spruce",
       "end": "tfc:blocks/material_set/wood/log/top/norway_spruce",
-      "layer0": "tfc:items/wood/log/norway_spruce"
+      "layer0": "tfc:items/material_set/wood/log/norway_spruce"
     }
   },
   "variants": {

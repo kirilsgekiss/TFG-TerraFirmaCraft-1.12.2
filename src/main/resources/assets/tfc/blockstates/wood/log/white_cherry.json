@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/white_cherry",
       "side": "tfc:blocks/material_set/wood/log/side/white_cherry",
       "end": "tfc:blocks/material_set/wood/log/top/white_cherry",
-      "layer0": "tfc:items/wood/log/white_cherry"
+      "layer0": "tfc:items/material_set/wood/log/white_cherry"
     }
   },
   "variants": {

@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/wenge",
       "side": "tfc:blocks/material_set/wood/log/side/wenge",
       "end": "tfc:blocks/material_set/wood/log/top/wenge",
-      "layer0": "tfc:items/wood/log/wenge"
+      "layer0": "tfc:items/material_set/wood/log/wenge"
     }
   },
   "variants": {

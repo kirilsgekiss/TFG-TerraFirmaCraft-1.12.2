@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/chestnut",
       "side": "tfc:blocks/material_set/wood/log/side/chestnut",
       "end": "tfc:blocks/material_set/wood/log/top/chestnut",
-      "layer0": "tfc:items/wood/log/chestnut"
+      "layer0": "tfc:items/material_set/wood/log/chestnut"
     }
   },
   "variants": {

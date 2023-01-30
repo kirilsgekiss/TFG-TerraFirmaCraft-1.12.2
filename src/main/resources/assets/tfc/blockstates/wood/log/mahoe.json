@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/mahoe",
       "side": "tfc:blocks/material_set/wood/log/side/mahoe",
       "end": "tfc:blocks/material_set/wood/log/top/mahoe",
-      "layer0": "tfc:items/wood/log/mahoe"
+      "layer0": "tfc:items/material_set/wood/log/mahoe"
     }
   },
   "variants": {

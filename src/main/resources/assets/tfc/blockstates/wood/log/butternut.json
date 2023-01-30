@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/butternut",
       "side": "tfc:blocks/material_set/wood/log/side/butternut",
       "end": "tfc:blocks/material_set/wood/log/top/butternut",
-      "layer0": "tfc:items/wood/log/butternut"
+      "layer0": "tfc:items/material_set/wood/log/butternut"
     }
   },
   "variants": {

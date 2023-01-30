@@ -6,7 +6,7 @@
       "top": "tfc:blocks/material_set/wood/log/top/ceylon_cinnamon",
       "particle": "tfc:blocks/material_set/wood/log/side/ceylon_cinnamon"
     },
-    "model": "tfc:wood/fruit_tree/log/log_thin"
+    "model": "tfc:items/material_set/wood/log/log_thin"
   },
   "variants": {
     "grown": {
@@ -21,12 +21,12 @@
           "particle": "tfc:blocks/material_set/wood/sheet/ceylon_cinnamon",
           "side": "tfc:blocks/material_set/wood/sheet/ceylon_cinnamon"
         },
-        "model": "tfc:wood/fruit_tree/log/log_stripped"
+        "model": "tfc:items/material_set/wood/log/log_stripped"
       }
     },
     "connected": {
       "true": {
-        "model": "tfc:wood/fruit_tree/log/log_connected"
+        "model": "tfc:items/material_set/wood/log/log_connected"
       },
       "false": {}
     },
@@ -34,7 +34,7 @@
     "normal": [
       {
         "transform": "forge:default-block",
-        "model": "tfc:wood/fruit_tree/log/log_thin"
+        "model": "tfc:items/material_set/wood/log/log_thin"
       }
     ]
   }

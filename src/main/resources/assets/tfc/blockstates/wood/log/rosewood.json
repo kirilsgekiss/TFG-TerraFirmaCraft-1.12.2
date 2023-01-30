@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/rosewood",
       "side": "tfc:blocks/material_set/wood/log/side/rosewood",
       "end": "tfc:blocks/material_set/wood/log/top/rosewood",
-      "layer0": "tfc:items/wood/log/rosewood"
+      "layer0": "tfc:items/material_set/wood/log/rosewood"
     }
   },
   "variants": {

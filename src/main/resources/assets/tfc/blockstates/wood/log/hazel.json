@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/hazel",
       "side": "tfc:blocks/material_set/wood/log/side/hazel",
       "end": "tfc:blocks/material_set/wood/log/top/hazel",
-      "layer0": "tfc:items/wood/log/hazel"
+      "layer0": "tfc:items/material_set/wood/log/hazel"
     }
   },
   "variants": {

@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/locust",
       "side": "tfc:blocks/material_set/wood/log/side/locust",
       "end": "tfc:blocks/material_set/wood/log/top/locust",
-      "layer0": "tfc:items/wood/log/locust"
+      "layer0": "tfc:items/material_set/wood/log/locust"
     }
   },
   "variants": {

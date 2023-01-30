@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/wood/fruit_tree/pole/damson_plum"
+    "layer0": "tfc:items/material_set/wood/pole/damson_plum"
   }
 }

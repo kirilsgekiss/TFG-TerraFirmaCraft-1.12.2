@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/narrow_leaf_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/narrow_leaf_bamboo",
       "end": "tfc:blocks/material_set/wood/log/top/narrow_leaf_bamboo",
-      "layer0": "tfc:items/wood/log/narrow_leaf_bamboo"
+      "layer0": "tfc:items/material_set/wood/log/narrow_leaf_bamboo"
     }
   },
   "variants": {

@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/acacia",
       "side": "tfc:blocks/material_set/wood/log/side/acacia",
       "end": "tfc:blocks/material_set/wood/log/top/acacia",
-      "layer0": "tfc:items/wood/log/acacia"
+      "layer0": "tfc:items/material_set/wood/log/acacia"
     }
   },
   "variants": {

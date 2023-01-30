@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/kapok",
       "side": "tfc:blocks/material_set/wood/log/side/kapok",
       "end": "tfc:blocks/material_set/wood/log/top/kapok",
-      "layer0": "tfc:items/wood/log/kapok"
+      "layer0": "tfc:items/material_set/wood/log/kapok"
     }
   },
   "variants": {

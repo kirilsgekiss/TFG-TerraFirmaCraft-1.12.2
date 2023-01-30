@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/rubber_fig",
       "side": "tfc:blocks/material_set/wood/log/side/rubber_fig",
       "end": "tfc:blocks/material_set/wood/log/top/rubber_fig",
-      "layer0": "tfc:items/wood/log/rubber_fig"
+      "layer0": "tfc:items/material_set/wood/log/rubber_fig"
     }
   },
   "variants": {

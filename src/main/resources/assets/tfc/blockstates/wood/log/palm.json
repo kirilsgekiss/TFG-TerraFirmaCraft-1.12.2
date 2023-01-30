@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/palm",
       "side": "tfc:blocks/material_set/wood/log/side/palm",
       "end": "tfc:blocks/material_set/wood/log/top/palm",
-      "layer0": "tfc:items/wood/log/palm"
+      "layer0": "tfc:items/material_set/wood/log/palm"
     }
   },
   "variants": {

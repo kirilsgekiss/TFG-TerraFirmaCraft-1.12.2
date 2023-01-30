@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/wood/fruit_tree/lumber/star_anise"
+    "layer0": "tfc:items/material_set/wood/lumber"
   }
 }

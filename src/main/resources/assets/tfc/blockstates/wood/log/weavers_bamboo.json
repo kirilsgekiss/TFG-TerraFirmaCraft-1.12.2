@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/weavers_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/weavers_bamboo",
       "end": "tfc:blocks/material_set/wood/log/top/weavers_bamboo",
-      "layer0": "tfc:items/wood/log/weavers_bamboo"
+      "layer0": "tfc:items/material_set/wood/log/weavers_bamboo"
     }
   },
   "variants": {

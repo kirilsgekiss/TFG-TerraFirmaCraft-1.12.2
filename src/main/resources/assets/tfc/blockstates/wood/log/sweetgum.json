@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/sweetgum",
       "side": "tfc:blocks/material_set/wood/log/side/sweetgum",
       "end": "tfc:blocks/material_set/wood/log/top/sweetgum",
-      "layer0": "tfc:items/wood/log/sweetgum"
+      "layer0": "tfc:items/material_set/wood/log/sweetgum"
     }
   },
   "variants": {

@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/ipe",
       "side": "tfc:blocks/material_set/wood/log/side/ipe",
       "end": "tfc:blocks/material_set/wood/log/top/ipe",
-      "layer0": "tfc:items/wood/log/ipe"
+      "layer0": "tfc:items/material_set/wood/log/ipe"
     }
   },
   "variants": {

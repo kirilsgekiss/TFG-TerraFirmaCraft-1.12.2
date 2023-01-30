@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/eucalyptus",
       "side": "tfc:blocks/material_set/wood/log/side/eucalyptus",
       "end": "tfc:blocks/material_set/wood/log/top/eucalyptus",
-      "layer0": "tfc:items/wood/log/eucalyptus"
+      "layer0": "tfc:items/material_set/wood/log/eucalyptus"
     }
   },
   "variants": {

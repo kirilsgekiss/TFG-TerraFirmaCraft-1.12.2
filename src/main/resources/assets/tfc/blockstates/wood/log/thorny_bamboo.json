@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/thorny_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/thorny_bamboo",
       "end": "tfc:blocks/material_set/wood/log/top/thorny_bamboo",
-      "layer0": "tfc:items/wood/log/thorny_bamboo"
+      "layer0": "tfc:items/material_set/wood/log/thorny_bamboo"
     }
   },
   "variants": {

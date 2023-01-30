@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/wood/fruit_tree/pole/wild_cherry"
+    "layer0": "tfc:items/material_set/wood/pole/wild_cherry"
   }
 }

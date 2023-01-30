@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/citrus",
       "side": "tfc:blocks/material_set/wood/log/side/citrus",
       "end": "tfc:blocks/material_set/wood/log/top/citrus",
-      "layer0": "tfc:items/wood/log/citrus"
+      "layer0": "tfc:items/material_set/wood/log/citrus"
     }
   },
   "variants": {

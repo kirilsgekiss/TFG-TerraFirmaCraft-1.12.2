@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/cypress",
       "side": "tfc:blocks/material_set/wood/log/side/cypress",
       "end": "tfc:blocks/material_set/wood/log/top/cypress",
-      "layer0": "tfc:items/wood/log/cypress"
+      "layer0": "tfc:items/material_set/wood/log/cypress"
     }
   },
   "variants": {

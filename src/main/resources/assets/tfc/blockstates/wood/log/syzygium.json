@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/syzygium",
       "side": "tfc:blocks/material_set/wood/log/side/syzygium",
       "end": "tfc:blocks/material_set/wood/log/top/syzygium",
-      "layer0": "tfc:items/wood/log/syzygium"
+      "layer0": "tfc:items/material_set/wood/log/syzygium"
     }
   },
   "variants": {

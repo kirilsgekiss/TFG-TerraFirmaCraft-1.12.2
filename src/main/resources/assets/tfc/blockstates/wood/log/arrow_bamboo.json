@@ -6,7 +6,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/arrow_bamboo",
       "end": "tfc:blocks/material_set/wood/log/top/arrow_bamboo",
-      "layer0": "tfc:items/wood/log/arrow_bamboo"
+      "layer0": "tfc:items/material_set/wood/log/arrow_bamboo"
     }
   },
   "variants": {

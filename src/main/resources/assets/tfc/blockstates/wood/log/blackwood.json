@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/blackwood",
       "side": "tfc:blocks/material_set/wood/log/side/blackwood",
       "end": "tfc:blocks/material_set/wood/log/top/blackwood",
-      "layer0": "tfc:items/wood/log/blackwood"
+      "layer0": "tfc:items/material_set/wood/log/blackwood"
     }
   },
   "variants": {

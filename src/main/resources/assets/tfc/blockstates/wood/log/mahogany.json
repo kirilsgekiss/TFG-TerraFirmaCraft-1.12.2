@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/mahogany",
       "side": "tfc:blocks/material_set/wood/log/side/mahogany",
       "end": "tfc:blocks/material_set/wood/log/top/mahogany",
-      "layer0": "tfc:items/wood/log/mahogany"
+      "layer0": "tfc:items/material_set/wood/log/mahogany"
     }
   },
   "variants": {

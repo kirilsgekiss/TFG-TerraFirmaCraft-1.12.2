@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/papaya",
       "side": "tfc:blocks/material_set/wood/log/side/papaya",
       "end": "tfc:blocks/material_set/wood/log/top/papaya",
-      "layer0": "tfc:items/wood/log/papaya"
+      "layer0": "tfc:items/material_set/wood/log/papaya"
     }
   },
   "variants": {

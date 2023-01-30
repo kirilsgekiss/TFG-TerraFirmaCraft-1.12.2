@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/tinwa_bamboo",
       "side": "tfc:blocks/material_set/wood/log/side/tinwa_bamboo",
       "end": "tfc:blocks/material_set/wood/log/top/tinwa_bamboo",
-      "layer0": "tfc:items/wood/log/tinwa_bamboo"
+      "layer0": "tfc:items/material_set/wood/log/tinwa_bamboo"
     }
   },
   "variants": {

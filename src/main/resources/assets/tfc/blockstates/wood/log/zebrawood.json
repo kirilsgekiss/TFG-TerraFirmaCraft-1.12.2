@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/zebrawood",
       "side": "tfc:blocks/material_set/wood/log/side/zebrawood",
       "end": "tfc:blocks/material_set/wood/log/top/zebrawood",
-      "layer0": "tfc:items/wood/log/zebrawood"
+      "layer0": "tfc:items/material_set/wood/log/zebrawood"
     }
   },
   "variants": {

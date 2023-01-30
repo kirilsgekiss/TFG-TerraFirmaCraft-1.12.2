@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/ginkgo",
       "side": "tfc:blocks/material_set/wood/log/side/ginkgo",
       "end": "tfc:blocks/material_set/wood/log/top/ginkgo",
-      "layer0": "tfc:items/wood/log/ginkgo"
+      "layer0": "tfc:items/material_set/wood/log/ginkgo"
     }
   },
   "variants": {

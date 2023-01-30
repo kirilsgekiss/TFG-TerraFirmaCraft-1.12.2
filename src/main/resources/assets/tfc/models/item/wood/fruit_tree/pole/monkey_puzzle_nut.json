@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/wood/fruit_tree/pole/monkey_puzzle_nut"
+    "layer0": "tfc:items/material_set/wood/pole/monkey_puzzle_nut"
   }
 }

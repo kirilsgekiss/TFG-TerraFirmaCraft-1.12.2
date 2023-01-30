@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/rowan",
       "side": "tfc:blocks/material_set/wood/log/side/rowan",
       "end": "tfc:blocks/material_set/wood/log/top/rowan",
-      "layer0": "tfc:items/wood/log/rowan"
+      "layer0": "tfc:items/material_set/wood/log/rowan"
     }
   },
   "variants": {

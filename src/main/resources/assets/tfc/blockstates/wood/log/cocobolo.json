@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/cocobolo",
       "side": "tfc:blocks/material_set/wood/log/side/cocobolo",
       "end": "tfc:blocks/material_set/wood/log/top/cocobolo",
-      "layer0": "tfc:items/wood/log/cocobolo"
+      "layer0": "tfc:items/material_set/wood/log/cocobolo"
     }
   },
   "variants": {

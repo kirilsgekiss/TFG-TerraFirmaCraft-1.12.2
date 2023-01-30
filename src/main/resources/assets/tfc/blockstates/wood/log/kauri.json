@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/kauri",
       "side": "tfc:blocks/material_set/wood/log/side/kauri",
       "end": "tfc:blocks/material_set/wood/log/top/kauri",
-      "layer0": "tfc:items/wood/log/kauri"
+      "layer0": "tfc:items/material_set/wood/log/kauri"
     }
   },
   "variants": {

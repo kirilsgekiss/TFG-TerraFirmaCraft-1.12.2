@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/argyle_eucalyptus",
       "side": "tfc:blocks/material_set/wood/log/side/argyle_eucalyptus",
       "end": "tfc:blocks/material_set/wood/log/top/argyle_eucalyptus",
-      "layer0": "tfc:items/wood/log/argyle_eucalyptus"
+      "layer0": "tfc:items/material_set/wood/log/argyle_eucalyptus"
     }
   },
   "variants": {

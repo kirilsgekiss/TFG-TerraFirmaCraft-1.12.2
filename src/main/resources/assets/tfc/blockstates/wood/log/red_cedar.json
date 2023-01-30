@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/red_cedar",
       "side": "tfc:blocks/material_set/wood/log/side/red_cedar",
       "end": "tfc:blocks/material_set/wood/log/top/red_cedar",
-      "layer0": "tfc:items/wood/log/red_cedar"
+      "layer0": "tfc:items/material_set/wood/log/red_cedar"
     }
   },
   "variants": {

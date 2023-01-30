@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/willow",
       "side": "tfc:blocks/material_set/wood/log/side/willow",
       "end": "tfc:blocks/material_set/wood/log/top/willow",
-      "layer0": "tfc:items/wood/log/willow"
+      "layer0": "tfc:items/material_set/wood/log/willow"
     }
   },
   "variants": {

@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/box",
       "side": "tfc:blocks/material_set/wood/log/side/box",
       "end": "tfc:blocks/material_set/wood/log/top/box",
-      "layer0": "tfc:items/wood/log/box"
+      "layer0": "tfc:items/material_set/wood/log/box"
     }
   },
   "variants": {

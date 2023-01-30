@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/juniper",
       "side": "tfc:blocks/material_set/wood/log/side/juniper",
       "end": "tfc:blocks/material_set/wood/log/top/juniper",
-      "layer0": "tfc:items/wood/log/juniper"
+      "layer0": "tfc:items/material_set/wood/log/juniper"
     }
   },
   "variants": {

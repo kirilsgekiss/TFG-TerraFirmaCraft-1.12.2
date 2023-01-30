@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/jacaranda",
       "side": "tfc:blocks/material_set/wood/log/side/jacaranda",
       "end": "tfc:blocks/material_set/wood/log/top/jacaranda",
-      "layer0": "tfc:items/wood/log/jacaranda"
+      "layer0": "tfc:items/material_set/wood/log/jacaranda"
     }
   },
   "variants": {

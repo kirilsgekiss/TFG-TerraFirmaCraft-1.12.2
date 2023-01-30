@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/cinnamon",
       "side": "tfc:blocks/material_set/wood/log/side/cinnamon",
       "end": "tfc:blocks/material_set/wood/log/top/cinnamon",
-      "layer0": "tfc:items/wood/log/cinnamon"
+      "layer0": "tfc:items/material_set/wood/log/cinnamon"
     }
   },
   "variants": {

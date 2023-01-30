@@ -7,7 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/log/side/brazilwood",
       "side": "tfc:blocks/material_set/wood/log/side/brazilwood",
       "end": "tfc:blocks/material_set/wood/log/top/brazilwood",
-      "layer0": "tfc:items/wood/log/brazilwood"
+      "layer0": "tfc:items/material_set/wood/log/brazilwood"
     }
   },
   "variants": {
