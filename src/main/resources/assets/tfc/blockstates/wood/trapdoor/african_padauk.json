@@ -3,7 +3,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "texture": "tfc:blocks/wood/trapdoor/african_padauk"
+      "texture": "tfc:blocks/material_set/wood/trapdoor/african_padauk"
     }
   },
   "variants": {

@@ -3,7 +3,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "texture": "tfc:blocks/wood/trapdoor/nordmann_fir"
+      "texture": "tfc:blocks/material_set/wood/trapdoor/nordmann_fir"
     }
   },
   "variants": {
