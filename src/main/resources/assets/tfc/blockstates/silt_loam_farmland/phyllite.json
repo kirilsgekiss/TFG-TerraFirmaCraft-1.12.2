@@ -6,7 +6,7 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/silty_loam",
       "particle": "tfc:blocks/stonetypes/silty_loam",
-      "top": "tfc:blocks/stonetypes/silt_loam_farmland/phyllite"
+      "top": "tfc:blocks/stonetypes/silt_loam_farmland"
     }
   },
   "variants": {
