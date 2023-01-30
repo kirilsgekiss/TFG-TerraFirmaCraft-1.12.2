@@ -71,7 +71,6 @@ public class TFCOrePrefix {
         oreChunk.addSecondaryMaterial(new MaterialStack(Materials.Stone, M));
 
         oreRockSalt.addSecondaryMaterial(new MaterialStack(Materials.RockSalt, M));
-        oreRockSalt.addSecondaryMaterial(new MaterialStack(Materials.RockSalt, M));
         oreQuartzite.addSecondaryMaterial(new MaterialStack(Materials.Quartzite, M));
         oreBreccia.addSecondaryMaterial(new MaterialStack(TFCMaterials.Breccia, M));
         oreChalk.addSecondaryMaterial(new MaterialStack(TFCMaterials.Chalk, M));
