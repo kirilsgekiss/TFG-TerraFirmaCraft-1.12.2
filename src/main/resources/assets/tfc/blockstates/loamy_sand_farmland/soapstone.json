@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/loamy_sand/soapstone",
-      "particle": "tfc:blocks/stonetypes/loamy_sand/soapstone",
+      "dirt": "tfc:blocks/stonetypes/loamy_sand",
+      "particle": "tfc:blocks/stonetypes/loamy_sand",
       "top": "tfc:blocks/stonetypes/loamy_sand_farmland"
     }
   },
