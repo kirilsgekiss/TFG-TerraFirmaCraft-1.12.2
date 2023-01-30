@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_clay/phyllite"
+      "all": "tfc:blocks/stonetypes/coarse_clay"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
