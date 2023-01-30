@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/limba",
-      "top": "tfc:blocks/wood/door/upper/limba"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/limba",
+      "top": "tfc:blocks/material_set/wood/door/upper/limba"
     }
   },
   "variants": {

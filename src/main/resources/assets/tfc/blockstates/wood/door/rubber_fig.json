@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/rubber_fig",
-      "top": "tfc:blocks/wood/door/upper/rubber_fig"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/rubber_fig",
+      "top": "tfc:blocks/material_set/wood/door/upper/rubber_fig"
     }
   },
   "variants": {

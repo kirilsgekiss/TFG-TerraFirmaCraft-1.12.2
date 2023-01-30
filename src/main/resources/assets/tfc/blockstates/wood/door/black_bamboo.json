@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/black_bamboo",
-      "top": "tfc:blocks/wood/door/upper/black_bamboo"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/black_bamboo",
+      "top": "tfc:blocks/material_set/wood/door/upper/black_bamboo"
     }
   },
   "variants": {

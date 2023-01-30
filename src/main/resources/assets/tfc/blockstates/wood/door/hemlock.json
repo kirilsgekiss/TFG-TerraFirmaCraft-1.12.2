@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/hemlock",
-      "top": "tfc:blocks/wood/door/upper/hemlock"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/hemlock",
+      "top": "tfc:blocks/material_set/wood/door/upper/hemlock"
     }
   },
   "variants": {

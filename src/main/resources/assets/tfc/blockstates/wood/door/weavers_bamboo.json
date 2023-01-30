@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/weavers_bamboo",
-      "top": "tfc:blocks/wood/door/upper/weavers_bamboo"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/weavers_bamboo",
+      "top": "tfc:blocks/material_set/wood/door/upper/weavers_bamboo"
     }
   },
   "variants": {

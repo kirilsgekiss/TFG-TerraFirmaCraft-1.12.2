@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "tfc:blocks/wood/door/lower/cocobolo",
-      "top": "tfc:blocks/wood/door/upper/cocobolo"
+      "bottom": "tfc:blocks/material_set/wood/door/lower/cocobolo",
+      "top": "tfc:blocks/material_set/wood/door/upper/cocobolo"
     }
   },
   "variants": {
