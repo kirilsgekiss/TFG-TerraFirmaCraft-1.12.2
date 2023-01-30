@@ -6,7 +6,7 @@
     "textures": {
       "dirt": "tfc:blocks/stonetypes/humus",
       "particle": "tfc:blocks/stonetypes/humus",
-      "top": "tfc:blocks/stonetypes/humus_farmland/limestone"
+      "top": "tfc:blocks/stonetypes/humus_farmland"
     }
   },
   "variants": {
