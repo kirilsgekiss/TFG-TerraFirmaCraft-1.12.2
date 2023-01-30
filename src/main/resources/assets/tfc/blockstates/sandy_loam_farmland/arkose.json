@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/arkose",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/arkose",
+      "dirt": "tfc:blocks/stonetypes/sandy_loam",
+      "particle": "tfc:blocks/stonetypes/sandy_loam",
       "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },

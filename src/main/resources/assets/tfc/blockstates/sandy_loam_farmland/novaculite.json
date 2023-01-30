@@ -4,8 +4,8 @@
   "defaults": {
     "model": "tfc:farmland",
     "textures": {
-      "dirt": "tfc:blocks/stonetypes/sandy_loam/novaculite",
-      "particle": "tfc:blocks/stonetypes/sandy_loam/novaculite",
+      "dirt": "tfc:blocks/stonetypes/sandy_loam",
+      "particle": "tfc:blocks/stonetypes/sandy_loam",
       "top": "tfc:blocks/stonetypes/sandy_loam_farmland"
     }
   },
