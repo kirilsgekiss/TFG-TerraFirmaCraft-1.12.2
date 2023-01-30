@@ -4,12 +4,10 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "tfc:blocks/stonetypes/coarse_sandy_kaolinite_clay/mylonite"
+      "all": "tfc:blocks/stonetypes/coarse_sandy_kaolinite_clay"
     }
   },
   "variants": {
-    "normal": [
-      {}
-    ]
+    "normal": [{}]
   }
 }
