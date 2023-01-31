@@ -19,12 +19,12 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.BlockLogTFC.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC.PLACED;
 
 public class TreeGenSequoia implements ITreeGenerator
 {

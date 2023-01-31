@@ -18,7 +18,9 @@ import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
 import net.dries007.tfc.objects.items.TFCItemArmor;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.wood.fruitwood.ItemFruitDoor;
@@ -428,7 +430,7 @@ public final class ClientRegisterEvents
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFC.getAllLeafBlocks().toArray(new Block[0]));
         blockColors.registerBlockColorHandler(foliageColor, BlocksTFC.getAllPlantBlocks().toArray(new TFCBlockPlant[0]));
 
-        blockColors.registerBlockColorHandler(foliageColor, BlocksTFC.getAllFruitTreeLeavesBlocks().toArray(new Block[0]));
+//        blockColors.registerBlockColorHandler(foliageColor, BlocksTFC.getAllFruitTreeLeavesBlocks().toArray(new Block[0]));
 
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFlowerPots().toArray(new Block[0]));
 
@@ -517,9 +519,9 @@ public final class ClientRegisterEvents
                 event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
             BlocksTFC.getAllLeafBlocks().toArray(new BlockLeavesTFC[0]));
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
-                event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-            BlocksTFC.getAllFruitTreeLeavesBlocks().toArray(new BlockFruitTreeLeaves[0]));
+//        itemColors.registerItemColorHandler((stack, tintIndex) ->
+//                event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
+//            BlocksTFC.getAllFruitTreeLeavesBlocks().toArray(new BlockFruitTreeLeaves[0]));
 
         itemColors.registerItemColorHandler((stack, tintIndex) -> tintIndex == 1 ? EnumDyeColor.byDyeDamage(stack.getItemDamage()).getColorValue() : 0xFFFFFF,
             TFCItems.UNFIRED_VESSEL_GLAZED, TFCItems.FIRED_VESSEL_GLAZED);
@@ -562,7 +564,7 @@ public final class ClientRegisterEvents
 
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
-    public static void registerModelsTFCF(ModelRegistryEvent event)
+    public static void registerModelsTFC(ModelRegistryEvent event)
     {
         // ITEMS
           
@@ -570,8 +572,8 @@ public final class ClientRegisterEvents
         /*for (Item item : ItemsTFC.getAllItemBows())
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));*/
 
-        for (ItemFruitDoor item : TFCItems.getAllFruitDoors())
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
+//        for (ItemFruitDoor item : TFCItems.getAllFruitDoors())
+//            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
 
 
 
@@ -629,35 +631,35 @@ public final class ClientRegisterEvents
         //for (Block block : TFCBlocks.getAllJoshuaTreeSaplingBlocks())
             //ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockJoshuaTreeSapling.STAGE).build());
 
-        for (BlockFruitTreeLeaves leaves : BlocksTFC.getAllFruitLeaves())
-            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build());
+//        for (BlockFruitTreeLeaves leaves : BlocksTFC.getAllFruitLeaves())
+//            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitTreeLeaves.DECAYABLE).ignore(BlockFruitTreeLeaves.HARVESTABLE).build());
 
-        for (BlockFruitLeaves leaves : BlocksTFC.getAllNormalTreeLeaves())
-            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitLeaves.DECAYABLE).ignore(BlockFruitLeaves.HARVESTABLE).build());
-
-        for (BlockFruitLog Logs : BlocksTFC.getAllNormalTreeLog())
-            ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockFruitLog.PLACED).build());
-
-        for (BlockFruitDoor door : BlocksTFC.getAllFruitDoors())
-            ModelLoader.setCustomStateMapper(door, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
-
-        for (BlockFruitFenceGate gate : BlocksTFC.getAllFruitFenceGates())
-            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitFenceGate.POWERED).build());
-
-        for (BlockFruitLogFenceGate gate : BlocksTFC.getAllFruitLogFenceGates())
-            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitLogFenceGate.POWERED).build());
+//        for (BlockFruitLeaves leaves : BlocksTFC.getAllNormalTreeLeaves())
+//            ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockFruitLeaves.DECAYABLE).ignore(BlockFruitLeaves.HARVESTABLE).build());
+//
+//        for (BlockFruitLog Logs : BlocksTFC.getAllNormalTreeLog())
+//            ModelLoader.setCustomStateMapper(Logs, new StateMap.Builder().ignore(BlockFruitLog.PLACED).build());
+//
+//        for (BlockFruitDoor door : BlocksTFC.getAllFruitDoors())
+//            ModelLoader.setCustomStateMapper(door, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
+//
+//        for (BlockFruitFenceGate gate : BlocksTFC.getAllFruitFenceGates())
+//            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitFenceGate.POWERED).build());
+//
+//        for (BlockFruitLogFenceGate gate : BlocksTFC.getAllFruitLogFenceGates())
+//            ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(BlockFruitLogFenceGate.POWERED).build());
 
         for (TFCBlockFenceGateLog gate : BlocksTFC.getAllFenceGateLogBlocks())
             ModelLoader.setCustomStateMapper(gate, new StateMap.Builder().ignore(TFCBlockFenceGateLog.POWERED).build());
 
-        for (BlockFruitSlab.Half block : BlocksTFC.getAllFruitSlabBlocks())
-        {
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
-            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
-        }
+//        for (BlockFruitSlab.Half block : BlocksTFC.getAllFruitSlabBlocks())
+//        {
+//            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
+//            ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(BlockFruitSlab.VARIANT).build());
+//        }
 
-        for (Block block : BlocksTFC.getAllFruitChestBlocks())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockChest.FACING).build());
+//        for (Block block : BlocksTFC.getAllFruitChestBlocks())
+//            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockChest.FACING).build());
 
         for (TFCBlockRockSlab.Half block : BlocksTFC.getAllSlabBlocksTFC())
         {
@@ -702,15 +704,15 @@ public final class ClientRegisterEvents
 
 
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
-                        event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                BlocksTFC.getAllFruitLeaves().toArray(new BlockFruitTreeLeaves[0])
-        );
+//        itemColors.registerItemColorHandler((stack, tintIndex) ->
+//                        event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
+//                BlocksTFC.getAllFruitLeaves().toArray(new BlockFruitTreeLeaves[0])
+//        );
 
-        itemColors.registerItemColorHandler((stack, tintIndex) ->
-                        event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                BlocksTFC.getAllNormalTreeLeaves().toArray(new BlockFruitLeaves[0])
-        );
+//        itemColors.registerItemColorHandler((stack, tintIndex) ->
+//                        event.getBlockColors().colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
+//                BlocksTFC.getAllNormalTreeLeaves().toArray(new BlockFruitLeaves[0])
+//        );
 
         /*
         itemColors.registerItemColorHandler((stack, tintIndex) ->

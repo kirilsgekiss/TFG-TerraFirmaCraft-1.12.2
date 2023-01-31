@@ -112,7 +112,7 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.FluidsTFC;

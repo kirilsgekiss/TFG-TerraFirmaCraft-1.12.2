@@ -58,9 +58,9 @@ public class BlockLoamFarmland extends TFCBlockFarmland
     private static final AxisAlignedBB FARMLAND_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
     private static final AxisAlignedBB FLIPPED_AABB = new AxisAlignedBB(0.0D, 0.9375D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-    public BlockLoamFarmland(Type rockTFCF, Rock rock)
+    public BlockLoamFarmland(Type type, Rock rock)
     {
-        super(rockTFCF, rock);
+        super(type, rock);
         setDefaultState(blockState.getBaseState().withProperty(MOISTURE, 1)); // 1 is default so it doesn't instantly turn back to dirt
         setTickRandomly(true);
         setLightOpacity(255);

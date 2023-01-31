@@ -14,10 +14,8 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.ArmorMaterialTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSlab;
-import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitDoor;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLog;
-import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitSlab;
+import net.dries007.tfc.objects.blocks.wood.tree.bamboo.*;
+import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.*;
 import net.dries007.tfc.objects.items.ceramics.fired.*;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemEarthenwareMold;
@@ -65,7 +63,7 @@ import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
@@ -1380,8 +1378,8 @@ public final class TFCItems
         simpleItems.add(register(r, "firma_cola_oils", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "oils_firma_cola"), CT_MISC));
         simpleItems.add(register(r, "firma_cola_blend", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "blend_firma_cola"), CT_MISC));
 
-        for (BlockFruitLog log : BlocksTFC.getAllNormalTreeLog())
-            simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
+//        for (BlockFruitLog log : BlocksTFC.getAllNormalTreeLog())
+//            simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
         // Tools
         simpleItems.add(register(r, "tools/walking_stick", new ItemWalkingStick(Item.ToolMaterial.WOOD, 1f, 1.5f, 0.02f, 96, "stick_wood", "walking_stick"), CT_MISC));
@@ -1449,19 +1447,19 @@ public final class TFCItems
 
         simpleItems.add(register(r, "wood/fruit_tree/boat/ceylon_cinnamon", new TFCItemBoat(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
 
-        for (int i = 0; i < BlocksTFC.bamboo.length; i++)
-        {
-            ItemMisc bambooPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
-            simpleItems.add(register(r, "wood/pole/" + BlocksTFC.bamboo[i], bambooPole, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + BlocksTFC.bamboo[i]), bambooPole);
-            ((BlockBambooLog) BlocksTFC.getAllBambooLog().get(i)).setDrop(bambooPole);
-
-            ItemMisc bambooLumber = new ItemMisc(Size.SMALL, Weight.VERY_LIGHT);
-            simpleItems.add(register(r, "wood/lumber/" + BlocksTFC.bamboo[i], bambooLumber, CT_WOOD));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + BlocksTFC.bamboo[i]), bambooLumber);
-
-            simpleItems.add(register(r, "wood/boat/" + BlocksTFC.bamboo[i], new ItemFruitBoat(BlocksTFC.bambooTrees[i]), CT_WOOD));
-        }
+//        for (int i = 0; i < BlocksTFC.bamboo.length; i++)
+//        {
+//            ItemMisc bambooPole = new ItemMisc(Size.SMALL, Weight.MEDIUM);
+//            simpleItems.add(register(r, "wood/pole/" + BlocksTFC.bamboo[i], bambooPole, CT_WOOD));
+//            OreDictionary.registerOre(OreDictionaryHelper.toString("pole_" + BlocksTFC.bamboo[i]), bambooPole);
+//            ((BlockBambooLog) BlocksTFC.getAllBambooLog().get(i)).setDrop(bambooPole);
+//
+//            ItemMisc bambooLumber = new ItemMisc(Size.SMALL, Weight.VERY_LIGHT);
+//            simpleItems.add(register(r, "wood/lumber/" + BlocksTFC.bamboo[i], bambooLumber, CT_WOOD));
+//            OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + BlocksTFC.bamboo[i]), bambooLumber);
+//
+//            simpleItems.add(register(r, "wood/boat/" + BlocksTFC.bamboo[i], new ItemFruitBoat(BlocksTFC.bambooTrees[i]), CT_WOOD));
+//        }
 
         /*for (SeasonalTrees fruitTree : SeasonalTrees.values())
         {
@@ -1587,16 +1585,16 @@ public final class TFCItems
 
         ImmutableList.Builder<ItemFruitDoor> fruitDoors = ImmutableList.builder();
 
-        for (BlockFruitDoor blockDoor : BlocksTFC.getAllFruitDoors())
-        {
-            ItemFruitDoor itemDoor = new ItemFruitDoor(blockDoor);
-            fruitDoors.add(register(r, blockDoor.getRegistryName().getPath(), itemDoor, CT_DECORATIONS));
-            OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood"), itemDoor);
-            OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood_" + blockDoor.Name), itemDoor);
-        }
-
-        for (BlockFruitSlab.Half slab : BlocksTFC.getAllFruitSlabBlocks())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
+//        for (BlockFruitDoor blockDoor : BlocksTFC.getAllFruitDoors())
+//        {
+//            ItemFruitDoor itemDoor = new ItemFruitDoor(blockDoor);
+//            fruitDoors.add(register(r, blockDoor.getRegistryName().getPath(), itemDoor, CT_DECORATIONS));
+//            OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood"), itemDoor);
+//            OreDictionary.registerOre(OreDictionaryHelper.toString("door_wood_" + blockDoor.Name), itemDoor);
+//        }
+//
+//        for (BlockFruitSlab.Half slab : BlocksTFC.getAllFruitSlabBlocks())
+//            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllSlabBlocksTFC())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));

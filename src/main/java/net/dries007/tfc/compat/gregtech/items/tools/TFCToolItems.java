@@ -20,7 +20,7 @@ public final class TFCToolItems {
     public static IGTTool PROPICK;
     public static IGTTool JAVELIN;
 
-    public static void init()
+    public static void preInit()
     {
         TONGS = ToolItems.register(ItemGTTool.Builder.of(GTValues.MODID, "tongs")
                 .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F))
