@@ -32,7 +32,7 @@ import net.dries007.tfc.objects.container.ContainerChest;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.capability.TFCDoubleChestItemHandler;
 
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitChest;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitChest;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

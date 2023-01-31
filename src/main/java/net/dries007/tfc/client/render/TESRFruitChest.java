@@ -19,7 +19,7 @@ import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitChest;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitChest;
 import net.dries007.tfc.objects.te.TEFruitChest;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;

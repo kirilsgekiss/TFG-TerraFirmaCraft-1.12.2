@@ -4,7 +4,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
-import net.dries007.tfc.objects.blocks.wood.tree.joshua.BlockJoshuaTreeSapling;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
 
 public class ItemBlockJoshuaTreeSapling extends TFCItemBlock
 {

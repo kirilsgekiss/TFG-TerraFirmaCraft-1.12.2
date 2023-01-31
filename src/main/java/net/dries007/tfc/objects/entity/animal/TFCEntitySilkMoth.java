@@ -35,12 +35,12 @@ import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.ILivestock;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitLeaves;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.BlockFruitLeaves;
 import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;

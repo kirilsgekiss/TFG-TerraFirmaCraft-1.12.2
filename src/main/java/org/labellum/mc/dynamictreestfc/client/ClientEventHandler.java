@@ -19,8 +19,8 @@ import com.ferreusveritas.dynamictrees.items.Seed;
 import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.client.GrassColorHandler;
-import net.dries007.tfc.objects.blocks.ModBlocks;
-import net.dries007.tfc.objects.blocks.wood.tree.TFCTrees;
+import org.labellum.mc.dynamictreestfc.ModBlocks;
+import org.labellum.mc.dynamictreestfc.ModTrees;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
@@ -45,7 +45,7 @@ public class ClientEventHandler
     public static void registerModels(ModelRegistryEvent event)
     {
         //Register Meshers for Branches
-        for (TreeFamily tree : TFCTrees.tfcTrees)
+        for (TreeFamily tree : ModTrees.tfcTrees)
         {
             ModelHelperTFC.regModel(tree.getDynamicBranch());//Register Branch itemBlock
             ModelHelperTFC.regModel(tree);//Register custom state mapper for branch
@@ -53,7 +53,7 @@ public class ClientEventHandler
 
         ModelLoader.setCustomStateMapper(ModBlocks.blockRootyDirt, new StateMap.Builder().ignore(BlockRooty.LIFE).build());
 
-        TFCTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> ModelHelperTFC.regModel(s.getSeed()));//Register Seed Item Models
+        ModTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> ModelHelperTFC.regModel(s.getSeed()));//Register Seed Item Models
     }
 
     @SubscribeEvent

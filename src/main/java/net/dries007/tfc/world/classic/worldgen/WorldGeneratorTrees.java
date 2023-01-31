@@ -13,7 +13,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.dries007.tfc.objects.blocks.wood.tree.joshua.BlockJoshuaTreeFlower;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeFlower;
 import net.dries007.tfc.world.classic.worldgen.structures.StructureGeneratorCorals;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;

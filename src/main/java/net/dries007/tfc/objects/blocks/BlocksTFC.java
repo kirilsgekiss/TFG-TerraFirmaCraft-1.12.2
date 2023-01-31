@@ -22,13 +22,14 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.wood.*;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.bamboo.*;
-import net.dries007.tfc.objects.blocks.wood.tree.joshua.*;
-import net.dries007.tfc.objects.blocks.wood.tree.cinnamon.*;
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.*;
+import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLeaves;
+import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooLog;
+import net.dries007.tfc.objects.blocks.wood.bamboo.BlockBambooSapling;
+import net.dries007.tfc.objects.blocks.wood.cinnamon.*;
+import net.dries007.tfc.objects.blocks.wood.fruitwood.*;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeFlower;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeLog;
+import net.dries007.tfc.objects.blocks.wood.joshua.BlockJoshuaTreeSapling;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
@@ -885,26 +886,26 @@ public final class BlocksTFC
         ImmutableList.Builder<BlockFruitLog> normalTreeLog = ImmutableList.builder();
         ImmutableList.Builder<Block> foodItemBlocks = ImmutableList.builder();
         ImmutableList.Builder<TFCBlockFenceGateLog> fenceGatesLog = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitTreeLeaves> fruitLeaves = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitTreeSapling> fruitSapling = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitTreeLeaves> fruitLeaves = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitTreeSapling> fruitSapling = ImmutableList.builder();
         //ImmutableList.Builder<BlockFruitBarrelTest> fruitBarrel = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitBookshelf> fruitBookshelves = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitButton> fruitButton = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitDoor> fruitDoors = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitPlanks> fruitPlanks = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitSlab.Half> fruitSlab = new Builder<>();
-//        ImmutableList.Builder<BlockFruitStairs> fruitStairs = new Builder<>();
-//        ImmutableList.Builder<BlockFruitPressurePlate> fruitPressurePlate = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitFence> fruitFences = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitFenceGate> fruitFenceGates = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitLogFence> fruitLogFences = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitLogFenceGate> fruitLogFenceGates = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitSupport> fruitSupport = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitToolRack> fruitToolRack = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitTrapDoor> fruitTrapdoors = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitWorkbench> fruitWorkbench = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitChest> fruitChests = ImmutableList.builder();
-//        ImmutableList.Builder<BlockFruitLoom> fruitLoom = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitBookshelf> fruitBookshelves = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitButton> fruitButton = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitDoor> fruitDoors = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitPlanks> fruitPlanks = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitSlab.Half> fruitSlab = new Builder<>();
+        ImmutableList.Builder<BlockFruitStairs> fruitStairs = new Builder<>();
+        ImmutableList.Builder<BlockFruitPressurePlate> fruitPressurePlate = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitFence> fruitFences = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitFenceGate> fruitFenceGates = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitLogFence> fruitLogFences = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitLogFenceGate> fruitLogFenceGates = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitSupport> fruitSupport = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitToolRack> fruitToolRack = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitTrapDoor> fruitTrapdoors = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitWorkbench> fruitWorkbench = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitChest> fruitChests = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitLoom> fruitLoom = ImmutableList.builder();
         ImmutableList.Builder<TFCBlockCrop> cropBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
         ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
@@ -1815,39 +1816,39 @@ public final class BlocksTFC
             }*/
         }
 
-//        for (IFruitTree fruitTree : FruitTree.values())
-//        {
-//            String name = fruitTree.getName().toLowerCase();
-//            //fruitBarrel.add(register(r, "wood/fruit_tree/barrel/" + name, new BlockFruitBarrelTest(), CT_DECORATIONS));
-//            fruitBookshelves.add(register(r, "wood/fruit_tree/bookshelf/" + name, new BlockFruitBookshelf(), CT_DECORATIONS));
-//            if (true) // if firmalife !added
-//            {
-//                fruitDoors.add(register(r, "wood/fruit_tree/door/" + name, new BlockFruitDoor(name), CT_DECORATIONS));
-//            }
-//            fruitButton.add(register(r, "wood/fruit_tree/button/" + name, new BlockFruitButton(), CT_DECORATIONS));
-//            fruitPlanks.add(register(r, "wood/fruit_tree/planks/" + name, new BlockFruitPlanks(fruitTree), CT_WOOD));
-//            register(r, "wood/fruit_tree/double_slab/" + name, new BlockFruitSlab.Double(fruitTree));
-//            fruitSlab.add(register(r, "wood/fruit_tree/slab/" + name, new BlockFruitSlab.Half(fruitTree), CT_DECORATIONS));
-//            fruitStairs.add(register(r, "wood/fruit_tree/stairs/" + name, new BlockFruitStairs(fruitTree), CT_DECORATIONS));
-//            fruitPressurePlate.add(register(r, "wood/fruit_tree/pressure_plate/" + name, new BlockFruitPressurePlate(), CT_DECORATIONS));
-//            if (true) // if firmalife !added
-//            {
-//                fruitFences.add(register(r, "wood/fruit_tree/fence/" + name, new BlockFruitFence(), CT_DECORATIONS));
-//                fruitFenceGates.add(register(r, "wood/fruit_tree/fence_gate/" + name, new BlockFruitFenceGate(), CT_DECORATIONS));
-//            }
-//            fruitLogFences.add(register(r, "wood/fruit_tree/fence_log/" + name, new BlockFruitLogFence(), CT_DECORATIONS));
-//            fruitLogFenceGates.add(register(r, "wood/fruit_tree/fence_gate_log/" + name, new BlockFruitLogFenceGate(), CT_DECORATIONS));
-//            fruitSupport.add(register(r, "wood/fruit_tree/support/" + name, new BlockFruitSupport(), CT_DECORATIONS));
-//            fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/" + name, new BlockFruitToolRack(), CT_DECORATIONS));
-//            if (true) // if firmalife !added
-//            {
-//                fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/" + name, new BlockFruitTrapDoor(), CT_DECORATIONS));
-//            }
-//            fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/" + name, new BlockFruitWorkbench(), CT_DECORATIONS));
-//            fruitChests.add(register(r, "wood/fruit_tree/chest/" + name, new BlockFruitChest(BlockFruitChest.TFCBASIC, fruitTree), CT_DECORATIONS));
-//            fruitChests.add(register(r, "wood/fruit_tree/chest_trap/" + name, new BlockFruitChest(BlockFruitChest.TFCTRAP, fruitTree), CT_DECORATIONS));
-//            fruitLoom.add(register(r, "wood/fruit_tree/loom/" + name, new BlockFruitLoom(fruitTree), CT_WOOD));
-//        }
+        for (IFruitTree fruitTree : FruitTree.values())
+        {
+            String name = fruitTree.getName().toLowerCase();
+            //fruitBarrel.add(register(r, "wood/fruit_tree/barrel/" + name, new BlockFruitBarrelTest(), CT_DECORATIONS));
+            fruitBookshelves.add(register(r, "wood/fruit_tree/bookshelf/" + name, new BlockFruitBookshelf(), CT_DECORATIONS));
+            if (true) // if firmalife !added
+            {
+                fruitDoors.add(register(r, "wood/fruit_tree/door/" + name, new BlockFruitDoor(name), CT_DECORATIONS));
+            }
+            fruitButton.add(register(r, "wood/fruit_tree/button/" + name, new BlockFruitButton(), CT_DECORATIONS));
+            fruitPlanks.add(register(r, "wood/fruit_tree/planks/" + name, new BlockFruitPlanks(fruitTree), CT_WOOD));
+            register(r, "wood/fruit_tree/double_slab/" + name, new BlockFruitSlab.Double(fruitTree));
+            fruitSlab.add(register(r, "wood/fruit_tree/slab/" + name, new BlockFruitSlab.Half(fruitTree), CT_DECORATIONS));
+            fruitStairs.add(register(r, "wood/fruit_tree/stairs/" + name, new BlockFruitStairs(fruitTree), CT_DECORATIONS));
+            fruitPressurePlate.add(register(r, "wood/fruit_tree/pressure_plate/" + name, new BlockFruitPressurePlate(), CT_DECORATIONS));
+            if (true) // if firmalife !added
+            {
+                fruitFences.add(register(r, "wood/fruit_tree/fence/" + name, new BlockFruitFence(), CT_DECORATIONS));
+                fruitFenceGates.add(register(r, "wood/fruit_tree/fence_gate/" + name, new BlockFruitFenceGate(), CT_DECORATIONS));
+            }
+            fruitLogFences.add(register(r, "wood/fruit_tree/fence_log/" + name, new BlockFruitLogFence(), CT_DECORATIONS));
+            fruitLogFenceGates.add(register(r, "wood/fruit_tree/fence_gate_log/" + name, new BlockFruitLogFenceGate(), CT_DECORATIONS));
+            fruitSupport.add(register(r, "wood/fruit_tree/support/" + name, new BlockFruitSupport(), CT_DECORATIONS));
+            fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/" + name, new BlockFruitToolRack(), CT_DECORATIONS));
+            if (true) // if firmalife !added
+            {
+                fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/" + name, new BlockFruitTrapDoor(), CT_DECORATIONS));
+            }
+            fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/" + name, new BlockFruitWorkbench(), CT_DECORATIONS));
+            fruitChests.add(register(r, "wood/fruit_tree/chest/" + name, new BlockFruitChest(BlockFruitChest.TFCBASIC, fruitTree), CT_DECORATIONS));
+            fruitChests.add(register(r, "wood/fruit_tree/chest_trap/" + name, new BlockFruitChest(BlockFruitChest.TFCTRAP, fruitTree), CT_DECORATIONS));
+            fruitLoom.add(register(r, "wood/fruit_tree/loom/" + name, new BlockFruitLoom(fruitTree), CT_WOOD));
+        }
 
 //        // Cassia Cinnamon
 //        //fruitBarrel.add(register(r, "wood/fruit_tree/barrel/cassia_cinnamon", new BlockFruitBarrelTest(), CT_DECORATIONS));
@@ -1902,42 +1903,42 @@ public final class BlocksTFC
         //inventoryItemBlocks.add(register(r, "wood/fruit_tree/sapling/ceylon_cinnamon", new BlockCeylonCinnamonSapling(), CT_WOOD));
 
         // Bamboo
-//        for (int i = 0; i < bamboo.length; i++)
-//        {
-//            //fruitBarrel.add(register(r, "wood/barrel/" + bamboo[i], new BlockFruitBarrelTest(), CT_DECORATIONS));
-//            fruitBookshelves.add(register(r, "wood/bookshelf/" + bamboo[i], new BlockFruitBookshelf(), CT_DECORATIONS));
-//            fruitButton.add(register(r, "wood/button/" + bamboo[i], new BlockFruitButton(), CT_DECORATIONS));
-//            fruitDoors.add(register(r, "wood/door/" + bamboo[i], new BlockFruitDoor(bamboo[i]), CT_DECORATIONS));
-//            planksTFC.add(register(r, "wood/planks/" + bamboo[i], new TFCBlockPlanks(bambooTrees[i]), CT_WOOD));
-//            fruitPressurePlate.add(register(r, "wood/pressure_plate/" + bamboo[i], new BlockFruitPressurePlate(), CT_DECORATIONS));
-//            fruitFences.add(register(r, "wood/fence/" + bamboo[i], new BlockFruitFence(), CT_DECORATIONS));
-//            fruitFenceGates.add(register(r, "wood/fence_gate/" + bamboo[i], new BlockFruitFenceGate(), CT_DECORATIONS));
-//            fruitLogFences.add(register(r, "wood/fence_log/" + bamboo[i], new BlockFruitLogFence(), CT_DECORATIONS));
-//            fruitLogFenceGates.add(register(r, "wood/fence_gate_log/" + bamboo[i], new BlockFruitLogFenceGate(), CT_DECORATIONS));
-//            fruitSupport.add(register(r, "wood/support/" + bamboo[i], new BlockFruitSupport(), CT_DECORATIONS));
-//            fruitToolRack.add(register(r, "wood/tool_rack/" + bamboo[i], new BlockFruitToolRack(), CT_DECORATIONS));
-//            fruitTrapdoors.add(register(r, "wood/trapdoor/" + bamboo[i], new BlockFruitTrapDoor(), CT_DECORATIONS));
-//            fruitWorkbench.add(register(r, "wood/workbench/" + bamboo[i], new BlockFruitWorkbench(), CT_DECORATIONS));
-////            register(r, "wood/double_slab/" + bamboo[i], new BlockRockSlab.Double(bambooTrees[i]));
-////            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockRockSlab.Half(bambooTrees[i]), CT_DECORATIONS));
-////            blockStairTFC.add(register(r, "wood/stairs/" + bamboo[i], new BlockWoodStairsTFC(bambooTrees[i]), CT_DECORATIONS));
-//
-//            fruitChests.add(register(r, "wood/chest/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCBASIC, bambooTrees[i]), CT_DECORATIONS));
-//            fruitChests.add(register(r, "wood/chest_trap/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCTRAP, bambooTrees[i]), CT_DECORATIONS));
-//            fruitLoom.add(register(r, "wood/loom/" + bamboo[i], new BlockFruitLoom(bambooTrees[i]), CT_WOOD));
-//
-//            Block bambooBlock = register(r, "wood/log/" + bamboo[i], new BlockBambooLog(), CT_WOOD);
-//            BlockBambooLeaves leaves = new BlockBambooLeaves(bambooTrees[i]);
-//            Block bambooLeaves = register(r, "wood/leaves/" + bamboo[i], leaves, CT_WOOD);
-//
-//            BlockBambooSapling sapling = new BlockBambooSapling(bambooTrees[i], bambooLeaves, bambooBlock);
-//            Block bambooSapling = register(r, "wood/sapling/" + bamboo[i], sapling, CT_WOOD);
-//            leaves.setBambooSapling(sapling);
-//
-//            itemBambooLog.add(bambooBlock);
-//            itemBambooLeaves.add(bambooLeaves);
-//            itemBambooSapling.add(bambooSapling);
-//        }
+        for (int i = 0; i < bamboo.length; i++)
+        {
+            //fruitBarrel.add(register(r, "wood/barrel/" + bamboo[i], new BlockFruitBarrelTest(), CT_DECORATIONS));
+            fruitBookshelves.add(register(r, "wood/bookshelf/" + bamboo[i], new BlockFruitBookshelf(), CT_DECORATIONS));
+            fruitButton.add(register(r, "wood/button/" + bamboo[i], new BlockFruitButton(), CT_DECORATIONS));
+            fruitDoors.add(register(r, "wood/door/" + bamboo[i], new BlockFruitDoor(bamboo[i]), CT_DECORATIONS));
+            planksTFC.add(register(r, "wood/planks/" + bamboo[i], new TFCBlockPlanks(bambooTrees[i]), CT_WOOD));
+            fruitPressurePlate.add(register(r, "wood/pressure_plate/" + bamboo[i], new BlockFruitPressurePlate(), CT_DECORATIONS));
+            fruitFences.add(register(r, "wood/fence/" + bamboo[i], new BlockFruitFence(), CT_DECORATIONS));
+            fruitFenceGates.add(register(r, "wood/fence_gate/" + bamboo[i], new BlockFruitFenceGate(), CT_DECORATIONS));
+            fruitLogFences.add(register(r, "wood/fence_log/" + bamboo[i], new BlockFruitLogFence(), CT_DECORATIONS));
+            fruitLogFenceGates.add(register(r, "wood/fence_gate_log/" + bamboo[i], new BlockFruitLogFenceGate(), CT_DECORATIONS));
+            fruitSupport.add(register(r, "wood/support/" + bamboo[i], new BlockFruitSupport(), CT_DECORATIONS));
+            fruitToolRack.add(register(r, "wood/tool_rack/" + bamboo[i], new BlockFruitToolRack(), CT_DECORATIONS));
+            fruitTrapdoors.add(register(r, "wood/trapdoor/" + bamboo[i], new BlockFruitTrapDoor(), CT_DECORATIONS));
+            fruitWorkbench.add(register(r, "wood/workbench/" + bamboo[i], new BlockFruitWorkbench(), CT_DECORATIONS));
+//            register(r, "wood/double_slab/" + bamboo[i], new BlockRockSlab.Double(bambooTrees[i]));
+//            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockRockSlab.Half(bambooTrees[i]), CT_DECORATIONS));
+//            blockStairTFC.add(register(r, "wood/stairs/" + bamboo[i], new BlockWoodStairsTFC(bambooTrees[i]), CT_DECORATIONS));
+
+            fruitChests.add(register(r, "wood/chest/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCBASIC, bambooTrees[i]), CT_DECORATIONS));
+            fruitChests.add(register(r, "wood/chest_trap/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCTRAP, bambooTrees[i]), CT_DECORATIONS));
+            fruitLoom.add(register(r, "wood/loom/" + bamboo[i], new BlockFruitLoom(bambooTrees[i]), CT_WOOD));
+
+            Block bambooBlock = register(r, "wood/log/" + bamboo[i], new BlockBambooLog(), CT_WOOD);
+            BlockBambooLeaves leaves = new BlockBambooLeaves(bambooTrees[i]);
+            Block bambooLeaves = register(r, "wood/leaves/" + bamboo[i], leaves, CT_WOOD);
+
+            BlockBambooSapling sapling = new BlockBambooSapling(bambooTrees[i], bambooLeaves, bambooBlock);
+            Block bambooSapling = register(r, "wood/sapling/" + bamboo[i], sapling, CT_WOOD);
+            leaves.setBambooSapling(sapling);
+
+            itemBambooLog.add(bambooBlock);
+            itemBambooLeaves.add(bambooLeaves);
+            itemBambooSapling.add(bambooSapling);
+        }
 
         //multiBlock.add(register(r, "multiblock/campfire", new BlockCampfire(Material.ROCK), CT_MISC));
         //multiBlock.add(register(r, "multiblock/dummyHalf", new BlockDummyHalf(), CT_MISC));
@@ -2000,37 +2001,37 @@ public final class BlocksTFC
             normalItemBlocks.add(new TFCItemBlock(x));
         });
 
-//        allFruitLeaves = fruitLeaves.build();
-//        allFruitLeaves.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitSapling = fruitSapling.build();
-//        allFruitSapling.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
+        allFruitLeaves = fruitLeaves.build();
+        allFruitLeaves.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitSapling = fruitSapling.build();
+        allFruitSapling.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
 
         /*allFruitBarrel = fruitBarrel.build();
         allFruitBarrel.forEach((x) -> {
             normalItemBlocks.add(new ItemBlockTFC(x));
         });*/
 
-//        allFruitBookshelves = fruitBookshelves.build();
-//        allFruitBookshelves.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitButton = fruitButton.build();
-//        allFruitButton.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitDoors = fruitDoors.build();
-//
-//        allFruitPlanks = fruitPlanks.build();
-//        allFruitPlanks.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
+        allFruitBookshelves = fruitBookshelves.build();
+        allFruitBookshelves.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitButton = fruitButton.build();
+        allFruitButton.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitDoors = fruitDoors.build();
+
+        allFruitPlanks = fruitPlanks.build();
+        allFruitPlanks.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
 
         allPlanksTFC = planksTFC.build();
         allPlanksTFC.forEach((x) -> {
@@ -2041,64 +2042,64 @@ public final class BlocksTFC
         allStairBlocksTFC = blockStairTFC.build();
         allStairBlocksTFC.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
-//        allFruitSlabBlocks = fruitSlab.build();
-//        allFruitStairBlocks = fruitStairs.build();
-//        allFruitStairBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
-//
-//        allFruitPressurePlate = fruitPressurePlate.build();
-//        allFruitPressurePlate.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitFences = fruitFences.build();
-//        allFruitFences.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitFenceGates = fruitFenceGates.build();
-//        allFruitFenceGates.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitLogFences = fruitLogFences.build();
-//        allFruitLogFences.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitLogFenceGates = fruitLogFenceGates.build();
-//        allFruitLogFenceGates.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitSupport = fruitSupport.build();
-//        allFruitSupport.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitToolRack = fruitToolRack.build();
-//        allFruitToolRack.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitTrapDoors = fruitTrapdoors.build();
-//        allFruitTrapDoors.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitWorkbench = fruitWorkbench.build();
-//        allFruitWorkbench.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitChestBlocks = fruitChests.build();
-//        allFruitChestBlocks.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allFruitLoomBlocks = fruitLoom.build();
-//        allFruitLoomBlocks.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
+        allFruitSlabBlocks = fruitSlab.build();
+        allFruitStairBlocks = fruitStairs.build();
+        allFruitStairBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+
+        allFruitPressurePlate = fruitPressurePlate.build();
+        allFruitPressurePlate.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitFences = fruitFences.build();
+        allFruitFences.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitFenceGates = fruitFenceGates.build();
+        allFruitFenceGates.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitLogFences = fruitLogFences.build();
+        allFruitLogFences.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitLogFenceGates = fruitLogFenceGates.build();
+        allFruitLogFenceGates.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitSupport = fruitSupport.build();
+        allFruitSupport.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitToolRack = fruitToolRack.build();
+        allFruitToolRack.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitTrapDoors = fruitTrapdoors.build();
+        allFruitTrapDoors.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitWorkbench = fruitWorkbench.build();
+        allFruitWorkbench.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitChestBlocks = fruitChests.build();
+        allFruitChestBlocks.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitLoomBlocks = fruitLoom.build();
+        allFruitLoomBlocks.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
         // Florae End
 
         allNormalItemBlocks = normalItemBlocks.build();
@@ -2164,7 +2165,6 @@ public final class BlocksTFC
 
         }
     }
-
 
     public static boolean isWater(IBlockState current)
     {

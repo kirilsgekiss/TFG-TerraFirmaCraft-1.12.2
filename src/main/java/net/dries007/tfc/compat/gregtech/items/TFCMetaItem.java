@@ -4,7 +4,7 @@ public class TFCMetaItem {
 
     public static TFCMetaItems TFCMetaItem;
 
-    public static void preInit()
+    public static void init()
     {
         // Items
         TFCMetaItem = new TFCMetaItems();

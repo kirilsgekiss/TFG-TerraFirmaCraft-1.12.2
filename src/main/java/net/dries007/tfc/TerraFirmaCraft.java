@@ -8,7 +8,6 @@ package net.dries007.tfc;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
-import net.dries007.tfc.objects.blocks.wood.tree.TFCTrees;
 import net.dries007.tfc.types.DefaultRecipes;
 import net.dries007.tfc.util.CapabilityHeatHandler;
 import net.dries007.tfc.util.Helpers;
@@ -126,9 +125,8 @@ public final class TerraFirmaCraft
     {
         log.debug("TerraFirmaCraft is Working! :)"); // todo: wtf check
 
-        TFCToolItems.preInit();
-        TFCMetaItem.preInit();
-        TFCTrees.preInit();
+        TFCToolItems.init();
+        TFCMetaItem.init();
 
         someStuffOnPreInit(event);
 
