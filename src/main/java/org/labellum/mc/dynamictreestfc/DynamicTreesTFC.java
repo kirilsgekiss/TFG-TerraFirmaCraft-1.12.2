@@ -1,5 +1,6 @@
 package org.labellum.mc.dynamictreestfc;
 
+import net.dries007.tfc.types.TFCTrees;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -80,7 +81,7 @@ public class DynamicTreesTFC
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event)
     {
-        ModTrees.postInit();
+        TFCTrees.postInit();
         TreeHelper.setCustomRootBlockDecay(TFCRootDecay.INSTANCE);
     }
 
@@ -98,7 +99,7 @@ public class DynamicTreesTFC
         public static void addItems(RegistryEvent.Register<Item> event)
         {
             ModItems.register(event.getRegistry());
-            ModTrees.registerItems(event.getRegistry());
+            TFCTrees.registerItems(event.getRegistry());
         }
 
         /**
@@ -120,7 +121,7 @@ public class DynamicTreesTFC
         public static void addBlocks(RegistryEvent.Register<Block> event)
         {
             ModBlocks.register(event.getRegistry());
-            ModTrees.registerBlocks(event.getRegistry());
+            TFCTrees.registerBlocks(event.getRegistry());
         }
     }
 }

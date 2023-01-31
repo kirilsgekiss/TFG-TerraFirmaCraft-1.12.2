@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 import com.ferreusveritas.dynamictrees.systems.dropcreators.DropCreator;
 import com.ferreusveritas.dynamictrees.trees.Species;
-import net.dries007.tfc.objects.blocks.wood.BlockLogTFC;
-import org.labellum.mc.dynamictreestfc.blocks.BlockLogDTTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 

@@ -32,6 +32,7 @@ import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockStairs;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodPressurePlate;
 import net.dries007.tfc.objects.blocks.wood.*;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold;
 import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredEarthenwareMold;
