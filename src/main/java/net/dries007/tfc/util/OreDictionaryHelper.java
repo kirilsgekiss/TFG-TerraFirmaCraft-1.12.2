@@ -281,12 +281,6 @@ public class OreDictionaryHelper
                 //MAP.put(thing, toString(prefixParts, "mud_bricks", rock));
                 break;
             case ROOTED_DIRT:
-            case ROOTED_LOAMY_SAND:
-            case ROOTED_SANDY_LOAM:
-            case ROOTED_LOAM:
-            case ROOTED_SILT_LOAM:
-            case ROOTED_SILT:
-            case ROOTED_HUMUS:
                 MAP.put(thing, toString(prefixParts, type));
                 MAP.put(thing, toString(prefixParts, "rooted_dirt"));
                 break;
