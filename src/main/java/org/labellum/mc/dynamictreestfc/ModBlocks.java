@@ -14,7 +14,7 @@ import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
 import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockRootyDirtTFC;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockMimicDynamic;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
@@ -23,11 +23,11 @@ public class ModBlocks
     public static LeavesProperties[] tfcLeavesProperties;
     public static Map<String, LeavesProperties> leafMap;
     public static Map<String, ICellKit> kitMap;
-    public static BlockRootyDirtTFC blockRootyDirt;
+    public static TFCBlockMimicDynamic blockRootyDirt;
 
     public static void preInit()
     {
-        blockRootyDirt = new BlockRootyDirtTFC();
+        blockRootyDirt = new TFCBlockMimicDynamic();
 
         kitMap = new HashMap<>();
         fillMaps(kitMap);

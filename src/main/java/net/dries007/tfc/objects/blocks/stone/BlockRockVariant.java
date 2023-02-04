@@ -245,12 +245,6 @@ public class BlockRockVariant extends Block implements IItemSize {
             case GRAVEL:
             case COBBLE:
             case ROOTED_DIRT:
-            case ROOTED_LOAMY_SAND:
-            case ROOTED_SANDY_LOAM:
-            case ROOTED_LOAM:
-            case ROOTED_SILT_LOAM:
-            case ROOTED_SILT:
-            case ROOTED_HUMUS:
             case COARSE_DIRT:
             case BOG_IRON:
             case BOG_IRON_GRASS:
@@ -391,12 +385,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                 setHarvestLevel("shovel", 0);
                 break;
             case ROOTED_DIRT:
-            case ROOTED_LOAMY_SAND:
-            case ROOTED_SANDY_LOAM:
-            case ROOTED_LOAM:
-            case ROOTED_SILT_LOAM:
-            case ROOTED_SILT:
-            case ROOTED_HUMUS:
             case BOG_IRON:
             case SANDY_CLAY_LOAM:
             case SANDY_CLAY:
@@ -1164,12 +1152,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.BOG_IRON ||
                             type == Type.BOG_IRON_GRASS ||
                             type == Type.DRY_BOG_IRON_GRASS ||
@@ -1636,12 +1618,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.DRY_GRASS ||
                             type == Type.SAND ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.BOG_IRON ||
@@ -1681,12 +1657,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.DRY_GRASS ||
                             type == Type.GRAVEL ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.BOG_IRON ||
@@ -1738,12 +1708,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.SAND ||
                             type == Type.GRAVEL ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.BOG_IRON ||
@@ -1803,12 +1767,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.SAND ||
                             type == Type.DRY_GRASS ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.BOG_IRON ||
@@ -1867,12 +1825,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.SAND ||
                             type == Type.DRY_GRASS ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.COARSE_DIRT ||
                             type == Type.MUD ||
                             type == Type.BOG_IRON ||
@@ -1929,12 +1881,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == Type.DRY_GRASS ||
                             type == Type.CLAY_GRASS ||
                             type == Type.ROOTED_DIRT ||
-                            type == Type.ROOTED_LOAMY_SAND ||
-                            type == Type.ROOTED_SANDY_LOAM ||
-                            type == Type.ROOTED_LOAM ||
-                            type == Type.ROOTED_SILT_LOAM ||
-                            type == Type.ROOTED_SILT ||
-                            type == Type.ROOTED_HUMUS ||
                             type == Type.BOG_IRON ||
                             type == Type.BOG_IRON_GRASS ||
                             type == Type.DRY_BOG_IRON_GRASS ||
@@ -2162,12 +2108,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                         type == Type.CLAY ||
                         type == Type.CLAY_GRASS ||
                         type == Type.ROOTED_DIRT ||
-                        type == Type.ROOTED_LOAMY_SAND ||
-                        type == Type.ROOTED_SANDY_LOAM ||
-                        type == Type.ROOTED_LOAM ||
-                        type == Type.ROOTED_SILT_LOAM ||
-                        type == Type.ROOTED_SILT ||
-                        type == Type.ROOTED_HUMUS ||
                         type == Type.COARSE_DIRT ||
                         type == Type.MUD ||
                         type == Type.BOG_IRON ||
@@ -2407,12 +2347,6 @@ public class BlockRockVariant extends Block implements IItemSize {
                         type == Type.SAND ||
                         type == Type.DRY_GRASS ||
                         type == Type.ROOTED_DIRT ||
-                        type == Type.ROOTED_LOAMY_SAND ||
-                        type == Type.ROOTED_SANDY_LOAM ||
-                        type == Type.ROOTED_LOAM ||
-                        type == Type.ROOTED_SILT_LOAM ||
-                        type == Type.ROOTED_SILT ||
-                        type == Type.ROOTED_HUMUS ||
                         type == Type.COARSE_DIRT ||
                         type == Type.MUD ||
                         type == Type.BOG_IRON ||
@@ -2493,12 +2427,6 @@ public class BlockRockVariant extends Block implements IItemSize {
             case COARSE_DIRT:
             case MUD:
             case ROOTED_DIRT:
-            case ROOTED_LOAMY_SAND:
-            case ROOTED_SANDY_LOAM:
-            case ROOTED_LOAM:
-            case ROOTED_SILT_LOAM:
-            case ROOTED_SILT:
-            case ROOTED_HUMUS:
             case BOG_IRON:
             case BOG_IRON_GRASS:
             case DRY_BOG_IRON_GRASS:
