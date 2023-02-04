@@ -33,6 +33,7 @@ import net.dries007.tfc.api.types.*;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.registries.TFCRegistryNames.*;
+import static net.dries007.tfc.api.registries.TFCRegistryNames.WOOD;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class Registries
@@ -45,6 +46,7 @@ public final class Registries
         // Pre Block registries (dirty hack)
         newRegistry(ROCK_TYPE, RockCategory.class, true); // Required before: ROCK
         newRegistry(ROCK, Rock.class, true);
+        newRegistry(WOOD, Wood.class, true);
         newRegistry(TREE, Tree.class, true);
         newRegistry(PLANT, Plant.class, true);
 

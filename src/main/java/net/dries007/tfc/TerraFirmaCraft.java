@@ -9,7 +9,7 @@ import com.ferreusveritas.dynamictrees.seasons.SeasonHelper;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
-import net.dries007.tfc.types.DefaultRecipes;
+//import net.dries007.tfc.types.DefaultRecipes;
 import net.dries007.tfc.util.CapabilityHeatHandler;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.TFCSeasonManager;
@@ -223,7 +223,7 @@ public final class TerraFirmaCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        DefaultRecipes.register();
+//        DefaultRecipes.register();
 
         FuelManager.postInit();
         JsonConfigRegistry.INSTANCE.postInit();

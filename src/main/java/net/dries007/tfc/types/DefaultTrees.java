@@ -227,9 +227,9 @@ public final class DefaultTrees
     // new Tree.Builder(SYCAMORE, 120f, 290f, 17f, 33f, GEN_MEDIUM).setGrowthTime(8).setBushes().setDensity(0.25f, 2f).setBurnInfo(653f, 1750).build(),
     // new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL).setHeight(16).setBurnInfo(625f, 1500).build(),
     // TFC Trees
-    public static final Tree ACACIA_TREE = new Tree.Builder(ACACIA, 30f, 210f, 19f, 31f, GEN_ACACIA).setHeight(12).setGrowthTime(11).setDensity(0.1f, 0.6f).setBurnInfo(650f, 1000).setColor(0x8B3929).build();
-    public static final Tree BLACKWOOD_TREE = new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM).setHeight(12).setGrowthTime(8).setBurnInfo(720f, 1750).setColor(0x1A1A1A).build();
-    public static final Tree DOUGLAS_FIR_TREE =  new Tree.Builder(DOUGLAS_FIR, 280f, 480f, -2f, 14f, GEN_TALL).setDominance(5.2f).setHeight(16).setBushes().setTannin().setDensity(0.25f, 2f).setBurnInfo(707f, 1500).setColor(0xD7BC8D).build();
+    public static final Tree ACACIA_TREE = new Tree.Builder(ACACIA, 30f, 210f, 19f, 31f, GEN_ACACIA).setHeight(12).setGrowthTime(11).setDensity(0.1f, 0.6f).setBurnInfo(650f, 1000).build();
+    public static final Tree BLACKWOOD_TREE = new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM).setHeight(12).setGrowthTime(8).setBurnInfo(720f, 1750).build();
+    public static final Tree DOUGLAS_FIR_TREE =  new Tree.Builder(DOUGLAS_FIR, 280f, 480f, -2f, 14f, GEN_TALL).setDominance(5.2f).setHeight(16).setBushes().setTannin().setDensity(0.25f, 2f).setBurnInfo(707f, 1500).build();
     public static final Tree KAPOK_TREE = new Tree.Builder(KAPOK, 210f, 500f, 15f, 35f, GEN_KAPOK_COMPOSITE).setDominance(8.5f).setRadius(3).setHeight(24).setDecayDist(6).setGrowthTime(18).setBushes().setDensity(0.6f, 2f).setBurnInfo(645f, 1000).setColor(0xAD879F).build();
     public static final Tree PALM_TREE = new Tree.Builder(PALM, 280f, 500f, 16f, 35f, GEN_TROPICAL).setDecayDist(6).setBurnInfo(730f, 1250).setColor(0xB56F38).build();
     public static final Tree PINE_TREE = new Tree.Builder(PINE, 60f, 250f, -15f, 7f, GEN_CONIFER).setRadius(1).setConifer().setDensity(0.1f, 0.8f).setBurnInfo(627f, 1250).setColor(0xD1BD9A).build();
@@ -238,11 +238,11 @@ public final class DefaultTrees
     public static final Tree SPRUCE_TREE = new Tree.Builder(SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER).setRadius(1).setConifer().setDensity(0.1f, 0.8f).setBurnInfo(608f, 1500).setColor(0xBF806F).build();
     public static final Tree WILLOW_TREE = new Tree.Builder(WILLOW, 230f, 400f, 15f, 32f, GEN_WILLOW).setRadius(1).setGrowthTime(11).setBushes().setDensity(0.7f, 2f).setBurnInfo(603f, 1000).setColor(0x3A430B).build();
     public static final Tree HEVEA_TREE = new Tree.Builder(HEVEA, 140f, 350f, 7f, 27f, GEN_TALL).setDensity(0.1f, 0.6f).setRadius(2).setGrowthTime(10).setBurnInfo(762f, 2000).setColor(0xCC6F36).build();
-    public static final Tree ASH_TREE = new Tree.Builder(ASH, 60f, 140f, -6f, 12f, GEN_NORMAL).setBushes().setBurnInfo(696f, 1250).setColor(0xAE604E).build();
-    public static final Tree ASPEN_TREE = new Tree.Builder(ASPEN, 70f, 280f, -10f, 16f, GEN_ASPEN).setGrowthTime(8).setDensity(0.25f, 1f).setBurnInfo(611f, 1000).setColor(0x373727).build();
+    public static final Tree ASH_TREE = new Tree.Builder(ASH, 60f, 140f, -6f, 12f, GEN_NORMAL).setBushes().setBurnInfo(696f, 1250).build();
+    public static final Tree ASPEN_TREE = new Tree.Builder(ASPEN, 70f, 280f, -10f, 16f, GEN_ASPEN).setGrowthTime(8).setDensity(0.25f, 1f).setBurnInfo(611f, 1000).build();
     public static final Tree BIRCH_TREE = new Tree.Builder(BIRCH, 20f, 180f, -15f, 7f, GEN_TALL).setRadius(1).setTannin().setBurnInfo(652f, 1750).setColor(0x897658).build();
-    public static final Tree CHESTNUT_TREE = new Tree.Builder(CHESTNUT, 160f, 320f, 11f, 35f, GEN_NORMAL).setTannin().setBushes().setBurnInfo(651f, 1500).setColor(0x642C1E).build();
-    public static final Tree HICKORY_TREE = new Tree.Builder(HICKORY, 80f, 250f, 7f, 29f, GEN_TALL).setGrowthTime(10).setBushes().setTannin().setBurnInfo(762f, 2000).setColor(0x4E3418).build();
+    public static final Tree CHESTNUT_TREE = new Tree.Builder(CHESTNUT, 160f, 320f, 11f, 35f, GEN_NORMAL).setTannin().setBushes().setBurnInfo(651f, 1500).build();
+    public static final Tree HICKORY_TREE = new Tree.Builder(HICKORY, 80f, 250f, 7f, 29f, GEN_TALL).setGrowthTime(10).setBushes().setTannin().setBurnInfo(762f, 2000).build();
     public static final Tree MAPLE_TREE = new Tree.Builder(MAPLE, 140f, 360f, 3f, 20f, GEN_MEDIUM).setDominance(6.3f).setRadius(1).setTannin().setBurnInfo(745f, 2000).setColor(0xC3782F).build();
     public static final Tree OAK_TREE = new Tree.Builder(OAK, 180f, 430f, -8f, 12f, GEN_TALL).setHeight(16).setGrowthTime(10).setBushes().setTannin().setBurnInfo(728f, 2250).setColor(0xC29D62).build();
     public static final Tree SYCAMORE_TREE = new Tree.Builder(SYCAMORE, 120f, 290f, 17f, 33f, GEN_MEDIUM).setGrowthTime(8).setBushes().setDensity(0.25f, 2f).setBurnInfo(653f, 1750).setColor(0xDCA448).build();

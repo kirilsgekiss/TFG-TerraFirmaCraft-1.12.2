@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.SoundType;
@@ -33,7 +34,6 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.inventory.capability.TFCInventoryLargeChest;
 import net.dries007.tfc.objects.te.TEChest;
@@ -47,22 +47,22 @@ public class TFCBlockChest extends BlockChest implements IItemSize
     public static final Type TFCBASIC = EnumHelper.addEnum(BlockChest.Type.class, "TFCBASIC", new Class<?>[0]);
     public static final Type TFCTRAP = EnumHelper.addEnum(BlockChest.Type.class, "TFCTRAP", new Class<?>[0]);
 
-    private static final Map<Tree, TFCBlockChest> MAP_BASIC = new HashMap<>();
-    private static final Map<Tree, TFCBlockChest> MAP_TRAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockChest> MAP_BASIC = new HashMap<>();
+    private static final Map<Wood, TFCBlockChest> MAP_TRAP = new HashMap<>();
 
-    public static TFCBlockChest getBasic(Tree wood)
+    public static TFCBlockChest getBasic(Wood wood)
     {
         return MAP_BASIC.get(wood);
     }
 
-    public static TFCBlockChest getTrap(Tree wood)
+    public static TFCBlockChest getTrap(Wood wood)
     {
         return MAP_TRAP.get(wood);
     }
 
-    public final Tree wood;
+    public final Wood wood;
 
-    public TFCBlockChest(Type type, Tree wood)
+    public TFCBlockChest(Type type, Wood wood)
     {
         super(type);
         this.wood = wood;

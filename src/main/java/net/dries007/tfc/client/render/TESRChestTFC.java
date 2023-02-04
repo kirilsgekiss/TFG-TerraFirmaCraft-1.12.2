@@ -8,6 +8,7 @@ package net.dries007.tfc.client.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.client.model.ModelChest;
@@ -19,7 +20,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
 import net.dries007.tfc.objects.te.TEChest;
 
@@ -28,14 +28,14 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 @SideOnly(Side.CLIENT)
 public class TESRChestTFC extends TileEntitySpecialRenderer<TEChest>
 {
-    private static final Map<Tree, ResourceLocation> SINGLE_TEXTURES = new HashMap<>();
-    private static final Map<Tree, ResourceLocation> DOUBLE_TEXTURES = new HashMap<>();
-    private static final Map<Tree, ResourceLocation> TRAP_SINGLE_TEXTURES = new HashMap<>();
-    private static final Map<Tree, ResourceLocation> TRAP_DOUBLE_TEXTURES = new HashMap<>();
+    private static final Map<Wood, ResourceLocation> SINGLE_TEXTURES = new HashMap<>();
+    private static final Map<Wood, ResourceLocation> DOUBLE_TEXTURES = new HashMap<>();
+    private static final Map<Wood, ResourceLocation> TRAP_SINGLE_TEXTURES = new HashMap<>();
+    private static final Map<Wood, ResourceLocation> TRAP_DOUBLE_TEXTURES = new HashMap<>();
 
     static
     {
-        for (Tree wood : TFCRegistries.TREES.getValuesCollection())
+        for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
         {
             //noinspection ConstantConditions
             SINGLE_TEXTURES.put(wood, new ResourceLocation(MOD_ID, "textures/entity/chests/chest/" + wood.getRegistryName().getPath() + ".png"));
@@ -55,7 +55,7 @@ public class TESRChestTFC extends TileEntitySpecialRenderer<TEChest>
         GlStateManager.depthFunc(515);
         GlStateManager.depthMask(true);
         int meta = 0;
-        Tree wood = null;
+        Wood wood = null;
 
         if (te.hasWorld())
         {

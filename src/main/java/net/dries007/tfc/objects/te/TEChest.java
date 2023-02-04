@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +32,6 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
 import net.dries007.tfc.objects.container.ContainerChest;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
@@ -43,7 +43,7 @@ public class TEChest extends TileEntityChest implements ISlotCallback
 {
     public static final int SIZE = 18;
 
-    private Tree cachedWood;
+    private Wood cachedWood;
     private int shadowTicksSinceSync;
 
     {
@@ -52,7 +52,7 @@ public class TEChest extends TileEntityChest implements ISlotCallback
     }
 
     @Nullable
-    public Tree getWood()
+    public Wood getWood()
     {
         if (cachedWood == null)
         {

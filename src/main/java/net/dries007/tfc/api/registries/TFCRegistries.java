@@ -35,6 +35,9 @@ public class TFCRegistries
      */
     public static final IForgeRegistry<Rock> ROCKS = GameRegistry.findRegistry(Rock.class);
     public static final IForgeRegistry<RockCategory> ROCK_CATEGORIES = GameRegistry.findRegistry(RockCategory.class);
+
+    public static final IForgeRegistry<Wood> WOODS = GameRegistry.findRegistry(Wood.class);
+
     public static final IForgeRegistry<Tree> TREES = GameRegistry.findRegistry(Tree.class);
 
     public static final IForgeRegistry<AlloyRecipe> ALLOYS = GameRegistry.findRegistry(AlloyRecipe.class);

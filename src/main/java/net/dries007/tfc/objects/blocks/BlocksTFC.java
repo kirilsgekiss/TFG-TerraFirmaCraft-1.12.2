@@ -9,10 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
 import net.dries007.tfc.api.capability.food.FoodData;
-import net.dries007.tfc.api.types.IFruitTree;
-import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.objects.blocks.groundcover.*;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
@@ -1121,6 +1118,8 @@ public final class BlocksTFC
             }
         }
 
+
+
         {
             Builder<BlockLogTFC> blockLogs = ImmutableList.builder();
             Builder<TFCBlockPlanks> blockPlanks = ImmutableList.builder();
@@ -1141,6 +1140,15 @@ public final class BlocksTFC
             Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
             Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
 
+            // Other blocks that don't have specific order requirements
+            for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
+            {
+
+                blockChests.add(register(r, "wood/chest/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCBASIC, wood), CT_DECORATIONS));
+                blockChests.add(register(r, "wood/chest_trap/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCTRAP, wood), CT_DECORATIONS));
+
+            }
+
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
             {
                 blockLogs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockLogTFC(wood), CT_WOOD));
@@ -1155,8 +1163,7 @@ public final class BlocksTFC
                 blockSaplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new BlockSaplingTFC(wood), CT_WOOD));
                 blockDoors.add(register(r, "wood/door/" + wood.getRegistryName().getPath(), new TFCBlockWoodDoor(wood), CT_DECORATIONS));
                 blockTrapDoors.add(register(r, "wood/trapdoor/" + wood.getRegistryName().getPath(), new TFCBlockWoodTrapDoor(wood), CT_DECORATIONS));
-                blockChests.add(register(r, "wood/chest/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCBASIC, wood), CT_DECORATIONS));
-                blockChests.add(register(r, "wood/chest_trap/" + wood.getRegistryName().getPath(), new TFCBlockChest(TFCBlockChest.TFCTRAP, wood), CT_DECORATIONS));
+
 
                 blockToolRacks.add(register(r, "wood/tool_rack/" + wood.getRegistryName().getPath(), new TFCBlockToolRack(wood), CT_DECORATIONS));
                 blockBarrel.add(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new TFCBlockBarrel(wood), CT_DECORATIONS));
