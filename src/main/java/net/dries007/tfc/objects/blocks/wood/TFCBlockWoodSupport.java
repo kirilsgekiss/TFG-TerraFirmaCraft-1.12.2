@@ -10,6 +10,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import git.jbredwards.fluidlogged_api.api.util.FluidState;
+import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -25,6 +27,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -34,6 +37,9 @@ import net.minecraft.world.World;
 
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @ParametersAreNonnullByDefault
 public class TFCBlockWoodSupport extends Block
@@ -498,6 +504,69 @@ public class TFCBlockWoodSupport extends Block
 
         // return the distance + 1 because the distance checked is off by one for the loop
         return distance + 1;
+    }
+
+    public interface IFluidloggable
+    {
+        /**
+         * @return true if the IBlockState is fluidloggable
+         */
+        default boolean isFluidloggable(@Nonnull IBlockState state, @Nonnull World world, @Nonnull BlockPos pos) {
+            return true;
+        }
+
+        /**
+         * @return true if the IBlockState can be fluidlogged with the input fluid
+         */
+        default boolean isFluidValid(@Nonnull IBlockState state, @Nonnull World world, @Nonnull BlockPos pos, @Nonnull Fluid fluid) {
+            return isFluidloggable(state, world, pos);
+        }
+
+        /**
+         * called by {@link FluidloggedUtils#canFluidFlow},
+         * which is invoked a lot, so try to keep the code for this fairly light.
+         *
+         * @return true if the contained fluid can flow from the specified side,
+         * or if a fluid can flow into this block from the specified side
+         */
+        default boolean canFluidFlow(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull EnumFacing side) {
+            return here.getBlockFaceShape(world, pos, side) != BlockFaceShape.SOLID;
+        }
+
+        /**
+         * @return true if the FluidState should be visible while this is fluidlogged
+         */
+        @SideOnly(Side.CLIENT)
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+
+        /**
+         * called by {@link FluidloggedUtils#setFluidState}
+         * when the stored FluidState is changed
+         *
+         * @return PASS - run & return {@link FluidloggedUtils#setFluidState_Internal},
+         * FAIL - assume the change never happened,
+         * SUCCESS - assume the change happened
+         */
+        @Nonnull
+        default EnumActionResult onFluidChange(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState newFluid, int blockFlags) {
+            return newFluid.isEmpty() ? onFluidDrain(world, pos, here, blockFlags) : onFluidFill(world, pos, here, newFluid, blockFlags);
+        }
+
+        /**
+         * convenience method called by {@link IFluidloggable#onFluidChange} when a new FluidState is put here
+         */
+        @Nonnull
+        default EnumActionResult onFluidFill(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState newFluid, int blockFlags) {
+            return EnumActionResult.PASS;
+        }
+
+        /**
+         * convenience method called by {@link IFluidloggable#onFluidChange} when the stored FluidState is removed
+         */
+        @Nonnull
+        default EnumActionResult onFluidDrain(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull IBlockState here, int blockFlags) {
+            return EnumActionResult.PASS;
+        }
     }
 
 }
