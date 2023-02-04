@@ -228,7 +228,7 @@ public final class DefaultTrees
     // new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL).setHeight(16).setBurnInfo(625f, 1500).build(),
     // TFC Trees
     public static final Tree ACACIA_TREE = new Tree.Builder(ACACIA, 30f, 210f, 19f, 31f, GEN_ACACIA).setHeight(12).setGrowthTime(11).setDensity(0.1f, 0.6f).setBurnInfo(650f, 1000).setColor(0x8B3929).build();
-    public static final Tree BLACKWOOD_TREE = new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM).setHeight(12).setGrowthTime(8).setBurnInfo(720f, 1750).setColor(0x1A1A1A).setColor(0x1A1A1A).build();
+    public static final Tree BLACKWOOD_TREE = new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM).setHeight(12).setGrowthTime(8).setBurnInfo(720f, 1750).setColor(0x1A1A1A).build();
     public static final Tree DOUGLAS_FIR_TREE =  new Tree.Builder(DOUGLAS_FIR, 280f, 480f, -2f, 14f, GEN_TALL).setDominance(5.2f).setHeight(16).setBushes().setTannin().setDensity(0.25f, 2f).setBurnInfo(707f, 1500).setColor(0xD7BC8D).build();
     public static final Tree KAPOK_TREE = new Tree.Builder(KAPOK, 210f, 500f, 15f, 35f, GEN_KAPOK_COMPOSITE).setDominance(8.5f).setRadius(3).setHeight(24).setDecayDist(6).setGrowthTime(18).setBushes().setDensity(0.6f, 2f).setBurnInfo(645f, 1000).setColor(0xAD879F).build();
     public static final Tree PALM_TREE = new Tree.Builder(PALM, 280f, 500f, 16f, 35f, GEN_TROPICAL).setDecayDist(6).setBurnInfo(730f, 1250).setColor(0xB56F38).build();
