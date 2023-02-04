@@ -2381,12 +2381,6 @@ public final class BlocksTFC
         return type == DIRT ||
                 type == MUD ||
                 type == ROOTED_DIRT ||
-                type == ROOTED_LOAMY_SAND ||
-                type == ROOTED_SANDY_LOAM ||
-                type == ROOTED_LOAM ||
-                type == ROOTED_SILT_LOAM ||
-                type == ROOTED_SILT ||
-                type == ROOTED_HUMUS ||
                 type == BOG_IRON ||
                 type == COARSE_DIRT ||
                 type == LOAMY_SAND ||
@@ -2422,12 +2416,6 @@ public final class BlocksTFC
                 type == CLAY ||
                 type == CLAY_GRASS ||
                 type == ROOTED_DIRT ||
-                type == ROOTED_LOAMY_SAND ||
-                type == ROOTED_SANDY_LOAM ||
-                type == ROOTED_LOAM ||
-                type == ROOTED_SILT_LOAM ||
-                type == ROOTED_SILT ||
-                type == ROOTED_HUMUS ||
                 type == COARSE_DIRT ||
                 type == MUD ||
                 type == BOG_IRON ||
@@ -2644,12 +2632,6 @@ public final class BlocksTFC
                 type == CLAY ||
                 type == CLAY_GRASS ||
                 type == ROOTED_DIRT ||
-                type == ROOTED_LOAMY_SAND ||
-                type == ROOTED_SANDY_LOAM ||
-                type == ROOTED_LOAM ||
-                type == ROOTED_SILT_LOAM ||
-                type == ROOTED_SILT ||
-                type == ROOTED_HUMUS ||
                 type == COARSE_DIRT ||
                 type == MUD ||
                 type == BOG_IRON ||
@@ -2866,12 +2848,6 @@ public final class BlocksTFC
                 type == GRAVEL ||
                 type == CLAY ||
                 type == ROOTED_DIRT ||
-                type == ROOTED_LOAMY_SAND ||
-                type == ROOTED_SANDY_LOAM ||
-                type == ROOTED_LOAM ||
-                type == ROOTED_SILT_LOAM ||
-                type == ROOTED_SILT ||
-                type == ROOTED_HUMUS ||
                 type == COARSE_DIRT ||
                 type == MUD ||
                 type == BOG_IRON ||
@@ -2982,12 +2958,6 @@ public final class BlocksTFC
                 type == RAW ||
                 type == SAND ||
                 type == ROOTED_DIRT ||
-                type == ROOTED_LOAMY_SAND ||
-                type == ROOTED_SANDY_LOAM ||
-                type == ROOTED_LOAM ||
-                type == ROOTED_SILT_LOAM ||
-                type == ROOTED_SILT ||
-                type == ROOTED_HUMUS ||
                 type == COARSE_DIRT ||
                 type == MUD ||
                 type == BOG_IRON ||
