@@ -1,6 +1,7 @@
 package org.labellum.mc.dynamictreestfc;
 
 import net.dries007.tfc.types.TFCTrees;
+import net.dries007.tfc.util.agriculture.TFCSeasonManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -62,7 +63,6 @@ public class DynamicTreesTFC
     {
         System.out.println(MOD_NAME + " is loading");
         proxy.preInit();
-        SeasonHelper.setSeasonManager(TFCSeasonManager.INSTANCE);
         logger = event.getModLog();
     }
 

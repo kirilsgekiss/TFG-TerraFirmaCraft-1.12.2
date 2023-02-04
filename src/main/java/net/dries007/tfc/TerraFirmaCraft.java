@@ -5,12 +5,14 @@
 
 package net.dries007.tfc;
 
+import com.ferreusveritas.dynamictrees.seasons.SeasonHelper;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.types.DefaultRecipes;
 import net.dries007.tfc.util.CapabilityHeatHandler;
 import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.agriculture.TFCSeasonManager;
 import net.dries007.tfc.world.classic.worldgen.*;
 import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
 import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
@@ -131,6 +133,8 @@ public final class TerraFirmaCraft
         someStuffOnPreInit(event);
 
         //OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID); // Client Proxy from Florae?
+
+        SeasonHelper.setSeasonManager(TFCSeasonManager.INSTANCE);
 
         // No need to sync config here, forge magic
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new TFCGuiHandler());
