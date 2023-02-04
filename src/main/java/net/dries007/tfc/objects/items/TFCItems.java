@@ -58,7 +58,7 @@ import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
@@ -933,7 +933,7 @@ public final class TFCItems
         BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (BlockLogTFC log : BlocksTFC.getAllLogBlocks())
+        for (TFCBlockLog log : BlocksTFC.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
         for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())

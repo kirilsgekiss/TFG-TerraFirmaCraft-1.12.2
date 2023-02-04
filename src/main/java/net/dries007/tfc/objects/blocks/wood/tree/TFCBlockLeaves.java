@@ -41,18 +41,18 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import static net.dries007.tfc.Constants.RNG;
 
 @ParametersAreNonnullByDefault
-public class BlockLeavesTFC extends BlockLeaves
+public class TFCBlockLeaves extends BlockLeaves
 {
-    private static final Map<Tree, BlockLeavesTFC> MAP = new HashMap<>();
+    private static final Map<Tree, TFCBlockLeaves> MAP = new HashMap<>();
 
-    public static BlockLeavesTFC get(Tree wood)
+    public static TFCBlockLeaves get(Tree wood)
     {
         return MAP.get(wood);
     }
 
     public final Tree tree;
 
-    public BlockLeavesTFC(Tree tree)
+    public TFCBlockLeaves(Tree tree)
     {
         this.tree = tree;
         if (MAP.put(tree, this) != null) throw new IllegalStateException("There can only be one.");
@@ -128,7 +128,7 @@ public class BlockLeavesTFC extends BlockLeaves
     @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ConfigTFC.General.TREE.enableSaplings ? Item.getItemFromBlock(BlockSaplingTFC.get(tree)) : Items.AIR;
+        return ConfigTFC.General.TREE.enableSaplings ? Item.getItemFromBlock(TFCBlockSapling.get(tree)) : Items.AIR;
     }
 
     @Override
@@ -239,7 +239,7 @@ public class BlockLeavesTFC extends BlockLeaves
                     if (evaluated.contains(pos1) || !world.isBlockLoaded(pos1))
                         continue;
                     state1 = world.getBlockState(pos1);
-                    if (state1.getBlock() == BlockLogTFC.get(tree))
+                    if (state1.getBlock() == TFCBlockLog.get(tree))
                         return;
                     if (state1.getBlock() == this)
                         pathsToAdd.add(pos1.toImmutable());

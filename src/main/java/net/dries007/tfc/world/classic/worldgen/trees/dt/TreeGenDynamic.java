@@ -14,7 +14,7 @@ import com.ferreusveritas.dynamictrees.util.SafeChunkBounds;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.types.TFCTrees;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
@@ -47,7 +47,7 @@ public class TreeGenDynamic implements ITreeGenerator
         }
 
         IBlockState locState = world.getBlockState(pos);
-        if (locState.getMaterial().isLiquid() || (!locState.getMaterial().isReplaceable() && !(locState.getBlock() instanceof BlockSaplingTFC)))
+        if (locState.getMaterial().isLiquid() || (!locState.getMaterial().isReplaceable() && !(locState.getBlock() instanceof TFCBlockSapling)))
         {
             return false;
         }

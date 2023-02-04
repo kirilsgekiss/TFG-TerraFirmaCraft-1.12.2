@@ -41,20 +41,20 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.calendar.ICalendar;
 
 @ParametersAreNonnullByDefault
-public class BlockSaplingTFC extends BlockBush implements IGrowable, IGrowingPlant
+public class TFCBlockSapling extends BlockBush implements IGrowable, IGrowingPlant
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 4);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1, 0, 0.1, 0.9, 0.9, 0.9);
-    private static final Map<Tree, BlockSaplingTFC> MAP = new HashMap<>();
+    private static final Map<Tree, TFCBlockSapling> MAP = new HashMap<>();
 
-    public static BlockSaplingTFC get(Tree wood)
+    public static TFCBlockSapling get(Tree wood)
     {
         return MAP.get(wood);
     }
 
     private final Tree wood;
 
-    public BlockSaplingTFC(Tree wood)
+    public TFCBlockSapling(Tree wood)
     {
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         this.wood = wood;

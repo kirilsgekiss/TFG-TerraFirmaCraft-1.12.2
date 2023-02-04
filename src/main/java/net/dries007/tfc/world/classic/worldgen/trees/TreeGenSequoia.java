@@ -19,12 +19,12 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog.PLACED;
 
 public class TreeGenSequoia implements ITreeGenerator
 {
@@ -42,7 +42,7 @@ public class TreeGenSequoia implements ITreeGenerator
         final int layers = 4 + random.nextInt(3);
         final int height = 3 + random.nextInt(4);
 
-        trunk = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
+        trunk = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
 
         for (int i = -2; i < height; i++)
         {
@@ -113,7 +113,7 @@ public class TreeGenSequoia implements ITreeGenerator
 
     private void checkAndPlace(World world, BlockPos pos)
     {
-        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof BlockSaplingTFC || world.getBlockState(pos).getBlock() instanceof BlockLeavesTFC)
+        if (world.getBlockState(pos).getMaterial().isReplaceable() || world.getBlockState(pos).getBlock() instanceof TFCBlockSapling || world.getBlockState(pos).getBlock() instanceof TFCBlockLeaves)
         {
             world.setBlockState(pos, trunk);
         }

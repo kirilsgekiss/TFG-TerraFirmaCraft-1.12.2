@@ -19,15 +19,14 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.wood.*;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.objects.te.*;
 import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.types.DefaultTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.block.material.MapColor;
@@ -296,16 +295,16 @@ public final class BlocksTFC
     private static ImmutableList<BlockFluidBase> allFluidBlocks = getNull();
     private static ImmutableList<BlockRockVariant> allBlockRockVariants = getNull();
     private static ImmutableList<TFCBlockRockWall> allWallBlocks = getNull();
-    private static ImmutableList<BlockLogTFC> allLogBlocks = getNull();
+    private static ImmutableList<TFCBlockLog> allLogBlocks = getNull();
     private static ImmutableList<TFCBlockPlanks> allPlankBlocks = getNull();
     private static ImmutableList<TFCBlockWorkbench> allWorkbenchBlocks = getNull();
     private static ImmutableList<TFCBlockBookshelf> allBookshelfBlocks = getNull();
-    private static ImmutableList<BlockLeavesTFC> allLeafBlocks = getNull();
+    private static ImmutableList<TFCBlockLeaves> allLeafBlocks = getNull();
     private static ImmutableList<TFCBlockFenceGate> allFenceGateBlocks = getNull();
     private static ImmutableList<TFCBlockFence> allFenceBlocks = getNull();
     private static ImmutableList<TFCBlockWoodPressurePlate> allWoodPressurePlateBlocks = getNull();
     private static ImmutableList<TFCBlockWoodButton> allWoodButtonBlocks = getNull();
-    private static ImmutableList<BlockSaplingTFC> allSaplingBlocks = getNull();
+    private static ImmutableList<TFCBlockSapling> allSaplingBlocks = getNull();
     private static ImmutableList<TFCBlockWoodDoor> allDoorBlocks = getNull();
     private static ImmutableList<TFCBlockWoodTrapDoor> allTrapDoorWoodBlocks = getNull();
     private static ImmutableList<TFCBlockMetalTrapDoor> allBlockMetalTrapDoor = getNull();
@@ -397,7 +396,7 @@ public final class BlocksTFC
         return allBlockRockVariants;
     }
 
-    public static ImmutableList<BlockLogTFC> getAllLogBlocks()
+    public static ImmutableList<TFCBlockLog> getAllLogBlocks()
     {
         return allLogBlocks;
     }
@@ -414,7 +413,7 @@ public final class BlocksTFC
         return allBookshelfBlocks;
     }
 
-    public static ImmutableList<BlockLeavesTFC> getAllLeafBlocks()
+    public static ImmutableList<TFCBlockLeaves> getAllLeafBlocks()
     {
         return allLeafBlocks;
     }
@@ -444,7 +443,7 @@ public final class BlocksTFC
         return allWallBlocks;
     }
 
-    public static ImmutableList<BlockSaplingTFC> getAllSaplingBlocks()
+    public static ImmutableList<TFCBlockSapling> getAllSaplingBlocks()
     {
         return allSaplingBlocks;
     }
@@ -973,16 +972,16 @@ public final class BlocksTFC
 
 
         {
-            Builder<BlockLogTFC> blockLogs = ImmutableList.builder();
+            Builder<TFCBlockLog> blockLogs = ImmutableList.builder();
             Builder<TFCBlockPlanks> blockPlanks = ImmutableList.builder();
             Builder<TFCBlockWorkbench> blockWorkbenches = ImmutableList.builder();
             Builder<TFCBlockBookshelf> blockBookshelfs = ImmutableList.builder();
-            Builder<BlockLeavesTFC> blockLeaves = ImmutableList.builder();
+            Builder<TFCBlockLeaves> blockLeaves = ImmutableList.builder();
             Builder<TFCBlockFenceGate> blockFenceGates = ImmutableList.builder();
             Builder<TFCBlockFence> blockFence = ImmutableList.builder();
             Builder<TFCBlockWoodPressurePlate> blockWoodPressurePlate = ImmutableList.builder();
             Builder<TFCBlockWoodButton> blockWoodButton = ImmutableList.builder();
-            Builder<BlockSaplingTFC> blockSaplings = ImmutableList.builder();
+            Builder<TFCBlockSapling> blockSaplings = ImmutableList.builder();
             Builder<TFCBlockWoodDoor> blockDoors = ImmutableList.builder();
             Builder<TFCBlockWoodTrapDoor> blockTrapDoors = ImmutableList.builder();
             Builder<TFCBlockChest> blockChests = ImmutableList.builder();
@@ -1015,9 +1014,9 @@ public final class BlocksTFC
 
             for (Tree wood : TFCRegistries.TREES.getValuesCollection())
             {
-                blockLogs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockLogTFC(wood), CT_WOOD));
-                blockLeaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new BlockLeavesTFC(wood), CT_WOOD));
-                blockSaplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new BlockSaplingTFC(wood), CT_WOOD));
+                blockLogs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new TFCBlockLog(wood), CT_WOOD));
+                blockLeaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new TFCBlockLeaves(wood), CT_WOOD));
+                blockSaplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new TFCBlockSapling(wood), CT_WOOD));
             }
 
             allPlankBlocks = blockPlanks.build();

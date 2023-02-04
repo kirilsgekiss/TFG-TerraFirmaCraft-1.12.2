@@ -25,7 +25,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import org.jetbrains.annotations.NotNull;
@@ -252,7 +252,7 @@ public class TFCBlockEpiphyte extends TFCBlockPlant
     private boolean canPlaceOn(World worldIn, BlockPos pos)
     {
         IBlockState state = worldIn.getBlockState(pos);
-        return state.getBlock() instanceof BlockLogTFC;
+        return state.getBlock() instanceof TFCBlockLog;
     }
 
     private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing)

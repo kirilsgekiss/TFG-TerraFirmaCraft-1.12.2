@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import com.ferreusveritas.dynamictrees.systems.dropcreators.DropCreator;
 import com.ferreusveritas.dynamictrees.trees.Species;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
@@ -28,7 +28,7 @@ public class DropCreatorTFCLog extends DropCreator
         Species.LogsAndSticks las = species.getLogsAndSticks(volume);
         int numLogs = las.logs;
         ItemStack logs = species.getFamily().getPrimitiveLogItemStack(1);
-        int stackSize = BlockLogTFC.get(((BlockLogDTTFC) species.getFamily().getPrimitiveLog().getBlock()).tree).getStackSize(logs);
+        int stackSize = TFCBlockLog.get(((BlockLogDTTFC) species.getFamily().getPrimitiveLog().getBlock()).tree).getStackSize(logs);
         while (numLogs > 0)
         {
             dropList.add(species.getFamily().getPrimitiveLogItemStack(Math.min(numLogs, stackSize)));

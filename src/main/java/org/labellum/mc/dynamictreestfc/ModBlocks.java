@@ -13,7 +13,7 @@ import com.ferreusveritas.dynamictrees.api.cells.ICellKit;
 import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
 import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLeavesTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockMimicDynamic;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
@@ -40,7 +40,7 @@ public class ModBlocks
         tfcLeavesProperties = new LeavesProperties[BlocksTFC.getAllLeafBlocks().size()];
         leafMap = new HashMap<>();
         int i = 0; // DT wants an array of leafprops for some reason
-        for (BlockLeavesTFC leaf : BlocksTFC.getAllLeafBlocks())
+        for (TFCBlockLeaves leaf : BlocksTFC.getAllLeafBlocks())
         {
             LeavesProperties prop = new LeavesProperties(leaf.getDefaultState(), kitMap.get(leaf.tree.toString()));
             leafMap.put(leaf.tree.toString(), prop);

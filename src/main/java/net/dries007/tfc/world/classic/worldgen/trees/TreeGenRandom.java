@@ -13,10 +13,10 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.world.classic.StructureHelper;
 
-import static net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC.PLACED;
+import static net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog.PLACED;
 
 public class TreeGenRandom implements ITreeGenerator
 {
@@ -68,7 +68,7 @@ public class TreeGenRandom implements ITreeGenerator
             StructureHelper.addStructureToWorld(world, pos, structureOverlay, settingsWeak);
         }
 
-        final IBlockState log = BlockLogTFC.get(tree).getDefaultState().withProperty(PLACED, false);
+        final IBlockState log = TFCBlockLog.get(tree).getDefaultState().withProperty(PLACED, false);
         for (int i = 0; i < height; i++)
             world.setBlockState(pos.add(size.getX() / 2, i - height, size.getZ() / 2), log);
     }

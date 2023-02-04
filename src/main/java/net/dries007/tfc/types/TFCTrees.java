@@ -24,7 +24,7 @@ import net.dries007.tfc.api.types.Tree;
 //import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
 import org.labellum.mc.dynamictreestfc.ModBlocks;
@@ -71,7 +71,7 @@ public class TFCTrees
         }
 
         //Set up a map of species and their sapling types
-        Map<String, BlockSaplingTFC> saplingMap = new HashMap<>();
+        Map<String, TFCBlockSapling> saplingMap = new HashMap<>();
         BlocksTFC.getAllSaplingBlocks().forEach(s -> saplingMap.put(s.getTree().toString(), s));
 
         for (Map.Entry<String, Species> entry : tfcSpecies.entrySet())

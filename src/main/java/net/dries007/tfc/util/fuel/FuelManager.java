@@ -13,8 +13,6 @@ import net.dries007.tfc.api.types.Wood;
 import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 
 public final class FuelManager

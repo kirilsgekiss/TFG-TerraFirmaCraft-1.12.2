@@ -4,11 +4,11 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 
 public class ItemBlockSaplingTFC extends TFCItemBlock
 {
-    public ItemBlockSaplingTFC(BlockSaplingTFC block)
+    public ItemBlockSaplingTFC(TFCBlockSapling block)
     {
         super(block);
     }

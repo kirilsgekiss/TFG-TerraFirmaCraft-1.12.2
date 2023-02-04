@@ -8,14 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import com.ferreusveritas.dynamictrees.blocks.BlockBranchBasic;
+import com.ferreusveritas.dynamictrees.blocks.BlockBranchThick;
 import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.Constants;
-import net.dries007.tfc.util.OreDictionaryHelper;
 
-public class BlockBranchBasicTFC extends BlockBranchBasic
+public class TFCBlockBranchThick extends BlockBranchThick
 {
-    public BlockBranchBasicTFC(String name)
+    public TFCBlockBranchThick(String name)
     {
         super(name);
     }
@@ -41,6 +39,6 @@ public class BlockBranchBasicTFC extends BlockBranchBasic
             // Here, there was no valid tool used. Deny spawning any drops since logs require axes
             return false; //Also no wood for you!
         }
-        return super.removedByPlayer(state, world, cutPos, player, canHarvest); // any other conditions, we can handle normally
+        return super.removedByPlayer(state, world, cutPos, player, canHarvest);
     }
 }

@@ -40,23 +40,23 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockLogTFC extends BlockLog implements IItemSize
+public class TFCBlockLog extends BlockLog implements IItemSize
 {
     public static final PropertyBool PLACED = PropertyBool.create("placed");
     public static final PropertyBool SMALL = PropertyBool.create("small");
     public static final AxisAlignedBB SMALL_AABB_Y = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 1, 0.75);
     public static final AxisAlignedBB SMALL_AABB_X = new AxisAlignedBB(0, 0.25, 0.25, 1, 0.75, 0.75);
     public static final AxisAlignedBB SMALL_AABB_Z = new AxisAlignedBB(0.25, 0.25, 0, 0.75, 0.75, 1);
-    private static final Map<Tree, BlockLogTFC> MAP = new HashMap<>();
+    private static final Map<Tree, TFCBlockLog> MAP = new HashMap<>();
 
-    public static BlockLogTFC get(Tree wood)
+    public static TFCBlockLog get(Tree wood)
     {
         return MAP.get(wood);
     }
 
     private final Tree wood;
 
-    public BlockLogTFC(Tree wood)
+    public TFCBlockLog(Tree wood)
     {
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");

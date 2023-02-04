@@ -6,7 +6,7 @@ import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockSaplingTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.ICalendar;
@@ -25,9 +25,9 @@ public class TreeProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof BlockSaplingTFC)
+        if (state.getBlock() instanceof TFCBlockSapling)
         {
-            BlockSaplingTFC block = ((BlockSaplingTFC) state.getBlock());
+            TFCBlockSapling block = ((TFCBlockSapling) state.getBlock());
             Tree wood = block.getTree();
             TETickCounter te = Helpers.getTE(world, data.getPos(), TETickCounter.class);
             if (te != null)

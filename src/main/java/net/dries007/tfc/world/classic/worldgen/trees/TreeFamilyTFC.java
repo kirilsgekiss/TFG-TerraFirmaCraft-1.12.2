@@ -17,11 +17,11 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import org.labellum.mc.dynamictreestfc.FeatureGenMoundTFC;
 import org.labellum.mc.dynamictreestfc.ModBlocks;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockBranchBasicTFC;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockBranchThickTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchBasic;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchThick;
 import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 import org.labellum.mc.dynamictreestfc.dropcreators.DropCreatorTFCLog;
 
@@ -60,7 +60,7 @@ public class TreeFamilyTFC extends TreeFamily
     public TreeFamily setPrimitiveLog(IBlockState primLog)
     {
         BlockLogDTTFC primLogBlock = (BlockLogDTTFC) primLog.getBlock();
-        BlockLogTFC log = BlockLogTFC.get(primLogBlock.tree);
+        TFCBlockLog log = TFCBlockLog.get(primLogBlock.tree);
         ItemStack stack = new ItemStack(Item.getItemFromBlock(log));
         return super.setPrimitiveLog(primLog, stack);
     }
@@ -133,6 +133,6 @@ public class TreeFamilyTFC extends TreeFamily
     public BlockBranch createBranch()
     {
         String branchName = "branch/" + getName().getPath();
-        return isThick() ? new BlockBranchThickTFC(branchName) : new BlockBranchBasicTFC(branchName);
+        return isThick() ? new TFCBlockBranchThick(branchName) : new TFCBlockBranchBasic(branchName);
     }
 }

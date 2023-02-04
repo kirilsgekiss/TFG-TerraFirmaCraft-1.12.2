@@ -112,7 +112,7 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
@@ -328,7 +328,7 @@ public final class CommonEventHandler
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
         }
-        if (event.getState().getBlock() instanceof BlockLogTFC)
+        if (event.getState().getBlock() instanceof TFCBlockLog)
         {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.logMiningTimeModifier));
         }
