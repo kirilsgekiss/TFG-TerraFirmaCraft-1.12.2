@@ -3,6 +3,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
@@ -13,16 +14,16 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class TFCBlockFenceGateLog extends BlockFenceGate
 {
-    private static final Map<Tree, TFCBlockFenceGateLog> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockFenceGateLog> MAP = new HashMap<>();
 
-    public static TFCBlockFenceGateLog get(Tree wood)
+    public static TFCBlockFenceGateLog get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    public final Wood wood;
 
-    public TFCBlockFenceGateLog(Tree wood)
+    public TFCBlockFenceGateLog(Wood wood)
     {
         super(BlockPlanks.EnumType.OAK);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");

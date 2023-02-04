@@ -76,7 +76,6 @@ public class EntitiesTFC
         register("falling_block", EntityFallingBlockTFC.class);
         register("thrown_javelin", EntityThrownJavelin.class);
         register("boat", EntityBoatTFC.class);
-        register("fruit_boat", EntityBoatFruitTFC.class);
         registerLiving("sheeptfc", TFCEntitySheep.class, 0xFFFFFF, 0xFF6347);
         registerLiving("cowtfc", TFCEntityCow.class, 0xA52A2A, 0xFFFFFF);
         registerLiving("grizzlybeartfc", TFCEntityGrizzlyBear.class, 0xB22222, 0xDEB887);

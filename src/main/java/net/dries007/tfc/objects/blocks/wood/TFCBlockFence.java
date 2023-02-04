@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.BlockFence;
@@ -29,16 +30,16 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockFence extends BlockFence implements IWoodHandler, IHasModel {
 
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence");
-    private static final Map<Tree, TFCBlockFence> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockFence> MAP = new HashMap<>();
 
-    public static TFCBlockFence get(Tree wood)
+    public static TFCBlockFence get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockFence(Tree wood)
+    public TFCBlockFence(Wood wood)
     {
         super(Material.WOOD, Material.WOOD.getMaterialMapColor());
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -53,7 +54,7 @@ public class TFCBlockFence extends BlockFence implements IWoodHandler, IHasModel
     }
 
     @Override
-    public Tree getWood()
+    public Wood getWood()
     {
         return wood;
     }

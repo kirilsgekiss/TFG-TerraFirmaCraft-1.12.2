@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.client.model.IHasModel;
@@ -29,14 +30,14 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockWoodPressurePlate extends BlockPressurePlate implements IWoodHandler, IHasModel
 {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/pressure_plate");
-    private static final Map<Tree, TFCBlockWoodPressurePlate> MAP = new HashMap<>();
-    public static TFCBlockWoodPressurePlate get(Tree wood)
+    private static final Map<Wood, TFCBlockWoodPressurePlate> MAP = new HashMap<>();
+    public static TFCBlockWoodPressurePlate get(Wood wood)
     {
         return MAP.get(wood);
     }
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockWoodPressurePlate(Tree wood)
+    public TFCBlockWoodPressurePlate(Wood wood)
     {
         super(Material.WOOD, Sensitivity.EVERYTHING);
         this.wood = wood;
@@ -49,7 +50,7 @@ public class TFCBlockWoodPressurePlate extends BlockPressurePlate implements IWo
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

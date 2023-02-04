@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.Block;
@@ -36,15 +37,15 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
 {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/bookshelf");
-    private static final Map<Tree, TFCBlockBookshelf> MAP = new HashMap<>();
-    public static TFCBlockBookshelf get(Tree wood)
+    private static final Map<Wood, TFCBlockBookshelf> MAP = new HashMap<>();
+    public static TFCBlockBookshelf get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockBookshelf(Tree wood)
+    public TFCBlockBookshelf(Wood wood)
     {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -59,7 +60,7 @@ public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

@@ -13,7 +13,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.dries007.tfc.objects.blocks.wood.tree.joshua.BlockJoshuaTreeFlower;
 import net.dries007.tfc.world.classic.worldgen.structures.StructureGeneratorCorals;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.dries007.tfc.api.registries.TFCRegistries;
@@ -28,8 +27,8 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 public class WorldGeneratorTrees implements IWorldGenerator
 {
-    private final WorldGenCinnamon cinnamon_trees = new WorldGenCinnamon();
-    private final WorldGenBamboo bamboo_trees = new WorldGenBamboo();
+//    private final WorldGenCinnamon cinnamon_trees = new WorldGenCinnamon();
+//    private final WorldGenBamboo bamboo_trees = new WorldGenBamboo();
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
@@ -49,8 +48,8 @@ public class WorldGeneratorTrees implements IWorldGenerator
 
         BlockPos center = new BlockPos(chunkX * 16 + 8, world.getHeight(chunkX * 16 + 8, chunkZ * 16 + 8), chunkZ * 16 + 8);
 
-        cinnamon_trees.generate(world, random, center);
-        bamboo_trees.generate(world, random, center);
+//        cinnamon_trees.generate(world, random, center);
+//        bamboo_trees.generate(world, random, center);
 
         trees.removeIf(t -> !t.hasBushes());
 
@@ -168,7 +167,7 @@ public class WorldGeneratorTrees implements IWorldGenerator
                     {
                         if (15f <= avgTemperature && 40f >= avgTemperature && 65f <= rainfall && 150f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL)
                         {
-                            BlockJoshuaTreeFlower.get(TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE)).generatePlant(world, blockPos, random, 8);
+//                            BlockJoshuaTreeFlower.get(TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE)).generatePlant(world, blockPos, random, 8);
                             //TFCFlorae.getLog().warn("TFCFlorae: Joshua Tree attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                         }
                     }

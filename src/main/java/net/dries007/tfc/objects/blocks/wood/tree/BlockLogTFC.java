@@ -67,10 +67,6 @@ public class BlockLogTFC extends BlockLog implements IItemSize
         OreDictionaryHelper.register(this, "log", "wood");
         //noinspection ConstantConditions
         OreDictionaryHelper.register(this, "log", "wood", wood.getRegistryName().getPath());
-        if (wood.canMakeTannin())
-        {
-            OreDictionaryHelper.register(this, "log", "wood", "tannin");
-        }
 
         Blocks.FIRE.setFireInfo(this, 5, 5);
         setTickRandomly(true);

@@ -1,6 +1,7 @@
 package net.dries007.tfc.objects.blocks.wood;
 
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -25,14 +26,14 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodHandler {
 
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/stairs");
-    private static final Map<Tree, TFCBlockWoodStairs> WOOD_MAP = new HashMap<>();
-    public static TFCBlockWoodStairs get(Tree wood)
+    private static final Map<Wood, TFCBlockWoodStairs> WOOD_MAP = new HashMap<>();
+    public static TFCBlockWoodStairs get(Wood wood)
     {
         return WOOD_MAP.get(wood);
     }
 
-    private final Tree wood;
-    public TFCBlockWoodStairs(Tree wood)
+    private final Wood wood;
+    public TFCBlockWoodStairs(Wood wood)
     {
         super(TFCBlockPlanks.get(wood).getDefaultState());
         if (WOOD_MAP.put(wood, this) != null)
@@ -54,7 +55,7 @@ public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodH
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

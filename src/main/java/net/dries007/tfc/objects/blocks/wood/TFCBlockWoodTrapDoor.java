@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -18,16 +19,16 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 
 public class TFCBlockWoodTrapDoor extends BlockTrapDoor
 {
-    private static final Map<Tree, TFCBlockWoodTrapDoor> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockWoodTrapDoor> MAP = new HashMap<>();
 
-    public static TFCBlockWoodTrapDoor get(Tree wood)
+    public static TFCBlockWoodTrapDoor get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    public final Wood wood;
 
-    public TFCBlockWoodTrapDoor(Tree wood)
+    public TFCBlockWoodTrapDoor(Wood wood)
     {
         super(Material.WOOD);
         this.wood = wood;

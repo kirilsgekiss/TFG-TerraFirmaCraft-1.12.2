@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.Block;
@@ -71,16 +72,16 @@ public class TFCBlockBarrel extends Block implements IItemSize, IHasModel, IWood
     public static final PropertyBool SEALED = PropertyBool.create("sealed");
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
 
-    private static final Map<Tree, TFCBlockBarrel> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockBarrel> MAP = new HashMap<>();
 
-    public static TFCBlockBarrel get(Tree wood)
+    public static TFCBlockBarrel get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockBarrel(Tree wood)
+    public TFCBlockBarrel(Wood wood)
     {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -91,7 +92,7 @@ public class TFCBlockBarrel extends Block implements IItemSize, IHasModel, IWood
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

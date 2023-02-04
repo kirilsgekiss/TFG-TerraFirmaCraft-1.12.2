@@ -11,6 +11,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.BlockWorkbench;
@@ -38,7 +39,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.container.ContainerWorkbenchTFC;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import org.jetbrains.annotations.NotNull;
@@ -48,14 +48,14 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoodHandler
 {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/workbench");
-    private static final Map<Tree, TFCBlockWorkbench> MAP = new HashMap<>();
-    public static TFCBlockWorkbench get(Tree wood)
+    private static final Map<Wood, TFCBlockWorkbench> MAP = new HashMap<>();
+    public static TFCBlockWorkbench get(Wood wood)
     {
         return MAP.get(wood);
     }
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockWorkbench(Tree wood)
+    public TFCBlockWorkbench(Wood wood)
     {
         if (MAP.put(wood, this) != null) { throw new IllegalStateException("There can only be one."); }
         this.wood = wood;
@@ -69,7 +69,7 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

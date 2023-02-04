@@ -12,6 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
 import net.minecraft.block.BlockContainer;
@@ -39,7 +40,6 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.te.TELoom;
 import net.dries007.tfc.util.Helpers;
 import net.minecraftforge.client.model.ModelLoader;
@@ -58,16 +58,16 @@ public class TFCBlockLoom extends BlockContainer implements IItemSize, IHasModel
     protected static final AxisAlignedBB LOOM_SOUTH_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.125D, 0.9375D, 1.0D, 0.5625D);
     protected static final AxisAlignedBB LOOM_NORTH_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.4375D, 0.9375D, 1.0D, 0.875D);
 
-    private static final Map<Tree, TFCBlockLoom> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockLoom> MAP = new HashMap<>();
 
-    public static TFCBlockLoom get(Tree wood)
+    public static TFCBlockLoom get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockLoom(Tree wood)
+    public TFCBlockLoom(Wood wood)
     {
         super(WOOD, MapColor.AIR);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -80,7 +80,7 @@ public class TFCBlockLoom extends BlockContainer implements IItemSize, IHasModel
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.client.model.IHasModel;
@@ -38,7 +39,6 @@ import net.minecraft.world.World;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.te.TEToolRack;
 import net.dries007.tfc.util.Helpers;
 import net.minecraftforge.client.model.ModelLoader;
@@ -56,9 +56,9 @@ public class TFCBlockToolRack extends Block implements IWoodHandler, IHasModel, 
     protected static final AxisAlignedBB RACK_SOUTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
     protected static final AxisAlignedBB RACK_NORTH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.875D, 1.0D, 1.0D, 1.0D);
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockToolRack(Tree wood)
+    public TFCBlockToolRack(Wood wood)
     {
         super(WOOD, MapColor.AIR);
         this.wood = wood;
@@ -70,7 +70,7 @@ public class TFCBlockToolRack extends Block implements IWoodHandler, IHasModel, 
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

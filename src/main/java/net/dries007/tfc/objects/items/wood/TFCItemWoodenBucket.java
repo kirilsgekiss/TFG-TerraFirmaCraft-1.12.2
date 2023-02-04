@@ -41,11 +41,11 @@ import static net.minecraftforge.fluids.BlockFluidBase.LEVEL;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemWoodenBucket extends TFCItem
+public class TFCItemWoodenBucket extends TFCItem
 {
     private static final int CAPACITY = Fluid.BUCKET_VOLUME;
 
-    public ItemWoodenBucket()
+    public TFCItemWoodenBucket()
     {
         setHasSubtypes(true);
         setContainerItem(this);

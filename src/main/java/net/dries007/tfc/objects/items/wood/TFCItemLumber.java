@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.minecraft.item.ItemStack;
 
@@ -24,21 +25,21 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 @ParametersAreNonnullByDefault
 public class TFCItemLumber extends TFCItem implements IWoodHandler
 {
-    private static final Map<Tree, TFCItemLumber> MAP = new HashMap<>();
+    private static final Map<Wood, TFCItemLumber> MAP = new HashMap<>();
 
-    public static TFCItemLumber get(Tree wood)
+    public static TFCItemLumber get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public static ItemStack get(Tree wood, int amount)
+    public static ItemStack get(Wood wood, int amount)
     {
         return new ItemStack(MAP.get(wood), amount);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCItemLumber(Tree wood)
+    public TFCItemLumber(Wood wood)
     {
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -49,7 +50,7 @@ public class TFCItemLumber extends TFCItem implements IWoodHandler
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

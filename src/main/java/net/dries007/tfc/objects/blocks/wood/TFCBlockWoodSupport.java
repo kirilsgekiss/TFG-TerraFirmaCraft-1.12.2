@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -32,7 +33,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 @ParametersAreNonnullByDefault
@@ -53,14 +53,14 @@ public class TFCBlockWoodSupport extends Block
     private static final AxisAlignedBB CONNECTION_E_AABB = new AxisAlignedBB(0.6875D, 0.625D, 0.3125D, 1.0D, 1.0D, 0.6875D);
     private static final AxisAlignedBB CONNECTION_W_AABB = new AxisAlignedBB(0.0D, 0.625D, 0.3125D, 0.3125D, 1.0D, 0.6875D);
 
-    private static final Map<Tree, TFCBlockWoodSupport> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockWoodSupport> MAP = new HashMap<>();
 
-    public static TFCBlockWoodSupport get(Tree wood)
+    public static TFCBlockWoodSupport get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public static ItemStack get(Tree wood, int amount)
+    public static ItemStack get(Wood wood, int amount)
     {
         return new ItemStack(MAP.get(wood), amount);
     }
@@ -147,9 +147,9 @@ public class TFCBlockWoodSupport extends Block
         return listUnsupported;
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockWoodSupport(Tree wood)
+    public TFCBlockWoodSupport(Wood wood)
     {
         super(Material.WOOD, Material.WOOD.getMaterialMapColor());
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -162,7 +162,7 @@ public class TFCBlockWoodSupport extends Block
         setDefaultState(blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(NORTH, false).withProperty(SOUTH, false).withProperty(EAST, false).withProperty(WEST, false));
     }
 
-    public Tree getWood() { return this.wood; }
+    public Wood getWood() { return this.wood; }
 
     @SuppressWarnings("deprecation")
     @Override

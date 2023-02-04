@@ -40,10 +40,8 @@ import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitLeaves;
-import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock
 {
@@ -288,10 +286,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
             && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
             && !this.world.containsAnyLiquid(getEntityBoundingBox())
-            && (this.world.getBlockState(this.getPosition().down()) == BlockFruitLeaves.get(SeasonalTrees.YELLOW_MULBERRY) ||
-                this.world.getBlockState(this.getPosition().down()) == BlockFruitLeaves.get(SeasonalTrees.ORANGE_MULBERRY) ||
-                this.world.getBlockState(this.getPosition().down()) == BlockFruitLeaves.get(SeasonalTrees.RED_MULBERRY) ||
-                this.world.getBlockState(this.getPosition().down()) == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY)));
+            && (this.world.getBlockState(this.getPosition().down()) == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY)));
     }
 
     @Override
@@ -421,7 +416,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock
 					BlockPos pos = new BlockPos(x + i, y + k, z + j);
 					state = this.world.getBlockState(pos);
                     Block stateBlock = state.getBlock();
-					if(stateBlock == BlockFruitLeaves.get(SeasonalTrees.YELLOW_MULBERRY) || stateBlock == BlockFruitLeaves.get(SeasonalTrees.ORANGE_MULBERRY) || stateBlock == BlockFruitLeaves.get(SeasonalTrees.RED_MULBERRY) || stateBlock == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY)))
+					if(stateBlock == BlockLeavesTFC.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY)))
                     {
 						listMulberry.add(pos);
 					}

@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -31,16 +32,16 @@ import net.dries007.tfc.objects.items.wood.TFCItemDoor;
 @MethodsReturnNonnullByDefault
 public class TFCBlockWoodDoor extends BlockDoor
 {
-    private static final Map<Tree, TFCBlockWoodDoor> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockWoodDoor> MAP = new HashMap<>();
 
-    public static TFCBlockWoodDoor get(Tree wood)
+    public static TFCBlockWoodDoor get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    public final Wood wood;
 
-    public TFCBlockWoodDoor(Tree wood)
+    public TFCBlockWoodDoor(Wood wood)
     {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");

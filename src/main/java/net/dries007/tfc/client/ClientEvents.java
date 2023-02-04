@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import net.dries007.tfc.client.render.TFCRenderFruitBoat;
-import net.dries007.tfc.objects.entity.EntityBoatFruitTFC;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -91,7 +89,6 @@ public class ClientEvents
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityDonkey.class, RenderAbstractHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityMule.class, RenderAbstractHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBoatTFC.class, TFCRenderBoat::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBoatFruitTFC.class, TFCRenderFruitBoat::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityPolarBear.class, RenderPolarBearTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityParrot.class, RenderParrotTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityLlama.class, RenderLlamaTFC::new);

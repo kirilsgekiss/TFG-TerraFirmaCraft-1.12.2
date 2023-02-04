@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemStack;
 
@@ -25,14 +26,14 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 @MethodsReturnNonnullByDefault
 public class TFCItemDoor extends ItemDoor implements IItemSize
 {
-    private static final Map<Tree, TFCItemDoor> MAP = new HashMap<>();
+    private static final Map<Wood, TFCItemDoor> MAP = new HashMap<>();
 
-    public static TFCItemDoor get(Tree wood)
+    public static TFCItemDoor get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    public final Tree wood;
+    public final Wood wood;
 
     public TFCItemDoor(TFCBlockWoodDoor block)
     {

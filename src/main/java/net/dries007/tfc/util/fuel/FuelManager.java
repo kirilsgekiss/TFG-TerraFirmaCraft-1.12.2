@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.item.ItemStack;
 
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.tree.BlockLogTFC;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitLog;
-import net.dries007.tfc.util.agriculture.SeasonalTrees;
 
 public final class FuelManager
 {
@@ -48,19 +47,11 @@ public final class FuelManager
 
     public static void postInit()
     {
-        for (Tree wood : TFCRegistries.TREES.getValuesCollection())
+        for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
         {
-            BlockLogTFC log = BlockLogTFC.get(wood);
-            FUELS.add(new Fuel(IIngredient.of(new ItemStack(log)), wood.getBurnTicks(), wood.getBurnTemp()));
-            BlockFruitLog logf = BlockFruitLog.get(wood);
-            FUELS.add(new Fuel(IIngredient.of(new ItemStack(logf)), wood.getBurnTicks(), wood.getBurnTemp()));
+
         }
 
-        for (SeasonalTrees tree : SeasonalTrees.values())
-        {
-            BlockFruitLog log = BlockFruitLog.get(tree);
-            FUELS.add(new Fuel(IIngredient.of(new ItemStack(log)), tree.normalTree.getBurnTicks(), tree.normalTree.getBurnTemp()));
-        }
 
         // Coals
         FUELS.add(new Fuel(IIngredient.of("gemCoal"), 2200, 1415f, true, false));

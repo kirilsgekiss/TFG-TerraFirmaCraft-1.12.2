@@ -17,6 +17,7 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.ToolItems;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
@@ -171,8 +172,8 @@ public final class TFCJEIPlugin implements IModPlugin
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.QUERN), QUERN_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.FIREPIT), HEAT_UID);
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CHARCOAL_FORGE), HEAT_UID);
-            for (Tree tree : TFCRegistries.TREES.getValuesCollection()) {
-                registry.addRecipeCatalyst(new ItemStack(TFCBlockLoom.get(tree)), LOOM_UID);
+            for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
+                registry.addRecipeCatalyst(new ItemStack(TFCBlockLoom.get(wood)), LOOM_UID);
             }
             registry.addRecipeCatalyst(new ItemStack(BlocksTFC.CRUCIBLE), ALLOY_UID);
             registry.addRecipeCatalyst(new ItemStack(TFCItems.FIRED_VESSEL), ALLOY_UID);

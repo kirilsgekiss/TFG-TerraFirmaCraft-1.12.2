@@ -1,7 +1,7 @@
 package net.dries007.tfc.objects.blocks.wood;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -43,9 +43,9 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     private static final ResourceLocation MODEL_LOCATION_HALF = new ResourceLocation(MOD_ID, "wood/slab_half");
     private static final ResourceLocation MODEL_LOCATION_FULL = new ResourceLocation(MOD_ID, "wood/slab_double");
 
-    private Tree wood;
+    private Wood wood;
 
-    private TFCBlockWoodSlab(Tree wood)
+    private TFCBlockWoodSlab(Wood wood)
     {
         this(TFCBlockPlanks.get(wood));
         Block c = TFCBlockPlanks.get(wood);
@@ -67,7 +67,7 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 
@@ -169,13 +169,13 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
 
     public static class Double extends TFCBlockWoodSlab
     {
-        private static final Map<Tree, Double> WOOD_MAP = new HashMap<>();
-        public static Double get(Tree wood)
+        private static final Map<Wood, Double> WOOD_MAP = new HashMap<>();
+        public static Double get(Wood wood)
         {
             return WOOD_MAP.get(wood);
         }
 
-        public Double(Tree wood)
+        public Double(Wood wood)
         {
             super(wood);
             if (WOOD_MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -191,15 +191,15 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
 
     public static class Half extends TFCBlockWoodSlab
     {
-        private static final Map<Tree, Half> WOOD_MAP = new HashMap<>();
-        public static Half get(Tree wood)
+        private static final Map<Wood, Half> WOOD_MAP = new HashMap<>();
+        public static Half get(Wood wood)
         {
             return WOOD_MAP.get(wood);
         }
 
         public final Double doubleSlab;
 
-        public Half(Tree wood)
+        public Half(Wood wood)
         {
             super(wood);
             if (WOOD_MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");

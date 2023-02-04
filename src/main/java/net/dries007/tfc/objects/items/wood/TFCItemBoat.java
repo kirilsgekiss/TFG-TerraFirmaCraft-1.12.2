@@ -12,6 +12,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -40,23 +41,23 @@ import net.dries007.tfc.objects.items.TFCItem;
 @MethodsReturnNonnullByDefault
 public class TFCItemBoat extends TFCItem implements IWoodHandler
 {
-    private static final Map<Tree, TFCItemBoat> MAP = new HashMap<>();
+    private static final Map<Wood, TFCItemBoat> MAP = new HashMap<>();
 
-    public static TFCItemBoat get(Tree wood)
+    public static TFCItemBoat get(Wood wood)
     {
         return MAP.get(wood);
     }
 
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCItemBoat(Tree wood)
+    public TFCItemBoat(Wood wood)
     {
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
     }
 
     @Override
-    public Tree getWood()
+    public Wood getWood()
     {
         return wood;
     }

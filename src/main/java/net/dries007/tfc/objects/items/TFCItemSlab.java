@@ -17,7 +17,6 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitSlab;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -29,11 +28,6 @@ public class TFCItemSlab extends ItemSlab implements IItemSize
     }
 
     public TFCItemSlab(TFCBlockWoodSlab.Half slab, TFCBlockWoodSlab.Half slab1, TFCBlockWoodSlab.Double doubleSlab)
-    {
-        super(slab, slab1, doubleSlab);
-    }
-
-    public TFCItemSlab(BlockFruitSlab.Half slab, BlockFruitSlab.Half slab1, BlockFruitSlab.Double doubleSlab)
     {
         super(slab, slab1, doubleSlab);
     }

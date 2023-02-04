@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,7 +28,7 @@ import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 @ParametersAreNonnullByDefault
 public class TELoom extends TEInventory implements ITickable
 {
-    private Tree cachedWood;
+    private Wood cachedWood;
 
     private int progress = 0;
 
@@ -41,7 +42,7 @@ public class TELoom extends TEInventory implements ITickable
     }
 
     @Nullable
-    public Tree getWood()
+    public Wood getWood()
     {
         if (cachedWood == null)
         {

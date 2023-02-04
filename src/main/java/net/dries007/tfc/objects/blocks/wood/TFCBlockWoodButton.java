@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.blocks.wood;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.client.model.IHasModel;
@@ -27,14 +28,14 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler, IHasModel
 {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/button");
-    private static final Map<Tree, TFCBlockWoodButton> MAP = new HashMap<>();
-    public static TFCBlockWoodButton get(Tree wood)
+    private static final Map<Wood, TFCBlockWoodButton> MAP = new HashMap<>();
+    public static TFCBlockWoodButton get(Wood wood)
     {
         return MAP.get(wood);
     }
-    private final Tree wood;
+    private final Wood wood;
 
-    public TFCBlockWoodButton(Tree wood)
+    public TFCBlockWoodButton(Wood wood)
     {
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -44,7 +45,7 @@ public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler,
     }
 
     @Override
-    public Tree getWood() {
+    public Wood getWood() {
         return wood;
     }
 

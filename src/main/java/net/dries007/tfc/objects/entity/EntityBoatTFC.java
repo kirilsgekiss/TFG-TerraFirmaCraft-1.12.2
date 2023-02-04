@@ -8,6 +8,7 @@ package net.dries007.tfc.objects.entity;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,16 +44,16 @@ public class EntityBoatTFC extends EntityBoat
     }
 
     @Nullable
-    public Tree getWood()
+    public Wood getWood()
     {
         //noinspection ConstantConditions
-        return TFCRegistries.TREES.getValuesCollection().stream()
+        return TFCRegistries.WOODS.getValuesCollection().stream()
             .filter(x -> x.getRegistryName().getPath().equalsIgnoreCase(this.dataManager.get(WOOD_NAME)))
             .findFirst().orElse(null);
     }
 
 
-    public void setWood(@Nullable Tree wood)
+    public void setWood(@Nullable Wood wood)
     {
         String woodName = "";
         if (wood != null)
@@ -73,7 +74,7 @@ public class EntityBoatTFC extends EntityBoat
     @Override
     public Item getItemBoat()
     {
-        Tree wood = getWood();
+        Wood wood = getWood();
         if (wood != null)
         {
             return TFCItemBoat.get(wood);
@@ -177,7 +178,7 @@ public class EntityBoatTFC extends EntityBoat
     protected void writeEntityToNBT(NBTTagCompound compound)
     {
         super.writeEntityToNBT(compound);
-        Tree wood = getWood();
+        Wood wood = getWood();
         if (wood != null)
         {
             //noinspection ConstantConditions

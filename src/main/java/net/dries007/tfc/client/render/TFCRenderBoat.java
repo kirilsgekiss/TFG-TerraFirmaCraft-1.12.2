@@ -7,6 +7,7 @@ package net.dries007.tfc.client.render;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.dries007.tfc.api.types.Wood;
 import net.minecraft.client.model.IMultipassModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBoat;
@@ -68,7 +69,7 @@ public class TFCRenderBoat extends Render<EntityBoatTFC>
     @Override
     protected ResourceLocation getEntityTexture(EntityBoatTFC entity)
     {
-        final Tree wood = entity.getWood();
+        final Wood wood = entity.getWood();
         if (wood != null)
         {
             //noinspection ConstantConditions

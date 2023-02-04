@@ -13,8 +13,6 @@ import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultPlants;
 
-import net.dries007.tfc.objects.blocks.wood.tree.fruitwood.BlockFruitLog;
-
 public class CapabilityHeatHandler
 {
     public static void init()
@@ -53,7 +51,6 @@ public class CapabilityHeatHandler
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.EARTHENWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.KAOLINITE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.STONEWARE_CLAY), () -> new ItemHeatHandler(null, 1, 1599));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlockFruitLog.get(TFCRegistries.TREES.getValue(DefaultTrees.EUCALYPTUS))), () -> new ItemHeatHandler(null, 1, 1599));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.STRAW), () -> new ItemHeatHandler(null, 1, 30));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFC.TWIG), () -> new ItemHeatHandler(null, 1, 50));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(BlocksTFC.DRIFTWOOD), () -> new ItemHeatHandler(null, 1, 60));
