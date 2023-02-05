@@ -222,7 +222,7 @@ public final class DefaultWoods {
                 new Wood.Builder(WALNUT, 758f, 1800).setColor(0x281B12).build(),
                 new Wood.Builder(WHITE_ELM, 653f, 1750).setTannin().build(),
                 new Wood.Builder(WHITEBEAM, 728f, 1750).setColor(0xB7AEA6).setTannin().build(),
-                new Wood.Builder(BALD_CYPRESS, 770f, 1300).setColor(0x).build(),
+                new Wood.Builder(BALD_CYPRESS, 770f, 1300).build(),
                 new Wood.Builder(CYPRESS, 783f, 1100).setColor(0xbec193).build(),
                 new Wood.Builder(HEMLOCK, 609f, 1000).setColor(0xa9a271).build(),
                 new Wood.Builder(NORDMANN_FIR, 628f, 1500).setColor(0x70522e).build(),
