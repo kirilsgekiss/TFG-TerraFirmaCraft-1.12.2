@@ -947,9 +947,6 @@ public final class TFCItems {
         for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-
-
-
         for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
             lumberItems.add(register(r, "wood/lumber/" + wood.getRegistryName().getPath(), new TFCItemLumber(wood), CT_WOOD));
             boatItems.add(register(r, "wood/boat/" + wood.getRegistryName().getPath(), new TFCItemBoat(wood), CT_WOOD));
@@ -1503,6 +1500,10 @@ public final class TFCItems {
             OreDictionary.registerOre(OreDictionaryHelper.toString("lumber_" + name.substring(0, 1).toLowerCase() + name.substring(1).toLowerCase()), lumber);
 
         }
+
+
+        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
+            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
         //allItemBows = itemBows.build();

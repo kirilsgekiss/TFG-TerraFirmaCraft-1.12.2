@@ -861,8 +861,8 @@ public final class BlocksTFC {
         Builder<TFCBlockBarrel> blockBarrel = ImmutableList.builder();
         Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
         Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
-        Builder<TFCBlockWoodStairs> blockWoodStairs = new Builder<>();
-        Builder<TFCBlockWoodSlab.Half> blockWoodSlab = new Builder<>();
+        Builder<TFCBlockWoodStairs> blockWoodStairsTFC = new Builder<>();
+        Builder<TFCBlockWoodSlab.Half> blockWoodSlabTFC = new Builder<>();
         {
             for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
                 blockPlanks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new TFCBlockPlanks(wood), CT_WOOD));
@@ -881,8 +881,8 @@ public final class BlocksTFC {
                 blockBarrel.add(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new TFCBlockBarrel(wood), CT_DECORATIONS));
                 blockLooms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new TFCBlockLoom(wood), CT_WOOD));
                 blockSupports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new TFCBlockWoodSupport(wood), CT_WOOD));
-                blockWoodStairs.add(register(r, "wood/stairs/" + wood.getRegistryName().getPath(), new TFCBlockWoodStairs(wood), CT_DECORATIONS));
-                blockWoodSlab.add(register(r, "wood/slab/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Half(wood), CT_DECORATIONS));
+                blockWoodStairsTFC.add(register(r, "wood/stairs/" + wood.getRegistryName().getPath(), new TFCBlockWoodStairs(wood), CT_DECORATIONS));
+                blockWoodSlabTFC.add(register(r, "wood/slab/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Half(wood), CT_DECORATIONS));
                 register(r, "wood/double_slab/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Double(wood));
 
             }
@@ -902,8 +902,8 @@ public final class BlocksTFC {
             allBarrelBlocksBlocks = blockBarrel.build();
             allLoomBlocks = blockLooms.build();
             allSupportBlocks = blockSupports.build();
-            allWoodStairsBlocks = blockWoodStairs.build();
-            allWoodSlabBlocks = blockWoodSlab.build();
+            allWoodStairsBlocks = blockWoodStairsTFC.build();
+            allWoodSlabBlocks = blockWoodSlabTFC.build();
 
             allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
             allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
