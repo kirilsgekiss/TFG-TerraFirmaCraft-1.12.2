@@ -20,11 +20,11 @@ import net.minecraftforge.fluids.IFluidBlock;
 
 import javax.annotation.Nonnull;
 
-public class BlockFluidWater extends BlockFluidTFC implements ITemperatureBlock {
+public class TFCBlockFluidWater extends TFCBlockFluid implements ITemperatureBlock {
     private final boolean isSalt;
     private final float freezeThreshold;
 
-    public BlockFluidWater(Fluid fluid, Material material, boolean isSalt) {
+    public TFCBlockFluidWater(Fluid fluid, Material material, boolean isSalt) {
         super(fluid, material, true);
         this.isSalt = isSalt;
         this.freezeThreshold = isSalt ? IceMeltHandler.SALT_WATER_FREEZE_THRESHOLD : IceMeltHandler.WATER_FREEZE_THRESHOLD;

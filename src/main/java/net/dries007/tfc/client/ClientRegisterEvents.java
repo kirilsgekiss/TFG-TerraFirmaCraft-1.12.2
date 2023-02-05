@@ -602,13 +602,13 @@ public final class ClientRegisterEvents {
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockRockSlab.VARIANT).build());
             ModelLoader.setCustomStateMapper(block.doubleSlab, new StateMap.Builder().ignore(TFCBlockRockSlab.VARIANT).build());
         }
-        for (Block block : BlocksTFC.getAllBambooLog())
+        for (Block block : BlocksTFC.getAllBlockBambooLeaves())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(StatePropertiesTFC.CAN_GROW).build());
 
-        for (Block block : BlocksTFC.getAllBambooLeaves())
+        for (Block block : BlocksTFC.getAllBlockBambooLog())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build());
 
-        for (Block block : BlocksTFC.getAllBambooSapling())
+        for (Block block : BlocksTFC.getAllBlockBambooSapling())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockSapling.STAGE).build());
 
         /*
@@ -706,7 +706,7 @@ public final class ClientRegisterEvents {
         // blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllNormalTreeLeaves().toArray(new Block[0]));
 
 
-        for (Block block : BlocksTFC.getAllBambooLeaves())
+        for (Block block : BlocksTFC.getAllBlockBambooLog())
             blockColors.registerBlockColorHandler(foliageColor, block);
 
         //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.CASSIA_CINNAMON_LEAVES);

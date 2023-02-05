@@ -3,7 +3,7 @@ package net.dries007.tfc.objects.blocks.plants;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlockFluidTFC;
+import net.dries007.tfc.objects.blocks.TFCBlockFluid;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoralBlock;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPlantable {
+public class TFCBlockWaterGlowPlant extends TFCBlockFluid implements IItemSize, IPlantable {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
     static final PropertyBool NORTH = PropertyBool.create("north");

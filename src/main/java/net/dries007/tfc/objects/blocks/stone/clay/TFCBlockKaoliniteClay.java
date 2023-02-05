@@ -1,4 +1,4 @@
-package net.dries007.tfc.objects.blocks;
+package net.dries007.tfc.objects.blocks.stone.clay;
 
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
@@ -17,8 +17,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class BlockKaoliniteClay extends Block implements IItemSize {
-    public BlockKaoliniteClay() {
+public class TFCBlockKaoliniteClay extends Block implements IItemSize {
+    public TFCBlockKaoliniteClay() {
         super(Material.CLAY);
         setSoundType(SoundType.GROUND);
         setHardness(1.0F);

@@ -30,12 +30,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class BlockFluidTFC extends BlockFluidClassic {
-    public BlockFluidTFC(Fluid fluid, Material material) {
+public class TFCBlockFluid extends BlockFluidClassic {
+    public TFCBlockFluid(Fluid fluid, Material material) {
         super(fluid, material);
     }
 
-    public BlockFluidTFC(Fluid fluid, Material material, boolean canCreateSources) {
+    public TFCBlockFluid(Fluid fluid, Material material, boolean canCreateSources) {
         this(fluid, material);
         this.canCreateSources = canCreateSources;
         setHardness(100.0F);
@@ -75,11 +75,11 @@ public class BlockFluidTFC extends BlockFluidClassic {
         // have to catch the updates that the super call did
         IBlockState newState = world.getBlockState(pos);
 
-        // detect if we should replace ourselves with a different BlockFluidTFC type
+        // detect if we should replace ourselves with a different TFCBlockFluid type
         if (!isSourceBlock(world, pos)) {
             int minMeta = 100;
             int currentMeta = quantaPerBlock - 1;
-            BlockFluidTFC blockType = this;
+            TFCBlockFluid blockType = this;
 
             if (newState.getBlock() == this)
                 currentMeta = newState.getValue(LEVEL);
@@ -91,8 +91,8 @@ public class BlockFluidTFC extends BlockFluidClassic {
                     IBlockState neighborState = world.getBlockState(neighborPos);
                     Block block = neighborState.getBlock();
 
-                    if (block instanceof BlockFluidTFC) {
-                        BlockFluidTFC neighborBlock = (BlockFluidTFC) block;
+                    if (block instanceof TFCBlockFluid) {
+                        TFCBlockFluid neighborBlock = (TFCBlockFluid) block;
                         int neighborMeta;
                         Block neighborAboveBlock = world.getBlockState(neighborPos.down(densityDir)).getBlock();
                         if (neighborAboveBlock == neighborBlock)
@@ -180,12 +180,12 @@ public class BlockFluidTFC extends BlockFluidClassic {
             Block targetBlock = targetBlockState.getBlock();
 
 
-            // displaceIfPossible covers all cases that aren't BlockFluidTFc instances
-            // If it is a BlockFluidTFC instance, we need to check all the corner cases for our unique flow behavior
+            // displaceIfPossible covers all cases that aren't TFCBlockFluid instances
+            // If it is a TFCBlockFluid instance, we need to check all the corner cases for our unique flow behavior
             boolean replace = !(targetBlock instanceof BlockFluidBase);
 
-            // to make sure we only replace BlockFluidTFC blocks, and not any other modded fluid blocks.
-            if (targetBlock instanceof BlockFluidTFC) {
+            // to make sure we only replace TFCBlockFluid blocks, and not any other modded fluid blocks.
+            if (targetBlock instanceof TFCBlockFluid) {
                 // always replace flows if we're flowing in from above
                 if (world.getBlockState(pos.down(densityDir)).getBlock() == this) {
                     replace = true;
@@ -221,7 +221,7 @@ public class BlockFluidTFC extends BlockFluidClassic {
                 if (!replace) {
                     int flowStrength = blockFlowStrength;
 
-                    if (((BlockFluidTFC) targetBlock).getDensity() > this.getDensity())
+                    if (((TFCBlockFluid) targetBlock).getDensity() > this.getDensity())
                         flowStrength += 1;
 
                     if (flowStrength > meta)
@@ -265,7 +265,7 @@ public class BlockFluidTFC extends BlockFluidClassic {
 
         // this is where it differs from the source:
 
-        if (block instanceof BlockFluidTFC) {
+        if (block instanceof TFCBlockFluid) {
             return (state.getValue(LEVEL) != 0);
         }
 

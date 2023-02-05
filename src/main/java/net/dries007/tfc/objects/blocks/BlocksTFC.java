@@ -29,6 +29,10 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.stone.*;
+import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockFireClay;
+import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockEarthenwareClay;
+import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockKaoliniteClay;
+import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockStonewareClay;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
@@ -281,6 +285,8 @@ public final class BlocksTFC {
     public static final TFCBlockSaguaroCactus SAGUARO_CACTUS = getNull();
 
 
+
+    //=== ImmutableList ==============================================================================================//
     // All these are for use in model registration. Do not use for block lookups.
     // Use the static get methods in the classes instead.
     private static ImmutableList<ItemBlock> allNormalItemBlocks = getNull();
@@ -316,6 +322,21 @@ public final class BlocksTFC {
     private static ImmutableList<TFCBlockMetalAnvil> allBlockMetalAnvil = getNull();
     private static ImmutableList<TFCBlockMetalTrapDoor> allBlockMetalTrapDoor = getNull();
 
+    //=== Plants =====================================================================================================//
+
+    private static ImmutableList<BlockPlantDummy1> allStandardBlocks = getNull();
+    private static ImmutableList<TFCBlockCreepingPlant> allCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingCreepingPlant> allHangingCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingGlowingPlant> allHangingGlowingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockHangingPlant> allHangingPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockPlant> allPlantBlocks = getNull();
+    private static ImmutableList<TFCBlockSaguaroCactus> allSaguaroCactusBlocks = getNull();
+    private static ImmutableList<TFCBlockShortGrass> allShortGrassBlocks = getNull();
+    private static ImmutableList<TFCBlockWaterGlowPlant> allGlowWaterPlants = getNull();
+    private static ImmutableList<TFCBlockTallGrassWater> allTallGrassWaterBlocks = getNull();
+    private static ImmutableList<TFCBlockWaterPlant> allWaterPlantBlocks = getNull();
+
     //=== Rock =======================================================================================================//
 
     private static ImmutableList<TFCBlockRockSlab.Half> allRockSlabBlocks = getNull();
@@ -323,6 +344,28 @@ public final class BlocksTFC {
     private static ImmutableList<TFCBlockRockVariant> allRockVariantsBlock = getNull();
     private static ImmutableList<TFCBlockRockWall> allRockWallBlocks = getNull();
 
+    //=== Bamboo =====================================================================================================//
+
+//    private static ImmutableList<BlockBambooLeaves> allBlockBambooLeaves = getNull();
+//    private static ImmutableList<BlockBambooLog> allBlockBambooLog = getNull();
+//    private static ImmutableList<BlockBambooSapling> allBlockBambooSapling = getNull();
+
+    //=== Cinnamon ===================================================================================================//
+
+//    private static ImmutableList<BlockCassiaCinnamonLeaves> allBlockCassiaCinnamonLeaves = getNull();
+//    private static ImmutableList<BlockCassiaCinnamonLog> allBlockCassiaCinnamonLog = getNull();
+//    private static ImmutableList<BlockCassiaCinnamonSapling> allBlockCassiaCinnamonSapling = getNull();
+
+//    private static ImmutableList<BlockCeylonCinnamonLeaves> allBlockCeylonCinnamonLeaves = getNull();
+//    private static ImmutableList<BlockCeylonCinnamonLog> allBlockCeylonCinnamonLog = getNull();
+//    private static ImmutableList<BlockCeylonCinnamonSapling> allBlockCeylonCinnamonSapling = getNull();
+
+
+    //=== Joshua Tree ================================================================================================//
+
+//    private static ImmutableList<BlockJoshuaTreeFlower> allBlockJoshuaTreeFlower = getNull();
+//    private static ImmutableList<BlockJoshuaTreeLog> allBlockJoshuaTreeLog = getNull();
+//    private static ImmutableList<BlockJoshuaTreeSapling> allBlockJoshuaTreeSapling = getNull();
 
     //=== Tree =======================================================================================================//
 
@@ -350,220 +393,165 @@ public final class BlocksTFC {
     private static ImmutableList<TFCBlockWoodTrapDoor> allTrapDoorWoodBlocks = getNull();
     private static ImmutableList<TFCBlockWorkbench> allWorkbenchBlocks = getNull();
 
-
-
-
-    private static ImmutableList<BlockFluidBase> allFluidBlocks = getNull();
-
-
-
-    //=== Plants =====================================================================================================//
-
-    private static ImmutableList<BlockPlantDummy1> allStandardBlocks = getNull();
-
-    private static ImmutableList<TFCBlockPlant> allPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockSaguaroCactus> allSaguaroCactusBlocks = getNull();
-    private static ImmutableList<TFCBlockShortGrass> allShortGrassBlocks = getNull();
-    private static ImmutableList<TFCBlockWaterGlowPlant> allGlowWaterPlants = getNull();
-    private static ImmutableList<TFCBlockWaterPlant> allWaterPlantBlocks = getNull();
-
-
-
-
-
-
-
+    //=== Other ======================================================================================================//
 
     private static ImmutableList<TFCBlockFlowerPot> allFlowerPots = getNull();
     private static ImmutableList<Block> allFoodItemBlocks = getNull();
+    private static ImmutableList<BlockFluidBase> allFluidBlocks = getNull();
 
 
+    //=== ImmutableList getAll =======================================================================================//
 
+    public static ImmutableList<ItemBlock> getAllNormalItemBlocks() { return allNormalItemBlocks; }
+    public static ImmutableList<ItemBlock> getAllInventoryItemBlocks() { return allInventoryItemBlocks; }
+    public static ImmutableList<ItemBlock> getAllColorizedItemBlocks() { return allColorizedItemBlocks; }
 
-    private static ImmutableList<Block> allBambooLog = getNull();
-    private static ImmutableList<Block> allBambooLeaves = getNull();
-    private static ImmutableList<Block> allBambooSapling = getNull();
+    //=== Agriculture ================================================================================================//
 
-    private static ImmutableList<TFCBlockHangingPlant> allHangingPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockHangingGlowingPlant> allHangingGlowingPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockHangingCreepingPlant> allHangingCreepingPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockHangingGlowingCreepingPlant> allHangingGlowingCreepingPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockCreepingPlant> allCreepingPlantBlocks = getNull();
-    private static ImmutableList<TFCBlockTallGrassWater> allTallGrassWaterBlocks = getNull();
+    public static ImmutableList<TFCBlockBerryBush> getAllBerryBushBlocks() { return allBerryBushBlocks; }
+    public static ImmutableList<TFCBlockCrop> getAllCropBlocks() { return allCropBlocks; }
+    public static ImmutableList<TFCBlockCropDead> getAllDeadCropBlocks() { return allDeadCropBlocks; }
+    public static ImmutableList<TFCBlockFruitTreeBranch> getAllFruitTreeBranchBlocks() { return allFruitTreeBranchBlocks; }
+    public static ImmutableList<TFCBlockFruitTreeLeaves> getAllFruitTreeLeavesBlocks() { return allFruitTreeLeavesBlocks; }
+    public static ImmutableList<TFCBlockFruitTreeSapling> getAllFruitTreeSaplingBlocks() { return allFruitTreeSaplingBlocks; }
+    public static ImmutableList<TFCBlockFruitTreeTrunk> getAllFruitTreeTrunkBlocks() { return allFruitTreeTrunkBlocks; }
 
-//    private static ImmutableList<BlockJoshuaTreeFlower> allJoshuaTreeFlowerBlocks = getNull();
-//    private static ImmutableList<BlockJoshuaTreeLog> allJoshuaTreeLogBlocks = getNull();
-//    private static ImmutableList<BlockJoshuaTreeSapling> allJoshuaTreeSaplingBlocks = getNull();
+    //=== Groundcover ================================================================================================//
 
+    //=== Metal ======================================================================================================//
 
+    public static ImmutableList<TFCBlockCladding> getAllBlockCladding() { return allBlockCladding; }
+    public static ImmutableList<TFCBlockLamp> getAllBlockLamps() { return allBlockLamps; }
+    public static ImmutableList<TFCBlockMetalAnvil> getAllBlockMetalAnvil() { return allBlockMetalAnvil; }
+    public static ImmutableList<TFCBlockMetalTrapDoor> getAllBlockMetalTrapDoor() { return allBlockMetalTrapDoor; }
 
-    public static ImmutableList<ItemBlock> getAllNormalItemBlocks() {
-        return allNormalItemBlocks;
-    }
-
-    public static ImmutableList<ItemBlock> getAllInventoryItemBlocks() {
-        return allInventoryItemBlocks;
-    }
-
-    public static ImmutableList<ItemBlock> getAllColorizedItemBlocks() {
-        return allColorizedItemBlocks;
-    }
-
-    public static ImmutableList<TFCBlockBarrel> getAllBarrelBlocks() {
-        return allBarrelBlocksBlocks;
-    }
-
-    public static ImmutableList<BlockFluidBase> getAllFluidBlocks() {
-        return allFluidBlocks;
-    }
-
-    public static ImmutableList<TFCBlockRockVariant> getAllRockVariantsBlock() {
-        return allRockVariantsBlock;
-    }
-
-    public static ImmutableList<TFCBlockLog> getAllLogBlocks() {
-        return allLogBlocks;
-    }
+    //=== Plants =====================================================================================================//
 
     public static ImmutableList<TFCBlockPlanks> getAllPlankBlocks() {
         return allPlankBlocks;
     }
 
-    public static ImmutableList<TFCBlockWorkbench> getAllWorkbenchBlocks() {
-        return allWorkbenchBlocks;
-    }
+    //=== Rock =======================================================================================================//
 
-    public static ImmutableList<TFCBlockBookshelf> getAllBookshelfBlocks() {
-        return allBookshelfBlocks;
-    }
-
-    public static ImmutableList<TFCBlockLeaves> getAllLeafBlocks() {
-        return allLeafBlocks;
-    }
-
-    public static ImmutableList<TFCBlockFenceGate> getAllFenceGateBlocks() {
-        return allFenceGateBlocks;
-    }
-
-    public static ImmutableList<TFCBlockFence> getAllFenceBlocks() {
-        return allFenceBlocks;
-    }
-
-    public static ImmutableList<TFCBlockWoodPressurePlate> getAllWoodPressurePlateBlocks() {
-        return allWoodPressurePlateBlocks;
-    }
-
-    public static ImmutableList<TFCBlockWoodButton> getAllWoodButtonBlocks() {
-        return allWoodButtonBlocks;
+    public static ImmutableList<TFCBlockRockVariant> getAllRockVariantsBlock() {
+        return allRockVariantsBlock;
     }
 
     public static ImmutableList<TFCBlockRockWall> getAllRockWallBlocks() {
         return allRockWallBlocks;
     }
 
-    public static ImmutableList<TFCBlockSapling> getAllSaplingBlocks() {
-        return allSaplingBlocks;
-    }
-
-    public static ImmutableList<TFCBlockWoodDoor> getAllDoorBlocks() {
-        return allDoorBlocks;
-    }
-
-    public static ImmutableList<TFCBlockWoodTrapDoor> getAllTrapDoorWoodBlocks() {
-        return allTrapDoorWoodBlocks;
-    }
-
-    public static ImmutableList<TFCBlockMetalTrapDoor> getAllBlockMetalTrapDoor() {
-        return allBlockMetalTrapDoor;
-    }
-
     public static ImmutableList<TFCBlockRockStairs> getAllRockStairsBlocks() {
         return allRockStairsBlocks;
-    }
-
-    public static ImmutableList<TFCBlockWoodStairs> getAllWoodStairsBlocks() {
-        return allWoodStairsBlocks;
     }
 
     public static ImmutableList<TFCBlockRockSlab.Half> getAllRockSlabBlocks() {
         return allRockSlabBlocks;
     }
 
-    public static ImmutableList<TFCBlockWoodSlab.Half> getAllWoodSlabBlocks() {
-        return allWoodSlabBlocks;
+    //=== Bamboo =====================================================================================================//
+
+    //    public static ImmutableList<Block> getAllBlockBambooLeaves() {
+//        return allBlockBambooLeaves;
+//    }
+//
+//    public static ImmutableList<Block> getAllBlockBambooLog() {
+//        return allBlockBambooLog;
+//    }
+//
+//    public static ImmutableList<Block> getAllBlockBambooSapling() {
+//        return allBlockBambooSapling;
+//    }
+
+    //=== Cinnamon ===================================================================================================//
+
+    //=== Joshua Tree ================================================================================================//
+
+    //    public static ImmutableList<BlockJoshuaTreeFlower> getAllJoshuaTreeFlowerBlocks()
+//    {
+//        return allJoshuaTreeFlowerBlocks;
+//    }
+//
+//    public static ImmutableList<BlockJoshuaTreeLog> getAllJoshuaTreeLogBlocks()
+//    {
+//        return allJoshuaTreeLogBlocks;
+//    }
+//
+//    public static ImmutableList<BlockJoshuaTreeSapling> getAllJoshuaTreeSaplingBlocks()
+//    {
+//        return allJoshuaTreeSaplingBlocks;
+//    }
+
+    //=== Tree =======================================================================================================//
+
+    public static ImmutableList<TFCBlockLog> getAllLogBlocks() {
+        return allLogBlocks;
+    }
+    public static ImmutableList<TFCBlockLeaves> getAllLeafBlocks() {
+        return allLeafBlocks;
     }
 
-    public static ImmutableList<TFCBlockChest> getAllChestBlocks() {
-        return allChestBlocks;
+    public static ImmutableList<TFCBlockSapling> getAllSaplingBlocks() {
+        return allSaplingBlocks;
     }
 
-    public static ImmutableList<TFCBlockMetalAnvil> getAllBlockMetalAnvil() {
-        return allBlockMetalAnvil;
-    }
+    //=== Wood =======================================================================================================//
 
-    public static ImmutableList<TFCBlockCladding> getAllBlockCladding() {
-        return allBlockCladding;
-    }
+    public static ImmutableList<TFCBlockBarrel> getAllBarrelBlocks() { return allBarrelBlocksBlocks; }
+    public static ImmutableList<TFCBlockBookshelf> getAllBookshelfBlocks() { return allBookshelfBlocks; }
+    public static ImmutableList<TFCBlockChest> getAllChestBlocks() { return allChestBlocks; }
+    public static ImmutableList<TFCBlockFence> getAllFenceBlocks() { return allFenceBlocks; }
+    public static ImmutableList<TFCBlockFenceGate> getAllFenceGateBlocks() { return allFenceGateBlocks; }
+    public static ImmutableList<TFCBlockFenceGateLog> getAllFenceGateLogBlocks() { return allFenceGateLogBlocks; }
+    public static ImmutableList<TFCBlockLoom> getAllLoomBlocks() { return allLoomBlocks; }
+    public static ImmutableList<TFCBlockToolRack> getAllToolRackBlocks() { return allToolRackBlocks; }
+    public static ImmutableList<TFCBlockWoodButton> getAllWoodButtonBlocks() { return allWoodButtonBlocks; }
+    public static ImmutableList<TFCBlockWoodDoor> getAllDoorBlocks() { return allDoorBlocks; }
+    public static ImmutableList<TFCBlockWoodPressurePlate> getAllWoodPressurePlateBlocks() { return allWoodPressurePlateBlocks; }
+    public static ImmutableList<TFCBlockWoodSlab.Half> getAllWoodSlabBlocks() { return allWoodSlabBlocks; }
+    public static ImmutableList<TFCBlockWoodStairs> getAllWoodStairsBlocks() { return allWoodStairsBlocks; }
+    public static ImmutableList<TFCBlockWoodSupport> getAllSupportBlocks() { return allSupportBlocks; }
+    public static ImmutableList<TFCBlockWoodTrapDoor> getAllTrapDoorWoodBlocks() { return allTrapDoorWoodBlocks; }
+    public static ImmutableList<TFCBlockWorkbench> getAllWorkbenchBlocks() { return allWorkbenchBlocks; }
 
-    public static ImmutableList<TFCBlockLamp> getAllBlockLamps() {
-        return allBlockLamps;
-    }
+    //=== Other ======================================================================================================//
 
-    public static ImmutableList<TFCBlockToolRack> getAllToolRackBlocks() {
-        return allToolRackBlocks;
-    }
+    public static ImmutableList<BlockFluidBase> getAllFluidBlocks() { return allFluidBlocks; }
 
-    public static ImmutableList<TFCBlockCrop> getAllCropBlocks() {
-        return allCropBlocks;
-    }
 
-    public static ImmutableList<TFCBlockCropDead> getAllDeadCropBlocks() {
-        return allDeadCropBlocks;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static ImmutableList<TFCBlockPlant> getAllPlantBlocks() {
         return allPlantBlocks;
     }
 
-    public static ImmutableList<TFCBlockLoom> getAllLoomBlocks() {
-        return allLoomBlocks;
-    }
 
-    public static ImmutableList<TFCBlockWoodSupport> getAllSupportBlocks() {
-        return allSupportBlocks;
-    }
+
+
 
     public static ImmutableList<TFCBlockFlowerPot> getAllFlowerPots() {
         return allFlowerPots;
     }
 
-    public static ImmutableList<TFCBlockFruitTreeSapling> getAllFruitTreeSaplingBlocks() {
-        return allFruitTreeSaplingBlocks;
-    }
 
-    public static ImmutableList<TFCBlockFruitTreeTrunk> getAllFruitTreeTrunkBlocks() {
-        return allFruitTreeTrunkBlocks;
-    }
 
-    public static ImmutableList<TFCBlockFruitTreeBranch> getAllFruitTreeBranchBlocks() {
-        return allFruitTreeBranchBlocks;
-    }
-
-    public static ImmutableList<TFCBlockFruitTreeLeaves> getAllFruitTreeLeavesBlocks() {
-        return allFruitTreeLeavesBlocks;
-    }
-
-    public static ImmutableList<TFCBlockBerryBush> getAllBerryBushBlocks() {
-        return allBerryBushBlocks;
-    }
 
     public static ImmutableList<Block> getAllFoodIBs() {
         return allFoodItemBlocks;
     }
 
-    public static ImmutableList<TFCBlockFenceGateLog> getAllFenceGateLogBlocks() {
-        return allFenceGateLogBlocks;
-    }
+
 
 
     public static ImmutableList<TFCBlockSurfaceRock> getAllSurfaceRocks() {
@@ -594,17 +582,7 @@ public final class BlocksTFC {
         return allSurfacePinecone;
     }
 
-    public static ImmutableList<Block> getAllBambooLog() {
-        return allBambooLog;
-    }
 
-    public static ImmutableList<Block> getAllBambooLeaves() {
-        return allBambooLeaves;
-    }
-
-    public static ImmutableList<Block> getAllBambooSapling() {
-        return allBambooSapling;
-    }
 
     public static ImmutableList<TFCBlockCoral> getAllCoralPlants() {
         return allCoralPlants;
@@ -658,20 +636,7 @@ public final class BlocksTFC {
         return allLightstoneBlocks;
     }
 
-//    public static ImmutableList<BlockJoshuaTreeFlower> getAllJoshuaTreeFlowerBlocks()
-//    {
-//        return allJoshuaTreeFlowerBlocks;
-//    }
-//
-//    public static ImmutableList<BlockJoshuaTreeLog> getAllJoshuaTreeLogBlocks()
-//    {
-//        return allJoshuaTreeLogBlocks;
-//    }
-//
-//    public static ImmutableList<BlockJoshuaTreeSapling> getAllJoshuaTreeSaplingBlocks()
-//    {
-//        return allJoshuaTreeSaplingBlocks;
-//    }
+
 
 //    public static String[] bamboo = {"arrow_bamboo", "black_bamboo", "blue_bamboo", "dragon_bamboo", "golden_bamboo", "narrow_leaf_bamboo", "red_bamboo", "temple_bamboo", "thorny_bamboo", "timber_bamboo", "tinwa_bamboo", "weavers_bamboo"};
 //    public static Tree[] bambooTrees = {DefaultTrees.ARROW_BAMBOO, DefaultTrees.BLACK_BAMBOO, DefaultTrees.BLUE_BAMBOO, DefaultTrees.DRAGON_BAMBOO, DefaultTrees.GOLDEN_BAMBOO, DefaultTrees.NARROW_LEAF_BAMBOO, DefaultTrees.RED_BAMBOO, DefaultTrees.TEMPLE_BAMBOO, DefaultTrees.THORNY_BAMBOO, DefaultTrees.TIMBER_BAMBOO, DefaultTrees.TINWA_BAMBOO, DefaultTrees.WEAVERS_BAMBOO};
@@ -709,7 +674,7 @@ public final class BlocksTFC {
         normalItemBlocks.add(new TFCItemBlock(register(r, "debug", new BlockDebug(), CT_MISC)));
 
         normalItemBlocks.add(new TFCItemBlock(register(r, "aggregate", new BlockAggregate(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_clay_block", new BlockFireClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_clay_block", new TFCBlockFireClay(), CT_ROCK_BLOCKS)));
 
         normalItemBlocks.add(new TFCItemBlock(register(r, "peat", new BlockPeat(Material.GROUND), CT_ROCK_BLOCKS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "peat_grass", new BlockPeatGrass(Material.GRASS), CT_ROCK_BLOCKS)));
@@ -737,15 +702,15 @@ public final class BlocksTFC {
         normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_clay_block", new BlockEarthenwareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_clay_block", new TFCBlockEarthenwareClay(), CT_ROCK_BLOCKS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_clay_block", new BlockKaoliniteClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_clay_block", new TFCBlockKaoliniteClay(), CT_ROCK_BLOCKS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_clay_block", new BlockStonewareClay(), CT_ROCK_BLOCKS)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_clay_block", new TFCBlockStonewareClay(), CT_ROCK_BLOCKS)));
         normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
         normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
 
@@ -772,48 +737,48 @@ public final class BlocksTFC {
         Builder<BlockFluidBase> fluids = ImmutableList.builder();
         {
             fluids.add(
-                    register(r, "fluid/hot_water", new BlockFluidHotWater()),
-                    register(r, "fluid/fresh_water", new BlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/sea_water", new BlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true)),
-                    register(r, "fluid/distilled_water", new BlockFluidTFC(FluidsTFC.DISTILLED_WATER.get(), Material.WATER, false)),
-                    register(r, "fluid/waste", new BlockFluidTFC(FluidsTFC.WASTE.get(), Material.WATER, false)),
-                    register(r, "fluid/base_potash_liquor", new BlockFluidTFC(FluidsTFC.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
-                    register(r, "fluid/sweet_sap", new BlockFluidTFC(FluidsTFC.SWEET_SAP.get(), Material.WATER, false)),
-                    register(r, "fluid/sweet_syrup", new BlockFluidTFC(FluidsTFC.SWEET_SYRUP.get(), Material.WATER, false)),
-                    register(r, "fluid/resin", new BlockFluidTFC(FluidsTFC.RESIN.get(), Material.WATER, false)),
-                    register(r, "fluid/kino", new BlockFluidTFC(FluidsTFC.KINO.get(), Material.WATER, false)),
-                    register(r, "fluid/salammoniac", new BlockFluidTFC(FluidsTFC.SALAMMONIAC.get(), Material.WATER, false))
+                    register(r, "fluid/hot_water", new TFCBlockFluidHotWater()),
+                    register(r, "fluid/fresh_water", new TFCBlockFluidWater(FluidsTFC.FRESH_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/sea_water", new TFCBlockFluidWater(FluidsTFC.SEA_WATER.get(), Material.WATER, true)),
+                    register(r, "fluid/distilled_water", new TFCBlockFluid(FluidsTFC.DISTILLED_WATER.get(), Material.WATER, false)),
+                    register(r, "fluid/waste", new TFCBlockFluid(FluidsTFC.WASTE.get(), Material.WATER, false)),
+                    register(r, "fluid/base_potash_liquor", new TFCBlockFluid(FluidsTFC.BASE_POTASH_LIQUOR.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_sap", new TFCBlockFluid(FluidsTFC.SWEET_SAP.get(), Material.WATER, false)),
+                    register(r, "fluid/sweet_syrup", new TFCBlockFluid(FluidsTFC.SWEET_SYRUP.get(), Material.WATER, false)),
+                    register(r, "fluid/resin", new TFCBlockFluid(FluidsTFC.RESIN.get(), Material.WATER, false)),
+                    register(r, "fluid/kino", new TFCBlockFluid(FluidsTFC.KINO.get(), Material.WATER, false)),
+                    register(r, "fluid/salammoniac", new TFCBlockFluid(FluidsTFC.SALAMMONIAC.get(), Material.WATER, false))
             );
             for (FluidWrapper wrapper : FluidsTFC.getAllOtherFiniteFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllFermentedAlcoholsFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllAlcoholsFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllBeerFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllTeaFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllCoffeeFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllJuiceBerryFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllJuiceFruitFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (FluidWrapper wrapper : FluidsTFC.getAllMiscFluids()) {
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             for (EnumDyeColor color : EnumDyeColor.values()) {
                 FluidWrapper wrapper = FluidsTFC.getFluidFromDye(color);
-                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new BlockFluidTFC(wrapper.get(), Material.WATER, false)));
+                fluids.add(register(r, "fluid/" + wrapper.get().getName(), new TFCBlockFluid(wrapper.get(), Material.WATER, false)));
             }
             allFluidBlocks = fluids.build();
         }
@@ -1604,21 +1569,21 @@ public final class BlocksTFC {
             }
         }*/
 
-        allBambooLog = itemBambooLog.build();
-        allBambooLog.forEach((x) -> {
-            normalItemBlocks.add(new TFCItemBlock(x));
-        });
-
-        allBambooLeaves = itemBambooLeaves.build();
-        allBambooLeaves.forEach((x) -> {
-            normalItemBlocks.add(new TFCItemBlock(x));
-        });
-
-
-        allBambooSapling = itemBambooSapling.build();
-        allBambooSapling.forEach((x) -> {
-            normalItemBlocks.add(new TFCItemBlock(x));
-        });
+//        allBlockBambooLeaves = itemBambooLog.build();
+//        allBlockBambooLeaves.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
+//
+//        allBlockBambooLog = itemBambooLeaves.build();
+//        allBlockBambooLog.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
+//
+//
+//        allBlockBambooSapling = itemBambooSapling.build();
+//        allBlockBambooSapling.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
 
         allFoodItemBlocks = foodItemBlocks.build();
         allFoodItemBlocks.forEach((x) -> {
