@@ -23,8 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 @ParametersAreNonnullByDefault
-public class TFCItemBlockCrucible extends TFCItemBlock {
-    public TFCItemBlockCrucible(Block block) {
+public class ItemBlockCrucible extends TFCItemBlock {
+    public ItemBlockCrucible(Block block) {
         super(block);
     }
 
