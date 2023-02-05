@@ -1502,7 +1502,7 @@ public final class TFCItems {
         }
 
 
-        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
+        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllSlabBlocksTFC())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
