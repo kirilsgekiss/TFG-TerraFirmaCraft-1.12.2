@@ -2,7 +2,7 @@ package net.dries007.tfc.objects.items.itemblock;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.TFCBlockFlowerPot;
+import net.dries007.tfc.objects.blocks.BlockFlowerPotTFC;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
@@ -34,7 +34,7 @@ public class ItemBlockPlant extends TFCItemBlock {
         if (!world.isRemote && world.getBlockState(pos).getBlock() instanceof BlockFlowerPot) {
             TileEntityFlowerPot te = Helpers.getTE(world, pos, TileEntityFlowerPot.class);
             if (te == null || te.getFlowerItemStack().isEmpty()) {
-                world.setBlockState(pos, TFCBlockFlowerPot.get(plant).getDefaultState(), 3);
+                world.setBlockState(pos, BlockFlowerPotTFC.get(plant).getDefaultState(), 3);
                 player.getHeldItem(hand).shrink(1);
                 return EnumActionResult.SUCCESS;
             }

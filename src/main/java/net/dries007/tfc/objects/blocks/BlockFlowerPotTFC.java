@@ -23,18 +23,18 @@ import java.util.Map;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class TFCBlockFlowerPot extends Block {
+public class BlockFlowerPotTFC extends Block {
     protected static final AxisAlignedBB FLOWER_POT_AABB = new AxisAlignedBB(0.3125D, 0.0D, 0.3125D, 0.6875D, 0.375D, 0.6875D);
 
-    private static final Map<Plant, TFCBlockFlowerPot> MAP = new HashMap<>();
+    private static final Map<Plant, BlockFlowerPotTFC> MAP = new HashMap<>();
 
     public final Plant plant;
 
-    public static TFCBlockFlowerPot get(Plant plant) {
+    public static BlockFlowerPotTFC get(Plant plant) {
         return MAP.get(plant);
     }
 
-    public TFCBlockFlowerPot(Plant plant) {
+    public BlockFlowerPotTFC(Plant plant) {
         super(Material.CIRCUITS);
         this.plant = plant;
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");

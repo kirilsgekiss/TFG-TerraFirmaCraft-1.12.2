@@ -314,18 +314,22 @@ public final class BlocksTFC {
     private static ImmutableList<TFCBlockLamp> allBlockLamps = getNull();
     private static ImmutableList<TFCBlockToolRack> allToolRackBlocks = getNull();
     private static ImmutableList<TFCBlockCrop> allCropBlocks = getNull();
-    private static ImmutableList<TFCBlockCropDead> allDeadCropBlocks = getNull();
+    private static ImmutableList<BlockCropDead> allDeadCropBlocks = getNull();
     private static ImmutableList<TFCBlockPlant> allPlantBlocks = getNull();
     private static ImmutableList<TFCBlockPlant> allGrassBlocks = getNull();
     private static ImmutableList<TFCBlockLoom> allLoomBlocks = getNull();
     private static ImmutableList<TFCBlockWoodSupport> allSupportBlocks = getNull();
-    private static ImmutableList<TFCBlockFlowerPot> allFlowerPots = getNull();
+    private static ImmutableList<BlockFlowerPotTFC> allFlowerPots = getNull();
 
 
     private static ImmutableList<Block> allFoodItemBlocks = getNull();
     private static ImmutableList<TFCBlockFenceGateLog> allFenceGateLogBlocks = getNull();
-    private static ImmutableList<TFCBlockCropDead> allDeadCrops = getNull();
-    private static ImmutableList<TFCBlockWoodStairs> allWoodStairBlocksTFC = getNull();
+    private static ImmutableList<BlockFruitTreeLeaves> allFruitLeaves = getNull();
+    private static ImmutableList<BlockFruitTreeSapling> allFruitSapling = getNull();
+    private static ImmutableList<BlockCropDead> allDeadCrops = getNull();
+    private static ImmutableList<TFCBlockRockSlab.Half> allSlabBlocksTFC = getNull();
+    private static ImmutableList<TFCBlockWoodStairs> allStairBlocksTFC = getNull();
+    private static ImmutableList<TFCBlockPlanks> allPlanksTFC = getNull();
     private static ImmutableList<BlockSurfaceRock> allSurfaceRocks = getNull();
     private static ImmutableList<BlockSurfaceSeashells> allSurfaceSeashells = getNull();
     private static ImmutableList<BlockSurfaceFlint> allSurfaceFlint = getNull();
@@ -480,7 +484,7 @@ public final class BlocksTFC {
         return allCropBlocks;
     }
 
-    public static ImmutableList<TFCBlockCropDead> getAllDeadCropBlocks() {
+    public static ImmutableList<BlockCropDead> getAllDeadCropBlocks() {
         return allDeadCropBlocks;
     }
 
@@ -500,7 +504,7 @@ public final class BlocksTFC {
         return allSupportBlocks;
     }
 
-    public static ImmutableList<TFCBlockFlowerPot> getAllFlowerPots() {
+    public static ImmutableList<BlockFlowerPotTFC> getAllFlowerPots() {
         return allFlowerPots;
     }
 
@@ -532,9 +536,28 @@ public final class BlocksTFC {
         return allFenceGateLogBlocks;
     }
 
+    public static ImmutableList<BlockFruitTreeLeaves> getAllFruitLeaves() {
+        return allFruitLeaves;
+    }
 
-    public static ImmutableList<TFCBlockCropDead> getAllDeadCrops() {
+    public static ImmutableList<BlockFruitTreeSapling> getAllFruitSapling() {
+        return allFruitSapling;
+    }
+
+    public static ImmutableList<TFCBlockPlanks> getAllPlanksTFC() {
+        return allPlanksTFC;
+    }
+
+    public static ImmutableList<BlockCropDead> getAllDeadCrops() {
         return allDeadCrops;
+    }
+
+    public static ImmutableList<TFCBlockRockSlab.Half> getAllSlabBlocksTFC() {
+        return allSlabBlocksTFC;
+    }
+
+    public static ImmutableList<TFCBlockWoodStairs> getAllStairBlocksTFC() {
+        return allStairBlocksTFC;
     }
 
     public static ImmutableList<BlockSurfaceRock> getAllSurfaceRocks() {
@@ -662,6 +685,12 @@ public final class BlocksTFC {
         ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
         ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
         ImmutableList.Builder<Block> foodItemBlocks = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockFenceGateLog> fenceGatesLog = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitTreeLeaves> fruitLeaves = ImmutableList.builder();
+        ImmutableList.Builder<BlockFruitTreeSapling> fruitSapling = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockCrop> cropBlocks = ImmutableList.builder();
+        ImmutableList.Builder<BlockCropDead> deadCrops = ImmutableList.builder();
+        ImmutableList.Builder<BlockRockVariant> blockRockVariantsTFCF = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceRock> surfaceRock = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
         ImmutableList.Builder<BlockSurfaceFlint> surfaceFlint = ImmutableList.builder();
@@ -669,6 +698,9 @@ public final class BlocksTFC {
         ImmutableList.Builder<BlockDriftwood> surfaceDriftwood = ImmutableList.builder();
         ImmutableList.Builder<BlockTwig> surfaceTwig = ImmutableList.builder();
         ImmutableList.Builder<BlockPinecone> surfacePinecone = ImmutableList.builder();
+        ImmutableList.Builder<TFCBlockRockSlab.Half> blockSlabTFC = new Builder<>();
+        ImmutableList.Builder<TFCBlockWoodStairs> blockStairTFC = new Builder<>();
+        ImmutableList.Builder<TFCBlockPlanks> planksTFC = ImmutableList.builder();
         ImmutableList.Builder<BlockPebbleWater> pebbleWater = ImmutableList.builder();
         ImmutableList.Builder<BlockCoral> plantCoral = ImmutableList.builder();
         ImmutableList.Builder<TFCBlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
@@ -789,20 +821,19 @@ public final class BlocksTFC {
             allFluidBlocks = fluids.build();
         }
 
-        // Rock Variant
-        Builder<BlockRockVariant> blockRockVariant = ImmutableList.builder();
         {
+            Builder<BlockRockVariant> b = ImmutableList.builder();
             for (Type type : values()) {
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
                     if (type != ANVIL) {
-                        blockRockVariant.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
+                        b.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
                     } else if (rock.getRockCategory().hasAnvil()) {
                         // Anvil registration is special, is has it's own folder
                         register(r, "anvil/" + rock.getRegistryName().getPath(), BlockRockVariant.create(rock, type));
                     }
                 }
             }
-            allBlockRockVariants = blockRockVariant.build();
+            allBlockRockVariants = b.build();
             allBlockRockVariants.forEach(x ->
             {
                 if (x.getType() == SAND) {
@@ -811,66 +842,68 @@ public final class BlocksTFC {
                     normalItemBlocks.add(new TFCItemBlock(x));
                 }
             });
+        }
 
-            {
-                // Add resultingState to the registered collapsable blocks.
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
-                    for (Rock.Type type : values()) {
-                        FallingBlockManager.Specification spec = type.getFallingSpecification();
-                        switch (type) {
-                            case ANVIL:
-                                if (!rock.getRockCategory().hasAnvil()) {
-                                    break;
-                                }
-                            case RAW:
-                                spec = new FallingBlockManager.Specification(spec);
-                                spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
-                                FallingBlockManager.registerFallable(BlockRockVariant.get(rock, RAW), spec);
+        {
+            // Add resultingState to the registered collapsable blocks.
+            for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
+                for (Rock.Type type : values()) {
+                    FallingBlockManager.Specification spec = type.getFallingSpecification();
+                    switch (type) {
+                        case ANVIL:
+                            if (!rock.getRockCategory().hasAnvil()) {
                                 break;
-                            case SMOOTH:
+                            }
+                        case RAW:
+                            spec = new FallingBlockManager.Specification(spec);
+                            spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
+                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, RAW), spec);
+                            break;
+                        case SMOOTH:
+                            spec = new FallingBlockManager.Specification(spec);
+                            spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
+                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(TFCBlockRockSmooth.CAN_FALL, true), spec);
+                            break;
+                        default:
+                            Rock.Type nonGrassType = type.getNonGrassVersion();
+                            if (nonGrassType != type) {
                                 spec = new FallingBlockManager.Specification(spec);
-                                spec.setResultingState(BlockRockVariant.get(rock, COBBLE).getDefaultState());
-                                FallingBlockManager.registerFallable(BlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(TFCBlockRockSmooth.CAN_FALL, true), spec);
-                                break;
-                            default:
-                                Rock.Type nonGrassType = type.getNonGrassVersion();
-                                if (nonGrassType != type) {
-                                    spec = new FallingBlockManager.Specification(spec);
-                                    spec.setResultingState(BlockRockVariant.get(rock, nonGrassType).getDefaultState());
-                                }
-                                FallingBlockManager.registerFallable(BlockRockVariant.get(rock, type), spec);
-                        }
+                                spec.setResultingState(BlockRockVariant.get(rock, nonGrassType).getDefaultState());
+                            }
+                            FallingBlockManager.registerFallable(BlockRockVariant.get(rock, type), spec);
                     }
                 }
             }
         }
 
-        // Wood
-        Builder<TFCBlockPlanks> blockPlanks = ImmutableList.builder();
-        Builder<TFCBlockWorkbench> blockWorkbenches = ImmutableList.builder();
-        Builder<TFCBlockBookshelf> blockBookshelfs = ImmutableList.builder();
-        Builder<TFCBlockFence> blockFence = ImmutableList.builder();
-        Builder<TFCBlockFenceGate> blockFenceGates = ImmutableList.builder();
-        Builder<TFCBlockFenceGateLog> blockFenceGatesLog = ImmutableList.builder();
-        Builder<TFCBlockWoodPressurePlate> blockWoodPressurePlate = ImmutableList.builder();
-        Builder<TFCBlockWoodButton> blockWoodButton = ImmutableList.builder();
-        Builder<TFCBlockWoodDoor> blockDoors = ImmutableList.builder();
-        Builder<TFCBlockWoodTrapDoor> blockTrapDoors = ImmutableList.builder();
-        Builder<TFCBlockChest> blockChests = ImmutableList.builder();
-        Builder<TFCBlockToolRack> blockToolRacks = ImmutableList.builder();
-        Builder<TFCBlockBarrel> blockBarrel = ImmutableList.builder();
-        Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
-        Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
-        Builder<TFCBlockWoodStairs> blockWoodStairsTFC = new Builder<>();
-        Builder<TFCBlockWoodSlab.Half> blockWoodSlabTFC = new Builder<>();
+
         {
+            Builder<TFCBlockLog> blockLogs = ImmutableList.builder();
+            Builder<TFCBlockPlanks> blockPlanks = ImmutableList.builder();
+            Builder<TFCBlockWorkbench> blockWorkbenches = ImmutableList.builder();
+            Builder<TFCBlockBookshelf> blockBookshelfs = ImmutableList.builder();
+            Builder<TFCBlockLeaves> blockLeaves = ImmutableList.builder();
+            Builder<TFCBlockFenceGate> blockFenceGates = ImmutableList.builder();
+            Builder<TFCBlockFence> blockFence = ImmutableList.builder();
+            Builder<TFCBlockWoodPressurePlate> blockWoodPressurePlate = ImmutableList.builder();
+            Builder<TFCBlockWoodButton> blockWoodButton = ImmutableList.builder();
+            Builder<TFCBlockSapling> blockSaplings = ImmutableList.builder();
+            Builder<TFCBlockWoodDoor> blockDoors = ImmutableList.builder();
+            Builder<TFCBlockWoodTrapDoor> blockTrapDoors = ImmutableList.builder();
+            Builder<TFCBlockChest> blockChests = ImmutableList.builder();
+            Builder<TFCBlockToolRack> blockToolRacks = ImmutableList.builder();
+            Builder<TFCBlockBarrel> blockBarrel = ImmutableList.builder();
+            Builder<TFCBlockPlant> blockPlants = ImmutableList.builder();
+            Builder<TFCBlockLoom> blockLooms = ImmutableList.builder();
+            Builder<TFCBlockWoodSupport> blockSupports = ImmutableList.builder();
+
+            // Other blocks that don't have specific order requirements
             for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
                 blockPlanks.add(register(r, "wood/planks/" + wood.getRegistryName().getPath(), new TFCBlockPlanks(wood), CT_WOOD));
                 blockWorkbenches.add(register(r, "wood/workbench/" + wood.getRegistryName().getPath(), new TFCBlockWorkbench(wood), CT_DECORATIONS));
                 blockBookshelfs.add(register(r, "wood/bookshelf/" + wood.getRegistryName().getPath(), new TFCBlockBookshelf(wood), CT_DECORATIONS));
-                blockFence.add(register(r, "wood/fence/" + wood.getRegistryName().getPath(), new TFCBlockFence(wood), CT_DECORATIONS));
                 blockFenceGates.add(register(r, "wood/fence_gate/" + wood.getRegistryName().getPath(), new TFCBlockFenceGate(wood), CT_DECORATIONS));
-                blockFenceGatesLog.add(register(r, "wood/fence_gate_log/" + wood.getRegistryName().getPath(), new TFCBlockFenceGateLog(wood), CT_DECORATIONS));
+                blockFence.add(register(r, "wood/fence/" + wood.getRegistryName().getPath(), new TFCBlockFence(wood), CT_DECORATIONS));
                 blockWoodPressurePlate.add(register(r, "wood/pressure_plate/" + wood.getRegistryName().getPath().toLowerCase(), new TFCBlockWoodPressurePlate(wood), CT_DECORATIONS));
                 blockWoodButton.add(register(r, "wood/button/" + wood.getRegistryName().getPath(), new TFCBlockWoodButton(wood), CT_DECORATIONS));
                 blockDoors.add(register(r, "wood/door/" + wood.getRegistryName().getPath(), new TFCBlockWoodDoor(wood), CT_DECORATIONS));
@@ -881,83 +914,86 @@ public final class BlocksTFC {
                 blockBarrel.add(register(r, "wood/barrel/" + wood.getRegistryName().getPath(), new TFCBlockBarrel(wood), CT_DECORATIONS));
                 blockLooms.add(register(r, "wood/loom/" + wood.getRegistryName().getPath(), new TFCBlockLoom(wood), CT_WOOD));
                 blockSupports.add(register(r, "wood/support/" + wood.getRegistryName().getPath(), new TFCBlockWoodSupport(wood), CT_WOOD));
-                blockWoodStairsTFC.add(register(r, "wood/stairs/" + wood.getRegistryName().getPath(), new TFCBlockWoodStairs(wood), CT_DECORATIONS));
-                blockWoodSlabTFC.add(register(r, "wood/slab/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Half(wood), CT_DECORATIONS));
-                register(r, "wood/double_slab/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Double(wood));
 
+            }
+
+            for (Tree wood : TFCRegistries.TREES.getValuesCollection()) {
+                blockLogs.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new TFCBlockLog(wood), CT_WOOD));
+                blockLeaves.add(register(r, "wood/leaves/" + wood.getRegistryName().getPath(), new TFCBlockLeaves(wood), CT_WOOD));
+                blockSaplings.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new TFCBlockSapling(wood), CT_WOOD));
             }
 
             allPlankBlocks = blockPlanks.build();
             allWorkbenchBlocks = blockWorkbenches.build();
             allBookshelfBlocks = blockBookshelfs.build();
-            allFenceBlocks = blockFence.build();
-            allFenceGateBlocks = blockFenceGates.build();
-            allFenceGateLogBlocks = blockFenceGatesLog.build();
-            allWoodPressurePlateBlocks = blockWoodPressurePlate.build();
-            allWoodButtonBlocks = blockWoodButton.build();
-            allDoorBlocks = blockDoors.build();
-            allTrapDoorWoodBlocks = blockTrapDoors.build();
-            allChestBlocks = blockChests.build();
-            allToolRackBlocks = blockToolRacks.build();
-            allBarrelBlocksBlocks = blockBarrel.build();
             allLoomBlocks = blockLooms.build();
-            allSupportBlocks = blockSupports.build();
-            allWoodStairsBlocks = blockWoodStairsTFC.build();
-            allWoodSlabBlocks = blockWoodSlabTFC.build();
-
-            allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allFenceBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allFenceGateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allFenceGateLogBlocks.forEach((x) -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allWoodPressurePlateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allWoodButtonBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allTrapDoorWoodBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allChestBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allToolRackBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allBarrelBlocksBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockBarrel(x)));
-            allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allSupportBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allWoodStairsBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-            allWoodSlabBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
-        }
-
-
-        // Tree
-        Builder<TFCBlockLog> blockLogs = ImmutableList.builder();
-        Builder<TFCBlockLeaves> blockLeaves = ImmutableList.builder();
-        Builder<TFCBlockSapling> blockSaplings = ImmutableList.builder();
-        {
-            for (Tree tree : TFCRegistries.TREES.getValuesCollection()) {
-                blockLogs.add(register(r, "wood/log/" + tree.getRegistryName().getPath(), new TFCBlockLog(tree), CT_WOOD));
-                blockLeaves.add(register(r, "wood/leaves/" + tree.getRegistryName().getPath(), new TFCBlockLeaves(tree), CT_WOOD));
-                blockSaplings.add(register(r, "wood/sapling/" + tree.getRegistryName().getPath(), new TFCBlockSapling(tree), CT_WOOD));
-            }
-
+            allFenceGateBlocks = blockFenceGates.build();
+            allFenceBlocks = blockFence.build();
+            allWoodButtonBlocks = blockWoodButton.build();
+            allWoodPressurePlateBlocks = blockWoodPressurePlate.build();
+            allBarrelBlocksBlocks = blockBarrel.build();
 
             allLogBlocks = blockLogs.build();
             allLeafBlocks = blockLeaves.build();
             allSaplingBlocks = blockSaplings.build();
+            allDoorBlocks = blockDoors.build();
+            allTrapDoorWoodBlocks = blockTrapDoors.build();
+            allChestBlocks = blockChests.build();
+            allToolRackBlocks = blockToolRacks.build();
+            allSupportBlocks = blockSupports.build();
 
+            // logs are special
+            allPlankBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWorkbenchBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allBookshelfBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allLoomBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allFenceBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allFenceGateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWoodButtonBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allWoodPressurePlateBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
+            allBarrelBlocksBlocks.forEach(x -> colorizedItemBlocks.add(new ItemBlockBarrel(x)));
+            allToolRackBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
 
             allLeafBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
             allSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new ItemBlockSaplingTFC(x)));
+            allTrapDoorWoodBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            allChestBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+            allSupportBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
-
-        // Rock
-        Builder<TFCBlockRockWall> blockRockWall = ImmutableList.builder();
-        Builder<TFCBlockRockStairs> blockRockStairs = new Builder<>();
-        Builder<TFCBlockRockSlab.Half> blockRockSlab = new Builder<>();
         {
+            Builder<TFCBlockRockWall> blockWallTFC = ImmutableList.builder();
+            Builder<TFCBlockRockStairs> blockRockStairsTFC = new Builder<>();
+            Builder<TFCBlockWoodStairs> blockWoodStairsTFC = new Builder<>();
+            Builder<TFCBlockRockSlab.Half> blockRockSlabTFC = new Builder<>();
+            Builder<TFCBlockWoodSlab.Half> blockWoodSlabTFC = new Builder<>();
+
+            // Walls
+            for (Type type : new Type[]{SMOOTH, COBBLE, BRICKS, MUD_BRICKS})
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+                    blockWallTFC.add(register(r, ("wall/" + type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockWall(BlockRockVariant.get(rock, type)), CT_DECORATIONS));
+
+            // Stairs
             for (Type type : new Type[]{SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
-                    blockRockWall.add(register(r, ("wall/" + type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockWall(BlockRockVariant.get(rock, type)), CT_DECORATIONS));
-                    blockRockStairs.add(register(r, "stairs/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockStairs(rock, type), CT_DECORATIONS));
-                    blockRockSlab.add(register(r, "slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockSlab.Half(rock, type), CT_DECORATIONS));
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+                    blockRockStairsTFC.add(register(r, "stairs/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockStairs(rock, type), CT_DECORATIONS));
+            for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
+                blockWoodStairsTFC.add(register(r, "stairs/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodStairs(wood), CT_DECORATIONS));
+
+            // Double Slabs
+            // Full slabs are the same as full blocks, they are not saved to a list, they are kept track of by the halfslab version.
+            for (Type type : new Type[]{SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
                     register(r, "double_slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockSlab.Double(rock, type));
-                }
+            for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
+                register(r, "double_slab/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Double(wood));
+
+            // Slabs
+            for (Type type : new Type[]{SMOOTH, COBBLE, BRICKS, MUD_BRICKS, RAW})
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection())
+                    blockRockSlabTFC.add(register(r, "slab/" + (type.name().toLowerCase() + "/" + rock.getRegistryName().getPath()).toLowerCase(), new TFCBlockRockSlab.Half(rock, type), CT_DECORATIONS));
+            for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
+                blockWoodSlabTFC.add(register(r, "slab/wood/" + wood.getRegistryName().getPath(), new TFCBlockWoodSlab.Half(wood), CT_DECORATIONS));
 
             for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
                 // Redstone things
@@ -965,22 +1001,23 @@ public final class BlocksTFC {
                 inventoryItemBlocks.add(new TFCItemBlock(register(r, "stone/pressure_plate/" + rock.getRegistryName().getPath().toLowerCase(), new TFCBlockRockPressurePlate(rock), CT_DECORATIONS)));
             }
 
-            allWallBlocks = blockRockWall.build();
-            allRockStairsBlocks = blockRockStairs.build();
-            allRockSlabBlocks = blockRockSlab.build();
-
+            allWallBlocks = blockWallTFC.build();
+            allRockStairsBlocks = blockRockStairsTFC.build();
+            allWoodStairsBlocks = blockWoodStairsTFC.build();
+            allRockSlabBlocks = blockRockSlabTFC.build();
+            allWoodSlabBlocks = blockWoodSlabTFC.build();
 
             allWallBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
             allRockStairsBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+            allWoodStairsBlocks.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
         }
 
-
-        // Metall
-        Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
-        Builder<TFCBlockCladding> blockCladding = ImmutableList.builder();
-        Builder<TFCBlockLamp> blockLamps = ImmutableList.builder();
-        Builder<TFCBlockMetalTrapDoor> blockMetalTrapdoors = ImmutableList.builder();
         {
+            Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
+            Builder<TFCBlockCladding> blockCladding = ImmutableList.builder();
+            Builder<TFCBlockLamp> blockLamps = ImmutableList.builder();
+            Builder<TFCBlockMetalTrapDoor> blockMetalTrapdoors = ImmutableList.builder();
+
             for (gregtech.api.unification.material.Material material : GregTechAPI.MATERIAL_REGISTRY) {
                 if (material.hasFlag(TFCMaterialFlags.GENERATE_ANVIL)) {
                     blockAnvils.add(register(r, "anvil/" + material.getUnlocalizedName(), new TFCBlockMetalAnvil(material), CT_METAL));
@@ -1005,69 +1042,70 @@ public final class BlocksTFC {
             allBlockMetalTrapDoor = blockMetalTrapdoors.build();
         }
 
-        // Crop
-        Builder<TFCBlockCrop> blockCrop = ImmutableList.builder();
-        Builder<TFCBlockCropDead> blockCropDead = ImmutableList.builder();
+        //Builder<TFCBlockCrop> cropBlocks = ImmutableList.builder();
         {
+
             for (Crop crop : Crop.values()) {
-                blockCrop.add(register(r, "crop/" + crop.name().toLowerCase(), crop.createGrowingBlock()));
-                blockCropDead.add(register(r, "dead_crop/" + crop.name().toLowerCase(), crop.createDeadBlock()));
+                cropBlocks.add(register(r, "crop/" + crop.name().toLowerCase(), crop.createGrowingBlock()));
             }
 
-            allCropBlocks = blockCrop.build();
-            allDeadCropBlocks = blockCropDead.build();
-            /*
-            for (TFCBlockCrop blockCropWater : allCropBlocks)
+            allCropBlocks = cropBlocks.build();
+            /*for (BlockCropTFC blockCropWater : allCropBlocks)
             {
-                normalItemBlocks.add(new ItemBlockCropWaterTFC((TFCBlockCrop) blockCropWater));
+                normalItemBlocks.add(new ItemBlockCropWaterTFC((BlockCropTFC) blockCropWater));
+            }*/
+        }
+
+        //Builder<BlockCropDead> deadCrops = ImmutableList.builder();
+        {
+
+            for (Crop crop : Crop.values()) {
+                deadCrops.add(register(r, "dead_crop/" + crop.name().toLowerCase(), crop.createDeadBlock()));
             }
-            for (BlockCropDead blockCropWaterDead : allDeadCropBlocks)
+
+            allDeadCropBlocks = deadCrops.build();
+            /*for (BlockCropDead blockCropWaterDead : allDeadCropBlocks)
             {
                 normalItemBlocks.add(new ItemBlockCropDeadWaterTFC((BlockCropDead) blockCropWaterDead));
             }*/
         }
 
-
-        // Fruit Tree
-        Builder<BlockFruitTreeSapling> fruitSaplings = ImmutableList.builder();
-        Builder<BlockFruitTreeTrunk> fruitTrunks = ImmutableList.builder();
-        Builder<BlockFruitTreeBranch> fruitBranches = ImmutableList.builder();
-        Builder<BlockFruitTreeLeaves> fruitLeaves = ImmutableList.builder();
         {
+            Builder<BlockFruitTreeSapling> fSaplings = ImmutableList.builder();
+            Builder<BlockFruitTreeTrunk> fTrunks = ImmutableList.builder();
+            Builder<BlockFruitTreeBranch> fBranches = ImmutableList.builder();
+            Builder<BlockFruitTreeLeaves> fLeaves = ImmutableList.builder();
+
             for (FruitTree tree : FruitTree.values()) {
-                fruitSaplings.add(register(r, "fruit_trees/sapling/" + tree.name().toLowerCase(), new BlockFruitTreeSapling(tree), CT_WOOD));
-                fruitTrunks.add(register(r, "fruit_trees/trunk/" + tree.name().toLowerCase(), new BlockFruitTreeTrunk(tree)));
-                fruitBranches.add(register(r, "fruit_trees/branch/" + tree.name().toLowerCase(), new BlockFruitTreeBranch(tree)));
-                fruitLeaves.add(register(r, "fruit_trees/leaves/" + tree.name().toLowerCase(), new BlockFruitTreeLeaves(tree), CT_WOOD));
+                fSaplings.add(register(r, "fruit_trees/sapling/" + tree.name().toLowerCase(), new BlockFruitTreeSapling(tree), CT_WOOD));
+                fTrunks.add(register(r, "fruit_trees/trunk/" + tree.name().toLowerCase(), new BlockFruitTreeTrunk(tree)));
+                fBranches.add(register(r, "fruit_trees/branch/" + tree.name().toLowerCase(), new BlockFruitTreeBranch(tree)));
+                fLeaves.add(register(r, "fruit_trees/leaves/" + tree.name().toLowerCase(), new BlockFruitTreeLeaves(tree), CT_WOOD));
             }
 
-            allFruitTreeSaplingBlocks = fruitSaplings.build();
-            allFruitTreeTrunkBlocks = fruitTrunks.build();
-            allFruitTreeBranchBlocks = fruitBranches.build();
-            allFruitTreeLeavesBlocks = fruitLeaves.build();
+            allFruitTreeSaplingBlocks = fSaplings.build();
+            allFruitTreeTrunkBlocks = fTrunks.build();
+            allFruitTreeBranchBlocks = fBranches.build();
+            allFruitTreeLeavesBlocks = fLeaves.build();
 
+            Builder<BlockBerryBush> fBerry = ImmutableList.builder();
+            {
+                for (BerryBush bush : BerryBush.values()) {
+                    fBerry.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new BlockBerryBush(bush), CT_FOOD));
+                }
+
+                allBerryBushBlocks = fBerry.build();
+            }
+
+            //Add ItemBlocks
             allFruitTreeSaplingBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
             allFruitTreeLeavesBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
-
-        }
-
-
-        // Berry Bush
-        Builder<BlockBerryBush> blockBerryBush = ImmutableList.builder();
-        {
-            for (BerryBush bush : BerryBush.values()) {
-                blockBerryBush.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new BlockBerryBush(bush), CT_FOOD));
-            }
-
-            allBerryBushBlocks = blockBerryBush.build();
-
             allBerryBushBlocks.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
         }
 
-
         {
-            Builder<TFCBlockPlant> blockPlants = ImmutableList.builder();
-            Builder<TFCBlockFlowerPot> blockPlantInPot = ImmutableList.builder();
+            Builder<TFCBlockPlant> plantBlocks = ImmutableList.builder();
+            Builder<BlockFlowerPotTFC> plantInPotBlock = ImmutableList.builder();
 
             Builder<TFCBlockHangingPlant> plantHangingBlock = ImmutableList.builder();
             Builder<TFCBlockHangingGlowingPlant> plantHangingGlowingBlock = ImmutableList.builder();
@@ -1089,11 +1127,11 @@ public final class BlocksTFC {
                         //plantHangingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingCreepingPlantTFC(plant), CT_FLORA));
                     }
                 } else {
-                    blockPlants.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));
+                    plantBlocks.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));
                 }
             }
 
-            allPlantBlocks = blockPlants.build();
+            allPlantBlocks = plantBlocks.build();
             allPlantBlocks.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
             allHangingPlantBlocks = plantHangingBlock.build();
@@ -1595,6 +1633,38 @@ public final class BlocksTFC {
             normalItemBlocks.add(new ItemBlockRot(x));
         });
 
+        allFenceGateLogBlocks = fenceGatesLog.build();
+        allFenceGateLogBlocks.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitLeaves = fruitLeaves.build();
+        allFruitLeaves.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allFruitSapling = fruitSapling.build();
+        allFruitSapling.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        /*allFruitBarrel = fruitBarrel.build();
+        allFruitBarrel.forEach((x) -> {
+            normalItemBlocks.add(new ItemBlockTFC(x));
+        });*/
+
+
+        allPlanksTFC = planksTFC.build();
+        allPlanksTFC.forEach((x) -> {
+            normalItemBlocks.add(new TFCItemBlock(x));
+        });
+
+        allSlabBlocksTFC = blockSlabTFC.build();
+        allStairBlocksTFC = blockStairTFC.build();
+        allStairBlocksTFC.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+
+
+        // Florae End
 
         allNormalItemBlocks = normalItemBlocks.build();
         allColorizedItemBlocks = colorizedItemBlocks.build();
