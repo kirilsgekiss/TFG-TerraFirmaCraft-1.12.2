@@ -12,7 +12,7 @@ import com.ferreusveritas.dynamictrees.util.SafeChunkBounds;
 import com.ferreusveritas.dynamictrees.util.SimpleVoxmap;
 import com.ferreusveritas.dynamictrees.worldgen.JoCode;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -58,7 +58,7 @@ public class FeatureGenMoundTFC extends FeatureGenMound
             if (initialUnderState.getMaterial() == Material.AIR || (initialUnderState.getMaterial() != Material.GROUND && initialUnderState.getMaterial() != Material.ROCK))
             {
                 ChunkDataTFC chunkData = world.getChunk(rootPos).getCapability(ChunkDataProvider.CHUNK_DATA_CAPABILITY, null);
-                initialUnderState = TFCBlockRockVariant.get(chunkData.getRockHeight(rootPos), Rock.Type.DIRT).getDefaultState();
+                initialUnderState = BlockRockVariant.get(chunkData.getRockHeight(rootPos), Rock.Type.DIRT).getDefaultState();
             }
 
             rootPos = rootPos.up();

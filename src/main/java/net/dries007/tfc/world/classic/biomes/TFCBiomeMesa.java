@@ -1,7 +1,7 @@
 package net.dries007.tfc.world.classic.biomes;
 
 import net.dries007.tfc.api.types.Rock.Type;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -95,7 +95,7 @@ public class TFCBiomeMesa extends TFCBiome {
 
         for (int j1 = 255; j1 >= 0; --j1) {
             if (chunkPrimerIn.getBlockState(l1, j1, k1).getMaterial() == Material.AIR && j1 < (int) d4) {
-                chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState());
+                chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState());
             }
 
             if (j1 <= rand.nextInt(5)) {
@@ -105,13 +105,13 @@ public class TFCBiomeMesa extends TFCBiome {
 
                 if (iblockstate1.getMaterial() == Material.AIR) {
                     l = -1;
-                } else if (iblockstate1.getBlock() == TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState()) {
+                } else if (iblockstate1.getBlock() == BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState()) {
                     if (l == -1) {
                         flag1 = false;
 
                         if (k <= 0) {
                             iblockstate = AIR;
-                            iblockstate3 = TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState();
+                            iblockstate3 = BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.RAW).getDefaultState();
                         } else if (j1 >= i2 - 4 && j1 <= i2 + 1) {
                             iblockstate = STAINED_HARDENED_CLAY;
                             iblockstate3 = this.fillerBlock;
@@ -126,9 +126,9 @@ public class TFCBiomeMesa extends TFCBiome {
                         if (j1 >= i2 - 1) {
                             if (this.hasForest && j1 > 86 + k * 2) {
                                 if (flag) {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.DIRT).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.DIRT).getDefaultState());
                                 } else {
-                                    chunkPrimerIn.setBlockState(l1, j1, k1, TFCBlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.GRASS).getDefaultState());
+                                    chunkPrimerIn.setBlockState(l1, j1, k1, BlockRockVariant.get(ChunkDataTFC.getRockHeight(worldIn, chunkBlockPos), Type.GRASS).getDefaultState());
                                 }
                             } else if (j1 > i2 + 3 + k) {
                                 IBlockState iblockstate2;

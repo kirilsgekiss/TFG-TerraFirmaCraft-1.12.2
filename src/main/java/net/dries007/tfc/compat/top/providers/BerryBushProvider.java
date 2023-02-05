@@ -6,7 +6,7 @@ import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockBerryBush;
+import net.dries007.tfc.objects.blocks.agriculture.BlockBerryBush;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -29,9 +29,9 @@ public class BerryBushProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof TFCBlockBerryBush) {
-            TFCBlockBerryBush block = (TFCBlockBerryBush) state.getBlock();
-            if (block.getBush().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(TFCBlockBerryBush.FRUITING)) {
+        if (state.getBlock() instanceof BlockBerryBush) {
+            BlockBerryBush block = (BlockBerryBush) state.getBlock();
+            if (block.getBush().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(BlockBerryBush.FRUITING)) {
                 float temp = ClimateTFC.getActualTemp(world, data.getPos());
                 float rainfall = ChunkDataTFC.getRainfall(world, data.getPos());
                 TETickCounter te = Helpers.getTE(world, data.getPos(), TETickCounter.class);

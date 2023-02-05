@@ -9,7 +9,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -133,37 +133,37 @@ public class StructureGenerator extends WorldGenerator {
                                     final IBlockState current = world.getBlockState(position);
                                     if (BlocksTFC.isSand(current)) {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.SAND)
                                                         .getDefaultState(),
                                                 2);
                                     } else if (BlocksTFC.isDirt(current)) {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.DIRT)
                                                         .getDefaultState(),
                                                 2);
                                     } else if (BlocksTFC.isDryGrass(current)) {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.DRY_GRASS)
                                                         .getDefaultState(),
                                                 2);
                                     } else if (BlocksTFC.isGrass(current)) {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.GRASS)
                                                         .getDefaultState(),
                                                 2);
                                     } else if (BlocksTFC.isSparseGrass(current)) {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.SPARSE_GRASS)
                                                         .getDefaultState(),
                                                 2);
                                     } else {
                                         world.setBlockState(new BlockPos(posX, posY, posZ),
-                                                TFCBlockRockVariant
+                                                BlockRockVariant
                                                         .get(ChunkDataTFC.getRockHeight(world, position), Type.DIRT)
                                                         .getDefaultState(),
                                                 2);

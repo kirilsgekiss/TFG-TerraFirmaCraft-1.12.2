@@ -25,14 +25,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public abstract class TFCBlockCropSimple extends TFCBlockCrop {
-    public static TFCBlockCropSimple create(ICrop crop, boolean isPickable) {
+public abstract class BlockCropSimple extends TFCBlockCrop {
+    public static BlockCropSimple create(ICrop crop, boolean isPickable) {
         PropertyInteger property = getStagePropertyForCrop(crop);
 
         if (property == null)
             throw new IllegalStateException("Invalid growthstage property " + (crop.getMaxStage() + 1) + " for crop");
 
-        return new TFCBlockCropSimple(crop, isPickable) {
+        return new BlockCropSimple(crop, isPickable) {
             @Override
             public PropertyInteger getStageProperty() {
                 return property;
@@ -42,7 +42,7 @@ public abstract class TFCBlockCropSimple extends TFCBlockCrop {
 
     private final boolean isPickable;
 
-    protected TFCBlockCropSimple(ICrop crop, boolean isPickable) {
+    protected BlockCropSimple(ICrop crop, boolean isPickable) {
         super(crop);
         this.isPickable = isPickable;
 

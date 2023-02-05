@@ -6,8 +6,8 @@
 package net.dries007.tfc.util.agriculture;
 
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropSimple;
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropSpreading;
+import net.dries007.tfc.objects.blocks.agriculture.BlockCropSimple;
+import net.dries007.tfc.objects.blocks.agriculture.BlockCropSpreading;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
 import net.dries007.tfc.objects.items.TFCItems;
@@ -194,9 +194,9 @@ public enum Crop implements ICrop {
 
     public TFCBlockCrop createGrowingBlock() {
         if (type == SIMPLE || type == PICKABLE) {
-            return TFCBlockCropSimple.create(this, type == PICKABLE);
+            return BlockCropSimple.create(this, type == PICKABLE);
         } else if (type == SPREADING) {
-            return TFCBlockCropSpreading.create(this);
+            return BlockCropSpreading.create(this);
         }
         throw new IllegalStateException("Invalid growthstage property " + growthStages + " for crop");
     }

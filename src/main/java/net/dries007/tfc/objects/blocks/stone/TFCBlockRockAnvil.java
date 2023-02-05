@@ -40,7 +40,7 @@ import java.util.Random;
 import static net.dries007.tfc.objects.te.TEAnvilTFC.SLOT_HAMMER;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockRockAnvil extends TFCBlockRockVariant {
+public class TFCBlockRockAnvil extends BlockRockVariant {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0, 0, 0, 1, 0.875, 1);
 
     public TFCBlockRockAnvil(Rock.Type type, Rock rock) {

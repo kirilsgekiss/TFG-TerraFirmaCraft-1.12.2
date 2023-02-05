@@ -27,9 +27,9 @@ public class TFCBlockRockWall extends BlockWall {
         return TABLE.get(rock).get(type);
     }
 
-    public final TFCBlockRockVariant parent;
+    public final BlockRockVariant parent;
 
-    public TFCBlockRockWall(TFCBlockRockVariant modelBlock) {
+    public TFCBlockRockWall(BlockRockVariant modelBlock) {
         super(modelBlock);
 
         if (!TABLE.containsKey(modelBlock.rock))

@@ -33,15 +33,15 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt {
             {
                 for (EnumFacing d : NOT_UP) {
                     IBlockState state = access.getBlockState(pos.offset(d, i));
-                    if (state.getBlock() instanceof TFCBlockRockVariant) {
-                        Rock rock = ((TFCBlockRockVariant) state.getBlock()).getRock();
-                        return TFCBlockRockVariant.get(rock, Type.ROOTED_DIRT).getDefaultState();
+                    if (state.getBlock() instanceof BlockRockVariant) {
+                        Rock rock = ((BlockRockVariant) state.getBlock()).getRock();
+                        return BlockRockVariant.get(rock, Type.ROOTED_DIRT).getDefaultState();
                     }
                 }
             }
             // this doesn't *really* matter because the decay BlockState has World access and will always be correct
             // so in the 0.00001% of cases where the rooty block is somehow floating with nothing around, this will do.
-            return TFCBlockRockVariant.get(Rock.LIMESTONE, Type.ROOTED_DIRT).getDefaultState();
+            return BlockRockVariant.get(Rock.LIMESTONE, Type.ROOTED_DIRT).getDefaultState();
         }
         return mimicState;
     }
@@ -59,7 +59,7 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt {
             ChunkDataTFC chunkData = ((World) world).getChunk(pos).getCapability(ChunkDataProvider.CHUNK_DATA_CAPABILITY, null);
             if (chunkData != null) {
                 Rock rock = chunkData.getRockHeight(pos);
-                return TFCBlockRockVariant.get(rock, Type.ROOTED_DIRT).getDefaultState();
+                return BlockRockVariant.get(rock, Type.ROOTED_DIRT).getDefaultState();
             }
         }
         return super.getDecayBlockState(world, pos);

@@ -41,18 +41,18 @@ import java.util.Random;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockFruitTreeSapling extends BlockBush implements IGrowable, IGrowingPlant {
+public class BlockFruitTreeSapling extends BlockBush implements IGrowable, IGrowingPlant {
     private static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1, 0, 0.1, 0.9, 0.9, 0.9);
 
-    private static final Map<IFruitTree, TFCBlockFruitTreeSapling> MAP = new HashMap<>();
+    private static final Map<IFruitTree, BlockFruitTreeSapling> MAP = new HashMap<>();
 
-    public static TFCBlockFruitTreeSapling get(IFruitTree tree) {
+    public static BlockFruitTreeSapling get(IFruitTree tree) {
         return MAP.get(tree);
     }
 
     private final IFruitTree tree;
 
-    public TFCBlockFruitTreeSapling(IFruitTree tree) {
+    public BlockFruitTreeSapling(IFruitTree tree) {
         if (MAP.put(tree, this) != null) throw new IllegalStateException("There can only be one.");
         this.tree = tree;
         setSoundType(SoundType.PLANT);
@@ -126,9 +126,9 @@ public class TFCBlockFruitTreeSapling extends BlockBush implements IGrowable, IG
     @Override
     public void grow(World world, Random random, BlockPos blockPos, IBlockState blockState) {
         if (!world.isRemote) {
-            world.setBlockState(blockPos, TFCBlockFruitTreeTrunk.get(this.tree).getDefaultState());
+            world.setBlockState(blockPos, BlockFruitTreeTrunk.get(this.tree).getDefaultState());
             if (world.getBlockState(blockPos.up()).getMaterial().isReplaceable()) {
-                world.setBlockState(blockPos.up(), TFCBlockFruitTreeLeaves.get(tree).getDefaultState().withProperty(TFCBlockFruitTreeLeaves.HARVESTABLE, false));
+                world.setBlockState(blockPos.up(), BlockFruitTreeLeaves.get(tree).getDefaultState().withProperty(BlockFruitTreeLeaves.HARVESTABLE, false));
             }
         }
     }

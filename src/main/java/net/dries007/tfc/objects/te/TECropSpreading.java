@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropSpreading;
+import net.dries007.tfc.objects.blocks.agriculture.BlockCropSpreading;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -42,7 +42,7 @@ public class TECropSpreading extends TECropBase {
 
     public void onPlaced() {
         IBlockState state = world.getBlockState(pos);
-        TFCBlockCropSpreading block = (TFCBlockCropSpreading) state.getBlock();
+        BlockCropSpreading block = (BlockCropSpreading) state.getBlock();
         // Calculate initial max growth stage
         maxGrowthStage = 3 + state.getValue(block.getStageProperty());
         if (maxGrowthStage > block.getCrop().getMaxStage()) {

@@ -11,7 +11,7 @@ import com.ferreusveritas.dynamictrees.trees.Species;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLogDT;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
@@ -108,7 +108,7 @@ public class TFCTrees {
     }
 
     public static void postInit() {
-        for (TFCBlockRockVariant rock : BlocksTFC.getAllRockVariantsBlock()) {
+        for (BlockRockVariant rock : BlocksTFC.getAllBlockRockVariants()) {
             IBlockState def = rock.getDefaultState();
             if (BlocksTFC.isGrowableSoil(def)) {
                 DirtHelper.registerSoil(def.getBlock(), DirtHelper.DIRTLIKE);

@@ -24,7 +24,7 @@ import java.util.Random;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockMud extends TFCBlockRockVariant {
+public class TFCBlockRockMud extends BlockRockVariant {
     protected static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.6D, 1.0D);
 
     @Nullable
@@ -38,7 +38,7 @@ public class TFCBlockRockMud extends TFCBlockRockVariant {
     }
 
     public static boolean isSupportingSideBlock(IBlockState state) {
-        return state.isNormalCube() || (state.getBlock() instanceof TFCBlockRockVariant);
+        return state.isNormalCube() || (state.getBlock() instanceof BlockRockVariant);
     }
 
     public TFCBlockRockMud(Type type, Rock rock) {

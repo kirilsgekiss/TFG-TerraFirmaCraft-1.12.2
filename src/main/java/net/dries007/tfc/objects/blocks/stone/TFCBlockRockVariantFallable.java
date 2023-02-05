@@ -28,7 +28,7 @@ import java.util.Random;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockVariantFallable extends TFCBlockRockVariant {
+public class TFCBlockRockVariantFallable extends BlockRockVariant {
     public TFCBlockRockVariantFallable(Type type, Rock rock) {
         super(type, rock);
         if (type.canFall()) {
