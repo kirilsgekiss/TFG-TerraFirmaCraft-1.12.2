@@ -362,7 +362,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
         return new BlockStateContainer(this, growthStageProperty, DAYPERIOD, AGE);
     }
 
-    int getDayPeriod() {
+    public int getDayPeriod() {
         return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
 

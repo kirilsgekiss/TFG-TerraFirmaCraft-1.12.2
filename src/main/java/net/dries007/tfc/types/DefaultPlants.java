@@ -178,6 +178,7 @@ public final class DefaultPlants {
     public static final ResourceLocation TAMPA_BUTTERFLY_ORCHID = new ResourceLocation(MOD_ID, "tampa_butterfly_orchid");
     public static final ResourceLocation TURKEY_TAIL = new ResourceLocation(MOD_ID, "turkey_tail");
     public static final ResourceLocation WILDFIRE = new ResourceLocation(MOD_ID, "wildfire");
+    public static final ResourceLocation SPORE_BLOSSOM = new ResourceLocation(MOD_ID, "spore_blossom");
 
     // Water Plants
     public static final ResourceLocation BADDERLOCKS = new ResourceLocation(MOD_ID, "badderlocks");
@@ -423,6 +424,7 @@ public final class DefaultPlants {
                 new Plant(TAMPA_BUTTERFLY_ORCHID, Plant.PlantType.EPIPHYTE, new int[]{0, 1, 1, 2, 2, 3, 3, 2, 2, 1, 1, 0}, false, false, 0f, 40f, -5f, 50f, 190f, 500f, 0, 15, 1, 0.8D, null),
                 new Plant(TURKEY_TAIL, Plant.PlantType.EPIPHYTE, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, false, 0f, 40f, -12f, 50f, 200f, 500f, 0, 15, 1, 0.8D, "epiphyte_turkey_tail"),
                 new Plant(WILDFIRE, Plant.PlantType.EPIPHYTE, new int[]{0, 1, 1, 2, 2, 3, 3, 2, 2, 1, 1, 0}, false, false, 15f, 40f, 10f, 50f, 130f, 300f, 0, 15, 1, 0.8D, null),
+                new Plant(SPORE_BLOSSOM, Plant.PlantType.EPIPHYTE, new int[] {0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0}, false, false, 0f, 40f, -15f, 50f, 180f, 500f, 0, 15, 1, 0.9D, null),
 
                 // Mushrooms
                 new Plant(AMANITA, Plant.PlantType.MUSHROOM, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, false, false, -11f, 48f, -13f, 50f, 250f, 500f, 0, 12, 1, 0.8D, "mushroom_red"),
