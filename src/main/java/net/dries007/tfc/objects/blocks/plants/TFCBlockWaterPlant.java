@@ -324,7 +324,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
         return plant.getEnumPlantTypeTFC();
     }
 
-    public int getDayPeriod() {
+    int getDayPeriod() {
         return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
 

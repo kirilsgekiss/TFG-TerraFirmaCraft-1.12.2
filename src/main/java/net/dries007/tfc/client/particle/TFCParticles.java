@@ -38,9 +38,7 @@ public enum TFCParticles {
     LEAF2(new ResourceLocation(MOD_ID, "particle/leaf2"), () -> ParticleLeaf::new),
     LEAF3(new ResourceLocation(MOD_ID, "particle/leaf3"), () -> ParticleLeaf::new),
     SPARK(new ResourceLocation(MOD_ID, "particle/spark"), () -> ParticleSpark::new),
-    BUBBLE(new ResourceLocation(MOD_ID, "particle/bubble"), () -> ParticleBubbleTFC::new),
-    BLOSSOM(new ResourceLocation(MOD_ID, "particle/blossom"), () -> ParticleBlossom::new),
-    FALLING_BLOSSOM(new ResourceLocation(MOD_ID, "particle/blossom"), () -> ParticleFallingBlossom::new);
+    BUBBLE(new ResourceLocation(MOD_ID, "particle/bubble"), () -> ParticleBubbleTFC::new);
 
     @SubscribeEvent
     public static void onTextureStitchEvent(TextureStitchEvent.Pre event) {
