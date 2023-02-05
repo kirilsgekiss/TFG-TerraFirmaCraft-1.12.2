@@ -80,7 +80,7 @@ public class TFCTrees {
 
             switch (treeName) {
                 case "acacia":
-                    species.addAcceptableSoils(DirtHelper.HARDCLAYLIKE); //match base DT
+                    species.addAcceptableSoils(DirtHelper.HARDCLAYLIKE); // match base DT
                     break;
                 case "douglas_fir":
                 case "spruce":
@@ -99,7 +99,7 @@ public class TFCTrees {
     }
 
 
-    public static void registerItems(IForgeRegistry<Item> registry) //has to wait until TFC Items have been registered
+    public static void registerItems(IForgeRegistry<Item> registry) // has to wait until TFC Items have been registered
     {
         TFCRegistries.TREES.getValuesCollection().forEach(t -> {
             String treeName = t.toString();
