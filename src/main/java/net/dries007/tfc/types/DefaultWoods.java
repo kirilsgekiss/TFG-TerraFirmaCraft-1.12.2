@@ -68,6 +68,71 @@ public final class DefaultWoods {
     public static final ResourceLocation WOODEN = new ResourceLocation(MOD_ID, "wooden");
 
 
+    public static final ResourceLocation AFRICAN_PADAUK = new ResourceLocation(MOD_ID, "african_padauk");
+    public static final ResourceLocation ALDER = new ResourceLocation(MOD_ID, "alder");
+    public static final ResourceLocation ANGELIM = new ResourceLocation(MOD_ID, "angelim");
+    public static final ResourceLocation BALD_CYPRESS = new ResourceLocation(MOD_ID, "bald_cypress");
+    public static final ResourceLocation BAOBAB = new ResourceLocation(MOD_ID, "baobab");
+    public static final ResourceLocation BEECH = new ResourceLocation(MOD_ID, "beech");
+    public static final ResourceLocation BLACK_WALNUT = new ResourceLocation(MOD_ID, "black_walnut");
+    public static final ResourceLocation BOX = new ResourceLocation(MOD_ID, "box");
+    public static final ResourceLocation BRAZILWOOD = new ResourceLocation(MOD_ID, "brazilwood");
+    public static final ResourceLocation BUTTERNUT = new ResourceLocation(MOD_ID, "butternut");
+    public static final ResourceLocation COCOBOLO = new ResourceLocation(MOD_ID, "cocobolo");
+    public static final ResourceLocation CYPRESS = new ResourceLocation(MOD_ID, "cypress");
+    public static final ResourceLocation EBONY = new ResourceLocation(MOD_ID, "ebony");
+    public static final ResourceLocation EUCALYPTUS = new ResourceLocation(MOD_ID, "eucalyptus");
+    public static final ResourceLocation EUROPEAN_OAK = new ResourceLocation(MOD_ID, "european_oak");
+    public static final ResourceLocation FEVER = new ResourceLocation(MOD_ID, "fever");
+    public static final ResourceLocation FRUITWOOD = new ResourceLocation(MOD_ID, "fruitwood");
+    public static final ResourceLocation GINKGO = new ResourceLocation(MOD_ID, "ginkgo");
+    public static final ResourceLocation GREENHEART = new ResourceLocation(MOD_ID, "greenheart");
+    public static final ResourceLocation HAWTHORN = new ResourceLocation(MOD_ID, "hawthorn");
+    public static final ResourceLocation HAZEL = new ResourceLocation(MOD_ID, "hazel");
+    public static final ResourceLocation HEMLOCK = new ResourceLocation(MOD_ID, "hemlock");
+    public static final ResourceLocation HOLLY = new ResourceLocation(MOD_ID, "holly");
+    public static final ResourceLocation HORNBEAM = new ResourceLocation(MOD_ID, "hornbeam");
+    public static final ResourceLocation IPE = new ResourceLocation(MOD_ID, "ipe");
+    public static final ResourceLocation IROKO = new ResourceLocation(MOD_ID, "iroko");
+    public static final ResourceLocation IRONWOOD = new ResourceLocation(MOD_ID, "ironwood");
+    public static final ResourceLocation JACARANDA = new ResourceLocation(MOD_ID, "jacaranda");
+    public static final ResourceLocation JOSHUA_TREE = new ResourceLocation(MOD_ID, "joshua_tree");
+    public static final ResourceLocation JUNIPER = new ResourceLocation(MOD_ID, "juniper");
+    public static final ResourceLocation KAURI = new ResourceLocation(MOD_ID, "kauri");
+    public static final ResourceLocation LARCH = new ResourceLocation(MOD_ID, "larch");
+    public static final ResourceLocation LIMBA = new ResourceLocation(MOD_ID, "limba");
+    public static final ResourceLocation LOCUST = new ResourceLocation(MOD_ID, "locust");
+    public static final ResourceLocation LOGWOOD = new ResourceLocation(MOD_ID, "logwood");
+    public static final ResourceLocation MACLURA = new ResourceLocation(MOD_ID, "maclura");
+    public static final ResourceLocation MAHOE = new ResourceLocation(MOD_ID, "mahoe");
+    public static final ResourceLocation MAHOGANY = new ResourceLocation(MOD_ID, "mahogany");
+    public static final ResourceLocation MANGROVE = new ResourceLocation(MOD_ID, "mangrove");
+    public static final ResourceLocation MARBLEWOOD = new ResourceLocation(MOD_ID, "marblewood");
+    public static final ResourceLocation MESSMATE = new ResourceLocation(MOD_ID, "messmate");
+    public static final ResourceLocation MOUNTAIN_ASH = new ResourceLocation(MOD_ID, "mountain_ash");
+    public static final ResourceLocation MULBERRY = new ResourceLocation(MOD_ID, "mulberry");
+    public static final ResourceLocation NORDMANN_FIR = new ResourceLocation(MOD_ID, "nordmann_fir");
+    public static final ResourceLocation PINK_CHERRY = new ResourceLocation(MOD_ID, "pink_cherry");
+    public static final ResourceLocation PINK_IVORY = new ResourceLocation(MOD_ID, "pink_ivory");
+    public static final ResourceLocation POPLAR = new ResourceLocation(MOD_ID, "poplar");
+    public static final ResourceLocation PURPLEHEART = new ResourceLocation(MOD_ID, "purpleheart");
+    public static final ResourceLocation RED_CEDAR = new ResourceLocation(MOD_ID, "red_cedar");
+    public static final ResourceLocation RED_ELM = new ResourceLocation(MOD_ID, "red_elm");
+    public static final ResourceLocation REDWOOD = new ResourceLocation(MOD_ID, "redwood");
+    public static final ResourceLocation ROWAN = new ResourceLocation(MOD_ID, "rowan");
+    public static final ResourceLocation RUBBER_FIG = new ResourceLocation(MOD_ID, "rubber_fig");
+    public static final ResourceLocation SWEETGUM = new ResourceLocation(MOD_ID, "sweetgum");
+    public static final ResourceLocation SYZYGIUM = new ResourceLocation(MOD_ID, "syzygium");
+    public static final ResourceLocation TEAK = new ResourceLocation(MOD_ID, "teak");
+    public static final ResourceLocation WALNUT = new ResourceLocation(MOD_ID, "walnut");
+    public static final ResourceLocation WENGE = new ResourceLocation(MOD_ID, "wenge");
+    public static final ResourceLocation WHITE_CHERRY = new ResourceLocation(MOD_ID, "white_cherry");
+    public static final ResourceLocation WHITEBEAM = new ResourceLocation(MOD_ID, "whitebeam");
+    public static final ResourceLocation YELLOW_MERANTI = new ResourceLocation(MOD_ID, "yellow_meranti");
+    public static final ResourceLocation YEW = new ResourceLocation(MOD_ID, "yew");
+    public static final ResourceLocation ZEBRAWOOD = new ResourceLocation(MOD_ID, "zebrawood");
+
+
     // Simple ITreeGenerator instances.
 
     @SubscribeEvent
@@ -121,7 +186,76 @@ public final class DefaultWoods {
                 new Wood.Builder(LACQUERED_WOOD, 762f, 2000).build(),
 
                 // Misc Wood
-                new Wood.Builder(WOODEN, 762f, 2000).build()
+                new Wood.Builder(WOODEN, 762f, 2000).build(),
+
+
+                new Wood.Builder(BAOBAB, 478f, 1000).setColor(0xBFA677).build(),
+                new Wood.Builder(EUCALYPTUS, 705f, 1000).setColor(0xEB9D6C).build(),
+                new Wood.Builder(HAWTHORN, 683f, 1500).setColor(0xCF7744).build(),
+                new Wood.Builder(MULBERRY, 705f, 1860).build(),
+                new Wood.Builder(MACLURA, 773f, 1930).setColor(0xD69D14).build(),
+                new Wood.Builder(MAHOGANY, 773f, 1000).setColor(0x86695F).build(),
+                new Wood.Builder(PINK_IVORY, 773f, 1000).setColor(0xF7667F).build(),
+                new Wood.Builder(RED_CEDAR, 618f, 1750).setColor(0x9A6C5B).build(),
+                new Wood.Builder(ROWAN, 645f, 2000).setColor(0xA88F8C).build(),
+                new Wood.Builder(SYZYGIUM, 745f, 2000).setColor(0xD6ABAF).build(),
+                new Wood.Builder(YEW, 813f, 2150).setColor(0xE8A074).build(),
+                new Wood.Builder(JACARANDA, 795f, 1250).setColor(0x9B7967).build(),
+                new Wood.Builder(JOSHUA_TREE, 696f, 1250).build(),
+                new Wood.Builder(JUNIPER, 632f, 1750).setColor(0xA3987F).build(),
+                new Wood.Builder(IPE, 785f, 1200).setColor(0x452417).build(),
+                new Wood.Builder(PINK_CHERRY, 795f, 1250).setColor(0xD99C85).build(),
+                new Wood.Builder(WHITE_CHERRY, 795f, 1250).setColor(0xCFAEA1).build(),
+                new Wood.Builder(SWEETGUM, 745f, 2000).setColor(0xBE8243).build(),
+                new Wood.Builder(LARCH, 632f, 1250).setColor(0xAE887C).build(),
+                new Wood.Builder(ALDER, 601f, 1000).setColor(0x9E7242).build(),
+                new Wood.Builder(BEECH, 703f, 1750).setColor(0xD6A67C).build(),
+                new Wood.Builder(BLACK_WALNUT, 758f, 1800).setColor(0x604632).build(),
+                new Wood.Builder(BUTTERNUT, 758f, 1800).setColor(0xCDA276).build(),
+                new Wood.Builder(EUROPEAN_OAK, 728f, 2250).setColor(0xCDAC8B).build(),
+                new Wood.Builder(GINKGO, 710f, 1000).setColor(0xF3E2AD).build(),
+                new Wood.Builder(HAZEL, 683f, 1500).setColor(0xDEB18C).build(),
+                new Wood.Builder(HORNBEAM, 728f, 2250).setColor(0xB58C3D).build(),
+                new Wood.Builder(LOCUST, 653f, 1750).setColor(0xBA895E).build(),
+                new Wood.Builder(POPLAR, 609f, 1000).setColor(0xDACFA7).build(),
+                new Wood.Builder(RED_ELM, 618f, 1750).setColor(0xDA9E66).build(),
+                new Wood.Builder(WALNUT, 758f, 1800).setColor(0x281B12).build(),
+                new Wood.Builder(WHITE_ELM, 653f, 1750).build(),
+                new Wood.Builder(WHITEBEAM, 728f, 1750).setColor(0xB7AEA6).build(),
+                new Wood.Builder(BALD_CYPRESS, 770f, 1300).build(),
+                new Wood.Builder(CYPRESS, 783f, 1100).build(),
+                new Wood.Builder(HEMLOCK, 609f, 1000).build(),
+                new Wood.Builder(NORDMANN_FIR, 628f, 1500).build(),
+                new Wood.Builder(NORWAY_SPRUCE, 628f, 1500).build(),
+                new Wood.Builder(REDWOOD, 618f, 1750).build(),
+                new Wood.Builder(AFRICAN_PADAUK, 745f, 1500).build(),
+                new Wood.Builder(ANGELIM, 773f, 1200).build(),
+                new Wood.Builder(BOX, 683f, 1500).build(),
+                new Wood.Builder(BRAZILWOOD, 710f, 1000).build(),
+                new Wood.Builder(COCOBOLO, 773f, 1000).build(),
+                new Wood.Builder(EBONY, 795f, 1000).build(),
+                new Wood.Builder(FEVER, 590f, 1000).build(),
+                new Wood.Builder(FRUITWOOD, 720f, 1000).build(),
+                new Wood.Builder(GREENHEART, 793f, 1700).build(),
+                new Wood.Builder(HOLLY, 609f, 1000).build(),
+                new Wood.Builder(IROKO, 785f, 1200).build(),
+                new Wood.Builder(IRONWOOD, 694f, 1170).build(),
+                new Wood.Builder(KAURI, 730f, 1250).build(),
+                new Wood.Builder(LIMBA, 710f, 1000).build(),
+                new Wood.Builder(LOGWOOD, 695f, 1000).build(),
+                new Wood.Builder(MAHOE, 783f, 1100).build(),
+                new Wood.Builder(MANGROVE, 783f, 1100).build(),
+                new Wood.Builder(MARBLEWOOD, 837f, 1200).build(),
+                new Wood.Builder(MESSMATE, 696f, 1250).build(),
+                new Wood.Builder(MOUNTAIN_ASH, 696f, 1250).build(),
+                new Wood.Builder(PURPLEHEART, 793f, 1700).build(),
+                new Wood.Builder(RUBBER_FIG, 785f, 1440).build(),
+                new Wood.Builder(TEAK, 695f, 1000).build(),
+                new Wood.Builder(WENGE, 773f, 1250).build(),
+                new Wood.Builder(YELLOW_MERANTI, 837f, 1200).build(),
+                new Wood.Builder(ZEBRAWOOD, 822f, 1570).build()
+
+
         );
     }
 }
