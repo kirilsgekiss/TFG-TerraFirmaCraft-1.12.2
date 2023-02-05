@@ -7,8 +7,8 @@ import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.climate.ClimateTFC;
@@ -58,7 +58,7 @@ public class CropProvider implements IProbeInfoProvider {
                 String growth = String.format("%d%%", Math.round(totalPerc));
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growth", growth).getFormattedText());
             }
-        } else if (state.getBlock() instanceof BlockCropDead) {
+        } else if (state.getBlock() instanceof TFCBlockCropDead) {
             probeInfo.text(new TextComponentTranslation("waila.tfc.crop.dead_crop").getFormattedText());
         }
     }

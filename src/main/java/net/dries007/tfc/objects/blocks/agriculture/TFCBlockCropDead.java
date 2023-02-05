@@ -43,7 +43,7 @@ import java.util.Set;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class BlockCropDead extends BlockBush {
+public class TFCBlockCropDead extends BlockBush {
     /* true if the crop spawned in the wild, means it ignores growth conditions i.e. farmland */
     public static final PropertyBool MATURE = PropertyBool.create("mature");
 
@@ -51,9 +51,9 @@ public class BlockCropDead extends BlockBush {
     private static final int META_MATURE = 1;
 
     // static field and methods for conversion from crop to Block
-    private static final Map<ICrop, BlockCropDead> MAP = new HashMap<>();
+    private static final Map<ICrop, TFCBlockCropDead> MAP = new HashMap<>();
 
-    public static BlockCropDead get(ICrop crop) {
+    public static TFCBlockCropDead get(ICrop crop) {
         return MAP.get(crop);
     }
 
@@ -63,7 +63,7 @@ public class BlockCropDead extends BlockBush {
 
     protected final ICrop crop;
 
-    public BlockCropDead(ICrop crop) {
+    public TFCBlockCropDead(ICrop crop) {
         super(Material.PLANTS);
 
         this.crop = crop;

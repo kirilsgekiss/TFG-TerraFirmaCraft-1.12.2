@@ -19,8 +19,8 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.BlockThatchBed;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
 import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterGlowPlant;
@@ -394,7 +394,7 @@ public final class ClientRegisterEvents {
         // todo: do something different for conifers - they should have a different color mapping through the seasons
         IBlockColor foliageColor = GrassColorHandler::computeGrassColor;
 
-        for (BlockCropDead block : BlocksTFC.getAllDeadCropBlocks())
+        for (TFCBlockCropDead block : BlocksTFC.getAllDeadCropBlocks())
             blockColors.registerBlockColorHandler((state, world, os, tintIndex) -> 0xCC7400, block);
 
         blockColors.registerBlockColorHandler(grassColor, BlocksTFC.PEAT_GRASS);

@@ -273,7 +273,7 @@ public abstract class TFCBlockCrop extends BlockBush {
 
     public void die(World worldIn, BlockPos pos, IBlockState state, Random random) {
         if (ConfigTFC.General.FOOD.enableCropDeath) {
-            worldIn.setBlockState(pos, BlockCropDead.get(crop).getDefaultState().withProperty(BlockCropDead.MATURE, state.getValue(getStageProperty()) == crop.getMaxStage()));
+            worldIn.setBlockState(pos, TFCBlockCropDead.get(crop).getDefaultState().withProperty(TFCBlockCropDead.MATURE, state.getValue(getStageProperty()) == crop.getMaxStage()));
         }
     }
 
