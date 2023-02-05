@@ -3,7 +3,7 @@
  * See the project README.md and LICENSE.txt for more information.
  */
 
-package net.dries007.tfc.objects.blocks.stone.clay;
+package net.dries007.tfc.objects.blocks;
 
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
@@ -21,8 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockFireClay extends Block implements IItemSize {
-    public TFCBlockFireClay() {
+public class BlockFireClay extends Block implements IItemSize {
+    public BlockFireClay() {
         super(Material.CLAY);
         setSoundType(SoundType.GROUND);
         setHardness(1.0F);

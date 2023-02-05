@@ -42,7 +42,7 @@ import net.dries007.tfc.network.PacketCalendarUpdate;
 import net.dries007.tfc.network.PacketPlayerDataUpdate;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.blocks.TFCBlockFluid;
+import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
@@ -643,9 +643,9 @@ public final class CommonEventHandler {
                 }
             }
 
-            if (event.getEntity() instanceof EntitySquid && world.getBlockState(pos).getBlock() instanceof TFCBlockFluid) {
+            if (event.getEntity() instanceof EntitySquid && world.getBlockState(pos).getBlock() instanceof BlockFluidTFC) {
                 // Prevents squids spawning outside of salt water (eg: oceans)
-                Fluid fluid = ((TFCBlockFluid) world.getBlockState(pos).getBlock()).getFluid();
+                Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
                 if (FluidsTFC.SEA_WATER.get() != fluid) {
                     event.setResult(Event.Result.DENY);
                 }

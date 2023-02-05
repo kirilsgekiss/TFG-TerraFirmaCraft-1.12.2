@@ -5,7 +5,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.TFCBlockFluid;
+import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -45,7 +45,7 @@ import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockPebbleWater extends TFCBlockFluid implements IItemSize {
+public class TFCBlockPebbleWater extends BlockFluidTFC implements IItemSize {
     public static final PropertyEnum<EnumPileType> PILE_TYPE = PropertyEnum.<EnumPileType>create("pile_type", EnumPileType.class);
     private static final AxisAlignedBB AABB_1_STONE = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.1875D, 0.75D);
     private static final AxisAlignedBB AABB_2_STONE = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.1875D, 0.75D);

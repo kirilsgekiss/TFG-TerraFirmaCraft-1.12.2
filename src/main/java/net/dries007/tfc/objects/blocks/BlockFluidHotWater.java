@@ -9,6 +9,7 @@ import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.food.FoodStatsTFC;
 import net.dries007.tfc.client.particle.TFCParticles;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -25,8 +26,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockFluidHotWater extends TFCBlockFluid {
-    public TFCBlockFluidHotWater() {
+public class BlockFluidHotWater extends BlockFluidTFC {
+    public BlockFluidHotWater() {
         super(FluidsTFC.HOT_WATER.get(), Material.WATER, false);
 
         setLightOpacity(3);
@@ -37,7 +38,7 @@ public class TFCBlockFluidHotWater extends TFCBlockFluid {
     @Override
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(4) == 0) {
-            worldIn.spawnParticle(EnumParticleTypes.WATER_BUBBLE, pos.getX() + rand.nextFloat(), pos.getY() + 0.50D, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, getStateId(stateIn));
+            worldIn.spawnParticle(EnumParticleTypes.WATER_BUBBLE, pos.getX() + rand.nextFloat(), pos.getY() + 0.50D, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, Block.getStateId(stateIn));
         }
         if (worldIn.isAirBlock(pos.up())) {
             // Classic made 4 particles spawn at a time
