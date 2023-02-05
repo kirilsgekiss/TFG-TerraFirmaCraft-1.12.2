@@ -21,7 +21,7 @@ import net.dries007.tfc.objects.blocks.BlockThatchBed;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeLeaves;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
-import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterGlowPlant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
@@ -549,7 +549,7 @@ public final class ClientRegisterEvents {
         // BLOCKS
 
         for (Block block : BlocksTFC.getAllCoralPlants())
-            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockCoral.LEVEL).build());
+            ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockCoral.LEVEL).build());
 
         for (Block block : BlocksTFC.getAllGlowWaterPlants())
             ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(TFCBlockWaterGlowPlant.LEVEL).build());

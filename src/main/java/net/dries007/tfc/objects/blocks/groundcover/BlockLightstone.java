@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockLightstone extends BlockBush implements IItemSize {
+public class BlockLightstone extends BlockBush implements IItemSize {
     private static final PropertyDirection FACING = PropertyDirection.create("facing");
     private static final AxisAlignedBB UP_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
     private static final AxisAlignedBB DOWN_AABB = new AxisAlignedBB(0.1D, 0.2D, 0.1D, 0.9D, 1.0D, 0.9D);
@@ -44,7 +44,7 @@ public class TFCBlockLightstone extends BlockBush implements IItemSize {
 
     protected final BlockStateContainer blockState;
 
-    public TFCBlockLightstone(float lightLevel) {
+    public BlockLightstone(float lightLevel) {
         super(Material.ROCK);
         setSoundType(SoundType.GLASS);
         setHardness(0.5f).setResistance(5.0F);

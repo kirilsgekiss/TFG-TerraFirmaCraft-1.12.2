@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.blocks.groundcover.TFCBlockSurfaceRock;
+import net.dries007.tfc.objects.blocks.groundcover.BlockSurfaceRock;
 import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class ItemRock extends TFCItemBlock {
-    public ItemRock(TFCBlockSurfaceRock block) {
+    public ItemRock(BlockSurfaceRock block) {
         super(block);
     }
 

@@ -1,8 +1,8 @@
 package net.dries007.tfc.world.classic.worldgen;
 
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoral;
-import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoralBlock;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
@@ -60,6 +60,6 @@ public class WorldGenGlowPlant implements IWorldGenerator {
         IBlockState south = world.getBlockState(pos.south());
         IBlockState east = world.getBlockState(pos.east());
         IBlockState west = world.getBlockState(pos.west());
-        return ((up.getBlock() instanceof TFCBlockCoralBlock || down.getBlock() instanceof TFCBlockCoralBlock || north.getBlock() instanceof TFCBlockCoralBlock || south.getBlock() instanceof TFCBlockCoralBlock || east.getBlock() instanceof TFCBlockCoralBlock || west.getBlock() instanceof TFCBlockCoralBlock || current.getBlock() instanceof TFCBlockCoral) && !(world.isAirBlock(pos.up())));
+        return ((up.getBlock() instanceof BlockCoralBlock || down.getBlock() instanceof BlockCoralBlock || north.getBlock() instanceof BlockCoralBlock || south.getBlock() instanceof BlockCoralBlock || east.getBlock() instanceof BlockCoralBlock || west.getBlock() instanceof BlockCoralBlock || current.getBlock() instanceof BlockCoral) && !(world.isAirBlock(pos.up())));
     }
 }

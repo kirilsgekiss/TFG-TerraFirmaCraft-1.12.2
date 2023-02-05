@@ -45,25 +45,25 @@ import static net.dries007.tfc.world.classic.ChunkGenTFC.SEA_WATER;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockPebbleWater extends BlockFluidTFC implements IItemSize {
+public class BlockPebbleWater extends BlockFluidTFC implements IItemSize {
     public static final PropertyEnum<EnumPileType> PILE_TYPE = PropertyEnum.<EnumPileType>create("pile_type", EnumPileType.class);
     private static final AxisAlignedBB AABB_1_STONE = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.1875D, 0.75D);
     private static final AxisAlignedBB AABB_2_STONE = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.1875D, 0.75D);
     private static final AxisAlignedBB AABB_3_STONE = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.1875D, 0.8125D);
     private static final AxisAlignedBB AABB_4_STONE = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.1875D, 0.875D);
-    private static final Map<Rock, TFCBlockPebbleWater> MAP = new HashMap<>();
+    private static final Map<Rock, BlockPebbleWater> MAP = new HashMap<>();
 
-    public static TFCBlockPebbleWater get(Rock rock) {
+    public static BlockPebbleWater get(Rock rock) {
         return MAP.get(rock);
     }
 
     protected final Rock rock;
 
-    public TFCBlockPebbleWater(Fluid fluid, Rock rock) {
+    public BlockPebbleWater(Fluid fluid, Rock rock) {
         this(fluid, Material.WATER, rock);
     }
 
-    public TFCBlockPebbleWater(Fluid fluid, Material materialIn, Rock rock) {
+    public BlockPebbleWater(Fluid fluid, Material materialIn, Rock rock) {
         super(fluid, Material.WATER, false);
 
         this.rock = rock;
@@ -219,7 +219,7 @@ public class TFCBlockPebbleWater extends BlockFluidTFC implements IItemSize {
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        if (!(world.getBlockState(pos).getBlock() instanceof TFCBlockPebbleWater)) {
+        if (!(world.getBlockState(pos).getBlock() instanceof BlockPebbleWater)) {
             if (world.rand.nextBoolean())
                 return getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(PILE_TYPE, EnumPileType.ONE_PLANT);
             else

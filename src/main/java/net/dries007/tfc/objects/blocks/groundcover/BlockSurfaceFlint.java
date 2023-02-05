@@ -1,8 +1,8 @@
 package net.dries007.tfc.objects.blocks.groundcover;
 
+import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
-import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -13,14 +13,21 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -30,27 +37,26 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockSurfaceSeashells extends BlockBush {
+public class BlockSurfaceFlint extends BlockBush {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    int[] chance = {38, 5, 38, 5, 5, 5, 3, 1};
-    int[] amount = {2, 1, 2, 1, 1, 1, 1, 1};
+    Item[] drops = {Items.FLINT};
+    int[] chance = {100};
+    int[] amount = {2};
     int index = 0;
 
-    public TFCBlockSurfaceSeashells() {
+    public BlockSurfaceFlint() {
         super(Material.GROUND);
         setSoundType(SoundType.STONE);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "seashell");
-        OreDictionaryHelper.register(this, "seashells");
+        OreDictionaryHelper.register(this, "flint");
     }
 
     private Item getWeightedDrop(int chance, int index, int currentNumber) {
         this.index = index;
-        if (chance <= currentNumber) {
-            Item[] drops = {TFCItems.CLAM, TFCItems.LIVE_CLAM, TFCItems.SCALLOP, TFCItems.LIVE_SCALLOP, TFCItems.LIVE_STARFISH, TFCItems.CONCH, TFCItems.PEARL, TFCItems.BLACK_PEARL};
+        if (chance <= currentNumber)
             return drops[index];
-        } else
+        else
             return getWeightedDrop(chance, index + 1, currentNumber + this.chance[index + 1]);
     }
 
@@ -64,7 +70,7 @@ public class TFCBlockSurfaceSeashells extends BlockBush {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        int chance = rand.nextInt(100) + 1;
+        int chance = rand.nextInt(100);
         return getWeightedDrop(chance, 0, this.chance[0]);
     }
 
@@ -174,5 +180,25 @@ public class TFCBlockSurfaceSeashells extends BlockBush {
             return (BlocksTFC.isGround(soil) || worldIn.getBlockState(pos.down()).isFullBlock()) && !(BlocksTFC.isSeaWater(soil) || BlocksTFC.isFreshWater(soil)); // todo: wtf check
         }
         return this.canSustainBush(soil);
+    }
+
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (!world.isRemote && !player.isSneaking() && stack.getCount() > 0) {
+            TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
+        }
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    public void onRightClick(PlayerInteractEvent.RightClickItem event) {
+        EnumHand hand = event.getHand();
+        if (OreDictionaryHelper.doesStackMatchOre(event.getItemStack(), "flint") && hand == EnumHand.MAIN_HAND) {
+            EntityPlayer player = event.getEntityPlayer();
+            World world = event.getWorld();
+            if (!world.isRemote && !player.isSneaking()) {
+                TFCGuiHandler.openGui(world, player.getPosition(), player, TFCGuiHandler.Type.FLINT);
+            }
+        }
     }
 }

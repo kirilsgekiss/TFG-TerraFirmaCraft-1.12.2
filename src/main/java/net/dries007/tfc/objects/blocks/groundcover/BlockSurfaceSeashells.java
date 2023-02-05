@@ -2,6 +2,7 @@ package net.dries007.tfc.objects.blocks.groundcover;
 
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -12,7 +13,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -30,27 +30,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockSurfaceBones extends BlockBush {
+public class BlockSurfaceSeashells extends BlockBush {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    Item[] drops = {Items.BONE, Items.BONE};
-    int[] chance = {90, 10};
-    int[] amount = {2, 2};
+    int[] chance = {38, 5, 38, 5, 5, 5, 3, 1};
+    int[] amount = {2, 1, 2, 1, 1, 1, 1, 1};
     int index = 0;
 
-    public TFCBlockSurfaceBones() {
+    public BlockSurfaceSeashells() {
         super(Material.GROUND);
         setSoundType(SoundType.STONE);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "bone");
-        OreDictionaryHelper.register(this, "bones");
+        OreDictionaryHelper.register(this, "seashell");
+        OreDictionaryHelper.register(this, "seashells");
     }
 
     private Item getWeightedDrop(int chance, int index, int currentNumber) {
         this.index = index;
-        if (chance <= currentNumber)
+        if (chance <= currentNumber) {
+            Item[] drops = {TFCItems.CLAM, TFCItems.LIVE_CLAM, TFCItems.SCALLOP, TFCItems.LIVE_SCALLOP, TFCItems.LIVE_STARFISH, TFCItems.CONCH, TFCItems.PEARL, TFCItems.BLACK_PEARL};
             return drops[index];
-        else
+        } else
             return getWeightedDrop(chance, index + 1, currentNumber + this.chance[index + 1]);
     }
 

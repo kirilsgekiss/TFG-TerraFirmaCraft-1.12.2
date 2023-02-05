@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockCoral extends BlockFluidTFC implements IItemSize, IPlantable {
+public class BlockCoral extends BlockFluidTFC implements IItemSize, IPlantable {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
     static final PropertyBool NORTH = PropertyBool.create("north");
@@ -61,23 +61,23 @@ public class TFCBlockCoral extends BlockFluidTFC implements IItemSize, IPlantabl
     private static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.2D, 0.1D, 0.1D, 1.0D, 0.9D, 0.9D);
     private static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.1D, 0.1D, 0.8D, 0.9D, 0.9D);
 
-    public static final Map<EnumDyeColor, TFCBlockCoral> TUBE_CORAL = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> BRAIN_CORAL = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> BUBBLE_CORAL = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> FIRE_CORAL = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> HORN_CORAL = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> TUBE_CORAL = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> BRAIN_CORAL = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> BUBBLE_CORAL = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> FIRE_CORAL = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> HORN_CORAL = new HashMap<>();
 
-    public static final Map<EnumDyeColor, TFCBlockCoral> TUBE_CORAL_FAN = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> BRAIN_CORAL_FAN = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> BUBBLE_CORAL_FAN = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> FIRE_CORAL_FAN = new HashMap<>();
-    public static final Map<EnumDyeColor, TFCBlockCoral> HORN_CORAL_FAN = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> TUBE_CORAL_FAN = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> BRAIN_CORAL_FAN = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> BUBBLE_CORAL_FAN = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> FIRE_CORAL_FAN = new HashMap<>();
+    public static final Map<EnumDyeColor, BlockCoral> HORN_CORAL_FAN = new HashMap<>();
 
-    public TFCBlockCoral(Fluid fluid, MapColor blockMapColorIn) {
+    public BlockCoral(Fluid fluid, MapColor blockMapColorIn) {
         this(fluid, Material.WATER);
     }
 
-    public TFCBlockCoral(Fluid fluid, Material materialIn) {
+    public BlockCoral(Fluid fluid, Material materialIn) {
         super(fluid, Material.WATER, false);
         this.setSoundType(SoundType.PLANT);
         this.setHardness(0.0F);
@@ -295,7 +295,7 @@ public class TFCBlockCoral extends BlockFluidTFC implements IItemSize, IPlantabl
         for (EnumFacing face : EnumFacing.values()) {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof TFCBlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof TFCBlockCoralBlock || up.getBlock() instanceof TFCBlockCoral)) {
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockCoral)) {
                 return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
         }
@@ -321,7 +321,7 @@ public class TFCBlockCoral extends BlockFluidTFC implements IItemSize, IPlantabl
         for (EnumFacing face : EnumFacing.values()) {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof TFCBlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof TFCBlockCoralBlock || up.getBlock() instanceof TFCBlockCoral)) {
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof BlockCoral)) {
                 return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
         }
