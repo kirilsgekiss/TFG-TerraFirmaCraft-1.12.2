@@ -2504,6 +2504,10 @@ public final class ConfigTFC {
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGourdWorldGen")
             public boolean enableGourdWorldGen = true;
 
+            @Config.Comment("Enable vines?")
+            @Config.LangKey("config." + MOD_ID + ".general.world.enableAllVines")
+            public boolean enableAllVines = true;
+
             @Config.Comment("Enable bone groundcover?")
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGroundcoverBones")
             public boolean enableGroundcoverBones = true;
@@ -2515,6 +2519,10 @@ public final class ConfigTFC {
             @Config.Comment("Enable flint groundcover?")
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGroundcoverFlint")
             public boolean enableGroundcoverFlint = true;
+
+            @Config.Comment("Enable ore deposit groundcover? Disabling ore deposits can improve loading times and lower ram usage significantly.")
+            @Config.LangKey("config." + MOD_ID + ".general.world.enableGroundcoverOreDeposit")
+            public boolean enableGroundcoverOreDeposit = true;
 
             @Config.Comment("Enable pinecone groundcover?")
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGroundcoverPinecone")
