@@ -10,10 +10,10 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchBasic;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchThick;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLogDT;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -52,7 +52,7 @@ public class TreeFamilyTFC extends TreeFamily {
     // need to have ItemStack be BlockLogTFC, but have the tree log be
     // BlockLogDTTFC
     public TreeFamily setPrimitiveLog(IBlockState primLog) {
-        BlockLogDTTFC primLogBlock = (BlockLogDTTFC) primLog.getBlock();
+        TFCBlockLogDT primLogBlock = (TFCBlockLogDT) primLog.getBlock();
         TFCBlockLog log = TFCBlockLog.get(primLogBlock.tree);
         ItemStack stack = new ItemStack(Item.getItemFromBlock(log));
         return super.setPrimitiveLog(primLog, stack);

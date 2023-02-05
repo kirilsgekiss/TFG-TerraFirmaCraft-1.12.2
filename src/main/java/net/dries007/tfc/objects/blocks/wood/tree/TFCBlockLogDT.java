@@ -11,15 +11,15 @@ import java.util.Map;
 // The only purpose of this block is to avoid calling getBlockHardness on a BlockLogTFC with a
 // DynamicTrees branch blockstate, which doesn't have the needed properties to compute it.
 // This block just holds the textures, really.
-public class BlockLogDTTFC extends BlockLog {
-    private static final Map<Tree, BlockLogDTTFC> MAP = new HashMap<>();
+public class TFCBlockLogDT extends BlockLog {
+    private static final Map<Tree, TFCBlockLogDT> MAP = new HashMap<>();
     public final Tree tree;
 
-    public static BlockLogDTTFC get(Tree tree) {
+    public static TFCBlockLogDT get(Tree tree) {
         return MAP.get(tree);
     }
 
-    public BlockLogDTTFC(Tree tree) {
+    public TFCBlockLogDT(Tree tree) {
         super();
         if (MAP.put(tree, this) != null) {
             throw new IllegalStateException("There can only be one.");

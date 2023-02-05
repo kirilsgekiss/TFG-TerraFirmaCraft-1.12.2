@@ -5,14 +5,10 @@
 
 package net.dries007.tfc.types;
 
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.registries.TFCRegistryEvent;
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.world.classic.worldgen.trees.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -256,249 +252,249 @@ public final class DefaultTrees {
     // new Tree.Builder(SYCAMORE, 120f, 290f, 17f, 33f, GEN_MEDIUM).setGrowthTime(8).setBushes().setDensity(0.25f, 2f).setBurnInfo(653f, 1750).build(),
     // new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL).setHeight(16).setBurnInfo(625f, 1500).build(),
 
-    @SubscribeEvent
-    public static void onPreRegisterTree(TFCRegistryEvent.RegisterPreBlock<Tree> event) {
-        event.getRegistry().registerAll(
-
-                //minTemp maxTemp minRain maxRain ???
-
-                new Tree.Builder(ACACIA, 30f, 210f, 19f, 31f, GEN_ACACIA, TFCRegistries.TREES.getValue(DefaultTrees.ACACIA))
-                        .setHeight(12)
-                        .setGrowthTime(11)
-                        .setDensity(0.1f, 0.6f)
-                        .build(),
-
-                new Tree.Builder(ASH, 60f, 140f, -6f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.ASH))
-                        .build(),
-
-                new Tree.Builder(ASPEN, 10f, 80f, -10f, 16f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.ASPEN))
-                        .setGrowthTime(8)
-                        .build(),
-
-                new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.BLACKWOOD))
-                        .setHeight(12)
-                        .setGrowthTime(8)
-                        .build(),
-
-                new Tree.Builder(CHESTNUT, 160f, 320f, 11f, 35f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.CHESTNUT))
-                        .build(),
-
-                new Tree.Builder(DOUGLAS_FIR, 280f, 480f, -2f, 14f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.DOUGLAS_FIR))
-                        .setDominance(5.2f)
-                        .setHeight(16)
-                        .setBushes()
-                        .setDensity(0.25f, 2f)
-                        .build(),
-
-                new Tree.Builder(HICKORY, 80f, 250f, 7f, 29f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HICKORY))
-                        .setGrowthTime(10)
-                        .build(),
-
-                new Tree.Builder(KAPOK, 210f, 500f, 15f, 35f, GEN_KAPOK_COMPOSITE, TFCRegistries.TREES.getValue(DefaultTrees.KAPOK))
-                        .setDominance(8.5f)
-                        .setRadius(3)
-                        .setHeight(36)
-                        .setDecayDist(6)
-                        .setGrowthTime(18)
-                        .setBushes()
-                        .setDensity(0.6f, 2f)
-                        .build(),
-
-                new Tree.Builder(MAPLE, 140f, 360f, 3f, 20f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.MAPLE))
-                        .setDominance(6.3f)
-                        .build(),
-
-                //Oak Trees
-                new Tree.Builder(OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.OAK))
-                        .setHeight(16)
-                        .setGrowthTime(10)
-                        .build(),
-
-                new Tree.Builder(FLOWERING_OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.OAK))
-                        .setHeight(16)
-                        .setGrowthTime(10)
-                        .build(),
-
-
-                new Tree.Builder(DARK_OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.DARK_OAK))
-                        .setHeight(12)
-                        .setRadius(2)
-                        .setGrowthTime(10)
-                        .build(),
-
-                new Tree.Builder(PALM, 280f, 500f, 16f, 35f, GEN_TROPICAL, TFCRegistries.TREES.getValue(DefaultTrees.PALM))
-                        .setDecayDist(6)
-                        .build(),
-
-                new Tree.Builder(PINE, 60f, 250f, -15f, 7f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.PINE))
-                        .setConifer()
-                        .setDensity(0.1f, 0.8f)
-                        .build(),
-
-                new Tree.Builder(ROSEWOOD, 10f, 190f, 8f, 18f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.ROSEWOOD))
-                        .setHeight(12)
-                        .setGrowthTime(8)
-                        .build(),
-
-                new Tree.Builder(SEQUOIA, 250f, 420f, -5f, 12f, GEN_SEQUOIA, TFCRegistries.TREES.getValue(DefaultTrees.SEQUOIA))
-                        .setRadius(3)
-                        .setHeight(24)
-                        .setDecayDist(6)
-                        .setGrowthTime(18)
-                        .setConifer()
-                        .setBushes()
-                        .setDensity(0.4f, 0.9f)
-                        .build(),
-
-                //Spruce Trees
-                new Tree.Builder(SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.SPRUCE))
-                        .setConifer()
-                        .setDensity(0.1f, 0.8f)
-                        .build(),
-
-                new Tree.Builder(NORWAY_SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.NORWAY_SPRUCE))
-                        .setConifer()
-                        .setDensity(0.1f, 0.8f)
-                        .build(),
-
-                new Tree.Builder(JAPANESE_SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.JAPANESE_SPRUCE))
-                        .setConifer()
-                        .setDensity(0.1f, 0.8f)
-                        .build(),
-
-                new Tree.Builder(SYCAMORE, 120f, 290f, 17f, 33f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.SYCAMORE))
-                        .setGrowthTime(8)
-                        .setBushes()
-                        .setDensity(0.25f, 2f)
-                        .build(),
-
-                //Birch Trees
-                new Tree.Builder(BIRCH, 20f, 180f, -15f, 7f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.BIRCH))
-                        .build(),
-
-                new Tree.Builder(SILVER_BIRCH, 20f, 180f, -15f, 7f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.SILVER_BIRCH))
-                        .build(),
-
-                new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.WHITE_CEDAR))
-                        .setHeight(16)
-                        .build(),
-
-                new Tree.Builder(WHITE_ELM, 140f, 360f, 3f, 20f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.WHITE_ELM))
-                        .setHeight(16)
-                        .build(),
-
-                new Tree.Builder(WILLOW, 230f, 400f, 15f, 32f, GEN_WILLOW, TFCRegistries.TREES.getValue(DefaultTrees.WILLOW))
-                        .setGrowthTime(11)
-                        .setBushes()
-                        .setDensity(0.7f, 2f)
-                        .build(),
-
-                new Tree.Builder(WEEPING_WILLOW, 230f, 400f, 15f, 32f, GEN_WILLOW, TFCRegistries.TREES.getValue(DefaultTrees.WILLOW))
-                        .setGrowthTime(11)
-                        .setBushes()
-                        .setDensity(0.7f, 2f)
-                        .build(),
-
-
-                //---------------- Hevea Tree Species ---------------- //
-
-                //https://en.wikipedia.org/wiki/Hevea_benthamiana
-                new Tree.Builder(HEVEA_BENTHAMIANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_BENTHAMIANA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(27)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_brasiliensis
-                new Tree.Builder(HEVEA_BRAZILIENSIS, 200f, 500f, 15f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_BRAZILIENSIS))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(20)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_camargoana
-                new Tree.Builder(HEVEA_CAMARGOANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_CAMARGOANA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_camporum
-                new Tree.Builder(HEVEA_CAMPORUM, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_CAMPORUM))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_guianensis
-                new Tree.Builder(HEVEA_GUIANENSIS, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_GUIANENSIS))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_microphylla
-                new Tree.Builder(HEVEA_MICROPHYLLA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_MICROPHYLLA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_nitida
-                new Tree.Builder(HEVEA_NITIDA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_NITIDA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_pauciflora
-                new Tree.Builder(HEVEA_PAUCIFLORA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_PAUCIFLORA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_rigidifolia
-                new Tree.Builder(HEVEA_RIGIDOFOLIA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_RIGIDOFOLIA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-                //https://en.wikipedia.org/wiki/Hevea_spruceana
-                new Tree.Builder(HEVEA_SPRUCEANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_SPRUCEANA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(22)
-                        .setGrowthTime(10)
-                        .build(),
-
-
-                //Latex Trees
-                new Tree.Builder(SAPODILLA, 140f, 350f, 7f, 27f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.SAPODILLA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(30)
-                        .setGrowthTime(10)
-                        .build(),
-
-                new Tree.Builder(CASTILLA, 140f, 350f, 7f, 27f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.CASTILLA))
-                        .setDensity(0.1f, 0.6f)
-                        .setRadius(2)
-                        .setHeight(26)
-                        .setGrowthTime(10)
-                        .build()
-        );
-    }
+//    @SubscribeEvent
+//    public static void onPreRegisterTree(TFCRegistryEvent.RegisterPreBlock<Tree> event) {
+//        event.getRegistry().registerAll(
+//
+//                //minTemp maxTemp minRain maxRain ???
+//
+//                new Tree.Builder(ACACIA, 30f, 210f, 19f, 31f, GEN_ACACIA, TFCRegistries.TREES.getValue(DefaultTrees.ACACIA))
+//                        .setHeight(12)
+//                        .setGrowthTime(11)
+//                        .setDensity(0.1f, 0.6f)
+//                        .build(),
+//
+//                new Tree.Builder(ASH, 60f, 140f, -6f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.ASH))
+//                        .build(),
+//
+//                new Tree.Builder(ASPEN, 10f, 80f, -10f, 16f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.ASPEN))
+//                        .setGrowthTime(8)
+//                        .build(),
+//
+//                new Tree.Builder(BLACKWOOD, 0f, 120f, 4f, 33f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.BLACKWOOD))
+//                        .setHeight(12)
+//                        .setGrowthTime(8)
+//                        .build(),
+//
+//                new Tree.Builder(CHESTNUT, 160f, 320f, 11f, 35f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.CHESTNUT))
+//                        .build(),
+//
+//                new Tree.Builder(DOUGLAS_FIR, 280f, 480f, -2f, 14f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.DOUGLAS_FIR))
+//                        .setDominance(5.2f)
+//                        .setHeight(16)
+//                        .setBushes()
+//                        .setDensity(0.25f, 2f)
+//                        .build(),
+//
+//                new Tree.Builder(HICKORY, 80f, 250f, 7f, 29f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HICKORY))
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                new Tree.Builder(KAPOK, 210f, 500f, 15f, 35f, GEN_KAPOK_COMPOSITE, TFCRegistries.TREES.getValue(DefaultTrees.KAPOK))
+//                        .setDominance(8.5f)
+//                        .setRadius(3)
+//                        .setHeight(36)
+//                        .setDecayDist(6)
+//                        .setGrowthTime(18)
+//                        .setBushes()
+//                        .setDensity(0.6f, 2f)
+//                        .build(),
+//
+//                new Tree.Builder(MAPLE, 140f, 360f, 3f, 20f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.MAPLE))
+//                        .setDominance(6.3f)
+//                        .build(),
+//
+//                //Oak Trees
+//                new Tree.Builder(OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.OAK))
+//                        .setHeight(16)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                new Tree.Builder(FLOWERING_OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.OAK))
+//                        .setHeight(16)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//
+//                new Tree.Builder(DARK_OAK, 180f, 430f, -8f, 12f, GEN_NORMAL, TFCRegistries.TREES.getValue(DefaultTrees.DARK_OAK))
+//                        .setHeight(12)
+//                        .setRadius(2)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                new Tree.Builder(PALM, 280f, 500f, 16f, 35f, GEN_TROPICAL, TFCRegistries.TREES.getValue(DefaultTrees.PALM))
+//                        .setDecayDist(6)
+//                        .build(),
+//
+//                new Tree.Builder(PINE, 60f, 250f, -15f, 7f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.PINE))
+//                        .setConifer()
+//                        .setDensity(0.1f, 0.8f)
+//                        .build(),
+//
+//                new Tree.Builder(ROSEWOOD, 10f, 190f, 8f, 18f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.ROSEWOOD))
+//                        .setHeight(12)
+//                        .setGrowthTime(8)
+//                        .build(),
+//
+//                new Tree.Builder(SEQUOIA, 250f, 420f, -5f, 12f, GEN_SEQUOIA, TFCRegistries.TREES.getValue(DefaultTrees.SEQUOIA))
+//                        .setRadius(3)
+//                        .setHeight(24)
+//                        .setDecayDist(6)
+//                        .setGrowthTime(18)
+//                        .setConifer()
+//                        .setBushes()
+//                        .setDensity(0.4f, 0.9f)
+//                        .build(),
+//
+//                //Spruce Trees
+//                new Tree.Builder(SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.SPRUCE))
+//                        .setConifer()
+//                        .setDensity(0.1f, 0.8f)
+//                        .build(),
+//
+//                new Tree.Builder(NORWAY_SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.NORWAY_SPRUCE))
+//                        .setConifer()
+//                        .setDensity(0.1f, 0.8f)
+//                        .build(),
+//
+//                new Tree.Builder(JAPANESE_SPRUCE, 120f, 380f, -11f, 6f, GEN_CONIFER, TFCRegistries.TREES.getValue(DefaultTrees.JAPANESE_SPRUCE))
+//                        .setConifer()
+//                        .setDensity(0.1f, 0.8f)
+//                        .build(),
+//
+//                new Tree.Builder(SYCAMORE, 120f, 290f, 17f, 33f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.SYCAMORE))
+//                        .setGrowthTime(8)
+//                        .setBushes()
+//                        .setDensity(0.25f, 2f)
+//                        .build(),
+//
+//                //Birch Trees
+//                new Tree.Builder(BIRCH, 20f, 180f, -15f, 7f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.BIRCH))
+//                        .build(),
+//
+//                new Tree.Builder(SILVER_BIRCH, 20f, 180f, -15f, 7f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.SILVER_BIRCH))
+//                        .build(),
+//
+//                new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.WHITE_CEDAR))
+//                        .setHeight(16)
+//                        .build(),
+//
+//                new Tree.Builder(WHITE_ELM, 140f, 360f, 3f, 20f, GEN_MEDIUM, TFCRegistries.TREES.getValue(DefaultTrees.WHITE_ELM))
+//                        .setHeight(16)
+//                        .build(),
+//
+//                new Tree.Builder(WILLOW, 230f, 400f, 15f, 32f, GEN_WILLOW, TFCRegistries.TREES.getValue(DefaultTrees.WILLOW))
+//                        .setGrowthTime(11)
+//                        .setBushes()
+//                        .setDensity(0.7f, 2f)
+//                        .build(),
+//
+//                new Tree.Builder(WEEPING_WILLOW, 230f, 400f, 15f, 32f, GEN_WILLOW, TFCRegistries.TREES.getValue(DefaultTrees.WILLOW))
+//                        .setGrowthTime(11)
+//                        .setBushes()
+//                        .setDensity(0.7f, 2f)
+//                        .build(),
+//
+//
+//                //---------------- Hevea Tree Species ---------------- //
+//
+//                //https://en.wikipedia.org/wiki/Hevea_benthamiana
+//                new Tree.Builder(HEVEA_BENTHAMIANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_BENTHAMIANA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(27)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_brasiliensis
+//                new Tree.Builder(HEVEA_BRAZILIENSIS, 200f, 500f, 15f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_BRAZILIENSIS))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(20)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_camargoana
+//                new Tree.Builder(HEVEA_CAMARGOANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_CAMARGOANA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_camporum
+//                new Tree.Builder(HEVEA_CAMPORUM, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_CAMPORUM))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_guianensis
+//                new Tree.Builder(HEVEA_GUIANENSIS, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_GUIANENSIS))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_microphylla
+//                new Tree.Builder(HEVEA_MICROPHYLLA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_MICROPHYLLA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_nitida
+//                new Tree.Builder(HEVEA_NITIDA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_NITIDA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_pauciflora
+//                new Tree.Builder(HEVEA_PAUCIFLORA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_PAUCIFLORA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_rigidifolia
+//                new Tree.Builder(HEVEA_RIGIDOFOLIA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_RIGIDOFOLIA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                //https://en.wikipedia.org/wiki/Hevea_spruceana
+//                new Tree.Builder(HEVEA_SPRUCEANA, 200f, 450f, 12f, 40f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.HEVEA_SPRUCEANA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(22)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//
+//                //Latex Trees
+//                new Tree.Builder(SAPODILLA, 140f, 350f, 7f, 27f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.SAPODILLA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(30)
+//                        .setGrowthTime(10)
+//                        .build(),
+//
+//                new Tree.Builder(CASTILLA, 140f, 350f, 7f, 27f, GEN_TALL, TFCRegistries.TREES.getValue(DefaultTrees.CASTILLA))
+//                        .setDensity(0.1f, 0.6f)
+//                        .setRadius(2)
+//                        .setHeight(26)
+//                        .setGrowthTime(10)
+//                        .build()
+//        );
+//    }
 
 //    // Florae Trees
 //    public static final Tree BAOBAB_TREE = new Tree.Builder(BAOBAB, 10f, 150f, 21f, 40f, GEN_BAOBAB).setDecayDist(6).setGrowthTime(20).setDensity(0.1f, 0.3f).setBurnInfo(478f, 1000).setColor(0xBFA677).build();

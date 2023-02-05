@@ -12,7 +12,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLogDT;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
@@ -45,12 +45,12 @@ public class TFCTrees {
         Map<String, IGrowthLogicKit> logicMap = new HashMap<>();
         fillMaps(paramMap, logicMap);
 
-        for (Tree t1 : TFCRegistries.TREES.getValuesCollection()) {
-            String treeName = t1.toString();
+        for (Tree tree : TFCRegistries.TREES.getValuesCollection()) {
+            String treeName = tree.toString();
 
             ResourceLocation resLoc = new ResourceLocation(MOD_ID, treeName);
 
-            TreeFamilyTFC family = new TreeFamilyTFC(resLoc, t1);
+            TreeFamilyTFC family = new TreeFamilyTFC(resLoc, tree);
 
             tfcTrees.add(family);
 
@@ -61,7 +61,7 @@ public class TFCTrees {
 
             tfcSpecies.put(treeName, species);
             Species.REGISTRY.register(species);
-            treeBlocks.add(new BlockLogDTTFC(t1).setRegistryName(MOD_ID, "block/log/" + treeName));
+            treeBlocks.add(new TFCBlockLogDT(tree).setRegistryName(MOD_ID, "block/log/" + treeName));
         }
 
         //Set up a map of species and their sapling types
@@ -103,7 +103,7 @@ public class TFCTrees {
     {
         TFCRegistries.TREES.getValuesCollection().forEach(t -> {
             String treeName = t.toString();
-            ((TreeFamilyTFC) tfcSpecies.get(treeName).getFamily()).setPrimitiveLog(BlockLogDTTFC.get(t).getDefaultState());
+            ((TreeFamilyTFC) tfcSpecies.get(treeName).getFamily()).setPrimitiveLog(TFCBlockLogDT.get(t).getDefaultState());
         });
     }
 
