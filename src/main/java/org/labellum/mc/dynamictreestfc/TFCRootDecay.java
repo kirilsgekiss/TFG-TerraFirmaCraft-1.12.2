@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import com.ferreusveritas.dynamictrees.api.ICustomRootDecay;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
@@ -22,11 +22,11 @@ public class TFCRootDecay implements ICustomRootDecay
         ChunkDataTFC chunkData = world.getChunk(pos).getCapability(ChunkDataProvider.CHUNK_DATA_CAPABILITY, null);
         if (chunkData != null)
         {
-            world.setBlockState(pos, BlockRockVariant.get(chunkData.getRockHeight(pos), Rock.Type.DIRT).getDefaultState(), 3);
+            world.setBlockState(pos, TFCBlockRockVariant.get(chunkData.getRockHeight(pos), Rock.Type.DIRT).getDefaultState(), 3);
             return true;
         } else if (world.getWorldType() == TerraFirmaCraft.getWorldType() )
         { //failed to get chunkdata, but tfc worldtype still, apply a default rocktype
-            world.setBlockState(pos, BlockRockVariant.get(Rock.LIMESTONE, Rock.Type.DIRT).getDefaultState(), 3);
+            world.setBlockState(pos, TFCBlockRockVariant.get(Rock.LIMESTONE, Rock.Type.DIRT).getDefaultState(), 3);
             return true;
         }
         return false;

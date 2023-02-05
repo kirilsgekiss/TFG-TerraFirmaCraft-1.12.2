@@ -30,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockRaw extends BlockRockVariant {
+public class TFCBlockRockRaw extends TFCBlockRockVariant {
     /* This is for the not-surrounded-on-all-sides-pop-off mechanic. It's a dirty fix to the stack overflow caused by placement during water / lava collisions in world gen */
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
@@ -88,7 +88,7 @@ public class TFCBlockRockRaw extends BlockRockVariant {
         if (ConfigTFC.General.OVERRIDES.enableStoneAnvil && OreDictionaryHelper.doesStackMatchOre(stack, "craftingToolHammer") && !worldIn.isBlockNormalCube(pos.up(), true)) {
             if (!worldIn.isRemote) {
                 // Create a stone anvil
-                BlockRockVariant anvil = BlockRockVariant.get(this.rock, Type.ANVIL);
+                TFCBlockRockVariant anvil = TFCBlockRockVariant.get(this.rock, Type.ANVIL);
                 if (anvil instanceof TFCBlockRockAnvil) {
                     worldIn.setBlockState(pos, anvil.getDefaultState());
                 }

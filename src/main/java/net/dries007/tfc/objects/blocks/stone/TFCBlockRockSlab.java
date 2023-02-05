@@ -37,8 +37,8 @@ public abstract class TFCBlockRockSlab extends BlockSlab {
     protected Half halfSlab;
 
     private TFCBlockRockSlab(Rock rock, Type type) {
-        this(BlockRockVariant.get(rock, type));
-        Block c = BlockRockVariant.get(rock, type);
+        this(TFCBlockRockVariant.get(rock, type));
+        Block c = TFCBlockRockVariant.get(rock, type);
         //noinspection ConstantConditions
         setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));
         useNeighborBrightness = true;

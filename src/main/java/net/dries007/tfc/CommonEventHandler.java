@@ -46,7 +46,7 @@ import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
@@ -287,7 +287,7 @@ public final class CommonEventHandler {
                 event.setNewSpeed(event.getNewSpeed() + (event.getNewSpeed() * skillModifier));
             }
         }
-        if (event.getState().getBlock() instanceof BlockRockVariant) {
+        if (event.getState().getBlock() instanceof TFCBlockRockVariant) {
             event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
         }
         if (event.getState().getBlock() instanceof TFCBlockLog) {
@@ -349,12 +349,12 @@ public final class CommonEventHandler {
         Block block = state.getBlock();
 
         if (ConfigTFC.General.OVERRIDES.enableHoeing) {
-            if (block instanceof BlockRockVariant) {
-                BlockRockVariant blockRock = (BlockRockVariant) block;
+            if (block instanceof TFCBlockRockVariant) {
+                TFCBlockRockVariant blockRock = (TFCBlockRockVariant) block;
                 if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DIRT) {
                     if (!world.isRemote) {
                         world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
+                        world.setBlockState(pos, TFCBlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
                     }
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -895,10 +895,10 @@ public final class CommonEventHandler {
         // Since cobble is a gravity block, placing it can lead to world crashes, so we avoid doing that and place rhyolite instead
         if (ConfigTFC.General.OVERRIDES.enableLavaWaterPlacesTFCBlocks) {
             if (event.getNewState().getBlock() == Blocks.STONE) {
-                event.setNewState(BlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
             if (event.getNewState().getBlock() == Blocks.COBBLESTONE) {
-                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
         }
     }

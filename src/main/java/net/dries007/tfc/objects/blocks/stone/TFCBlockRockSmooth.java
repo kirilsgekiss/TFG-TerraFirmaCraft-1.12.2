@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockSmooth extends BlockRockVariant {
+public class TFCBlockRockSmooth extends TFCBlockRockVariant {
     public static final PropertyBool CAN_FALL = PropertyBool.create("can_fall");
 
     public TFCBlockRockSmooth(Rock.Type type, Rock rock) {

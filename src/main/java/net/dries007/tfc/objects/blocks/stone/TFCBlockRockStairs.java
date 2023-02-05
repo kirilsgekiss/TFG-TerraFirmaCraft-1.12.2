@@ -29,13 +29,13 @@ public class TFCBlockRockStairs extends BlockStairs {
     }
 
     public TFCBlockRockStairs(Rock rock, Type type) {
-        super(BlockRockVariant.get(rock, type).getDefaultState());
+        super(TFCBlockRockVariant.get(rock, type).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
             ROCK_TABLE.put(rock, new EnumMap<>(Type.class));
         ROCK_TABLE.get(rock).put(type, this);
 
-        Block baseBlock = BlockRockVariant.get(rock, type);
+        Block baseBlock = TFCBlockRockVariant.get(rock, type);
         //noinspection ConstantConditions
         setHarvestLevel(baseBlock.getHarvestTool(baseBlock.getDefaultState()), baseBlock.getHarvestLevel(baseBlock.getDefaultState()));
         useNeighborBrightness = true;

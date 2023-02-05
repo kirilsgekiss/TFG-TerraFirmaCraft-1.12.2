@@ -7,9 +7,9 @@ import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.IFruitTree;
-import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeLeaves;
-import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeSapling;
-import net.dries007.tfc.objects.blocks.agriculture.BlockFruitTreeTrunk;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeLeaves;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeSapling;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeTrunk;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.CalendarTFC;
@@ -35,10 +35,10 @@ public class FruitTreeProvider implements IProbeInfoProvider {
         BlockPos pos = data.getPos();
 
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof BlockFruitTreeLeaves) {
-            BlockFruitTreeLeaves block = (BlockFruitTreeLeaves) state.getBlock();
-            if (state.getValue(BlockFruitTreeLeaves.HARVESTABLE) && block.getTree().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear())) {
-                if (state.getValue(BlockFruitTreeLeaves.LEAF_STATE) != BlockFruitTreeLeaves.EnumLeafState.FRUIT) {
+        if (state.getBlock() instanceof TFCBlockFruitTreeLeaves) {
+            TFCBlockFruitTreeLeaves block = (TFCBlockFruitTreeLeaves) state.getBlock();
+            if (state.getValue(TFCBlockFruitTreeLeaves.HARVESTABLE) && block.getTree().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear())) {
+                if (state.getValue(TFCBlockFruitTreeLeaves.LEAF_STATE) != TFCBlockFruitTreeLeaves.EnumLeafState.FRUIT) {
                     TETickCounter te = Helpers.getTE(world, pos, TETickCounter.class);
                     addInfo(block.getTree(), te, ClimateTFC.getActualTemp(world, pos), ChunkDataTFC.getRainfall(world, pos), probeInfo);
                 }
@@ -50,18 +50,18 @@ public class FruitTreeProvider implements IProbeInfoProvider {
                     }
                 }
             }
-        } else if (state.getBlock() instanceof BlockFruitTreeSapling) {
-            BlockFruitTreeSapling block = (BlockFruitTreeSapling) state.getBlock();
+        } else if (state.getBlock() instanceof TFCBlockFruitTreeSapling) {
+            TFCBlockFruitTreeSapling block = (TFCBlockFruitTreeSapling) state.getBlock();
             TETickCounter te = Helpers.getTE(world, pos, TETickCounter.class);
             addInfo(block.getTree(), te, ClimateTFC.getActualTemp(world, pos), ChunkDataTFC.getRainfall(world, pos), probeInfo);
-        } else if (state.getBlock() instanceof BlockFruitTreeTrunk) {
+        } else if (state.getBlock() instanceof TFCBlockFruitTreeTrunk) {
             // Gets the top most trunk, since that one is the responsible for growth
             IBlockState topMost = state;
-            while (world.getBlockState(pos.up()).getBlock() instanceof BlockFruitTreeTrunk) {
+            while (world.getBlockState(pos.up()).getBlock() instanceof TFCBlockFruitTreeTrunk) {
                 pos = pos.up();
                 topMost = world.getBlockState(pos);
             }
-            BlockFruitTreeTrunk block = (BlockFruitTreeTrunk) topMost.getBlock();
+            TFCBlockFruitTreeTrunk block = (TFCBlockFruitTreeTrunk) topMost.getBlock();
             TETickCounter te = Helpers.getTE(world, pos, TETickCounter.class);
             addInfo(block.getTree(), te, ClimateTFC.getActualTemp(world, pos), ChunkDataTFC.getRainfall(world, pos), probeInfo);
         }

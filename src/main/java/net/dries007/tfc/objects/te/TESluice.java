@@ -9,7 +9,7 @@ import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.objects.blocks.devices.BlockSluice;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
@@ -105,8 +105,8 @@ public class TESluice extends TEBase implements ITickable {
                 if (soil < MAX_SOIL) {
                     for (EntityItem entityItem : world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos).grow(1), EntitySelectors.IS_ALIVE)) {
                         ItemStack stack = entityItem.getItem();
-                        if (stack.getItem() instanceof ItemBlock && ((ItemBlock) stack.getItem()).getBlock() instanceof BlockRockVariant) {
-                            BlockRockVariant rockBlock = (BlockRockVariant) ((ItemBlock) stack.getItem()).getBlock();
+                        if (stack.getItem() instanceof ItemBlock && ((ItemBlock) stack.getItem()).getBlock() instanceof TFCBlockRockVariant) {
+                            TFCBlockRockVariant rockBlock = (TFCBlockRockVariant) ((ItemBlock) stack.getItem()).getBlock();
                             if (rockBlock.getType() == Type.SAND || rockBlock.getType() == Type.GRAVEL) {
                                 soil += 20; // Overflows to not consume an stack until a full soil worth is consumed
                                 stack.shrink(1);

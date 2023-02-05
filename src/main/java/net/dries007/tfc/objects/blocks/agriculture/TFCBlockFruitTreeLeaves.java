@@ -44,18 +44,18 @@ import java.util.*;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockFruitTreeLeaves extends BlockLeaves implements IGrowingPlant {
-    public static final PropertyEnum<EnumLeafState> LEAF_STATE = PropertyEnum.create("state", BlockFruitTreeLeaves.EnumLeafState.class);
+public class TFCBlockFruitTreeLeaves extends BlockLeaves implements IGrowingPlant {
+    public static final PropertyEnum<EnumLeafState> LEAF_STATE = PropertyEnum.create("state", TFCBlockFruitTreeLeaves.EnumLeafState.class);
     public static final PropertyBool HARVESTABLE = PropertyBool.create("harvestable");
-    private static final Map<IFruitTree, BlockFruitTreeLeaves> MAP = new HashMap<>();
+    private static final Map<IFruitTree, TFCBlockFruitTreeLeaves> MAP = new HashMap<>();
 
-    public static BlockFruitTreeLeaves get(IFruitTree tree) {
+    public static TFCBlockFruitTreeLeaves get(IFruitTree tree) {
         return MAP.get(tree);
     }
 
     private final IFruitTree tree;
 
-    public BlockFruitTreeLeaves(IFruitTree tree) {
+    public TFCBlockFruitTreeLeaves(IFruitTree tree) {
         this.tree = tree;
         if (MAP.put(tree, this) != null) throw new IllegalStateException("There can only be one.");
         setDefaultState(blockState.getBaseState().withProperty(DECAYABLE, false).withProperty(LEAF_STATE, EnumLeafState.NORMAL).withProperty(HARVESTABLE, false));
@@ -248,7 +248,7 @@ public class BlockFruitTreeLeaves extends BlockLeaves implements IGrowingPlant {
                     if (evaluated.contains(pos1) || !world.isBlockLoaded(pos1))
                         continue;
                     state1 = world.getBlockState(pos1);
-                    if (state1.getBlock() == BlockFruitTreeTrunk.get(tree) || state1.getBlock() == BlockFruitTreeBranch.get(tree))
+                    if (state1.getBlock() == TFCBlockFruitTreeTrunk.get(tree) || state1.getBlock() == TFCBlockFruitTreeBranch.get(tree))
                         return;
                     if (state1.getBlock() == this)
                         pathsToAdd.add(pos1.toImmutable());

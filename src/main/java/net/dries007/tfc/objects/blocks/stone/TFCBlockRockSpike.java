@@ -23,7 +23,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockSpike extends BlockRockVariant {
+public class TFCBlockRockSpike extends TFCBlockRockVariant {
     public static final PropertyBool CEILING = PropertyBool.create("ceiling"); //If this comes from ceiling
     public static final PropertyBool BASE = PropertyBool.create("base"); //If this block is the base
 

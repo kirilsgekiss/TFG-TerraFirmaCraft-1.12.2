@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
+public class TFCBlockFruitTreeBranch extends Block implements IGrowingPlant {
     /* Facing of this branch */
     public static final PropertyEnum<EnumFacing> FACING = PropertyEnum.create("facing", EnumFacing.class);
 
@@ -65,15 +65,15 @@ public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
     private static final AxisAlignedBB CONNECTION_E_AABB = new AxisAlignedBB(0.6875D, 0.375D, 0.3125D, 1.0D, 0.625D, 0.6875D);
 
 
-    private static final Map<IFruitTree, BlockFruitTreeBranch> MAP = new HashMap<>();
+    private static final Map<IFruitTree, TFCBlockFruitTreeBranch> MAP = new HashMap<>();
 
-    public static BlockFruitTreeBranch get(IFruitTree tree) {
+    public static TFCBlockFruitTreeBranch get(IFruitTree tree) {
         return MAP.get(tree);
     }
 
     private final IFruitTree tree;
 
-    public BlockFruitTreeBranch(IFruitTree tree) {
+    public TFCBlockFruitTreeBranch(IFruitTree tree) {
         super(Material.WOOD, Material.WOOD.getMaterialMapColor());
         if (MAP.put(tree, this) != null) throw new IllegalStateException("There can only be one.");
         setHardness(2.0F);
@@ -117,7 +117,7 @@ public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
             connectedValue = 2;
         }
         for (EnumFacing facing : EnumFacing.VALUES) {
-            if (worldIn.getBlockState(pos.offset(facing)).getBlock() instanceof BlockFruitTreeLeaves) {
+            if (worldIn.getBlockState(pos.offset(facing)).getBlock() instanceof TFCBlockFruitTreeLeaves) {
                 if (facing == EnumFacing.NORTH) {
                     state = state.withProperty(NORTH, connectedValue);
                 } else if (facing == EnumFacing.SOUTH) {
@@ -222,7 +222,7 @@ public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
         ItemStack stack = player.getHeldItemMainhand();
         if (stack.getItem().getToolClasses(stack).contains("axe") || stack.getItem().getToolClasses(stack).contains("saw")) {
             if (!worldIn.isRemote && RANDOM.nextBoolean()) {
-                ItemStack dropStack = new ItemStack(BlockFruitTreeSapling.get(tree));
+                ItemStack dropStack = new ItemStack(TFCBlockFruitTreeSapling.get(tree));
                 InventoryHelper.spawnItemStack(worldIn, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, dropStack);
             }
         }
@@ -249,7 +249,7 @@ public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
     @Override
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(BlockFruitTreeSapling.get(tree));
+        return new ItemStack(TFCBlockFruitTreeSapling.get(tree));
     }
 
     @Nonnull
@@ -259,7 +259,7 @@ public class BlockFruitTreeBranch extends Block implements IGrowingPlant {
 
     private EnumFacing getFacing(IBlockAccess worldIn, BlockPos pos) {
         for (EnumFacing facing : EnumFacing.VALUES) {
-            if (worldIn.getBlockState(pos.offset(facing)).getBlock() == BlockFruitTreeTrunk.get(tree)) {
+            if (worldIn.getBlockState(pos.offset(facing)).getBlock() == TFCBlockFruitTreeTrunk.get(tree)) {
                 return facing.getOpposite();
             }
         }

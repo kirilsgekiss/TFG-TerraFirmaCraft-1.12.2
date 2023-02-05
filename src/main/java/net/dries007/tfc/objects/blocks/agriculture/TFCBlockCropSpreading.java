@@ -21,16 +21,16 @@ import java.util.Random;
 
 @Deprecated // For now, unused, needs design work
 @ParametersAreNonnullByDefault
-public abstract class BlockCropSpreading extends TFCBlockCrop {
+public abstract class TFCBlockCropSpreading extends TFCBlockCrop {
     private static final int MAX_SPREAD_AGE = 16;
 
-    public static BlockCropSpreading create(ICrop crop) {
+    public static TFCBlockCropSpreading create(ICrop crop) {
         PropertyInteger property = getStagePropertyForCrop(crop);
 
         if (property == null)
             throw new IllegalStateException("Invalid growthstage property " + (crop.getMaxStage() + 1) + " for crop");
 
-        return new BlockCropSpreading(crop) {
+        return new TFCBlockCropSpreading(crop) {
             @Override
             public PropertyInteger getStageProperty() {
                 return property;
@@ -38,7 +38,7 @@ public abstract class BlockCropSpreading extends TFCBlockCrop {
         };
     }
 
-    BlockCropSpreading(ICrop crop) {
+    TFCBlockCropSpreading(ICrop crop) {
         super(crop);
 
         setDefaultState(getBlockState().getBaseState().withProperty(WILD, false).withProperty(getStageProperty(), 0));

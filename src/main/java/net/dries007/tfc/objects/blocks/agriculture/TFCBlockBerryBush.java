@@ -49,21 +49,21 @@ import java.util.Random;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class BlockBerryBush extends Block implements IGrowingPlant {
+public class TFCBlockBerryBush extends Block implements IGrowingPlant {
     public static final PropertyBool FRUITING = PropertyBool.create("fruiting");
 
     private static final AxisAlignedBB SMALL_SIZE_AABB = new AxisAlignedBB(0D, 0.0D, 0, 1D, 0.25D, 1D);
     private static final AxisAlignedBB MEDIUM_SIZE_AABB = new AxisAlignedBB(0D, 0.0D, 0, 1D, 0.5D, 1D);
 
-    private static final Map<IBerryBush, BlockBerryBush> MAP = new HashMap<>();
+    private static final Map<IBerryBush, TFCBlockBerryBush> MAP = new HashMap<>();
 
-    public static BlockBerryBush get(IBerryBush bush) {
+    public static TFCBlockBerryBush get(IBerryBush bush) {
         return MAP.get(bush);
     }
 
     private final IBerryBush bush;
 
-    public BlockBerryBush(IBerryBush bush) {
+    public TFCBlockBerryBush(IBerryBush bush) {
         super(Material.PLANTS);
         this.bush = bush;
         if (MAP.put(bush, this) != null) throw new IllegalStateException("There can only be one.");
@@ -245,7 +245,7 @@ public class BlockBerryBush extends Block implements IGrowingPlant {
 
     private boolean canStay(IBlockAccess world, BlockPos pos) {
         IBlockState below = world.getBlockState(pos.down());
-        if (bush.getSize() == IBerryBush.Size.LARGE && below.getBlock() instanceof BlockBerryBush && ((BlockBerryBush) below.getBlock()).bush == this.bush) {
+        if (bush.getSize() == IBerryBush.Size.LARGE && below.getBlock() instanceof TFCBlockBerryBush && ((TFCBlockBerryBush) below.getBlock()).bush == this.bush) {
             return BlocksTFC.isGrowableSoil(world.getBlockState(pos.down(2))); // Only stack once
         }
         return BlocksTFC.isGrowableSoil(below);

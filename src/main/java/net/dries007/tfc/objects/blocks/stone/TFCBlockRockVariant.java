@@ -51,10 +51,10 @@ import static net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop.WILD;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class BlockRockVariant extends Block implements IItemSize {
-    private static final Map<Rock, EnumMap<Type, BlockRockVariant>> TABLE = new HashMap<>();
+public class TFCBlockRockVariant extends Block implements IItemSize {
+    private static final Map<Rock, EnumMap<Type, TFCBlockRockVariant>> TABLE = new HashMap<>();
 
-    public static BlockRockVariant get(Rock rock, Type type) {
+    public static TFCBlockRockVariant get(Rock rock, Type type) {
         // noinspection ConstantConditions
         if (rock == null) {
             return TABLE.get(Rock.GRANITE).get(type);
@@ -62,7 +62,7 @@ public class BlockRockVariant extends Block implements IItemSize {
         return TABLE.get(rock).get(type);
     }
 
-    public static BlockRockVariant create(Rock rock, Type type) {
+    public static TFCBlockRockVariant create(Rock rock, Type type) {
         switch (type) {
             case RAW:
             case MOSSY_RAW:
@@ -320,14 +320,14 @@ public class BlockRockVariant extends Block implements IItemSize {
             case COARSE_STONEWARE_CLAY_HUMUS:
                 return new TFCBlockRockVariantFallable(type, rock);
             default:
-                return new BlockRockVariant(type, rock);
+                return new TFCBlockRockVariant(type, rock);
         }
     }
 
     protected final Type type;
     protected final Rock rock;
 
-    public BlockRockVariant(Type type, Rock rock) {
+    public TFCBlockRockVariant(Type type, Rock rock) {
         super(type.material);
 
         if (!TABLE.containsKey(rock)) {
@@ -620,7 +620,7 @@ public class BlockRockVariant extends Block implements IItemSize {
         }
     }
 
-    public BlockRockVariant getVariant(Type t) {
+    public TFCBlockRockVariant getVariant(Type t) {
         return TABLE.get(rock).get(t);
     }
 
@@ -671,8 +671,8 @@ public class BlockRockVariant extends Block implements IItemSize {
                          * block instanceof BlockHumusPath
                          */)
                             return false;
-                        if (block instanceof BlockRockVariant) {
-                            switch (((BlockRockVariant) block).type) {
+                        if (block instanceof TFCBlockRockVariant) {
+                            switch (((TFCBlockRockVariant) block).type) {
                                 case FARMLAND:
                                 case PATH:
                                 case LOAMY_SAND_PATH:
