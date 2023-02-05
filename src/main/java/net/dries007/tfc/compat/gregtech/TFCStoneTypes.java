@@ -7,7 +7,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
 import net.dries007.tfc.types.DefaultRocks;
 import net.minecraft.block.SoundType;
 

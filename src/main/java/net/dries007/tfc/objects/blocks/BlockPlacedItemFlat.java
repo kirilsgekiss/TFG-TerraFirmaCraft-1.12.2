@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.blocks;
 
-import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;

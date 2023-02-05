@@ -11,7 +11,7 @@ import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockEmergentTallWaterPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterPlant;
-import net.dries007.tfc.objects.blocks.stone.farmland.*;
+import net.dries007.tfc.objects.blocks.rock.farmland.*;
 import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;

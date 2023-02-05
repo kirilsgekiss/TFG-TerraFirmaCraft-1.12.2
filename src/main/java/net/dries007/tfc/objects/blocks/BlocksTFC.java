@@ -28,11 +28,11 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.plants.*;
-import net.dries007.tfc.objects.blocks.stone.*;
-import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockFireClay;
-import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockEarthenwareClay;
-import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockKaoliniteClay;
-import net.dries007.tfc.objects.blocks.stone.clay.TFCBlockStonewareClay;
+import net.dries007.tfc.objects.blocks.rock.*;
+import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockFireClay;
+import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockEarthenwareClay;
+import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockKaoliniteClay;
+import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockStonewareClay;
 import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
@@ -418,6 +418,16 @@ public final class BlocksTFC {
 
     //=== Groundcover ================================================================================================//
 
+    public static ImmutableList<TFCBlockCoral> getAllCoralPlants() { return allCoralPlants; }
+    public static ImmutableList<TFCBlockDriftwood> getAllSurfaceDriftwood() { return allSurfaceDriftwood; }
+    public static ImmutableList<TFCBlockLightstone> getAllLightstoneBlocks() { return allLightstoneBlocks; }
+    public static ImmutableList<TFCBlockPinecone> getAllSurfacePinecone() { return allSurfacePinecone; }
+    public static ImmutableList<TFCBlockSurfaceBones> getAllSurfaceBones() { return allSurfaceBones; }
+    public static ImmutableList<TFCBlockSurfaceFlint> getAllSurfaceFlint() { return allSurfaceFlint; }
+    public static ImmutableList<TFCBlockSurfaceRock> getAllSurfaceRocks() { return allSurfaceRocks; }
+    public static ImmutableList<TFCBlockSurfaceSeashells> getAllSurfaceSeashells() { return allSurfaceSeashells; }
+    public static ImmutableList<TFCBlockTwig> getAllSurfaceTwig() { return allSurfaceTwig; }
+
     //=== Metal ======================================================================================================//
 
     public static ImmutableList<TFCBlockCladding> getAllBlockCladding() { return allBlockCladding; }
@@ -426,74 +436,65 @@ public final class BlocksTFC {
     public static ImmutableList<TFCBlockMetalTrapDoor> getAllBlockMetalTrapDoor() { return allBlockMetalTrapDoor; }
 
     //=== Plants =====================================================================================================//
+    
 
-    public static ImmutableList<TFCBlockPlanks> getAllPlankBlocks() {
-        return allPlankBlocks;
-    }
+    public static ImmutableList<TFCBlockWaterGlowPlant> getAllGlowWaterPlants() {return allGlowWaterPlants;}
+
+    public static ImmutableList<TFCBlockWaterPlant> getAllWaterPlantBlocks() {return allWaterPlantBlocks;}
+
+    public static ImmutableList<TFCBlockHangingPlant> getAllHangingPlantBlocks() {return allHangingPlantBlocks;}
+
+    public static ImmutableList<TFCBlockHangingGlowingPlant> getAllHangingGlowingPlantBlocks() {return allHangingGlowingPlantBlocks;}
+
+    public static ImmutableList<TFCBlockHangingCreepingPlant> getAllHangingCreepingPlantBlocks() {return allHangingCreepingPlantBlocks;}
+
+    public static ImmutableList<TFCBlockHangingGlowingCreepingPlant> getAllHangingGlowingCreepingPlantBlocks() {return allHangingGlowingCreepingPlantBlocks;}
+
+    public static ImmutableList<TFCBlockCreepingPlant> getAllCreepingPlantBlocks() {return allCreepingPlantBlocks;}
+
+    public static ImmutableList<TFCBlockTallGrassWater> getAllTallGrassWaterBlocks() {return allTallGrassWaterBlocks;}
+
+    public static ImmutableList<TFCBlockShortGrass> getAllShortGrassBlocks() {return allShortGrassBlocks;}
+
+    public static ImmutableList<TFCBlockSaguaroCactus> getAllSaguaroCactusBlocks() {return allSaguaroCactusBlocks;}
+
+    public static ImmutableList<BlockPlantDummy1> getAllStandardBlocks() {return allStandardBlocks;}
+
+
+
+    public static ImmutableList<TFCBlockPlant> getAllPlantBlocks() {return allPlantBlocks;}
 
     //=== Rock =======================================================================================================//
 
-    public static ImmutableList<TFCBlockRockVariant> getAllRockVariantsBlock() {
-        return allRockVariantsBlock;
-    }
+    public static ImmutableList<TFCBlockRockVariant> getAllRockVariantsBlock() { return allRockVariantsBlock; }
 
-    public static ImmutableList<TFCBlockRockWall> getAllRockWallBlocks() {
-        return allRockWallBlocks;
-    }
 
-    public static ImmutableList<TFCBlockRockStairs> getAllRockStairsBlocks() {
-        return allRockStairsBlocks;
-    }
 
-    public static ImmutableList<TFCBlockRockSlab.Half> getAllRockSlabBlocks() {
-        return allRockSlabBlocks;
-    }
+    public static ImmutableList<TFCBlockRockStairs> getAllRockStairsBlocks() { return allRockStairsBlocks; }
+
+    public static ImmutableList<TFCBlockRockSlab.Half> getAllRockSlabBlocks() { return allRockSlabBlocks; }
+
+    public static ImmutableList<TFCBlockRockWall> getAllRockWallBlocks() { return allRockWallBlocks; }
 
     //=== Bamboo =====================================================================================================//
 
-    //    public static ImmutableList<Block> getAllBlockBambooLeaves() {
-//        return allBlockBambooLeaves;
-//    }
-//
-//    public static ImmutableList<Block> getAllBlockBambooLog() {
-//        return allBlockBambooLog;
-//    }
-//
-//    public static ImmutableList<Block> getAllBlockBambooSapling() {
-//        return allBlockBambooSapling;
-//    }
+//    public static ImmutableList<Block> getAllBlockBambooLeaves() { return allBlockBambooLeaves; }
+//    public static ImmutableList<Block> getAllBlockBambooLog() { return allBlockBambooLog; }
+//    public static ImmutableList<Block> getAllBlockBambooSapling() { return allBlockBambooSapling; }
 
     //=== Cinnamon ===================================================================================================//
 
     //=== Joshua Tree ================================================================================================//
 
-    //    public static ImmutableList<BlockJoshuaTreeFlower> getAllJoshuaTreeFlowerBlocks()
-//    {
-//        return allJoshuaTreeFlowerBlocks;
-//    }
-//
-//    public static ImmutableList<BlockJoshuaTreeLog> getAllJoshuaTreeLogBlocks()
-//    {
-//        return allJoshuaTreeLogBlocks;
-//    }
-//
-//    public static ImmutableList<BlockJoshuaTreeSapling> getAllJoshuaTreeSaplingBlocks()
-//    {
-//        return allJoshuaTreeSaplingBlocks;
-//    }
+//    public static ImmutableList<BlockJoshuaTreeFlower> getAllJoshuaTreeFlowerBlocks() { return allBlockJoshuaTreeFlower; }
+//    public static ImmutableList<BlockJoshuaTreeLog> getAllJoshuaTreeLogBlocks() { return allBlockJoshuaTreeLog; }
+//    public static ImmutableList<BlockJoshuaTreeSapling> getAllJoshuaTreeSaplingBlocks() { return allBlockJoshuaTreeSapling; }
 
     //=== Tree =======================================================================================================//
 
-    public static ImmutableList<TFCBlockLog> getAllLogBlocks() {
-        return allLogBlocks;
-    }
-    public static ImmutableList<TFCBlockLeaves> getAllLeafBlocks() {
-        return allLeafBlocks;
-    }
-
-    public static ImmutableList<TFCBlockSapling> getAllSaplingBlocks() {
-        return allSaplingBlocks;
-    }
+    public static ImmutableList<TFCBlockLeaves> getAllLeafBlocks() {return allLeafBlocks;}
+    public static ImmutableList<TFCBlockLog> getAllLogBlocks() {return allLogBlocks;}
+    public static ImmutableList<TFCBlockSapling> getAllSaplingBlocks() {return allSaplingBlocks;}
 
     //=== Wood =======================================================================================================//
 
@@ -504,6 +505,7 @@ public final class BlocksTFC {
     public static ImmutableList<TFCBlockFenceGate> getAllFenceGateBlocks() { return allFenceGateBlocks; }
     public static ImmutableList<TFCBlockFenceGateLog> getAllFenceGateLogBlocks() { return allFenceGateLogBlocks; }
     public static ImmutableList<TFCBlockLoom> getAllLoomBlocks() { return allLoomBlocks; }
+    public static ImmutableList<TFCBlockPlanks> getAllPlankBlocks() { return allPlankBlocks; }
     public static ImmutableList<TFCBlockToolRack> getAllToolRackBlocks() { return allToolRackBlocks; }
     public static ImmutableList<TFCBlockWoodButton> getAllWoodButtonBlocks() { return allWoodButtonBlocks; }
     public static ImmutableList<TFCBlockWoodDoor> getAllDoorBlocks() { return allDoorBlocks; }
@@ -519,122 +521,15 @@ public final class BlocksTFC {
     public static ImmutableList<BlockFluidBase> getAllFluidBlocks() { return allFluidBlocks; }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static ImmutableList<TFCBlockPlant> getAllPlantBlocks() {
-        return allPlantBlocks;
-    }
-
-
-
-
-
     public static ImmutableList<TFCBlockFlowerPot> getAllFlowerPots() {
         return allFlowerPots;
     }
-
-
-
-
     public static ImmutableList<Block> getAllFoodIBs() {
         return allFoodItemBlocks;
     }
 
 
 
-
-    public static ImmutableList<TFCBlockSurfaceRock> getAllSurfaceRocks() {
-        return allSurfaceRocks;
-    }
-
-    public static ImmutableList<TFCBlockSurfaceSeashells> getAllSurfaceSeashells() {
-        return allSurfaceSeashells;
-    }
-
-    public static ImmutableList<TFCBlockSurfaceFlint> getAllSurfaceFlint() {
-        return allSurfaceFlint;
-    }
-
-    public static ImmutableList<TFCBlockSurfaceBones> getAllSurfaceBones() {
-        return allSurfaceBones;
-    }
-
-    public static ImmutableList<TFCBlockDriftwood> getAllSurfaceDriftwood() {
-        return allSurfaceDriftwood;
-    }
-
-    public static ImmutableList<TFCBlockTwig> getAllSurfaceTwig() {
-        return allSurfaceTwig;
-    }
-
-    public static ImmutableList<TFCBlockPinecone> getAllSurfacePinecone() {
-        return allSurfacePinecone;
-    }
-
-
-
-    public static ImmutableList<TFCBlockCoral> getAllCoralPlants() {
-        return allCoralPlants;
-    }
-
-    public static ImmutableList<TFCBlockWaterGlowPlant> getAllGlowWaterPlants() {
-        return allGlowWaterPlants;
-    }
-
-    public static ImmutableList<TFCBlockWaterPlant> getAllWaterPlantBlocks() {
-        return allWaterPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockHangingPlant> getAllHangingPlantBlocks() {
-        return allHangingPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockHangingGlowingPlant> getAllHangingGlowingPlantBlocks() {
-        return allHangingGlowingPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockHangingCreepingPlant> getAllHangingCreepingPlantBlocks() {
-        return allHangingCreepingPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockHangingGlowingCreepingPlant> getAllHangingGlowingCreepingPlantBlocks() {
-        return allHangingGlowingCreepingPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockCreepingPlant> getAllCreepingPlantBlocks() {
-        return allCreepingPlantBlocks;
-    }
-
-    public static ImmutableList<TFCBlockTallGrassWater> getAllTallGrassWaterBlocks() {
-        return allTallGrassWaterBlocks;
-    }
-
-    public static ImmutableList<TFCBlockShortGrass> getAllShortGrassBlocks() {
-        return allShortGrassBlocks;
-    }
-
-    public static ImmutableList<TFCBlockSaguaroCactus> getAllSaguaroCactusBlocks() {
-        return allSaguaroCactusBlocks;
-    }
-
-    public static ImmutableList<BlockPlantDummy1> getAllStandardBlocks() {
-        return allStandardBlocks;
-    }
-
-    public static ImmutableList<TFCBlockLightstone> getAllLightstoneBlocks() {
-        return allLightstoneBlocks;
-    }
 
 
 

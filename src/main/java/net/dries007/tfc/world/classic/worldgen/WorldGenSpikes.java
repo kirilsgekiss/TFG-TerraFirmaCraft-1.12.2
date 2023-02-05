@@ -7,9 +7,9 @@ package net.dries007.tfc.world.classic.worldgen;
 
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSpike;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSpike;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;

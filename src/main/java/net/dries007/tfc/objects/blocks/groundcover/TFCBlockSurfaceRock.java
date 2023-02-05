@@ -6,7 +6,7 @@ import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.util.OreDictionaryHelper;
