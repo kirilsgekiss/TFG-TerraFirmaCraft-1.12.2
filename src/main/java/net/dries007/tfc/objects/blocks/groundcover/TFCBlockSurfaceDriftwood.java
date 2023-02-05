@@ -28,10 +28,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockDriftwood extends BlockBush {
+public class TFCBlockSurfaceDriftwood extends BlockBush {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    public TFCBlockDriftwood() {
+    public TFCBlockSurfaceDriftwood() {
         super(Material.WOOD);
         setSoundType(SoundType.WOOD);
         setHardness(0.1f);
