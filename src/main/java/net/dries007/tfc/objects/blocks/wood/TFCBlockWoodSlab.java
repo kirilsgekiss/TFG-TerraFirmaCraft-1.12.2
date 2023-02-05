@@ -46,8 +46,8 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     private Wood wood;
 
     private TFCBlockWoodSlab(Wood wood) {
-        this(TFCBlockPlanks.get(wood));
-        Block c = TFCBlockPlanks.get(wood);
+        this(TFCBlockPlank.get(wood));
+        Block c = TFCBlockPlank.get(wood);
         this.wood = wood;
         //noinspection ConstantConditions
         setHarvestLevel(c.getHarvestTool(c.getDefaultState()), c.getHarvestLevel(c.getDefaultState()));

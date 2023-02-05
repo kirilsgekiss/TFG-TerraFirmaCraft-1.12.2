@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.blocks.plants;
 
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy2;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.TFCBlockPlantDummy2;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.util.climate.ClimateTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockCreepingPlant extends BlockPlantDummy2 {
+public class TFCBlockCreepingPlant extends TFCBlockPlantDummy2 {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
     static final PropertyBool NORTH = PropertyBool.create("north");

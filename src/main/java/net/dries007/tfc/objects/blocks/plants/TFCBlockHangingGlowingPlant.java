@@ -4,7 +4,7 @@ import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.BlockPlant.BlockPlantDummy1;
+import net.dries007.tfc.objects.blocks.plants.BlockPlant.TFCBlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.property.ITallPlant;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.objects.te.TETickCounter;
@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockHangingGlowingPlant extends BlockPlantDummy1 implements IGrowable, ITallPlant {
+public class TFCBlockHangingGlowingPlant extends TFCBlockPlantDummy1 implements IGrowable, ITallPlant {
     private static final PropertyEnum<EnumBlockPart> PART = PropertyEnum.create("part", EnumBlockPart.class);
 
     public static final AxisAlignedBB AABB = new AxisAlignedBB(0.25F, 0, 0.25F, 0.75F, 1, 0.75F);

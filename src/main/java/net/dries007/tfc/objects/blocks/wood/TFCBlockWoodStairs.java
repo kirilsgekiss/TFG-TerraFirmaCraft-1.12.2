@@ -34,13 +34,13 @@ public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodH
     private final Wood wood;
 
     public TFCBlockWoodStairs(Wood wood) {
-        super(TFCBlockPlanks.get(wood).getDefaultState());
+        super(TFCBlockPlank.get(wood).getDefaultState());
         if (WOOD_MAP.put(wood, this) != null) {
             throw new IllegalStateException("There can only be one.");
         }
 
         this.wood = wood;
-        Block baseBlock = TFCBlockPlanks.get(wood);
+        Block baseBlock = TFCBlockPlank.get(wood);
         //noinspection ConstantConditions
         setHarvestLevel(baseBlock.getHarvestTool(baseBlock.getDefaultState()), baseBlock.getHarvestLevel(baseBlock.getDefaultState()));
         useNeighborBrightness = true;

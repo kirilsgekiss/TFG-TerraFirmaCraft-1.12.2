@@ -37,10 +37,10 @@ public class ModBlocks
     {
         //For this mod it is vital that these are never reordered.  If a leaves properties is removed from the
         //mod then there should be a LeavesProperties.NULLPROPERTIES used as a placeholder.
-        tfcLeavesProperties = new LeavesProperties[BlocksTFC.getAllLeafBlocks().size()];
+        tfcLeavesProperties = new LeavesProperties[BlocksTFC.getAllBlockLeaves().size()];
         leafMap = new HashMap<>();
         int i = 0; // DT wants an array of leafprops for some reason
-        for (TFCBlockLeaves leaf : BlocksTFC.getAllLeafBlocks())
+        for (TFCBlockLeaves leaf : BlocksTFC.getAllBlockLeaves())
         {
             LeavesProperties prop = new LeavesProperties(leaf.getDefaultState(), kitMap.get(leaf.tree.toString()));
             leafMap.put(leaf.tree.toString(), prop);
