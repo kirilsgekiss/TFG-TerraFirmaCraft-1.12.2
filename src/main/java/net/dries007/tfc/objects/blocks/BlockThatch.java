@@ -37,8 +37,8 @@ public class BlockThatch extends Block {
         setSoundType(SoundType.PLANT);
         setHardness(0.6F);
         setLightOpacity(255); //Blocks light
-        OreDictionaryHelper.register(this, "thatch");
-        OreDictionaryHelper.register(this, "block", "straw");
+        OreDictionaryHelper.register(this, "thatch", "dry");
+        OreDictionaryHelper.register(this, "block", "straw", "dry");
         Blocks.FIRE.setFireInfo(this, 60, 20);
     }
 

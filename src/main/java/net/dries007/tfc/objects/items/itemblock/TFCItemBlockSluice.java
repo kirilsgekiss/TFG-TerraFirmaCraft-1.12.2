@@ -21,8 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ItemBlockSluice extends TFCItemBlock {
-    public ItemBlockSluice(Block block) {
+public class TFCItemBlockSluice extends TFCItemBlock {
+    public TFCItemBlockSluice(Block block) {
         super(block);
     }
 

@@ -29,8 +29,8 @@ import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalTrapDoor;
 import net.dries007.tfc.objects.blocks.plants.BlockPlant.TFCBlockPlantDummy1;
 import net.dries007.tfc.objects.blocks.plants.*;
 import net.dries007.tfc.objects.blocks.rock.*;
-import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockFireClay;
 import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockEarthenwareClay;
+import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockFireClay;
 import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockKaoliniteClay;
 import net.dries007.tfc.objects.blocks.rock.clay.TFCBlockStonewareClay;
 import net.dries007.tfc.objects.blocks.wood.*;
@@ -39,7 +39,6 @@ import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
-import net.dries007.tfc.objects.items.food.ItemBlockRot;
 import net.dries007.tfc.objects.items.food.PotionEffectToHave;
 import net.dries007.tfc.objects.items.itemblock.*;
 import net.dries007.tfc.objects.te.*;
@@ -231,39 +230,6 @@ public final class BlocksTFC {
 //    public static final BlockBambooLog WEAVERS_BAMBOO_LOG = getNull();
 //    @GameRegistry.ObjectHolder("wood/leaves/weavers_bamboo")
 //    public static final BlockBambooLeaves WEAVERS_BAMBOO_LEAVES = getNull();
-
-    @GameRegistry.ObjectHolder("coral/brain/dead")
-    public static final TFCBlockCoral BRAIN_CORAL_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/bubble/dead")
-    public static final TFCBlockCoral BUBBLE_CORAL_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/fire/dead")
-    public static final TFCBlockCoral FIRE_CORAL_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/horn/dead")
-    public static final TFCBlockCoral HORN_CORAL_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/tube/dead")
-    public static final TFCBlockCoral TUBE_CORAL_DEAD = getNull();
-
-    @GameRegistry.ObjectHolder("coral/fan/brain/dead")
-    public static final TFCBlockCoral BRAIN_CORAL_FAN_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/fan/bubble/dead")
-    public static final TFCBlockCoral BUBBLE_CORAL_FAN_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/fan/fire/dead")
-    public static final TFCBlockCoral FIRE_CORAL_FAN_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/fan/horn/dead")
-    public static final TFCBlockCoral HORN_CORAL_FAN_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/fan/tube/dead")
-    public static final TFCBlockCoral TUBE_CORAL_FAN_DEAD = getNull();
-
-    @GameRegistry.ObjectHolder("coral/block/brain/dead")
-    public static final TFCBlockCoralBlock BRAIN_CORAL_BLOCK_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/block/bubble/dead")
-    public static final TFCBlockCoralBlock BUBBLE_CORAL_BLOCK_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/block/fire/dead")
-    public static final TFCBlockCoralBlock FIRE_CORAL_BLOCK_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/block/horn/dead")
-    public static final TFCBlockCoralBlock HORN_CORAL_BLOCK_DEAD = getNull();
-    @GameRegistry.ObjectHolder("coral/block/tube/dead")
-    public static final TFCBlockCoralBlock TUBE_CORAL_BLOCK_DEAD = getNull();
 
     @GameRegistry.ObjectHolder("plants/glowing_sea_banana")
     public static final TFCBlockWaterGlowPlant GLOWING_SEA_BANANA = getNull();
@@ -529,88 +495,336 @@ public final class BlocksTFC {
         Builder<ItemBlock> colorizedItemBlocks = ImmutableList.builder();
         Builder<ItemBlock> inventoryItemBlocks = ImmutableList.builder();
 
-        ImmutableList.Builder<Block> itemBambooLog = ImmutableList.builder();
-        ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
-        ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
-        ImmutableList.Builder<Block> foodItemBlocks = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfaceRock> surfaceRock = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfaceFlint> surfaceFlint = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfaceBones> surfaceBone = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockDriftwood> surfaceDriftwood = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfaceTwig> surfaceTwig = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockSurfacePinecone> surfacePinecone = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockPebbleWater> pebbleWater = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockCoral> plantCoral = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
-        ImmutableList.Builder<TFCBlockLightstone> blockLightstone = ImmutableList.builder();
-        ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
-        //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
-
-
         normalItemBlocks.add(new TFCItemBlock(register(r, "debug", new BlockDebug(), CT_MISC)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "aggregate", new BlockAggregate(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_clay_block", new TFCBlockFireClay(), CT_ROCK_BLOCKS)));
+        //=== Miscellaneous ==========================================================================================//
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "peat", new BlockPeat(Material.GROUND), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "peat_grass", new BlockPeatGrass(Material.GRASS), CT_ROCK_BLOCKS)));
+        {
+            normalItemBlocks.add(new TFCItemBlock(register(r, "aggregate", new BlockAggregate(), CT_ROCK_BLOCKS)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "thatch", new BlockThatch(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "fire_bricks", new BlockFireBrick(), CT_DECORATIONS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "fire_clay_block", new TFCBlockFireClay(), CT_ROCK_BLOCKS)));
 
-        normalItemBlocks.add(new TFCItemBlock(register(r, "quern", new BlockQuern(), CT_MISC)));
-        normalItemBlocks.add(new ItemBlockCrucible(register(r, "crucible", new BlockCrucible(), CT_MISC)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "blast_furnace", new BlockBlastFurnace(), CT_MISC)));
-        normalItemBlocks.add(new ItemBlockDryer(register(r, "devices/dryer", new BlockDryer(), CT_MISC)));
-        normalItemBlocks.add(new ItemBlockStickBundle(register(r, "devices/stick_bundle", new BlockStickBundle(), CT_MISC)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "peat", new BlockPeat(Material.GROUND), CT_ROCK_BLOCKS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "peat_grass", new BlockPeatGrass(Material.GRASS), CT_ROCK_BLOCKS)));
 
-        inventoryItemBlocks.add(new TFCItemBlock(register(r, "bellows", new BlockBellows(), CT_MISC)));
-        inventoryItemBlocks.add(new TFCItemBlock(register(r, "bloomery", new BlockBloomery(), CT_MISC)));
-        inventoryItemBlocks.add(new TFCItemBlock(register(r, "nest_box", new BlockNestBox(), CT_MISC)));
-        inventoryItemBlocks.add(new ItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_MISC)));
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
-
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-        normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_DECORATIONS)));
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_clay_block", new TFCBlockEarthenwareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/earthenware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_clay_block", new TFCBlockKaoliniteClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/kaolinite_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_clay_block", new TFCBlockStonewareClay(), CT_ROCK_BLOCKS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/stoneware_bricks", new BlockFireBrick(), CT_DECORATIONS)));
-        normalItemBlocks.add(new ItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
-
-        normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new BlockUrn(), CT_POTTERY)));
-        normalItemBlocks.add(new ItemBlockUrnLoot(register(r, "storage/urn_loot", new BlockUrnLoot(), CT_POTTERY)));
-        normalItemBlocks.add(new ItemBlockCrate(register(r, "storage/crate", new BlockCrate(), CT_DECORATIONS)));
-
-        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-            BlockDecorativeStone polished = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
-            BlockDecorativeStone bricks = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
-            BlockDecorativeStone raw = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
-
-            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/" + dyeColor.getName(), polished, CT_DECORATIONS)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/" + dyeColor.getName(), bricks, CT_DECORATIONS)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/" + dyeColor.getName(), raw, CT_DECORATIONS)));
-
-            BlockDecorativeStone.ALABASTER_POLISHED.put(dyeColor, polished);
-            BlockDecorativeStone.ALABASTER_BRICKS.put(dyeColor, bricks);
-            BlockDecorativeStone.ALABASTER_RAW.put(dyeColor, raw);
         }
 
-        // Fluid
-        // Apparently this is the way we're supposed to do things even though the fluid registry defaults. So we'll do it this way.
+        //==== Thatching =============================================================================================//
+
+        {
+            // Dry
+            normalItemBlocks.add(new TFCItemBlock(register(r, "thatch", new BlockThatch(), CT_THATCHING)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "loose_thatching", new BlockThatch(), CT_THATCHING)));
+
+            // Wet
+            normalItemBlocks.add(new TFCItemBlock(register(r, "wet_thatch", new BlockThatch(), CT_THATCHING)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "loose_wet_thatching", new BlockThatch(), CT_THATCHING)));
+        }
+
+        //==== Divices ===============================================================================================//
+
+        {
+            normalItemBlocks.add(new TFCItemBlock(register(r, "quern", new BlockQuern(), CT_DEVICES)));
+
+            normalItemBlocks.add(new TFCItemBlockCrucible(register(r, "crucible", new BlockCrucible(), CT_DEVICES)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "blast_furnace", new BlockBlastFurnace(), CT_DEVICES)));
+            normalItemBlocks.add(new ItemBlockDryer(register(r, "dryer", new BlockDryer(), CT_DEVICES)));
+            normalItemBlocks.add(new ItemBlockStickBundle(register(r, "stick_bundle", new BlockStickBundle(), CT_DEVICES)));
+
+            inventoryItemBlocks.add(new TFCItemBlock(register(r, "bellows", new BlockBellows(), CT_DEVICES)));
+            inventoryItemBlocks.add(new TFCItemBlock(register(r, "bloomery", new BlockBloomery(), CT_DEVICES)));
+            inventoryItemBlocks.add(new TFCItemBlock(register(r, "nest_box", new BlockNestBox(), CT_DEVICES)));
+            inventoryItemBlocks.add(new TFCItemBlockSluice(register(r, "sluice", new BlockSluice(), CT_DEVICES)));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new BlockIceTFC(FluidsTFC.SEA_WATER.get()), CT_MISC)));
+
+            normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new BlockPowderKeg(), CT_WOOD)));
+        }
+
+        //==== Alabaster Variants ====================================================================================//
+
+        {
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/plain", new BlockDecorativeStone(MapColor.SNOW), CT_ALABASTER)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/plain", new BlockDecorativeStone(MapColor.SNOW), CT_ALABASTER)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/plain", new BlockDecorativeStone(MapColor.SNOW), CT_ALABASTER)));
+
+
+            for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+                BlockDecorativeStone raw = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
+                BlockDecorativeStone polished = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
+                BlockDecorativeStone bricks = new BlockDecorativeStone(MapColor.getBlockColor(dyeColor));
+
+                normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/raw/" + dyeColor.getName(), raw, CT_ALABASTER)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/polished/" + dyeColor.getName(), polished, CT_ALABASTER)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "alabaster/bricks/" + dyeColor.getName(), bricks, CT_ALABASTER)));
+
+                BlockDecorativeStone.ALABASTER_RAW.put(dyeColor, raw);
+                BlockDecorativeStone.ALABASTER_POLISHED.put(dyeColor, polished);
+                BlockDecorativeStone.ALABASTER_BRICKS.put(dyeColor, bricks);
+            }
+        }
+
+        //==== Ceramics Variants =====================================================================================//
+
+        {
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/clay/clay_bricks", new TFCBlockClayBrick(), CT_ROCK_BLOCKS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/clay/bricks", new BlockFireBrick(), CT_BRICKS)));
+            normalItemBlocks.add(new TFCItemBlockLargeVessel(register(r, "ceramics/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/clay_block", new TFCBlockEarthenwareClay(), CT_ROCK_BLOCKS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/earthenware/bricks", new BlockFireBrick(), CT_BRICKS)));
+            normalItemBlocks.add(new TFCItemBlockLargeVessel(register(r, "ceramics/earthenware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/clay_block", new TFCBlockKaoliniteClay(), CT_ROCK_BLOCKS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/kaolinite/bricks", new BlockFireBrick(), CT_BRICKS)));
+            normalItemBlocks.add(new TFCItemBlockLargeVessel(register(r, "ceramics/kaolinite/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/clay_block", new TFCBlockStonewareClay(), CT_ROCK_BLOCKS)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "ceramics/stoneware/bricks", new BlockFireBrick(), CT_BRICKS)));
+            normalItemBlocks.add(new TFCItemBlockLargeVessel(register(r, "ceramics/stoneware/fired/large_vessel", new BlockLargeVessel(), CT_POTTERY)));
+        }
+
+        //==== Storage ===============================================================================================//
+
+        {
+            normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new BlockUrn(), CT_POTTERY)));
+            normalItemBlocks.add(new ItemBlockUrnLoot(register(r, "storage/urn_loot", new BlockUrnLoot(), CT_POTTERY)));
+            normalItemBlocks.add(new ItemBlockCrate(register(r, "storage/crate", new BlockCrate(), CT_DECORATIONS)));
+        }
+
+        //==== Agriculture ===========================================================================================//
+
+        {
+            // Berry Bush
+            Builder<TFCBlockBerryBush> blockBerryBush = ImmutableList.builder();
+            {
+                for (BerryBush bush : BerryBush.values()) {
+                    blockBerryBush.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new TFCBlockBerryBush(bush), CT_FOOD));
+                }
+
+                allBlockBerryBush = blockBerryBush.build();
+
+                allBlockBerryBush.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            }
+
+            // Crop
+            Builder<TFCBlockCrop> blockCrop = ImmutableList.builder();
+            Builder<TFCBlockCropDead> blockCropDead = ImmutableList.builder();
+            {
+                for (Crop crop : Crop.values()) {
+                    blockCrop.add(register(r, "crop/" + crop.name().toLowerCase(), crop.createGrowingBlock()));
+                    blockCropDead.add(register(r, "dead_crop/" + crop.name().toLowerCase(), crop.createDeadBlock()));
+                }
+
+                allBlockCrop = blockCrop.build();
+                allBlockCropDead = blockCropDead.build();
+            /*
+            for (TFCBlockCrop blockCropWater : allCropBlocks)
+            {
+                normalItemBlocks.add(new ItemBlockCropWaterTFC((TFCBlockCrop) blockCropWater));
+            }
+            for (BlockCropDead blockCropWaterDead : allDeadCropBlocks)
+            {
+                normalItemBlocks.add(new ItemBlockCropDeadWaterTFC((BlockCropDead) blockCropWaterDead));
+            }*/
+
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_yarn_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/papyrus/papyrus_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));
+
+            }
+
+            // Fruit Tree
+            Builder<TFCBlockFruitTreeBranch> blockFruitBranch = ImmutableList.builder();
+            Builder<TFCBlockFruitTreeLeaves> blockFruitLeaves = ImmutableList.builder();
+            Builder<TFCBlockFruitTreeSapling> blockFruitSapling = ImmutableList.builder();
+            Builder<TFCBlockFruitTreeTrunk> blockFruitTrunks = ImmutableList.builder();
+            {
+                for (FruitTree tree : FruitTree.values()) {
+                    blockFruitBranch.add(register(r, "fruit_trees/branch/" + tree.name().toLowerCase(), new TFCBlockFruitTreeBranch(tree)));
+                    blockFruitLeaves.add(register(r, "fruit_trees/leaves/" + tree.name().toLowerCase(), new TFCBlockFruitTreeLeaves(tree), CT_WOOD));
+                    blockFruitSapling.add(register(r, "fruit_trees/sapling/" + tree.name().toLowerCase(), new TFCBlockFruitTreeSapling(tree), CT_WOOD));
+                    blockFruitTrunks.add(register(r, "fruit_trees/trunk/" + tree.name().toLowerCase(), new TFCBlockFruitTreeTrunk(tree)));
+                }
+
+                allBlockFruitTreeBranch = blockFruitBranch.build();
+                allBlockFruitTreeLeaves = blockFruitLeaves.build();
+                allBlockFruitTreeSapling = blockFruitSapling.build();
+                allBlockFruitTreeTrunk = blockFruitTrunks.build();
+
+                allBlockFruitTreeLeaves.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+                allBlockFruitTreeSapling.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
+            }
+        }
+
+        //=== Groundcover ============================================================================================//
+
+        Builder<TFCBlockSurfaceRock> surfaceRock = ImmutableList.builder();
+        Builder<TFCBlockSurfaceSeashells> surfaceSeashell = ImmutableList.builder();
+        Builder<TFCBlockSurfaceFlint> surfaceFlint = ImmutableList.builder();
+        Builder<TFCBlockSurfaceBones> surfaceBone = ImmutableList.builder();
+        Builder<TFCBlockDriftwood> surfaceDriftwood = ImmutableList.builder();
+        Builder<TFCBlockSurfaceTwig> surfaceTwig = ImmutableList.builder();
+        Builder<TFCBlockSurfacePinecone> surfacePinecone = ImmutableList.builder();
+        Builder<TFCBlockPebbleWater> pebbleWater = ImmutableList.builder();
+        Builder<TFCBlockLightstone> blockLightstone = ImmutableList.builder();
+
+        Builder<TFCBlockCoral> blockCoral = ImmutableList.builder();
+        {
+
+
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+
+        for (EnumDyeColor dyeColor : EnumDyeColor.values())
+        {
+            TFCBlockCoral brain = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral bubble = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral fire = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral horn = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral tube = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/brain/" + dyeColor.getName(), brain, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fire/" + dyeColor.getName(), fire, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/horn/" + dyeColor.getName(), horn, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/tube/" + dyeColor.getName(), tube, CT_FLORA)));
+
+            TFCBlockCoral.BRAIN_CORAL.put(dyeColor, brain);
+            TFCBlockCoral.BUBBLE_CORAL.put(dyeColor, bubble);
+            TFCBlockCoral.FIRE_CORAL.put(dyeColor, fire);
+            TFCBlockCoral.HORN_CORAL.put(dyeColor, horn);
+            TFCBlockCoral.TUBE_CORAL.put(dyeColor, tube);
+        }
+
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
+
+        for (EnumDyeColor dyeColor : EnumDyeColor.values())
+        {
+            TFCBlockCoral brain = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral bubble = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral fire = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral horn = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+            TFCBlockCoral tube = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/brain/" + dyeColor.getName(), brain, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/fire/" + dyeColor.getName(), fire, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/horn/" + dyeColor.getName(), horn, CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/fan/tube/" + dyeColor.getName(), tube, CT_FLORA)));
+
+            TFCBlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brain);
+            TFCBlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubble);
+            TFCBlockCoral.FIRE_CORAL_FAN.put(dyeColor, fire);
+            TFCBlockCoral.HORN_CORAL_FAN.put(dyeColor, horn);
+            TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tube);
+        }
+
+            // Normal Corals
+            blockCoral.add(register(r, "coral/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+
+            for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+
+                TFCBlockCoral brainNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral bubbleNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral fireNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral hornNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral tubeNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+
+                blockCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
+                blockCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
+                blockCoral.add(register(r, "coral/fire/" + dyeColor.getName(), fireNormal, CT_FLORA));
+                blockCoral.add(register(r, "coral/horn/" + dyeColor.getName(), hornNormal, CT_FLORA));
+                blockCoral.add(register(r, "coral/tube/" + dyeColor.getName(), tubeNormal, CT_FLORA));
+
+                TFCBlockCoral.BRAIN_CORAL.put(dyeColor, brainNormal);
+                TFCBlockCoral.BUBBLE_CORAL.put(dyeColor, bubbleNormal);
+                TFCBlockCoral.FIRE_CORAL.put(dyeColor, fireNormal);
+                TFCBlockCoral.HORN_CORAL.put(dyeColor, hornNormal);
+                TFCBlockCoral.TUBE_CORAL.put(dyeColor, tubeNormal);
+            }
+
+            // Fan Corals
+            blockCoral.add(register(r, "coral/fan/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/fan/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/fan/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/fan/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+            blockCoral.add(register(r, "coral/fan/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+
+            for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+                TFCBlockCoral brainFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral bubbleFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral fireFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral hornFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+                TFCBlockCoral tubeFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+
+                blockCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
+                blockCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
+                blockCoral.add(register(r, "coral/fan/fire/" + dyeColor.getName(), fireFan, CT_FLORA));
+                blockCoral.add(register(r, "coral/fan/horn/" + dyeColor.getName(), hornFan, CT_FLORA));
+                blockCoral.add(register(r, "coral/fan/tube/" + dyeColor.getName(), tubeFan, CT_FLORA));
+
+                TFCBlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brainFan);
+                TFCBlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubbleFan);
+                TFCBlockCoral.FIRE_CORAL_FAN.put(dyeColor, fireFan);
+                TFCBlockCoral.HORN_CORAL_FAN.put(dyeColor, hornFan);
+                TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tubeFan);
+            }
+            allBlockCoral = blockCoral.build();
+            for (TFCBlockCoral plantCoralBlock : allBlockCoral) {
+                normalItemBlocks.add(new TFCItemBlock(plantCoralBlock));
+            }
+
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+
+            for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+                TFCBlockCoralBlock brain = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+                TFCBlockCoralBlock bubble = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+                TFCBlockCoralBlock fire = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+                TFCBlockCoralBlock horn = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+                TFCBlockCoralBlock tube = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+
+                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
+
+                TFCBlockCoralBlock.BRAIN_CORAL_BLOCK.put(dyeColor, brain);
+                TFCBlockCoralBlock.BUBBLE_CORAL_BLOCK.put(dyeColor, bubble);
+                TFCBlockCoralBlock.FIRE_CORAL_BLOCK.put(dyeColor, fire);
+                TFCBlockCoralBlock.HORN_CORAL_BLOCK.put(dyeColor, horn);
+                TFCBlockCoralBlock.TUBE_CORAL_BLOCK.put(dyeColor, tube);
+            }
+        }
+
+        //==== Fluid =================================================================================================//
+
         Builder<BlockFluidBase> fluids = ImmutableList.builder();
         {
             fluids.add(
@@ -660,63 +874,8 @@ public final class BlocksTFC {
             allBlockFluidBase = fluids.build();
         }
 
-        // Rock Variant
-        Builder<TFCBlockRockVariant> blockRockVariant = ImmutableList.builder();
-        {
-            for (Type type : values()) {
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
-                    if (type != ANVIL) {
-                        blockRockVariant.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
-                    } else if (rock.getRockCategory().hasAnvil()) {
-                        // Anvil registration is special, is has it's own folder
-                        register(r, "anvil/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type));
-                    }
-                }
-            }
-            allBlockRockVariant = blockRockVariant.build();
-            allBlockRockVariant.forEach(x ->
-            {
-                if (x.getType() == SAND) {
-                    normalItemBlocks.add(new ItemBlockHeat(x, 1, 600));
-                } else if (x.getType() != SPIKE && x.getType() != ANVIL) {
-                    normalItemBlocks.add(new TFCItemBlock(x));
-                }
-            });
+        //==== Wood ==================================================================================================//
 
-            {
-                // Add resultingState to the registered collapsable blocks.
-                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
-                    for (Rock.Type type : values()) {
-                        FallingBlockManager.Specification spec = type.getFallingSpecification();
-                        switch (type) {
-                            case ANVIL:
-                                if (!rock.getRockCategory().hasAnvil()) {
-                                    break;
-                                }
-                            case RAW:
-                                spec = new FallingBlockManager.Specification(spec);
-                                spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
-                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, RAW), spec);
-                                break;
-                            case SMOOTH:
-                                spec = new FallingBlockManager.Specification(spec);
-                                spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
-                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(TFCBlockRockSmooth.CAN_FALL, true), spec);
-                                break;
-                            default:
-                                Rock.Type nonGrassType = type.getNonGrassVersion();
-                                if (nonGrassType != type) {
-                                    spec = new FallingBlockManager.Specification(spec);
-                                    spec.setResultingState(TFCBlockRockVariant.get(rock, nonGrassType).getDefaultState());
-                                }
-                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, type), spec);
-                        }
-                    }
-                }
-            }
-        }
-
-        // Wood
         Builder<TFCBlockPlank> blockPlanks = ImmutableList.builder();
         Builder<TFCBlockWorkbench> blockWorkbenches = ImmutableList.builder();
         Builder<TFCBlockBookshelf> blockBookshelfs = ImmutableList.builder();
@@ -794,8 +953,8 @@ public final class BlocksTFC {
             allBlockWoodSlab.forEach(x -> colorizedItemBlocks.add(new TFCItemBlock(x)));
         }
 
+        //==== Tree ==================================================================================================//
 
-        // Tree
         Builder<TFCBlockLog> blockLogs = ImmutableList.builder();
         Builder<TFCBlockLeaves> blockLeaves = ImmutableList.builder();
         Builder<TFCBlockSapling> blockSaplings = ImmutableList.builder();
@@ -816,8 +975,63 @@ public final class BlocksTFC {
             allBlockSapling.forEach(x -> inventoryItemBlocks.add(new ItemBlockSaplingTFC(x)));
         }
 
+        //==== Rock ==================================================================================================//
 
-        // Rock
+        Builder<TFCBlockRockVariant> blockRockVariant = ImmutableList.builder();
+        {
+            for (Type type : values()) {
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
+                    if (type != ANVIL) {
+                        blockRockVariant.add(register(r, type.name().toLowerCase() + "/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type), CT_ROCK_BLOCKS));
+                    } else if (rock.getRockCategory().hasAnvil()) {
+                        // Anvil registration is special, is has it's own folder
+                        register(r, "anvil/" + rock.getRegistryName().getPath(), TFCBlockRockVariant.create(rock, type));
+                    }
+                }
+            }
+            allBlockRockVariant = blockRockVariant.build();
+            allBlockRockVariant.forEach(x ->
+            {
+                if (x.getType() == SAND) {
+                    normalItemBlocks.add(new ItemBlockHeat(x, 1, 600));
+                } else if (x.getType() != SPIKE && x.getType() != ANVIL) {
+                    normalItemBlocks.add(new TFCItemBlock(x));
+                }
+            });
+
+            {
+                // Add resultingState to the registered collapsable blocks.
+                for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
+                    for (Rock.Type type : values()) {
+                        FallingBlockManager.Specification spec = type.getFallingSpecification();
+                        switch (type) {
+                            case ANVIL:
+                                if (!rock.getRockCategory().hasAnvil()) {
+                                    break;
+                                }
+                            case RAW:
+                                spec = new FallingBlockManager.Specification(spec);
+                                spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
+                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, RAW), spec);
+                                break;
+                            case SMOOTH:
+                                spec = new FallingBlockManager.Specification(spec);
+                                spec.setResultingState(TFCBlockRockVariant.get(rock, COBBLE).getDefaultState());
+                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, SMOOTH).getDefaultState().withProperty(TFCBlockRockSmooth.CAN_FALL, true), spec);
+                                break;
+                            default:
+                                Rock.Type nonGrassType = type.getNonGrassVersion();
+                                if (nonGrassType != type) {
+                                    spec = new FallingBlockManager.Specification(spec);
+                                    spec.setResultingState(TFCBlockRockVariant.get(rock, nonGrassType).getDefaultState());
+                                }
+                                FallingBlockManager.registerFallable(TFCBlockRockVariant.get(rock, type), spec);
+                        }
+                    }
+                }
+            }
+        }
+
         Builder<TFCBlockRockWall> blockRockWall = ImmutableList.builder();
         Builder<TFCBlockRockStairs> blockRockStairs = new Builder<>();
         Builder<TFCBlockRockSlab.Half> blockRockSlab = new Builder<>();
@@ -845,8 +1059,8 @@ public final class BlocksTFC {
             allBlockRockStairs.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
         }
 
+        //==== Metal =================================================================================================//
 
-        // Metall
         Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
         Builder<TFCBlockCladding> blockCladding = ImmutableList.builder();
         Builder<TFCBlockLamp> blockLamps = ImmutableList.builder();
@@ -876,65 +1090,31 @@ public final class BlocksTFC {
             allBlockMetalTrapDoor = blockMetalTrapdoors.build();
         }
 
-
-        // Crop
-        Builder<TFCBlockCrop> blockCrop = ImmutableList.builder();
-        Builder<TFCBlockCropDead> blockCropDead = ImmutableList.builder();
+        /*
+        for (Metal metal : TFCRegistries.METALS.getValuesCollection())
         {
-            for (Crop crop : Crop.values()) {
-                blockCrop.add(register(r, "crop/" + crop.name().toLowerCase(), crop.createGrowingBlock()));
-                blockCropDead.add(register(r, "dead_crop/" + crop.name().toLowerCase(), crop.createDeadBlock()));
-            }
-
-            allBlockCrop = blockCrop.build();
-            allBlockCropDead = blockCropDead.build();
-            /*
-            for (TFCBlockCrop blockCropWater : allCropBlocks)
+            if (metal == TFCRegistries.METALS.getValue((DefaultMetals.COPPER)))
             {
-                normalItemBlocks.add(new ItemBlockCropWaterTFC((TFCBlockCrop) blockCropWater));
+                metalAlembics.add(register(r, "devices/" + "alembic/" + metal.getRegistryName().getPath(), new BlockMetalAlembic(metal), CT_METAL));
+                //itemBlockCondenser.add(register(r, "devices/" + "alembic_condenser/" + metal.getRegistryName().getPath(), new BlockMetalAlembicCondenser(metal), CT_METAL));
+                itemBlockCondenser.add(new ItemBlockCondenser(register(r, "devices/alembic_condenser/" + metal.getRegistryName().getPath(), new BlockMetalAlembicCondenser(metal), CT_METAL)));
+
+                allBlockMetalAlembics = metalAlembics.build();
+                allBlockMetalAlembics.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
+
+                allItemBlockCondenser = itemBlockCondenser.build();
             }
-            for (BlockCropDead blockCropWaterDead : allDeadCropBlocks)
-            {
-                normalItemBlocks.add(new ItemBlockCropDeadWaterTFC((BlockCropDead) blockCropWaterDead));
-            }*/
-        }
+        }*/
+
+        //==== Metal =================================================================================================//
 
 
-        // Fruit Tree
-        Builder<TFCBlockFruitTreeSapling> fruitSaplings = ImmutableList.builder();
-        Builder<TFCBlockFruitTreeTrunk> fruitTrunks = ImmutableList.builder();
-        Builder<TFCBlockFruitTreeBranch> fruitBranches = ImmutableList.builder();
-        Builder<TFCBlockFruitTreeLeaves> fruitLeaves = ImmutableList.builder();
-        {
-            for (FruitTree tree : FruitTree.values()) {
-                fruitSaplings.add(register(r, "fruit_trees/sapling/" + tree.name().toLowerCase(), new TFCBlockFruitTreeSapling(tree), CT_WOOD));
-                fruitTrunks.add(register(r, "fruit_trees/trunk/" + tree.name().toLowerCase(), new TFCBlockFruitTreeTrunk(tree)));
-                fruitBranches.add(register(r, "fruit_trees/branch/" + tree.name().toLowerCase(), new TFCBlockFruitTreeBranch(tree)));
-                fruitLeaves.add(register(r, "fruit_trees/leaves/" + tree.name().toLowerCase(), new TFCBlockFruitTreeLeaves(tree), CT_WOOD));
-            }
-
-            allBlockFruitTreeSapling = fruitSaplings.build();
-            allBlockFruitTreeTrunk = fruitTrunks.build();
-            allBlockFruitTreeBranch = fruitBranches.build();
-            allBlockFruitTreeLeaves = fruitLeaves.build();
-
-            allBlockFruitTreeSapling.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
-            allBlockFruitTreeLeaves.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
-
-        }
 
 
-        // Berry Bush
-        Builder<TFCBlockBerryBush> blockBerryBush = ImmutableList.builder();
-        {
-            for (BerryBush bush : BerryBush.values()) {
-                blockBerryBush.add(register(r, "berry_bush/" + bush.name().toLowerCase(), new TFCBlockBerryBush(bush), CT_FOOD));
-            }
 
-            allBlockBerryBush = blockBerryBush.build();
 
-            allBlockBerryBush.forEach(x -> inventoryItemBlocks.add(new TFCItemBlock(x)));
-        }
+
+
 
 
         {
@@ -1036,6 +1216,15 @@ public final class BlocksTFC {
             }*/
         }
 
+        ImmutableList.Builder<Block> itemBambooLog = ImmutableList.builder();
+        ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
+        ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
+        ImmutableList.Builder<Block> foodItemBlocks = ImmutableList.builder();
+
+        ImmutableList.Builder<TFCBlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
+        ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
+        //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
+
         // Registering JEI only blocks (for info)
         inventoryItemBlocks.add(new ItemBlock(register(r, "firepit", new BlockFirePit())));
         inventoryItemBlocks.add(new ItemBlock(register(r, "charcoal_forge", new BlockCharcoalForge())));
@@ -1056,176 +1245,11 @@ public final class BlocksTFC {
         // todo: smoke rack (placed with any string, so event based?) + smoke blocks or will we use particles?
 
         // Florae Start
-        /*
-        for (Metal metal : TFCRegistries.METALS.getValuesCollection())
-        {
-            if (metal == TFCRegistries.METALS.getValue((DefaultMetals.COPPER)))
-            {
-                metalAlembics.add(register(r, "devices/" + "alembic/" + metal.getRegistryName().getPath(), new BlockMetalAlembic(metal), CT_METAL));
-                //itemBlockCondenser.add(register(r, "devices/" + "alembic_condenser/" + metal.getRegistryName().getPath(), new BlockMetalAlembicCondenser(metal), CT_METAL));
-                itemBlockCondenser.add(new ItemBlockCondenser(register(r, "devices/alembic_condenser/" + metal.getRegistryName().getPath(), new BlockMetalAlembicCondenser(metal), CT_METAL)));
-
-                allBlockMetalAlembics = metalAlembics.build();
-                allBlockMetalAlembics.forEach(x -> normalItemBlocks.add(new ItemBlockTFC(x)));
-
-                allItemBlockCondenser = itemBlockCondenser.build();
-            }
-        }*/
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/yucca/yucca_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/cotton/cotton_yarn_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/hemp/hemp_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/jute/jute_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/linen/linen_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/papyrus/papyrus_fiber_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/silk/silk_string_bale", new BlockBale(), CT_DECORATIONS)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "crop/bales/sisal/sisal_fiber_bale", new BlockBale(), CT_DECORATIONS)));
 
 
 
-        /*normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/tube/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/brain/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/bubble/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fire/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/horn/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
 
-        for (EnumDyeColor dyeColor : EnumDyeColor.values())
-        {
-            BlockCoral brain = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubble = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fire = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral horn = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tube = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
 
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/brain/" + dyeColor.getName(), brain, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fire/" + dyeColor.getName(), fire, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/horn/" + dyeColor.getName(), horn, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/tube/" + dyeColor.getName(), tube, CT_FLORA)));
-
-            BlockCoral.BRAIN_CORAL.put(dyeColor, brain);
-            BlockCoral.BUBBLE_CORAL.put(dyeColor, bubble);
-            BlockCoral.FIRE_CORAL.put(dyeColor, fire);
-            BlockCoral.HORN_CORAL.put(dyeColor, horn);
-            BlockCoral.TUBE_CORAL.put(dyeColor, tube);
-        }
-
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/tube/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/brain/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/bubble/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/fire/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/horn/dead", new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.SNOW), CT_FLORA)));
-
-        for (EnumDyeColor dyeColor : EnumDyeColor.values())
-        {
-            BlockCoral brain = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral bubble = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral fire = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral horn = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-            BlockCoral tube = new BlockCoral(FluidsTFC.SALT_WATER.get(), MapColor.getBlockColor(dyeColor));
-
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/brain/" + dyeColor.getName(), brain, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/fire/" + dyeColor.getName(), fire, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/horn/" + dyeColor.getName(), horn, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockTFC(register(r, "coral/fan/tube/" + dyeColor.getName(), tube, CT_FLORA)));
-
-            BlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brain);
-            BlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubble);
-            BlockCoral.FIRE_CORAL_FAN.put(dyeColor, fire);
-            BlockCoral.HORN_CORAL_FAN.put(dyeColor, horn);
-            BlockCoral.TUBE_CORAL_FAN.put(dyeColor, tube);
-        }*/
-
-        // Normal Corals
-        plantCoral.add(register(r, "coral/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-
-        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-
-            TFCBlockCoral brainNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral bubbleNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral fireNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral hornNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral tubeNormal = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-
-            plantCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
-            plantCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
-            plantCoral.add(register(r, "coral/fire/" + dyeColor.getName(), fireNormal, CT_FLORA));
-            plantCoral.add(register(r, "coral/horn/" + dyeColor.getName(), hornNormal, CT_FLORA));
-            plantCoral.add(register(r, "coral/tube/" + dyeColor.getName(), tubeNormal, CT_FLORA));
-
-            TFCBlockCoral.BRAIN_CORAL.put(dyeColor, brainNormal);
-            TFCBlockCoral.BUBBLE_CORAL.put(dyeColor, bubbleNormal);
-            TFCBlockCoral.FIRE_CORAL.put(dyeColor, fireNormal);
-            TFCBlockCoral.HORN_CORAL.put(dyeColor, hornNormal);
-            TFCBlockCoral.TUBE_CORAL.put(dyeColor, tubeNormal);
-        }
-
-        // Fan Corals
-        plantCoral.add(register(r, "coral/fan/tube/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/brain/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/bubble/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/fire/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-        plantCoral.add(register(r, "coral/fan/horn/dead", new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-
-        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-            TFCBlockCoral brainFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral bubbleFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral fireFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral hornFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-            TFCBlockCoral tubeFan = new TFCBlockCoral(FluidsTFC.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-
-            plantCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
-            plantCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
-            plantCoral.add(register(r, "coral/fan/fire/" + dyeColor.getName(), fireFan, CT_FLORA));
-            plantCoral.add(register(r, "coral/fan/horn/" + dyeColor.getName(), hornFan, CT_FLORA));
-            plantCoral.add(register(r, "coral/fan/tube/" + dyeColor.getName(), tubeFan, CT_FLORA));
-
-            TFCBlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brainFan);
-            TFCBlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubbleFan);
-            TFCBlockCoral.FIRE_CORAL_FAN.put(dyeColor, fireFan);
-            TFCBlockCoral.HORN_CORAL_FAN.put(dyeColor, hornFan);
-            TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tubeFan);
-        }
-        allBlockCoral = plantCoral.build();
-        for (TFCBlockCoral plantCoralBlock : allBlockCoral) {
-            normalItemBlocks.add(new TFCItemBlock(plantCoralBlock));
-        }
-
-        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-        normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-
-        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-            TFCBlockCoralBlock brain = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-            TFCBlockCoralBlock bubble = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-            TFCBlockCoralBlock fire = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-            TFCBlockCoralBlock horn = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-            TFCBlockCoralBlock tube = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-
-            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
-            normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
-
-            TFCBlockCoralBlock.BRAIN_CORAL_BLOCK.put(dyeColor, brain);
-            TFCBlockCoralBlock.BUBBLE_CORAL_BLOCK.put(dyeColor, bubble);
-            TFCBlockCoralBlock.FIRE_CORAL_BLOCK.put(dyeColor, fire);
-            TFCBlockCoralBlock.HORN_CORAL_BLOCK.put(dyeColor, horn);
-            TFCBlockCoralBlock.TUBE_CORAL_BLOCK.put(dyeColor, tube);
-        }
 
         {
             plantGlowWater.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
@@ -1461,11 +1485,6 @@ public final class BlocksTFC {
 //        allBlockBambooSapling.forEach((x) -> {
 //            normalItemBlocks.add(new TFCItemBlock(x));
 //        });
-
-        allFoodItemBlocks = foodItemBlocks.build();
-        allFoodItemBlocks.forEach((x) -> {
-            normalItemBlocks.add(new ItemBlockRot(x));
-        });
 
 
         allNormalItemBlocks = normalItemBlocks.build();
