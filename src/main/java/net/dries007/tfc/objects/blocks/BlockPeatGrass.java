@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.blocks;
 
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariantConnected;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariantConnected;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

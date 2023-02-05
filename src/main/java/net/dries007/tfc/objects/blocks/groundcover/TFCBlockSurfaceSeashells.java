@@ -1,7 +1,7 @@
 package net.dries007.tfc.objects.blocks.groundcover;
 
 import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;

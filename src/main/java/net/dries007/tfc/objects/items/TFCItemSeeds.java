@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.items;
 
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
-import net.dries007.tfc.objects.blocks.rock.farmland.TFCBlockFarmland;
+import net.dries007.tfc.objects.blocks.stone.farmland.TFCBlockFarmland;
 import net.dries007.tfc.util.agriculture.Crop;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockLiquid;

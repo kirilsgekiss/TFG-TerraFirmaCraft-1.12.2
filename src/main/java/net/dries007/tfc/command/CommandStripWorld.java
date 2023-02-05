@@ -6,7 +6,7 @@
 package net.dries007.tfc.command;
 
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockRockVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;

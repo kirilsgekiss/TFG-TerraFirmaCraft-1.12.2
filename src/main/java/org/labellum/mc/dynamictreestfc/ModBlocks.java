@@ -14,7 +14,7 @@ import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
 import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockMimicDynamic;
+import net.dries007.tfc.objects.blocks.stone.TFCBlockMimicDynamic;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
