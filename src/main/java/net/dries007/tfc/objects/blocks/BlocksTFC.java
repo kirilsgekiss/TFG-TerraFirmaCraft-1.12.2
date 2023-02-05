@@ -951,6 +951,7 @@ public final class BlocksTFC {
             }
 
             /*
+            ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
             for (Metal metal : TFCRegistries.METALS.getValuesCollection())
             {
                    if (metal == TFCRegistries.METALS.getValue((DefaultMetals.COPPER))){
@@ -995,20 +996,15 @@ public final class BlocksTFC {
                 for (Plant plant : TFCRegistries.PLANTS.getValuesCollection()) {
                     if (plant.getPlantType() == Plant.PlantType.EPIPHYTE && plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SPORE_BLOSSOM)) {
                         blockSporeBlossom.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockSporeBlossom(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.WATER) {
+                    } else if (plant.getPlantType() == Plant.PlantType.WATER) {
                         blockWaterPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockWaterPlant(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.WATER_SEA) {
+                    } else if (plant.getPlantType() == Plant.PlantType.WATER_SEA) {
                         blockWaterPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockWaterPlant(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.TALL_WATER) {
+                    } else if (plant.getPlantType() == Plant.PlantType.TALL_WATER) {
                         blockWaterPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockTallWaterPlant(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.TALL_WATER_SEA) {
+                    } else if (plant.getPlantType() == Plant.PlantType.TALL_WATER_SEA) {
                         blockWaterPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockTallWaterPlant(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.HANGING && (
+                    } else if (plant.getPlantType() == Plant.PlantType.HANGING && (
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.BEARDED_MOSS) ||
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE) ||
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.LIANA) ||
@@ -1017,13 +1013,11 @@ public final class BlocksTFC {
                         if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE)) {
                             blockHangingGlowingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingGlowingPlant(plant), CT_FLORA));
                             blockHangingGlowingCreepingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new TFCBlockHangingGlowingCreepingPlant(plant), CT_FLORA));
-                        }
-                        else {
+                        } else {
                             blockHangingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingPlant(plant), CT_FLORA));
                             blockHangingCreepingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new TFCBlockHangingCreepingPlant(plant), CT_FLORA));
                         }
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.CREEPING && (
+                    } else if (plant.getPlantType() == Plant.PlantType.CREEPING && (
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TACKWEED) ||
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.TAKAKIA) ||
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.IVY) ||
@@ -1031,12 +1025,10 @@ public final class BlocksTFC {
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.MOSS) ||
                                     plant == TFCRegistries.PLANTS.getValue(DefaultPlants.REINDEER_LICHEN))) {
                         blockPlantCreeping.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockCreepingPlant(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.TALL_GRASS && (
+                    } else if (plant.getPlantType() == Plant.PlantType.TALL_GRASS && (
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAWGRASS))) {
                         blockTallGrassWater.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockTallGrassWater(plant), CT_FLORA));
-                    }
-                    else if (plant.getPlantType() == Plant.PlantType.CACTUS && (
+                    } else if (plant.getPlantType() == Plant.PlantType.CACTUS && (
                             plant == TFCRegistries.PLANTS.getValue(DefaultPlants.SAGUARO_CACTUS))) {
                         blockSaguaroCactus.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockSaguaroCactus(plant), CT_FLORA));
                     }
@@ -1065,19 +1057,36 @@ public final class BlocksTFC {
                 }
                 for (TFCBlockPlant blockPlant : allBlockPlant) {
                     System.out.println(blockPlant);
-                    if (blockPlant instanceof TFCBlockFloatingWater)
-                    {
+                    if (blockPlant instanceof TFCBlockFloatingWater) {
                         inventoryItemBlocks.add(new ItemBlockFloatingWaterTFC((TFCBlockFloatingWater) blockPlant));
-                    }
-                    else if (blockPlant.getPlant().canBePotted())
-                    {
+                    } else if (blockPlant.getPlant().canBePotted()) {
                         normalItemBlocks.add(new ItemBlockPlant(blockPlant, blockPlant.getPlant()));
-                    }
-                    else
-                    {
+                    } else {
                         normalItemBlocks.add(new TFCItemBlock(blockPlant));
                     }
                 }
+
+                blockWaterGlowPlant.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
+
+                TFCBlockCaveMushroom blueshroom = new TFCBlockCaveMushroom(0.3F, FoodData.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
+                TFCBlockCaveMushroom glowshroom = new TFCBlockCaveMushroom(0.5F, FoodData.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
+                TFCBlockCaveMushroom magma_shroom = new TFCBlockCaveMushroom(0.2F, FoodData.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
+                TFCBlockCaveMushroom poison_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
+                TFCBlockCaveMushroom sulphur_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
+
+                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
+                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
+                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/magma_shroom", magma_shroom, CT_FLORA)));
+                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/poison_shroom", poison_shroom, CT_FLORA)));
+                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/sulphur_shroom", sulphur_shroom, CT_FLORA)));
+
+
+//                blockCaveMushroom.add(register(r, "plants/blueshroom", new BlockCaveMushroom(0.3F, Food.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable"), CT_FLORA));
+//                blockCaveMushroom.add(register(r, "plants/glowshroom", new BlockCaveMushroom(0.5F, Food.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable"), CT_FLORA));
+//                blockCaveMushroom.add(register(r, "plants/magma_shroom", new BlockCaveMushroom(0.2F, Food.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+//                blockCaveMushroom.add(register(r, "plants/poison_shroom", new BlockCaveMushroom(0.1F, Food.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+//                blockCaveMushroom.add(register(r, "plants/sulphur_shroom", new BlockCaveMushroom(0.1F, Food.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable"), CT_FLORA));
+
 
                 allBlockCactus = blockCactus.build();
                 allBlockCactus.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
@@ -1225,6 +1234,107 @@ public final class BlocksTFC {
                 allBlockRockWall.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
                 allBlockRockStairs.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
             }
+        }
+
+        //=== Joshua Tree ============================================================================================//
+
+        {
+//        for(Tree wood : TFCRegistries.TREES.getValuesCollection())
+//        {
+//            fenceGatesLog.add(register(r, "wood/fence_gate_log/" + wood.getRegistryName().getPath(), new TFCBlockFenceGateLog(wood), CT_DECORATIONS));
+//
+//            if (wood == TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE))
+//            {
+//                Builder<BlockJoshuaTreeLog> logJoshuaTree = ImmutableList.builder();
+//                Builder<BlockJoshuaTreeSapling> saplingJoshuaTree = ImmutableList.builder();
+//
+//                logJoshuaTree.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockJoshuaTreeLog(wood), CT_WOOD));
+//                saplingJoshuaTree.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new BlockJoshuaTreeSapling(wood), CT_WOOD));
+//
+//                allJoshuaTreeLogBlocks = logJoshuaTree.build();
+//                for (BlockJoshuaTreeLog blockJoshuaTreeLog : allJoshuaTreeLogBlocks)
+//                {
+//                    normalItemBlocks.add(new ItemBlockTFC(blockJoshuaTreeLog));
+//                }
+//                allJoshuaTreeSaplingBlocks = saplingJoshuaTree.build();
+//                for (BlockJoshuaTreeSapling blockJoshuaTreeSapling : allJoshuaTreeSaplingBlocks)
+//                {
+//                    normalItemBlocks.add(new ItemBlockTFC(blockJoshuaTreeSapling));
+//                }
+//            }
+//        }
+    }
+
+        //=== Bamboo =================================================================================================//
+
+        {
+//            ImmutableList.Builder<Block> itemBambooLog = ImmutableList.builder();
+//            ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
+//            ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
+//        for (int i = 0; i < bamboo.length; i++)
+//        {
+//            //fruitBarrel.add(register(r, "wood/barrel/" + bamboo[i], new BlockFruitBarrelTest(), CT_DECORATIONS));
+//            fruitBookshelves.add(register(r, "wood/bookshelf/" + bamboo[i], new BlockFruitBookshelf(), CT_DECORATIONS));
+//            fruitButton.add(register(r, "wood/button/" + bamboo[i], new BlockFruitButton(), CT_DECORATIONS));
+//            fruitDoors.add(register(r, "wood/door/" + bamboo[i], new BlockFruitDoor(bamboo[i]), CT_DECORATIONS));
+//            planksTFC.add(register(r, "wood/planks/" + bamboo[i], new TFCBlockPlanks(bambooTrees[i]), CT_WOOD));
+//            fruitPressurePlate.add(register(r, "wood/pressure_plate/" + bamboo[i], new BlockFruitPressurePlate(), CT_DECORATIONS));
+//            fruitFences.add(register(r, "wood/fence/" + bamboo[i], new BlockFruitFence(), CT_DECORATIONS));
+//            fruitFenceGates.add(register(r, "wood/fence_gate/" + bamboo[i], new BlockFruitFenceGate(), CT_DECORATIONS));
+//            fruitLogFences.add(register(r, "wood/fence_log/" + bamboo[i], new BlockFruitLogFence(), CT_DECORATIONS));
+//            fruitLogFenceGates.add(register(r, "wood/fence_gate_log/" + bamboo[i], new BlockFruitLogFenceGate(), CT_DECORATIONS));
+//            fruitSupport.add(register(r, "wood/support/" + bamboo[i], new BlockFruitSupport(), CT_DECORATIONS));
+//            fruitToolRack.add(register(r, "wood/tool_rack/" + bamboo[i], new BlockFruitToolRack(), CT_DECORATIONS));
+//            fruitTrapdoors.add(register(r, "wood/trapdoor/" + bamboo[i], new BlockFruitTrapDoor(), CT_DECORATIONS));
+//            fruitWorkbench.add(register(r, "wood/workbench/" + bamboo[i], new BlockFruitWorkbench(), CT_DECORATIONS));
+////            register(r, "wood/double_slab/" + bamboo[i], new BlockRockSlab.Double(bambooTrees[i]));
+////            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockRockSlab.Half(bambooTrees[i]), CT_DECORATIONS));
+////            blockStairTFC.add(register(r, "wood/stairs/" + bamboo[i], new BlockWoodStairsTFC(bambooTrees[i]), CT_DECORATIONS));
+//
+//            fruitChests.add(register(r, "wood/chest/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCBASIC, bambooTrees[i]), CT_DECORATIONS));
+//            fruitChests.add(register(r, "wood/chest_trap/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCTRAP, bambooTrees[i]), CT_DECORATIONS));
+//            fruitLoom.add(register(r, "wood/loom/" + bamboo[i], new BlockFruitLoom(bambooTrees[i]), CT_WOOD));
+//
+//            Block bambooBlock = register(r, "wood/log/" + bamboo[i], new BlockBambooLog(), CT_WOOD);
+//            BlockBambooLeaves leaves = new BlockBambooLeaves(bambooTrees[i]);
+//            Block bambooLeaves = register(r, "wood/leaves/" + bamboo[i], leaves, CT_WOOD);
+//
+//            BlockBambooSapling sapling = new BlockBambooSapling(bambooTrees[i], bambooLeaves, bambooBlock);
+//            Block bambooSapling = register(r, "wood/sapling/" + bamboo[i], sapling, CT_WOOD);
+//            leaves.setBambooSapling(sapling);
+//
+//            itemBambooLog.add(bambooBlock);
+//            itemBambooLeaves.add(bambooLeaves);
+//            itemBambooSapling.add(bambooSapling);
+//        }
+
+            //        allBlockBambooLeaves = itemBambooLog.build();
+//        allBlockBambooLeaves.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
+//
+//        allBlockBambooLog = itemBambooLeaves.build();
+//        allBlockBambooLog.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
+//
+//
+//        allBlockBambooSapling = itemBambooSapling.build();
+//        allBlockBambooSapling.forEach((x) -> {
+//            normalItemBlocks.add(new TFCItemBlock(x));
+//        });
+        }
+
+        //=== Cinnamon ===============================================================================================//
+
+        {
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/log/cassia_cinnamon", new BlockCassiaCinnamonLog(), CT_WOOD));
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/leaves/cassia_cinnamon", new BlockCassiaCinnamonLeaves(), CT_WOOD));
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/sapling/cassia_cinnamon", new BlockCassiaCinnamonSapling(), CT_WOOD));
+//
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/log/ceylon_cinnamon", new BlockCeylonCinnamonLog(), CT_WOOD));
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/leaves/ceylon_cinnamon", new BlockCeylonCinnamonLeaves(), CT_WOOD));
+//            inventoryItemBlocks.add(register(r, "wood/fruit_tree/sapling/ceylon_cinnamon", new BlockCeylonCinnamonSapling(), CT_WOOD));
         }
 
         //=== Tree ===================================================================================================//
@@ -1386,33 +1496,11 @@ public final class BlocksTFC {
         }
 
 
+        //==== Other =================================================================================================//
 
 
-
-
-
-
-
-        //==== null =================================================================================================//
-
-
-
-
-
-
-
-
-
-
-
-
-        ImmutableList.Builder<Block> itemBambooLog = ImmutableList.builder();
-        ImmutableList.Builder<Block> itemBambooLeaves = ImmutableList.builder();
-        ImmutableList.Builder<Block> itemBambooSapling = ImmutableList.builder();
         ImmutableList.Builder<Block> foodItemBlocks = ImmutableList.builder();
 
-        ImmutableList.Builder<TFCBlockWaterGlowPlant> plantGlowWater = ImmutableList.builder();
-        ImmutableList.Builder<ItemBlockCondenser> itemBlockCondenser = ImmutableList.builder();
         //ImmutableList.Builder<MultiBlockBase> multiBlock = ImmutableList.builder();
 
         // Registering JEI only blocks (for info)
@@ -1430,198 +1518,18 @@ public final class BlocksTFC {
         register(r, "bloom", new BlockBloom());
         register(r, "thatch_bed", new BlockThatchBed());
 
-        // Note: if you add blocks you don't need to put them in this list of todos. Feel free to add them where they make sense :)
-
-        // todo: smoke rack (placed with any string, so event based?) + smoke blocks or will we use particles?
-
-        // Florae Start
-
-
-
-
-
-
-
-        {
-            plantGlowWater.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(FluidsTFC.SEA_WATER.get()), CT_FLORA));
-        }
-        allBlockWaterGlowPlant = plantGlowWater.build();
-        for (TFCBlockWaterGlowPlant plantGlowWaterBlock : allBlockWaterGlowPlant) {
-            normalItemBlocks.add(new TFCItemBlock(plantGlowWaterBlock));
-        }
-
-        {
-            //Builder<BlockCaveMushroom> plantCaveMushroom = ImmutableList.builder();
-
-            TFCBlockCaveMushroom blueshroom = new TFCBlockCaveMushroom(0.3F, FoodData.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable");
-            TFCBlockCaveMushroom glowshroom = new TFCBlockCaveMushroom(0.5F, FoodData.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable");
-            TFCBlockCaveMushroom magma_shroom = new TFCBlockCaveMushroom(0.2F, FoodData.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable");
-            TFCBlockCaveMushroom poison_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
-            TFCBlockCaveMushroom sulphur_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
-
-            normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/magma_shroom", magma_shroom, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/poison_shroom", poison_shroom, CT_FLORA)));
-            normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/sulphur_shroom", sulphur_shroom, CT_FLORA)));
-
-            /*
-            plantCaveMushroom.add(register(r, "plants/blueshroom", new BlockCaveMushroom(0.3F, Food.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/glowshroom", new BlockCaveMushroom(0.5F, Food.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/magma_shroom", new BlockCaveMushroom(0.2F, Food.RAW_MAGMA_SHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.FIRE_RESISTANCE, 610, 1, 4), "magma_shroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/poison_shroom", new BlockCaveMushroom(0.1F, Food.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable"), CT_FLORA));
-            plantCaveMushroom.add(register(r, "plants/sulphur_shroom", new BlockCaveMushroom(0.1F, Food.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable"), CT_FLORA));
-            */
-        }
-
-        {
-
-        }
-
-
-
-
-
-//        // Cassia Cinnamon
-//        //fruitBarrel.add(register(r, "wood/fruit_tree/barrel/cassia_cinnamon", new BlockFruitBarrelTest(), CT_DECORATIONS));
-//        fruitBookshelves.add(register(r, "wood/fruit_tree/bookshelf/cassia_cinnamon", new BlockFruitBookshelf(), CT_DECORATIONS));
-//        fruitDoors.add(register(r, "wood/fruit_tree/door/cassia_cinnamon", new BlockFruitDoor("cassia_cinnamon"), CT_DECORATIONS));
-//        fruitButton.add(register(r, "wood/fruit_tree/button/cassia_cinnamon", new BlockFruitButton(), CT_DECORATIONS));
-//        planksTFC.add(register(r, "wood/fruit_tree/planks/cassia_cinnamon", new BlockPlanksTFC(DefaultTrees.CASSIA_CINNAMON_TREE), CT_WOOD));
-//        fruitPressurePlate.add(register(r, "wood/fruit_tree/pressure_plate/cassia_cinnamon", new BlockFruitPressurePlate(), CT_DECORATIONS));
-//        fruitFences.add(register(r, "wood/fruit_tree/fence/cassia_cinnamon", new BlockFruitFence(), CT_DECORATIONS));
-//        fruitFenceGates.add(register(r, "wood/fruit_tree/fence_gate/cassia_cinnamon", new BlockFruitFenceGate(), CT_DECORATIONS));
-//        fruitLogFences.add(register(r, "wood/fruit_tree/fence_log/cassia_cinnamon", new BlockFruitLogFence(), CT_DECORATIONS));
-//        fruitLogFenceGates.add(register(r, "wood/fruit_tree/fence_gate_log/cassia_cinnamon", new BlockFruitLogFenceGate(), CT_DECORATIONS));
-//        fruitSupport.add(register(r, "wood/fruit_tree/support/cassia_cinnamon", new BlockFruitSupport(), CT_DECORATIONS));
-//        fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/cassia_cinnamon", new BlockFruitToolRack(), CT_DECORATIONS));
-//        fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/cassia_cinnamon", new BlockFruitTrapDoor(), CT_DECORATIONS));
-//        fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/cassia_cinnamon", new BlockFruitWorkbench(), CT_DECORATIONS));
-//        register(r, "wood/fruit_tree/double_slab/cassia_cinnamon", new BlockRockSlab.Double(DefaultTrees.CASSIA_CINNAMON_TREE));
-//        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/cassia_cinnamon", new BlockRockSlab.Half(DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
-//        blockStairTFC.add(register(r, "wood/fruit_tree/stairs/cassia_cinnamon", new BlockWoodStairsTFC(DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitChests.add(register(r, "wood/fruit_tree/chest/cassia_cinnamon", new BlockFruitChest(BlockFruitChest.TFCBASIC, DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitChests.add(register(r, "wood/fruit_tree/chest_trap/cassia_cinnamon", new BlockFruitChest(BlockFruitChest.TFCTRAP, DefaultTrees.CASSIA_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitLoom.add(register(r, "wood/fruit_tree/loom/cassia_cinnamon", new BlockFruitLoom(DefaultTrees.CASSIA_CINNAMON_TREE), CT_WOOD));
-//
-//        // Ceylon Cinnamon
-//        //fruitBarrel.add(register(r, "wood/fruit_tree/barrel/ceylon_cinnamon", new BlockFruitBarrelTest(), CT_DECORATIONS));
-//        fruitBookshelves.add(register(r, "wood/fruit_tree/bookshelf/ceylon_cinnamon", new BlockFruitBookshelf(), CT_DECORATIONS));
-//        fruitButton.add(register(r, "wood/fruit_tree/button/ceylon_cinnamon", new BlockFruitButton(), CT_DECORATIONS));
-//        fruitDoors.add(register(r, "wood/fruit_tree/door/ceylon_cinnamon", new BlockFruitDoor("ceylon_cinnamon"), CT_DECORATIONS));
-//        planksTFC.add(register(r, "wood/fruit_tree/planks/ceylon_cinnamon", new BlockPlanksTFC(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
-//        fruitPressurePlate.add(register(r, "wood/fruit_tree/pressure_plate/ceylon_cinnamon", new BlockFruitPressurePlate(), CT_DECORATIONS));
-//        fruitFences.add(register(r, "wood/fruit_tree/fence/ceylon_cinnamon", new BlockFruitFence(), CT_DECORATIONS));
-//        fruitFenceGates.add(register(r, "wood/fruit_tree/fence_gate/ceylon_cinnamon", new BlockFruitFenceGate(), CT_DECORATIONS));
-//        fruitLogFences.add(register(r, "wood/fruit_tree/fence_log/ceylon_cinnamon", new BlockFruitLogFence(), CT_DECORATIONS));
-//        fruitLogFenceGates.add(register(r, "wood/fruit_tree/fence_gate_log/ceylon_cinnamon", new BlockFruitLogFenceGate(), CT_DECORATIONS));
-//        fruitSupport.add(register(r, "wood/fruit_tree/support/ceylon_cinnamon", new BlockFruitSupport(), CT_DECORATIONS));
-//        fruitToolRack.add(register(r, "wood/fruit_tree/tool_rack/ceylon_cinnamon", new BlockFruitToolRack(), CT_DECORATIONS));
-//        fruitTrapdoors.add(register(r, "wood/fruit_tree/trapdoor/ceylon_cinnamon", new BlockFruitTrapDoor(), CT_DECORATIONS));
-//        fruitWorkbench.add(register(r, "wood/fruit_tree/workbench/ceylon_cinnamon", new BlockFruitWorkbench(), CT_DECORATIONS));
-//        register(r, "wood/fruit_tree/double_slab/ceylon_cinnamon", new BlockRockSlab.Double(DefaultTrees.CEYLON_CINNAMON_TREE));
-//        blockSlabTFC.add(register(r, "wood/fruit_tree/slab/ceylon_cinnamon", new BlockRockSlab.Half(DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
-//        blockStairTFC.add(register(r, "wood/fruit_tree/stairs/ceylon_cinnamon", new BlockWoodStairsTFC(DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitChests.add(register(r, "wood/fruit_tree/chest/ceylon_cinnamon", new BlockFruitChest(BlockFruitChest.TFCBASIC, DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitChests.add(register(r, "wood/fruit_tree/chest_trap/ceylon_cinnamon", new BlockFruitChest(BlockFruitChest.TFCTRAP, DefaultTrees.CEYLON_CINNAMON_TREE), CT_DECORATIONS));
-//        fruitLoom.add(register(r, "wood/fruit_tree/loom/ceylon_cinnamon", new BlockFruitLoom(DefaultTrees.CEYLON_CINNAMON_TREE), CT_WOOD));
-
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/log/cassia_cinnamon", new BlockCassiaCinnamonLog(), CT_WOOD));
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/leaves/cassia_cinnamon", new BlockCassiaCinnamonLeaves(), CT_WOOD));
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/sapling/cassia_cinnamon", new BlockCassiaCinnamonSapling(), CT_WOOD));
-
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/log/ceylon_cinnamon", new BlockCeylonCinnamonLog(), CT_WOOD));
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/leaves/ceylon_cinnamon", new BlockCeylonCinnamonLeaves(), CT_WOOD));
-        //inventoryItemBlocks.add(register(r, "wood/fruit_tree/sapling/ceylon_cinnamon", new BlockCeylonCinnamonSapling(), CT_WOOD));
-
-//        // Bamboo
-//        for (int i = 0; i < bamboo.length; i++)
-//        {
-//            //fruitBarrel.add(register(r, "wood/barrel/" + bamboo[i], new BlockFruitBarrelTest(), CT_DECORATIONS));
-//            fruitBookshelves.add(register(r, "wood/bookshelf/" + bamboo[i], new BlockFruitBookshelf(), CT_DECORATIONS));
-//            fruitButton.add(register(r, "wood/button/" + bamboo[i], new BlockFruitButton(), CT_DECORATIONS));
-//            fruitDoors.add(register(r, "wood/door/" + bamboo[i], new BlockFruitDoor(bamboo[i]), CT_DECORATIONS));
-//            planksTFC.add(register(r, "wood/planks/" + bamboo[i], new TFCBlockPlanks(bambooTrees[i]), CT_WOOD));
-//            fruitPressurePlate.add(register(r, "wood/pressure_plate/" + bamboo[i], new BlockFruitPressurePlate(), CT_DECORATIONS));
-//            fruitFences.add(register(r, "wood/fence/" + bamboo[i], new BlockFruitFence(), CT_DECORATIONS));
-//            fruitFenceGates.add(register(r, "wood/fence_gate/" + bamboo[i], new BlockFruitFenceGate(), CT_DECORATIONS));
-//            fruitLogFences.add(register(r, "wood/fence_log/" + bamboo[i], new BlockFruitLogFence(), CT_DECORATIONS));
-//            fruitLogFenceGates.add(register(r, "wood/fence_gate_log/" + bamboo[i], new BlockFruitLogFenceGate(), CT_DECORATIONS));
-//            fruitSupport.add(register(r, "wood/support/" + bamboo[i], new BlockFruitSupport(), CT_DECORATIONS));
-//            fruitToolRack.add(register(r, "wood/tool_rack/" + bamboo[i], new BlockFruitToolRack(), CT_DECORATIONS));
-//            fruitTrapdoors.add(register(r, "wood/trapdoor/" + bamboo[i], new BlockFruitTrapDoor(), CT_DECORATIONS));
-//            fruitWorkbench.add(register(r, "wood/workbench/" + bamboo[i], new BlockFruitWorkbench(), CT_DECORATIONS));
-////            register(r, "wood/double_slab/" + bamboo[i], new BlockRockSlab.Double(bambooTrees[i]));
-////            blockSlabTFC.add(register(r, "wood/slab/" + bamboo[i], new BlockRockSlab.Half(bambooTrees[i]), CT_DECORATIONS));
-////            blockStairTFC.add(register(r, "wood/stairs/" + bamboo[i], new BlockWoodStairsTFC(bambooTrees[i]), CT_DECORATIONS));
-//
-//            fruitChests.add(register(r, "wood/chest/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCBASIC, bambooTrees[i]), CT_DECORATIONS));
-//            fruitChests.add(register(r, "wood/chest_trap/" + bamboo[i], new BlockFruitChest(BlockFruitChest.TFCTRAP, bambooTrees[i]), CT_DECORATIONS));
-//            fruitLoom.add(register(r, "wood/loom/" + bamboo[i], new BlockFruitLoom(bambooTrees[i]), CT_WOOD));
-//
-//            Block bambooBlock = register(r, "wood/log/" + bamboo[i], new BlockBambooLog(), CT_WOOD);
-//            BlockBambooLeaves leaves = new BlockBambooLeaves(bambooTrees[i]);
-//            Block bambooLeaves = register(r, "wood/leaves/" + bamboo[i], leaves, CT_WOOD);
-//
-//            BlockBambooSapling sapling = new BlockBambooSapling(bambooTrees[i], bambooLeaves, bambooBlock);
-//            Block bambooSapling = register(r, "wood/sapling/" + bamboo[i], sapling, CT_WOOD);
-//            leaves.setBambooSapling(sapling);
-//
-//            itemBambooLog.add(bambooBlock);
-//            itemBambooLeaves.add(bambooLeaves);
-//            itemBambooSapling.add(bambooSapling);
-//        }
-
         //multiBlock.add(register(r, "multiblock/campfire", new BlockCampfire(Material.ROCK), CT_MISC));
         //multiBlock.add(register(r, "multiblock/dummyHalf", new BlockDummyHalf(), CT_MISC));
 
-        /*
-        for(Tree wood : TFCRegistries.TREES.getValuesCollection())
-        {
-            fenceGatesLog.add(register(r, "wood/fence_gate_log/" + wood.getRegistryName().getPath(), new TFCBlockFenceGateLog(wood), CT_DECORATIONS));
 
-            if (wood == TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE))
-            {
-                Builder<BlockJoshuaTreeLog> logJoshuaTree = ImmutableList.builder();
-                Builder<BlockJoshuaTreeSapling> saplingJoshuaTree = ImmutableList.builder();
 
-                logJoshuaTree.add(register(r, "wood/log/" + wood.getRegistryName().getPath(), new BlockJoshuaTreeLog(wood), CT_WOOD));
-                saplingJoshuaTree.add(register(r, "wood/sapling/" + wood.getRegistryName().getPath(), new BlockJoshuaTreeSapling(wood), CT_WOOD));
-
-                allJoshuaTreeLogBlocks = logJoshuaTree.build();
-                for (BlockJoshuaTreeLog blockJoshuaTreeLog : allJoshuaTreeLogBlocks)
-                {
-                    normalItemBlocks.add(new ItemBlockTFC(blockJoshuaTreeLog));
-                }
-                allJoshuaTreeSaplingBlocks = saplingJoshuaTree.build();
-                for (BlockJoshuaTreeSapling blockJoshuaTreeSapling : allJoshuaTreeSaplingBlocks)
-                {
-                    normalItemBlocks.add(new ItemBlockTFC(blockJoshuaTreeSapling));
-                }
-            }
-        }*/
-
-//        allBlockBambooLeaves = itemBambooLog.build();
-//        allBlockBambooLeaves.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//        allBlockBambooLog = itemBambooLeaves.build();
-//        allBlockBambooLog.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
-//
-//
-//        allBlockBambooSapling = itemBambooSapling.build();
-//        allBlockBambooSapling.forEach((x) -> {
-//            normalItemBlocks.add(new TFCItemBlock(x));
-//        });
 
 
         allNormalItemBlocks = normalItemBlocks.build();
         allColorizedItemBlocks = colorizedItemBlocks.build();
         allInventoryItemBlocks = inventoryItemBlocks.build();
 
+        //==== Tile Entities  ========================================================================================//
         // Register Tile Entities
         // Putting tile entity registration in the respective block can call it multiple times. Just put here to avoid duplicates
 
