@@ -7,14 +7,14 @@ import net.dries007.tfc.util.OreDictionaryHelper;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TFCBlockPlantDummy2 extends TFCBlockPlant {
-    private static final Map<Plant, TFCBlockPlantDummy2> MAP = new HashMap<>();
+public class BlockPlantDummy2 extends TFCBlockPlant {
+    private static final Map<Plant, BlockPlantDummy2> MAP = new HashMap<>();
 
-    public static TFCBlockPlantDummy2 get(Plant plant) {
+    public static BlockPlantDummy2 get(Plant plant) {
         return MAP.get(plant);
     }
 
-    public TFCBlockPlantDummy2(Plant plant) {
+    public BlockPlantDummy2(Plant plant) {
         super(plant);
         if (MAP.put(plant, this) != null) throw new IllegalStateException("There can only be one.");
 

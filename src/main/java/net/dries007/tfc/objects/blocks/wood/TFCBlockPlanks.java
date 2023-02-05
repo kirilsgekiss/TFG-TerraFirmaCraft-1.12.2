@@ -26,18 +26,18 @@ import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockPlank extends Block implements IHasModel, IWoodHandler {
+public class TFCBlockPlanks extends Block implements IHasModel, IWoodHandler {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/planks");
 
-    private static final Map<Wood, TFCBlockPlank> MAP = new HashMap<>();
+    private static final Map<Wood, TFCBlockPlanks> MAP = new HashMap<>();
 
-    public static TFCBlockPlank get(Wood wood) {
+    public static TFCBlockPlanks get(Wood wood) {
         return MAP.get(wood);
     }
 
     private final Wood wood;
 
-    public TFCBlockPlank(Wood wood) {
+    public TFCBlockPlanks(Wood wood) {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         this.wood = wood;

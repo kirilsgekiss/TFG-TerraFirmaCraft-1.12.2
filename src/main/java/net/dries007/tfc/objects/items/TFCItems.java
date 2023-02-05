@@ -935,16 +935,16 @@ public final class TFCItems {
         BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
         BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : BlocksTFC.getAllBlockLog())
+        for (TFCBlockLog log : BlocksTFC.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : BlocksTFC.getAllBlockWoodDoor())
+        for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new TFCItemDoor(door), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllBlockRockSlab())
+        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllBlockWoodSlab())
+        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
