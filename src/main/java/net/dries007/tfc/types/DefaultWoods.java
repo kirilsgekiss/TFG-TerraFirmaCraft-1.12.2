@@ -151,7 +151,7 @@ public final class DefaultWoods {
 
                 // Oak Trees
                 new Wood.Builder(OAK, 728f, 2250).setColor(0xC29D62).setTannin().build(),
-                new Wood.Builder(DARK_OAK, 728f, 2250).setTannin().build(),
+                new Wood.Builder(DARK_OAK, 728f, 2250).setColor(0x584429).setTannin().build(),
 
                 new Wood.Builder(PALM, 730f, 1250).setColor(0xB56F38).build(),
                 new Wood.Builder(PINE, 627f, 1250).setColor(0xD1BD9A).build(),
@@ -160,13 +160,13 @@ public final class DefaultWoods {
 
                 // Spruce Trees
                 new Wood.Builder(SPRUCE, 608f, 1500).setColor(0xBF806F).build(),
-                new Wood.Builder(NORWAY_SPRUCE, 608f, 1500).build(),
-                new Wood.Builder(JAPANESE_SPRUCE, 608f, 1500).build(),
+                new Wood.Builder(NORWAY_SPRUCE, 608f, 1500).setColor(0xfbe3b2).build(),
+                new Wood.Builder(JAPANESE_SPRUCE, 608f, 1500).setColor(0x987c50).build(),
                 new Wood.Builder(SYCAMORE, 653f, 1750).setColor(0xDCA448).build(),
 
                 // Birch Trees
                 new Wood.Builder(BIRCH, 652f, 1750).setColor(0x897658).setTannin().build(),
-                new Wood.Builder(SILVER_BIRCH, 652f, 1750).setTannin().build(),
+                new Wood.Builder(SILVER_BIRCH, 652f, 1750).setColor(0xe7dfaa).setTannin().build(),
                 new Wood.Builder(WHITE_CEDAR, 625f, 1500).setColor(0xD4D4D4).build(),
                 new Wood.Builder(WHITE_ELM, 625f, 1500).setColor(0xAAB06E).build(),
                 new Wood.Builder(WILLOW, 603f, 1000).setColor(0x3A430B).build(),
@@ -182,11 +182,11 @@ public final class DefaultWoods {
                 new Wood.Builder(CASTILLA, 762f, 2000).build(),
 
                 // Manufactured Woods
-                new Wood.Builder(TREATED_WOOD, 762f, 2000).build(),
-                new Wood.Builder(LACQUERED_WOOD, 762f, 2000).build(),
+                new Wood.Builder(TREATED_WOOD, 762f, 2000).setColor(0x96502f).build(),
+                new Wood.Builder(LACQUERED_WOOD, 762f, 2000).setColor(0x633500).build(),
 
                 // Misc Wood
-                new Wood.Builder(WOODEN, 762f, 2000).build(),
+                new Wood.Builder(WOODEN, 762f, 2000).setColor(0x736049).build(),
 
 
                 new Wood.Builder(BAOBAB, 478f, 1000).setColor(0xBFA677).build(),
