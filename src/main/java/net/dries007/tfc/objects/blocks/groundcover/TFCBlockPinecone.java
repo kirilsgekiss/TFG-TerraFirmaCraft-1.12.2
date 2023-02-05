@@ -28,16 +28,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class BlockDriftwood extends BlockBush {
+public class TFCBlockPinecone extends BlockBush {
     private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.9, 0.4, 0.9);
 
-    public BlockDriftwood() {
+    public TFCBlockPinecone() {
         super(Material.WOOD);
         setSoundType(SoundType.WOOD);
         setHardness(0.1f);
-        OreDictionaryHelper.register(this, "wood");
-        OreDictionaryHelper.register(this, "wood", "driftwood");
-        OreDictionaryHelper.register(this, "driftwood");
+        OreDictionaryHelper.register(this, "pinecone");
     }
 
     @Override

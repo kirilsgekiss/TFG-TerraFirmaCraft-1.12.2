@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class BlockCoralBlock extends Block implements IItemSize {
-    public static final Map<EnumDyeColor, BlockCoralBlock> TUBE_CORAL_BLOCK = new HashMap<>();
-    public static final Map<EnumDyeColor, BlockCoralBlock> BRAIN_CORAL_BLOCK = new HashMap<>();
-    public static final Map<EnumDyeColor, BlockCoralBlock> BUBBLE_CORAL_BLOCK = new HashMap<>();
-    public static final Map<EnumDyeColor, BlockCoralBlock> FIRE_CORAL_BLOCK = new HashMap<>();
-    public static final Map<EnumDyeColor, BlockCoralBlock> HORN_CORAL_BLOCK = new HashMap<>();
+public class TFCBlockCoralBlock extends Block implements IItemSize {
+    public static final Map<EnumDyeColor, TFCBlockCoralBlock> TUBE_CORAL_BLOCK = new HashMap<>();
+    public static final Map<EnumDyeColor, TFCBlockCoralBlock> BRAIN_CORAL_BLOCK = new HashMap<>();
+    public static final Map<EnumDyeColor, TFCBlockCoralBlock> BUBBLE_CORAL_BLOCK = new HashMap<>();
+    public static final Map<EnumDyeColor, TFCBlockCoralBlock> FIRE_CORAL_BLOCK = new HashMap<>();
+    public static final Map<EnumDyeColor, TFCBlockCoralBlock> HORN_CORAL_BLOCK = new HashMap<>();
 
-    public BlockCoralBlock(MapColor blockMapColorIn) {
+    public TFCBlockCoralBlock(MapColor blockMapColorIn) {
         super(Material.CORAL, blockMapColorIn);
         setSoundType(SoundType.PLANT);
         setHardness(0.5F);
