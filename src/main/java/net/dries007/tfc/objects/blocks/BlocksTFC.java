@@ -1005,7 +1005,6 @@ public final class BlocksTFC {
             allBlockMetalTrapDoor = blockMetalTrapdoors.build();
         }
 
-
         // Crop
         Builder<TFCBlockCrop> blockCrop = ImmutableList.builder();
         Builder<TFCBlockCropDead> blockCropDead = ImmutableList.builder();
