@@ -10,7 +10,6 @@ import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumActionResult;
@@ -26,8 +25,7 @@ import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TFCBlockMetalTrapDoor extends BlockTrapDoor
-{
+public class TFCBlockMetalTrapDoor extends BlockTrapDoor {
     private static final Map<gregtech.api.unification.material.Material, TFCBlockMetalTrapDoor> MAP = new HashMap<>();
 
     public static TFCBlockMetalTrapDoor get(gregtech.api.unification.material.Material metal) {
@@ -36,8 +34,7 @@ public class TFCBlockMetalTrapDoor extends BlockTrapDoor
 
     public final gregtech.api.unification.material.Material metal;
 
-    public TFCBlockMetalTrapDoor(gregtech.api.unification.material.Material metal)
-    {
+    public TFCBlockMetalTrapDoor(gregtech.api.unification.material.Material metal) {
         super(Material.IRON);
 
         this.metal = metal;
@@ -49,11 +46,10 @@ public class TFCBlockMetalTrapDoor extends BlockTrapDoor
 
     /**
      * use this if your block can be fluidlogged.
-     * @author jbred
      *
+     * @author jbred
      */
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -83,7 +79,9 @@ public class TFCBlockMetalTrapDoor extends BlockTrapDoor
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

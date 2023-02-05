@@ -1,9 +1,7 @@
 package net.dries007.tfc.objects.items.itemblock;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -16,52 +14,47 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.objects.blocks.devices.BlockStickBundle;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockStickBundle extends TFCItemBlock
-{
+public class ItemBlockStickBundle extends TFCItemBlock {
     public final BlockStickBundle block;
 
-	public ItemBlockStickBundle(BlockStickBundle block)
-    {
-		super(block);
+    public ItemBlockStickBundle(BlockStickBundle block) {
+        super(block);
         this.block = block;
-	}
+    }
 
-	/**
-	 * Called when a Block is right-clicked with this Item
-	 */
+    /**
+     * Called when a Block is right-clicked with this Item
+     */
     @Override
     @Nonnull
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-		if (worldIn.isRemote) return EnumActionResult.SUCCESS;
-		else if (facing != EnumFacing.DOWN) return EnumActionResult.FAIL;
-		else
-        {
-			IBlockState state = worldIn.getBlockState(pos);
-			Block block = state.getBlock();
-			if (!block.isReplaceable(worldIn, pos)) pos = pos.down();
-			BlockPos posDown = pos.down();
-			ItemStack itemstack = player.getHeldItem(hand);
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote) return EnumActionResult.SUCCESS;
+        else if (facing != EnumFacing.DOWN) return EnumActionResult.FAIL;
+        else {
+            IBlockState state = worldIn.getBlockState(pos);
+            Block block = state.getBlock();
+            if (!block.isReplaceable(worldIn, pos)) pos = pos.down();
+            BlockPos posDown = pos.down();
+            ItemStack itemstack = player.getHeldItem(hand);
 
-			if (player.canPlayerEdit(pos, facing, itemstack) && player.canPlayerEdit(posDown, facing, itemstack))
-            {
-				IBlockState stateDown = worldIn.getBlockState(posDown);
-				boolean canPutBlock = block.isReplaceable(worldIn, pos) || worldIn.isAirBlock(pos);
-				boolean canPutBlockDown = stateDown.getBlock().isReplaceable(worldIn, posDown) || worldIn.isAirBlock(posDown);
-				if (canPutBlock && canPutBlockDown)
-                {
-					worldIn.setBlockState(pos, BlocksTFC.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
-					worldIn.setBlockState(posDown, BlocksTFC.STICK_BUNDLE.getDefaultState(), 10);
-					SoundType soundtype = BlocksTFC.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
-					worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
-					itemstack.shrink(1);
-					return EnumActionResult.SUCCESS;
-				}
-			}
-		}
-		return EnumActionResult.FAIL;
-	}
+            if (player.canPlayerEdit(pos, facing, itemstack) && player.canPlayerEdit(posDown, facing, itemstack)) {
+                IBlockState stateDown = worldIn.getBlockState(posDown);
+                boolean canPutBlock = block.isReplaceable(worldIn, pos) || worldIn.isAirBlock(pos);
+                boolean canPutBlockDown = stateDown.getBlock().isReplaceable(worldIn, posDown) || worldIn.isAirBlock(posDown);
+                if (canPutBlock && canPutBlockDown) {
+                    worldIn.setBlockState(pos, BlocksTFC.STICK_BUNDLE.getDefaultState().withProperty(BlockStickBundle.PART, BlockStickBundle.EnumBlockPart.UPPER), 10);
+                    worldIn.setBlockState(posDown, BlocksTFC.STICK_BUNDLE.getDefaultState(), 10);
+                    SoundType soundtype = BlocksTFC.STICK_BUNDLE.getSoundType(stateDown, worldIn, pos, player);
+                    worldIn.playSound(null, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                    itemstack.shrink(1);
+                    return EnumActionResult.SUCCESS;
+                }
+            }
+        }
+        return EnumActionResult.FAIL;
+    }
 }

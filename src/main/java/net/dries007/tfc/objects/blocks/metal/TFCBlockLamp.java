@@ -5,15 +5,13 @@
 
 package net.dries007.tfc.objects.blocks.metal;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
+import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.objects.blocks.property.ILightableBlock;
+import net.dries007.tfc.objects.te.TELamp;
+import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -39,28 +37,28 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.te.TELamp;
-import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.ICalendar;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockLamp extends Block implements ILightableBlock
-{
+public class TFCBlockLamp extends Block implements ILightableBlock {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.VERTICAL);
     private static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 0.5, 0.6875);
     private static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 1, 0.6875);
 
     private static final Map<gregtech.api.unification.material.Material, TFCBlockLamp> MAP = new HashMap<>();
+
     public static TFCBlockLamp get(gregtech.api.unification.material.Material metal) {
         return MAP.get(metal);
     }
 
     private final gregtech.api.unification.material.Material metal;
 
-    public TFCBlockLamp(gregtech.api.unification.material.Material metal)
-    {
+    public TFCBlockLamp(gregtech.api.unification.material.Material metal) {
         super(Material.REDSTONE_LIGHT);
 
         this.metal = metal;
@@ -72,8 +70,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock
         setSoundType(SoundType.METAL);
     }
 
-    public gregtech.api.unification.material.Material getMetal()
-    {
+    public gregtech.api.unification.material.Material getMetal() {
         return metal;
     }
 
@@ -84,47 +81,40 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @SuppressWarnings("deprecation")
     @Override
     @Nonnull
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         IBlockState iblockstate = this.getDefaultState();
 
         return iblockstate.withProperty(FACING, EnumFacing.byIndex(meta % 2)).withProperty(LIT, meta >= 2);
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         return state.getValue(FACING).getIndex() + (state.getValue(LIT) ? 2 : 0);
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public boolean isBlockNormalCube(IBlockState state)
-    {
+    public boolean isBlockNormalCube(IBlockState state) {
         return false;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public boolean isNormalCube(IBlockState state)
-    {
+    public boolean isNormalCube(IBlockState state) {
         return false;
     }
 
     @Override
     @SuppressWarnings("deprecation")
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     @Override
     @Nonnull
     @SuppressWarnings("deprecation")
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        switch (state.getValue(FACING))
-        {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        switch (state.getValue(FACING)) {
             case UP:
                 return AABB_UP;
             case DOWN:
@@ -136,8 +126,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @SuppressWarnings("deprecation")
     @Override
     @Nonnull
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 
@@ -145,26 +134,21 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @Override
     @Nonnull
     @SuppressWarnings("deprecation")
-    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos)
-    {
+    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
         return getBoundingBox(state, worldIn, pos).offset(pos);
     }
 
     @Override
     @SuppressWarnings("deprecation")
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random)
-    {
-        if (state.getValue(LIT) && ConfigTFC.Devices.LAMP.burnRate > 0)
-        {
+    public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
+        if (state.getValue(LIT) && ConfigTFC.Devices.LAMP.burnRate > 0) {
             TELamp tel = Helpers.getTE(worldIn, pos, TELamp.class);
-            if (tel != null)
-            {
+            if (tel != null) {
                 checkFuel(worldIn, pos, state, tel);
             }
         }
@@ -172,17 +156,14 @@ public class TFCBlockLamp extends Block implements ILightableBlock
 
     @SuppressWarnings("deprecation")
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         TELamp tel = Helpers.getTE(worldIn, pos, TELamp.class);
-        if (tel != null)
-        {
+        if (tel != null) {
             if (worldIn.isBlockPowered(pos) && !tel.isPowered()) //power on
             {
                 lightWithFuel(worldIn, pos, state, tel);
                 tel.setPowered(true);
-            }
-            else if (!worldIn.isBlockPowered(pos) && tel.isPowered()) //power off
+            } else if (!worldIn.isBlockPowered(pos) && tel.isPowered()) //power off
             {
                 if (!checkFuel(worldIn, pos, state, tel)) //if it didn't run out turn it off anyway
                 {
@@ -192,8 +173,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock
                 }
             }
         }
-        if (!canPlaceAt(worldIn, pos, state.getValue(FACING)))
-        {
+        if (!canPlaceAt(worldIn, pos, state.getValue(FACING))) {
             worldIn.destroyBlock(pos, true);
         }
     }
@@ -201,8 +181,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @SideOnly(Side.CLIENT)
     @Override
     @Nonnull
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
@@ -210,12 +189,9 @@ public class TFCBlockLamp extends Block implements ILightableBlock
      * Checks if this block can be placed exactly at the given position.
      */
     @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        for (EnumFacing enumfacing : FACING.getAllowedValues())
-        {
-            if (this.canPlaceAt(worldIn, pos, enumfacing))
-            {
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        for (EnumFacing enumfacing : FACING.getAllowedValues()) {
+            if (this.canPlaceAt(worldIn, pos, enumfacing)) {
                 return true;
             }
         }
@@ -223,25 +199,19 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TELamp tel = Helpers.getTE(worldIn, pos, TELamp.class);
         ItemStack stack = playerIn.getHeldItem(hand);
-        if (!worldIn.isRemote && tel != null)
-        {
-            if (state.getValue(LIT))
-            {
+        if (!worldIn.isRemote && tel != null) {
+            if (state.getValue(LIT)) {
                 if (!checkFuel(worldIn, pos, state, tel)) //if it didn't run out turn it off
                 {
                     worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(LIT, false));
                     tel.resetCounter();
                 }
-            }
-            else if (stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null))
-            { //refill only if not lit
+            } else if (stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null)) { //refill only if not lit
                 IFluidHandler fluidHandler = tel.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-                if (fluidHandler != null)
-                {
+                if (fluidHandler != null) {
                     FluidUtil.interactWithFluidHandler(playerIn, hand, fluidHandler);
                     tel.markDirty();
                 }
@@ -257,17 +227,12 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @Override
     @Nonnull
     @SuppressWarnings("deprecation")
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        if (this.canPlaceAt(worldIn, pos, facing))
-        {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        if (this.canPlaceAt(worldIn, pos, facing)) {
             return this.getDefaultState().withProperty(FACING, facing);
-        }
-        else if (this.canPlaceAt(worldIn, pos, EnumFacing.UP))
-        {
+        } else if (this.canPlaceAt(worldIn, pos, EnumFacing.UP)) {
             return this.getDefaultState().withProperty(FACING, EnumFacing.UP);
-        }
-        else if (this.canPlaceAt(worldIn, pos, EnumFacing.DOWN)) // last resort, must have matched in canPlaceAt test
+        } else if (this.canPlaceAt(worldIn, pos, EnumFacing.DOWN)) // last resort, must have matched in canPlaceAt test
         {
             return this.getDefaultState().withProperty(FACING, EnumFacing.DOWN);
         }
@@ -275,22 +240,18 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     }
 
     @Override
-    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack tool)
-    {
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack tool) {
         super.harvestBlock(world, player, pos, state, te, tool);
         world.setBlockToAir(pos);
     }
 
     // after BlockBarrel#onBlockPlacedBy
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
-    {
-        if (!worldIn.isRemote && stack.getTagCompound() != null)
-        {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        if (!worldIn.isRemote && stack.getTagCompound() != null) {
             // Set the initial counter value and fill from item
             TELamp tile = Helpers.getTE(worldIn, pos, TELamp.class);
-            if (tile != null)
-            {
+            if (tile != null) {
                 tile.resetCounter();
                 tile.loadFromItemStack(stack);
             }
@@ -300,63 +261,51 @@ public class TFCBlockLamp extends Block implements ILightableBlock
 
     @Override
     @Nonnull
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, LIT);
     }
 
     @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
-    {
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         return state.getValue(LIT) ? 15 : 0;
     }
 
     @Override
-    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos)
-    {
+    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
         return false;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side)
-    {
+    public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
         return false;
     }
 
     //Lifted from BlockFlowerPot
 
     @Override
-    public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest)
-    {
+    public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
         return willHarvest || super.removedByPlayer(state, world, pos, player, willHarvest); // delay deletion of the block until after getDrops
     }
 
     @Override
-    public boolean hasTileEntity(IBlockState state)
-    {
+    public boolean hasTileEntity(IBlockState state) {
         return true;
     }
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(World world, IBlockState state)
-    {
+    public TileEntity createTileEntity(World world, IBlockState state) {
         return new TELamp();
     }
 
     @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         TELamp tile = Helpers.getTE(world, pos, TELamp.class);
-        if (tile != null)
-        {
-            if (tile.getFuel() == 0)
-            {
+        if (tile != null) {
+            if (tile.getFuel() == 0) {
                 super.getDrops(drops, world, pos, state, fortune);
-            }
-            else
-            {
+            } else {
                 drops.add(tile.getItemStack(tile, state));
             }
         }
@@ -365,20 +314,16 @@ public class TFCBlockLamp extends Block implements ILightableBlock
     @Override
     @Nonnull
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world,
-                                  BlockPos pos, EntityPlayer player)
-    {
+                                  BlockPos pos, EntityPlayer player) {
         TELamp tile = Helpers.getTE(world, pos, TELamp.class);
-        if (tile != null)
-        {
+        if (tile != null) {
             return tile.getItemStack(tile, state);
         }
         return new ItemStack(state.getBlock());
     }
 
-    private boolean lightWithFuel(World worldIn, BlockPos pos, IBlockState state, TELamp tel)
-    {
-        if (tel.getFuel() > 0)
-        {
+    private boolean lightWithFuel(World worldIn, BlockPos pos, IBlockState state, TELamp tel) {
+        if (tel.getFuel() > 0) {
             worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(LIT, true));
             tel.resetCounter();
             return true;
@@ -386,19 +331,16 @@ public class TFCBlockLamp extends Block implements ILightableBlock
         return false;
     }
 
-    private boolean checkFuel(World worldIn, BlockPos pos, IBlockState state, TELamp tel)
-    {
+    private boolean checkFuel(World worldIn, BlockPos pos, IBlockState state, TELamp tel) {
         IFluidHandler fluidHandler = tel.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         boolean ranOut = false;
-        if (!worldIn.isRemote && fluidHandler != null)
-        {
+        if (!worldIn.isRemote && fluidHandler != null) {
             long ticks = tel.getTicksSinceUpdate();
             double usage = ConfigTFC.Devices.LAMP.burnRate * ticks / ICalendar.TICKS_IN_HOUR;
             if (usage >= 1) // minimize rounding issues
             {
                 FluidStack used = fluidHandler.drain((int) usage, true); // use fuel
-                if (used == null || used.amount < (int) usage)
-                {
+                if (used == null || used.amount < (int) usage) {
                     worldIn.setBlockState(pos, state.withProperty(LIT, false));
                     ranOut = true;
                 }
@@ -408,16 +350,13 @@ public class TFCBlockLamp extends Block implements ILightableBlock
         return ranOut;
     }
 
-    private boolean canPlaceOn(World worldIn, BlockPos pos)
-    {
+    private boolean canPlaceOn(World worldIn, BlockPos pos) {
         IBlockState state = worldIn.getBlockState(pos);
         return state.getBlock().canPlaceTorchOnTop(state, worldIn, pos);
     }
 
-    private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing)
-    {
-        if (!FACING.getAllowedValues().contains(facing))
-        {
+    private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
+        if (!FACING.getAllowedValues().contains(facing)) {
             return false;
         }
 
@@ -426,24 +365,19 @@ public class TFCBlockLamp extends Block implements ILightableBlock
         Block block = iblockstate.getBlock();
         BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, blockpos, facing);
 
-        if (facing.equals(EnumFacing.UP) && this.canPlaceOn(worldIn, blockpos))
-        {
+        if (facing.equals(EnumFacing.UP) && this.canPlaceOn(worldIn, blockpos)) {
             return true;
-        }
-        else if (facing != EnumFacing.UP && facing != EnumFacing.DOWN)
-        {
+        } else if (facing != EnumFacing.UP && facing != EnumFacing.DOWN) {
             return !isExceptBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID;
-        }
-        else return facing == EnumFacing.DOWN && blockfaceshape == BlockFaceShape.SOLID;
+        } else return facing == EnumFacing.DOWN && blockfaceshape == BlockFaceShape.SOLID;
     }
 
     /**
      * use this if your block can be fluidlogged.
-     * @author jbred
      *
+     * @author jbred
      */
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -473,7 +407,9 @@ public class TFCBlockLamp extends Block implements ILightableBlock
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

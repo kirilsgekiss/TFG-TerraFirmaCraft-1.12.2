@@ -1,13 +1,5 @@
 package net.dries007.tfc.world.classic.worldgen.trees.dt;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.structure.template.TemplateManager;
-
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.util.SafeChunkBounds;
@@ -15,23 +7,27 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.types.TFCTrees;
+import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.template.TemplateManager;
+
+import java.util.Random;
 
 
-public class TreeGenDynamic implements ITreeGenerator
-{
+public class TreeGenDynamic implements ITreeGenerator {
     private int leavesRadius; //used to store useful radius between canGenerate and Generate
 
-    public TreeGenDynamic()
-    {
+    public TreeGenDynamic() {
         leavesRadius = 0;
     }
 
     @Override
-    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen)
-    {
+    public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen) {
         Species dtSpecies = TFCTrees.tfcSpecies.get(tree.toString());
         SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(pos).getPos());
         dtSpecies.generate(world, pos.down(), world.getBiome(pos), random, leavesRadius <= 0 ? dtSpecies.maxBranchRadius() / 3 : leavesRadius, bounds);
@@ -39,16 +35,13 @@ public class TreeGenDynamic implements ITreeGenerator
     }
 
     @Override
-    public boolean canGenerateTree(World world, BlockPos pos, Tree treeType)
-    {
-        if (!BlocksTFC.isGrowableSoil(world.getBlockState(pos.down())))
-        {
+    public boolean canGenerateTree(World world, BlockPos pos, Tree treeType) {
+        if (!BlocksTFC.isGrowableSoil(world.getBlockState(pos.down()))) {
             return false;
         }
 
         IBlockState locState = world.getBlockState(pos);
-        if (locState.getMaterial().isLiquid() || (!locState.getMaterial().isReplaceable() && !(locState.getBlock() instanceof TFCBlockSapling)))
-        {
+        if (locState.getMaterial().isLiquid() || (!locState.getMaterial().isReplaceable() && !(locState.getBlock() instanceof TFCBlockSapling))) {
             return false;
         }
 
@@ -57,8 +50,7 @@ public class TreeGenDynamic implements ITreeGenerator
         int maxTreeHeight = (int) ((TreeFamilyTFC.TreeTFCSpecies) dTree).getSignalEnergy(); //signal energy access problem so need to cast
 
         SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(pos).getPos());
-        for (int y = 0; y <= lowestBranchHeight; y++)
-        {
+        for (int y = 0; y <= lowestBranchHeight; y++) {
             if (!isValidLocation(world, pos.up(y), 0, 0, bounds))
                 return false; // ensure proper column space for the trunk
         }
@@ -68,10 +60,8 @@ public class TreeGenDynamic implements ITreeGenerator
 
         for (int x = -leavesRadius - 1; x <= leavesRadius + 1; ++x) // verifying there's space for the canopy
         {
-            for (int z = -leavesRadius - 1; z <= leavesRadius + 1; ++z)
-            {
-                for (int y = lowestBranchHeight - 1; y < maxTreeHeight; ++y)
-                {
+            for (int z = -leavesRadius - 1; z <= leavesRadius + 1; ++z) {
+                for (int y = lowestBranchHeight - 1; y < maxTreeHeight; ++y) {
                     int yDistance = groundToCenter - y;
                     if (x * x + yDistance * yDistance + z * z <= radiusSquared) // only perform the check if the radius is within a sphere around the epicenter there
                     {
@@ -83,22 +73,19 @@ public class TreeGenDynamic implements ITreeGenerator
         return true;
     }
 
-    private boolean isValidLocation(World world, BlockPos pos, int x, int y, SafeChunkBounds bounds)
-    {
+    private boolean isValidLocation(World world, BlockPos pos, int x, int y, SafeChunkBounds bounds) {
         boolean origin = x == 0 && y == 0;
         return origin || !bounds.inBounds(pos.add(x, 0, y), false) || //either tree origin, or it's not generated,
-            isReplaceable(world, pos, x, 0, y) ||                    //or ground level block is replaceable,
-            ((x > 1 || y > 1) && isReplaceable(world, pos, x, 1, y));//or block at y+1 is replaceable when >1 away from origin
+                isReplaceable(world, pos, x, 0, y) ||                    //or ground level block is replaceable,
+                ((x > 1 || y > 1) && isReplaceable(world, pos, x, 1, y));//or block at y+1 is replaceable when >1 away from origin
     }
 
-    private boolean isDTBranch(IBlockState state)
-    {
+    private boolean isDTBranch(IBlockState state) {
         Block block = state.getBlock();
         return block instanceof BlockBranch;//|| block instanceof BlockDynamicLeaves;
     }
 
-    private boolean isReplaceable(World world, BlockPos pos, int x, int y, int z)
-    {
+    private boolean isReplaceable(World world, BlockPos pos, int x, int y, int z) {
         IBlockState state = world.getBlockState(pos.add(x, y, z));
         return state.getMaterial().isReplaceable() && !isDTBranch(state);
     }

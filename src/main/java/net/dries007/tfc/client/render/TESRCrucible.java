@@ -6,7 +6,8 @@
 package net.dries007.tfc.client.render;
 
 import gregtech.api.unification.material.Material;
-import org.lwjgl.opengl.GL11;
+import net.dries007.tfc.client.FluidSpriteCache;
+import net.dries007.tfc.objects.te.TECrucible;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,19 +18,15 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.dries007.tfc.client.FluidSpriteCache;
-import net.dries007.tfc.objects.te.TECrucible;
+import org.lwjgl.opengl.GL11;
 
 /**
  * Render molten metal inside crucible
  */
 @SideOnly(Side.CLIENT)
-public class TESRCrucible extends TileEntitySpecialRenderer<TECrucible>
-{
+public class TESRCrucible extends TileEntitySpecialRenderer<TECrucible> {
     @Override
-    public void render(TECrucible te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
-    {
+    public void render(TECrucible te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         int amount = te.getAlloy().getAmount();
         if (amount < 1) return;
         Material metal = te.getAlloyResult();

@@ -1,17 +1,15 @@
 package net.dries007.tfc.util.agriculture;
 
+import net.dries007.tfc.api.capability.food.FoodData;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.minecraft.item.Item;
 
-import net.dries007.tfc.api.capability.food.FoodData;
-
-import static net.dries007.tfc.api.capability.food.FoodData.*;
+import static net.dries007.tfc.api.capability.food.FoodData.DRIED_FRUIT_DECAY;
 
 /**
  * This is an easy way to wrap all the TFC fruits with our data
  */
-public enum Fruits
-{
+public enum Fruits {
     // TFC Foods
     /*
     BANANA(ItemFoodTFC.get(Food.BANANA), true, DRIED_FRUIT_DECAY, true),
@@ -122,26 +120,22 @@ public enum Fruits
     private final FoodData driedData;
     public final boolean isVanillaFood;
 
-    Fruits(Item fruit, boolean dry, FoodData driedData, boolean isVanillaFood)
-    {
+    Fruits(Item fruit, boolean dry, FoodData driedData, boolean isVanillaFood) {
         this.fruit = fruit;
         this.dry = dry;
         this.driedData = driedData;
         this.isVanillaFood = isVanillaFood;
     }
 
-    public Item getFruit()
-    {
+    public Item getFruit() {
         return this.fruit;
     }
 
-    public boolean canDry()
-    {
+    public boolean canDry() {
         return this.dry;
     }
 
-    public FoodData getDriedData()
-    {
+    public FoodData getDriedData() {
         return this.driedData;
     }
 }

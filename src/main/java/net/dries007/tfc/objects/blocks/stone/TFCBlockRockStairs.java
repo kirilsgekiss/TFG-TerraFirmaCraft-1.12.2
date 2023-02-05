@@ -5,34 +5,30 @@
 
 package net.dries007.tfc.objects.blocks.stone;
 
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
+import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.Type;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.util.OreDictionaryHelper;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockRockStairs extends BlockStairs
-{
+public class TFCBlockRockStairs extends BlockStairs {
     private static final Map<Rock, EnumMap<Type, TFCBlockRockStairs>> ROCK_TABLE = new HashMap<>();
 
-    public static TFCBlockRockStairs get(Rock rock, Type type)
-    {
+    public static TFCBlockRockStairs get(Rock rock, Type type) {
         return ROCK_TABLE.get(rock).get(type);
     }
 
-    public TFCBlockRockStairs(Rock rock, Type type)
-    {
+    public TFCBlockRockStairs(Rock rock, Type type) {
         super(BlockRockVariant.get(rock, type).getDefaultState());
 
         if (!ROCK_TABLE.containsKey(rock))
@@ -49,20 +45,17 @@ public class TFCBlockRockStairs extends BlockStairs
 
     @SuppressWarnings("deprecation")
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         // Prevents cobble stairs from falling
     }
 
     @Override
-    public void onPlayerDestroy(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public void onPlayerDestroy(World worldIn, BlockPos pos, IBlockState state) {
         // Prevents chiseled smooth stone stairs from collapsing
     }
 
     @Override
-    public void onBlockAdded(@Nonnull World worldIn, @Nonnull BlockPos pos, IBlockState state)
-    {
+    public void onBlockAdded(@Nonnull World worldIn, @Nonnull BlockPos pos, IBlockState state) {
         // Prevents cobble stairs from falling
     }
 }

@@ -1,6 +1,5 @@
 package net.dries007.tfc.api.util;
 
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.types.Wood;
 
 public interface IWoodHandler {

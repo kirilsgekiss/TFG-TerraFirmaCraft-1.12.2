@@ -24,11 +24,9 @@ public class BlastFurnaceProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TEBlastFurnace blastFurnace = Helpers.getTE(world, data.getPos(), TEBlastFurnace.class);
-        if (blastFurnace != null)
-        {
+        if (blastFurnace != null) {
             int chimney = BlockBlastFurnace.getChimneyLevels(blastFurnace.getWorld(), blastFurnace.getPos());
-            if (chimney > 0)
-            {
+            if (chimney > 0) {
                 int maxItems = chimney * 4;
                 int oreStacks = blastFurnace.getOreStacks().size();
                 int fuelStacks = blastFurnace.getFuelStacks().size();
@@ -36,13 +34,10 @@ public class BlastFurnaceProvider implements IProbeInfoProvider {
                 String heatTooltip = Heat.getTooltip(temperature);
                 probeInfo.text(new TextComponentTranslation("waila.tfc.bloomery.ores", oreStacks, maxItems).getFormattedText());
                 probeInfo.text(new TextComponentTranslation("waila.tfc.bloomery.fuel", fuelStacks, maxItems).getFormattedText());
-                if (heatTooltip != null)
-                {
+                if (heatTooltip != null) {
                     probeInfo.text(heatTooltip);
                 }
-            }
-            else
-            {
+            } else {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.blast_furnace.not_formed").getFormattedText());
             }
         }

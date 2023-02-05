@@ -6,38 +6,6 @@
 package net.dries007.tfc;
 
 import com.ferreusveritas.dynamictrees.seasons.SeasonHelper;
-import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
-import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
-import net.dries007.tfc.compat.top.TOPCompatibility;
-//import net.dries007.tfc.types.DefaultRecipes;
-import net.dries007.tfc.util.CapabilityHeatHandler;
-import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.agriculture.TFCSeasonManager;
-import net.dries007.tfc.world.classic.worldgen.*;
-import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
-import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
-import net.dries007.tfc.world.classic.worldgen.groundcover.*;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenClays;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilDecorative;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilTypes;
-import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
-import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.dedicated.DedicatedServer;
-import net.minecraft.server.dedicated.PropertyManager;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.*;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.server.FMLServerHandler;
-
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -53,15 +21,45 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCKeybindings;
 import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
 import net.dries007.tfc.command.*;
+import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
+import net.dries007.tfc.compat.top.TOPCompatibility;
 import net.dries007.tfc.network.*;
 import net.dries007.tfc.objects.LootTablesTFC;
 import net.dries007.tfc.objects.entity.EntitiesTFC;
 import net.dries007.tfc.proxy.IProxy;
+import net.dries007.tfc.util.CapabilityHeatHandler;
+import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.agriculture.TFCSeasonManager;
 import net.dries007.tfc.util.calendar.CalendarTFC;
 import net.dries007.tfc.util.fuel.FuelManager;
 import net.dries007.tfc.util.json.JsonConfigRegistry;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
+import net.dries007.tfc.world.classic.worldgen.*;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
+import net.dries007.tfc.world.classic.worldgen.groundcover.*;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenClays;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilDecorative;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilTypes;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.server.dedicated.PropertyManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.server.FMLServerHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static net.dries007.tfc.TerraFirmaCraft.DEPENDENCIES;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
@@ -75,8 +73,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
         useMetadata = true,
         guiFactory = Constants.GUI_FACTORY,
         dependencies = DEPENDENCIES)
-public final class TerraFirmaCraft
-{
+public final class TerraFirmaCraft {
     public static final String MOD_ID = "tfc";
     public static final String MOD_NAME = "TerraFirmaGreg: Edition";
     public static final String VERSION = "@VERSION@";
@@ -92,39 +89,32 @@ public final class TerraFirmaCraft
     private WorldTypeTFC worldTypeTFC;
     private SimpleNetworkWrapper network;
 
-    public static Logger getLog()
-    {
+    public static Logger getLog() {
         return INSTANCE.log;
     }
 
-    public static IProxy getProxy()
-    {
+    public static IProxy getProxy() {
         return PROXY;
     }
 
-    public static WorldTypeTFC getWorldType()
-    {
+    public static WorldTypeTFC getWorldType() {
         return INSTANCE.worldTypeTFC;
     }
 
-    public static SimpleNetworkWrapper getNetwork()
-    {
+    public static SimpleNetworkWrapper getNetwork() {
         return INSTANCE.network;
     }
 
-    public static TerraFirmaCraft getInstance()
-    {
+    public static TerraFirmaCraft getInstance() {
         return INSTANCE;
     }
 
-    static
-    {
+    static {
         FluidRegistry.enableUniversalBucket();
     }
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         log.debug("TerraFirmaCraft is Working! :)"); // todo: wtf check
 
         TFCToolItems.init();
@@ -175,33 +165,26 @@ public final class TerraFirmaCraft
 
         Helpers.insertWhitelistFluids();
 
-        if (event.getSide().isClient())
-        {
+        if (event.getSide().isClient()) {
             ClientEvents.preInit();
         }
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
         LootTablesTFC.init();
         CapabilityFood.init();
 
-        if (event.getSide().isClient())
-        {
+        if (event.getSide().isClient()) {
             TFCKeybindings.init();
             // Enable overlay to render health, thirst and hunger bars, TFC style.
             // Also renders animal familiarity
             MinecraftForge.EVENT_BUS.register(PlayerDataOverlay.getInstance());
-        }
-        else
-        {
+        } else {
             MinecraftServer server = FMLServerHandler.instance().getServer();
-            if (server instanceof DedicatedServer)
-            {
+            if (server instanceof DedicatedServer) {
                 PropertyManager settings = ((DedicatedServer) server).settings;
-                if (ConfigTFC.General.OVERRIDES.forceTFCWorldType)
-                {
+                if (ConfigTFC.General.OVERRIDES.forceTFCWorldType) {
                     // This is called before vanilla defaults it, meaning we intercept it's default with ours
                     // However, we can't actually set this due to fears of overriding the existing world
                     TerraFirmaCraft.getLog().info("Setting default level-type to `tfc_classic`");
@@ -221,8 +204,7 @@ public final class TerraFirmaCraft
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
+    public void postInit(FMLPostInitializationEvent event) {
 //        DefaultRecipes.register();
 
         FuelManager.postInit();
@@ -230,16 +212,14 @@ public final class TerraFirmaCraft
     }
 
     @Mod.EventHandler
-    public void onLoadComplete(FMLLoadCompleteEvent event)
-    {
+    public void onLoadComplete(FMLLoadCompleteEvent event) {
         // This is the latest point that we can possibly stop creating non-decaying stacks on both server + client
         // It should be safe to use as we're only using it internally
         FoodHandler.setNonDecaying(false);
     }
 
     @Mod.EventHandler
-    public void onServerStarting(FMLServerStartingEvent event)
-    {
+    public void onServerStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandStripWorld());
         event.registerServerCommand(new CommandHeat());
         event.registerServerCommand(new CommandPlayerTFC());
@@ -254,82 +234,63 @@ public final class TerraFirmaCraft
 
     public void someStuffOnPreInit(FMLPreInitializationEvent event) // todo: move this to another file pls
     {
-        if (ConfigTFC.FloraeGeneral.STRUCTURES.activateStructureGeneration)
-        {
+        if (ConfigTFC.FloraeGeneral.STRUCTURES.activateStructureGeneration) {
             GameRegistry.registerWorldGenerator(new WorldGenStructures(), 0);
-            if (ConfigTFC.FloraeGeneral.WORLD.enableCoralWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableCoralWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGenStructuresCorals(), 0);
             }
         }
-        if (ConfigTFC.FloraeGeneral.WORLD.enableAllWorldGen)
-        {
-            if (ConfigTFC.FloraeGeneral.WORLD.enableMesaStrata)
-            {
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllWorldGen) {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableMesaStrata) {
                 GameRegistry.registerWorldGenerator(new WorldGenMesaStrata(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableTrees)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableTrees) {
                 GameRegistry.registerWorldGenerator(new WorldGeneratorTrees(), 0);
             }
             //GameRegistry.registerWorldGenerator(new WorldGenWildCropsTFCF(), 0);
-            if (ConfigTFC.FloraeGeneral.WORLD.enableCoralWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableCoralWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGenCorals(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableMossyRawWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableMossyRawWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGenMossyRaw(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enablePlantWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enablePlantWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGeneratorPlants(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableUndergroundPlantWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableUndergroundPlantWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGeneratorUnderground(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableLightstoneWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableLightstoneWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGenLightstones(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableOceanGlowPlantWorldGen)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableOceanGlowPlantWorldGen) {
                 GameRegistry.registerWorldGenerator(new WorldGenGlowPlant(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableSoilPits)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableSoilPits) {
                 //GameRegistry.registerWorldGenerator(new WorldGenSoil(), 0);
                 GameRegistry.registerWorldGenerator(new WorldGenSoilTypes(), 0);
                 GameRegistry.registerWorldGenerator(new WorldGenSoilDecorative(), 0);
                 GameRegistry.registerWorldGenerator(new WorldGenClays(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverRock) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceRocks(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverSeashell) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceSeashells(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverFlint) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceFlint(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverBones) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceBones(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverPinecone) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfacePinecone(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverDriftwood) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceDriftwood(), 0);
             }
-            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig)
-            {
+            if (ConfigTFC.FloraeGeneral.WORLD.enableGroundcoverTwig) {
                 GameRegistry.registerWorldGenerator(new WorldGenSurfaceTwig(), 0);
             }
             if (ConfigTFC.FloraeGeneral.WORLD.enableGourdWorldGen && false) // if firmalife added

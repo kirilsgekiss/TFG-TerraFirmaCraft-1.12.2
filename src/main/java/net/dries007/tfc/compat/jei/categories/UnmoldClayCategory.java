@@ -1,7 +1,10 @@
 package net.dries007.tfc.compat.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.gui.*;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.gui.IDrawableStatic;
+import mezz.jei.api.gui.IGuiItemStackGroup;
+import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import net.dries007.tfc.TerraFirmaCraft;
@@ -21,8 +24,7 @@ public class UnmoldClayCategory extends BaseRecipeCategory<UnmoldRecipeWrapperCl
     private final IDrawableStatic arrow;
     private final IDrawableAnimated arrowAnimated;
 
-    public UnmoldClayCategory(IGuiHelper helper, String Uid)
-    {
+    public UnmoldClayCategory(IGuiHelper helper, String Uid) {
         super(helper.createBlankDrawable(120, 38), Uid);
         arrow = helper.createDrawable(ICONS, 0, 14, 22, 16);
         IDrawableStatic arrowAnimated = helper.createDrawable(ICONS, 22, 14, 22, 16);
@@ -31,8 +33,7 @@ public class UnmoldClayCategory extends BaseRecipeCategory<UnmoldRecipeWrapperCl
     }
 
     @Override
-    public void drawExtras(Minecraft minecraft)
-    {
+    public void drawExtras(Minecraft minecraft) {
         arrow.draw(minecraft, 48, 16);
         arrowAnimated.draw(minecraft, 48, 16);
         slot.draw(minecraft, 20, 16);
@@ -40,8 +41,7 @@ public class UnmoldClayCategory extends BaseRecipeCategory<UnmoldRecipeWrapperCl
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperClay recipeWrapper, IIngredients ingredients)
-    {
+    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperClay recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup itemStackGroup = recipeLayout.getItemStacks();
         itemStackGroup.init(0, true, 20, 16);
         itemStackGroup.init(1, false, 84, 16);

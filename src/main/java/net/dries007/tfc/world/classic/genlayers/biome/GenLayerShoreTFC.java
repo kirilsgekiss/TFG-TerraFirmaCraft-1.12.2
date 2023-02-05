@@ -5,14 +5,11 @@
 
 package net.dries007.tfc.world.classic.genlayers.biome;
 
+import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
 import net.minecraft.world.gen.layer.IntCache;
 
-import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
-
-public class GenLayerShoreTFC extends GenLayerTFC
-{
-    public GenLayerShoreTFC(long seed, GenLayerTFC parent)
-    {
+public class GenLayerShoreTFC extends GenLayerTFC {
+    public GenLayerShoreTFC(long seed, GenLayerTFC parent) {
         super(seed);
         this.parent = parent;
     }
@@ -22,8 +19,7 @@ public class GenLayerShoreTFC extends GenLayerTFC
      * amounts, or biomeList[] indices based on the particular GenLayer subclass.
      */
     @Override
-    public int[] getInts(int xCoord, int zCoord, int xSize, int zSize)
-    {
+    public int[] getInts(int xCoord, int zCoord, int xSize, int zSize) {
         int areaRadius = 8;
         int parentXCoord = xCoord - areaRadius;
         int parentZCoord = zCoord - areaRadius;
@@ -32,37 +28,28 @@ public class GenLayerShoreTFC extends GenLayerTFC
         int[] parentCache = this.parent.getInts(parentXCoord, parentZCoord, parentXSize, parentZSize);
         int[] outCache = IntCache.getIntCache(xSize * zSize);
 
-        for (int z = 0; z < zSize + 0; ++z)
-        {
-            for (int x = 0; x < xSize + 0; ++x)
-            {
+        for (int z = 0; z < zSize + 0; ++z) {
+            for (int x = 0; x < xSize + 0; ++x) {
                 int[][] areas = new int[(areaRadius * 2) + 1][(areaRadius * 2) + 1];
                 boolean same = true;
                 boolean initialVal = false;
                 int initialValue = parentCache[(x + areaRadius) + (z + areaRadius) * (areaRadius * 2 + xSize)];
 
-                if (initialValue != oceanID)
-                {
+                if (initialValue != oceanID) {
                     outCache[x + z * xSize] = parentCache[(x + areaRadius) + (z + areaRadius) * (areaRadius * 2 + xSize)];
                     continue;
                 }
-                for (int rX = 0; rX < (areaRadius * 2) + 1 && same; rX++)
-                {
-                    for (int rZ = 0; rZ < (areaRadius * 2) + 1 && same; rZ++)
-                    {
-                        if (Math.abs(rX - areaRadius) + Math.abs(rZ - areaRadius) <= areaRadius)
-                        {
+                for (int rX = 0; rX < (areaRadius * 2) + 1 && same; rX++) {
+                    for (int rZ = 0; rZ < (areaRadius * 2) + 1 && same; rZ++) {
+                        if (Math.abs(rX - areaRadius) + Math.abs(rZ - areaRadius) <= areaRadius) {
                             same = parentCache[x + rX + (z + rZ) * parentXSize] != beachID && parentCache[x + rX + (z + rZ) * parentXSize] != gravelBeachID
                                     && parentCache[x + rX + (z + rZ) * parentXSize] != mangroveID;
                         }
                     }
                 }
-                if (same)
-                {
+                if (same) {
                     outCache[x + z * xSize] = parentCache[(x + areaRadius) + (z + areaRadius) * (areaRadius * 2 + xSize)];
-                }
-                else
-                {
+                } else {
                     outCache[x + z * xSize] = shoreID;
                 }
             }

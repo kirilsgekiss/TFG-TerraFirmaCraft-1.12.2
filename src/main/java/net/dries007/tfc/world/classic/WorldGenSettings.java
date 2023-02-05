@@ -6,14 +6,11 @@
 package net.dries007.tfc.world.classic;
 
 import com.google.common.base.Strings;
-
 import net.dries007.tfc.Constants;
 
 @SuppressWarnings("WeakerAccess")
-public class WorldGenSettings
-{
-    public static WorldGenSettingsBuilder fromString(String options)
-    {
+public class WorldGenSettings {
+    public static WorldGenSettingsBuilder fromString(String options) {
         if (Strings.isNullOrEmpty(options)) return new WorldGenSettingsBuilder();
         return Constants.GSON.fromJson(options, WorldGenSettingsBuilder.class);
     }
@@ -34,8 +31,7 @@ public class WorldGenSettings
     public final int waterFissureClusterRarity = 225; // todo
     public final int largeRockRarity = 20; // todo
 
-    public WorldGenSettings(WorldGenSettingsBuilder b)
-    {
+    public WorldGenSettings(WorldGenSettingsBuilder b) {
         spawnFuzz = b.spawnFuzz;
         flatBedrock = b.flatBedrock;
         rockLayerSize = b.rockLayerSize;
@@ -49,13 +45,11 @@ public class WorldGenSettings
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return Constants.GSON.toJson(this);
     }
 
-    public static class WorldGenSettingsBuilder
-    {
+    public static class WorldGenSettingsBuilder {
         public int spawnFuzz = 250;
         public boolean flatBedrock = false;
 
@@ -71,28 +65,25 @@ public class WorldGenSettings
 
         public int riverRavineRarity = 400;
 
-        public boolean isDefault()
-        {
+        public boolean isDefault() {
             return spawnFuzz == 250 &&
-                !flatBedrock &&
-                rockLayerSize == 5 &&
-                ravineRarity == 100 &&
-                ravineHeight == 20 &&
-                ravineVariability == 50 &&
-                surfaceRavineRarity == 100 &&
-                surfaceRavineHeight == 125 &&
-                surfaceRavineVariability == 30 &&
-                riverRavineRarity == 400;
+                    !flatBedrock &&
+                    rockLayerSize == 5 &&
+                    ravineRarity == 100 &&
+                    ravineHeight == 20 &&
+                    ravineVariability == 50 &&
+                    surfaceRavineRarity == 100 &&
+                    surfaceRavineHeight == 125 &&
+                    surfaceRavineVariability == 30 &&
+                    riverRavineRarity == 400;
         }
 
-        public WorldGenSettings build()
-        {
+        public WorldGenSettings build() {
             return new WorldGenSettings(this);
         }
 
         @Override
-        public String toString()
-        {
+        public String toString() {
             return Constants.GSON.toJson(this);
         }
     }

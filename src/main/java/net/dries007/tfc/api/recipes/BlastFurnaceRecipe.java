@@ -5,32 +5,28 @@
 
 package net.dries007.tfc.api.recipes;
 
-import javax.annotation.Nullable;
-
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.IForgeRegistryEntry;
-
 import net.dries007.tfc.api.capability.metal.CapabilityMetalItem;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import javax.annotation.Nullable;
 
 @SuppressWarnings("WeakerAccess")
-public class BlastFurnaceRecipe extends IForgeRegistryEntry.Impl<BlastFurnaceRecipe>
-{
+public class BlastFurnaceRecipe extends IForgeRegistryEntry.Impl<BlastFurnaceRecipe> {
     @Nullable
-    public static BlastFurnaceRecipe get(ItemStack inputItem)
-    {
+    public static BlastFurnaceRecipe get(ItemStack inputItem) {
         return TFCRegistries.BLAST_FURNACE.getValuesCollection().stream().filter(x -> x.isValidInput(inputItem)).findFirst().orElse(null);
     }
 
     @Nullable
-    public static BlastFurnaceRecipe get(Material inputMetal)
-    {
+    public static BlastFurnaceRecipe get(Material inputMetal) {
         return TFCRegistries.BLAST_FURNACE.getValuesCollection().stream().filter(x -> x.input == inputMetal).findFirst().orElse(null);
     }
 
@@ -45,8 +41,7 @@ public class BlastFurnaceRecipe extends IForgeRegistryEntry.Impl<BlastFurnaceRec
      * @param input    the metal input of this recipe
      * @param additive additive to make this recipe (for pig iron, this means flux)
      */
-    public BlastFurnaceRecipe(Material output, Material input, IIngredient<ItemStack> additive)
-    {
+    public BlastFurnaceRecipe(Material output, Material input, IIngredient<ItemStack> additive) {
         this.output = output;
         this.input = input;
         this.additive = additive;
@@ -57,33 +52,26 @@ public class BlastFurnaceRecipe extends IForgeRegistryEntry.Impl<BlastFurnaceRec
     }
 
     @Nullable
-    public FluidStack getOutput(ItemStack stack)
-    {
+    public FluidStack getOutput(ItemStack stack) {
         IMetalItem metal = CapabilityMetalItem.getMetalItem(stack);
         int value = metal != null && metal.getMetal(stack) == input ? metal.getSmeltAmount(stack) : 0;
-        if (value > 0)
-        {
-            if (metal.getMetal(stack).getFluid() != null)
-            {
+        if (value > 0) {
+            if (metal.getMetal(stack).getFluid() != null) {
                 return new FluidStack(metal.getMetal(stack).getFluid(), value);
             }
-        }
-        else
-        {
+        } else {
             return null;
         }
 
         return null;
     }
 
-    public boolean isValidInput(ItemStack stack)
-    {
+    public boolean isValidInput(ItemStack stack) {
         IMetalItem metal = CapabilityMetalItem.getMetalItem(stack);
         return metal != null && metal.getMetal(stack) == input;
     }
 
-    public boolean isValidAdditive(ItemStack stack)
-    {
+    public boolean isValidAdditive(ItemStack stack) {
         return additive.testIgnoreCount(stack);
     }
 
@@ -92,8 +80,7 @@ public class BlastFurnaceRecipe extends IForgeRegistryEntry.Impl<BlastFurnaceRec
      *
      * @return itemstack containing ingot of the specified metal
      */
-    public ItemStack getOutput()
-    {
+    public ItemStack getOutput() {
         return OreDictUnifier.get(OrePrefix.ingot, output);
     }
 }

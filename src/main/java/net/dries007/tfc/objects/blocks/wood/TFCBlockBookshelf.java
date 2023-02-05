@@ -5,13 +5,10 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.Nonnull;
-
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -27,26 +24,25 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.util.OreDictionaryHelper;
 import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
-{
+public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/bookshelf");
     private static final Map<Wood, TFCBlockBookshelf> MAP = new HashMap<>();
-    public static TFCBlockBookshelf get(Wood wood)
-    {
+
+    public static TFCBlockBookshelf get(Wood wood) {
         return MAP.get(wood);
     }
 
     private final Wood wood;
 
-    public TFCBlockBookshelf(Wood wood)
-    {
+    public TFCBlockBookshelf(Wood wood) {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         this.wood = wood;
@@ -67,14 +63,12 @@ public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
     @SideOnly(Side.CLIENT)
     @Override
     @Nonnull
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Override
-    public float getEnchantPowerBonus(World world, BlockPos pos)
-    {
+    public float getEnchantPowerBonus(World world, BlockPos pos) {
         return 1.0F; // Same as vanilla
     }
 
@@ -82,8 +76,7 @@ public class TFCBlockBookshelf extends Block implements IHasModel, IWoodHandler
     public void onModelRegister() {
         ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
             @NotNull
-            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
-            {
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
                 return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
             }
         });

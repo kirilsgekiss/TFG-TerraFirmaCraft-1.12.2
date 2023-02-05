@@ -1,9 +1,15 @@
 package net.dries007.tfc.objects.te;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
+import net.dries007.tfc.api.capability.food.CapabilityFood;
+import net.dries007.tfc.api.capability.food.FoodTrait;
+import net.dries007.tfc.api.capability.size.CapabilityItemSize;
+import net.dries007.tfc.api.capability.size.IItemSize;
+import net.dries007.tfc.api.capability.size.Size;
+import net.dries007.tfc.objects.blocks.BlockLargeVessel;
+import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
+import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
+import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
@@ -15,17 +21,9 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-import net.dries007.tfc.api.capability.food.CapabilityFood;
-import net.dries007.tfc.api.capability.food.FoodTrait;
-import net.dries007.tfc.api.capability.size.CapabilityItemSize;
-import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.objects.blocks.BlockLargeVessel;
-import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
-import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
-import net.dries007.tfc.objects.te.TEInventory;
-import net.dries007.tfc.util.calendar.CalendarTFC;
-import net.dries007.tfc.util.calendar.ICalendarFormatted;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import static net.dries007.tfc.objects.blocks.BlockLargeVessel.SEALED;
 
@@ -33,13 +31,11 @@ import static net.dries007.tfc.objects.blocks.BlockLargeVessel.SEALED;
  * @see BlockLargeVessel
  */
 @ParametersAreNonnullByDefault
-public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerSidedCallback
-{
+public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerSidedCallback {
     private boolean sealed;
     private long sealedTick, sealedCalendarTick;
 
-    public TELargeKaoliniteVessel()
-    {
+    public TELargeKaoliniteVessel() {
         super(new LargeVesselItemStackHandler(9));
     }
 
@@ -49,8 +45,7 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
      *
      * @param nbt The NBTTagCompound to load from.
      */
-    public void readFromItemTag(NBTTagCompound nbt)
-    {
+    public void readFromItemTag(NBTTagCompound nbt) {
         inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
         sealedTick = nbt.getLong("sealedTick");
         sealedCalendarTick = nbt.getLong("sealedCalendarTick");
@@ -63,36 +58,29 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
      * On servers, this is the earliest point in time to safely access the TE's World object.
      */
     @Override
-    public void onLoad()
-    {
-        if (!world.isRemote)
-        {
+    public void onLoad() {
+        if (!world.isRemote) {
             sealed = world.getBlockState(pos).getValue(SEALED);
         }
     }
 
     @Nonnull
-    public String getSealedDate()
-    {
+    public String getSealedDate() {
         return ICalendarFormatted.getTimeAndDate(sealedCalendarTick, CalendarTFC.CALENDAR_TIME.getDaysInMonth());
     }
 
     @Override
-    public boolean canInsert(int slot, ItemStack stack, EnumFacing side)
-    {
+    public boolean canInsert(int slot, ItemStack stack, EnumFacing side) {
         return !world.getBlockState(pos).getValue(SEALED) && isItemValid(slot, stack);
     }
 
     @Override
-    public boolean canExtract(int slot, EnumFacing side)
-    {
+    public boolean canExtract(int slot, EnumFacing side) {
         return !sealed;
     }
 
-    public void onSealed()
-    {
-        for (int i = 0; i < inventory.getSlots(); i++)
-        {
+    public void onSealed() {
+        for (int i = 0; i < inventory.getSlots(); i++) {
             CapabilityFood.applyTrait(inventory.getStackInSlot(i), FoodTrait.PRESERVED);
         }
 
@@ -103,11 +91,9 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
         markForSync();
     }
 
-    public void onUnseal()
-    {
+    public void onUnseal() {
         // Update preservation trait on contents
-        for (int i = 0; i < inventory.getSlots(); i++)
-        {
+        for (int i = 0; i < inventory.getSlots(); i++) {
             CapabilityFood.removeTrait(inventory.getStackInSlot(i), FoodTrait.PRESERVED);
         }
 
@@ -117,14 +103,12 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
         markForSync();
     }
 
-    public boolean isSealed()
-    {
+    public boolean isSealed() {
         return sealed;
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound nbt)
-    {
+    public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
         sealedTick = nbt.getLong("sealedTick");
         sealedCalendarTick = nbt.getLong("sealedCalendarTick");
@@ -133,40 +117,32 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
 
     @Override
     @Nonnull
-    public NBTTagCompound writeToNBT(NBTTagCompound nbt)
-    {
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
         nbt.setLong("sealedTick", sealedTick);
         nbt.setLong("sealedCalendarTick", sealedCalendarTick);
         return super.writeToNBT(nbt);
     }
 
     @Override
-    public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing)
-    {
+    public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
         return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
-    {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-        {
+    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return (T) new ItemHandlerSidedWrapper(this, inventory, facing);
         }
         return super.getCapability(capability, facing);
     }
 
     @Override
-    public void onBreakBlock(World world, BlockPos pos, IBlockState state)
-    {
-        if (!state.getValue(SEALED))
-        {
+    public void onBreakBlock(World world, BlockPos pos, IBlockState state) {
+        if (!state.getValue(SEALED)) {
             // Not sealed, so empty contents normally
             super.onBreakBlock(world, pos, state);
-        }
-        else
-        {
+        } else {
             // Need to create the full barrel and drop it now
             ItemStack stack = new ItemStack(state.getBlock());
             stack.setTagCompound(getItemTag());
@@ -175,11 +151,9 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
     }
 
     @Override
-    public boolean isItemValid(int slot, ItemStack stack)
-    {
+    public boolean isItemValid(int slot, ItemStack stack) {
         IItemSize sizeCap = CapabilityItemSize.getIItemSize(stack);
-        if (sizeCap != null)
-        {
+        if (sizeCap != null) {
             return sizeCap.getSize(stack).isSmallerThan(Size.LARGE);
         }
         return true;
@@ -191,8 +165,7 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
      *
      * @return An NBTTagCompound containing inventory and tank data.
      */
-    private NBTTagCompound getItemTag()
-    {
+    private NBTTagCompound getItemTag() {
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setTag("inventory", inventory.serializeNBT());
         nbt.setLong("sealedTick", sealedTick);
@@ -200,17 +173,14 @@ public class TELargeKaoliniteVessel extends TEInventory implements IItemHandlerS
         return nbt;
     }
 
-    private static class LargeVesselItemStackHandler extends ItemStackHandler
-    {
-        private LargeVesselItemStackHandler(int slots)
-        {
+    private static class LargeVesselItemStackHandler extends ItemStackHandler {
+        private LargeVesselItemStackHandler(int slots) {
             super(slots);
         }
 
         @Override
         @Nonnull
-        public ItemStack extractItem(int slot, int amount, boolean simulate)
-        {
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
             ItemStack stack = super.extractItem(slot, amount, simulate);
             CapabilityFood.removeTrait(stack, FoodTrait.PRESERVED);
             return stack;

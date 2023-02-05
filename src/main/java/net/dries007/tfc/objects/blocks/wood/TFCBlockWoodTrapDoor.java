@@ -5,21 +5,16 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.api.types.Wood;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -30,20 +25,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
-public class TFCBlockWoodTrapDoor extends BlockTrapDoor
-{
+public class TFCBlockWoodTrapDoor extends BlockTrapDoor {
     private static final Map<Wood, TFCBlockWoodTrapDoor> MAP = new HashMap<>();
 
-    public static TFCBlockWoodTrapDoor get(Wood wood)
-    {
+    public static TFCBlockWoodTrapDoor get(Wood wood) {
         return MAP.get(wood);
     }
 
     public final Wood wood;
 
-    public TFCBlockWoodTrapDoor(Wood wood)
-    {
+    public TFCBlockWoodTrapDoor(Wood wood) {
         super(Material.WOOD);
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
@@ -55,8 +49,7 @@ public class TFCBlockWoodTrapDoor extends BlockTrapDoor
         Blocks.FIRE.setFireInfo(this, 5, 20);
     }
 
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -86,7 +79,9 @@ public class TFCBlockWoodTrapDoor extends BlockTrapDoor
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

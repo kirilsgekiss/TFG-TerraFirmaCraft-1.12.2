@@ -29,8 +29,7 @@ public class CropProvider implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
         TECropBase te = Helpers.getTE(world, data.getPos(), TECropBase.class);
-        if (state.getBlock() instanceof TFCBlockCrop && te != null)
-        {
+        if (state.getBlock() instanceof TFCBlockCrop && te != null) {
             TFCBlockCrop bs = (TFCBlockCrop) state.getBlock();
             ICrop crop = bs.getCrop();
 
@@ -38,28 +37,20 @@ public class CropProvider implements IProbeInfoProvider {
             float temp = ClimateTFC.getActualTemp(world, data.getPos(), -te.getLastUpdateTick());
             float rainfall = ChunkDataTFC.getRainfall(world, data.getPos());
 
-            if (isWild)
-            {
+            if (isWild) {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.wild").getFormattedText());
-            }
-            else if (crop.isValidForGrowth(temp, rainfall))
-            {
+            } else if (crop.isValidForGrowth(temp, rainfall)) {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growing").getFormattedText());
-            }
-            else
-            {
+            } else {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.not_growing").getFormattedText());
             }
 
             int curStage = state.getValue(bs.getStageProperty());
             int maxStage = crop.getMaxStage();
 
-            if (curStage == maxStage)
-            {
+            if (curStage == maxStage) {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growth", new TextComponentTranslation("waila.tfc.crop.mature").getFormattedText()).getFormattedText());
-            }
-            else
-            {
+            } else {
                 float remainingTicksToGrow = Math.max(0, (crop.getGrowthTicks() * (float) ConfigTFC.General.FOOD.cropGrowthTimeModifier) - te.getTicksSinceUpdate());
                 float curStagePerc = 1.0F - remainingTicksToGrow / crop.getGrowthTicks();
                 // Don't show 100% since it still needs to check on randomTick to grow
@@ -67,9 +58,7 @@ public class CropProvider implements IProbeInfoProvider {
                 String growth = String.format("%d%%", Math.round(totalPerc));
                 probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growth", growth).getFormattedText());
             }
-        }
-        else if (state.getBlock() instanceof BlockCropDead)
-        {
+        } else if (state.getBlock() instanceof BlockCropDead) {
             probeInfo.text(new TextComponentTranslation("waila.tfc.crop.dead_crop").getFormattedText());
         }
     }

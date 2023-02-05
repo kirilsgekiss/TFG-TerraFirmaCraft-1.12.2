@@ -5,9 +5,15 @@
 
 package net.dries007.tfc.objects.blocks.stone;
 
-import java.util.Random;
-import javax.annotation.ParametersAreNonnullByDefault;
-
+import mcp.MethodsReturnNonnullByDefault;
+import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.api.types.Plant;
+import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.Type;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockShortGrass;
+import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -18,20 +24,12 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockShortGrass;
-import net.dries007.tfc.util.climate.ClimateTFC;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Random;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TFCBlockRockVariantConnected extends TFCBlockRockVariantFallable
-{
+public class TFCBlockRockVariantConnected extends TFCBlockRockVariantFallable {
     // Used for connected textures only.
     public static final PropertyBool NORTH = PropertyBool.create("north");
     public static final PropertyBool EAST = PropertyBool.create("east");
@@ -44,21 +42,16 @@ public class TFCBlockRockVariantConnected extends TFCBlockRockVariantFallable
         IBlockState stateUp = world.getBlockState(upPos);
         Block usBlock = us.getBlock();
 
-        if ((world.getLightFromNeighbors(upPos) < 4 && stateUp.getLightOpacity(world, upPos) > 2) || stateUp.getMaterial().isLiquid())
-        {
+        if ((world.getLightFromNeighbors(upPos) < 4 && stateUp.getLightOpacity(world, upPos) > 2) || stateUp.getMaterial().isLiquid()) {
 
-            if (usBlock instanceof BlockRockVariant)
-            {
+            if (usBlock instanceof BlockRockVariant) {
                 BlockRockVariant block = ((BlockRockVariant) usBlock);
                 world.setBlockState(pos, block.getVariant(block.getType().getNonGrassVersion()).getDefaultState());
             }
-        }
-        else
-        {
+        } else {
             if (world.getLightFromNeighbors(upPos) < 9 || stateUp.getMaterial().isLiquid()) return;
 
-            for (int i = 0; i < 4; ++i)
-            {
+            for (int i = 0; i < 4; ++i) {
                 BlockPos target = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
                 if (world.isOutsideBuildHeight(target) || !world.isBlockLoaded(target)) return;
                 BlockPos up = target.add(0, 1, 0);
@@ -614,18 +607,15 @@ public class TFCBlockRockVariantConnected extends TFCBlockRockVariantFallable
                 }
 
             }
-            for (Plant plant : TFCRegistries.PLANTS.getValuesCollection())
-            {
-                if (plant.getPlantType() == Plant.PlantType.SHORT_GRASS && rand.nextFloat() < 0.5f)
-                {
+            for (Plant plant : TFCRegistries.PLANTS.getValuesCollection()) {
+                if (plant.getPlantType() == Plant.PlantType.SHORT_GRASS && rand.nextFloat() < 0.5f) {
                     float temp = ClimateTFC.getActualTemp(world, upPos);
                     TFCBlockShortGrass plantBlock = TFCBlockShortGrass.get(plant);
 
                     if (world.isAirBlock(upPos) &&
                             plant.isValidLocation(temp, ChunkDataTFC.getRainfall(world, upPos), Math.subtractExact(world.getLightFor(EnumSkyBlock.SKY, upPos), world.getSkylightSubtracted())) &&
                             plant.isValidGrowthTemp(temp) &&
-                            rand.nextDouble() < plantBlock.getGrowthRate(world, upPos))
-                    {
+                            rand.nextDouble() < plantBlock.getGrowthRate(world, upPos)) {
                         world.setBlockState(upPos, plantBlock.getDefaultState());
                     }
                 }
@@ -633,31 +623,27 @@ public class TFCBlockRockVariantConnected extends TFCBlockRockVariantFallable
         }
     }
 
-    public TFCBlockRockVariantConnected(Type type, Rock rock)
-    {
+    public TFCBlockRockVariantConnected(Type type, Rock rock) {
         super(type, rock);
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         return 0;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos)
-    {
+    public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos) {
         pos = pos.add(0, -1, 0);
         return state.withProperty(NORTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.NORTH))))
-            .withProperty(EAST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.EAST))))
-            .withProperty(SOUTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.SOUTH))))
-            .withProperty(WEST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.WEST))));
+                .withProperty(EAST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.EAST))))
+                .withProperty(SOUTH, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.SOUTH))))
+                .withProperty(WEST, BlocksTFC.isGrass(world.getBlockState(pos.offset(EnumFacing.WEST))));
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, NORTH, EAST, WEST, SOUTH);
     }
 }

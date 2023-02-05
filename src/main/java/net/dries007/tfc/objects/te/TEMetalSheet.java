@@ -5,9 +5,6 @@
 
 package net.dries007.tfc.objects.te;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
 import net.minecraft.inventory.InventoryHelper;
@@ -18,19 +15,19 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.util.EnumFacing;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @ParametersAreNonnullByDefault
-public class TEMetalSheet extends TEBase
-{
+public class TEMetalSheet extends TEBase {
     private final boolean[] faces;
 
-    public TEMetalSheet()
-    {
+    public TEMetalSheet() {
         this.faces = new boolean[6];
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
-    {
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
         super.onDataPacket(net, pkt);
         markForBlockUpdate();
     }
@@ -40,13 +37,10 @@ public class TEMetalSheet extends TEBase
      *
      * @return a number in [0, 6]
      */
-    public int getFaceCount()
-    {
+    public int getFaceCount() {
         int n = 0;
-        for (boolean b : faces)
-        {
-            if (b)
-            {
+        for (boolean b : faces) {
+            if (b) {
                 n++;
             }
         }
@@ -59,25 +53,20 @@ public class TEMetalSheet extends TEBase
      * @param face The face to check
      * @return true if present
      */
-    public boolean getFace(EnumFacing face)
-    {
+    public boolean getFace(EnumFacing face) {
         return faces[face.getIndex()];
     }
 
-    public void setFace(EnumFacing facing, boolean value)
-    {
-        if (!world.isRemote)
-        {
+    public void setFace(EnumFacing facing, boolean value) {
+        if (!world.isRemote) {
             faces[facing.getIndex()] = value;
             markForBlockUpdate();
         }
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound nbt)
-    {
-        for (EnumFacing face : EnumFacing.values())
-        {
+    public void readFromNBT(NBTTagCompound nbt) {
+        for (EnumFacing face : EnumFacing.values()) {
             faces[face.getIndex()] = nbt.getBoolean(face.getName());
         }
         super.readFromNBT(nbt);
@@ -85,17 +74,14 @@ public class TEMetalSheet extends TEBase
 
     @Override
     @Nonnull
-    public NBTTagCompound writeToNBT(NBTTagCompound nbt)
-    {
-        for (EnumFacing face : EnumFacing.values())
-        {
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+        for (EnumFacing face : EnumFacing.values()) {
             nbt.setBoolean(face.getName(), faces[face.getIndex()]);
         }
         return super.writeToNBT(nbt);
     }
 
-    public void onBreakBlock(Material outMetal)
-    {
+    public void onBreakBlock(Material outMetal) {
         Item item = ItemCladding.get(outMetal);
         ItemStack output = new ItemStack(item, getFaceCount());
         InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), output);

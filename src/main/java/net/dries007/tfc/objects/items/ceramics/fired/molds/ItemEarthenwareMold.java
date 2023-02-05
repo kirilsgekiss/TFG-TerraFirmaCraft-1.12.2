@@ -1,22 +1,20 @@
 package net.dries007.tfc.objects.items.ceramics.fired.molds;
 
-import java.util.HashMap;
-import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.util.LocalizationUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
+import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
+import net.dries007.tfc.api.capability.heat.Heat;
+import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
+import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.items.ceramics.ItemPottery;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -29,32 +27,29 @@ import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
-import net.dries007.tfc.api.capability.heat.Heat;
-import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
-import net.dries007.tfc.objects.container.CapabilityContainerListener;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.List;
 
 import static net.minecraftforge.fluids.capability.CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY;
 
 @ParametersAreNonnullByDefault
-public class ItemEarthenwareMold extends ItemPottery
-{
+public class ItemEarthenwareMold extends ItemPottery {
     private static final HashMap<OrePrefix, ItemEarthenwareMold> MAP = new HashMap<>();
 
-    public static ItemEarthenwareMold get(OrePrefix itemMold)
-    {
+    public static ItemEarthenwareMold get(OrePrefix itemMold) {
         return MAP.get(itemMold);
     }
 
     private final OrePrefix type;
     public final int moldCapacity;
 
-    public ItemEarthenwareMold(OrePrefix type, int moldCapacity)
-    {
+    public ItemEarthenwareMold(OrePrefix type, int moldCapacity) {
         this.type = type;
         this.moldCapacity = moldCapacity;
-        if (MAP.put(type, this) != null)
-        {
+        if (MAP.put(type, this) != null) {
             throw new IllegalStateException("There can only be one.");
         }
     }
@@ -63,11 +58,9 @@ public class ItemEarthenwareMold extends ItemPottery
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
         IFluidHandler capFluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
-        if (capFluidHandler instanceof IMaterialHandler)
-        {
+        if (capFluidHandler instanceof IMaterialHandler) {
             Material material = ((IMaterialHandler) capFluidHandler).getMaterial();
-            if (material != null)
-            {
+            if (material != null) {
                 return LocalizationUtils.format("item.tfc.ceramics.earthenware.fired.mold.name", LocalizationUtils.format("item.material.oreprefix." + type.name, material.getLocalizedName()));
             }
         }
@@ -76,48 +69,40 @@ public class ItemEarthenwareMold extends ItemPottery
 
     @Nullable
     @Override
-    public NBTTagCompound getNBTShareTag(ItemStack stack)
-    {
+    public NBTTagCompound getNBTShareTag(ItemStack stack) {
         return CapabilityContainerListener.readShareTag(stack);
     }
 
     @Override
-    public void readNBTShareTag(ItemStack stack, @Nullable NBTTagCompound nbt)
-    {
+    public void readNBTShareTag(ItemStack stack, @Nullable NBTTagCompound nbt) {
         CapabilityContainerListener.applyShareTag(stack, nbt);
     }
 
-    public OrePrefix getType()
-    {
+    public OrePrefix getType() {
         return type;
     }
 
     @Nullable
     @Override
-    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt)
-    {
+    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
         return new FilledMoldCapability(nbt);
     }
 
     @Override
-    public boolean canStack(ItemStack stack)
-    {
+    public boolean canStack(ItemStack stack) {
         IMaterialHandler moldHandler = (IMaterialHandler) stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
         return moldHandler == null || moldHandler.getMaterial() == null;
     }
 
     // Extends ItemHeatHandler for ease of use
-    private class FilledMoldCapability extends ItemHeatHandler implements ICapabilityProvider, IMaterialHandler
-    {
+    private class FilledMoldCapability extends ItemHeatHandler implements ICapabilityProvider, IMaterialHandler {
         private final FluidTank tank;
         private IFluidTankProperties[] fluidTankProperties;
 
-        FilledMoldCapability(@Nullable NBTTagCompound nbt)
-        {
+        FilledMoldCapability(@Nullable NBTTagCompound nbt) {
             tank = new FluidTank(moldCapacity);
 
-            if (nbt != null)
-            {
+            if (nbt != null) {
                 deserializeNBT(nbt);
             }
         }
@@ -134,26 +119,21 @@ public class ItemEarthenwareMold extends ItemPottery
         }
 
         @Override
-        public IFluidTankProperties[] getTankProperties()
-        {
-            if (fluidTankProperties == null)
-            {
-                fluidTankProperties = new IFluidTankProperties[] {new FluidTankPropertiesWrapper(tank)};
+        public IFluidTankProperties[] getTankProperties() {
+            if (fluidTankProperties == null) {
+                fluidTankProperties = new IFluidTankProperties[]{new FluidTankPropertiesWrapper(tank)};
             }
             return fluidTankProperties;
         }
 
         @Override
-        public int fill(FluidStack resource, boolean doFill)
-        {
-            if (resource != null)
-            {
+        public int fill(FluidStack resource, boolean doFill) {
+            if (resource != null) {
                 Material material = MetaFluids.getMaterialFromFluid(resource.getFluid());
                 if (material != null)  // if (metal != null && type.hasMold(metal))
                 {
                     int fillAmount = tank.fill(resource, doFill);
-                    if (fillAmount == tank.getFluidAmount())
-                    {
+                    if (fillAmount == tank.getFluidAmount()) {
                         updateFluidData();
                     }
                     return fillAmount;
@@ -164,20 +144,16 @@ public class ItemEarthenwareMold extends ItemPottery
 
         @Nullable
         @Override
-        public FluidStack drain(FluidStack resource, boolean doDrain)
-        {
+        public FluidStack drain(FluidStack resource, boolean doDrain) {
             return getTemperature() >= meltTemp ? tank.drain(resource, doDrain) : null;
         }
 
         @Nullable
         @Override
-        public FluidStack drain(int maxDrain, boolean doDrain)
-        {
-            if (getTemperature() > meltTemp)
-            {
+        public FluidStack drain(int maxDrain, boolean doDrain) {
+            if (getTemperature() > meltTemp) {
                 FluidStack stack = tank.drain(maxDrain, doDrain);
-                if (tank.getFluidAmount() == 0)
-                {
+                if (tank.getFluidAmount() == 0) {
                     updateFluidData();
                 }
                 return stack;
@@ -187,18 +163,13 @@ public class ItemEarthenwareMold extends ItemPottery
 
         @SideOnly(Side.CLIENT)
         @Override
-        public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text)
-        {
+        public void addHeatInfo(@Nonnull ItemStack stack, @Nonnull List<String> text) {
             Material material = getMaterial();
-            if (material != null)
-            {
+            if (material != null) {
                 String desc = TextFormatting.DARK_GREEN + I18n.format(material.getUnlocalizedName()) + ": " + I18n.format("tfc.tooltip.units", getAmount());
-                if (isMolten())
-                {
+                if (isMolten()) {
                     desc += I18n.format("tfc.tooltip.liquid");
-                }
-                else
-                {
+                } else {
                     desc += I18n.format("tfc.tooltip.solid");
                 }
                 text.add(desc);
@@ -207,20 +178,17 @@ public class ItemEarthenwareMold extends ItemPottery
         }
 
         @Override
-        public float getHeatCapacity()
-        {
+        public float getHeatCapacity() {
             return heatCapacity;
         }
 
         @Override
-        public float getMeltTemp()
-        {
+        public float getMeltTemp() {
             return meltTemp;
         }
 
         @Override
-        public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing)
-        {
+        public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
             return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY
                     || capability == CapabilityItemHeat.ITEM_HEAT_CAPABILITY;
         }
@@ -228,25 +196,20 @@ public class ItemEarthenwareMold extends ItemPottery
         @Nullable
         @Override
         @SuppressWarnings("unchecked")
-        public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing)
-        {
+        public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
             return hasCapability(capability, facing) ? (T) this : null;
         }
 
         @Override
         @Nonnull
-        public NBTTagCompound serializeNBT()
-        {
+        public NBTTagCompound serializeNBT() {
             NBTTagCompound nbt = new NBTTagCompound();
 
             // Duplicated from ItemHeatHandler
-            if (getTemperature() <= 0)
-            {
+            if (getTemperature() <= 0) {
                 nbt.setLong("ticks", -1);
                 nbt.setFloat("heat", 0);
-            }
-            else
-            {
+            } else {
                 nbt.setLong("ticks", lastUpdateTick);
                 nbt.setFloat("heat", temperature);
             }
@@ -254,10 +217,8 @@ public class ItemEarthenwareMold extends ItemPottery
         }
 
         @Override
-        public void deserializeNBT(@Nullable NBTTagCompound nbt)
-        {
-            if (nbt != null)
-            {
+        public void deserializeNBT(@Nullable NBTTagCompound nbt) {
+            if (nbt != null) {
                 temperature = nbt.getFloat("heat");
                 lastUpdateTick = nbt.getLong("ticks");
                 tank.readFromNBT(nbt);
@@ -265,20 +226,16 @@ public class ItemEarthenwareMold extends ItemPottery
             updateFluidData();
         }
 
-        private void updateFluidData()
-        {
+        private void updateFluidData() {
             updateFluidData(tank.getFluid());
         }
 
-        private void updateFluidData(@Nullable FluidStack fluid)
-        {
+        private void updateFluidData(@Nullable FluidStack fluid) {
             meltTemp = Heat.maxVisibleTemperature();
             heatCapacity = 1;
-            if (fluid != null)
-            {
+            if (fluid != null) {
                 Material material = MetaFluids.getMaterialFromFluid(fluid.getFluid());
-                if (material != null)
-                {
+                if (material != null) {
                     meltTemp = material.getFluid().getTemperature();
                     heatCapacity = material.getProperty(TFCPropertyKey.TFC).getMaterialHeatCapacity();
                 }

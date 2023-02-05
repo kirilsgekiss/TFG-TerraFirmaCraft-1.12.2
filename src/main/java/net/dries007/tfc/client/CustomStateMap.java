@@ -20,83 +20,69 @@ public class CustomStateMap extends StateMapperBase {
 
     private final IProperty<?> name;
     private final String suffix;
-    private final List< IProperty<? >> ignored;
+    private final List<IProperty<?>> ignored;
     private final ResourceLocation customModelPath;
 
-    private CustomStateMap(@Nullable IProperty<?> name, @Nullable String suffix, List < IProperty<? >> ignored, ResourceLocation customModelPath)
-    {
+    private CustomStateMap(@Nullable IProperty<?> name, @Nullable String suffix, List<IProperty<?>> ignored, ResourceLocation customModelPath) {
         this.name = name;
         this.suffix = suffix;
         this.ignored = ignored;
         this.customModelPath = customModelPath;
     }
 
-    protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-    {
-        Map< IProperty<?>, Comparable<? >> map = Maps. < IProperty<?>, Comparable<? >> newLinkedHashMap(state.getProperties());
+    protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+        Map<IProperty<?>, Comparable<?>> map = Maps.<IProperty<?>, Comparable<?>>newLinkedHashMap(state.getProperties());
         String s;
 
-        if (this.name == null)
-        {
+        if (this.name == null) {
             s = ((ResourceLocation) Block.REGISTRY.getNameForObject(state.getBlock())).toString();
-        }
-        else
-        {
+        } else {
             s = String.format("%s:%s", Block.REGISTRY.getNameForObject(state.getBlock()).getNamespace(), this.removeName(this.name, map));
         }
 
-        if (this.suffix != null)
-        {
+        if (this.suffix != null) {
             s = s + this.suffix;
         }
 
-        for (IProperty<?> iproperty : this.ignored)
-        {
+        for (IProperty<?> iproperty : this.ignored) {
             map.remove(iproperty);
         }
 
         return new ModelResourceLocation(customModelPath, this.getPropertyString(map));
     }
 
-    private <T extends Comparable<T>> String removeName(IProperty<T> property, Map < IProperty<?>, Comparable<? >> values)
-    {
-        return property.getName((T)values.remove(this.name));
+    private <T extends Comparable<T>> String removeName(IProperty<T> property, Map<IProperty<?>, Comparable<?>> values) {
+        return property.getName((T) values.remove(this.name));
     }
 
     @SideOnly(Side.CLIENT)
-    public static class Builder
-    {
+    public static class Builder {
         private IProperty<?> name;
         private String suffix;
-        private final List < IProperty<? >> ignored = Lists. < IProperty<? >> newArrayList();
+        private final List<IProperty<?>> ignored = Lists.<IProperty<?>>newArrayList();
         private ResourceLocation resourceLocation;
 
-        public Builder withName(IProperty<?> builderPropertyIn)
-        {
+        public Builder withName(IProperty<?> builderPropertyIn) {
             this.name = builderPropertyIn;
             return this;
         }
 
-        public Builder withSuffix(String builderSuffixIn)
-        {
+        public Builder withSuffix(String builderSuffixIn) {
             this.suffix = builderSuffixIn;
             return this;
         }
 
-        public Builder ignore(IProperty<?>... ignores)
-        {
+        public Builder ignore(IProperty<?>... ignores) {
             Collections.addAll(this.ignored, ignores);
             return this;
         }
 
-        public Builder customPath(ResourceLocation resourceLocation)
-        {
+        public Builder customPath(ResourceLocation resourceLocation) {
             this.resourceLocation = resourceLocation;
             return this;
         }
 
-        public CustomStateMap build()
-        {
+        public CustomStateMap build() {
             return new CustomStateMap(this.name, this.suffix, this.ignored, this.resourceLocation);
         }
     }

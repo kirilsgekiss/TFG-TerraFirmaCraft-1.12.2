@@ -3,8 +3,7 @@ package net.dries007.tfc.compat.gregtech.oreprefix;
 import gregtech.common.items.MetaItems;
 
 public class TFCOrePrefixHandler {
-    public static void init()
-    {
+    public static void init() {
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadSword);
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadPickaxe);
         MetaItems.addOrePrefix(TFCOrePrefix.toolHeadShovel);

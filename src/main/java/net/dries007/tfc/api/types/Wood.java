@@ -10,8 +10,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
 
-public class Wood extends IForgeRegistryEntry.Impl<Wood>
-{
+public class Wood extends IForgeRegistryEntry.Impl<Wood> {
     private final boolean canMakeTannin;
     private final float burnTemp;
     private final int burnTicks;
@@ -29,12 +28,11 @@ public class Wood extends IForgeRegistryEntry.Impl<Wood>
      * When using this class, use the provided Builder to create your trees. This will require all the default values, as well as
      * provide optional values that you can change
      *
-     * @param name             the ResourceLocation registry name of this tree
-     * @param burnTemp         the temperature at which this will burn in a fire pit or similar
-     * @param burnTicks        the number of ticks that this will burn in a fire pit or similar
+     * @param name      the ResourceLocation registry name of this tree
+     * @param burnTemp  the temperature at which this will burn in a fire pit or similar
+     * @param burnTicks the number of ticks that this will burn in a fire pit or similar
      */
-    public Wood(@Nonnull ResourceLocation name, boolean canMakeTannin, float burnTemp, int burnTicks, int color)
-    {
+    public Wood(@Nonnull ResourceLocation name, boolean canMakeTannin, float burnTemp, int burnTicks, int color) {
         this.canMakeTannin = canMakeTannin;
         this.burnTemp = burnTemp;
         this.burnTicks = burnTicks;
@@ -43,40 +41,36 @@ public class Wood extends IForgeRegistryEntry.Impl<Wood>
         setRegistryName(name);
     }
 
-    public boolean canMakeTannin()
-    {
+    public boolean canMakeTannin() {
         return canMakeTannin;
     }
 
-    public float getBurnTemp()
-    {
+    public float getBurnTemp() {
         return burnTemp;
     }
 
-    public int getBurnTicks()
-    {
+    public int getBurnTicks() {
         return burnTicks;
     }
 
-    public int getColor() { return color; }
+    public int getColor() {
+        return color;
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    public String toString()
-    {
+    public String toString() {
         return getRegistryName().getPath();
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private final ResourceLocation name;
         private boolean canMakeTannin;
         private float burnTemp;
         private int burnTicks;
         private int color;
 
-        public Builder(@Nonnull ResourceLocation name, float burnTemp, int burnTicks)
-        {
+        public Builder(@Nonnull ResourceLocation name, float burnTemp, int burnTicks) {
             this.name = name;
             this.canMakeTannin = false;
             this.burnTemp = burnTemp;
@@ -84,20 +78,17 @@ public class Wood extends IForgeRegistryEntry.Impl<Wood>
             this.color = 0xFFFFFF;
         }
 
-        public Builder setTannin()
-        {
+        public Builder setTannin() {
             canMakeTannin = true;
             return this;
         }
 
-        public Builder setColor(int color)
-        {
+        public Builder setColor(int color) {
             this.color = color;
             return this;
         }
 
-        public Wood build()
-        {
+        public Wood build() {
             return new Wood(name, canMakeTannin, burnTemp, burnTicks, color);
         }
     }

@@ -5,9 +5,6 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.api.types.Wood;
@@ -20,8 +17,6 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
-
-import net.dries007.tfc.api.types.Tree;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -35,21 +30,22 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler, IHasModel
-{
+public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler, IHasModel {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/button");
     private static final Map<Wood, TFCBlockWoodButton> MAP = new HashMap<>();
-    public static TFCBlockWoodButton get(Wood wood)
-    {
+
+    public static TFCBlockWoodButton get(Wood wood) {
         return MAP.get(wood);
     }
+
     private final Wood wood;
 
-    public TFCBlockWoodButton(Wood wood)
-    {
+    public TFCBlockWoodButton(Wood wood) {
         this.wood = wood;
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         setHardness(0.5F);
@@ -71,8 +67,7 @@ public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler,
         }
     }
 
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -102,7 +97,9 @@ public class TFCBlockWoodButton extends BlockButtonWood implements IWoodHandler,
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

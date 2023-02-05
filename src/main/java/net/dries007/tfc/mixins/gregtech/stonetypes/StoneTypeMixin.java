@@ -13,7 +13,7 @@ public class StoneTypeMixin {
 
     /**
      * Replace all GT stone types on own
-     * */
+     */
     @Inject(method = "init", at = @At(value = "INVOKE", target = "Ljava/lang/String;getBytes()[B"), remap = false, cancellable = true)
     private static void onInit(CallbackInfo ci) {
         IStoneTypeAccessor.setStoneTypeRegistry(new GTControlledRegistry<>(128));

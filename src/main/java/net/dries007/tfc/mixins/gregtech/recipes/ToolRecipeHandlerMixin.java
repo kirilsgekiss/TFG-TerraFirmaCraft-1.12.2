@@ -23,8 +23,8 @@ import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 public class ToolRecipeHandlerMixin {
 
     /**
-    * Fix flint tool recipes for TFG modpack
-    * */
+     * Fix flint tool recipes for TFG modpack
+     */
     @Inject(method = "registerFlintToolRecipes", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void onRegisterFlintToolRecipes(CallbackInfo ci) {
         Material material = Materials.Flint;
@@ -47,7 +47,7 @@ public class ToolRecipeHandlerMixin {
 
     /**
      * Fix tool recipes for TFG modpack
-     * */
+     */
     @Inject(method = "processTool", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void onProcessTool(OrePrefix prefix, Material material, ToolProperty property, CallbackInfo ci) {
         UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
@@ -109,7 +109,7 @@ public class ToolRecipeHandlerMixin {
 
     /**
      * Add stone tool recipes
-     * */
+     */
     @Inject(method = "registerCustomToolRecipes", at = @At(value = "TAIL"), remap = false, cancellable = true)
     private static void onRegisterCustomToolRecipes(CallbackInfo ci) {
         registerStoneToolRecipes();

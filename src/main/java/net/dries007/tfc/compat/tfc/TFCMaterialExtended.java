@@ -7,8 +7,7 @@ public class TFCMaterialExtended {
 
     private final Material material;
 
-    public TFCMaterialExtended(Material material)
-    {
+    public TFCMaterialExtended(Material material) {
         this.material = material;
     }
 

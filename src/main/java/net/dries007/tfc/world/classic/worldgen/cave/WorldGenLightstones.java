@@ -1,17 +1,15 @@
 package net.dries007.tfc.world.classic.worldgen.cave;
 
-import java.util.*;
-
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-public class WorldGenLightstones implements IWorldGenerator
-{
+import java.util.Random;
+
+public class WorldGenLightstones implements IWorldGenerator {
     @Override
-    public void generate(Random rng, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-    {
+    public void generate(Random rng, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         // todo
         /*
         if (!(chunkGenerator instanceof ChunkGenTFC)) return;

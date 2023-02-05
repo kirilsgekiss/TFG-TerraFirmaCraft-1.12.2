@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf;
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.events.ProspectEvent;
-
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,59 +16,50 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketProspectResult implements IMessage
-{
+public class PacketProspectResult implements IMessage {
     private BlockPos pos;
     private PropickBehavior.ProspectResult.Type type;
     private ItemStack vein;
 
     @SuppressWarnings("unused")
     @Deprecated
-    public PacketProspectResult() {}
+    public PacketProspectResult() {
+    }
 
-    public PacketProspectResult(BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein)
-    {
+    public PacketProspectResult(BlockPos pos, PropickBehavior.ProspectResult.Type type, ItemStack vein) {
         this.pos = pos;
         this.type = type;
         this.vein = vein;
     }
 
     @Override
-    public void fromBytes(ByteBuf buf)
-    {
+    public void fromBytes(ByteBuf buf) {
         pos = BlockPos.fromLong(buf.readLong());
         type = PropickBehavior.ProspectResult.Type.valueOf(buf.readByte());
 
-        if (type != PropickBehavior.ProspectResult.Type.NOTHING)
-        {
+        if (type != PropickBehavior.ProspectResult.Type.NOTHING) {
             vein = ByteBufUtils.readItemStack(buf);
         }
     }
 
     @Override
-    public void toBytes(ByteBuf buf)
-    {
+    public void toBytes(ByteBuf buf) {
         buf.writeLong(pos.toLong());
         buf.writeByte(type.ordinal());
 
-        if (type != PropickBehavior.ProspectResult.Type.NOTHING)
-        {
+        if (type != PropickBehavior.ProspectResult.Type.NOTHING) {
             ByteBufUtils.writeItemStack(buf, vein);
         }
     }
 
-    public static final class Handler implements IMessageHandler<PacketProspectResult, IMessage>
-    {
+    public static final class Handler implements IMessageHandler<PacketProspectResult, IMessage> {
         @Override
-        public IMessage onMessage(PacketProspectResult message, MessageContext ctx)
-        {
+        public IMessage onMessage(PacketProspectResult message, MessageContext ctx) {
             TerraFirmaCraft.getProxy().getThreadListener(ctx).addScheduledTask(() -> {
                 EntityPlayer player = TerraFirmaCraft.getProxy().getPlayer(ctx);
-                if (player != null)
-                {
+                if (player != null) {
                     ITextComponent text = new TextComponentTranslation(message.type.translation);
-                    if (message.type != PropickBehavior.ProspectResult.Type.NOTHING)
-                    {
+                    if (message.type != PropickBehavior.ProspectResult.Type.NOTHING) {
                         text.appendText(" ").appendSibling(new TextComponentTranslation(message.vein.getTranslationKey() + ".name"));
                     }
                     player.sendStatusMessage(text, ConfigTFC.Client.TOOLTIP.propickOutputToActionBar);

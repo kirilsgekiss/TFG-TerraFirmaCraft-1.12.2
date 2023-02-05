@@ -25,15 +25,12 @@ public class PlacedItemProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TEPlacedItemFlat te = Helpers.getTE(world, data.getPos(), TEPlacedItemFlat.class);
-        if (te != null)
-        {
+        if (te != null) {
             ItemStack stack = te.getStack();
-            if (stack.getItem() instanceof ItemRock)
-            {
+            if (stack.getItem() instanceof ItemRock) {
                 ItemRock pebble = (ItemRock) stack.getItem();
                 Rock rock = pebble.getRock(stack);
-                if (rock.isFluxStone())
-                {
+                if (rock.isFluxStone()) {
                     probeInfo.text(new TextComponentTranslation("waila.tfc.flux_stone").getFormattedText());
                 }
             }

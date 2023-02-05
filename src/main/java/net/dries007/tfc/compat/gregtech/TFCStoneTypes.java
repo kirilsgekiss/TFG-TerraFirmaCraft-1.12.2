@@ -4,7 +4,7 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.ore.StoneType;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.dries007.tfc.api.types.Rock.*;
+import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
@@ -14,8 +14,7 @@ import net.minecraft.block.SoundType;
 public class TFCStoneTypes {
 
     @SuppressWarnings("ConstantConditions")
-    public static void registerStoneTypes()
-    {
+    public static void registerStoneTypes() {
         new StoneType(0, "tfc_marble", SoundType.STONE, OrePrefix.oreMarble, Materials.Marble,
                 () -> TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.MARBLE), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof TFCBlockRockRaw && state == TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.MARBLE), Type.RAW).getDefaultState(), true);

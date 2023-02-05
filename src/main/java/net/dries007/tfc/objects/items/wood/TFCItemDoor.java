@@ -5,38 +5,33 @@
 
 package net.dries007.tfc.objects.items.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import net.dries007.tfc.api.types.Wood;
-import net.minecraft.item.ItemDoor;
-import net.minecraft.item.ItemStack;
-
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
 import net.dries007.tfc.util.OreDictionaryHelper;
+import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemStack;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class TFCItemDoor extends ItemDoor implements IItemSize
-{
+public class TFCItemDoor extends ItemDoor implements IItemSize {
     private static final Map<Wood, TFCItemDoor> MAP = new HashMap<>();
 
-    public static TFCItemDoor get(Wood wood)
-    {
+    public static TFCItemDoor get(Wood wood) {
         return MAP.get(wood);
     }
 
     public final Wood wood;
 
-    public TFCItemDoor(TFCBlockWoodDoor block)
-    {
+    public TFCItemDoor(TFCBlockWoodDoor block) {
         super(block);
         if (MAP.put(block.wood, this) != null) throw new IllegalStateException("There can only be one.");
         wood = block.wood;
@@ -47,21 +42,18 @@ public class TFCItemDoor extends ItemDoor implements IItemSize
 
     @Nonnull
     @Override
-    public Size getSize(ItemStack stack)
-    {
+    public Size getSize(ItemStack stack) {
         return Size.VERY_LARGE; // Can't be stored
     }
 
     @Nonnull
     @Override
-    public Weight getWeight(ItemStack stack)
-    {
+    public Weight getWeight(ItemStack stack) {
         return Weight.HEAVY; // Stacksize = 4
     }
 
     @Override
-    public int getItemStackLimit(ItemStack stack)
-    {
+    public int getItemStackLimit(ItemStack stack) {
         return getStackSize(stack);
     }
 }

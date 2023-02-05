@@ -1,13 +1,10 @@
 package net.dries007.tfc.compat.gregtech.items.tools;
 
-import gregtech.GregTechMod;
-import gregtech.GregTechVersion;
 import gregtech.api.GTValues;
-import gregtech.api.GregTechAPI;
-import gregtech.api.items.toolitem.*;
+import gregtech.api.items.toolitem.IGTTool;
+import gregtech.api.items.toolitem.ItemGTTool;
 import gregtech.common.items.ToolItems;
 import gregtech.core.sound.GTSoundEvents;
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.InWorldChiselingBehavior;
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.JavelinBehavior;
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
@@ -20,8 +17,7 @@ public final class TFCToolItems {
     public static IGTTool PROPICK;
     public static IGTTool JAVELIN;
 
-    public static void init()
-    {
+    public static void init() {
         TONGS = ToolItems.register(ItemGTTool.Builder.of(GTValues.MODID, "tongs")
                 .toolStats(b -> b.crafting().cannotAttack().attackSpeed(-2.4F))
                 .oreDict("craftingToolTongs")

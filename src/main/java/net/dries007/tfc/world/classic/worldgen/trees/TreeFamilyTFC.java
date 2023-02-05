@@ -1,12 +1,5 @@
 package net.dries007.tfc.world.classic.worldgen.trees;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 import com.ferreusveritas.dynamictrees.ModConstants;
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
 import com.ferreusveritas.dynamictrees.blocks.BlockRooty;
@@ -17,36 +10,37 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
-import org.labellum.mc.dynamictreestfc.FeatureGenMoundTFC;
-import org.labellum.mc.dynamictreestfc.ModBlocks;
+import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchBasic;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchThick;
-import net.dries007.tfc.objects.blocks.wood.tree.BlockLogDTTFC;
+import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.labellum.mc.dynamictreestfc.FeatureGenMoundTFC;
+import org.labellum.mc.dynamictreestfc.ModBlocks;
 import org.labellum.mc.dynamictreestfc.dropcreators.DropCreatorTFCLog;
 
-public class TreeFamilyTFC extends TreeFamily
-{
+public class TreeFamilyTFC extends TreeFamily {
     public boolean hasConiferVariants = false;
     private boolean thick = false;
 
     @Override
-    public boolean isThick()
-    {
+    public boolean isThick() {
         return thick;
     }
 
-    public void setThick(boolean thick)
-    {
+    public void setThick(boolean thick) {
         this.thick = thick;
     }
 
-    public TreeFamilyTFC(ResourceLocation name, Tree tree)
-    {
+    public TreeFamilyTFC(ResourceLocation name, Tree tree) {
         super(name);
 
-        switch (getName().getPath())
-        {
+        switch (getName().getPath()) {
             case "sequoia":
             case "kapok":
                 setThick(true);
@@ -57,8 +51,7 @@ public class TreeFamilyTFC extends TreeFamily
 
     // need to have ItemStack be BlockLogTFC, but have the tree log be
     // BlockLogDTTFC
-    public TreeFamily setPrimitiveLog(IBlockState primLog)
-    {
+    public TreeFamily setPrimitiveLog(IBlockState primLog) {
         BlockLogDTTFC primLogBlock = (BlockLogDTTFC) primLog.getBlock();
         TFCBlockLog log = TFCBlockLog.get(primLogBlock.tree);
         ItemStack stack = new ItemStack(Item.getItemFromBlock(log));
@@ -66,17 +59,14 @@ public class TreeFamilyTFC extends TreeFamily
     }
 
     //Species need not be created as a nested class.  They can be created after the tree has already been constructed.
-    public class TreeTFCSpecies extends Species
-    {
-        public TreeTFCSpecies(TreeFamilyTFC treeFamily, LeavesProperties prop)
-        {
+    public class TreeTFCSpecies extends Species {
+        public TreeTFCSpecies(TreeFamilyTFC treeFamily, LeavesProperties prop) {
             super(treeFamily.getName(), treeFamily, prop);
             setupStandardSeedDropping();
             remDropCreator(new ResourceLocation(ModConstants.MODID, "logs"));
             addDropCreator(new DropCreatorTFCLog(treeFamily.getName().getPath())); // need our own because stacksize
 
-            switch (treeFamily.getName().getPath())
-            {
+            switch (treeFamily.getName().getPath()) {
                 case "kapok":
                     addGenFeature(new FeatureGenVine().setQuantity(8).setMaxLength(32).setRayDistance(32));//Generate Vines
                     //intentional fall through to set thick parameters for kapok too
@@ -90,19 +80,16 @@ public class TreeFamilyTFC extends TreeFamily
 
         @Override
 
-        public BlockRooty getRootyBlock(World world, BlockPos rootPos)
-        {
+        public BlockRooty getRootyBlock(World world, BlockPos rootPos) {
             return ModBlocks.blockRootyDirt;
         }
 
-        public float getSignalEnergy()
-        {
+        public float getSignalEnergy() {
             return signalEnergy;
         }
 
         @Override
-        public Species generateSeed()
-        {
+        public Species generateSeed() {
             Seed seed = new Seed("seed/" + getRegistryName().getPath());
             setSeedStack(new ItemStack(seed));
             return this;
@@ -110,15 +97,13 @@ public class TreeFamilyTFC extends TreeFamily
 
         //TFC style.
         @Override
-        public boolean canBoneMeal()
-        {
+        public boolean canBoneMeal() {
             return false;
         }
     }
 
     @Override
-    public void createSpecies()
-    {
+    public void createSpecies() {
         setCommonSpecies(new TreeTFCSpecies(this, ModBlocks.leafMap.get(getName().toString())));
         getCommonSpecies().generateSeed();
     }
@@ -130,8 +115,7 @@ public class TreeFamilyTFC extends TreeFamily
     }*/
 
     @Override
-    public BlockBranch createBranch()
-    {
+    public BlockBranch createBranch() {
         String branchName = "branch/" + getName().getPath();
         return isThick() ? new TFCBlockBranchThick(branchName) : new TFCBlockBranchBasic(branchName);
     }

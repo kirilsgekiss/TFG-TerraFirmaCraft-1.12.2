@@ -1,22 +1,19 @@
 package net.dries007.tfc.util;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
-import net.dries007.tfc.objects.items.food.TFCItemFood;
-import net.dries007.tfc.types.DefaultTrees;
-import net.dries007.tfc.util.agriculture.Food;
-import net.minecraft.init.Items;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.ItemHeatHandler;
 import net.dries007.tfc.api.registries.TFCRegistries;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.TFCItems;
+import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.types.DefaultPlants;
+import net.dries007.tfc.util.agriculture.Food;
+import net.minecraft.init.Items;
 
-public class CapabilityHeatHandler
-{
-    public static void init()
-    {
+public class CapabilityHeatHandler {
+    public static void init() {
         /*ItemStack woodenBucket = new ItemStack(ItemsTFC.WOODEN_BUCKET);
         IFluidHandler woodenBucketSaltWater = woodenBucket.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
         woodenBucketSaltWater.fill(new FluidStack(FluidsTFC.SALT_WATER.get(), Fluid.BUCKET_VOLUME), true);

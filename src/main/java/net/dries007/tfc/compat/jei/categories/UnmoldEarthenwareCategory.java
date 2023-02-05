@@ -9,9 +9,9 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.compat.jei.BaseRecipeCategory;
+import net.dries007.tfc.compat.jei.wrappers.UnmoldRecipeWrapperEarthenware;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import net.dries007.tfc.compat.jei.wrappers.UnmoldRecipeWrapperEarthenware;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,8 +23,7 @@ public class UnmoldEarthenwareCategory extends BaseRecipeCategory<UnmoldRecipeWr
     private final IDrawableStatic arrow;
     private final IDrawableAnimated arrowAnimated;
 
-    public UnmoldEarthenwareCategory(IGuiHelper helper, String Uid)
-    {
+    public UnmoldEarthenwareCategory(IGuiHelper helper, String Uid) {
         super(helper.createBlankDrawable(120, 38), Uid);
         arrow = helper.createDrawable(ICONS, 0, 14, 22, 16);
         IDrawableStatic arrowAnimated = helper.createDrawable(ICONS, 22, 14, 22, 16);
@@ -33,8 +32,7 @@ public class UnmoldEarthenwareCategory extends BaseRecipeCategory<UnmoldRecipeWr
     }
 
     @Override
-    public void drawExtras(Minecraft minecraft)
-    {
+    public void drawExtras(Minecraft minecraft) {
         arrow.draw(minecraft, 48, 16);
         arrowAnimated.draw(minecraft, 48, 16);
         slot.draw(minecraft, 20, 16);
@@ -42,8 +40,7 @@ public class UnmoldEarthenwareCategory extends BaseRecipeCategory<UnmoldRecipeWr
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperEarthenware recipeWrapper, IIngredients ingredients)
-    {
+    public void setRecipe(IRecipeLayout recipeLayout, UnmoldRecipeWrapperEarthenware recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup itemStackGroup = recipeLayout.getItemStacks();
         itemStackGroup.init(0, true, 20, 16);
         itemStackGroup.init(1, false, 84, 16);

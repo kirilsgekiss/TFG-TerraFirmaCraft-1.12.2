@@ -45,8 +45,7 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
 
     private Wood wood;
 
-    private TFCBlockWoodSlab(Wood wood)
-    {
+    private TFCBlockWoodSlab(Wood wood) {
         this(TFCBlockPlanks.get(wood));
         Block c = TFCBlockPlanks.get(wood);
         this.wood = wood;
@@ -56,8 +55,7 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
         Blocks.FIRE.setFireInfo(this, 5, 20);
     }
 
-    private TFCBlockWoodSlab(Block block)
-    {
+    private TFCBlockWoodSlab(Block block) {
         super(block.getDefaultState().getMaterial());
         IBlockState state = blockState.getBaseState();
         if (!isDouble()) state = state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
@@ -72,31 +70,26 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     }
 
     @Override
-    public String getTranslationKey(int meta)
-    {
+    public String getTranslationKey(int meta) {
         return super.getTranslationKey();
     }
 
     @Override
-    public IProperty<?> getVariantProperty()
-    {
+    public IProperty<?> getVariantProperty() {
         return VARIANT; // why is this not null-tolerable ...
     }
 
     @Override
-    public Comparable<?> getTypeForItem(ItemStack stack)
-    {
+    public Comparable<?> getTypeForItem(ItemStack stack) {
         return TFCBlockWoodSlab.Variant.DEFAULT;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, TFCBlockWoodSlab.Variant.DEFAULT);
 
-        if (!this.isDouble())
-        {
+        if (!this.isDouble()) {
             iblockstate = iblockstate.withProperty(HALF, (meta & 8) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
         }
 
@@ -104,12 +97,10 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
 
-        if (!this.isDouble() && state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
-        {
+        if (!this.isDouble() && state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP) {
             i |= 8;
         }
 
@@ -118,89 +109,76 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
 
     @SuppressWarnings("deprecation")
     @Override
-    public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos)
-    {
+    public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
         return modelBlock.getBlockHardness(blockState, worldIn, pos);
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(halfSlab);
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public float getExplosionResistance(Entity exploder)
-    {
+    public float getExplosionResistance(Entity exploder) {
         return modelBlock.getExplosionResistance(exploder);
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(halfSlab);
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return this.isDouble() ? new BlockStateContainer(this, VARIANT) : new BlockStateContainer(this, HALF, VARIANT);
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public SoundType getSoundType()
-    {
+    public SoundType getSoundType() {
         return modelBlock.getSoundType();
     }
 
-    public enum Variant implements IStringSerializable
-    {
+    public enum Variant implements IStringSerializable {
         DEFAULT;
 
         @Override
-        public String getName()
-        {
+        public String getName() {
             return "default";
         }
     }
 
-    public static class Double extends TFCBlockWoodSlab
-    {
+    public static class Double extends TFCBlockWoodSlab {
         private static final Map<Wood, Double> WOOD_MAP = new HashMap<>();
-        public static Double get(Wood wood)
-        {
+
+        public static Double get(Wood wood) {
             return WOOD_MAP.get(wood);
         }
 
-        public Double(Wood wood)
-        {
+        public Double(Wood wood) {
             super(wood);
             if (WOOD_MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
             // No oredict, because no item.
         }
 
         @Override
-        public boolean isDouble()
-        {
+        public boolean isDouble() {
             return true;
         }
     }
 
-    public static class Half extends TFCBlockWoodSlab
-    {
+    public static class Half extends TFCBlockWoodSlab {
         private static final Map<Wood, Half> WOOD_MAP = new HashMap<>();
-        public static Half get(Wood wood)
-        {
+
+        public static Half get(Wood wood) {
             return WOOD_MAP.get(wood);
         }
 
         public final Double doubleSlab;
 
-        public Half(Wood wood)
-        {
+        public Half(Wood wood) {
             super(wood);
             if (WOOD_MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
             doubleSlab = Double.get(wood);
@@ -212,14 +190,12 @@ public abstract class TFCBlockWoodSlab extends BlockSlab implements IWoodHandler
         }
 
         @Override
-        public boolean isDouble()
-        {
+        public boolean isDouble() {
             return false;
         }
 
         @SideOnly(Side.CLIENT)
-        public void onModelRegister()
-        {
+        public void onModelRegister() {
             ModelLoader.setCustomStateMapper(this, new CustomStateMap.Builder().customPath(MODEL_LOCATION_HALF).ignore(TFCBlockWoodSlab.VARIANT).build());
             ModelLoader.setCustomStateMapper(this.doubleSlab, new CustomStateMap.Builder().customPath(MODEL_LOCATION_FULL).ignore(TFCBlockWoodSlab.VARIANT).build());
 

@@ -29,8 +29,7 @@ public class QuernProvider implements IProbeInfoProvider {
         TEQuern quern = Helpers.getTE(world, data.getPos(), TEQuern.class);
         IItemHandler handler;
         ItemStack handstone;
-        if (quern != null && quern.hasHandstone() && (handler = quern.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)) != null && !(handstone = handler.getStackInSlot(SLOT_HANDSTONE)).isEmpty())
-        {
+        if (quern != null && quern.hasHandstone() && (handler = quern.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)) != null && !(handstone = handler.getStackInSlot(SLOT_HANDSTONE)).isEmpty()) {
             probeInfo.text(new TextComponentTranslation("waila.tfc.quern.handstone_durability", handstone.getItemDamage(), handstone.getMaxDamage()).getFormattedText());
         }
     }

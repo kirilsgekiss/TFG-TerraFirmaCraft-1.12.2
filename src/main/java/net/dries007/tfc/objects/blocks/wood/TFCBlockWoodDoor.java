@@ -5,15 +5,11 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
+import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Wood;
+import net.dries007.tfc.objects.items.wood.TFCItemDoor;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -30,29 +26,28 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.items.wood.TFCItemDoor;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class TFCBlockWoodDoor extends BlockDoor
-{
+public class TFCBlockWoodDoor extends BlockDoor {
     private static final Map<Wood, TFCBlockWoodDoor> MAP = new HashMap<>();
 
-    public static TFCBlockWoodDoor get(Wood wood)
-    {
+    public static TFCBlockWoodDoor get(Wood wood) {
         return MAP.get(wood);
     }
 
     public final Wood wood;
 
-    public TFCBlockWoodDoor(Wood wood)
-    {
+    public TFCBlockWoodDoor(Wood wood) {
         super(Material.WOOD);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         this.wood = wood;
@@ -65,25 +60,21 @@ public class TFCBlockWoodDoor extends BlockDoor
 
     // todo: Is private, but it might be worth it making protected/public
     // @Override
-    public Item getItem()
-    {
+    public Item getItem() {
         return TFCItemDoor.get(wood);
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return state.getValue(HALF) == BlockDoor.EnumDoorHalf.UPPER ? Items.AIR : getItem();
     }
 
     @Override
-    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
-    {
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
         return new ItemStack(getItem());
     }
 
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -113,7 +104,9 @@ public class TFCBlockWoodDoor extends BlockDoor
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

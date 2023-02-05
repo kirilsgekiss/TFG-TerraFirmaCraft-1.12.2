@@ -1,6 +1,5 @@
 package net.dries007.tfc.objects.blocks.wood;
 
-import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
@@ -27,17 +26,16 @@ public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodH
 
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/stairs");
     private static final Map<Wood, TFCBlockWoodStairs> WOOD_MAP = new HashMap<>();
-    public static TFCBlockWoodStairs get(Wood wood)
-    {
+
+    public static TFCBlockWoodStairs get(Wood wood) {
         return WOOD_MAP.get(wood);
     }
 
     private final Wood wood;
-    public TFCBlockWoodStairs(Wood wood)
-    {
+
+    public TFCBlockWoodStairs(Wood wood) {
         super(TFCBlockPlanks.get(wood).getDefaultState());
-        if (WOOD_MAP.put(wood, this) != null)
-        {
+        if (WOOD_MAP.put(wood, this) != null) {
             throw new IllegalStateException("There can only be one.");
         }
 
@@ -63,8 +61,7 @@ public class TFCBlockWoodStairs extends BlockStairs implements IHasModel, IWoodH
     public void onModelRegister() {
         ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
             @NotNull
-            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
-            {
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
                 return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
             }
         });

@@ -5,9 +5,6 @@
 
 package net.dries007.tfc.compat.jei;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
 import gregtech.api.GregTechAPI;
 import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.OreDictUnifier;
@@ -16,26 +13,10 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.ToolItems;
-import mezz.jei.api.ingredients.IIngredientBlacklist;
-import net.dries007.tfc.api.types.Wood;
-import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
-import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
-import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
-import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
-import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
-import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.objects.items.metal.ItemAnvil;
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.ingredients.IIngredientBlacklist;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
@@ -46,30 +27,43 @@ import net.dries007.tfc.api.recipes.heat.HeatRecipeMetalMelting;
 import net.dries007.tfc.api.recipes.knapping.KnappingType;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.client.gui.*;
+import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
+import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
+import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
 import net.dries007.tfc.compat.jei.categories.*;
 import net.dries007.tfc.compat.jei.wrappers.*;
+import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.BlocksTFC;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLoom;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
 import net.dries007.tfc.objects.items.ItemAnimalHide;
 import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
 import net.dries007.tfc.objects.items.TFCItems;
+import net.dries007.tfc.objects.items.metal.ItemAnvil;
+import net.dries007.tfc.objects.items.rock.ItemMud;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.recipes.SaltingRecipe;
-import net.dries007.tfc.compat.jei.categories.UnmoldEarthenwareCategory;
-import net.dries007.tfc.compat.jei.categories.UnmoldKaoliniteCategory;
-import net.dries007.tfc.compat.jei.categories.UnmoldStonewareCategory;
-import net.dries007.tfc.compat.jei.categories.DryingRecipeCategory;
-import net.dries007.tfc.compat.jei.categories.StickBundleRecipeCategory;
-import net.dries007.tfc.objects.items.rock.ItemMud;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @JEIPlugin
-public final class TFCJEIPlugin implements IModPlugin
-{
+public final class TFCJEIPlugin implements IModPlugin {
     public static final String CRAFTING_UID = "minecraft.crafting";
     public static final String ALLOY_UID = MOD_ID + ".alloy";
     public static final String ANVIL_UID = MOD_ID + ".anvil";
@@ -115,14 +109,12 @@ public final class TFCJEIPlugin implements IModPlugin
      *
      * @return Collection of ItemStacks
      */
-    public static Collection<ItemStack> getAllIngredients()
-    {
+    public static Collection<ItemStack> getAllIngredients() {
         return REGISTRY.getIngredientRegistry().getAllIngredients(VanillaTypes.ITEM);
     }
 
     @Override
-    public void registerCategories(IRecipeCategoryRegistration registry)
-    {
+    public void registerCategories(IRecipeCategoryRegistration registry) {
         // Add new JEI recipe categories
         registry.addRecipeCategories(new AlloyCategory(registry.getJeiHelpers().getGuiHelper(), ALLOY_UID));
         registry.addRecipeCategories(new AnvilCategory(registry.getJeiHelpers().getGuiHelper(), ANVIL_UID));
@@ -163,8 +155,7 @@ public final class TFCJEIPlugin implements IModPlugin
     }
 
     @Override
-    public void register(IModRegistry registry)
-    {
+    public void register(IModRegistry registry) {
         REGISTRY = registry;
 
         // Recipe Catalysts

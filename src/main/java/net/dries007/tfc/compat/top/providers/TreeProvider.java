@@ -25,13 +25,11 @@ public class TreeProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof TFCBlockSapling)
-        {
+        if (state.getBlock() instanceof TFCBlockSapling) {
             TFCBlockSapling block = ((TFCBlockSapling) state.getBlock());
             Tree wood = block.getTree();
             TETickCounter te = Helpers.getTE(world, data.getPos(), TETickCounter.class);
-            if (te != null)
-            {
+            if (te != null) {
                 long days = te.getTicksSinceUpdate() / ICalendar.TICKS_IN_DAY;
                 float perc = Math.min(0.99F, days / wood.getMinGrowthTime()) * 100;
                 String growth = String.format("%d%%", Math.round(perc));

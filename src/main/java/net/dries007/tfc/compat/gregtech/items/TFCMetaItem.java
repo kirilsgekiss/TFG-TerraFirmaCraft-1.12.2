@@ -4,8 +4,7 @@ public class TFCMetaItem {
 
     public static TFCMetaItems TFCMetaItem;
 
-    public static void init()
-    {
+    public static void init() {
         // Items
         TFCMetaItem = new TFCMetaItems();
         TFCMetaItem.setRegistryName("meta_item");

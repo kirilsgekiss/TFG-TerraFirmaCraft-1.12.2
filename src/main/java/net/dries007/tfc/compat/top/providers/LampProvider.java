@@ -25,12 +25,10 @@ public class LampProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TELamp te = Helpers.getTE(world, data.getPos(), TELamp.class);
-        if (te != null)
-        {
+        if (te != null) {
             IFluidHandler fluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
             FluidStack fluid = fluidHandler != null ? fluidHandler.drain(Integer.MAX_VALUE, false) : null;
-            if (fluid != null && fluid.amount > 0)
-            {
+            if (fluid != null && fluid.amount > 0) {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.barrel.contents", fluid.amount, fluid.getLocalizedName()).getFormattedText());
             }
         }

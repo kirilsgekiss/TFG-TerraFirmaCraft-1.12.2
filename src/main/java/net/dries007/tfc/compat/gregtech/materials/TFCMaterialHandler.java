@@ -11,17 +11,15 @@ import net.dries007.tfc.compat.tfc.TFCMaterialExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.BlackSteel;
-import static gregtech.api.unification.material.info.MaterialFlags.*;
+import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
+import static gregtech.api.unification.material.info.MaterialFlags.NO_UNIFICATION;
 import static gregtech.api.unification.material.info.MaterialIconSet.METALLIC;
-
 import static net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags.*;
 import static net.dries007.tfc.compat.gregtech.materials.TFCMaterials.*;
 
 public class TFCMaterialHandler {
 
-    public static void init()
-    {
+    public static void init() {
         // Custom Metals
 
         Unknown = new Material.Builder(32000, "unknown")

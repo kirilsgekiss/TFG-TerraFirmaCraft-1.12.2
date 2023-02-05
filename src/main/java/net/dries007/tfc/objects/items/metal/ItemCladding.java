@@ -36,12 +36,12 @@ public class ItemCladding extends TFCItem implements IMetalItem {
     private final Material material;
 
     private static final Map<Material, ItemCladding> MAP = new HashMap<>();
+
     public static ItemCladding get(gregtech.api.unification.material.Material metal) {
         return MAP.get(metal);
     }
 
-    public ItemCladding(Material material)
-    {
+    public ItemCladding(Material material) {
         this.material = material;
 
         if (MAP.put(material, this) != null) throw new IllegalStateException("There can only be one.");
@@ -49,35 +49,27 @@ public class ItemCladding extends TFCItem implements IMetalItem {
 
     @Override
     @Nonnull
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
-        if (worldIn.getBlockState(pos).isNormalCube() && stack.getItem() instanceof ItemCladding)
-        {
-            if (!ItemStack.areItemStacksEqual(new ItemStack(stack.getItem(), stack.getCount()), stack))
-            {
+        if (worldIn.getBlockState(pos).isNormalCube() && stack.getItem() instanceof ItemCladding) {
+            if (!ItemStack.areItemStacksEqual(new ItemStack(stack.getItem(), stack.getCount()), stack)) {
                 return EnumActionResult.FAIL;
             }
             ItemCladding sheet = (ItemCladding) stack.getItem();
             BlockPos posAt = pos.offset(facing);
             IBlockState stateAt = worldIn.getBlockState(posAt);
 
-            if (stateAt.getBlock() instanceof TFCBlockCladding)
-            {
+            if (stateAt.getBlock() instanceof TFCBlockCladding) {
                 // Existing sheet block
                 Material metal = ((TFCBlockCladding) stateAt.getBlock()).getMetal();
-                if (metal == sheet.material)
-                {
+                if (metal == sheet.material) {
                     stack.shrink(1);
                     player.setHeldItem(hand, stack);
                     return placeSheet(worldIn, posAt, facing);
                 }
-            }
-            else if (stateAt.getBlock().isReplaceable(worldIn, posAt))
-            {
+            } else if (stateAt.getBlock().isReplaceable(worldIn, posAt)) {
                 // Place a new block
-                if (!worldIn.isRemote)
-                {
+                if (!worldIn.isRemote) {
                     worldIn.setBlockState(posAt, TFCBlockCladding.get(sheet.material).getDefaultState());
                     stack.shrink(1);
                     player.setHeldItem(hand, stack);
@@ -89,13 +81,10 @@ public class ItemCladding extends TFCItem implements IMetalItem {
         return EnumActionResult.FAIL;
     }
 
-    private EnumActionResult placeSheet(World world, BlockPos pos, EnumFacing facing)
-    {
+    private EnumActionResult placeSheet(World world, BlockPos pos, EnumFacing facing) {
         TEMetalSheet tile = Helpers.getTE(world, pos, TEMetalSheet.class);
-        if (tile != null && !tile.getFace(facing))
-        {
-            if (!world.isRemote)
-            {
+        if (tile != null && !tile.getFace(facing)) {
+            if (!world.isRemote) {
                 tile.setFace(facing, true);
                 world.playSound(null, pos.offset(facing), SoundEvents.BLOCK_METAL_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }

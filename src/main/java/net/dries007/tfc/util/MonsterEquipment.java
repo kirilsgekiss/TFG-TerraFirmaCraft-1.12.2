@@ -5,29 +5,12 @@
 
 package net.dries007.tfc.util;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
-import javax.annotation.Nullable;
-
-import com.google.common.collect.ImmutableMap;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-
-import net.dries007.tfc.util.collections.WeightedCollection;
-
 /**
  * Just a helper class to store which equipment we should give to some entities
  * If needed, this functionality can be extended via json
  * and if this is done, may as well merge into entity resistance data
  */
-public class MonsterEquipment
-{
+public class MonsterEquipment {
     /*
     private static final Map<String, MonsterEquipment> ENTRIES = new HashMap<>();
 

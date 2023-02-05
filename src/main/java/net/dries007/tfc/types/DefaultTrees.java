@@ -5,23 +5,19 @@
 
 package net.dries007.tfc.types;
 
-import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistries;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.world.classic.worldgen.trees.*;
-import net.dries007.tfc.world.classic.worldgen.trees.TreeGenRandom;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
-public final class DefaultTrees
-{
+public final class DefaultTrees {
     //Default Tree ResourceLocations
     public static final ResourceLocation ACACIA = new ResourceLocation(MOD_ID, "acacia");
     public static final ResourceLocation ASH = new ResourceLocation(MOD_ID, "ash");
@@ -73,11 +69,9 @@ public final class DefaultTrees
     public static final ResourceLocation HEVEA_SPRUCEANA = new ResourceLocation(MOD_ID, "hevea_spruceana");
 
 
-
     //Latex Trees
     public static final ResourceLocation SAPODILLA = new ResourceLocation(MOD_ID, "sapodilla");
     public static final ResourceLocation CASTILLA = new ResourceLocation(MOD_ID, "castilla");
-
 
 
     public static final ResourceLocation AFRICAN_PADAUK = new ResourceLocation(MOD_ID, "african_padauk");
@@ -237,7 +231,7 @@ public final class DefaultTrees
     public static final ITreeGenerator GEN_CASSIA_CINNAMON = new TreeGenVariants(true, 6);
     public static final ITreeGenerator GEN_CEYLON_CINNAMON = new TreeGenVariants(true, 6);
 
-    public static final ITreeGenerator GEN_ARROW_BAMBOO = new TreeGenVariants(true, 4);	// Pseudosasa japonica
+    public static final ITreeGenerator GEN_ARROW_BAMBOO = new TreeGenVariants(true, 4);    // Pseudosasa japonica
     public static final ITreeGenerator GEN_BLACK_BAMBOO = new TreeGenVariants(true, 4); // Phyllostachys nigra
     public static final ITreeGenerator GEN_BLUE_BAMBOO = new TreeGenVariants(true, 4); // Himalayacalamus hookerianus
     public static final ITreeGenerator GEN_DRAGON_BAMBOO = new TreeGenVariants(true, 4); // Dendrocalamus giganteus
@@ -263,8 +257,7 @@ public final class DefaultTrees
     // new Tree.Builder(WHITE_CEDAR, 10f, 240f, -8f, 17f, GEN_TALL).setHeight(16).setBurnInfo(625f, 1500).build(),
 
     @SubscribeEvent
-    public static void onPreRegisterTree(TFCRegistryEvent.RegisterPreBlock<Tree> event)
-    {
+    public static void onPreRegisterTree(TFCRegistryEvent.RegisterPreBlock<Tree> event) {
         event.getRegistry().registerAll(
 
                 //minTemp maxTemp minRain maxRain ???
@@ -405,7 +398,6 @@ public final class DefaultTrees
                         .setBushes()
                         .setDensity(0.7f, 2f)
                         .build(),
-
 
 
                 //---------------- Hevea Tree Species ---------------- //

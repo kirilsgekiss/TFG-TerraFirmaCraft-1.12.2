@@ -6,17 +6,16 @@ import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.material.properties.ToolProperty;
+import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItems;
 import net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix;
-import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.mixins.gregtech.recipes.IMaterialRecipeHandlerInvoker;
 
 import static gregtech.api.unification.material.properties.PropertyKey.GEM;
 
 public class TFCToolHeadRecipeHandler {
-    public static void register()
-    {
+    public static void register() {
         TFCOrePrefix.toolHeadSword.addProcessingHandler(PropertyKey.TOOL, TFCToolHeadRecipeHandler::processHeadSword);
         TFCOrePrefix.toolHeadPickaxe.addProcessingHandler(PropertyKey.TOOL, TFCToolHeadRecipeHandler::processHeadPickaxe);
         TFCOrePrefix.toolHeadShovel.addProcessingHandler(PropertyKey.TOOL, TFCToolHeadRecipeHandler::processHeadShovel);

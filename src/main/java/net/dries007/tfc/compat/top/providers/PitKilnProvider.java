@@ -25,15 +25,12 @@ public class PitKilnProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TEPitKiln te = Helpers.getTE(world, data.getPos(), TEPitKiln.class);
-        if (te != null)
-        {
+        if (te != null) {
             boolean isLit = te.isLit();
 
-            if (isLit)
-            {
+            if (isLit) {
                 long remainingTicks = ConfigTFC.Devices.PIT_KILN.ticks - (CalendarTFC.PLAYER_TIME.getTicks() - te.getLitTick());
-                switch (ConfigTFC.Client.TOOLTIP.timeTooltipMode)
-                {
+                switch (ConfigTFC.Client.TOOLTIP.timeTooltipMode) {
                     case NONE:
                         break;
                     case TICKS:
@@ -48,23 +45,16 @@ public class PitKilnProvider implements IProbeInfoProvider {
                         probeInfo.text(new TextComponentTranslation("waila.tfc.devices.minutes_remaining", remainingMinutes).getFormattedText());
                         break;
                 }
-            }
-            else
-            {
+            } else {
                 int straw = te.getStrawCount();
                 int logs = te.getLogCount();
-                if (straw == 8 && logs == 8)
-                {
+                if (straw == 8 && logs == 8) {
                     probeInfo.text(new TextComponentTranslation("waila.tfc.pitkiln.unlit").getFormattedText());
-                }
-                else
-                {
-                    if (straw < 8)
-                    {
+                } else {
+                    if (straw < 8) {
                         probeInfo.text(new TextComponentTranslation("waila.tfc.pitkiln.straw", 8 - straw).getFormattedText());
                     }
-                    if (logs < 8)
-                    {
+                    if (logs < 8) {
                         probeInfo.text(new TextComponentTranslation("waila.tfc.pitkiln.logs", 8 - logs).getFormattedText());
                     }
                 }

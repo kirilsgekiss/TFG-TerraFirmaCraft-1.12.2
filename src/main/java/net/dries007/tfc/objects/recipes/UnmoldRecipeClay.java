@@ -4,10 +4,10 @@ import com.google.gson.JsonObject;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.ore.OrePrefix;
 import net.dries007.tfc.Constants;
-import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.client.TFCSounds;
+import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
@@ -48,77 +48,55 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
                     NonNullList<Ingredient> ingredient,
                     @Nonnull OrePrefix resultOrePrefix,
                     float moldBreakChance
-            )
-    {
+            ) {
         this.resourceLocation = resourceLocation;
         this.ingredient = ingredient;
         this.resultOrePrefix = resultOrePrefix;
         this.moldBreakChance = moldBreakChance;
     }
 
-    public ItemStack getMoldResult(ItemStack moldIn)
-    {
-        if (Constants.RNG.nextFloat() <= moldBreakChance)
-        {
+    public ItemStack getMoldResult(ItemStack moldIn) {
+        if (Constants.RNG.nextFloat() <= moldBreakChance) {
             return new ItemStack(moldIn.getItem());
-        }
-        else
-        {
+        } else {
             return ItemStack.EMPTY;
         }
     }
 
-    public ItemStack getOutputItem(final IMaterialHandler moldHandler)
-    {
+    public ItemStack getOutputItem(final IMaterialHandler moldHandler) {
         ItemStack output = OreDictUnifier.get(resultOrePrefix, moldHandler.getMaterial());
 
         IItemHeat heat = output.getCapability(ITEM_HEAT_CAPABILITY, null);
-        if (heat != null)
-        {
+        if (heat != null) {
             heat.setTemperature(moldHandler.getTemperature());
         }
         return output;
     }
 
     @Override
-    public boolean matches(@Nonnull InventoryCrafting inv, @Nonnull World world)
-    {
+    public boolean matches(@Nonnull InventoryCrafting inv, @Nonnull World world) {
         boolean foundMold = false;
-        for (int slot = 0; slot < inv.getSizeInventory(); slot++)
-        {
+        for (int slot = 0; slot < inv.getSizeInventory(); slot++) {
             ItemStack stack = inv.getStackInSlot(slot);
-            if (!stack.isEmpty())
-            {
-                if (stack.getItem() instanceof ItemClayMold)
-                {
+            if (!stack.isEmpty()) {
+                if (stack.getItem() instanceof ItemClayMold) {
                     ItemClayMold moldItem = ((ItemClayMold) stack.getItem());
                     IFluidHandler cap = stack.getCapability(FLUID_HANDLER_CAPABILITY, null);
-                    if (cap instanceof IMaterialHandler)
-                    {
+                    if (cap instanceof IMaterialHandler) {
                         IMaterialHandler moldHandler = (IMaterialHandler) cap;
-                        if (!moldHandler.isMolten())
-                        {
-                            if (moldItem.getOrePrefix().equals(this.resultOrePrefix) && !foundMold)
-                            {
+                        if (!moldHandler.isMolten()) {
+                            if (moldItem.getOrePrefix().equals(this.resultOrePrefix) && !foundMold) {
                                 foundMold = true;
-                            }
-                            else
-                            {
+                            } else {
                                 return false;
                             }
-                        }
-                        else
-                        {
+                        } else {
                             return false;
                         }
-                    }
-                    else
-                    {
+                    } else {
                         return false;
                     }
-                }
-                else
-                {
+                } else {
                     return false;
                 }
             }
@@ -128,40 +106,28 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
 
     @Override
     @Nonnull
-    public ItemStack getCraftingResult(InventoryCrafting inv)
-    {
+    public ItemStack getCraftingResult(InventoryCrafting inv) {
         ItemStack moldStack = null;
-        for (int slot = 0; slot < inv.getSizeInventory(); slot++)
-        {
+        for (int slot = 0; slot < inv.getSizeInventory(); slot++) {
             ItemStack stack = inv.getStackInSlot(slot);
-            if (!stack.isEmpty())
-            {
-                if (stack.getItem() instanceof ItemClayMold)
-                {
+            if (!stack.isEmpty()) {
+                if (stack.getItem() instanceof ItemClayMold) {
                     ItemClayMold tmp = ((ItemClayMold) stack.getItem());
-                    if (tmp.getOrePrefix().equals(this.resultOrePrefix) && moldStack == null)
-                    {
+                    if (tmp.getOrePrefix().equals(this.resultOrePrefix) && moldStack == null) {
                         moldStack = stack;
-                    }
-                    else
-                    {
+                    } else {
                         return ItemStack.EMPTY;
                     }
-                }
-                else
-                {
+                } else {
                     return ItemStack.EMPTY;
                 }
             }
         }
-        if (moldStack != null)
-        {
+        if (moldStack != null) {
             IFluidHandler moldCap = moldStack.getCapability(FLUID_HANDLER_CAPABILITY, null);
-            if (moldCap instanceof IMaterialHandler)
-            {
+            if (moldCap instanceof IMaterialHandler) {
                 IMaterialHandler moldHandler = (IMaterialHandler) moldCap;
-                if (!moldHandler.isMolten() && moldHandler.getAmount() == TFGUtils.getMetalAmountFromOrePrefix(this.resultOrePrefix))
-                {
+                if (!moldHandler.isMolten() && moldHandler.getAmount() == TFGUtils.getMetalAmountFromOrePrefix(this.resultOrePrefix)) {
                     return getOutputItem(moldHandler);
                 }
             }
@@ -171,29 +137,21 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
 
     @Override
     @Nonnull
-    public NonNullList<ItemStack> getRemainingItems(final InventoryCrafting inv)
-    {
+    public NonNullList<ItemStack> getRemainingItems(final InventoryCrafting inv) {
         // Return empty molds
-        for (int slot = 0; slot < inv.getSizeInventory(); slot++)
-        {
+        for (int slot = 0; slot < inv.getSizeInventory(); slot++) {
             ItemStack stack = inv.getStackInSlot(slot);
-            if (!stack.isEmpty())
-            {
-                if (stack.getItem() instanceof ItemClayMold)
-                {
+            if (!stack.isEmpty()) {
+                if (stack.getItem() instanceof ItemClayMold) {
                     // No need to check for the mold, as it has already been checked earlier
                     EntityPlayer player = ForgeHooks.getCraftingPlayer();
-                    if (player != null && !player.world.isRemote)
-                    {
+                    if (player != null && !player.world.isRemote) {
                         stack = getMoldResult(stack);
-                        if (!stack.isEmpty())
-                        {
+                        if (!stack.isEmpty()) {
                             // This can't use the remaining items, because vanilla doesn't sync them on crafting, thus it gives a desync error
                             // To fix: ContainerWorkbench#onCraftMatrixChanged needs to call Container#detectAndSendChanges
                             ItemHandlerHelper.giveItemToPlayer(player, stack);
-                        }
-                        else
-                        {
+                        } else {
                             player.world.playSound(null, player.getPosition(), TFCSounds.CERAMIC_BREAK, SoundCategory.PLAYERS, 1.0f, 1.0f);
                         }
                     }
@@ -204,44 +162,37 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
     }
 
     @Override
-    public boolean canFit(int width, int height)
-    {
+    public boolean canFit(int width, int height) {
         return true;
     }
 
     @Override
     @Nonnull
-    public ItemStack getRecipeOutput()
-    {
+    public ItemStack getRecipeOutput() {
         return ItemStack.EMPTY;
     }
 
     @Override
     @Nonnull
-    public NonNullList<Ingredient> getIngredients()
-    {
+    public NonNullList<Ingredient> getIngredients() {
         return ingredient;
     }
 
     @Override
-    public boolean isDynamic()
-    {
+    public boolean isDynamic() {
         return true;
     }
 
     @Override
     @Nonnull
-    public String getGroup()
-    {
+    public String getGroup() {
         return resourceLocation == null ? "" : resourceLocation.toString();
     }
 
     @SuppressWarnings("unused")
-    public static class Factory implements IRecipeFactory
-    {
+    public static class Factory implements IRecipeFactory {
         @Override
-        public IRecipe parse(final JsonContext context, final JsonObject json)
-        {
+        public IRecipe parse(final JsonContext context, final JsonObject json) {
             final String resourceLocation = JsonUtils.getString(json, "resourceLocation", "");
             final NonNullList<Ingredient> ingredient = RecipeUtils.parseShapeless(context, json);
             final OrePrefix ingredientOrePrefix = OrePrefix.getPrefix(JsonUtils.getString(json, "result"));
@@ -249,10 +200,10 @@ public class UnmoldRecipeClay extends IForgeRegistryEntry.Impl<IRecipe> implemen
 
             return new UnmoldRecipeClay
                     (
-                        resourceLocation.isEmpty() ? new ResourceLocation(ingredientOrePrefix.name) : new ResourceLocation(resourceLocation),
-                        ingredient,
-                        ingredientOrePrefix,
-                        moldBreakChance
+                            resourceLocation.isEmpty() ? new ResourceLocation(ingredientOrePrefix.name) : new ResourceLocation(resourceLocation),
+                            ingredient,
+                            ingredientOrePrefix,
+                            moldBreakChance
                     );
         }
     }

@@ -5,15 +5,12 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
+import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.model.IHasModel;
+import net.dries007.tfc.objects.container.ContainerWorkbenchTFC;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -37,27 +34,30 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.objects.container.ContainerWorkbenchTFC;
-import net.dries007.tfc.util.OreDictionaryHelper;
 import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoodHandler
-{
+public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoodHandler {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/workbench");
     private static final Map<Wood, TFCBlockWorkbench> MAP = new HashMap<>();
-    public static TFCBlockWorkbench get(Wood wood)
-    {
+
+    public static TFCBlockWorkbench get(Wood wood) {
         return MAP.get(wood);
     }
+
     private final Wood wood;
 
-    public TFCBlockWorkbench(Wood wood)
-    {
-        if (MAP.put(wood, this) != null) { throw new IllegalStateException("There can only be one."); }
+    public TFCBlockWorkbench(Wood wood) {
+        if (MAP.put(wood, this) != null) {
+            throw new IllegalStateException("There can only be one.");
+        }
         this.wood = wood;
 
         setSoundType(SoundType.WOOD);
@@ -76,20 +76,15 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
     @SideOnly(Side.CLIENT)
     @Nonnull
     @Override
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, @Nonnull BlockPos pos, IBlockState state, @Nullable EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        if (worldIn.isRemote || playerIn == null)
-        {
+    public boolean onBlockActivated(World worldIn, @Nonnull BlockPos pos, IBlockState state, @Nullable EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote || playerIn == null) {
             return true;
-        }
-        else
-        {
+        } else {
             playerIn.displayGui(new InterfaceCraftingTable(this, worldIn, pos));
             playerIn.addStat(StatList.CRAFTING_TABLE_INTERACTION);
             return true;
@@ -99,15 +94,13 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
     @SuppressWarnings("WeakerAccess")
     @ParametersAreNonnullByDefault
     @MethodsReturnNonnullByDefault
-    public static class InterfaceCraftingTable implements IInteractionObject
-    {
+    public static class InterfaceCraftingTable implements IInteractionObject {
         //todo: replace with proper workbench mechanics + normal forge gui code
         private final TFCBlockWorkbench workbenchTFC;
         private final World world;
         private final BlockPos position;
 
-        public InterfaceCraftingTable(TFCBlockWorkbench workbenchTFC, World worldIn, BlockPos pos)
-        {
+        public InterfaceCraftingTable(TFCBlockWorkbench workbenchTFC, World worldIn, BlockPos pos) {
             this.workbenchTFC = workbenchTFC;
             this.world = worldIn;
             this.position = pos;
@@ -117,8 +110,7 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
          * Get the name of this object. For players this returns their username
          */
         @Override
-        public String getName()
-        {
+        public String getName() {
             return "crafting_table";
         }
 
@@ -126,8 +118,7 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
          * Returns true if this thing is named
          */
         @Override
-        public boolean hasCustomName()
-        {
+        public boolean hasCustomName() {
             return false;
         }
 
@@ -135,20 +126,17 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
          * Get the formatted ChatComponent that will be used for the sender's username in chat
          */
         @Override
-        public ITextComponent getDisplayName()
-        {
+        public ITextComponent getDisplayName() {
             return new TextComponentTranslation(workbenchTFC.getTranslationKey() + ".name");
         }
 
         @Override
-        public Container createContainer(InventoryPlayer inv, EntityPlayer player)
-        {
+        public Container createContainer(InventoryPlayer inv, EntityPlayer player) {
             return new ContainerWorkbenchTFC(inv, world, position, workbenchTFC);
         }
 
         @Override
-        public String getGuiID()
-        {
+        public String getGuiID() {
             return "minecraft:crafting_table";
         }
     }
@@ -157,8 +145,7 @@ public class TFCBlockWorkbench extends BlockWorkbench implements IHasModel, IWoo
     public void onModelRegister() {
         ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
             @NotNull
-            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state)
-            {
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
                 return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
             }
         });

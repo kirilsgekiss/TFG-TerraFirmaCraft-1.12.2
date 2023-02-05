@@ -7,8 +7,7 @@ import static net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix.*;
 
 public class TFCOreRecipeHandler {
 
-    public static void register()
-    {
+    public static void register() {
         oreChunk.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
 
         oreRockSalt.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);

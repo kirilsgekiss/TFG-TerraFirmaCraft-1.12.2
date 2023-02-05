@@ -5,27 +5,11 @@
 
 package net.dries007.tfc.objects.fluids;
 
-import java.awt.*;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import gregtech.api.unification.material.Material;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-
 import net.dries007.tfc.ConfigTFC;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.food.FoodData;
@@ -37,6 +21,21 @@ import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
 import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
 import net.dries007.tfc.util.calendar.ICalendar;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
@@ -574,12 +573,12 @@ public final class FluidsTFC {
         };
 
         DYE_FLUIDS.putAll(Arrays.stream(EnumDyeColor.values()).collect(Collectors.toMap(
-            color -> color,
-            color -> {
-                float[] c = color.getColorComponentValues();
-                String actualName = color == EnumDyeColor.SILVER ? "light_gray" : color.getName();
-                return registerFluid(new Fluid(actualName + "_dye", STILL, FLOW, new Color(c[0], c[1], c[2]).getRGB()));
-            })));
+                color -> color,
+                color -> {
+                    float[] c = color.getColorComponentValues();
+                    String actualName = color == EnumDyeColor.SILVER ? "light_gray" : color.getName();
+                    return registerFluid(new Fluid(actualName + "_dye", STILL, FLOW, new Color(c[0], c[1], c[2]).getRGB()));
+                })));
     }
 
     @Nonnull

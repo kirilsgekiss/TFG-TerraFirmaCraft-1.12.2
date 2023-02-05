@@ -17,23 +17,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.M;
 import static gregtech.api.recipes.RecipeMaps.ALLOY_SMELTER_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.COMPRESSOR_RECIPES;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static gregtech.api.unification.material.info.MaterialFlags.NO_SMASHING;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.ore.OrePrefix.dust;
 
 @Mixin(value = MaterialRecipeHandler.class, remap = false)
 public class MaterialRecipeHandlerMixin {
 
     /**
      * Disable 2x ingot -> plate recipe generation (@Redirect doesn't working or I am stupid)
-     * */
+     */
     @Inject(method = "processIngot", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private static void onProcessIngot(OrePrefix ingotPrefix, Material material, IngotProperty property, CallbackInfo ci)
-    {
+    private static void onProcessIngot(OrePrefix ingotPrefix, Material material, IngotProperty property, CallbackInfo ci) {
         if (material.hasFlag(MORTAR_GRINDABLE)) {
             ModHandler.addShapedRecipe(String.format("mortar_grind_%s", material),
                     OreDictUnifier.get(OrePrefix.dust, material), "X", "m", 'X', new UnificationEntry(ingotPrefix, material));

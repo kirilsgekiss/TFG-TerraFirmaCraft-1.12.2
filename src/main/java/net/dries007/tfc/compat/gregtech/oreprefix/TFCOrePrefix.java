@@ -6,7 +6,6 @@ import gregtech.api.unification.material.info.MaterialIconType;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
-import gregtech.common.ConfigHolder;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialIconType;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterials;
@@ -20,7 +19,7 @@ import static net.dries007.tfc.compat.gregtech.oreprefix.TFCOrePrefix.Conditions
 
 public class TFCOrePrefix {
 
-    public static final OrePrefix toolHeadSword =new OrePrefix("toolHeadSword", M * 2, null, MaterialIconType.toolHeadSword, ENABLE_UNIFICATION, hasToolProperty);
+    public static final OrePrefix toolHeadSword = new OrePrefix("toolHeadSword", M * 2, null, MaterialIconType.toolHeadSword, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix toolHeadPickaxe = new OrePrefix("toolHeadPickaxe", M * 3, null, MaterialIconType.toolHeadPickaxe, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix toolHeadShovel = new OrePrefix("toolHeadShovel", M, null, MaterialIconType.toolHeadShovel, ENABLE_UNIFICATION, hasToolProperty);
     public static final OrePrefix toolHeadAxe = new OrePrefix("toolHeadAxe", M * 3, null, MaterialIconType.toolHeadAxe, ENABLE_UNIFICATION, hasToolProperty);
@@ -66,8 +65,7 @@ public class TFCOrePrefix {
     public static final OrePrefix oreSiltstone = new OrePrefix("oreSiltStone", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
     public static final OrePrefix oreSlate = new OrePrefix("oreSlate", -1, null, MaterialIconType.ore, ENABLE_UNIFICATION, hasOreProperty);
 
-    static
-    {
+    static {
         oreChunk.addSecondaryMaterial(new MaterialStack(Materials.Stone, M));
 
         oreRockSalt.addSecondaryMaterial(new MaterialStack(Materials.RockSalt, M));
@@ -96,11 +94,10 @@ public class TFCOrePrefix {
         oreSlate.addSecondaryMaterial(new MaterialStack(TFCMaterials.Slate, M));
     }
 
-    public static class Conditions
-    {
+    public static class Conditions {
         public static final Predicate<Material> hasTFCProperty = (material) ->
                 material.hasProperty(PropertyKey.INGOT) &&
-                material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) &&
-                !material.hasFlag(TFCMaterialFlags.UNUSABLE_IN_TFC);
+                        material.hasFlag(TFCMaterialFlags.TFC_MATERIAL) &&
+                        !material.hasFlag(TFCMaterialFlags.UNUSABLE_IN_TFC);
     }
 }

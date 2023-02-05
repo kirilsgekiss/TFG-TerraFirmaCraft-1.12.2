@@ -5,21 +5,6 @@
 
 package net.dries007.tfc.util.agriculture;
 
-import java.util.List;
-import java.util.Random;
-import java.util.function.Supplier;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
 import net.dries007.tfc.api.types.ICrop;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropSimple;
@@ -32,11 +17,24 @@ import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillTier;
 import net.dries007.tfc.world.classic.worldgen.WorldGenWildCrops;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Supplier;
 
 import static net.dries007.tfc.util.agriculture.Crop.CropType.*;
 
-public enum Crop implements ICrop
-{
+public enum Crop implements ICrop {
     // these definitions are defined in the spreadsheet at
     // https://docs.google.com/spreadsheets/d/1Ghw3dCmVO5Gv0MMGBydUxox_nwLYmmcZkGSbbf0QSAE/edit#gid=893781093
     // It should be modified first, and then the resulting definitions copied to this space here
@@ -62,7 +60,7 @@ public enum Crop implements ICrop
     JUTE(() -> new ItemStack(TFCItems.JUTE), () -> ItemStack.EMPTY, 5f, 11f, 37f, 42f, 50f, 100f, 410f, 450f, 6, 0.5f, SIMPLE),
 
     AMARANTH(Food.AMARANTH, 0f, 8f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
-    BUCKWHEAT(Food.BUCKWHEAT,-5f, 0f, 30f, 35f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
+    BUCKWHEAT(Food.BUCKWHEAT, -5f, 0f, 30f, 35f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
     FONIO(Food.FONIO, 7f, 15f, 40f, 50f, 50f, 70f, 200f, 250f, 6, 0.5f, SIMPLE),
     MILLET(Food.MILLET, 0f, 4f, 35f, 40f, 70f, 90f, 400f, 450f, 6, 0.5f, SIMPLE),
     QUINOA(Food.QUINOA, -10f, -5f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
@@ -93,10 +91,8 @@ public enum Crop implements ICrop
     WOAD(() -> new ItemStack(TFCItems.WOAD), () -> ItemStack.EMPTY, 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
     TOBACCO(() -> new ItemStack(TFCItemFood.get(Food.TOBACCO_LEAF)), () -> ItemStack.EMPTY, 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 7, 0.5f, PICKABLE);
 
-    static
-    {
-        for (ICrop crop : values())
-        {
+    static {
+        for (ICrop crop : values()) {
             WorldGenWildCrops.register(crop);
         }
     }
@@ -108,8 +104,7 @@ public enum Crop implements ICrop
      * @param random random instance to use, generally Block.RANDOM
      * @return amount to add to item stack count
      */
-    public static int getSkillFoodBonus(Skill skill, Random random)
-    {
+    public static int getSkillFoodBonus(Skill skill, Random random) {
         return random.nextInt(2 + (int) (6 * skill.getTotalLevel()));
     }
 
@@ -120,8 +115,7 @@ public enum Crop implements ICrop
      * @param random random instance to use, generally Block.RANDOM
      * @return amount to add to item stack count
      */
-    public static int getSkillSeedBonus(Skill skill, Random random)
-    {
+    public static int getSkillSeedBonus(Skill skill, Random random) {
         if (skill.getTier().isAtLeast(SkillTier.ADEPT) && random.nextInt(10 - 2 * skill.getTier().ordinal()) == 0)
             return 1;
         else
@@ -143,13 +137,11 @@ public enum Crop implements ICrop
 
 //    private final Product product;
 
-    Crop(Food foodDrop, float tempMinAlive, float tempMinGrow, float tempMaxGrow, float tempMaxAlive, float rainMinAlive, float rainMinGrow, float rainMaxGrow, float rainMaxAlive, int growthStages, float growthTime, CropType type)
-    {
+    Crop(Food foodDrop, float tempMinAlive, float tempMinGrow, float tempMaxGrow, float tempMaxAlive, float rainMinAlive, float rainMinGrow, float rainMaxGrow, float rainMaxAlive, int growthStages, float growthTime, CropType type) {
         this(() -> new ItemStack(TFCItemFood.get(foodDrop)), () -> ItemStack.EMPTY, tempMinAlive, tempMinGrow, tempMaxGrow, tempMaxAlive, rainMinAlive, rainMinGrow, rainMaxGrow, rainMaxAlive, growthStages, growthTime, type);
     }
 
-    Crop(Supplier<ItemStack> foodDrop, Supplier<ItemStack> foodDropEarly, float tempMinAlive, float tempMinGrow, float tempMaxGrow, float tempMaxAlive, float rainMinAlive, float rainMinGrow, float rainMaxGrow, float rainMaxAlive, int growthStages, float growthTime, CropType type)
-    {
+    Crop(Supplier<ItemStack> foodDrop, Supplier<ItemStack> foodDropEarly, float tempMinAlive, float tempMinGrow, float tempMaxGrow, float tempMaxAlive, float rainMinAlive, float rainMinGrow, float rainMaxGrow, float rainMaxAlive, int growthStages, float growthTime, CropType type) {
         this.foodDrop = foodDrop;
         this.foodDropEarly = foodDropEarly;
 
@@ -170,80 +162,62 @@ public enum Crop implements ICrop
     }
 
     @Override
-    public long getGrowthTicks()
-    {
+    public long getGrowthTicks() {
         return (long) (growthTime * CalendarTFC.CALENDAR_TIME.getDaysInMonth() * ICalendar.TICKS_IN_DAY);
     }
 
     @Override
-    public int getMaxStage()
-    {
+    public int getMaxStage() {
         return growthStages - 1;
     }
 
     @Override
-    public boolean isValidConditions(float temperature, float rainfall)
-    {
+    public boolean isValidConditions(float temperature, float rainfall) {
         return tempMinAlive < temperature && temperature < tempMaxAlive && rainMinAlive < rainfall && rainfall < rainMaxAlive;
     }
 
     @Override
-    public boolean isValidForGrowth(float temperature, float rainfall)
-    {
+    public boolean isValidForGrowth(float temperature, float rainfall) {
         return tempMinGrow < temperature && temperature < tempMaxGrow && rainMinGrow < rainfall && rainfall < rainMaxGrow;
     }
 
     @Nonnull
     @Override
-    public ItemStack getFoodDrop(int currentStage)
-    {
-        if (currentStage == getMaxStage())
-        {
+    public ItemStack getFoodDrop(int currentStage) {
+        if (currentStage == getMaxStage()) {
             return foodDrop.get();
-        }
-        else if (currentStage == getMaxStage() - 1)
-        {
+        } else if (currentStage == getMaxStage() - 1) {
             return foodDropEarly.get();
         }
         return ItemStack.EMPTY;
     }
 
-    public TFCBlockCrop createGrowingBlock()
-    {
-        if (type == SIMPLE || type == PICKABLE)
-        {
+    public TFCBlockCrop createGrowingBlock() {
+        if (type == SIMPLE || type == PICKABLE) {
             return BlockCropSimple.create(this, type == PICKABLE);
-        }
-        else if (type == SPREADING)
-        {
+        } else if (type == SPREADING) {
             return BlockCropSpreading.create(this);
         }
         throw new IllegalStateException("Invalid growthstage property " + growthStages + " for crop");
     }
 
-    public BlockCropDead createDeadBlock()
-    {
+    public BlockCropDead createDeadBlock() {
         return new BlockCropDead(this);
     }
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void addInfo(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-    {
-        if (GuiScreen.isShiftKeyDown())
-        {
+    public void addInfo(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if (GuiScreen.isShiftKeyDown()) {
             tooltip.add(TextFormatting.GRAY + I18n.format("tfc.tooltip.climate_info"));
             tooltip.add(TextFormatting.BLUE + I18n.format("tfc.tooltip.climate_info_rainfall", (int) rainMinGrow, (int) rainMaxGrow));
             tooltip.add(TextFormatting.GOLD + I18n.format("tfc.tooltip.climate_info_temperature", String.format("%.1f", tempMinGrow), String.format("%.1f", tempMaxGrow)));
-        }
-        else
-        {
+        } else {
             tooltip.add(TextFormatting.GRAY + I18n.format("tfc.tooltip.hold_shift_for_climate_info"));
         }
     }
 
-    enum CropType
-    {
+    enum CropType {
         SIMPLE, PICKABLE, SPREADING
     }
 }

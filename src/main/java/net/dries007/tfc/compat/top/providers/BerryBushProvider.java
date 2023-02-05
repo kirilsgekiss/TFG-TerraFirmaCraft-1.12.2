@@ -29,34 +29,25 @@ public class BerryBushProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof BlockBerryBush)
-        {
+        if (state.getBlock() instanceof BlockBerryBush) {
             BlockBerryBush block = (BlockBerryBush) state.getBlock();
-            if (block.getBush().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(BlockBerryBush.FRUITING))
-            {
+            if (block.getBush().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(BlockBerryBush.FRUITING)) {
                 float temp = ClimateTFC.getActualTemp(world, data.getPos());
                 float rainfall = ChunkDataTFC.getRainfall(world, data.getPos());
                 TETickCounter te = Helpers.getTE(world, data.getPos(), TETickCounter.class);
-                if (te != null && block.getBush().isValidForGrowth(temp, rainfall))
-                {
+                if (te != null && block.getBush().isValidForGrowth(temp, rainfall)) {
                     long hours = te.getTicksSinceUpdate() / ICalendar.TICKS_IN_HOUR;
                     // Don't show 100% since it still needs to check on randomTick to grow
                     float perc = Math.min(0.99F, hours / (block.getBush().getGrowthTime() * (float) ConfigTFC.General.FOOD.berryBushGrowthTimeModifier)) * 100;
                     String growth = String.format("%d%%", Math.round(perc));
                     probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growth", growth).getFormattedText());
-                }
-                else
-                {
+                } else {
                     probeInfo.text(new TextComponentTranslation("waila.tfc.crop.not_growing").getFormattedText());
                 }
-            }
-            else
-            {
+            } else {
                 probeInfo.text(new TextComponentTranslation("waila.tfc.agriculture.harvesting_months").getFormattedText());
-                for (Month month : Month.values())
-                {
-                    if (block.getBush().isHarvestMonth(month))
-                    {
+                for (Month month : Month.values()) {
+                    if (block.getBush().isHarvestMonth(month)) {
                         probeInfo.text(TerraFirmaCraft.getProxy().getMonthName(month, true));
                     }
                 }

@@ -1,8 +1,7 @@
 package net.dries007.tfc.world.classic.worldgen.soil;
 
-import java.util.Random;
-
 import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,10 +10,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import net.dries007.tfc.world.classic.ChunkGenTFC;
+import java.util.Random;
 
-public class WorldGenSoil implements IWorldGenerator
-{
+public class WorldGenSoil implements IWorldGenerator {
     public static final float RAINFALL_SAND = 75;
     public static final float RAINFALL_SAND_SANDY_MIX = 125;
     public static final float RAINFALL_SANDY = 200; // Upper thresholds
@@ -27,14 +25,12 @@ public class WorldGenSoil implements IWorldGenerator
     public final int yOffset = 112;
     public final int[] seaLevelOffsetMap = new int[256];
 
-	@Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-    {
+    @Override
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (!(chunkGenerator instanceof ChunkGenTFC)) return;
         final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes)
-        {
+        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes) {
             /*if (ConfigTFC.FloraeGeneral.WORLD.enablePodzolGen)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);

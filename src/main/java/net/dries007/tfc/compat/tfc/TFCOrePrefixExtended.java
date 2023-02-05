@@ -43,7 +43,10 @@ public class TFCOrePrefixExtended {
     public String[] getKnappingRecipe() {
         return knappingRecipe;
     }
-    public String[] getStoneKnappingRecipe() { return stoneKnappingRecipe; }
+
+    public String[] getStoneKnappingRecipe() {
+        return stoneKnappingRecipe;
+    }
 
     public int getMetalUnits() {
         return metalUnits;
@@ -52,5 +55,8 @@ public class TFCOrePrefixExtended {
     public boolean isHasMold() {
         return hasMold;
     }
-    public boolean isHasStoneKnappingRecipe() { return hasStoneKnappingRecipe; }
+
+    public boolean isHasStoneKnappingRecipe() {
+        return hasStoneKnappingRecipe;
+    }
 }

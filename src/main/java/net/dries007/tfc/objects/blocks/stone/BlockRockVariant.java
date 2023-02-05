@@ -5,18 +5,21 @@
 
 package net.dries007.tfc.objects.blocks.stone;
 
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import net.dries007.tfc.api.types.Rock.*;
+import mcp.MethodsReturnNonnullByDefault;
+import net.dries007.tfc.api.capability.size.IItemSize;
+import net.dries007.tfc.api.capability.size.Size;
+import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.client.TFCSounds;
+import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+import net.dries007.tfc.objects.blocks.stone.farmland.*;
+import net.dries007.tfc.objects.blocks.stone.path.*;
 import net.dries007.tfc.objects.items.TFCItems;
+import net.dries007.tfc.objects.items.rock.ItemMud;
+import net.dries007.tfc.objects.items.rock.ItemRock;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockGrassPath;
@@ -35,21 +38,16 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
-import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.objects.blocks.stone.farmland.*;
-import net.dries007.tfc.objects.blocks.stone.path.*;
-import net.dries007.tfc.objects.items.rock.ItemMud;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
-import static net.dries007.tfc.api.types.Rock.*;
+import static net.dries007.tfc.api.types.Rock.Type;
 import static net.dries007.tfc.api.types.Rock.Type.*;
-import static net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop.*;
+import static net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop.WILD;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -664,14 +662,14 @@ public class BlockRockVariant extends Block implements IItemSize {
                                 block instanceof BlockSiltLoamFarmland ||
                                 block instanceof BlockSiltFarmland ||
                                 block instanceof BlockHumusFarmland /*
-                                                                     * ||
-                                                                     * block instanceof BlockLoamySandPath ||
-                                                                     * block instanceof BlockSandyLoamPath ||
-                                                                     * block instanceof BlockLoamPath ||
-                                                                     * block instanceof BlockSiltLoamPath ||
-                                                                     * block instanceof BlockSiltPath ||
-                                                                     * block instanceof BlockHumusPath
-                                                                     */)
+                         * ||
+                         * block instanceof BlockLoamySandPath ||
+                         * block instanceof BlockSandyLoamPath ||
+                         * block instanceof BlockLoamPath ||
+                         * block instanceof BlockSiltLoamPath ||
+                         * block instanceof BlockSiltPath ||
+                         * block instanceof BlockHumusPath
+                         */)
                             return false;
                         if (block instanceof BlockRockVariant) {
                             switch (((BlockRockVariant) block).type) {
@@ -1140,7 +1138,7 @@ public class BlockRockVariant extends Block implements IItemSize {
 
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
-            IPlantable plantable) {
+                                   IPlantable plantable) {
         int beachDistance = 2;
 
         if (plantable instanceof TFCBlockPlant) {
@@ -1398,7 +1396,7 @@ public class BlockRockVariant extends Block implements IItemSize {
                             type == COARSE_STONEWARE_CLAY ||
                             type == COARSE_SANDY_STONEWARE_CLAY_LOAM ||
                             type == COARSE_SANDY_STONEWARE_CLAY |
-                            type == COARSE_STONEWARE_CLAY_LOAM ||
+                                    type == COARSE_STONEWARE_CLAY_LOAM ||
                             type == COARSE_SILTY_STONEWARE_CLAY ||
                             type == COARSE_SILTY_STONEWARE_CLAY_LOAM ||
                             type == COARSE_STONEWARE_CLAY_HUMUS;
@@ -2421,10 +2419,8 @@ public class BlockRockVariant extends Block implements IItemSize {
         return Weight.LIGHT; // Stacksize = 32
     }
 
-    protected void onRockSlide(World world, BlockPos pos)
-    {
-        switch (type)
-        {
+    protected void onRockSlide(World world, BlockPos pos) {
+        switch (type) {
             case COARSE_DIRT:
             case MUD:
             case ROOTED_DIRT:

@@ -1,9 +1,10 @@
 package net.dries007.tfc.objects.blocks.stone;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
+import com.ferreusveritas.dynamictrees.blocks.BlockRootyDirt;
 import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
+import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -13,18 +14,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.ferreusveritas.dynamictrees.blocks.BlockRootyDirt;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockMimicDynamic extends BlockRootyDirt
-{
-    private static final EnumFacing[] NOT_UP = new EnumFacing[] {EnumFacing.DOWN, EnumFacing.EAST, EnumFacing.NORTH, EnumFacing.WEST, EnumFacing.SOUTH};
+public class TFCBlockMimicDynamic extends BlockRootyDirt {
+    private static final EnumFacing[] NOT_UP = new EnumFacing[]{EnumFacing.DOWN, EnumFacing.EAST, EnumFacing.NORTH, EnumFacing.WEST, EnumFacing.SOUTH};
 
-    public TFCBlockMimicDynamic()
-    {
+    public TFCBlockMimicDynamic() {
         super(false);
     }
 
@@ -32,15 +28,12 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt
     public IBlockState getMimic(IBlockAccess access, BlockPos pos) // this IBlockAccess is actually a ChunkCache which has no World access (therefore no chunk data)
     {
         IBlockState mimicState = super.getMimic(access, pos);
-        if (mimicState.getBlock() == Blocks.DIRT)
-        {
+        if (mimicState.getBlock() == Blocks.DIRT) {
             for (int i = 1; i < 4; i++) // so we will search manually
             {
-                for (EnumFacing d : NOT_UP)
-                {
+                for (EnumFacing d : NOT_UP) {
                     IBlockState state = access.getBlockState(pos.offset(d, i));
-                    if (state.getBlock() instanceof BlockRockVariant)
-                    {
+                    if (state.getBlock() instanceof BlockRockVariant) {
                         Rock rock = ((BlockRockVariant) state.getBlock()).getRock();
                         return BlockRockVariant.get(rock, Type.ROOTED_DIRT).getDefaultState();
                     }
@@ -54,15 +47,13 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt
     }
 
     @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         drops.clear();
         drops.add(new ItemStack(getDecayBlockState(world, pos).getBlock()));
     }
 
     @Override
-    public IBlockState getDecayBlockState(IBlockAccess world, BlockPos pos)
-    {
+    public IBlockState getDecayBlockState(IBlockAccess world, BlockPos pos) {
         if (world instanceof World) // lol
         {
             ChunkDataTFC chunkData = ((World) world).getChunk(pos).getCapability(ChunkDataProvider.CHUNK_DATA_CAPABILITY, null);

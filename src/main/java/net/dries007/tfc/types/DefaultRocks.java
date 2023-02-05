@@ -5,22 +5,18 @@
 
 package net.dries007.tfc.types;
 
+import net.dries007.tfc.api.registries.TFCRegistryEvent;
+import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.api.types.RockCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import net.dries007.tfc.api.registries.TFCRegistryEvent;
-import net.dries007.tfc.api.types.Rock.*;
-import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.api.types.RockCategory;
-
-import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SuppressWarnings("WeakerAccess")
 @Mod.EventBusSubscriber(modid = MOD_ID)
-public final class DefaultRocks
-{
+public final class DefaultRocks {
     public static final ResourceLocation SEDIMENTARY = new ResourceLocation(MOD_ID, "sedimentary");
     public static final ResourceLocation METAMORPHIC = new ResourceLocation(MOD_ID, "metamorphic");
     public static final ResourceLocation IGNEOUS_INTRUSIVE = new ResourceLocation(MOD_ID, "igneous_intrusive");
@@ -60,51 +56,49 @@ public final class DefaultRocks
 
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
-    public static void onPreRegisterRockCategory(TFCRegistryEvent.RegisterPreBlock<RockCategory> event)
-    {
+    public static void onPreRegisterRockCategory(TFCRegistryEvent.RegisterPreBlock<RockCategory> event) {
         event.getRegistry().registerAll(
-            new RockCategory(IGNEOUS_INTRUSIVE, true, true, true, -0.4f, 0f, 1.6F, 10F, true),
-            new RockCategory(IGNEOUS_EXTRUSIVE, true, true, true, -0.5f, 0f, 1.6F, 10F, true),
-            new RockCategory(SEDIMENTARY, true, false, false, 0.3f, 5f, 1.4F, 10F, false),
-            new RockCategory(METAMORPHIC, true, true, false, 0.2f, 0f, 1.5F, 10F, false)
+                new RockCategory(IGNEOUS_INTRUSIVE, true, true, true, -0.4f, 0f, 1.6F, 10F, true),
+                new RockCategory(IGNEOUS_EXTRUSIVE, true, true, true, -0.5f, 0f, 1.6F, 10F, true),
+                new RockCategory(SEDIMENTARY, true, false, false, 0.3f, 5f, 1.4F, 10F, false),
+                new RockCategory(METAMORPHIC, true, true, false, 0.2f, 0f, 1.5F, 10F, false)
         );
     }
 
     @SubscribeEvent
-    public static void onPreRegisterRock(TFCRegistryEvent.RegisterPreBlock<Rock> event)
-    {
+    public static void onPreRegisterRock(TFCRegistryEvent.RegisterPreBlock<Rock> event) {
         event.getRegistry().registerAll(
-            new Rock(GRANITE, IGNEOUS_INTRUSIVE, false),
-            new Rock(DIORITE, IGNEOUS_INTRUSIVE, false),
-            new Rock(GABBRO, IGNEOUS_INTRUSIVE, false),
-            new Rock(BRECCIA, IGNEOUS_INTRUSIVE, false),
-            new Rock(PORPHYRY, IGNEOUS_INTRUSIVE, false),
-            new Rock(RHYOLITE, IGNEOUS_EXTRUSIVE, false),
-            new Rock(BASALT, IGNEOUS_EXTRUSIVE, false),
-            new Rock(ANDESITE, IGNEOUS_EXTRUSIVE, false),
-            new Rock(DACITE, IGNEOUS_EXTRUSIVE, false),
-            new Rock(PERIDOTITE, IGNEOUS_EXTRUSIVE, false),
-            new Rock(SHALE, SEDIMENTARY, false),
-            new Rock(CLAYSTONE, SEDIMENTARY, false),
-            new Rock(ROCKSALT, SEDIMENTARY, false),
-            new Rock(LIMESTONE, SEDIMENTARY, true),
-            new Rock(CONGLOMERATE, SEDIMENTARY, false),
-            new Rock(DOLOMITE, SEDIMENTARY, true),
-            new Rock(CHERT, SEDIMENTARY, false),
-            new Rock(CHALK, SEDIMENTARY, true),
-            new Rock(MUDSTONE, SEDIMENTARY, false),
-            new Rock(SANDSTONE, SEDIMENTARY, false),
-            new Rock(SILTSTONE, SEDIMENTARY, false),
-            new Rock(QUARTZITE, METAMORPHIC, false),
-            new Rock(SLATE, METAMORPHIC, false),
-            new Rock(PHYLLITE, METAMORPHIC, false),
-            new Rock(SCHIST, METAMORPHIC, false),
-            new Rock(GNEISS, METAMORPHIC, false),
-            new Rock(MARBLE, METAMORPHIC, true),
-            new Rock(CATLINITE, METAMORPHIC, false),
-            new Rock(NOVACULITE, METAMORPHIC, false),
-            new Rock(SOAPSTONE, METAMORPHIC, false),
-            new Rock(KOMATIITE, METAMORPHIC, false)
+                new Rock(GRANITE, IGNEOUS_INTRUSIVE, false),
+                new Rock(DIORITE, IGNEOUS_INTRUSIVE, false),
+                new Rock(GABBRO, IGNEOUS_INTRUSIVE, false),
+                new Rock(BRECCIA, IGNEOUS_INTRUSIVE, false),
+                new Rock(PORPHYRY, IGNEOUS_INTRUSIVE, false),
+                new Rock(RHYOLITE, IGNEOUS_EXTRUSIVE, false),
+                new Rock(BASALT, IGNEOUS_EXTRUSIVE, false),
+                new Rock(ANDESITE, IGNEOUS_EXTRUSIVE, false),
+                new Rock(DACITE, IGNEOUS_EXTRUSIVE, false),
+                new Rock(PERIDOTITE, IGNEOUS_EXTRUSIVE, false),
+                new Rock(SHALE, SEDIMENTARY, false),
+                new Rock(CLAYSTONE, SEDIMENTARY, false),
+                new Rock(ROCKSALT, SEDIMENTARY, false),
+                new Rock(LIMESTONE, SEDIMENTARY, true),
+                new Rock(CONGLOMERATE, SEDIMENTARY, false),
+                new Rock(DOLOMITE, SEDIMENTARY, true),
+                new Rock(CHERT, SEDIMENTARY, false),
+                new Rock(CHALK, SEDIMENTARY, true),
+                new Rock(MUDSTONE, SEDIMENTARY, false),
+                new Rock(SANDSTONE, SEDIMENTARY, false),
+                new Rock(SILTSTONE, SEDIMENTARY, false),
+                new Rock(QUARTZITE, METAMORPHIC, false),
+                new Rock(SLATE, METAMORPHIC, false),
+                new Rock(PHYLLITE, METAMORPHIC, false),
+                new Rock(SCHIST, METAMORPHIC, false),
+                new Rock(GNEISS, METAMORPHIC, false),
+                new Rock(MARBLE, METAMORPHIC, true),
+                new Rock(CATLINITE, METAMORPHIC, false),
+                new Rock(NOVACULITE, METAMORPHIC, false),
+                new Rock(SOAPSTONE, METAMORPHIC, false),
+                new Rock(KOMATIITE, METAMORPHIC, false)
         );
     }
 }

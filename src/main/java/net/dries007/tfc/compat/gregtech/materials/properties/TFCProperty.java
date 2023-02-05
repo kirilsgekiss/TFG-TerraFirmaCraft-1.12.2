@@ -1,13 +1,13 @@
 package net.dries007.tfc.compat.gregtech.materials.properties;
 
-import gregtech.api.unification.material.properties.*;
+import gregtech.api.unification.material.properties.IMaterialProperty;
+import gregtech.api.unification.material.properties.MaterialProperties;
 
 public class TFCProperty implements IMaterialProperty<TFCProperty> {
     private final float materialHeatCapacity;
     private final int materialTier;
 
-    public TFCProperty(float materialHeatCapacity, int materialTier)
-    {
+    public TFCProperty(float materialHeatCapacity, int materialTier) {
         this.materialHeatCapacity = materialHeatCapacity;
         this.materialTier = materialTier;
     }

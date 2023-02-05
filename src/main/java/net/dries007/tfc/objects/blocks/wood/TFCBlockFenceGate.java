@@ -5,24 +5,19 @@
 
 package net.dries007.tfc.objects.blocks.wood;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.CustomStateMap;
 import net.dries007.tfc.client.model.IHasModel;
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
-
-import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -36,23 +31,22 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoodHandler
-{
+public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoodHandler {
     private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence_gate");
     private static final Map<Wood, TFCBlockFenceGate> MAP = new HashMap<>();
 
-    public static TFCBlockFenceGate get(Wood wood)
-    {
+    public static TFCBlockFenceGate get(Wood wood) {
         return MAP.get(wood);
     }
 
     private final Wood wood;
 
-    public TFCBlockFenceGate(Wood wood)
-    {
+    public TFCBlockFenceGate(Wood wood) {
         super(BlockPlanks.EnumType.OAK);
         if (MAP.put(wood, this) != null) throw new IllegalStateException("There can only be one.");
         this.wood = wood;
@@ -71,8 +65,7 @@ public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoo
     }
 
     @Override
-    public void onModelRegister()
-    {
+    public void onModelRegister() {
         ModelLoader.setCustomStateMapper(this, new CustomStateMap.Builder().customPath(MODEL_LOCATION).ignore(BlockFenceGate.POWERED).build());
 
         for (IBlockState state : this.getBlockState().getValidStates()) {
@@ -80,8 +73,7 @@ public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoo
         }
     }
 
-    public interface IFluidloggable
-    {
+    public interface IFluidloggable {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -111,7 +103,9 @@ public class TFCBlockFenceGate extends BlockFenceGate implements IHasModel, IWoo
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
+            return true;
+        }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

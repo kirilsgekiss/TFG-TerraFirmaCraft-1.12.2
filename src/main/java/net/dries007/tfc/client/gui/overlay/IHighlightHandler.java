@@ -13,7 +13,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -30,8 +29,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 /**
  * Interfacing to pass on DrawHighlightEvent's custom implementations
  */
-public interface IHighlightHandler
-{
+public interface IHighlightHandler {
     /**
      * Returns an AxisAlignedBB obj containing a full box to the location where player is looking at
      *
@@ -40,8 +38,7 @@ public interface IHighlightHandler
      * @param partialTicks current frame's partial ticks (since FPS is higher than TPS)
      * @return an AxisAlignedBB containing a full block's box
      */
-    static AxisAlignedBB getBox(EntityPlayer player, BlockPos pos, double partialTicks)
-    {
+    static AxisAlignedBB getBox(EntityPlayer player, BlockPos pos, double partialTicks) {
         double dx = player.lastTickPosX + (player.posX - player.lastTickPosX) * partialTicks;
         double dy = player.lastTickPosY + (player.posY - player.lastTickPosY) * partialTicks;
         double dz = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * partialTicks;
@@ -59,8 +56,7 @@ public interface IHighlightHandler
      * @param blue      [0-1] blue value
      * @param alpha     [0-1] alpha value
      */
-    static void drawBox(AxisAlignedBB box, float lineWidth, float red, float green, float blue, float alpha)
-    {
+    static void drawBox(AxisAlignedBB box, float lineWidth, float red, float green, float blue, float alpha) {
         GlStateManager.enableBlend();
         GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
         GlStateManager.glLineWidth(lineWidth);
@@ -88,43 +84,35 @@ public interface IHighlightHandler
 
     @SideOnly(Side.CLIENT)
     @Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
-    final class EventHandler
-    {
+    final class EventHandler {
         /**
          * Handles custom bounding boxes drawing
          * eg: Chisel, Quern handle
          */
         @SubscribeEvent
-        public static void drawHighlightEvent(DrawBlockHighlightEvent event)
-        {
+        public static void drawHighlightEvent(DrawBlockHighlightEvent event) {
             final EntityPlayer player = event.getPlayer();
             final World world = player.getEntityWorld();
             final RayTraceResult traceResult = event.getTarget();
             final BlockPos lookingAt = traceResult.getBlockPos();
 
             //noinspection ConstantConditions
-            if (lookingAt != null)
-            {
+            if (lookingAt != null) {
                 // Handle Chisel first
-                if (event.getPlayer().getHeldItemMainhand().getItem() == TFCToolItems.CHISEL)
-                {
+                if (event.getPlayer().getHeldItemMainhand().getItem() == TFCToolItems.CHISEL) {
                     // Get the state that the chisel would turn the block into if it clicked
                     IBlockState newState = InWorldChiselingBehavior.getChiselResultState(player, player.world, lookingAt, traceResult.sideHit, (float) traceResult.hitVec.x - lookingAt.getX(), (float) traceResult.hitVec.y - lookingAt.getY(), (float) traceResult.hitVec.z - lookingAt.getZ());
-                    if (newState != null)
-                    {
+                    if (newState != null) {
                         AxisAlignedBB box = IHighlightHandler.getBox(player, lookingAt, event.getPartialTicks()).grow(0.001);
                         double offsetX = 0, offsetY = 0, offsetZ = 0;
 
-                        if (newState.getBlock() instanceof BlockStairs)
-                        {
+                        if (newState.getBlock() instanceof BlockStairs) {
                             EnumFacing facing = newState.getValue(BlockStairs.FACING);
 
                             offsetY = (newState.getValue(BlockStairs.HALF) == BlockStairs.EnumHalf.TOP) ? -0.5 : 0.5;
                             offsetX = -facing.getXOffset() * 0.5;
                             offsetZ = -facing.getZOffset() * 0.5;
-                        }
-                        else if (newState.getBlock() instanceof BlockSlab)
-                        {
+                        } else if (newState.getBlock() instanceof BlockSlab) {
                             offsetY = (newState.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.TOP) ? -0.5 : 0.5;
                         }
 
@@ -132,13 +120,10 @@ public interface IHighlightHandler
 
                         IHighlightHandler.drawBox(box, 5f, 1, 0, 0, 0.8f);
                     }
-                }
-                else if (world.getBlockState(lookingAt).getBlock() instanceof IHighlightHandler)
-                {
+                } else if (world.getBlockState(lookingAt).getBlock() instanceof IHighlightHandler) {
                     // Pass on to custom implementations
                     IHighlightHandler handler = (IHighlightHandler) world.getBlockState(lookingAt).getBlock();
-                    if (handler.drawHighlight(world, lookingAt, player, traceResult, event.getPartialTicks()))
-                    {
+                    if (handler.drawHighlight(world, lookingAt, player, traceResult, event.getPartialTicks())) {
                         // Cancel drawing this block's bounding box
                         event.setCanceled(true);
                     }

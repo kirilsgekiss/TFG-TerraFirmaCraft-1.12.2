@@ -5,18 +5,16 @@
 
 package net.dries007.tfc.api.types;
 
-import java.util.function.Predicate;
-import javax.annotation.Nonnull;
-
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import javax.annotation.Nonnull;
+import java.util.function.Predicate;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 
-public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
-{
+public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory> {
     private final float caveGenMod;
     private final float caveFreqMod;
 
@@ -30,15 +28,14 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
     /**
      * A rock category.
      *
-     * @param name         The resource location of the rock.
-     * @param caveGenMod   a modifier for cave generation. Default 0, range -0.5 <> 0.5
-     * @param caveFreqMod  another modifier for cave generation. Default 0, sedimentary uses +5
-     * @param hardness     How hard this type is (how slower is to break blocks)
-     * @param resistance   How resistant to explosion this type is
-     * @param hasAnvil     if this rock should be able to create a stone anvil
+     * @param name        The resource location of the rock.
+     * @param caveGenMod  a modifier for cave generation. Default 0, range -0.5 <> 0.5
+     * @param caveFreqMod another modifier for cave generation. Default 0, sedimentary uses +5
+     * @param hardness    How hard this type is (how slower is to break blocks)
+     * @param resistance  How resistant to explosion this type is
+     * @param hasAnvil    if this rock should be able to create a stone anvil
      */
-    public RockCategory(@Nonnull ResourceLocation name, boolean layer1, boolean layer2, boolean layer3, float caveGenMod, float caveFreqMod, float hardness, float resistance, boolean hasAnvil)
-    {
+    public RockCategory(@Nonnull ResourceLocation name, boolean layer1, boolean layer2, boolean layer3, float caveGenMod, float caveFreqMod, float hardness, float resistance, boolean hasAnvil) {
         setRegistryName(name);
         this.caveGenMod = caveGenMod;
         this.caveFreqMod = caveFreqMod;
@@ -50,46 +47,38 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
         this.resistance = resistance;
     }
 
-    public float getCaveGenMod()
-    {
+    public float getCaveGenMod() {
         return caveGenMod;
     }
 
-    public float getCaveFreqMod()
-    {
+    public float getCaveFreqMod() {
         return caveFreqMod;
     }
 
-    public float getHardness()
-    {
+    public float getHardness() {
         return hardness;
     }
 
-    public float getResistance()
-    {
+    public float getResistance() {
         return resistance;
     }
 
-    public boolean hasAnvil()
-    {
+    public boolean hasAnvil() {
         return hasAnvil;
     }
 
-    public String getTranslationKey()
-    {
+    public String getTranslationKey() {
         //noinspection ConstantConditions
         return MOD_ID + ".types.rock_category." + getRegistryName().getPath();
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         //noinspection ConstantConditions
         return getRegistryName().getPath();
     }
 
-    public enum Layer implements Predicate<Rock>
-    {
+    public enum Layer implements Predicate<Rock> {
         BOTTOM(3, x -> x.getRockCategory().layer3),
         MIDDLE(2, x -> x.getRockCategory().layer2),
         TOP(1, x -> x.getRockCategory().layer1);
@@ -97,15 +86,13 @@ public class RockCategory extends IForgeRegistryEntry.Impl<RockCategory>
         public final int layer;
         private final Predicate<Rock> filter;
 
-        Layer(int layer, Predicate<Rock> filter)
-        {
+        Layer(int layer, Predicate<Rock> filter) {
             this.layer = layer;
             this.filter = filter;
         }
 
         @Override
-        public boolean test(Rock rock)
-        {
+        public boolean test(Rock rock) {
             return filter.test(rock);
         }
     }
