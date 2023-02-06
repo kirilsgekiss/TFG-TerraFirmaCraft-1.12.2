@@ -1502,10 +1502,6 @@ public final class TFCItems {
         }
 
 
-//        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllBlockRockSlab())
-//            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
-//
-
         //allItemBows = itemBows.build();
 
         // Florae End
