@@ -6,7 +6,7 @@
 package net.dries007.tfc.client.button;
 
 import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
@@ -21,9 +21,9 @@ import static net.dries007.tfc.client.gui.GuiAnvilTFC.ANVIL_BACKGROUND;
 @SideOnly(Side.CLIENT)
 public class GuiButtonAnvilPlan extends GuiButtonTFC implements IButtonTooltip {
     private final String tooltip;
-    private final TETFCAnvil tile;
+    private final TEAnvil tile;
 
-    public GuiButtonAnvilPlan(TETFCAnvil tile, int id, int guiLeft, int guiTop) {
+    public GuiButtonAnvilPlan(TEAnvil tile, int id, int guiLeft, int guiTop) {
         // Plan Button
         super(id, guiLeft + 21, guiTop + 40, 18, 18, "");
         this.tooltip = I18n.format("tfc.tooltip.anvil_plan");

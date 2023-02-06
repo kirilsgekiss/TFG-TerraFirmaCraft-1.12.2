@@ -12,7 +12,7 @@ import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.items.rock.ItemRock;
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +37,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-import static net.dries007.tfc.objects.te.TETFCAnvil.SLOT_HAMMER;
+import static net.dries007.tfc.objects.te.TEAnvil.SLOT_HAMMER;
 
 @ParametersAreNonnullByDefault
 public class TFCBlockRockAnvil extends TFCBlockRockVariant {
@@ -110,7 +110,7 @@ public class TFCBlockRockAnvil extends TFCBlockRockVariant {
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        TETFCAnvil te = Helpers.getTE(worldIn, pos, TETFCAnvil.class);
+        TEAnvil te = Helpers.getTE(worldIn, pos, TEAnvil.class);
         if (te != null) {
             te.onBreakBlock(worldIn, pos, state);
         }
@@ -128,7 +128,7 @@ public class TFCBlockRockAnvil extends TFCBlockRockVariant {
         {
             return false;
         }
-        TETFCAnvil te = Helpers.getTE(worldIn, pos, TETFCAnvil.class);
+        TEAnvil te = Helpers.getTE(worldIn, pos, TEAnvil.class);
         if (te == null) {
             return false;
         }
@@ -204,7 +204,7 @@ public class TFCBlockRockAnvil extends TFCBlockRockVariant {
     @Nullable
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TETFCAnvil();
+        return new TEAnvil();
     }
 
     @Override

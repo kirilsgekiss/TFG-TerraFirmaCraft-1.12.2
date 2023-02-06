@@ -13,7 +13,7 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.client.particle.TFCParticles;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Random;
 
 import static net.dries007.tfc.Constants.RNG;
-import static net.dries007.tfc.objects.te.TETFCAnvil.SLOT_HAMMER;
+import static net.dries007.tfc.objects.te.TEAnvil.SLOT_HAMMER;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -146,7 +146,7 @@ public class TFCBlockMetalAnvil extends Block {
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        TETFCAnvil te = Helpers.getTE(worldIn, pos, TETFCAnvil.class);
+        TEAnvil te = Helpers.getTE(worldIn, pos, TEAnvil.class);
         if (te != null) {
             te.onBreakBlock(worldIn, pos, state);
         }
@@ -164,7 +164,7 @@ public class TFCBlockMetalAnvil extends Block {
         {
             return false;
         }
-        TETFCAnvil te = Helpers.getTE(worldIn, pos, TETFCAnvil.class);
+        TEAnvil te = Helpers.getTE(worldIn, pos, TEAnvil.class);
         if (te == null) {
             return false;
         }
@@ -250,7 +250,7 @@ public class TFCBlockMetalAnvil extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TETFCAnvil();
+        return new TEAnvil();
     }
 
     @Override

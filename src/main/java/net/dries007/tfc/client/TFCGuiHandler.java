@@ -104,9 +104,9 @@ public class TFCGuiHandler implements IGuiHandler {
                 return new ContainerCharcoalForge(player.inventory, Helpers.getTE(world, pos, TECharcoalForge.class));
             case ANVIL:
                 //noinspection ConstantConditions
-                return new ContainerAnvil(player.inventory, Helpers.getTE(world, pos, TETFCAnvil.class));
+                return new ContainerAnvil(player.inventory, Helpers.getTE(world, pos, TEAnvil.class));
             case ANVIL_PLAN:
-                return new ContainerAnvilPlan(player.inventory, Helpers.getTE(world, pos, TETFCAnvil.class));
+                return new ContainerAnvilPlan(player.inventory, Helpers.getTE(world, pos, TEAnvil.class));
             case KNAPPING_STONE:
                 return new ContainerKnapping(KnappingType.STONE, player.inventory, stack.getItem() instanceof ItemRock ? stack : player.getHeldItemOffhand());
             case KNAPPING_CLAY:
@@ -208,9 +208,9 @@ public class TFCGuiHandler implements IGuiHandler {
             case CHARCOAL_FORGE:
                 return new GuiCharcoalForge(container, player.inventory, Helpers.getTE(world, pos, TECharcoalForge.class));
             case ANVIL:
-                return new GuiAnvilTFC(container, player.inventory, Helpers.getTE(world, pos, TETFCAnvil.class));
+                return new GuiAnvilTFC(container, player.inventory, Helpers.getTE(world, pos, TEAnvil.class));
             case ANVIL_PLAN:
-                return new GuiAnvilPlan(container, player.inventory, Helpers.getTE(world, pos, TETFCAnvil.class));
+                return new GuiAnvilPlan(container, player.inventory, Helpers.getTE(world, pos, TEAnvil.class));
             case KNAPPING_STONE:
                 ItemStack stack = player.getHeldItemMainhand();
                 Rock rock = stack.getItem() instanceof IRockObject ? ((IRockObject) stack.getItem()).getRock(stack) :

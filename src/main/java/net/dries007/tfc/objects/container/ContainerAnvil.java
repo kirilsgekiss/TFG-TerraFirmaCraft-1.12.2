@@ -14,7 +14,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.dries007.tfc.util.forge.ForgeStep;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -32,11 +32,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.client.gui.GuiAnvilTFC.*;
-import static net.dries007.tfc.objects.te.TETFCAnvil.*;
+import static net.dries007.tfc.objects.te.TEAnvil.*;
 
 @ParametersAreNonnullByDefault
-public class ContainerAnvil extends ContainerTE<TETFCAnvil> implements IButtonHandler {
-    public ContainerAnvil(InventoryPlayer playerInv, TETFCAnvil te) {
+public class ContainerAnvil extends ContainerTE<TEAnvil> implements IButtonHandler {
+    public ContainerAnvil(InventoryPlayer playerInv, TEAnvil te) {
         super(playerInv, te, 26);
     }
 

@@ -11,7 +11,7 @@ import net.dries007.tfc.client.button.GuiButtonAnvilPlanIcon;
 import net.dries007.tfc.client.button.GuiButtonPage;
 import net.dries007.tfc.client.button.IButtonTooltip;
 import net.dries007.tfc.network.PacketGuiButton;
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.dries007.tfc.util.NBTBuilder;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
@@ -29,17 +29,17 @@ import java.io.IOException;
 import java.util.List;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static net.dries007.tfc.objects.te.TETFCAnvil.SLOT_INPUT_1;
+import static net.dries007.tfc.objects.te.TEAnvil.SLOT_INPUT_1;
 
 @SideOnly(Side.CLIENT)
-public class GuiAnvilPlan extends GuiContainerTE<TETFCAnvil> {
+public class GuiAnvilPlan extends GuiContainerTE<TEAnvil> {
     public static final ResourceLocation PLAN_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/anvil_plan.png");
 
     private final ItemStack inputStack;
     private int page;
     private GuiButton buttonLeft, buttonRight;
 
-    public GuiAnvilPlan(Container container, InventoryPlayer playerInv, TETFCAnvil tile) {
+    public GuiAnvilPlan(Container container, InventoryPlayer playerInv, TEAnvil tile) {
         super(container, playerInv, tile, PLAN_BACKGROUND);
 
         IItemHandler cap = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);

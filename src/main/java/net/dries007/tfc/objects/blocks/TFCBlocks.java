@@ -1689,7 +1689,7 @@ public final class TFCBlocks {
         register(TEBellows.class, "bellows");
         register(TEBarrel.class, "barrel");
         register(TECharcoalForge.class, "charcoal_forge");
-        register(TETFCAnvil.class, "anvil");
+        register(TEAnvil.class, "anvil");
         register(TECrucible.class, "crucible");
         register(TECropBase.class, "crop_base");
         register(TECropSpreading.class, "crop_spreading");

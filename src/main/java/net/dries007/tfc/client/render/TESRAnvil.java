@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.client.render;
 
-import net.dries007.tfc.objects.te.TETFCAnvil;
+import net.dries007.tfc.objects.te.TEAnvil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -14,11 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-import static net.dries007.tfc.objects.te.TETFCAnvil.*;
+import static net.dries007.tfc.objects.te.TEAnvil.*;
 
-public class TESRAnvil extends TileEntitySpecialRenderer<TETFCAnvil> {
+public class TESRAnvil extends TileEntitySpecialRenderer<TEAnvil> {
     @Override
-    public void render(TETFCAnvil te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
+    public void render(TEAnvil te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 
         IItemHandler cap = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
@@ -66,7 +66,7 @@ public class TESRAnvil extends TileEntitySpecialRenderer<TETFCAnvil> {
     }
 
     @Override
-    public boolean isGlobalRenderer(TETFCAnvil te) {
+    public boolean isGlobalRenderer(TEAnvil te) {
         return false;
     }
 }

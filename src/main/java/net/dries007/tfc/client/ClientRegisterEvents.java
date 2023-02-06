@@ -345,7 +345,7 @@ public final class ClientRegisterEvents {
         ClientRegistry.bindTileEntitySpecialRenderer(TEQuern.class, new TESRQuern());
         ClientRegistry.bindTileEntitySpecialRenderer(TEBellows.class, new TESRBellows());
         ClientRegistry.bindTileEntitySpecialRenderer(TEBarrel.class, new TESRBarrel());
-        ClientRegistry.bindTileEntitySpecialRenderer(TETFCAnvil.class, new TESRAnvil());
+        ClientRegistry.bindTileEntitySpecialRenderer(TEAnvil.class, new TESRAnvil());
         ClientRegistry.bindTileEntitySpecialRenderer(TELoom.class, new TESRLoom());
         ClientRegistry.bindTileEntitySpecialRenderer(TECrucible.class, new TESRCrucible());
         ClientRegistry.bindTileEntitySpecialRenderer(TEFirePit.class, new TESRFirePit());

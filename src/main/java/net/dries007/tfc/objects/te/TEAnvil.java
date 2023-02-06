@@ -49,7 +49,7 @@ import java.util.List;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @ParametersAreNonnullByDefault
-public class TETFCAnvil extends TEInventory {
+public class TEAnvil extends TEInventory {
     private static class AnvilItemHandler extends ItemStackHandlerCallback {
 
         public AnvilItemHandler(ISlotCallback callback, int slots) {
@@ -82,7 +82,7 @@ public class TETFCAnvil extends TEInventory {
     private int workingProgress = 0;
     private int workingTarget = 0;
 
-    public TETFCAnvil() {
+    public TEAnvil() {
         super(AnvilItemHandler::new, 4);
 
         steps = new ForgeSteps();
