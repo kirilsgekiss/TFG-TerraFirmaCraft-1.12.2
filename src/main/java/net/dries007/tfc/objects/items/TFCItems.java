@@ -22,9 +22,7 @@ import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.TFCArmorMaterial;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
-import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
-import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSlab;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.items.ceramics.*;
 import net.dries007.tfc.objects.items.ceramics.fired.ItemJug;
@@ -941,11 +939,11 @@ public final class TFCItems {
         for (TFCBlockWoodDoor door : TFCBlocks.getAllBlockWoodDoor())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new TFCItemDoor(door), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllBlockRockSlab())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
-
-        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllBlockWoodSlab())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
+//        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllBlockRockSlab())
+//            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
+//
+//        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllBlockWoodSlab())
+//            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
             lumberItems.add(register(r, "wood/lumber/" + wood.getRegistryName().getPath(), new TFCItemLumber(wood), CT_WOOD));
@@ -953,7 +951,7 @@ public final class TFCItems {
         }
 
         simpleItems.add(register(r, "stick_bunch", new ItemMisc(Size.NORMAL, Weight.LIGHT), CT_WOOD));
-        simpleItems.add(register(r, "stick_bundle", new ItemMisc(Size.VERY_LARGE, Weight.MEDIUM, "log_wood", "stick_bundle"), CT_WOOD));
+       // simpleItems.add(register(r, "stick_bundle", new ItemMisc(Size.VERY_LARGE, Weight.MEDIUM, "log_wood", "stick_bundle"), CT_WOOD));
         simpleItems.add(register(r, "wood_ash", new ItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT), CT_WOOD));
 
         // METAL
