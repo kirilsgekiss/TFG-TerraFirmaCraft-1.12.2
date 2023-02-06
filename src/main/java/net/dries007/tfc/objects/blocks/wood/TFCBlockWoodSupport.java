@@ -9,6 +9,8 @@ import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.Wood;
+import net.dries007.tfc.api.util.IWoodHandler;
+import net.dries007.tfc.client.model.IHasModel;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -18,30 +20,41 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.*;
 
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
 @ParametersAreNonnullByDefault
-public class TFCBlockWoodSupport extends Block {
+public class TFCBlockWoodSupport extends Block implements IHasModel, IWoodHandler {
+
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/support");
+
     /* Axis of the support, Y for vertical placed, Z/X for horizontal */
     public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class);
     /* Connection sides used by vertical supports */
@@ -152,8 +165,9 @@ public class TFCBlockWoodSupport extends Block {
         setDefaultState(blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(NORTH, false).withProperty(SOUTH, false).withProperty(EAST, false).withProperty(WEST, false));
     }
 
+    @Override
     public Wood getWood() {
-        return this.wood;
+        return wood;
     }
 
     @SuppressWarnings("deprecation")
@@ -430,6 +444,20 @@ public class TFCBlockWoodSupport extends Block {
 
         // return the distance + 1 because the distance checked is off by one for the loop
         return distance + 1;
+    }
+
+    @Override
+    public void onModelRegister() {
+        ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
+            @NotNull
+            protected ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
+                return new ModelResourceLocation(MODEL_LOCATION, this.getPropertyString(state.getProperties()));
+            }
+        });
+
+        for (IBlockState state : this.getBlockState().getValidStates()) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), new ModelResourceLocation(MODEL_LOCATION, "normal"));
+        }
     }
 
     public interface IFluidloggable {

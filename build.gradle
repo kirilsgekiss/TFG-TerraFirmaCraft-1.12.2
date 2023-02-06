@@ -86,7 +86,7 @@ dependencies {
     implementation 'org.jetbrains:annotations:23.0.0'
 
     deobfCompile 'curse.maven:reid-629017:4205759'
-    deobfCompile 'curse.maven:universal-tweaks-705000:4285431'
+    deobfCompile 'curse.maven:universal-tweaks-705000:4384565'
     deobfCompile 'curse.maven:codechicken-lib-1-8-242818:2779848'
     deobfCompile 'curse.maven:had-enough-items-557549:4109510'
     deobfCompile 'curse.maven:the-one-probe-245211:2667280'

@@ -81,17 +81,17 @@ public class ModBlocks
         kitMap.put("white_elm", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
         kitMap.put("willow", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
         kitMap.put("weeping_willow", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_benthamiana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_braziliensis", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_camargoana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_camporium", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_guianensis", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_microphylla", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_nitida", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_pauciflora", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_rigidifolia", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("hevea_spruceana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
-//        kitMap.put("sapodilla", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_benthamiana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_braziliensis", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_camargoana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_camporium", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_guianensis", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_microphylla", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_nitida", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_pauciflora", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_rigidifolia", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("hevea_spruceana", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
+        kitMap.put("sapodilla", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
         kitMap.put("castilla", TreeRegistry.findCellKit(new ResourceLocation(ModConstants.MODID, "deciduous")));
     }
 }
