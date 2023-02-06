@@ -11,19 +11,13 @@ public class CommonProxy
     public void preInit()
     {
         ModBlocks.preInit();
-        TFCTrees.preInit();
+        //TFCTrees.preInit();
     }
 
     public void init()
     {
-        replaceGenerators();
+
     }
 
-    private void replaceGenerators()
-    {
-        for (Tree tree : TFCRegistries.TREES.getValuesCollection())
-        {
-            tree.setTreeGenerator(new TreeGenDynamic());
-        }
-    }
+
 }

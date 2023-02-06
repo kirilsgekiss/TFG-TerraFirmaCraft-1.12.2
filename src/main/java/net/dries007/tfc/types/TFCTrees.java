@@ -34,9 +34,6 @@ public class TFCTrees {
     public static ArrayList<TreeFamilyTFC> tfcTrees = new ArrayList<>();
     public static Map<String, Species> tfcSpecies = new HashMap<>();
 
-    public static void preInit() {
-    }
-
     public static void registerBlocks(IForgeRegistry<Block> registry) {
 
         ArrayList<Block> treeBlocks = new ArrayList<>();

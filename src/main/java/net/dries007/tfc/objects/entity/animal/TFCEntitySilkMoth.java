@@ -11,6 +11,7 @@ import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.objects.entity.TFCEntities;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultTrees;
+import net.dries007.tfc.types.DefaultWoods;
 import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
@@ -241,7 +242,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
                 && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
                 && !this.world.containsAnyLiquid(getEntityBoundingBox())
-                && (this.world.getBlockState(this.getPosition().down()) == TFCBlockLeaves.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY)));
+                && (this.world.getBlockState(this.getPosition().down()) == TFCBlockLeaves.get(TFCRegistries.TREES.getValue(DefaultWoods.MULBERRY)));
     }
 
     @Override
@@ -353,7 +354,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
                     BlockPos pos = new BlockPos(x + i, y + k, z + j);
                     state = this.world.getBlockState(pos);
                     Block stateBlock = state.getBlock();
-                    if (stateBlock == TFCBlockLeaves.get(TFCRegistries.TREES.getValue(DefaultTrees.MULBERRY))) {
+                    if (stateBlock == TFCBlockLeaves.get(TFCRegistries.TREES.getValue(DefaultWoods.MULBERRY))) {
                         listMulberry.add(pos);
                     } else if (isNight) {
                         if (state.getLightValue(this.world, pos) >= 14) listLight.add(pos);

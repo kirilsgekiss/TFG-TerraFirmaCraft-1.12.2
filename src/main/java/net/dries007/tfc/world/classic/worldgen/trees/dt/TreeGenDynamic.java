@@ -15,12 +15,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import org.lwjgl.Sys;
 
 import java.util.Random;
 
 
 public class TreeGenDynamic implements ITreeGenerator {
-    private int leavesRadius; //used to store useful radius between canGenerate and Generate
+    private int leavesRadius; // used to store useful radius between canGenerate and Generate
 
     public TreeGenDynamic() {
         leavesRadius = 0;

@@ -113,9 +113,6 @@ public final class DefaultWoods {
     public static final ResourceLocation YEW = new ResourceLocation(MOD_ID, "yew");
     public static final ResourceLocation ZEBRAWOOD = new ResourceLocation(MOD_ID, "zebrawood");
 
-
-    // Simple ITreeGenerator instances.
-
     @SubscribeEvent
     public static void onPreRegisterWood(TFCRegistryEvent.RegisterPreBlock<Wood> event) {
         event.getRegistry().registerAll(
