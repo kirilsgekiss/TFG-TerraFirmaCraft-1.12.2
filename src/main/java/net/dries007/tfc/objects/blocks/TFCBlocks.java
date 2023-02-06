@@ -575,8 +575,8 @@ public final class TFCBlocks {
 
             normalItemBlocks.add(new TFCItemBlockCrucible(register(r, "crucible", new BlockCrucible(), CT_DEVICES)));
             normalItemBlocks.add(new TFCItemBlock(register(r, "blast_furnace", new BlockBlastFurnace(), CT_DEVICES)));
-            normalItemBlocks.add(new ItemBlockDryer(register(r, "dryer", new BlockDryer(), CT_DEVICES)));
-            normalItemBlocks.add(new ItemBlockStickBundle(register(r, "stick_bundle", new BlockStickBundle(), CT_DEVICES)));
+            normalItemBlocks.add(new TFCItemBlockDryer(register(r, "dryer", new BlockDryer(), CT_DEVICES)));
+            normalItemBlocks.add(new TFCItemBlockStickBundle(register(r, "stick_bundle", new BlockStickBundle(), CT_DEVICES)));
 
             inventoryItemBlocks.add(new TFCItemBlock(register(r, "bellows", new BlockBellows(), CT_DEVICES)));
             inventoryItemBlocks.add(new TFCItemBlock(register(r, "bloomery", new BlockBloomery(), CT_DEVICES)));
@@ -585,7 +585,7 @@ public final class TFCBlocks {
 
             normalItemBlocks.add(new TFCItemBlock(register(r, "sea_ice", new TFCBlockIce(TFCFluids.SEA_WATER.get()), CT_MISC)));
 
-            normalItemBlocks.add(new ItemBlockPowderKeg(register(r, "powderkeg", new TFCBlockPowderKeg(), CT_WOOD)));
+            normalItemBlocks.add(new TFCItemBlockPowderKeg(register(r, "powderkeg", new TFCBlockPowderKeg(), CT_WOOD)));
         }
 
         //=== Alabaster Variants =====================================================================================//
@@ -634,9 +634,9 @@ public final class TFCBlocks {
         //=== Storage ================================================================================================//
 
         {
-            normalItemBlocks.add(new ItemBlockUrn(register(r, "storage/urn", new TFCBlockUrn(), CT_POTTERY)));
-            normalItemBlocks.add(new ItemBlockUrnLoot(register(r, "storage/urn_loot", new TFCBlockUrnLoot(), CT_POTTERY)));
-            normalItemBlocks.add(new ItemBlockCrate(register(r, "storage/crate", new TFCBlockCrate(), CT_DECORATIONS)));
+            normalItemBlocks.add(new TFCItemBlockUrn(register(r, "storage/urn", new TFCBlockUrn(), CT_POTTERY)));
+            normalItemBlocks.add(new TFCItemBlockUrnLoot(register(r, "storage/urn_loot", new TFCBlockUrnLoot(), CT_POTTERY)));
+            normalItemBlocks.add(new TFCItemBlockCrate(register(r, "storage/crate", new TFCBlockCrate(), CT_DECORATIONS)));
         }
 
         //=== Agriculture ============================================================================================//
@@ -721,7 +721,6 @@ public final class TFCBlocks {
             // Coral
             Builder<TFCBlockCoral> blockCoral = ImmutableList.builder();
             {
-
 //                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/tube/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
 //                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/brain/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
 //                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/bubble/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA)));
@@ -1085,11 +1084,11 @@ public final class TFCBlocks {
                 TFCBlockCaveMushroom poison_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_POISON_SHROOM, new PotionEffectToHave(MobEffects.POISON, 610, 1, 4), new PotionEffectToHave(MobEffects.ABSORPTION, 610, 1, 4), "poison_shroom", "mushroom", "category_vegetable");
                 TFCBlockCaveMushroom sulphur_shroom = new TFCBlockCaveMushroom(0.1F, FoodData.RAW_SULPHUR_SHROOM, new PotionEffectToHave(MobEffects.MINING_FATIGUE, 610, 1, 4), new PotionEffectToHave(MobEffects.LUCK, 610, 1, 4), "sulphur_shroom", "mushroom", "category_vegetable");
 
-                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
-                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
-                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/magma_shroom", magma_shroom, CT_FLORA)));
-                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/poison_shroom", poison_shroom, CT_FLORA)));
-                normalItemBlocks.add(new ItemBlockCaveMushroom(register(r, "plants/sulphur_shroom", sulphur_shroom, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlockCaveMushroom(register(r, "plants/blueshroom", blueshroom, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlockCaveMushroom(register(r, "plants/glowshroom", glowshroom, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlockCaveMushroom(register(r, "plants/magma_shroom", magma_shroom, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlockCaveMushroom(register(r, "plants/poison_shroom", poison_shroom, CT_FLORA)));
+                normalItemBlocks.add(new TFCItemBlockCaveMushroom(register(r, "plants/sulphur_shroom", sulphur_shroom, CT_FLORA)));
 
 //                plantCaveMushroom.add(register(r, "plants/blueshroom", new TFCBlockCaveMushroom(0.3F, Food.RAW_BLUESHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.HASTE, 610, 1, 4), "blueshroom", "mushroom", "category_vegetable"), CT_FLORA));
 //                plantCaveMushroom.add(register(r, "plants/glowshroom", new TFCBlockCaveMushroom(0.5F, Food.RAW_GLOWSHROOM, new PotionEffectToHave(MobEffects.HUNGER, 610, 1, 4), new PotionEffectToHave(MobEffects.GLOWING, 610, 1, 4), "glowshroom", "mushroom", "category_vegetable"), CT_FLORA));
@@ -1183,7 +1182,7 @@ public final class TFCBlocks {
                 allBlockRockVariant = blockRockVariant.build();
                 allBlockRockVariant.forEach(x -> {
                     if (x.getType() == SAND) {
-                        normalItemBlocks.add(new ItemBlockHeat(x, 1, 600));
+                        normalItemBlocks.add(new TFCItemBlockHeat(x, 1, 600));
                     } else if (x.getType() != SPIKE && x.getType() != ANVIL) {
                         normalItemBlocks.add(new TFCItemBlock(x));
                     }

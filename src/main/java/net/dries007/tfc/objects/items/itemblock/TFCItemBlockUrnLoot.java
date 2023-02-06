@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockUrnLoot extends TFCItemBlock implements IItemSize {
-    public ItemBlockUrnLoot(TFCBlockUrnLoot block) {
+public class TFCItemBlockUrnLoot extends TFCItemBlock implements IItemSize {
+    public TFCItemBlockUrnLoot(TFCBlockUrnLoot block) {
         super(block);
     }
 

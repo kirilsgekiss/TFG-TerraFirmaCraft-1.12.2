@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 
 import static net.dries007.tfc.objects.blocks.property.ILightableBlock.LIT;
 
-public class ItemBlockTorch extends TFCItemBlock {
-    public ItemBlockTorch(Block block) {
+public class TFCItemBlockTorch extends TFCItemBlock {
+    public TFCItemBlockTorch(Block block) {
         super(block);
     }
 

@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBlockDryer extends ItemBlock {
-    public ItemBlockDryer(BlockDryer dryer) {
+public class TFCItemBlockDryer extends ItemBlock {
+    public TFCItemBlockDryer(BlockDryer dryer) {
         super(dryer);
     }
 

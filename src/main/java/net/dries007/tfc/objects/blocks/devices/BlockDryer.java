@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockDryer;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlockDryer;
 import net.dries007.tfc.objects.recipes.DryingRecipe;
 import net.dries007.tfc.objects.te.TEDryer;
 import net.dries007.tfc.util.Helpers;
@@ -250,7 +250,7 @@ public class BlockDryer extends Block implements IItemSize {
     }
 
     public Item getCustomItemBlock() {
-        return new ItemBlockDryer(this)
+        return new TFCItemBlockDryer(this)
                 .setTranslationKey(this.getTranslationKey())
                 .setRegistryName(this.getRegistryName());
     }

@@ -18,10 +18,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockStickBundle extends TFCItemBlock {
+public class TFCItemBlockStickBundle extends TFCItemBlock {
     public final BlockStickBundle block;
 
-    public ItemBlockStickBundle(BlockStickBundle block) {
+    public TFCItemBlockStickBundle(BlockStickBundle block) {
         super(block);
         this.block = block;
     }

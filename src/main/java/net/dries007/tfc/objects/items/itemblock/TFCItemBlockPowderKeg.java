@@ -22,8 +22,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockPowderKeg extends TFCItemBlock implements IItemSize {
-    public ItemBlockPowderKeg(TFCBlockPowderKeg block) {
+public class TFCItemBlockPowderKeg extends TFCItemBlock implements IItemSize {
+    public TFCItemBlockPowderKeg(TFCBlockPowderKeg block) {
         super(block);
     }
 

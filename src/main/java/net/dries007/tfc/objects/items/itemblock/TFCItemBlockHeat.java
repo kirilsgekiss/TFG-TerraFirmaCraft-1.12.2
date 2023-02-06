@@ -13,11 +13,11 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import javax.annotation.Nullable;
 
-public class ItemBlockHeat extends TFCItemBlock {
+public class TFCItemBlockHeat extends TFCItemBlock {
     private final float heatCapacity;
     private final float meltingPoint;
 
-    public ItemBlockHeat(Block block, float heatCapacity, float meltingPoint) {
+    public TFCItemBlockHeat(Block block, float heatCapacity, float meltingPoint) {
         super(block);
 
         this.heatCapacity = heatCapacity;

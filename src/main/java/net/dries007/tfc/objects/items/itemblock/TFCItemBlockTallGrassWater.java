@@ -22,10 +22,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockTallGrassWater extends TFCItemBlock {
+public class TFCItemBlockTallGrassWater extends TFCItemBlock {
     protected final TFCBlockTallGrassWater block;
 
-    public ItemBlockTallGrassWater(TFCBlockTallGrassWater block) {
+    public TFCItemBlockTallGrassWater(TFCBlockTallGrassWater block) {
         super(block);
         this.block = block;
     }

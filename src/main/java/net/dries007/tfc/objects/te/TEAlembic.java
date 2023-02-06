@@ -10,7 +10,7 @@ import net.dries007.tfc.objects.fluids.capability.IFluidHandlerSidedCallback;
 import net.dries007.tfc.objects.fluids.capability.IFluidTankCallback;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockCondenser;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlockCondenser;
 import net.dries007.tfc.util.FluidTransferHelper;
 import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
@@ -62,7 +62,7 @@ public class TEAlembic extends TETickableInventory implements ITickable, ICalend
      */
     public void saveToItemStack(ItemStack stack) {
         IFluidHandler alembicCapability = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        if (alembicCapability instanceof ItemBlockCondenser.ItemCondenserFluidHandler) {
+        if (alembicCapability instanceof TFCItemBlockCondenser.ItemCondenserFluidHandler) {
             NBTTagCompound inventoryTag = null;
             // Check if inventory has contents
             for (int i = 0; i < inventory.getSlots(); i++) {
@@ -81,7 +81,7 @@ public class TEAlembic extends TETickableInventory implements ITickable, ICalend
             }
             FluidStack storing = tank.getFluid();
             if (storing != null || inventoryTag != null || surplusTag != null) {
-                ((ItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).setBarrelContents(storing, inventoryTag, surplusTag);
+                ((TFCItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).setBarrelContents(storing, inventoryTag, surplusTag);
             }
         }
     }
@@ -93,8 +93,8 @@ public class TEAlembic extends TETickableInventory implements ITickable, ICalend
      */
     public void loadFromItemStack(ItemStack stack) {
         IFluidHandler alembicCapability = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        if (alembicCapability instanceof ItemBlockCondenser.ItemCondenserFluidHandler) {
-            NBTTagCompound contents = ((ItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).getBarrelContents();
+        if (alembicCapability instanceof TFCItemBlockCondenser.ItemCondenserFluidHandler) {
+            NBTTagCompound contents = ((TFCItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).getBarrelContents();
             if (contents != null) {
                 inventory.deserializeNBT(contents.getCompoundTag("inventory"));
                 surplus.clear();
@@ -104,7 +104,7 @@ public class TEAlembic extends TETickableInventory implements ITickable, ICalend
                         surplus.add(new ItemStack(surplusItems.getCompoundTagAt(i)));
                     }
                 }
-                tank.fill(((ItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).getFluid(), true);
+                tank.fill(((TFCItemBlockCondenser.ItemCondenserFluidHandler) alembicCapability).getFluid(), true);
                 recipe = BarrelRecipe.get(inventory.getStackInSlot(SLOT_ITEM), tank.getFluid());
                 markForSync();
             }

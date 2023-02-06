@@ -6,8 +6,8 @@ import net.dries007.tfc.objects.blocks.TFCBlockCrate;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockCrate extends TFCItemBlock implements IItemSize {
-    public ItemBlockCrate(TFCBlockCrate block) {
+public class TFCItemBlockCrate extends TFCItemBlock implements IItemSize {
+    public TFCItemBlockCrate(TFCBlockCrate block) {
         super(block);
     }
 }

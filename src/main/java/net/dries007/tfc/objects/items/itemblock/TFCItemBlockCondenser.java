@@ -41,10 +41,10 @@ import java.util.List;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.te.TECondenser.MAX_FLUID_TEMPERATURE;
 
-public class ItemBlockCondenser extends TFCItemBlock {
+public class TFCItemBlockCondenser extends TFCItemBlock {
     private int tankCapacity = 1000;
 
-    public ItemBlockCondenser(Block block) {
+    public TFCItemBlockCondenser(Block block) {
         super(block);
         OreDictionaryHelper.register(this, "condenser");
     }

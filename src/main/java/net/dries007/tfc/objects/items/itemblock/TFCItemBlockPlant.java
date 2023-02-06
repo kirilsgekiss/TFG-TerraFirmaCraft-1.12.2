@@ -21,10 +21,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ItemBlockPlant extends TFCItemBlock {
+public class TFCItemBlockPlant extends TFCItemBlock {
     private final Plant plant;
 
-    public ItemBlockPlant(Block block, Plant plant) {
+    public TFCItemBlockPlant(Block block, Plant plant) {
         super(block);
         this.plant = plant;
     }

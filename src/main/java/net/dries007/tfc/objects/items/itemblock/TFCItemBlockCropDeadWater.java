@@ -1,6 +1,6 @@
 package net.dries007.tfc.objects.items.itemblock;
 
-import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -24,10 +24,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import static net.dries007.tfc.world.classic.ChunkGenTFC.WATER;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockCropWater extends TFCItemBlock {
-    protected final TFCBlockCrop block;
+public class TFCItemBlockCropDeadWater extends TFCItemBlock {
+    protected final TFCBlockCropDead block;
 
-    public ItemBlockCropWater(TFCBlockCrop block) {
+    public TFCItemBlockCropDeadWater(TFCBlockCropDead block) {
         super(block);
         this.block = block;
     }

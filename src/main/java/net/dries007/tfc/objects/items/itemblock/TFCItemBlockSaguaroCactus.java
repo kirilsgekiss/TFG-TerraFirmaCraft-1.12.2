@@ -15,10 +15,10 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class ItemBlockSaguaroCactus extends TFCItemBlock {
+public class TFCItemBlockSaguaroCactus extends TFCItemBlock {
     protected final TFCBlockSaguaroCactus block;
 
-    public ItemBlockSaguaroCactus(TFCBlockSaguaroCactus block) {
+    public TFCItemBlockSaguaroCactus(TFCBlockSaguaroCactus block) {
         super(block);
         this.block = block;
     }

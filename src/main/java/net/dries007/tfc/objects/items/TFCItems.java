@@ -42,7 +42,7 @@ import net.dries007.tfc.objects.items.devices.ItemFloraDensity;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.ItemSandwich;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockTorch;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlockTorch;
 import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.metal.ItemCladding;
@@ -1530,7 +1530,7 @@ public final class TFCItems {
         );
 
         if (TFCConfig.General.OVERRIDES.enableTorchOverride) {
-            event.getRegistry().register(new ItemBlockTorch(Blocks.TORCH).setRegistryName("minecraft", "torch"));
+            event.getRegistry().register(new TFCItemBlockTorch(Blocks.TORCH).setRegistryName("minecraft", "torch"));
         }
     }
 
