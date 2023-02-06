@@ -774,90 +774,90 @@ public final class TFCBlocks {
 //                    TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tube);
 //                }
 
-                // Normal Corals
-                blockCoral.add(register(r, "coral/tube/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/brain/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/bubble/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/fire/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/horn/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-
-                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-
-                    TFCBlockCoral brainNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral bubbleNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral fireNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral hornNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral tubeNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-
-                    blockCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
-                    blockCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
-                    blockCoral.add(register(r, "coral/fire/" + dyeColor.getName(), fireNormal, CT_FLORA));
-                    blockCoral.add(register(r, "coral/horn/" + dyeColor.getName(), hornNormal, CT_FLORA));
-                    blockCoral.add(register(r, "coral/tube/" + dyeColor.getName(), tubeNormal, CT_FLORA));
-
-                    TFCBlockCoral.BRAIN_CORAL.put(dyeColor, brainNormal);
-                    TFCBlockCoral.BUBBLE_CORAL.put(dyeColor, bubbleNormal);
-                    TFCBlockCoral.FIRE_CORAL.put(dyeColor, fireNormal);
-                    TFCBlockCoral.HORN_CORAL.put(dyeColor, hornNormal);
-                    TFCBlockCoral.TUBE_CORAL.put(dyeColor, tubeNormal);
-                }
-
-                // Fan Corals
-                blockCoral.add(register(r, "coral/fan/tube/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/fan/brain/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/fan/bubble/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/fan/fire/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-                blockCoral.add(register(r, "coral/fan/horn/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
-
-                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-                    TFCBlockCoral brainFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral bubbleFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral fireFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral hornFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoral tubeFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
-
-                    blockCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
-                    blockCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
-                    blockCoral.add(register(r, "coral/fan/fire/" + dyeColor.getName(), fireFan, CT_FLORA));
-                    blockCoral.add(register(r, "coral/fan/horn/" + dyeColor.getName(), hornFan, CT_FLORA));
-                    blockCoral.add(register(r, "coral/fan/tube/" + dyeColor.getName(), tubeFan, CT_FLORA));
-
-                    TFCBlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brainFan);
-                    TFCBlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubbleFan);
-                    TFCBlockCoral.FIRE_CORAL_FAN.put(dyeColor, fireFan);
-                    TFCBlockCoral.HORN_CORAL_FAN.put(dyeColor, hornFan);
-                    TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tubeFan);
-                }
-                allBlockCoral = blockCoral.build();
-                for (TFCBlockCoral plantCoralBlock : allBlockCoral) {
-                    normalItemBlocks.add(new TFCItemBlock(plantCoralBlock));
-                }
-
-                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
-
-                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
-                    TFCBlockCoralBlock brain = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoralBlock bubble = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoralBlock fire = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoralBlock horn = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-                    TFCBlockCoralBlock tube = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
-
-                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
-                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
-                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
-                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
-                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
-
-                    TFCBlockCoralBlock.BRAIN_CORAL_BLOCK.put(dyeColor, brain);
-                    TFCBlockCoralBlock.BUBBLE_CORAL_BLOCK.put(dyeColor, bubble);
-                    TFCBlockCoralBlock.FIRE_CORAL_BLOCK.put(dyeColor, fire);
-                    TFCBlockCoralBlock.HORN_CORAL_BLOCK.put(dyeColor, horn);
-                    TFCBlockCoralBlock.TUBE_CORAL_BLOCK.put(dyeColor, tube);
-                }
+//                // Normal Corals
+//                blockCoral.add(register(r, "coral/tube/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/brain/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/bubble/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/fire/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/horn/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//
+//                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+//
+//                    TFCBlockCoral brainNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral bubbleNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral fireNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral hornNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral tubeNormal = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//
+//                    blockCoral.add(register(r, "coral/brain/" + dyeColor.getName(), brainNormal, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/bubble/" + dyeColor.getName(), bubbleNormal, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/fire/" + dyeColor.getName(), fireNormal, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/horn/" + dyeColor.getName(), hornNormal, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/tube/" + dyeColor.getName(), tubeNormal, CT_FLORA));
+//
+//                    TFCBlockCoral.BRAIN_CORAL.put(dyeColor, brainNormal);
+//                    TFCBlockCoral.BUBBLE_CORAL.put(dyeColor, bubbleNormal);
+//                    TFCBlockCoral.FIRE_CORAL.put(dyeColor, fireNormal);
+//                    TFCBlockCoral.HORN_CORAL.put(dyeColor, hornNormal);
+//                    TFCBlockCoral.TUBE_CORAL.put(dyeColor, tubeNormal);
+//                }
+//
+//                // Fan Corals
+//                blockCoral.add(register(r, "coral/fan/tube/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/fan/brain/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/fan/bubble/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/fan/fire/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//                blockCoral.add(register(r, "coral/fan/horn/dead", new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.SNOW), CT_FLORA));
+//
+//                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+//                    TFCBlockCoral brainFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral bubbleFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral fireFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral hornFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoral tubeFan = new TFCBlockCoral(TFCFluids.SEA_WATER.get(), MapColor.getBlockColor(dyeColor));
+//
+//                    blockCoral.add(register(r, "coral/fan/brain/" + dyeColor.getName(), brainFan, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/fan/bubble/" + dyeColor.getName(), bubbleFan, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/fan/fire/" + dyeColor.getName(), fireFan, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/fan/horn/" + dyeColor.getName(), hornFan, CT_FLORA));
+//                    blockCoral.add(register(r, "coral/fan/tube/" + dyeColor.getName(), tubeFan, CT_FLORA));
+//
+//                    TFCBlockCoral.BRAIN_CORAL_FAN.put(dyeColor, brainFan);
+//                    TFCBlockCoral.BUBBLE_CORAL_FAN.put(dyeColor, bubbleFan);
+//                    TFCBlockCoral.FIRE_CORAL_FAN.put(dyeColor, fireFan);
+//                    TFCBlockCoral.HORN_CORAL_FAN.put(dyeColor, hornFan);
+//                    TFCBlockCoral.TUBE_CORAL_FAN.put(dyeColor, tubeFan);
+//                }
+//                allBlockCoral = blockCoral.build();
+//                for (TFCBlockCoral plantCoralBlock : allBlockCoral) {
+//                    normalItemBlocks.add(new TFCItemBlock(plantCoralBlock));
+//                }
+//
+//                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+//                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+//                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+//                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+//                normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/dead", new TFCBlockCoralBlock(MapColor.SNOW), CT_FLORA)));
+//
+//                for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
+//                    TFCBlockCoralBlock brain = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoralBlock bubble = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoralBlock fire = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoralBlock horn = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+//                    TFCBlockCoralBlock tube = new TFCBlockCoralBlock(MapColor.getBlockColor(dyeColor));
+//
+//                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/brain/" + dyeColor.getName(), brain, CT_FLORA)));
+//                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/bubble/" + dyeColor.getName(), bubble, CT_FLORA)));
+//                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/fire/" + dyeColor.getName(), fire, CT_FLORA)));
+//                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/horn/" + dyeColor.getName(), horn, CT_FLORA)));
+//                    normalItemBlocks.add(new TFCItemBlock(register(r, "coral/block/tube/" + dyeColor.getName(), tube, CT_FLORA)));
+//
+//                    TFCBlockCoralBlock.BRAIN_CORAL_BLOCK.put(dyeColor, brain);
+//                    TFCBlockCoralBlock.BUBBLE_CORAL_BLOCK.put(dyeColor, bubble);
+//                    TFCBlockCoralBlock.FIRE_CORAL_BLOCK.put(dyeColor, fire);
+//                    TFCBlockCoralBlock.HORN_CORAL_BLOCK.put(dyeColor, horn);
+//                    TFCBlockCoralBlock.TUBE_CORAL_BLOCK.put(dyeColor, tube);
+//                }
             }
 
 
