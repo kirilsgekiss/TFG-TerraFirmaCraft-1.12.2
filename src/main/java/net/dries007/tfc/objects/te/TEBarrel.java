@@ -16,7 +16,7 @@ import net.dries007.tfc.objects.fluids.capability.IFluidHandlerSidedCallback;
 import net.dries007.tfc.objects.fluids.capability.IFluidTankCallback;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
-import net.dries007.tfc.objects.items.itemblock.ItemBlockBarrel;
+import net.dries007.tfc.objects.items.itemblock.TFCItemBlockBarrel;
 import net.dries007.tfc.util.FluidTransferHelper;
 import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
@@ -73,7 +73,7 @@ public class TEBarrel extends TETickableInventory implements ITickable, ICalenda
      */
     public void saveToItemStack(ItemStack stack) {
         IFluidHandler barrelCap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        if (barrelCap instanceof ItemBlockBarrel.ItemBarrelFluidHandler) {
+        if (barrelCap instanceof TFCItemBlockBarrel.ItemBarrelFluidHandler) {
             NBTTagCompound inventoryTag = null;
             // Check if inventory has contents
             for (int i = 0; i < inventory.getSlots(); i++) {
@@ -92,7 +92,7 @@ public class TEBarrel extends TETickableInventory implements ITickable, ICalenda
             }
             FluidStack storing = tank.getFluid();
             if (storing != null || inventoryTag != null || surplusTag != null) {
-                ((ItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).setBarrelContents(storing, inventoryTag, surplusTag, sealedTick, sealedCalendarTick);
+                ((TFCItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).setBarrelContents(storing, inventoryTag, surplusTag, sealedTick, sealedCalendarTick);
             }
         }
     }
@@ -104,8 +104,8 @@ public class TEBarrel extends TETickableInventory implements ITickable, ICalenda
      */
     public void loadFromItemStack(ItemStack stack) {
         IFluidHandler barrelCap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        if (barrelCap instanceof ItemBlockBarrel.ItemBarrelFluidHandler) {
-            NBTTagCompound contents = ((ItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).getBarrelContents();
+        if (barrelCap instanceof TFCItemBlockBarrel.ItemBarrelFluidHandler) {
+            NBTTagCompound contents = ((TFCItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).getBarrelContents();
             if (contents != null) {
                 inventory.deserializeNBT(contents.getCompoundTag("inventory"));
                 surplus.clear();
@@ -117,7 +117,7 @@ public class TEBarrel extends TETickableInventory implements ITickable, ICalenda
                 }
                 sealedTick = contents.getLong("sealedTick");
                 sealedCalendarTick = contents.getLong("sealedCalendarTick");
-                tank.fill(((ItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).getFluid(), true);
+                tank.fill(((TFCItemBlockBarrel.ItemBarrelFluidHandler) barrelCap).getFluid(), true);
                 sealed = true;
                 recipe = BarrelRecipe.get(inventory.getStackInSlot(SLOT_ITEM), tank.getFluid());
                 markForSync();

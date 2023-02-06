@@ -935,16 +935,16 @@ public final class TFCItems {
         TFCBlocks.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
         TFCBlocks.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : TFCBlocks.getAllLogBlocks())
+        for (TFCBlockLog log : TFCBlocks.getAllBlockLog())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : TFCBlocks.getAllDoorBlocks())
+        for (TFCBlockWoodDoor door : TFCBlocks.getAllBlockWoodDoor())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new TFCItemDoor(door), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllRockSlabBlocks())
+        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllBlockRockSlab())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllWoodSlabBlocks())
+        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllBlockWoodSlab())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
@@ -1502,9 +1502,9 @@ public final class TFCItems {
         }
 
 
-        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllSlabBlocksTFC())
-            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
-
+//        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllBlockRockSlab())
+//            simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
+//
 
         //allItemBows = itemBows.build();
 

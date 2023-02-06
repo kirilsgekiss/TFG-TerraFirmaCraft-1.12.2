@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockLargeVessel extends TFCItemBlock implements IItemSize {
-    public ItemBlockLargeVessel(TFCBlockLargeVessel block) {
+public class TFCItemBlockLargeVessel extends TFCItemBlock implements IItemSize {
+    public TFCItemBlockLargeVessel(TFCBlockLargeVessel block) {
         super(block);
     }
 

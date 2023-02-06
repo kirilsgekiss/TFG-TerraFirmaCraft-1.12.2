@@ -27,10 +27,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ItemBlockFloatingWaterTFC extends TFCItemBlock {
+public class TFCItemBlockFloatingWater extends TFCItemBlock {
     protected final TFCBlockFloatingWater block;
 
-    public ItemBlockFloatingWaterTFC(TFCBlockFloatingWater block) {
+    public TFCItemBlockFloatingWater(TFCBlockFloatingWater block) {
         super(block);
         this.block = block;
     }

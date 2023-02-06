@@ -5,8 +5,8 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
-public class ItemBlockSaplingTFC extends TFCItemBlock {
-    public ItemBlockSaplingTFC(TFCBlockSapling block) {
+public class TFCItemBlockSapling extends TFCItemBlock {
+    public TFCItemBlockSapling(TFCBlockSapling block) {
         super(block);
     }
 

@@ -63,7 +63,7 @@ public class TFCTrees {
 
         //Set up a map of species and their sapling types
         Map<String, TFCBlockSapling> saplingMap = new HashMap<>();
-        TFCBlocks.getAllSaplingBlocks().forEach(s -> saplingMap.put(s.getTree().toString(), s));
+        TFCBlocks.getAllBlockSapling().forEach(s -> saplingMap.put(s.getTree().toString(), s));
 
         for (Map.Entry<String, Species> entry : tfcSpecies.entrySet()) {
             TreeRegistry.registerSaplingReplacer(saplingMap.get(entry.getKey()).getDefaultState(), entry.getValue());
@@ -105,7 +105,7 @@ public class TFCTrees {
     }
 
     public static void postInit() {
-        for (TFCBlockRockVariant rock : TFCBlocks.getAllBlockRockVariants()) {
+        for (TFCBlockRockVariant rock : TFCBlocks.getAllBlockRockVariant()) {
             IBlockState def = rock.getDefaultState();
             if (TFCBlocks.isGrowableSoil(def)) {
                 DirtHelper.registerSoil(def.getBlock(), DirtHelper.DIRTLIKE);

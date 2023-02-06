@@ -55,8 +55,8 @@ import static net.dries007.tfc.objects.te.TEBarrel.BARREL_MAX_FLUID_TEMPERATURE;
  * Only has NBT data if the barrel is sealed and has contents
  */
 @ParametersAreNonnullByDefault
-public class ItemBlockBarrel extends TFCItemBlock {
-    public ItemBlockBarrel(Block block) {
+public class TFCItemBlockBarrel extends TFCItemBlock {
+    public TFCItemBlockBarrel(Block block) {
         super(block);
         OreDictionaryHelper.register(this, "barrel");
     }

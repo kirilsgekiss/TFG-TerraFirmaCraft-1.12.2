@@ -30,6 +30,14 @@ public final class TFCCreativeTabs {
     public static final CreativeTabs CT_MISC = new TFCCreativeTab("misc", "tfc:wand");
     public static final CreativeTabs CT_FLORA = new TFCCreativeTab("flora", "tfc:plants/goldenrod");
 
+    public static final CreativeTabs CT_CORAL = new TFCCreativeTab("flora", "tfc:coral/brain/orange");
+    public static final CreativeTabs CT_THATCHING = new TFCCreativeTab("thatching", "tfc:loose_thatching");
+
+    public static final CreativeTabs CT_BRICKS = new TFCCreativeTab("bricks", "minecraft:brick");
+    public static final CreativeTabs CT_ALABASTER = new TFCCreativeTab("alabaster", "tfc:alabaster/raw/plain");
+
+    public static final CreativeTabs CT_DEVICES = new TFCCreativeTab("devices", "tfc:crucible");
+
     private static class TFCCreativeTab extends CreativeTabs {
         private final ResourceLocation iconResourceLocation;
 
