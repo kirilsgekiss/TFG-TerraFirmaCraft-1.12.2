@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.items.wood;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandler;
@@ -151,7 +151,7 @@ public class TFCItemWoodenBucket extends TFCItem {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (isInCreativeTab(tab)) {
             items.add(new ItemStack(this));
-            for (String fluidName : ConfigTFC.General.MISC.woodenBucketWhitelist) {
+            for (String fluidName : TFCConfig.General.MISC.woodenBucketWhitelist) {
                 Fluid fluid = FluidRegistry.getFluid(fluidName);
                 if (fluid != null) {
                     ItemStack stack = new ItemStack(this);
@@ -167,6 +167,6 @@ public class TFCItemWoodenBucket extends TFCItem {
 
     @Override
     public ICapabilityProvider initCapabilities(@Nonnull ItemStack stack, @Nullable NBTTagCompound nbt) {
-        return new FluidWhitelistHandler(stack, CAPACITY, ConfigTFC.General.MISC.woodenBucketWhitelist);
+        return new FluidWhitelistHandler(stack, CAPACITY, TFCConfig.General.MISC.woodenBucketWhitelist);
     }
 }

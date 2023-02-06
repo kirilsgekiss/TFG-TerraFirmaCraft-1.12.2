@@ -4,7 +4,7 @@
 package net.dries007.tfc.world.classic.worldgen.structures;
 
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -231,7 +231,7 @@ public class StructureGeneratorCorals extends WorldGenerator {
 
         while (!foundGround && y-- > 0) {
             IBlockState current = world.getBlockState(new BlockPos(x, y, z));
-            foundGround = BlocksTFC.isGround(current);
+            foundGround = TFCBlocks.isGround(current);
         }
         BlockPos pos = new BlockPos(x, y, z);
 
@@ -243,7 +243,7 @@ public class StructureGeneratorCorals extends WorldGenerator {
                 world.getBlockState(pos).getBlock() == Blocks.AIR ||
                 world.getBlockState(pos).getBlock() == Blocks.ICE ||
                 world.getBlockState(pos).getBlock() == Blocks.PACKED_ICE ||
-                world.getBlockState(pos).getBlock() == BlocksTFC.SEA_ICE) {
+                world.getBlockState(pos).getBlock() == TFCBlocks.SEA_ICE) {
             y = -99;
         }
         return y;

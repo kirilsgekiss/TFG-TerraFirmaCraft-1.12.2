@@ -1,6 +1,6 @@
 package net.dries007.tfc.objects.container;
 
-import net.dries007.tfc.objects.blocks.BlockUrn;
+import net.dries007.tfc.objects.blocks.TFCBlockUrn;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.te.TEUrn;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -19,7 +19,7 @@ public class ContainerUrn extends ContainerTE<TEUrn> implements IButtonHandler {
     public void onButtonPress(int buttonID, @Nullable NBTTagCompound extraNBT) {
         // Slot will always be 0, extraNBT will be empty
         if (!tile.getWorld().isRemote) {
-            BlockUrn.toggleUrnSeal(tile.getWorld(), tile.getPos());
+            TFCBlockUrn.toggleUrnSeal(tile.getWorld(), tile.getPos());
         }
     }
 

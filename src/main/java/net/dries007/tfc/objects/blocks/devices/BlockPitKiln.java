@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-import static net.dries007.tfc.objects.blocks.BlockPlacedItem.PLACED_ITEM_AABB;
+import static net.dries007.tfc.objects.blocks.TFCBlockPlacedItem.PLACED_ITEM_AABB;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

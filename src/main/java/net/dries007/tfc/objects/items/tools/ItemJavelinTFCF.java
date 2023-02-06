@@ -8,7 +8,7 @@ import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.entity.projectile.EntityThrownJavelin;
+import net.dries007.tfc.objects.entity.projectile.TFCEntityThrownJavelin;
 import net.dries007.tfc.objects.items.ItemQuiver;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -94,7 +94,7 @@ public class ItemJavelinTFCF extends ItemTool implements IItemSize {
                 float f = ItemBow.getArrowVelocity(charge); //Same charge time as bow
 
                 if (!worldIn.isRemote) {
-                    EntityThrownJavelin javelin = new EntityThrownJavelin(worldIn, player);
+                    TFCEntityThrownJavelin javelin = new TFCEntityThrownJavelin(worldIn, player);
                     javelin.setDamage(2.5f * attackDamage); // When thrown, it does approx 1.8x the tool material (attack damage is already 0.7x of the tool). This makes it slightly more damaging than axes but more difficult to use
                     javelin.setWeapon(stack);
                     javelin.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 1.5F, 0.5F);

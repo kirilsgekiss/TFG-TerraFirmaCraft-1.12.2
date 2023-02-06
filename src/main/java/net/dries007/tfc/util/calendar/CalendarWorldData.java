@@ -50,12 +50,12 @@ public class CalendarWorldData extends WorldSavedData {
         throw new IllegalStateException("Unable to access calendar data - everything is wrong now");
     }
 
-    private final CalendarTFC calendar;
+    private final TFCCalendar calendar;
 
     @SuppressWarnings("unused")
     public CalendarWorldData(String name) {
         super(name);
-        this.calendar = new CalendarTFC();
+        this.calendar = new TFCCalendar();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class CalendarWorldData extends WorldSavedData {
     @Override
     @Nonnull
     public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-        nbt.setTag("calendar", CalendarTFC.INSTANCE.serializeNBT());
+        nbt.setTag("calendar", TFCCalendar.INSTANCE.serializeNBT());
         return nbt;
     }
 
@@ -79,7 +79,7 @@ public class CalendarWorldData extends WorldSavedData {
     }
 
     @Nonnull
-    public CalendarTFC getCalendar() {
+    public TFCCalendar getCalendar() {
         return calendar;
     }
 }

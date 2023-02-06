@@ -5,14 +5,14 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IPredator;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIAttackMeleeTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIWanderHuntArea;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIAttackMelee;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIWanderHuntArea;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -42,7 +42,7 @@ import java.util.Random;
 import java.util.function.BiConsumer;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
+public class TFCEntityLion extends TFCEntityAnimalMammal implements IPredator {
     private static final int DAYS_TO_ADULTHOOD = 192;
 
     //Values that has a visual effect on client
@@ -63,14 +63,14 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.SAVANNA)) {
-            return ConfigTFC.Animals.LION.rarity;
+            return TFCConfig.Animals.LION.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.ELDER_AND_POPULATION;
+        return TFCAnimalGroupingRules.ELDER_AND_POPULATION;
     }
 
     @Override
@@ -97,7 +97,7 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
     public void birthChildren() {
         int numberOfChildren = 1; //one always
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityLion baby = new TFCEntityLion(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityLion baby = new TFCEntityLion(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             this.world.spawnEntity(baby);
         }
@@ -157,7 +157,7 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
 
     @Override
     protected void initEntityAI() {
-        EntityAIWander wander = new EntityAIWanderHuntArea(this, 1.0D);
+        EntityAIWander wander = new TFCEntityAIWanderHuntArea(this, 1.0D);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAILionAttack().setWanderAI(wander));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.1D));
@@ -169,7 +169,7 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
 
         int priority = 2;
-        for (String input : ConfigTFC.Animals.LION.huntCreatures) {
+        for (String input : TFCConfig.Animals.LION.huntCreatures) {
             ResourceLocation key = new ResourceLocation(input);
             EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(key);
             if (entityEntry != null) {
@@ -199,7 +199,7 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_LION;
+        return TFCLootTables.ANIMALS_LION;
     }
 
     @Override
@@ -218,7 +218,7 @@ public class TFCEntityLion extends EntityAnimalMammal implements IPredator {
     /**
      * Adds a bit of animation to the attack
      */
-    protected class EntityAILionAttack extends EntityAIAttackMeleeTFC<TFCEntityLion> {
+    protected class EntityAILionAttack extends TFCEntityAIAttackMelee<TFCEntityLion> {
         protected int attackTicks;
 
         public EntityAILionAttack() {

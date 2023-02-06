@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAILawnmower;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAILawnmower;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -38,11 +38,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
     public int sheepTimer;
-    private EntityAILawnmower entityAILawnmower;
+    private TFCEntityAILawnmower entityAILawnmower;
 
     @SuppressWarnings("unused")
     public TFCEntityGoat(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.GOAT.adulthood, ConfigTFC.Animals.GOAT.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.GOAT.adulthood, TFCConfig.Animals.GOAT.elder));
     }
 
     public TFCEntityGoat(World worldIn, Gender gender, int birthDay) {
@@ -77,7 +77,7 @@ public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
     protected void initEntityAI() {
         super.initEntityAI();
         tasks.taskEntries.removeIf(task -> task.action instanceof EntityAIEatGrass);
-        entityAILawnmower = new EntityAILawnmower(this);
+        entityAILawnmower = new TFCEntityAILawnmower(this);
         tasks.addTask(6, entityAILawnmower);
     }
 
@@ -86,16 +86,16 @@ public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TEMPERATE_FOREST)) {
-            return ConfigTFC.Animals.GOAT.rarity;
+            return TFCConfig.Animals.GOAT.rarity;
         }
         return 0;
     }
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.GOAT.babies;
+        int numberOfChildren = TFCConfig.Animals.GOAT.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityGoat baby = new TFCEntityGoat(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityGoat baby = new TFCEntityGoat(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             baby.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
             this.world.spawnEntity(baby);
@@ -104,12 +104,12 @@ public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.GOAT.gestation;
+        return TFCConfig.Animals.GOAT.gestation;
     }
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.GOAT.oldDeathChance;
+        return TFCConfig.Animals.GOAT.oldDeathChance;
     }
 
     @Override
@@ -119,17 +119,17 @@ public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.GOAT.adulthood;
+        return TFCConfig.Animals.GOAT.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.GOAT.elder;
+        return TFCConfig.Animals.GOAT.elder;
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.GOAT.milkTicks + getMilkedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.GOAT.milkTicks + getMilkedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -155,7 +155,7 @@ public class TFCEntityGoat extends TFCEntityCow implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_GOAT;
+        return TFCLootTables.ANIMALS_GOAT;
     }
 
     @Override

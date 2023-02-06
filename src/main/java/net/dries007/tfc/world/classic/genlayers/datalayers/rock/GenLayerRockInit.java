@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic.genlayers.datalayers.rock;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
@@ -24,7 +24,7 @@ public class GenLayerRockInit extends GenLayerTFC {
     public GenLayerRockInit(long par1, final RockCategory.Layer rocks) {
         super(par1);
         layerRocks = TFCRegistries.ROCKS.getValuesCollection().stream().filter(rocks).filter(Rock::isNaturallyGenerating).mapToInt(((ForgeRegistry<Rock>) TFCRegistries.ROCKS)::getID).sorted().toArray();
-        if (ConfigTFC.General.DEBUG.debugWorldGenSafe) {
+        if (TFCConfig.General.DEBUG.debugWorldGenSafe) {
             TerraFirmaCraft.getLog().info("Worldgen rock list (ints): {}", layerRocks);
             TerraFirmaCraft.getLog().info("Worldgen rock list (names): {}", (Object) Arrays.stream(layerRocks).mapToObj(((ForgeRegistry<Rock>) TFCRegistries.ROCKS)::getValue).map(Objects::toString).toArray());
         }

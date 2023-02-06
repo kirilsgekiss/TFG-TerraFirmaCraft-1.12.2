@@ -1,9 +1,9 @@
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.groundcover.BlockCoral;
-import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoral;
+import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoralBlock;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
@@ -33,7 +33,7 @@ public class WorldGenGlowPlant implements IWorldGenerator {
         ChunkDataTFC data = ChunkDataTFC.get(world, chunkBlockPos);
 
         Biome b = world.getBiome(chunkBlockPos);
-        float avgTemperature = ClimateTFC.getAvgTemp(world, chunkBlockPos);
+        float avgTemperature = TFCClimate.getAvgTemp(world, chunkBlockPos);
         float rainfall = ChunkDataTFC.getRainfall(world, chunkBlockPos);
         float floraDensity = data.getFloraDensity();
         float floraDiversity = data.getFloraDiversity();
@@ -46,7 +46,7 @@ public class WorldGenGlowPlant implements IWorldGenerator {
 
             if ((b == TFCBiomes.OCEAN || b == TFCBiomes.DEEP_OCEAN || b == TFCBiomes.BEACH || b == TFCBiomes.GRAVEL_BEACH) && world.provider.getDimension() == 0) {
                 if (isValidPosition(world, pos) && pos.getY() < WorldTypeTFC.SEALEVEL - 1 && pos.getY() > 115 && floraDensity >= 0.4f && floraDiversity >= 0.3f && floraDensity <= 0.6f && floraDiversity <= 0.5f && avgTemperature >= 10f && avgTemperature <= 28f && rainfall >= 150f) {
-                    world.setBlockState(pos, BlocksTFC.GLOWING_SEA_BANANA.getDefaultState());
+                    world.setBlockState(pos, TFCBlocks.GLOWING_SEA_BANANA.getDefaultState());
                 }
             }
         }
@@ -60,6 +60,6 @@ public class WorldGenGlowPlant implements IWorldGenerator {
         IBlockState south = world.getBlockState(pos.south());
         IBlockState east = world.getBlockState(pos.east());
         IBlockState west = world.getBlockState(pos.west());
-        return ((up.getBlock() instanceof BlockCoralBlock || down.getBlock() instanceof BlockCoralBlock || north.getBlock() instanceof BlockCoralBlock || south.getBlock() instanceof BlockCoralBlock || east.getBlock() instanceof BlockCoralBlock || west.getBlock() instanceof BlockCoralBlock || current.getBlock() instanceof BlockCoral) && !(world.isAirBlock(pos.up())));
+        return ((up.getBlock() instanceof TFCBlockCoralBlock || down.getBlock() instanceof TFCBlockCoralBlock || north.getBlock() instanceof TFCBlockCoralBlock || south.getBlock() instanceof TFCBlockCoralBlock || east.getBlock() instanceof TFCBlockCoralBlock || west.getBlock() instanceof TFCBlockCoralBlock || current.getBlock() instanceof TFCBlockCoral) && !(world.isAirBlock(pos.up())));
     }
 }

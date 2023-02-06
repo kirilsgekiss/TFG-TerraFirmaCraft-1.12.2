@@ -80,7 +80,6 @@
 //            Template structureBase = manager.get(world.getMinecraftServer(), base);
 //            if (structureBase == null)
 //            {
-//                TFCFlorae.getLog().warn("Unable to find a template for " + base.toString());
 //                return false;
 //            }
 //
@@ -117,7 +116,6 @@
 //
 //            if (structureBase == null)
 //            {
-//                TFCFlorae.getLog().warn("TFCFlorae: Unable to find a template for " + base.toString());
 //                return false;
 //            }
 //

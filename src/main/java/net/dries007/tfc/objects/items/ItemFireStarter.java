@@ -6,11 +6,11 @@
 package net.dries007.tfc.objects.items;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TEFirePit;
 import net.dries007.tfc.objects.te.TELogPile;
 import net.dries007.tfc.objects.te.TEPitKiln;
@@ -122,7 +122,7 @@ public class ItemFireStarter extends TFCItem {
         final BlockPos pos = result.getBlockPos().add(0, 1, 0);
         final World world = player.world;
         // Base chance
-        float chance = (float) ConfigTFC.General.MISC.fireStarterChance;
+        float chance = (float) TFCConfig.General.MISC.fireStarterChance;
         // Raining reduces chance by half
         if (world.isRainingAt(pos)) {
             chance *= 0.5;
@@ -144,7 +144,7 @@ public class ItemFireStarter extends TFCItem {
         {
             stack.damageItem(1, player);
             final IBlockState state = world.getBlockState(pos.down());
-            if (state.getBlock() == BlocksTFC.LOG_PILE) {
+            if (state.getBlock() == TFCBlocks.LOG_PILE) {
                 // Log pile
                 if (itemRand.nextFloat() < chance) {
                     world.setBlockState(pos.down(), state.withProperty(LIT, true));
@@ -156,7 +156,7 @@ public class ItemFireStarter extends TFCItem {
                         world.setBlockState(pos, Blocks.FIRE.getDefaultState());
                     }
                 }
-            } else if (state.getBlock() == BlocksTFC.PIT_KILN) {
+            } else if (state.getBlock() == TFCBlocks.PIT_KILN) {
                 // Pit Kiln
                 if (itemRand.nextFloat() < chance) {
                     TEPitKiln te = Helpers.getTE(world, pos.down(), TEPitKiln.class);
@@ -188,7 +188,7 @@ public class ItemFireStarter extends TFCItem {
                 if (sticks >= 3 && log != null) {
                     final float kindlingModifier = Math.min(0.1f * (float) kindling, 0.5f);
                     if (itemRand.nextFloat() < chance + kindlingModifier) {
-                        world.setBlockState(pos, BlocksTFC.FIREPIT.getDefaultState().withProperty(LIT, true));
+                        world.setBlockState(pos, TFCBlocks.FIREPIT.getDefaultState().withProperty(LIT, true));
                         TEFirePit te = Helpers.getTE(world, pos, TEFirePit.class);
                         if (te != null) {
                             te.onCreate(log.getItem());

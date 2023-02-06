@@ -2,13 +2,13 @@ package net.dries007.tfc.compat.gregtech.items.tools.behaviors;
 
 import gregtech.api.items.toolitem.ToolHelper;
 import gregtech.api.items.toolitem.behavior.IToolBehavior;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.capability.player.IPlayerData;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
 import net.dries007.tfc.api.recipes.ChiselRecipe.Mode;
 import net.dries007.tfc.api.util.FallingBlockManager;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSmooth;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSmooth;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.container.ContainerEmpty;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -61,7 +61,7 @@ public class InWorldChiselingBehavior implements IToolBehavior {
             // only update the world state on the server side
             if (!worldIn.isRemote) {
                 // replace the block with a new block
-                if (ConfigTFC.General.FALLABLE.chiselCausesCollapse) {
+                if (TFCConfig.General.FALLABLE.chiselCausesCollapse) {
                     IBlockState oldState = worldIn.getBlockState(pos);
                     FallingBlockManager.Specification oldSpec = FallingBlockManager.getSpecification(oldState);
                     if (oldSpec != null && oldSpec.isCollapsable() && !TFCBlockWoodSupport.isBeingSupported(worldIn, pos)) {
@@ -85,7 +85,7 @@ public class InWorldChiselingBehavior implements IToolBehavior {
                 }
 
                 ToolHelper.damageItem(player.getHeldItem(hand), player);
-                if (ConfigTFC.Devices.CHISEL.hasDelay) {
+                if (TFCConfig.Devices.CHISEL.hasDelay) {
                     // if setting is on for chisel cooldown, trigger cooldown
                     player.getCooldownTracker().setCooldown(player.getHeldItem(hand).getItem(), COOLDOWN);
                 }
@@ -149,7 +149,7 @@ public class InWorldChiselingBehavior implements IToolBehavior {
             return true;
 
         // config alters whether toolbar counts as a hammer slot or not.
-        if (!ConfigTFC.Devices.CHISEL.requireHammerInOffHand) {
+        if (!TFCConfig.Devices.CHISEL.requireHammerInOffHand) {
             for (int i = 0; i < 9; i++) {
                 if (OreDictionaryHelper.doesStackMatchOre(player.inventory.mainInventory.get(i), "craftingToolHammer")) {
                     return true;

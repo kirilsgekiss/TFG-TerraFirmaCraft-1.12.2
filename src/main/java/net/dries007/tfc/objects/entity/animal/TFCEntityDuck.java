@@ -5,14 +5,14 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -38,7 +38,7 @@ import java.util.List;
 @ParametersAreNonnullByDefault
 public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
     public TFCEntityDuck(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.DUCK.adulthood, ConfigTFC.Animals.DUCK.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.DUCK.adulthood, TFCConfig.Animals.DUCK.elder));
     }
 
     public TFCEntityDuck(World worldIn, Gender gender, int birthDay) {
@@ -51,19 +51,19 @@ public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS || biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST)) {
-            return ConfigTFC.Animals.DUCK.rarity;
+            return TFCConfig.Animals.DUCK.rarity;
         }
         return 0;
     }
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.DUCK.adulthood;
+        return TFCConfig.Animals.DUCK.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.DUCK.elder;
+        return TFCConfig.Animals.DUCK.elder;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
             if (cap != null) {
                 TFCEntityDuck chick = new TFCEntityDuck(this.world);
                 chick.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
-                cap.setFertilized(chick, ConfigTFC.Animals.DUCK.hatch + CalendarTFC.PLAYER_TIME.getTotalDays());
+                cap.setFertilized(chick, TFCConfig.Animals.DUCK.hatch + TFCCalendar.PLAYER_TIME.getTotalDays());
             }
         }
         eggs.add(egg);
@@ -84,7 +84,7 @@ public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.DUCK.eggTicks + getLaidTicks() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.DUCK.eggTicks + getLaidTicks() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -104,7 +104,7 @@ public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_DUCK;
+        return TFCLootTables.ANIMALS_DUCK;
     }
 
     @Override
@@ -115,6 +115,6 @@ public class TFCEntityDuck extends TFCEntityChicken implements ILivestock {
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.DUCK.oldDeathChance;
+        return TFCConfig.Animals.DUCK.oldDeathChance;
     }
 }

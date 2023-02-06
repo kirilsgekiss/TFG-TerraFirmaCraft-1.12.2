@@ -12,7 +12,7 @@ import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.objects.items.itemblock.ItemBlockCondenser;
 import net.dries007.tfc.util.FluidTransferHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
@@ -317,12 +317,12 @@ public class TEAlembic extends TETickableInventory implements ITickable, ICalend
             deltaPlayerTicks = 0;
             if (recipe != null && recipe.getDuration() > 0) {
                 long tickFinish = recipe.getDuration();
-                if (tickFinish <= CalendarTFC.PLAYER_TIME.getTicks()) {
+                if (tickFinish <= TFCCalendar.PLAYER_TIME.getTicks()) {
                     // Mark to run this transaction again in case this recipe produces valid output for another which could potentially finish in this time period.
                     deltaPlayerTicks = 1;
-                    long offset = tickFinish - CalendarTFC.PLAYER_TIME.getTicks();
+                    long offset = tickFinish - TFCCalendar.PLAYER_TIME.getTicks();
 
-                    CalendarTFC.runTransaction(offset, offset, () -> {
+                    TFCCalendar.runTransaction(offset, offset, () -> {
                         ItemStack inputStack = inventory.getStackInSlot(SLOT_ITEM);
                         FluidStack inputFluid = tank.getFluid();
                         if (recipe.isValidInput(inputFluid, inputStack)) {

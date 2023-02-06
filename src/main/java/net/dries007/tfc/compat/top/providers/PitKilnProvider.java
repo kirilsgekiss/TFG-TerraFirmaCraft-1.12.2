@@ -4,11 +4,11 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.objects.te.TEPitKiln;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,8 +29,8 @@ public class PitKilnProvider implements IProbeInfoProvider {
             boolean isLit = te.isLit();
 
             if (isLit) {
-                long remainingTicks = ConfigTFC.Devices.PIT_KILN.ticks - (CalendarTFC.PLAYER_TIME.getTicks() - te.getLitTick());
-                switch (ConfigTFC.Client.TOOLTIP.timeTooltipMode) {
+                long remainingTicks = TFCConfig.Devices.PIT_KILN.ticks - (TFCCalendar.PLAYER_TIME.getTicks() - te.getLitTick());
+                switch (TFCConfig.Client.TOOLTIP.timeTooltipMode) {
                     case NONE:
                         break;
                     case TICKS:

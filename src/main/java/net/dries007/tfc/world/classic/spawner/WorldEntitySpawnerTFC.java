@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.world.classic.spawner;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.ICreatureTFC;
 import net.dries007.tfc.objects.entity.animal.*;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -47,29 +47,29 @@ public final class WorldEntitySpawnerTFC {
 
     static {
         LIVESTOCK = new HashMap<>();
-        LIVESTOCK.put(TFCEntityAlpaca.class, () -> ConfigTFC.Animals.ALPACA.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityCamel.class, () -> ConfigTFC.Animals.CAMEL.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityChicken.class, () -> ConfigTFC.Animals.CHICKEN.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityCow.class, () -> ConfigTFC.Animals.COW.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityDonkey.class, () -> ConfigTFC.Animals.DONKEY.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityDuck.class, () -> ConfigTFC.Animals.DUCK.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityGoat.class, () -> ConfigTFC.Animals.GOAT.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityGrouse.class, () -> ConfigTFC.Animals.GROUSE.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityHorse.class, () -> ConfigTFC.Animals.HORSE.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityLlama.class, () -> ConfigTFC.Animals.LLAMA.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityMuskOx.class, () -> ConfigTFC.Animals.MUSKOX.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityOcelot.class, () -> ConfigTFC.Animals.OCELOT.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityPig.class, () -> ConfigTFC.Animals.PIG.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityQuail.class, () -> ConfigTFC.Animals.QUAIL.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntitySheep.class, () -> ConfigTFC.Animals.SHEEP.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityWolf.class, () -> ConfigTFC.Animals.WOLF.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityYak.class, () -> ConfigTFC.Animals.YAK.elder * ICalendar.TICKS_IN_DAY);
-        LIVESTOCK.put(TFCEntityZebu.class, () -> ConfigTFC.Animals.ZEBU.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityAlpaca.class, () -> TFCConfig.Animals.ALPACA.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityCamel.class, () -> TFCConfig.Animals.CAMEL.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityChicken.class, () -> TFCConfig.Animals.CHICKEN.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityCow.class, () -> TFCConfig.Animals.COW.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityDonkey.class, () -> TFCConfig.Animals.DONKEY.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityDuck.class, () -> TFCConfig.Animals.DUCK.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityGoat.class, () -> TFCConfig.Animals.GOAT.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityGrouse.class, () -> TFCConfig.Animals.GROUSE.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityHorse.class, () -> TFCConfig.Animals.HORSE.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityLlama.class, () -> TFCConfig.Animals.LLAMA.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityMuskOx.class, () -> TFCConfig.Animals.MUSKOX.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityOcelot.class, () -> TFCConfig.Animals.OCELOT.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityPig.class, () -> TFCConfig.Animals.PIG.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityQuail.class, () -> TFCConfig.Animals.QUAIL.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntitySheep.class, () -> TFCConfig.Animals.SHEEP.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityWolf.class, () -> TFCConfig.Animals.WOLF.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityYak.class, () -> TFCConfig.Animals.YAK.elder * ICalendar.TICKS_IN_DAY);
+        LIVESTOCK.put(TFCEntityZebu.class, () -> TFCConfig.Animals.ZEBU.elder * ICalendar.TICKS_IN_DAY);
     }
 
     public static void init() {
-        EnumCreatureType.MONSTER.maxNumberOfCreature = ConfigTFC.General.DIFFICULTY.mobSpawnCount;
-        EnumCreatureType.CREATURE.maxNumberOfCreature = ConfigTFC.General.DIFFICULTY.animalSpawnCount;
+        EnumCreatureType.MONSTER.maxNumberOfCreature = TFCConfig.General.DIFFICULTY.mobSpawnCount;
+        EnumCreatureType.CREATURE.maxNumberOfCreature = TFCConfig.General.DIFFICULTY.animalSpawnCount;
         // Using enum helper to add creature types adds more issues than resolve.
         // Although it worked in dev and with only minor mods, I had too much trouble with a larger modpack
     }
@@ -91,10 +91,10 @@ public final class WorldEntitySpawnerTFC {
             AnimalRespawnWorldData data = AnimalRespawnWorldData.get(worldIn);
             ChunkPos pos = new ChunkPos(new BlockPos(event.getX(), event.getY(), event.getZ()));
             long lastSpawnTick = data.getLastRespawnTick(entity, pos);
-            long deltaTicks = CalendarTFC.PLAYER_TIME.getTicks() - lastSpawnTick;
+            long deltaTicks = TFCCalendar.PLAYER_TIME.getTicks() - lastSpawnTick;
             long cooldown = LIVESTOCK.get(entity.getClass()).get();
             if (lastSpawnTick <= 0 || cooldown <= deltaTicks) {
-                data.setLastRespawnTick(entity, pos, CalendarTFC.PLAYER_TIME.getTicks());
+                data.setLastRespawnTick(entity, pos, TFCCalendar.PLAYER_TIME.getTicks());
                 int centerX = (int) event.getX();
                 int centerZ = (int) event.getZ();
                 int diameterX = 16;
@@ -118,7 +118,7 @@ public final class WorldEntitySpawnerTFC {
     public static void performWorldGenSpawning(World worldIn, Biome biomeIn, int centerX, int centerZ, int diameterX, int diameterZ, Random randomIn) {
         final BlockPos chunkBlockPos = new BlockPos(centerX, 0, centerZ);
 
-        final float temperature = ClimateTFC.getAvgTemp(worldIn, chunkBlockPos);
+        final float temperature = TFCClimate.getAvgTemp(worldIn, chunkBlockPos);
         final float rainfall = ChunkDataTFC.getRainfall(worldIn, chunkBlockPos);
         final float floraDensity = ChunkDataTFC.getFloraDensity(worldIn, chunkBlockPos);
         final float floraDiversity = ChunkDataTFC.getFloraDiversity(worldIn, chunkBlockPos);

@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.client;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
@@ -25,14 +25,14 @@ import net.dries007.tfc.client.render.TFCRenderBoat;
 import net.dries007.tfc.client.render.animal.*;
 import net.dries007.tfc.client.render.projectile.RenderThrownJavelin;
 import net.dries007.tfc.network.PacketSwitchPlayerInventoryTab;
-import net.dries007.tfc.objects.entity.EntityBoatTFC;
-import net.dries007.tfc.objects.entity.EntityFallingBlockTFC;
+import net.dries007.tfc.objects.entity.TFCEntityBoat;
+import net.dries007.tfc.objects.entity.TFCEntityFallingBlock;
 import net.dries007.tfc.objects.entity.animal.*;
-import net.dries007.tfc.objects.entity.projectile.EntityThrownJavelin;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.entity.projectile.TFCEntityThrownJavelin;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.util.climate.ClimateHelper;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.util.skills.SmithingSkill;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -71,8 +71,8 @@ import static net.minecraft.util.text.TextFormatting.*;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
 public class ClientEvents {
     public static void preInit() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityFallingBlockTFC.class, RenderFallingBlock::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrownJavelin.class, RenderThrownJavelin::new);
+        RenderingRegistry.registerEntityRenderingHandler(TFCEntityFallingBlock.class, RenderFallingBlock::new);
+        RenderingRegistry.registerEntityRenderingHandler(TFCEntityThrownJavelin.class, RenderThrownJavelin::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntitySheep.class, RenderSheepTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityCow.class, RenderCowTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityGrizzlyBear.class, RenderGrizzlyBearTFC::new);
@@ -85,7 +85,7 @@ public class ClientEvents {
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityHorse.class, RenderHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityDonkey.class, RenderAbstractHorseTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityMule.class, RenderAbstractHorseTFC::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBoatTFC.class, TFCRenderBoat::new);
+        RenderingRegistry.registerEntityRenderingHandler(TFCEntityBoat.class, TFCRenderBoat::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityPolarBear.class, RenderPolarBearTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityParrot.class, RenderParrotTFC::new);
         RenderingRegistry.registerEntityRenderingHandler(TFCEntityLlama.class, RenderLlamaTFC::new);
@@ -120,7 +120,7 @@ public class ClientEvents {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onInitGuiPre(GuiScreenEvent.InitGuiEvent.Pre event) {
-        if (ConfigTFC.General.OVERRIDES.forceTFCWorldType && event.getGui() instanceof GuiCreateWorld) {
+        if (TFCConfig.General.OVERRIDES.forceTFCWorldType && event.getGui() instanceof GuiCreateWorld) {
             GuiCreateWorld gui = ((GuiCreateWorld) event.getGui());
             // Only change if default is selected, because coming back from customisation, this will be set already.
             if (gui.selectedIndex == WorldType.DEFAULT.getId()) {
@@ -195,8 +195,8 @@ public class ClientEvents {
                             WHITE, ClimateHelper.monthFactor(data.getRegionalTemp(), Month.JANUARY.getTemperatureModifier(), blockpos.getZ()), GRAY,
                             WHITE, ClimateHelper.monthFactor(data.getRegionalTemp(), Month.JULY.getTemperatureModifier(), blockpos.getZ())));
                     list.add(String.format("%sTemperature: %s%.1f\u00b0C Daily: %s%.1f\u00b0C",
-                            GRAY, WHITE, ClimateTFC.getMonthlyTemp(blockpos),
-                            WHITE, ClimateTFC.getActualTemp(blockpos)));
+                            GRAY, WHITE, TFCClimate.getMonthlyTemp(blockpos),
+                            WHITE, TFCClimate.getActualTemp(blockpos)));
                     list.add(GRAY + "Rainfall: " + WHITE + data.getRainfall());
                     list.add(GRAY + "Spawn Protection = " + WHITE + data.isSpawnProtected());
                 } else if (mc.world.provider.getDimension() == 0) {
@@ -204,10 +204,10 @@ public class ClientEvents {
                 }
 
                 // Always add calendar info
-                list.add(I18n.format("tfc.tooltip.date", CalendarTFC.CALENDAR_TIME.getTimeAndDate()));
+                list.add(I18n.format("tfc.tooltip.date", TFCCalendar.CALENDAR_TIME.getTimeAndDate()));
 
-                if (ConfigTFC.General.DEBUG.enable) {
-                    list.add(I18n.format("tfc.tooltip.debug_times", CalendarTFC.PLAYER_TIME.getTicks(), CalendarTFC.CALENDAR_TIME.getTicks()));
+                if (TFCConfig.General.DEBUG.enable) {
+                    list.add(I18n.format("tfc.tooltip.debug_times", TFCCalendar.PLAYER_TIME.getTicks(), TFCCalendar.CALENDAR_TIME.getTicks()));
 
                     if (chunkDataValid) {
                         list.add(GRAY + "Flora Density: " + WHITE + data.getFloraDensity());
@@ -273,7 +273,7 @@ public class ClientEvents {
                     }
                 }
 
-                if (ConfigTFC.Client.TOOLTIP.showToolClassTooltip) {
+                if (TFCConfig.Client.TOOLTIP.showToolClassTooltip) {
                     Set<String> toolClasses = item.getToolClasses(stack);
                     if (toolClasses.size() == 1) {
                         tt.add(I18n.format("tfc.tooltip.toolclass", toolClasses.iterator().next()));
@@ -284,7 +284,7 @@ public class ClientEvents {
                         }
                     }
                 }
-                if (ConfigTFC.Client.TOOLTIP.showOreDictionaryTooltip) {
+                if (TFCConfig.Client.TOOLTIP.showOreDictionaryTooltip) {
                     int[] ids = OreDictionary.getOreIDs(stack);
                     if (ids.length == 1) {
                         tt.add(I18n.format("tfc.tooltip.oredictionaryentry", OreDictionary.getOreName(ids[0])));
@@ -298,7 +298,7 @@ public class ClientEvents {
                         tt.addAll(names);
                     }
                 }
-                if (ConfigTFC.Client.TOOLTIP.showNBTTooltip) {
+                if (TFCConfig.Client.TOOLTIP.showNBTTooltip) {
                     if (stack.hasTagCompound()) {
                         tt.add("NBT: " + stack.getTagCompound());
                     }

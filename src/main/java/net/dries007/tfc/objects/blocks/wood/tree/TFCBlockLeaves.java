@@ -8,7 +8,7 @@ package net.dries007.tfc.objects.blocks.wood.tree;
 import com.google.common.collect.ImmutableList;
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.client.particle.TFCParticles;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -97,11 +97,11 @@ public class TFCBlockLeaves extends BlockLeaves {
             entityIn.fall((entityIn.fallDistance - 6), 1.0F);
             entityIn.fallDistance = 0;
             // Entity motion is reduced by leaves.
-            entityIn.motionX *= ConfigTFC.General.MISC.leafMovementModifier;
+            entityIn.motionX *= TFCConfig.General.MISC.leafMovementModifier;
             if (entityIn.motionY < 0) {
-                entityIn.motionY *= ConfigTFC.General.MISC.leafMovementModifier;
+                entityIn.motionY *= TFCConfig.General.MISC.leafMovementModifier;
             }
-            entityIn.motionZ *= ConfigTFC.General.MISC.leafMovementModifier;
+            entityIn.motionZ *= TFCConfig.General.MISC.leafMovementModifier;
         }
     }
 
@@ -119,7 +119,7 @@ public class TFCBlockLeaves extends BlockLeaves {
     @Override
     @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ConfigTFC.General.TREE.enableSaplings ? Item.getItemFromBlock(TFCBlockSapling.get(tree)) : Items.AIR;
+        return TFCConfig.General.TREE.enableSaplings ? Item.getItemFromBlock(TFCBlockSapling.get(tree)) : Items.AIR;
     }
 
     @Override

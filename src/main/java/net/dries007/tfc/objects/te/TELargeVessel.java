@@ -10,10 +10,10 @@ import net.dries007.tfc.api.capability.food.FoodTrait;
 import net.dries007.tfc.api.capability.size.CapabilityItemSize;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
-import net.dries007.tfc.objects.blocks.BlockLargeVessel;
+import net.dries007.tfc.objects.blocks.ceramics.TFCBlockLargeVessel;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.inventory.InventoryHelper;
@@ -30,10 +30,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import static net.dries007.tfc.objects.blocks.BlockLargeVessel.SEALED;
+import static net.dries007.tfc.objects.blocks.ceramics.TFCBlockLargeVessel.SEALED;
 
 /**
- * @see BlockLargeVessel
+ * @see TFCBlockLargeVessel
  */
 @ParametersAreNonnullByDefault
 public class TELargeVessel extends TEInventory implements IItemHandlerSidedCallback {
@@ -71,7 +71,7 @@ public class TELargeVessel extends TEInventory implements IItemHandlerSidedCallb
 
     @Nonnull
     public String getSealedDate() {
-        return ICalendarFormatted.getTimeAndDate(sealedCalendarTick, CalendarTFC.CALENDAR_TIME.getDaysInMonth());
+        return ICalendarFormatted.getTimeAndDate(sealedCalendarTick, TFCCalendar.CALENDAR_TIME.getDaysInMonth());
     }
 
     @Override
@@ -90,8 +90,8 @@ public class TELargeVessel extends TEInventory implements IItemHandlerSidedCallb
         }
 
         // Update sealed tick info and sync to client
-        sealedTick = CalendarTFC.PLAYER_TIME.getTicks();
-        sealedCalendarTick = CalendarTFC.CALENDAR_TIME.getTicks();
+        sealedTick = TFCCalendar.PLAYER_TIME.getTicks();
+        sealedCalendarTick = TFCCalendar.CALENDAR_TIME.getTicks();
         sealed = true;
         markForSync();
     }

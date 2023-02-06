@@ -7,18 +7,18 @@ package net.dries007.tfc.objects.blocks.plants;
 
 import git.jbredwards.fluidlogged_api.api.block.IFluidloggable;
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockFaceShape;
@@ -88,7 +88,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return BlocksTFC.isGround(state) || (state.getBlock() == TFCBlockTallWaterPlant.get(plant));
+        return TFCBlocks.isGround(state) || (state.getBlock() == TFCBlockTallWaterPlant.get(plant));
     }
 
     @Override
@@ -134,7 +134,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
     @Override
     public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
         if (!worldIn.isAreaLoaded(pos, 1)) return;
-        Month currentMonth = CalendarTFC.CALENDAR_TIME.getMonthOfYear();
+        Month currentMonth = TFCCalendar.CALENDAR_TIME.getMonthOfYear();
         int currentStage = state.getValue(growthStageProperty);
         int expectedStage = plant.getStageForMonth(currentMonth);
         int currentTime = state.getValue(DAYPERIOD);
@@ -167,8 +167,8 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
         if (!(entityIn instanceof EntityPlayer && ((EntityPlayer) entityIn).isCreative())) {
             double modifier = 0.25 * (4 - state.getValue(AGE));
             modifier = (1 - modifier) * plant.getMovementMod() + modifier;
-            if (modifier < ConfigTFC.General.MISC.minimumPlantMovementModifier) {
-                modifier = ConfigTFC.General.MISC.minimumPlantMovementModifier;
+            if (modifier < TFCConfig.General.MISC.minimumPlantMovementModifier) {
+                modifier = TFCConfig.General.MISC.minimumPlantMovementModifier;
             }
             entityIn.motionX *= modifier;
             entityIn.motionZ *= modifier;
@@ -189,8 +189,8 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
         IBlockState soil = worldIn.getBlockState(pos.down());
 
         if (plant.getWaterType() == SEA_WATER)
-            return BlocksTFC.isSeaWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up()));
-        return BlocksTFC.isFreshWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || BlocksTFC.isGround(soil)) && BlocksTFC.isFreshWater(worldIn.getBlockState(pos.up()));
+            return TFCBlocks.isSeaWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || TFCBlocks.isGround(soil)) && TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up()));
+        return TFCBlocks.isFreshWater(worldIn.getBlockState(pos)) && (this.canSustainBush(soil) || TFCBlocks.isGround(soil)) && TFCBlocks.isFreshWater(worldIn.getBlockState(pos.up()));
     }
 
     @Override
@@ -213,7 +213,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
         if (worldIn.isAirBlock(pos.up())) return false;
         if (up.getBlock() instanceof TFCBlockTallGrassWater) return false;
         if (state.getBlock() == this) {
-            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || BlocksTFC.isGround(soil)) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+            return (soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) || TFCBlocks.isGround(soil)) && plant.isValidTemp(TFCClimate.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
         return this.canSustainBush(soil);
     }
@@ -264,15 +264,15 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
     }
 
     public double getGrowthRate(World world, BlockPos pos) {
-        if (world.isRainingAt(pos)) return ConfigTFC.General.MISC.plantGrowthRate * 5d;
-        else return ConfigTFC.General.MISC.plantGrowthRate;
+        if (world.isRainingAt(pos)) return TFCConfig.General.MISC.plantGrowthRate * 5d;
+        else return TFCConfig.General.MISC.plantGrowthRate;
     }
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!worldIn.isAreaLoaded(pos, 1)) return;
 
-        if (plant.isValidGrowthTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidSunlight(Math.subtractExact(worldIn.getLightFor(EnumSkyBlock.SKY, pos), worldIn.getSkylightSubtracted()))) {
+        if (plant.isValidGrowthTemp(TFCClimate.getActualTemp(worldIn, pos)) && plant.isValidSunlight(Math.subtractExact(worldIn.getLightFor(EnumSkyBlock.SKY, pos), worldIn.getSkylightSubtracted()))) {
             int j = state.getValue(AGE);
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && ForgeHooks.onCropsGrowPre(worldIn, pos.up(), state, true)) {
@@ -281,7 +281,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
                 }
                 ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
-        } else if (!plant.isValidGrowthTemp(ClimateTFC.getActualTemp(worldIn, pos)) || !plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, pos))) {
+        } else if (!plant.isValidGrowthTemp(TFCClimate.getActualTemp(worldIn, pos)) || !plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, pos))) {
             int j = state.getValue(AGE);
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
@@ -325,7 +325,7 @@ public class TFCBlockWaterPlant extends TFCBlockPlant implements IFluidloggable 
     }
 
     int getDayPeriod() {
-        return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
+        return TFCCalendar.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
 
     @Override

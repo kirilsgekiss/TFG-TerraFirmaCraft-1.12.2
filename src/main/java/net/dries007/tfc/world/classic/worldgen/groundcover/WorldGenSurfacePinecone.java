@@ -1,7 +1,7 @@
 package net.dries007.tfc.world.classic.worldgen.groundcover;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.TFCConfig;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.util.EnumFacing;
@@ -36,7 +36,7 @@ public class WorldGenSurfacePinecone implements IWorldGenerator {
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
-            for (int i = 0; i < ConfigTFC.FloraeGeneral.WORLD.groundcoverPineconeFrequency * factor; i++) {
+            for (int i = 0; i < TFCConfig.FloraeGeneral.WORLD.groundcoverPineconeFrequency * factor; i++) {
                 BlockPos pos = new BlockPos(
                         xoff + random.nextInt(16),
                         0,
@@ -59,8 +59,8 @@ public class WorldGenSurfacePinecone implements IWorldGenerator {
         if (pos.getY() > 146 && pos.getY() < 170) {
             if (temp <= 15 && density > 0.3f) {
                 if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP)) {
-                    if (BlocksTFC.isSoil(world.getBlockState(pos.down())) || BlocksTFC.isSoilOrGravel(world.getBlockState(pos.down()))) {
-                        world.setBlockState(pos, BlocksTFC.PINECONE.getDefaultState());
+                    if (TFCBlocks.isSoil(world.getBlockState(pos.down())) || TFCBlocks.isSoilOrGravel(world.getBlockState(pos.down()))) {
+                        world.setBlockState(pos, TFCBlocks.PINECONE.getDefaultState());
                     }
                 }
             }

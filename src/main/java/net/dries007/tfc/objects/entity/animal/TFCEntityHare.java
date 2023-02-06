@@ -5,10 +5,10 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IHuntable;
-import net.dries007.tfc.objects.LootTablesTFC;
+import net.dries007.tfc.objects.TFCLootTables;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.entity.IEntityLivingData;
@@ -49,7 +49,7 @@ public class TFCEntityHare extends TFCEntityRabbit implements IHuntable {
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST || biomeType == BiomeHelper.BiomeType.TEMPERATE_FOREST || biomeType == BiomeHelper.BiomeType.SAVANNA ||
                         biomeType == BiomeHelper.BiomeType.DESERT)) {
-            return ConfigTFC.Animals.HARE.rarity;
+            return TFCConfig.Animals.HARE.rarity;
         }
         return 0;
     }
@@ -72,7 +72,7 @@ public class TFCEntityHare extends TFCEntityRabbit implements IHuntable {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_HARE;
+        return TFCLootTables.ANIMALS_HARE;
     }
 
     @Nullable

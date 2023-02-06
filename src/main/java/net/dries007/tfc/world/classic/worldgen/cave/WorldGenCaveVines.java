@@ -5,7 +5,7 @@ import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingGlowingPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockHangingPlant;
 import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.state.IBlockState;
@@ -37,14 +37,14 @@ public class WorldGenCaveVines extends WorldGenerator {
                 int j = 1 + rng.nextInt(plant.getMaxHeight());
 
                 for (int k = 0; k < j; ++k) {
-                    if (plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, blockpos)) &&
+                    if (plant.isValidTemp(TFCClimate.getActualTemp(worldIn, blockpos)) &&
                             plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, blockpos.down(k))) &&
                             worldIn.isAirBlock(blockpos.down(k)) &&
                             pos.getY() < WorldTypeTFC.SEALEVEL - 3 &&
                             worldIn.getLightFor(EnumSkyBlock.SKY, blockpos) < 14 &&
                             plantBlock.canBlockStay(worldIn, blockpos.down(k), state) &&
                             plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k))) {
-                        int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
+                        int plantAge = plant.getAgeForWorldgen(rng, TFCClimate.getActualTemp(worldIn, blockpos));
                         setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingGlowingPlant.AGE, plantAge));
                     }
                 }
@@ -60,14 +60,14 @@ public class WorldGenCaveVines extends WorldGenerator {
                 int j = 1 + rng.nextInt(plant.getMaxHeight());
 
                 for (int k = 0; k < j; ++k) {
-                    if (plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, blockpos)) &&
+                    if (plant.isValidTemp(TFCClimate.getActualTemp(worldIn, blockpos)) &&
                             plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, blockpos.down(k))) &&
                             worldIn.isAirBlock(blockpos.down(k)) &&
                             pos.getY() < WorldTypeTFC.SEALEVEL - 3 &&
                             worldIn.getLightFor(EnumSkyBlock.SKY, blockpos) < 14 &&
                             plantBlock.canBlockStay(worldIn, blockpos.down(k), state) &&
                             plantBlock.canPlaceBlockAt(worldIn, blockpos.down(k))) {
-                        int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
+                        int plantAge = plant.getAgeForWorldgen(rng, TFCClimate.getActualTemp(worldIn, blockpos));
                         setBlockAndNotifyAdequately(worldIn, blockpos.down(k), state.withProperty(TFCBlockHangingPlant.AGE, plantAge));
                     }
                 }

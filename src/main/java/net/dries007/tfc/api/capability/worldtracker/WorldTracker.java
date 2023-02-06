@@ -6,7 +6,7 @@
 package net.dries007.tfc.api.capability.worldtracker;
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.util.FallingBlockManager;
 import net.dries007.tfc.client.TFCSounds;
 import net.minecraft.block.material.Material;
@@ -50,7 +50,7 @@ public class WorldTracker implements ICapabilitySerializable<NBTTagCompound> {
                         // Check the current position for collapsing
                         IBlockState stateAt = world.getBlockState(posAt);
                         FallingBlockManager.Specification specAt = FallingBlockManager.getSpecification(stateAt);
-                        if (specAt != null && specAt.isCollapsable() && FallingBlockManager.canFallThrough(world, posAt.down(), Material.ROCK) && specAt.canCollapse(world, posAt) && posAt.distanceSq(collapse.centerPos) < collapse.radiusSquared && RANDOM.nextFloat() < ConfigTFC.General.FALLABLE.propagateCollapseChance) {
+                        if (specAt != null && specAt.isCollapsable() && FallingBlockManager.canFallThrough(world, posAt.down(), Material.ROCK) && specAt.canCollapse(world, posAt) && posAt.distanceSq(collapse.centerPos) < collapse.radiusSquared && RANDOM.nextFloat() < TFCConfig.General.FALLABLE.propagateCollapseChance) {
                             IBlockState fallState = specAt.getResultingState(stateAt);
                             world.setBlockState(posAt, fallState);
                             FallingBlockManager.checkFalling(world, posAt, fallState, true);

@@ -5,14 +5,14 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.api.util.IRidable;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -51,7 +51,7 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
     private static final DataParameter<Boolean> HALTER = EntityDataManager.createKey(TFCEntityCamel.class, DataSerializers.BOOLEAN);
 
     public TFCEntityCamel(World world) {
-        this(world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(ConfigTFC.Animals.CAMEL.adulthood, ConfigTFC.Animals.CAMEL.elder));
+        this(world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(TFCConfig.Animals.CAMEL.adulthood, TFCConfig.Animals.CAMEL.elder));
         this.setSize(0.9F, 2.0F);
     }
 
@@ -155,7 +155,7 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
 
     @Override
     public void onFertilized(@Nonnull IAnimalTFC male) {
-        this.setPregnantTime(CalendarTFC.PLAYER_TIME.getTotalDays());
+        this.setPregnantTime(TFCCalendar.PLAYER_TIME.getTotalDays());
         int selection = this.rand.nextInt(9);
         int i;
         if (selection < 4) {
@@ -180,12 +180,12 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.CAMEL.adulthood;
+        return TFCConfig.Animals.CAMEL.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.CAMEL.elder;
+        return TFCConfig.Animals.CAMEL.elder;
     }
 
     @Override
@@ -193,14 +193,14 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.DESERT || biomeType == BiomeHelper.BiomeType.SAVANNA)) {
-            return ConfigTFC.Animals.CAMEL.rarity;
+            return TFCConfig.Animals.CAMEL.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -222,7 +222,7 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.CAMEL.gestation;
+        return TFCConfig.Animals.CAMEL.gestation;
     }
 
     @Override
@@ -257,7 +257,7 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
 
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_CAMEL;
+        return TFCLootTables.ANIMALS_CAMEL;
     }
 
     @Override
@@ -278,16 +278,16 @@ public class TFCEntityCamel extends TFCEntityLlama implements IAnimalTFC, ILives
         } else if (other == this) {
             // Only called if this animal is interacted with a spawn egg
             // Try to return to vanilla's default method a baby of this animal, as if bred normally
-            return new TFCEntityCamel(this.world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            return new TFCEntityCamel(this.world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
         }
         return null;
     }
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.CAMEL.babies; //one always
+        int numberOfChildren = TFCConfig.Animals.CAMEL.babies; //one always
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityCamel baby = new TFCEntityCamel(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityCamel baby = new TFCEntityCamel(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             if (this.geneHealth > 0) {
                 baby.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.geneHealth);

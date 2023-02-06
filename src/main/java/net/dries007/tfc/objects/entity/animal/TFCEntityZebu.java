@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -30,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class TFCEntityZebu extends TFCEntityCow implements ILivestock {
     @SuppressWarnings("unused")
     public TFCEntityZebu(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.ZEBU.adulthood, ConfigTFC.Animals.ZEBU.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.ZEBU.adulthood, TFCConfig.Animals.ZEBU.elder));
     }
 
     public TFCEntityZebu(World worldIn, Gender gender, int birthDay) {
@@ -43,16 +43,16 @@ public class TFCEntityZebu extends TFCEntityCow implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST)) {
-            return ConfigTFC.Animals.ZEBU.rarity;
+            return TFCConfig.Animals.ZEBU.rarity;
         }
         return 0;
     }
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.ZEBU.babies;
+        int numberOfChildren = TFCConfig.Animals.ZEBU.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityZebu baby = new TFCEntityZebu(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityZebu baby = new TFCEntityZebu(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             baby.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
             this.world.spawnEntity(baby);
@@ -61,12 +61,12 @@ public class TFCEntityZebu extends TFCEntityCow implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.ZEBU.gestation;
+        return TFCConfig.Animals.ZEBU.gestation;
     }
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.ZEBU.oldDeathChance;
+        return TFCConfig.Animals.ZEBU.oldDeathChance;
     }
 
     @Override
@@ -76,17 +76,17 @@ public class TFCEntityZebu extends TFCEntityCow implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.ZEBU.adulthood;
+        return TFCConfig.Animals.ZEBU.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.ZEBU.elder;
+        return TFCConfig.Animals.ZEBU.elder;
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.ZEBU.milkTicks + getMilkedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.ZEBU.milkTicks + getMilkedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -112,7 +112,7 @@ public class TFCEntityZebu extends TFCEntityCow implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_ZEBU;
+        return TFCLootTables.ANIMALS_ZEBU;
     }
 
     @Override

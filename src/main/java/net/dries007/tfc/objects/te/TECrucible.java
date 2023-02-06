@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.te;
 
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.IMaterialHandler;
 import net.dries007.tfc.api.capability.ISmallVesselHandler;
@@ -15,7 +15,7 @@ import net.dries007.tfc.api.capability.food.FoodTrait;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.util.Alloy;
@@ -62,7 +62,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     public TECrucible() {
         super(10);
 
-        this.alloy = new Alloy(ConfigTFC.Devices.CRUCIBLE.tank); // Side effect: Maximum amount only matches config if not loading from disk
+        this.alloy = new Alloy(TFCConfig.Devices.CRUCIBLE.tank); // Side effect: Maximum amount only matches config if not loading from disk
         this.inventoryWrapperExtract = new ItemHandlerSidedWrapper(this, inventory, EnumFacing.DOWN);
         this.inventoryWrapperInsert = new ItemHandlerSidedWrapper(this, inventory, EnumFacing.UP);
 
@@ -99,10 +99,10 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     public void update() {
         super.update();
         if (!world.isRemote) {
-            temperature = CapabilityItemHeat.adjustTempTowards(temperature, targetTemperature, (float) ConfigTFC.Devices.TEMPERATURE.heatingModifier);
+            temperature = CapabilityItemHeat.adjustTempTowards(temperature, targetTemperature, (float) TFCConfig.Devices.TEMPERATURE.heatingModifier);
             if (targetTemperature > 0) {
                 // Crucible target temperature decays constantly, since it is set by outside providers
-                targetTemperature -= (float) ConfigTFC.Devices.TEMPERATURE.heatingModifier;
+                targetTemperature -= (float) TFCConfig.Devices.TEMPERATURE.heatingModifier;
             }
 
             // Input draining
@@ -136,10 +136,10 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
                         if (mold.isMolten()) {
                             // Use mold.getMetal() to avoid off by one errors during draining
                             Material metal = mold.getMaterial();
-                            FluidStack fluidStack = mold.drain(ConfigTFC.Devices.CRUCIBLE.pouringSpeed, true);
+                            FluidStack fluidStack = mold.drain(TFCConfig.Devices.CRUCIBLE.pouringSpeed, true);
                             if (fluidStack != null && fluidStack.amount > 0) {
                                 lastFillTimer = 5;
-                                if (!ConfigTFC.Devices.CRUCIBLE.enableAllSlots) {
+                                if (!TFCConfig.Devices.CRUCIBLE.enableAllSlots) {
                                     canFill = false;
                                 }
                                 alloy.add(metal, fluidStack.amount);
@@ -234,7 +234,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
         temperature = nbt.getFloat("temp");
 
         // Voids surplus and set the maximum amount if config was changed
-        alloy.setMaxAmount(ConfigTFC.Devices.CRUCIBLE.tank);
+        alloy.setMaxAmount(TFCConfig.Devices.CRUCIBLE.tank);
 
         // Also set the cached alloyResult:
         alloyResult = alloy.getResult();
@@ -277,7 +277,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
     public void onBreakBlock(World world, BlockPos pos, IBlockState state) {
         // Only carry to itemstack the alloy fluid
         super.onBreakBlock(world, pos, state);
-        ItemStack stack = new ItemStack(BlocksTFC.CRUCIBLE);
+        ItemStack stack = new ItemStack(TFCBlocks.CRUCIBLE);
         if (alloy.getAmount() > 0) {
             stack.setTagCompound(this.writeToItemTag());
         }
@@ -317,7 +317,7 @@ public class TECrucible extends TETickableInventory implements ITickable, ITileF
         alloy.deserializeNBT(nbt.getCompoundTag("alloy"));
 
         // Voids surplus and set the maximum amount if config was changed
-        alloy.setMaxAmount(ConfigTFC.Devices.CRUCIBLE.tank);
+        alloy.setMaxAmount(TFCConfig.Devices.CRUCIBLE.tank);
 
         // Also set the cached alloyResult:
         alloyResult = alloy.getResult();

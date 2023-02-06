@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.blocks.plants;
 
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyDirection;
@@ -98,7 +98,7 @@ public class TFCBlockEpiphyte extends TFCBlockPlant {
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
         for (EnumFacing enumfacing : FACING.getAllowedValues()) {
             if (this.canPlaceAt(worldIn, pos, enumfacing)) {
-                return plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+                return plant.isValidTemp(TFCClimate.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
             }
         }
 

@@ -34,7 +34,6 @@ public class WorldGenLightstones implements IWorldGenerator {
                     lightstoneBlock.canBlockStay(world, blockPos, state) &&
                     lightstoneBlock.canPlaceBlockAt(world, blockPos))
                 {
-                    //TFCFlorae.getLog().warn("TFCFlorae: Lightstones attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                     world.setBlockState(blockPos, BlocksTFCF.LIGHTSTONE.getDefaultState());
                 }
             }

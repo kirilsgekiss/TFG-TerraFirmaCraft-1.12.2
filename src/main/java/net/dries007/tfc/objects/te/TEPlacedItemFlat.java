@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.item.ItemStack;
@@ -52,7 +52,7 @@ public class TEPlacedItemFlat extends TEBase {
     @Override
     @SideOnly(Side.CLIENT)
     public double getMaxRenderDistanceSquared() {
-        return ConfigTFC.Client.RENDER.placedItemFlatDistance * ConfigTFC.Client.RENDER.placedItemFlatDistance;
+        return TFCConfig.Client.RENDER.placedItemFlatDistance * TFCConfig.Client.RENDER.placedItemFlatDistance;
     }
 
     @Override

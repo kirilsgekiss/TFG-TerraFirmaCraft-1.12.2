@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.client.render.projectile;
 
-import net.dries007.tfc.objects.entity.projectile.EntityThrownWeapon;
+import net.dries007.tfc.objects.entity.projectile.TFCEntityThrownWeapon;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 
 @SideOnly(Side.CLIENT)
-public class RenderThrownWeapon<T extends EntityThrownWeapon> extends Render<T> {
+public class RenderThrownWeapon<T extends TFCEntityThrownWeapon> extends Render<T> {
     private final RenderItem itemRenderer;
 
     public RenderThrownWeapon(RenderManager renderManagerIn) {

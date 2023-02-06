@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.items.itemblock;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.util.Alloy;
 import net.minecraft.block.Block;
@@ -33,7 +33,7 @@ public class ItemBlockCrucible extends TFCItemBlock {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         NBTTagCompound nbt = stack.getTagCompound();
         if (nbt != null) {
-            Alloy alloy = new Alloy(ConfigTFC.Devices.CRUCIBLE.tank);
+            Alloy alloy = new Alloy(TFCConfig.Devices.CRUCIBLE.tank);
             alloy.deserializeNBT(nbt.getCompoundTag("alloy"));
             String metalName = (new TextComponentTranslation(alloy.getResult().getUnlocalizedName())).getFormattedText();
             tooltip.add(I18n.format(TerraFirmaCraft.MOD_ID + ".tooltip.crucible_alloy", alloy.getAmount(), metalName));

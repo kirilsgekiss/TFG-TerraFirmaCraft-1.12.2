@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -14,7 +14,7 @@ import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
 import net.dries007.tfc.api.util.IHeatConsumerBlock;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 import net.dries007.tfc.util.fuel.Fuel;
 import net.dries007.tfc.util.fuel.FuelManager;
@@ -45,7 +45,7 @@ public class TECharcoalForge extends TETickableInventory implements ICalendarTic
 
     public static final int FIELD_TEMPERATURE = 0;
 
-    private static final int MAX_AIR_TICKS = ConfigTFC.Devices.BELLOWS.maxTicks;
+    private static final int MAX_AIR_TICKS = TFCConfig.Devices.BELLOWS.maxTicks;
 
     private final HeatRecipe[] cachedRecipes = new HeatRecipe[5];
     private boolean requiresSlotUpdate = false;
@@ -65,7 +65,7 @@ public class TECharcoalForge extends TETickableInventory implements ICalendarTic
         burnTemperature = 0;
         burnTicks = 0;
         airTicks = 0;
-        lastPlayerTick = CalendarTFC.PLAYER_TIME.getTicks();
+        lastPlayerTick = TFCCalendar.PLAYER_TIME.getTicks();
 
         Arrays.fill(cachedRecipes, null);
     }
@@ -81,7 +81,7 @@ public class TECharcoalForge extends TETickableInventory implements ICalendarTic
      * Consume more fuel on rain
      */
     public void onRainDrop() {
-        burnTicks -= ConfigTFC.Devices.CHARCOAL_FORGE.rainTicks;
+        burnTicks -= TFCConfig.Devices.CHARCOAL_FORGE.rainTicks;
         // Play the "tsssss" sound
         world.playSound(null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 0.8f, 0.8f + Constants.RNG.nextFloat() * 0.4f);
     }

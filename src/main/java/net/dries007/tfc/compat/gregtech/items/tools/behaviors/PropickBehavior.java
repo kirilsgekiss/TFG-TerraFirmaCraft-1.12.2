@@ -3,7 +3,7 @@ package net.dries007.tfc.compat.gregtech.items.tools.behaviors;
 import gregtech.api.items.toolitem.ToolHelper;
 import gregtech.api.items.toolitem.behavior.IToolBehavior;
 import gregtech.common.blocks.BlockOre;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.events.ProspectEvent;
@@ -90,7 +90,7 @@ public class PropickBehavior implements IToolBehavior {
                         ProspectResult result = (ProspectResult) results.toArray()[RANDOM.nextInt(results.size())];
                         event = new ProspectEvent.Server(player, pos, result.getType(), result.ore);
 
-                        if (ConfigTFC.General.DEBUG.enable) {
+                        if (TFCConfig.General.DEBUG.enable) {
                             for (ProspectResult debugResult : results) {
                                 TerraFirmaCraft.getLog().debug(debugResult.ore.getDisplayName() + ": " + String.format("%.02f", debugResult.score));
                             }

@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.te;
 
 import com.google.common.collect.ImmutableList;
 import gregtech.api.items.toolitem.ToolHelper;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
@@ -15,8 +15,8 @@ import net.dries007.tfc.api.capability.metal.CapabilityMetalItem;
 import net.dries007.tfc.api.capability.metal.IMetalItem;
 import net.dries007.tfc.api.recipes.BlastFurnaceRecipe;
 import net.dries007.tfc.api.util.IHeatConsumerBlock;
-import net.dries007.tfc.objects.blocks.BlockMolten;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlockMolten;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockBlastFurnace;
 import net.dries007.tfc.util.Alloy;
 import net.dries007.tfc.util.Helpers;
@@ -49,7 +49,7 @@ import static net.dries007.tfc.objects.blocks.property.ILightableBlock.LIT;
 public class TEBlastFurnace extends TETickableInventory implements ITickable, ITileFields {
     public static final int SLOT_TUYERE = 0;
     public static final int FIELD_TEMPERATURE = 0, FIELD_ORE = 1, FIELD_FUEL = 2, FIELD_MELT = 3, FIELD_ORE_UNITS = 4, CHIMNEY_LEVELS = 5;
-    private static final int MAX_AIR_TICKS = ConfigTFC.Devices.BELLOWS.maxTicks;
+    private static final int MAX_AIR_TICKS = TFCConfig.Devices.BELLOWS.maxTicks;
 
     private final List<ItemStack> oreStacks = new ArrayList<>();
     private final List<ItemStack> fuelStacks = new ArrayList<>();
@@ -64,7 +64,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
     public TEBlastFurnace() {
         super(1);
         // Blast furnaces hold the same amount of crucibles, should it matter to be different?
-        this.alloy = new Alloy(ConfigTFC.Devices.CRUCIBLE.tank);
+        this.alloy = new Alloy(TFCConfig.Devices.CRUCIBLE.tank);
     }
 
     public float getTemperature() {
@@ -132,7 +132,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
     public void onBreakBlock(World worldIn, BlockPos pos, IBlockState state) {
         // Dump everything in world
         for (int i = 1; i < 6; i++) {
-            if (world.getBlockState(pos.up(i)).getBlock() == BlocksTFC.MOLTEN) {
+            if (world.getBlockState(pos.up(i)).getBlock() == TFCBlocks.MOLTEN) {
                 world.setBlockToAir(pos.up(i));
             }
         }
@@ -227,7 +227,7 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
                         ItemStack fuelStack = fuelStacks.get(0);
                         fuelStacks.remove(0);
                         Fuel fuel = FuelManager.getFuel(fuelStack);
-                        burnTicksLeft = (int) (Math.ceil(fuel.getAmount() / ConfigTFC.Devices.BLAST_FURNACE.consumption));
+                        burnTicksLeft = (int) (Math.ceil(fuel.getAmount() / TFCConfig.Devices.BLAST_FURNACE.consumption));
                         burnTemperature = fuel.getTemperature();
                     } else {
                         burnTemperature = 0;
@@ -438,14 +438,14 @@ public class TEBlastFurnace extends TETickableInventory implements ITickable, IT
             if (slagLayers > 0) {
                 if (slagLayers >= 4) {
                     slagLayers -= 4;
-                    world.setBlockState(pos.up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, 4));
+                    world.setBlockState(pos.up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(TFCBlockMolten.LAYERS, 4));
                 } else {
-                    world.setBlockState(pos.up(i), BlocksTFC.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(BlockMolten.LAYERS, slagLayers));
+                    world.setBlockState(pos.up(i), TFCBlocks.MOLTEN.getDefaultState().withProperty(LIT, cooking).withProperty(TFCBlockMolten.LAYERS, slagLayers));
                     slagLayers = 0;
                 }
             } else {
                 //Remove any surplus slag(ie: after cooking/structure became compromised)
-                if (world.getBlockState(pos.up(i)).getBlock() == BlocksTFC.MOLTEN) {
+                if (world.getBlockState(pos.up(i)).getBlock() == TFCBlocks.MOLTEN) {
                     world.setBlockToAir(pos.up(i));
                 }
             }

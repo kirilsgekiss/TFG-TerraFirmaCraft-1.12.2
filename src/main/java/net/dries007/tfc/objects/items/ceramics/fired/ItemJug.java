@@ -6,10 +6,10 @@
 package net.dries007.tfc.objects.items.ceramics.fired;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandler;
 import net.dries007.tfc.objects.fluids.properties.DrinkableProperty;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
@@ -59,7 +59,7 @@ public class ItemJug extends ItemPottery {
             IFluidHandler jugCap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
             if (jugCap != null) {
                 if (jugCap.drain(CAPACITY, false) != null) {
-                    if (!world.isRemote && ConfigTFC.Devices.JUG.dumpWaterOnShiftRightClick && player.isSneaking()) {
+                    if (!world.isRemote && TFCConfig.Devices.JUG.dumpWaterOnShiftRightClick && player.isSneaking()) {
                         jugCap.drain(CAPACITY, true);
                         world.playSound(null, player.posX, player.posY + 0.5, player.posZ, TFCSounds.JUG_FILL, SoundCategory.BLOCKS, 1.0F, 0.5F);
                         Vec3d look = player.getLookVec();
@@ -98,7 +98,7 @@ public class ItemJug extends ItemPottery {
         if (jugCap != null) {
             FluidStack fluidConsumed = jugCap.drain(CAPACITY, true);
             if (fluidConsumed != null && entityLiving instanceof EntityPlayer) {
-                DrinkableProperty drinkable = FluidsTFC.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
+                DrinkableProperty drinkable = TFCFluids.getWrapper(fluidConsumed.getFluid()).get(DrinkableProperty.DRINKABLE);
                 if (drinkable != null) {
                     drinkable.onDrink((EntityPlayer) entityLiving);
                 }
@@ -141,7 +141,7 @@ public class ItemJug extends ItemPottery {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (isInCreativeTab(tab)) {
             items.add(new ItemStack(this));
-            for (FluidWrapper wrapper : FluidsTFC.getAllWrappers()) {
+            for (FluidWrapper wrapper : TFCFluids.getAllWrappers()) {
                 if (wrapper.get(DrinkableProperty.DRINKABLE) != null) {
                     ItemStack stack = new ItemStack(this);
                     IFluidHandlerItem cap = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
@@ -161,6 +161,6 @@ public class ItemJug extends ItemPottery {
 
     @Override
     public ICapabilityProvider initCapabilities(@Nonnull ItemStack stack, @Nullable NBTTagCompound nbt) {
-        return new FluidWhitelistHandler(stack, CAPACITY, FluidsTFC.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
+        return new FluidWhitelistHandler(stack, CAPACITY, TFCFluids.getAllWrappers().stream().filter(x -> x.get(DrinkableProperty.DRINKABLE) != null).map(FluidWrapper::get).collect(Collectors.toSet()));
     }
 }

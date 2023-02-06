@@ -8,7 +8,7 @@ package net.dries007.tfc.api.recipes.anvil;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.compat.jei.IJEISimpleRecipe;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
-import net.dries007.tfc.objects.te.TEAnvilTFC;
+import net.dries007.tfc.objects.te.TETFCAnvil;
 import net.dries007.tfc.util.forge.ForgeRule;
 import net.dries007.tfc.util.forge.ForgeSteps;
 import net.dries007.tfc.util.skills.SmithingSkill;
@@ -93,7 +93,7 @@ public class AnvilRecipe extends IForgeRegistryEntry.Impl<AnvilRecipe> implement
 
     public int getTarget(long worldSeed) {
         RNG.setSeed(worldSeed + workingSeed);
-        return 40 + RNG.nextInt(TEAnvilTFC.WORK_MAX + -2 * 40);
+        return 40 + RNG.nextInt(TETFCAnvil.WORK_MAX + -2 * 40);
     }
 
     @Override

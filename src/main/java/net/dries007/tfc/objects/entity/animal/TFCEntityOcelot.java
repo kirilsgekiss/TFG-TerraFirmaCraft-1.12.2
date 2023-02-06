@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -14,9 +14,9 @@ import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.entity.*;
@@ -67,7 +67,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
 
     @SuppressWarnings("unused")
     public TFCEntityOcelot(World world) {
-        this(world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(ConfigTFC.Animals.OCELOT.adulthood, ConfigTFC.Animals.OCELOT.elder));
+        this(world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(TFCConfig.Animals.OCELOT.adulthood, TFCConfig.Animals.OCELOT.elder));
     }
 
     public TFCEntityOcelot(World world, IAnimalTFC.Gender gender, int birthDay) {
@@ -76,9 +76,9 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
         this.setBirthDay(birthDay);
         this.setFamiliarity(0);
         this.setGrowingAge(0); //We don't use this
-        this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
-        this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
-        this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+        this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
+        this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
+        this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
         this.fertilized = false;
     }
 
@@ -131,29 +131,29 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
 
     @Override
     public void onFertilized(@Nonnull IAnimalTFC male) {
-        this.pregnantTime = CalendarTFC.PLAYER_TIME.getTotalDays();
+        this.pregnantTime = TFCCalendar.PLAYER_TIME.getTotalDays();
     }
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.OCELOT.adulthood;
+        return TFCConfig.Animals.OCELOT.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.OCELOT.elder;
+        return TFCConfig.Animals.OCELOT.elder;
     }
 
     @Override
     public boolean isReadyToMate() {
         if (this.getAge() != Age.ADULT || this.getFamiliarity() < 0.3f || this.isFertilized() || this.isHungry())
             return false;
-        return this.matingTime + TFCEntityAnimal.MATING_COOLDOWN_DEFAULT_TICKS <= CalendarTFC.PLAYER_TIME.getTicks();
+        return this.matingTime + TFCEntityAnimal.MATING_COOLDOWN_DEFAULT_TICKS <= TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     @Override
     public boolean isHungry() {
-        return lastFed < CalendarTFC.PLAYER_TIME.getTotalDays();
+        return lastFed < TFCCalendar.PLAYER_TIME.getTotalDays();
     }
 
     @Override
@@ -188,14 +188,14 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST || biomeType == BiomeHelper.BiomeType.SAVANNA)) {
-            return ConfigTFC.Animals.OCELOT.rarity;
+            return TFCConfig.Animals.OCELOT.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MOTHER_AND_CHILDREN_OR_SOLO_MALE;
+        return TFCAnimalGroupingRules.MOTHER_AND_CHILDREN_OR_SOLO_MALE;
     }
 
     @Override
@@ -209,7 +209,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
     }
 
     public long gestationDays() {
-        return ConfigTFC.Animals.OCELOT.gestation;
+        return TFCConfig.Animals.OCELOT.gestation;
     }
 
     @Override
@@ -219,45 +219,45 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
             setScaleForAge(false);
         }
         if (!this.world.isRemote) {
-            if (this.isFertilized() && CalendarTFC.PLAYER_TIME.getTotalDays() >= pregnantTime + gestationDays()) {
+            if (this.isFertilized() && TFCCalendar.PLAYER_TIME.getTotalDays() >= pregnantTime + gestationDays()) {
                 birthChildren();
                 this.setFertilized(false);
             }
             // Is it time to decay familiarity?
             // If this entity was never fed(eg: new born, wild)
             // or wasn't fed yesterday(this is the starting of the second day)
-            if (this.lastFDecay > -1 && this.lastFDecay + 1 < CalendarTFC.PLAYER_TIME.getTotalDays()) {
+            if (this.lastFDecay > -1 && this.lastFDecay + 1 < TFCCalendar.PLAYER_TIME.getTotalDays()) {
                 float familiarity = getFamiliarity();
                 if (familiarity < 0.3f) {
-                    familiarity -= 0.02 * (CalendarTFC.PLAYER_TIME.getTotalDays() - this.lastFDecay);
-                    this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+                    familiarity -= 0.02 * (TFCCalendar.PLAYER_TIME.getTotalDays() - this.lastFDecay);
+                    this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
                     this.setFamiliarity(familiarity);
                 }
             }
             if (this.getGender() == Gender.MALE && this.isReadyToMate()) {
-                this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
+                this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
                 TFCEntityAnimal.findFemaleMate(this);
             }
-            if (this.getAge() == Age.OLD && lastDeath < CalendarTFC.PLAYER_TIME.getTotalDays()) {
-                this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
+            if (this.getAge() == Age.OLD && lastDeath < TFCCalendar.PLAYER_TIME.getTotalDays()) {
+                this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
                 // Randomly die of old age, tied to entity UUID and calendar time
-                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * CalendarTFC.PLAYER_TIME.getTotalDays());
-                if (random.nextDouble() < ConfigTFC.Animals.OCELOT.oldDeathChance) {
+                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * TFCCalendar.PLAYER_TIME.getTotalDays());
+                if (random.nextDouble() < TFCConfig.Animals.OCELOT.oldDeathChance) {
                     this.setDead();
                 }
             }
             // Wild animals disappear after 125% lifespan
             if (this.getDaysToElderly() > 0 && this.getFamiliarity() < 0.10F &&
-                    (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= CalendarTFC.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
+                    (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= TFCCalendar.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
                 this.setDead();
             }
         }
     }
 
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.OCELOT.babies;
+        int numberOfChildren = TFCConfig.Animals.OCELOT.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityOcelot baby = new TFCEntityOcelot(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityOcelot baby = new TFCEntityOcelot(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             if (this.isTamed()) {
                 baby.setOwnerId(this.getOwnerId());
@@ -273,7 +273,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
         super.initEntityAI();
 
         int priority = 1;
-        for (String input : ConfigTFC.Animals.OCELOT.huntCreatures) {
+        for (String input : TFCConfig.Animals.OCELOT.huntCreatures) {
             ResourceLocation key = new ResourceLocation(input);
             EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(key);
             if (entityEntry != null) {
@@ -324,7 +324,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
 
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_OCELOT;
+        return TFCLootTables.ANIMALS_OCELOT;
     }
 
     @Override
@@ -365,7 +365,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
                         }
                     }
                     if (!this.world.isRemote) {
-                        lastFed = CalendarTFC.PLAYER_TIME.getTotalDays();
+                        lastFed = TFCCalendar.PLAYER_TIME.getTotalDays();
                         lastFDecay = lastFed; //No decay needed
                         this.consumeItemFromStack(player, itemstack);
                         if (this.getAge() == Age.CHILD || this.getFamiliarity() < getAdultFamiliarityCap()) {
@@ -402,7 +402,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
         } else if (other == this) {
             // Only called if this animal is interacted with a spawn egg
             // Try to return to vanilla's default method a baby of this animal, as if bred normally
-            TFCEntityOcelot baby = new TFCEntityOcelot(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityOcelot baby = new TFCEntityOcelot(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             if (this.isTamed()) {
                 baby.setOwnerId(this.getOwnerId());
                 baby.setTamed(true);
@@ -425,7 +425,7 @@ public class TFCEntityOcelot extends EntityOcelot implements IAnimalTFC, ILivest
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
                 && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
                 && !this.world.containsAnyLiquid(getEntityBoundingBox())
-                && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
+                && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Nonnull

@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.entity.animal;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
@@ -16,11 +16,11 @@ import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.api.util.IRidable;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.entity.EntitiesTFC;
-import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.entity.TFCEntities;
+import net.dries007.tfc.objects.potioneffects.TFCPotionEffects;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.BlockChest;
@@ -72,7 +72,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
     private static final DataParameter<Boolean> FERTILIZED = EntityDataManager.createKey(TFCEntityDonkey.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> HALTER = EntityDataManager.createKey(TFCEntityDonkey.class, DataSerializers.BOOLEAN);
     // The time(in days) this entity became pregnant
-    private static final DataParameter<Long> PREGNANT_TIME = EntityDataManager.createKey(TFCEntityDonkey.class, EntitiesTFC.getLongDataSerializer());
+    private static final DataParameter<Long> PREGNANT_TIME = EntityDataManager.createKey(TFCEntityDonkey.class, TFCEntities.getLongDataSerializer());
     private long lastFed; //Last time(in days) this entity was fed
     private long lastFDecay; //Last time(in days) this entity's familiarity had decayed
     private long matingTime; //The last time(in ticks) this male tried fertilizing females
@@ -81,7 +81,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
     private float geneJump, geneHealth, geneSpeed; // Basic genetic selection based on vanilla's horse offspring
 
     public TFCEntityDonkey(World world) {
-        this(world, Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(ConfigTFC.Animals.DONKEY.adulthood, ConfigTFC.Animals.DONKEY.elder));
+        this(world, Gender.valueOf(Constants.RNG.nextBoolean()), TFCEntityAnimal.getRandomGrowth(TFCConfig.Animals.DONKEY.adulthood, TFCConfig.Animals.DONKEY.elder));
     }
 
     public TFCEntityDonkey(World world, Gender gender, int birthDay) {
@@ -90,9 +90,9 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
         this.setBirthDay(birthDay);
         this.setFamiliarity(0);
         this.setGrowingAge(0); //We don't use this
-        this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
-        this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
-        this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+        this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
+        this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
+        this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
         this.setFertilized(false);
         this.geneHealth = 0;
         this.geneJump = 0;
@@ -148,7 +148,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
 
     @Override
     public void onFertilized(@Nonnull IAnimalTFC male) {
-        this.setPregnantTime(CalendarTFC.PLAYER_TIME.getTotalDays());
+        this.setPregnantTime(TFCCalendar.PLAYER_TIME.getTotalDays());
         // If mating with other types of horse, mark children to be mules
         if (male.getClass() != this.getClass()) {
             this.birthMule = true;
@@ -162,24 +162,24 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.DONKEY.adulthood;
+        return TFCConfig.Animals.DONKEY.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.DONKEY.elder;
+        return TFCConfig.Animals.DONKEY.elder;
     }
 
     @Override
     public boolean isReadyToMate() {
         if (this.getAge() != Age.ADULT || this.getFamiliarity() < 0.3f || this.isFertilized() || this.isHungry())
             return false;
-        return this.matingTime + TFCEntityAnimal.MATING_COOLDOWN_DEFAULT_TICKS <= CalendarTFC.PLAYER_TIME.getTicks();
+        return this.matingTime + TFCEntityAnimal.MATING_COOLDOWN_DEFAULT_TICKS <= TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     @Override
     public boolean isHungry() {
-        return lastFed < CalendarTFC.PLAYER_TIME.getTotalDays();
+        return lastFed < TFCCalendar.PLAYER_TIME.getTotalDays();
     }
 
     @Override
@@ -206,7 +206,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
                 && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
                 && !this.world.containsAnyLiquid(getEntityBoundingBox())
-                && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
+                && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Override
@@ -234,14 +234,14 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS)) {
-            return ConfigTFC.Animals.DONKEY.rarity;
+            return TFCConfig.Animals.DONKEY.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.ELDER_AND_POPULATION;
+        return TFCAnimalGroupingRules.ELDER_AND_POPULATION;
     }
 
     @Override
@@ -263,7 +263,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
     }
 
     public long gestationDays() {
-        return ConfigTFC.Animals.DONKEY.gestation;
+        return TFCConfig.Animals.DONKEY.gestation;
     }
 
     @Override
@@ -355,7 +355,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
                         }
                     }
                     if (!this.world.isRemote) {
-                        lastFed = CalendarTFC.PLAYER_TIME.getTotalDays();
+                        lastFed = TFCCalendar.PLAYER_TIME.getTotalDays();
                         lastFDecay = lastFed; //No decay needed
                         this.consumeItemFromStack(player, stack);
                         if (this.getAge() == Age.CHILD || this.getFamiliarity() < getAdultFamiliarityCap()) {
@@ -429,10 +429,10 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
                 }
                 if (hugeHeavyCount >= 2) {
                     // Does not work when ridden, mojang bug: https://bugs.mojang.com/browse/MC-121788
-                    this.addPotionEffect(new PotionEffect(PotionEffectsTFC.OVERBURDENED, 25, 125, false, false));
+                    this.addPotionEffect(new PotionEffect(TFCPotionEffects.OVERBURDENED, 25, 125, false, false));
                 }
             }
-            if (this.isFertilized() && CalendarTFC.PLAYER_TIME.getTotalDays() >= getPregnantTime() + gestationDays()) {
+            if (this.isFertilized() && TFCCalendar.PLAYER_TIME.getTotalDays() >= getPregnantTime() + gestationDays()) {
                 birthChildren();
                 this.setFertilized(false);
             }
@@ -440,31 +440,31 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
             // Is it time to decay familiarity?
             // If this entity was never fed(eg: new born, wild)
             // or wasn't fed yesterday(this is the starting of the second day)
-            if (this.lastFDecay > -1 && this.lastFDecay + 1 < CalendarTFC.PLAYER_TIME.getTotalDays()) {
+            if (this.lastFDecay > -1 && this.lastFDecay + 1 < TFCCalendar.PLAYER_TIME.getTotalDays()) {
                 float familiarity = getFamiliarity();
                 if (familiarity < 0.3f) {
-                    familiarity -= 0.02 * (CalendarTFC.PLAYER_TIME.getTotalDays() - this.lastFDecay);
-                    this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+                    familiarity -= 0.02 * (TFCCalendar.PLAYER_TIME.getTotalDays() - this.lastFDecay);
+                    this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
                     this.setFamiliarity(familiarity);
                 }
             }
             if (this.getGender() == Gender.MALE && this.isReadyToMate()) {
-                this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
+                this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
                 if (findFemaleMate()) {
                     this.setInLove(null);
                 }
             }
-            if (this.getAge() == Age.OLD && lastDeath < CalendarTFC.PLAYER_TIME.getTotalDays()) {
-                this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
+            if (this.getAge() == Age.OLD && lastDeath < TFCCalendar.PLAYER_TIME.getTotalDays()) {
+                this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
                 // Randomly die of old age, tied to entity UUID and calendar time
-                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * CalendarTFC.PLAYER_TIME.getTotalDays());
-                if (random.nextDouble() < ConfigTFC.Animals.DONKEY.oldDeathChance) {
+                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * TFCCalendar.PLAYER_TIME.getTotalDays());
+                if (random.nextDouble() < TFCConfig.Animals.DONKEY.oldDeathChance) {
                     this.setDead();
                 }
             }
             // Wild animals disappear after 125% lifespan
             if (this.getDaysToElderly() > 0 && this.getFamiliarity() < 0.10F &&
-                    (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= CalendarTFC.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
+                    (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= TFCCalendar.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
                 this.setDead();
             }
         }
@@ -472,7 +472,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
 
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_DONKEY;
+        return TFCLootTables.ANIMALS_DONKEY;
     }
 
     @Override
@@ -494,7 +494,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
             this.onFertilized((IAnimalTFC) other);
         } else if (other == this) {
             // Only called if this animal is interacted with a spawn egg
-            TFCEntityDonkey baby = new TFCEntityDonkey(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityDonkey baby = new TFCEntityDonkey(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             this.setOffspringAttributes(this, baby);
             return baby;
         }
@@ -522,7 +522,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
     }
 
     private void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.DONKEY.babies;
+        int numberOfChildren = TFCConfig.Animals.DONKEY.babies;
         for (int i = 0; i < numberOfChildren; i++) {
             // Birth one animal
             IAnimalTFC baby;
@@ -531,7 +531,7 @@ public class TFCEntityDonkey extends EntityDonkey implements IAnimalTFC, ILivest
             } else {
                 baby = new TFCEntityDonkey(this.world);
             }
-            baby.setBirthDay((int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            baby.setBirthDay((int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
             EntityAnimal animal = (EntityAnimal) baby;
             animal.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);

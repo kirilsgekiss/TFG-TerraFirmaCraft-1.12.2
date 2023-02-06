@@ -1,6 +1,6 @@
 package net.dries007.tfc.objects.container;
 
-import net.dries007.tfc.objects.blocks.BlockCrate;
+import net.dries007.tfc.objects.blocks.TFCBlockCrate;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.te.TECrate;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -19,7 +19,7 @@ public class ContainerCrate extends ContainerTE<TECrate> implements IButtonHandl
     public void onButtonPress(int buttonID, @Nullable NBTTagCompound extraNBT) {
         // Slot will always be 0, extraNBT will be empty
         if (!tile.getWorld().isRemote) {
-            BlockCrate.toggleCrateSeal(tile.getWorld(), tile.getPos());
+            TFCBlockCrate.toggleCrateSeal(tile.getWorld(), tile.getPos());
         }
     }
 

@@ -4,7 +4,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.objects.items.TFCItem;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -62,7 +62,7 @@ public class ItemCalendarClock extends TFCItem {
                     double d0;
 
                     if (worldIn.provider.isSurfaceWorld()) {
-                        d0 = (double) CalendarTFC.CALENDAR_TIME.getTotalDays() / (CalendarTFC.CALENDAR_TIME.getDaysInMonth() * CalendarTFC.CALENDAR_TIME.getTotalMonths());
+                        d0 = (double) TFCCalendar.CALENDAR_TIME.getTotalDays() / (TFCCalendar.CALENDAR_TIME.getDaysInMonth() * TFCCalendar.CALENDAR_TIME.getTotalMonths());
                     } else {
                         d0 = Math.random();
                     }
@@ -116,7 +116,7 @@ public class ItemCalendarClock extends TFCItem {
                     double d0;
 
                     if (worldIn.provider.isSurfaceWorld()) {
-                        d0 = (double) CalendarTFC.CALENDAR_TIME.getTotalDays() / (CalendarTFC.CALENDAR_TIME.getDaysInMonth() * CalendarTFC.CALENDAR_TIME.getTotalMonths());
+                        d0 = (double) TFCCalendar.CALENDAR_TIME.getTotalDays() / (TFCCalendar.CALENDAR_TIME.getDaysInMonth() * TFCCalendar.CALENDAR_TIME.getTotalMonths());
                     } else {
                         d0 = Math.random();
                     }
@@ -159,9 +159,9 @@ public class ItemCalendarClock extends TFCItem {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, @Nonnull EnumHand hand) {
         String season, day, date;
 
-        season = I18n.format("tfc.tooltip.season", CalendarTFC.CALENDAR_TIME.getSeasonDisplayName());
-        day = I18n.format("tfc.tooltip.day", CalendarTFC.CALENDAR_TIME.getDisplayDayName());
-        date = I18n.format("tfc.tooltip.date", CalendarTFC.CALENDAR_TIME.getTimeAndDate());
+        season = I18n.format("tfc.tooltip.season", TFCCalendar.CALENDAR_TIME.getSeasonDisplayName());
+        day = I18n.format("tfc.tooltip.day", TFCCalendar.CALENDAR_TIME.getDisplayDayName());
+        date = I18n.format("tfc.tooltip.date", TFCCalendar.CALENDAR_TIME.getTimeAndDate());
 
         player.sendStatusMessage(new TextComponentString(season + ", " + day + ", " + date), true);
         return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));

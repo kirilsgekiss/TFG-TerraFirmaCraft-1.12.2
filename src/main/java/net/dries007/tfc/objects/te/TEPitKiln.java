@@ -5,17 +5,17 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
 import net.dries007.tfc.api.capability.heat.Heat;
 import net.dries007.tfc.api.capability.heat.IItemHeat;
 import net.dries007.tfc.api.recipes.heat.HeatRecipe;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockPitKiln;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -63,7 +63,7 @@ public class TEPitKiln extends TEPlacedItem implements ITickable {
             }
 
             // Replace the block
-            world.setBlockState(pos, BlocksTFC.PIT_KILN.getDefaultState());
+            world.setBlockState(pos, TFCBlocks.PIT_KILN.getDefaultState());
             // Play placement sound
             world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5f, 1.0f);
             // Copy TE data
@@ -120,14 +120,14 @@ public class TEPitKiln extends TEPlacedItem implements ITickable {
             }
 
             // Check if complete
-            long remainingTicks = ConfigTFC.Devices.PIT_KILN.ticks - (CalendarTFC.PLAYER_TIME.getTicks() - litTick);
+            long remainingTicks = TFCConfig.Devices.PIT_KILN.ticks - (TFCCalendar.PLAYER_TIME.getTicks() - litTick);
             if (remainingTicks <= 0) {
                 // Empty ingredients
                 emptyFuelContents();
 
                 // If we missed the point where remainingTicks == 0, then we need to transaction wrap this
                 if (remainingTicks < 0) {
-                    CalendarTFC.runTransaction(remainingTicks, 0, this::cookContents);
+                    TFCCalendar.runTransaction(remainingTicks, 0, this::cookContents);
                 } else {
                     cookContents();
                 }
@@ -194,7 +194,7 @@ public class TEPitKiln extends TEPlacedItem implements ITickable {
             }
 
             // Straw via thatch block (special exception)
-            if (stack.getItem() == Item.getItemFromBlock(BlocksTFC.THATCH) && strawCount <= STRAW_NEEDED - 4) {
+            if (stack.getItem() == Item.getItemFromBlock(TFCBlocks.THATCH) && strawCount <= STRAW_NEEDED - 4) {
                 stack.shrink(1);
                 addStrawBlock();
                 world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5f, 1.0f);
@@ -264,7 +264,7 @@ public class TEPitKiln extends TEPlacedItem implements ITickable {
                     }
                 }
                 isLit = true;
-                litTick = CalendarTFC.PLAYER_TIME.getTicks();
+                litTick = TFCCalendar.PLAYER_TIME.getTicks();
                 updateBlock();
                 world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockPitKiln.LIT, true));
                 world.setBlockState(above, Blocks.FIRE.getDefaultState());

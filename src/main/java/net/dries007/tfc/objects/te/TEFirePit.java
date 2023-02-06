@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.*;
 import net.dries007.tfc.api.capability.heat.CapabilityItemHeat;
@@ -18,7 +18,7 @@ import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.objects.items.food.ItemDynamicBowlFood;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
 import net.dries007.tfc.util.agriculture.Food;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 import net.dries007.tfc.util.fuel.Fuel;
 import net.dries007.tfc.util.fuel.FuelManager;
@@ -70,7 +70,7 @@ public class TEFirePit extends TETickableInventory implements ICalendarTickable,
 
     public static final float COOKING_POT_BOILING_TEMPERATURE = Heat.VERY_HOT.getMin();
 
-    private static final int MAX_AIR_TICKS = ConfigTFC.Devices.BELLOWS.maxTicks;
+    private static final int MAX_AIR_TICKS = TFCConfig.Devices.BELLOWS.maxTicks;
 
     private final IItemHandler[] inventoryWrappers;
     private final Queue<ItemStack> leftover = new LinkedList<>(); // Leftover items when we can't merge output into any output slot.
@@ -100,7 +100,7 @@ public class TEFirePit extends TETickableInventory implements ICalendarTickable,
         burnTemperature = 0;
         burnTicks = 0;
         cachedRecipe = null;
-        lastPlayerTick = CalendarTFC.PLAYER_TIME.getTicks();
+        lastPlayerTick = TFCCalendar.PLAYER_TIME.getTicks();
 
         attachedItemStack = ItemStack.EMPTY;
 
@@ -120,7 +120,7 @@ public class TEFirePit extends TETickableInventory implements ICalendarTickable,
      * Consume more fuel on rain
      */
     public void onRainDrop() {
-        burnTicks -= ConfigTFC.Devices.FIRE_PIT.rainTicks;
+        burnTicks -= TFCConfig.Devices.FIRE_PIT.rainTicks;
         // Play the "tsssss" sound
         world.playSound(null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 0.8f, 0.8f + net.dries007.tfc.Constants.RNG.nextFloat() * 0.4f);
     }
@@ -208,7 +208,7 @@ public class TEFirePit extends TETickableInventory implements ICalendarTickable,
                         boilingTicks = 0;
                     } else {
                         boilingTicks++;
-                        if (boilingTicks > ConfigTFC.Devices.FIRE_PIT.ticks) {
+                        if (boilingTicks > TFCConfig.Devices.FIRE_PIT.ticks) {
                             // Convert output
                             float water = 20, saturation = 2; // soups have base 20 water + 2 saturation
                             float[] nutrition = new float[Nutrient.TOTAL];

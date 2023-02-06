@@ -1,9 +1,9 @@
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.RockCategory;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -38,28 +38,25 @@ public class WorldGenMesaStrata implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
         ChunkDataTFC data = ChunkDataTFC.get(world, chunkBlockPos);
-        if (!data.isInitialized() && !ConfigTFC.FloraeGeneral.WORLD.enableMesaStrata) return;
+        if (!data.isInitialized() && !TFCConfig.FloraeGeneral.WORLD.enableMesaStrata) return;
 
         for (int x = 0; x < 16; ++x) {
             for (int z = 0; z < 16; ++z) {
                 BlockPos strataLayer = chunkBlockPos.add(x, WorldTypeTFC.SEALEVEL, z);
-                //TFCFlorae.getLog().warn("TFCFlorae: Current 'strataLayer' is " + "X: " + strataLayer.getX() + ", Y: " + strataLayer.getY() + ", Z: " + strataLayer.getZ());
                 final Biome b = world.getBiome(strataLayer);
-                final float avgTemperature = ClimateTFC.getAvgTemp(world, strataLayer);
+                final float avgTemperature = TFCClimate.getAvgTemp(world, strataLayer);
                 final float rainfall = ChunkDataTFC.getRainfall(world, strataLayer);
 
                 if (rainfall < +1.3 * random.nextGaussian() + RAINFALL_DRY_GRASS && avgTemperature >= 15f) {
-                    //TFCFlorae.getLog().warn("Biome at X: " + strataLayer.getX() + " Z: " + strataLayer.getZ() + " is " + b);
                     //if (b == BiomesTFC.MESA || b == BiomesTFC.MESA_PLATEAU || b == BiomesTFC.MESA_BRYCE || b == BiomesTFC.MESA_PLATEAU_M || BiomesTFC.isMesaBiome(b))
                     if (TFCBiomes.isMesaBiome(b)) {
                         for (int y = WorldTypeTFC.SEALEVEL; y < world.getTopSolidOrLiquidBlock(strataLayer).getY(); ++y) {
                             BlockPos currentBlock = chunkBlockPos.add(x, y, z);
                             IBlockState currentBlockState = world.getBlockState(currentBlock);
                             IBlockState currentBlockStateTop = world.getBlockState(currentBlock.up());
-                            //TFCFlorae.getLog().warn("TFCFlorae: Current 'currentBlock' is " + "X: " + currentBlock.getX() + ", Y: " + currentBlock.getY() + ", Z: " + currentBlock.getZ());
                             //if (currentBlockState instanceof BlockRockVariant && ((BlockRockVariant)(currentBlockState.getBlock())).getRock().getRockCategory() == TFCRegistries.ROCK_CATEGORIES.getValue(DefaultRocks.SEDIMENTARY))
-                            if ((y <= WorldTypeTFC.SEALEVEL + 5 && (BlocksTFC.isRawStone(currentBlockState) || BlocksTFC.isGround(currentBlockState) || BlocksTFC.isSoil(currentBlockState) || BlocksTFC.isSoilOrGravel(currentBlockState)) && !(BlocksTFC.isGrass(currentBlockState) || BlocksTFC.isSand(currentBlockState) || BlocksTFC.isClay(currentBlockState))) ||
-                                    (y > WorldTypeTFC.SEALEVEL + 5 && (BlocksTFC.isRawStone(currentBlockState) || BlocksTFC.isGround(currentBlockState) || BlocksTFC.isSoil(currentBlockState) || BlocksTFC.isSoilOrGravel(currentBlockState)))) {
+                            if ((y <= WorldTypeTFC.SEALEVEL + 5 && (TFCBlocks.isRawStone(currentBlockState) || TFCBlocks.isGround(currentBlockState) || TFCBlocks.isSoil(currentBlockState) || TFCBlocks.isSoilOrGravel(currentBlockState)) && !(TFCBlocks.isGrass(currentBlockState) || TFCBlocks.isSand(currentBlockState) || TFCBlocks.isClay(currentBlockState))) ||
+                                    (y > WorldTypeTFC.SEALEVEL + 5 && (TFCBlocks.isRawStone(currentBlockState) || TFCBlocks.isGround(currentBlockState) || TFCBlocks.isSoil(currentBlockState) || TFCBlocks.isSoilOrGravel(currentBlockState)))) {
                                 if (y >= strataLayer.getY() && y <= strataLayer.getY() + 2) {
                                     world.setBlockState(currentBlock, HARDENED_CLAY, 2);
                                 }

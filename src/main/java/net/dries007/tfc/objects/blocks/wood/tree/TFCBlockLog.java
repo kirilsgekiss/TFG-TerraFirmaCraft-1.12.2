@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.blocks.wood.tree;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
@@ -139,7 +139,7 @@ public class TFCBlockLog extends BlockLog implements IItemSize {
         if (toolClasses.contains("axe") || toolClasses.contains("saw")) {
             // Harvest the block normally, saws and axes are valid tools regardless
             super.harvestBlock(worldIn, player, pos, state, te, stack);
-        } else if (toolClasses.contains("hammer") && ConfigTFC.General.TREE.enableHammerSticks) {
+        } else if (toolClasses.contains("hammer") && TFCConfig.General.TREE.enableHammerSticks) {
             // Hammers drop sticks here - we duplicate the original method
             //noinspection ConstantConditions
             player.addStat(StatList.getBlockStats(this));
@@ -148,7 +148,7 @@ public class TFCBlockLog extends BlockLog implements IItemSize {
             if (!worldIn.isRemote) {
                 Helpers.spawnItemStack(worldIn, pos.add(0.5D, 0.5D, 0.5D), new ItemStack(Items.STICK, 1 + (int) (Math.random() * 3)));
             }
-        } else if (ConfigTFC.General.TREE.requiresAxe) {
+        } else if (TFCConfig.General.TREE.requiresAxe) {
             // Here, there was no valid tool used. Deny spawning any drops since logs require axes
             //noinspection ConstantConditions
             player.addStat(StatList.getBlockStats(this));
@@ -202,7 +202,7 @@ public class TFCBlockLog extends BlockLog implements IItemSize {
 
     @Override
     public boolean isToolEffective(String type, IBlockState state) {
-        return ("hammer".equals(type) && ConfigTFC.General.TREE.enableHammerSticks) || super.isToolEffective(type, state);
+        return ("hammer".equals(type) && TFCConfig.General.TREE.enableHammerSticks) || super.isToolEffective(type, state);
     }
 
     @Override
@@ -285,7 +285,7 @@ public class TFCBlockLog extends BlockLog implements IItemSize {
                 }
             } else {
                 // Stone tools are 60% efficient (default config)
-                if (!stoneTool || Constants.RNG.nextFloat() < ConfigTFC.General.TREE.stoneAxeReturnRate && !world.isRemote) {
+                if (!stoneTool || Constants.RNG.nextFloat() < TFCConfig.General.TREE.stoneAxeReturnRate && !world.isRemote) {
                     harvestBlock(world, player, pos1, world.getBlockState(pos1), null, stack);
                 }
                 stack.damageItem(1, player);

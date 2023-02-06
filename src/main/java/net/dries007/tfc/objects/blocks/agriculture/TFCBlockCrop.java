@@ -5,18 +5,18 @@
 
 package net.dries007.tfc.objects.blocks.agriculture;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.player.CapabilityPlayerData;
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockEmergentTallWaterPlant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockWaterPlant;
-import net.dries007.tfc.objects.blocks.stone.farmland.*;
+import net.dries007.tfc.objects.blocks.rock.farmland.*;
 import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.Crop;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.util.skills.SimpleSkill;
 import net.dries007.tfc.util.skills.SkillType;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -217,14 +217,14 @@ public abstract class TFCBlockCrop extends BlockBush {
                     }
                 }
 
-                long growthTicks = (long) ((crop.getGrowthTicks() * ConfigTFC.General.FOOD.cropGrowthTimeModifier) * growthTimeModifier(worldIn, pos));
+                long growthTicks = (long) ((crop.getGrowthTicks() * TFCConfig.General.FOOD.cropGrowthTimeModifier) * growthTimeModifier(worldIn, pos));
 
                 int fullGrownStages = 0;
                 while (te.getTicksSinceUpdate() > growthTicks) {
                     te.reduceCounter(growthTicks);
 
                     // find stats for the time in which the crop would have grown
-                    float temp = ClimateTFC.getActualTemp(worldIn, pos, -te.getTicksSinceUpdate());
+                    float temp = TFCClimate.getActualTemp(worldIn, pos, -te.getTicksSinceUpdate());
                     float rainfall = ChunkDataTFC.getRainfall(worldIn, pos);
 
                     // check if the crop could grow, if so, grow
@@ -250,19 +250,19 @@ public abstract class TFCBlockCrop extends BlockBush {
     public float growthTimeModifier(World worldIn, BlockPos pos) {
         IBlockState stateFarmland = worldIn.getBlockState(pos.down());
 
-        if (stateFarmland.getBlock() instanceof BlockHumusFarmland) {
+        if (stateFarmland.getBlock() instanceof TFCBlockFarmlandHumus) {
             return 0.3f;
-        } else if (stateFarmland.getBlock() instanceof BlockLoamFarmland) {
+        } else if (stateFarmland.getBlock() instanceof TFCBlockFarmlandLoam) {
             return 0.5f;
-        } else if (stateFarmland.getBlock() instanceof BlockSandyLoamFarmland) {
+        } else if (stateFarmland.getBlock() instanceof TFCBlockFarmlandSandyLoam) {
             return 0.8f;
         } else if (stateFarmland.getBlock() instanceof TFCBlockFarmland) {
             return 1f;
-        } else if (stateFarmland.getBlock() instanceof BlockSiltLoamFarmland) {
+        } else if (stateFarmland.getBlock() instanceof TFCBlockFarmlandSiltLoam) {
             return 1.2f;
-        } else if (stateFarmland.getBlock() instanceof BlockLoamySandFarmland) {
+        } else if (stateFarmland.getBlock() instanceof TFCBlockFarmlandLoamySand) {
             return 1.5f;
-        } else if (stateFarmland.getBlock() instanceof BlockSiltFarmland) {
+        } else if (stateFarmland.getBlock() instanceof TFCBlockFarmlandSilt) {
             return 1.7f;
         } else {
             return 1f;
@@ -272,8 +272,8 @@ public abstract class TFCBlockCrop extends BlockBush {
     public abstract void grow(World worldIn, BlockPos pos, IBlockState state, Random random);
 
     public void die(World worldIn, BlockPos pos, IBlockState state, Random random) {
-        if (ConfigTFC.General.FOOD.enableCropDeath) {
-            worldIn.setBlockState(pos, BlockCropDead.get(crop).getDefaultState().withProperty(BlockCropDead.MATURE, state.getValue(getStageProperty()) == crop.getMaxStage()));
+        if (TFCConfig.General.FOOD.enableCropDeath) {
+            worldIn.setBlockState(pos, TFCBlockCropDead.get(crop).getDefaultState().withProperty(TFCBlockCropDead.MATURE, state.getValue(getStageProperty()) == crop.getMaxStage()));
         }
     }
 
@@ -304,7 +304,7 @@ public abstract class TFCBlockCrop extends BlockBush {
     @Override
     protected boolean canSustainBush(IBlockState state) {
         if (crop == Crop.RICE) {
-            return (BlocksTFC.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant));
+            return (TFCBlocks.isWater(state) || state.getMaterial() == Material.ICE && state == WATER) || (state.getMaterial() == Material.CORAL && !(state.getBlock() instanceof TFCBlockEmergentTallWaterPlant));
         } else {
             return super.canSustainBush(state);
         }

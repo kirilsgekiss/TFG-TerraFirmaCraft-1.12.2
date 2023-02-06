@@ -6,7 +6,7 @@
 package net.dries007.tfc.client.render;
 
 import net.dries007.tfc.api.types.Wood;
-import net.dries007.tfc.objects.entity.EntityBoatTFC;
+import net.dries007.tfc.objects.entity.TFCEntityBoat;
 import net.minecraft.client.model.IMultipassModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBoat;
@@ -25,7 +25,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 @ParametersAreNonnullByDefault
-public class TFCRenderBoat extends Render<EntityBoatTFC> {
+public class TFCRenderBoat extends Render<TFCEntityBoat> {
     private final ModelBase modelBoat = new ModelBoat();
 
     public TFCRenderBoat(RenderManager renderManagerIn) {
@@ -34,7 +34,7 @@ public class TFCRenderBoat extends Render<EntityBoatTFC> {
     }
 
     @Override
-    public void doRender(EntityBoatTFC entity, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(TFCEntityBoat entity, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);
         this.setupRotation(entity, entityYaw, partialTicks);
@@ -60,7 +60,7 @@ public class TFCRenderBoat extends Render<EntityBoatTFC> {
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
     @Override
-    protected ResourceLocation getEntityTexture(EntityBoatTFC entity) {
+    protected ResourceLocation getEntityTexture(TFCEntityBoat entity) {
         final Wood wood = entity.getWood();
         if (wood != null) {
             //noinspection ConstantConditions
@@ -76,7 +76,7 @@ public class TFCRenderBoat extends Render<EntityBoatTFC> {
     }
 
     @Override
-    public void renderMultipass(EntityBoatTFC entityIn, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void renderMultipass(TFCEntityBoat entityIn, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.pushMatrix();
         this.setupTranslation(x, y, z);
         this.setupRotation(entityIn, entityYaw, partialTicks);

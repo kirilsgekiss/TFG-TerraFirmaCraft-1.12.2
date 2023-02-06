@@ -1,7 +1,7 @@
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +30,7 @@ public class WorldGenGourds implements IWorldGenerator {
         // Guarantees crop generation if possible (easier to balance by config file while also making it random)
         BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-        float temperature = ClimateTFC.getAvgTemp(world, chunkBlockPos);
+        float temperature = TFCClimate.getAvgTemp(world, chunkBlockPos);
         float rainfall = ChunkDataTFC.getRainfall(world, chunkBlockPos);
         float floraDensity = ChunkDataTFC.getFloraDensity(world, chunkBlockPos);
 
@@ -41,7 +41,7 @@ public class WorldGenGourds implements IWorldGenerator {
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down())))) {
+                if (world.isAirBlock(pos) && (TFCBlocks.isSoil(world.getBlockState(pos.down())))) {
                     final int rotationValue = random.nextInt(4);
                 }
             }
@@ -52,7 +52,7 @@ public class WorldGenGourds implements IWorldGenerator {
         // Guarantees crop generation if possible (easier to balance by config file while also making it random)
         BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-        float temperature = ClimateTFC.getAvgTemp(world, chunkBlockPos);
+        float temperature = TFCClimate.getAvgTemp(world, chunkBlockPos);
         float rainfall = ChunkDataTFC.getRainfall(world, chunkBlockPos);
         float floraDensity = ChunkDataTFC.getFloraDensity(world, chunkBlockPos);
 
@@ -63,7 +63,7 @@ public class WorldGenGourds implements IWorldGenerator {
                 final int z = (chunkZ << 4) + random.nextInt(16) + 8;
                 final BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
 
-                if (world.isAirBlock(pos) && (BlocksTFC.isSoil(world.getBlockState(pos.down())))) {
+                if (world.isAirBlock(pos) && (TFCBlocks.isSoil(world.getBlockState(pos.down())))) {
                     final int rotationValue = random.nextInt(4);
                 }
             }

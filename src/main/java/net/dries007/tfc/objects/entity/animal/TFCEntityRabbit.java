@@ -5,11 +5,11 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IHuntable;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.entity.EntityLiving;
@@ -47,7 +47,7 @@ import java.util.Random;
 import java.util.function.BiConsumer;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityRabbit extends EntityAnimalMammal implements IHuntable {
+public class TFCEntityRabbit extends TFCEntityAnimalMammal implements IHuntable {
     private static final int DAYS_TO_ADULTHOOD = 16;
     private static final DataParameter<Integer> RABBIT_TYPE = EntityDataManager.createKey(TFCEntityRabbit.class, DataSerializers.VARINT);
 
@@ -75,14 +75,14 @@ public class TFCEntityRabbit extends EntityAnimalMammal implements IHuntable {
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TAIGA || biomeType == BiomeHelper.BiomeType.PLAINS
                         || biomeType == BiomeHelper.BiomeType.TUNDRA)) {
-            return ConfigTFC.Animals.RABBIT.rarity;
+            return TFCConfig.Animals.RABBIT.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.ELDER_AND_POPULATION;
+        return TFCAnimalGroupingRules.ELDER_AND_POPULATION;
     }
 
     @Override
@@ -170,7 +170,7 @@ public class TFCEntityRabbit extends EntityAnimalMammal implements IHuntable {
     public void birthChildren() {
         int numberOfChildren = 5 + rand.nextInt(5); // 5-10
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityRabbit baby = new TFCEntityRabbit(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityRabbit baby = new TFCEntityRabbit(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             this.world.spawnEntity(baby);
         }
@@ -265,7 +265,7 @@ public class TFCEntityRabbit extends EntityAnimalMammal implements IHuntable {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_RABBIT;
+        return TFCLootTables.ANIMALS_RABBIT;
     }
 
     @Nullable

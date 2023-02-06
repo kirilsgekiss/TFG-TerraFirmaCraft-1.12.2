@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCSounds;
@@ -34,7 +34,7 @@ public class TEBellows extends TEBase {
     public static final Vec3i OFFSET_INSET = new Vec3i(1, -1, 0);
 
     private static final Set<Vec3i> OFFSETS = new HashSet<>();
-    private static final int BELLOWS_AIR = ConfigTFC.Devices.BELLOWS.ticks;
+    private static final int BELLOWS_AIR = TFCConfig.Devices.BELLOWS.ticks;
 
     static {
         addBellowsOffset(OFFSET_LEVEL);

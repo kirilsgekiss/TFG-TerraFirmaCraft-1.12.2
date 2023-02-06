@@ -9,8 +9,8 @@ import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.compat.gregtech.materials.properties.TFCPropertyKey;
 import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.objects.blocks.BlockFireBrick;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.ceramics.TFCBlockFireBrick;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.items.ItemFireStarter;
@@ -42,7 +42,7 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
     private static final Multiblock BLAST_FURNACE_CHIMNEY;
 
     static {
-        Predicate<IBlockState> stoneMatcher = state -> state.getBlock() instanceof BlockFireBrick;
+        Predicate<IBlockState> stoneMatcher = state -> state.getBlock() instanceof TFCBlockFireBrick;
         Predicate<IBlockState> sheetMatcher = state -> {
             if (state.getBlock() instanceof TFCBlockCladding) {
                 TFCBlockCladding block = (TFCBlockCladding) state.getBlock();
@@ -51,7 +51,7 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
             return false;
         };
         BLAST_FURNACE_CHIMNEY = new Multiblock()
-                .match(new BlockPos(0, 0, 0), state -> state.getBlock() == BlocksTFC.MOLTEN || state.getMaterial().isReplaceable())
+                .match(new BlockPos(0, 0, 0), state -> state.getBlock() == TFCBlocks.MOLTEN || state.getMaterial().isReplaceable())
                 .match(new BlockPos(0, 0, 1), stoneMatcher)
                 .match(new BlockPos(0, 0, -1), stoneMatcher)
                 .match(new BlockPos(1, 0, 0), stoneMatcher)

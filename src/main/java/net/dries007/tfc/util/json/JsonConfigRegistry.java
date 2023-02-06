@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
-import net.dries007.tfc.objects.entity.animal.AnimalFood;
+import net.dries007.tfc.objects.entity.animal.TFCAnimalFood;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -79,7 +79,7 @@ public enum JsonConfigRegistry {
                 if (loader != null && "tfc:damage_resistance".equals(loader.getAsString())) {
                     CapabilityDamageResistance.readFile(jsonObject.entrySet());
                 } else if (loader != null && "tfc:animal_food".equals(loader.getAsString())) {
-                    AnimalFood.readFile(jsonObject.entrySet());
+                    TFCAnimalFood.readFile(jsonObject.entrySet());
                 }
 
             } catch (IOException e) {

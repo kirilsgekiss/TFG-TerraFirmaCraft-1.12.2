@@ -1,7 +1,7 @@
 package net.dries007.tfc.network;
 
 import io.netty.buffer.ByteBuf;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.events.ProspectEvent;
 import net.dries007.tfc.compat.gregtech.items.tools.behaviors.PropickBehavior;
@@ -62,7 +62,7 @@ public class PacketProspectResult implements IMessage {
                     if (message.type != PropickBehavior.ProspectResult.Type.NOTHING) {
                         text.appendText(" ").appendSibling(new TextComponentTranslation(message.vein.getTranslationKey() + ".name"));
                     }
-                    player.sendStatusMessage(text, ConfigTFC.Client.TOOLTIP.propickOutputToActionBar);
+                    player.sendStatusMessage(text, TFCConfig.Client.TOOLTIP.propickOutputToActionBar);
                 }
 
                 ProspectEvent event = new ProspectEvent.Client(player, message.pos, message.type, message.vein);

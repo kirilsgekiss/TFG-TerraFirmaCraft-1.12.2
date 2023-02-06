@@ -2,7 +2,7 @@ package net.dries007.tfc.objects.te;
 
 import net.dries007.tfc.objects.recipes.StickBundleRecipe;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -35,7 +35,7 @@ public class TEStickBundle extends TEInventory implements ITickable {
     @Override
     public void update() {
         if (!world.isRemote) {
-            if ((int) (CalendarTFC.PLAYER_TIME.getTicks() - startTick) > tickGoal) {
+            if ((int) (TFCCalendar.PLAYER_TIME.getTicks() - startTick) > tickGoal) {
                 if (recipeExists()) {
                     grow();
                 }
@@ -74,7 +74,7 @@ public class TEStickBundle extends TEInventory implements ITickable {
 
     public void start() {
         if (recipeExists()) {
-            startTick = CalendarTFC.PLAYER_TIME.getTicks();
+            startTick = TFCCalendar.PLAYER_TIME.getTicks();
             setDuration();
         } else {
             Helpers.spawnItemStack(world, pos, inventory.getStackInSlot(0));
@@ -122,14 +122,14 @@ public class TEStickBundle extends TEInventory implements ITickable {
     }
 
     public long getTicksRemaining() {
-        long ticks = CalendarTFC.PLAYER_TIME.getTicks() - startTick;
+        long ticks = TFCCalendar.PLAYER_TIME.getTicks() - startTick;
         if (ticks > tickGoal) return 0;
 
         return tickGoal - ticks;
     }
 
     public double getCurrentTicks() {
-        return CalendarTFC.PLAYER_TIME.getTicks() - startTick;
+        return TFCCalendar.PLAYER_TIME.getTicks() - startTick;
     }
 
     public double getGoalTick() {

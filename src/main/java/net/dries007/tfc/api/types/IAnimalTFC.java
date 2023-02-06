@@ -5,8 +5,8 @@
 
 package net.dries007.tfc.api.types;
 
-import net.dries007.tfc.objects.entity.animal.AnimalFood;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.entity.animal.TFCAnimalFood;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -97,7 +97,7 @@ public interface IAnimalTFC extends ICreatureTFC {
      * @return double value between 0(birthday) to 1(full grown adult)
      */
     default double getPercentToAdulthood() {
-        long deltaDays = CalendarTFC.PLAYER_TIME.getTotalDays() - this.getBirthDay();
+        long deltaDays = TFCCalendar.PLAYER_TIME.getTotalDays() - this.getBirthDay();
         long adulthoodDay = this.getDaysToAdulthood();
         return Math.max(0, Math.min(1, (double) deltaDays / adulthoodDay));
     }
@@ -108,7 +108,7 @@ public interface IAnimalTFC extends ICreatureTFC {
      * @return the Age enum of this entity
      */
     default Age getAge() {
-        long deltaDays = CalendarTFC.PLAYER_TIME.getTotalDays() - this.getBirthDay();
+        long deltaDays = TFCCalendar.PLAYER_TIME.getTotalDays() - this.getBirthDay();
         long adulthoodDay = this.getDaysToAdulthood();
         long elderlyDay = this.getDaysToElderly() + this.getDaysToAdulthood();
         if (getCreatureType() == CreatureType.LIVESTOCK && this.getDaysToElderly() > 0 && deltaDays > elderlyDay) {
@@ -151,7 +151,7 @@ public interface IAnimalTFC extends ICreatureTFC {
      */
     default boolean isFood(@Nonnull ItemStack stack) {
         //noinspection unchecked
-        AnimalFood food = AnimalFood.get((Class<? extends Entity>) this.getClass());
+        TFCAnimalFood food = TFCAnimalFood.get((Class<? extends Entity>) this.getClass());
         if (food != null) {
             return food.isFood(stack);
         }

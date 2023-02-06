@@ -1,17 +1,17 @@
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.ILivestock;
-import net.dries007.tfc.objects.LootTablesTFC;
+import net.dries007.tfc.objects.TFCLootTables;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
-import net.dries007.tfc.objects.entity.EntitiesTFC;
+import net.dries007.tfc.objects.entity.TFCEntities;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultTrees;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -48,7 +48,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
     private static final double DEATH_CHANCE = 5;
     private static final int DAYS_TO_HATCH = 1;
     private static final int TICKS_TO_LAY_EGG = 2500;
-    private static final DataParameter<Long> LAID = EntityDataManager.createKey(TFCEntitySilkMoth.class, EntitiesTFC.getLongDataSerializer());
+    private static final DataParameter<Long> LAID = EntityDataManager.createKey(TFCEntitySilkMoth.class, TFCEntities.getLongDataSerializer());
 
     private BlockPos rotationPos = new BlockPos(0, 0, 0);
     private BlockPos spawnPosition;
@@ -79,14 +79,14 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TEMPERATE_FOREST || biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST)) {
-            return ConfigTFC.Animals.HARE.rarity;
+            return TFCConfig.Animals.HARE.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -134,7 +134,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
             if (cap != null) {
                 TFCEntitySilkMoth larvae = new TFCEntitySilkMoth(this.world);
                 larvae.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
-                cap.setFertilized(larvae, DAYS_TO_HATCH + CalendarTFC.PLAYER_TIME.getTotalDays());
+                cap.setFertilized(larvae, DAYS_TO_HATCH + TFCCalendar.PLAYER_TIME.getTotalDays());
             }
         }
         eggs.add(egg);
@@ -143,12 +143,12 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
 
     @Override
     public void setProductsCooldown() {
-        this.setLaidTicks(CalendarTFC.PLAYER_TIME.getTicks());
+        this.setLaidTicks(TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, TICKS_TO_LAY_EGG + getLaidTicks() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TICKS_TO_LAY_EGG + getLaidTicks() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -229,7 +229,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_SILK_MOTH;
+        return TFCLootTables.ANIMALS_SILK_MOTH;
     }
 
     protected boolean hasEggs() {
@@ -336,7 +336,7 @@ public class TFCEntitySilkMoth extends TFCEntityAnimal implements ILivestock {
     }
 
     private void changeRotationPos() {
-        int dayTicks = (int) CalendarTFC.CALENDAR_TIME.getTicks();
+        int dayTicks = (int) TFCCalendar.CALENDAR_TIME.getTicks();
         boolean isNight = dayTicks >= 12000 && dayTicks <= 23000;
 
         int x = dayTicks;

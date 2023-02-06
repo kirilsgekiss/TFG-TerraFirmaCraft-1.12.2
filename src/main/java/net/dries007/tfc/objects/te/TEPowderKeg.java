@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.te;
 
 import net.dries007.tfc.Constants;
-import net.dries007.tfc.objects.blocks.BlockPowderKeg;
+import net.dries007.tfc.objects.blocks.TFCBlockPowderKeg;
 import net.dries007.tfc.objects.inventory.capability.IItemHandlerSidedCallback;
 import net.dries007.tfc.objects.inventory.capability.ItemHandlerSidedWrapper;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -31,10 +31,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import static net.dries007.tfc.objects.blocks.BlockPowderKeg.SEALED;
+import static net.dries007.tfc.objects.blocks.TFCBlockPowderKeg.SEALED;
 
 /**
- * @see BlockPowderKeg
+ * @see TFCBlockPowderKeg
  */
 @ParametersAreNonnullByDefault
 public class TEPowderKeg extends TETickableInventory implements IItemHandlerSidedCallback {

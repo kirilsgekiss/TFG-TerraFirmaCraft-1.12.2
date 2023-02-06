@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.api.capability.food;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.network.PacketFoodStatsReplace;
 import net.dries007.tfc.network.PacketFoodStatsUpdate;
-import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
-import net.dries007.tfc.util.DamageSourcesTFC;
+import net.dries007.tfc.objects.potioneffects.TFCPotionEffects;
+import net.dries007.tfc.util.TFCDamageSources;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -91,7 +91,7 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
             if (Constants.RNG.nextFloat() < 0.6) {
                 sourcePlayer.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1800, 1));
                 if (Constants.RNG.nextFloat() < 0.15) {
-                    sourcePlayer.addPotionEffect(new PotionEffect(PotionEffectsTFC.FOOD_POISON, 1800, 0));
+                    sourcePlayer.addPotionEffect(new PotionEffect(TFCPotionEffects.FOOD_POISON, 1800, 0));
                 }
             }
         }
@@ -107,7 +107,7 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
         EnumDifficulty difficulty = player.world.getDifficulty();
 
         // Extra-Peaceful Difficulty
-        if (difficulty == EnumDifficulty.PEACEFUL && ConfigTFC.General.PLAYER.peacefulDifficultyPassiveRegeneration) {
+        if (difficulty == EnumDifficulty.PEACEFUL && TFCConfig.General.PLAYER.peacefulDifficultyPassiveRegeneration) {
             // Copied / Modified from EntityPlayer#onLivingUpdate
             if (player.shouldHeal() && player.ticksExisted % 20 == 0) {
                 player.heal(1.0F);
@@ -124,11 +124,11 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
             }
         } else {
             // Passive exhaustion - call the source player instead of the local method
-            player.addExhaustion(PASSIVE_EXHAUSTION / EXHAUSTION_MULTIPLIER * (float) ConfigTFC.General.PLAYER.passiveExhaustionMultiplier);
+            player.addExhaustion(PASSIVE_EXHAUSTION / EXHAUSTION_MULTIPLIER * (float) TFCConfig.General.PLAYER.passiveExhaustionMultiplier);
 
             // Same check as the original food stats, so hunger and thirst loss are synced
             if (originalStats.foodExhaustionLevel >= 4.0F) {
-                addThirst(-(float) ConfigTFC.General.PLAYER.thirstModifier);
+                addThirst(-(float) TFCConfig.General.PLAYER.thirstModifier);
             }
 
             if (difficulty == EnumDifficulty.PEACEFUL) {
@@ -151,7 +151,7 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
             }
 
             if (healTimer > 10) {
-                player.heal(multiplier * PASSIVE_HEAL_AMOUNT * (float) ConfigTFC.General.PLAYER.naturalRegenerationModifier);
+                player.heal(multiplier * PASSIVE_HEAL_AMOUNT * (float) TFCConfig.General.PLAYER.naturalRegenerationModifier);
                 healTimer = 0;
             }
         }
@@ -164,7 +164,7 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
                     player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 160, 1, false, false));
                     if (thirst <= 0f) {
                         // Hurt the player, same as starvation
-                        player.attackEntityFrom(DamageSourcesTFC.DEHYDRATION, 1);
+                        player.attackEntityFrom(TFCDamageSources.DEHYDRATION, 1);
                     }
                 } else if (thirst < 20f) {
                     player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 160, 0, false, false));
@@ -274,14 +274,14 @@ public class FoodStatsTFC extends FoodStats implements IFoodStatsTFC {
     @Override
     public boolean attemptDrink(float value, boolean simulate) {
         int ticksPassed = (int) (sourcePlayer.world.getTotalWorldTime() - lastDrinkTick);
-        if (ticksPassed >= ConfigTFC.General.PLAYER.drinkDelay && thirst < MAX_PLAYER_THIRST) {
+        if (ticksPassed >= TFCConfig.General.PLAYER.drinkDelay && thirst < MAX_PLAYER_THIRST) {
             if (!simulate) {
                 // One drink every so often
                 resetCooldown();
                 addThirst(value);
                 // Salty drink effect
-                if (value < 0 && Constants.RNG.nextDouble() < ConfigTFC.General.PLAYER.chanceThirstOnSaltyDrink) {
-                    sourcePlayer.addPotionEffect(new PotionEffect(PotionEffectsTFC.THIRST, 600, 0));
+                if (value < 0 && Constants.RNG.nextDouble() < TFCConfig.General.PLAYER.chanceThirstOnSaltyDrink) {
+                    sourcePlayer.addPotionEffect(new PotionEffect(TFCPotionEffects.THIRST, 600, 0));
                 }
             }
             return true;

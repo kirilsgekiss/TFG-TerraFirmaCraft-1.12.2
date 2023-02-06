@@ -1,7 +1,7 @@
 package net.dries007.tfc.world.classic.worldgen.groundcover;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.TFCConfig;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.util.EnumFacing;
@@ -46,7 +46,7 @@ public class WorldGenSurfaceBones implements IWorldGenerator {
             int zoff = chunkZ * 16 + 8;
 
             //for (int i = 0; i < ConfigTFC.FloraeGeneral.WORLD.groundcoverBonesFrequency * factor; i++)
-            for (int i = 0; i < getBoneFrequency(world, chunkBlockPos, ConfigTFC.FloraeGeneral.WORLD.groundcoverBonesFrequency); i++) {
+            for (int i = 0; i < getBoneFrequency(world, chunkBlockPos, TFCConfig.FloraeGeneral.WORLD.groundcoverBonesFrequency); i++) {
                 BlockPos pos = new BlockPos(
                         xoff + random.nextInt(16),
                         0,
@@ -60,8 +60,8 @@ public class WorldGenSurfaceBones implements IWorldGenerator {
     private void generateRock(World world, BlockPos pos) {
         ChunkDataTFC data = ChunkDataTFC.get(world, pos);
         if (pos.getY() > 146 && pos.getY() < 170 && data.getRainfall() <= 75) {
-            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(world.getBlockState(pos.down()))) {
-                world.setBlockState(pos, BlocksTFC.BONES.getDefaultState());
+            if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(world.getBlockState(pos.down()))) {
+                world.setBlockState(pos, TFCBlocks.BONES.getDefaultState());
             }
         }
     }

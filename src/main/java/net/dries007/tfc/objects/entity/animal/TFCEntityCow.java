@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -13,9 +13,9 @@ import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.EntitiesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.TFCEntities;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -53,12 +53,12 @@ import java.util.function.BiConsumer;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
-    private static final DataParameter<Long> MILKED = EntityDataManager.createKey(TFCEntityCow.class, EntitiesTFC.getLongDataSerializer());
+public class TFCEntityCow extends TFCEntityAnimalMammal implements ILivestock {
+    private static final DataParameter<Long> MILKED = EntityDataManager.createKey(TFCEntityCow.class, TFCEntities.getLongDataSerializer());
 
     @SuppressWarnings("unused")
     public TFCEntityCow(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.COW.adulthood, ConfigTFC.Animals.COW.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.COW.adulthood, TFCConfig.Animals.COW.elder));
     }
 
     public TFCEntityCow(World worldIn, Gender gender, int birthDay) {
@@ -72,14 +72,14 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS)) {
-            return ConfigTFC.Animals.COW.rarity;
+            return TFCConfig.Animals.COW.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -94,9 +94,9 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.COW.babies; //one always
+        int numberOfChildren = TFCConfig.Animals.COW.babies; //one always
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityCow baby = new TFCEntityCow(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityCow baby = new TFCEntityCow(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);
             baby.setFamiliarity(getFamiliarity() < 0.9F ? getFamiliarity() / 2.0F : getFamiliarity() * 0.9F);
             world.spawnEntity(baby);
@@ -105,7 +105,7 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.COW.gestation;
+        return TFCConfig.Animals.COW.gestation;
     }
 
     @Override
@@ -154,7 +154,7 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.COW.oldDeathChance;
+        return TFCConfig.Animals.COW.oldDeathChance;
     }
 
     @Override
@@ -176,12 +176,12 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.COW.adulthood;
+        return TFCConfig.Animals.COW.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.COW.elder;
+        return TFCConfig.Animals.COW.elder;
     }
 
     @Override
@@ -191,12 +191,12 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public void setProductsCooldown() {
-        setMilkedTick(CalendarTFC.PLAYER_TIME.getTicks());
+        setMilkedTick(TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.COW.milkTicks + getMilkedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.COW.milkTicks + getMilkedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -247,7 +247,7 @@ public class TFCEntityCow extends EntityAnimalMammal implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_COW;
+        return TFCLootTables.ANIMALS_COW;
     }
 
     @Override

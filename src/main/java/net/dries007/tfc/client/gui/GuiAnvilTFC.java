@@ -11,7 +11,7 @@ import net.dries007.tfc.client.button.GuiButtonAnvilPlan;
 import net.dries007.tfc.client.button.GuiButtonAnvilStep;
 import net.dries007.tfc.client.button.IButtonTooltip;
 import net.dries007.tfc.network.PacketGuiButton;
-import net.dries007.tfc.objects.te.TEAnvilTFC;
+import net.dries007.tfc.objects.te.TETFCAnvil;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.forge.ForgeRule;
 import net.dries007.tfc.util.forge.ForgeStep;
@@ -27,13 +27,13 @@ import java.io.IOException;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class GuiAnvilTFC extends GuiContainerTE<TEAnvilTFC> {
+public class GuiAnvilTFC extends GuiContainerTE<TETFCAnvil> {
     public static final ResourceLocation ANVIL_BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/anvil.png");
     public static final int BUTTON_ID_STEP_MIN = 0;
     public static final int BUTTON_ID_STEP_MAX = 7;
     public static final int BUTTON_ID_PLAN = 8;
 
-    public GuiAnvilTFC(Container container, InventoryPlayer playerInv, TEAnvilTFC tile) {
+    public GuiAnvilTFC(Container container, InventoryPlayer playerInv, TETFCAnvil tile) {
         super(container, playerInv, tile, ANVIL_BACKGROUND);
         ySize = 192;
     }

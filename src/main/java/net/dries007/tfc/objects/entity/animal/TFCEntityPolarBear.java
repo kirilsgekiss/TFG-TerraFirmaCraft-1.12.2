@@ -5,16 +5,16 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IAnimalTFC;
 import net.dries007.tfc.api.types.IPredator;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIAttackMeleeTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIStandAttack;
-import net.dries007.tfc.objects.entity.ai.EntityAIWanderHuntArea;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIAttackMelee;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIStandAttack;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIWanderHuntArea;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.entity.*;
@@ -42,7 +42,7 @@ import java.util.function.BiConsumer;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, IPredator, EntityAIStandAttack.IEntityStandAttack {
+public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, IPredator, TFCEntityAIStandAttack.IEntityStandAttack {
     private static final int DAYS_TO_ADULTHOOD = 180;
     //Values that has a visual effect on client
     private static final DataParameter<Boolean> GENDER = EntityDataManager.createKey(TFCEntityPolarBear.class, DataSerializers.BOOLEAN);
@@ -66,14 +66,14 @@ public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, I
 
     @Override
     public EntityAgeable createChild(@Nonnull EntityAgeable ageable) {
-        return new TFCEntityPolarBear(this.world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays()); // Used by spawn eggs
+        return new TFCEntityPolarBear(this.world, IAnimalTFC.Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays()); // Used by spawn eggs
     }
 
     @Override
     protected void initEntityAI() {
-        EntityAIWander wander = new EntityAIWanderHuntArea(this, 1.0D);
+        EntityAIWander wander = new TFCEntityAIWanderHuntArea(this, 1.0D);
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIStandAttack<>(this, 1.2D, 2.0D, EntityAIAttackMeleeTFC.AttackBehavior.DAYLIGHT_ONLY).setWanderAI(wander));
+        this.tasks.addTask(1, new TFCEntityAIStandAttack<>(this, 1.2D, 2.0D, TFCEntityAIAttackMelee.AttackBehavior.DAYLIGHT_ONLY).setWanderAI(wander));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.1D));
         this.tasks.addTask(5, wander);
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
@@ -81,7 +81,7 @@ public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, I
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
 
         int priority = 2;
-        for (String input : ConfigTFC.Animals.POLAR_BEAR.huntCreatures) {
+        for (String input : TFCConfig.Animals.POLAR_BEAR.huntCreatures) {
             ResourceLocation key = new ResourceLocation(input);
             EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(key);
             if (entityEntry != null) {
@@ -106,7 +106,7 @@ public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, I
 
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_POLAR_BEAR;
+        return TFCLootTables.ANIMALS_POLAR_BEAR;
     }
 
     @Override
@@ -253,14 +253,14 @@ public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, I
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TUNDRA || biomeType == BiomeHelper.BiomeType.TAIGA)) {
-            return ConfigTFC.Animals.POLAR_BEAR.rarity;
+            return TFCConfig.Animals.POLAR_BEAR.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MOTHER_AND_CHILDREN_OR_SOLO_MALE;
+        return TFCAnimalGroupingRules.MOTHER_AND_CHILDREN_OR_SOLO_MALE;
     }
 
     @Override
@@ -300,7 +300,7 @@ public class TFCEntityPolarBear extends EntityPolarBear implements IAnimalTFC, I
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
                 && this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
                 && !this.world.containsAnyLiquid(getEntityBoundingBox())
-                && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
+                && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Override

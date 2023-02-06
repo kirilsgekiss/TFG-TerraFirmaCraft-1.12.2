@@ -1,11 +1,11 @@
 package net.dries007.tfc.world.classic.worldgen.cave;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
@@ -26,10 +26,10 @@ public class WorldGeneratorUnderground implements IWorldGenerator {
     private final WorldGenCaveCreepingVines undergroundCreepingVines;
     //private final WorldGenUnderground undergroundPlant = new WorldGenUnderground();
 
-    private float fungiUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.fungiUndergroundCount;
-    private float hangingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.hangingVinesUndergroundCount;
-    private float creepingVinesUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingVinesUndergroundCount;
-    private float creepingUndergroundCount = ConfigTFC.FloraeGeneral.WORLD.creepingUndergroundCount;
+    private float fungiUndergroundCount = TFCConfig.FloraeGeneral.WORLD.fungiUndergroundCount;
+    private float hangingVinesUndergroundCount = TFCConfig.FloraeGeneral.WORLD.hangingVinesUndergroundCount;
+    private float creepingVinesUndergroundCount = TFCConfig.FloraeGeneral.WORLD.creepingVinesUndergroundCount;
+    private float creepingUndergroundCount = TFCConfig.FloraeGeneral.WORLD.creepingUndergroundCount;
 
     public WorldGeneratorUnderground() {
         undergroundMushrooms = new WorldGenCaveMushrooms();
@@ -48,7 +48,7 @@ public class WorldGeneratorUnderground implements IWorldGenerator {
 
         ChunkDataTFC data = ChunkDataTFC.get(world, chunkPos);
         Biome b = world.getBiome(chunkPos);
-        final float avgTemperature = ClimateTFC.getAvgTemp(world, chunkPos);
+        final float avgTemperature = TFCClimate.getAvgTemp(world, chunkPos);
         final float rainfall = ChunkDataTFC.getRainfall(world, chunkPos);
         final float floraDensity = data.getFloraDensity();
         final float floraDiversity = data.getFloraDiversity();
@@ -65,7 +65,6 @@ public class WorldGeneratorUnderground implements IWorldGenerator {
                             int plantCount = (Constants.RNG.nextInt(3) + 1);
                             for (int i = rng.nextInt(Math.round(plantCount / floraDiversity)); i < (floraDensity + floraDiversity) * fungiUndergroundCount; i++) {
                                 BlockPos blockPos = chunkPos.add(rng.nextInt(16) + 8, rng.nextInt(16) + 8, rng.nextInt(16) + 8);
-                                //TFCFlorae.getLog().warn("TFCFlorae: Mushroom " + plant + " attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                                 if (blockPos.getY() < WorldTypeTFC.SEALEVEL - 15 && blockPos.getY() > 20) {
                                     undergroundMushrooms.generate(world, rng, blockPos);
                                 }
@@ -88,7 +87,6 @@ public class WorldGeneratorUnderground implements IWorldGenerator {
                                     int plantCount = (Constants.RNG.nextInt(3) + 1);
                                     for (int i = rng.nextInt(Math.round(plantCount / floraDiversity)); i < (floraDensity + floraDiversity) * hangingVinesUndergroundCount; i++) {
                                         BlockPos blockPos = chunkBlockPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8);
-                                        //TFCFlorae.getLog().warn("TFCFlorae: Vines " + plant + " attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                                         if (blockPos.getY() < WorldTypeTFC.SEALEVEL - 5 && blockPos.getY() > WorldTypeTFC.ROCKLAYER2) {
                                             undergroundVines.generate(world, rng, blockPos);
                                         }
@@ -108,7 +106,6 @@ public class WorldGeneratorUnderground implements IWorldGenerator {
                                     int plantCount = (Constants.RNG.nextInt(3) + 1);
                                     for (int i = rng.nextInt(Math.round(plantCount / floraDiversity)); i < (floraDensity + floraDiversity) * creepingVinesUndergroundCount; i++) {
                                         BlockPos blockPos = chunkBlockPos.add(rng.nextInt(16) + 8, 0, rng.nextInt(16) + 8);
-                                        //TFCFlorae.getLog().warn("TFCFlorae: CreepingVines " + plant + " attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                                         if (blockPos.getY() < WorldTypeTFC.SEALEVEL - 5 && blockPos.getY() > WorldTypeTFC.ROCKLAYER2) {
                                             undergroundCreepingVines.generate(world, rng, blockPos);
                                         }

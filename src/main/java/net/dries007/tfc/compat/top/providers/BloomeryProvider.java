@@ -4,7 +4,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
 import net.dries007.tfc.api.capability.forge.IForgeable;
@@ -42,7 +42,7 @@ public class BloomeryProvider implements IProbeInfoProvider {
                 List<ItemStack> oreStacks = bloomery.getOreStacks();
                 BloomeryRecipe recipe = oreStacks.size() > 0 ? BloomeryRecipe.get(oreStacks.get(0)) : null;
                 long remainingTicks = bloomery.getRemainingTicks();
-                switch (ConfigTFC.Client.TOOLTIP.timeTooltipMode) {
+                switch (TFCConfig.Client.TOOLTIP.timeTooltipMode) {
                     case NONE:
                         break;
                     case TICKS:

@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.items;
 
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +34,7 @@ public class TFCItemGlassBottle extends ItemGlassBottle {
         //noinspection ConstantConditions
         if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK) {
             IBlockState targetState = worldIn.getBlockState(result.getBlockPos());
-            if (targetState.getMaterial() == Material.WATER && targetState.getBlock() != Blocks.WATER && targetState.getBlock() != FluidsTFC.FRESH_WATER.get().getBlock()) {
+            if (targetState.getMaterial() == Material.WATER && targetState.getBlock() != Blocks.WATER && targetState.getBlock() != TFCFluids.FRESH_WATER.get().getBlock()) {
                 return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
             }
         }

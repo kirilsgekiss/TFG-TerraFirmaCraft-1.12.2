@@ -5,9 +5,9 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.IFruitTree;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.util.math.BlockPos;
@@ -32,11 +32,11 @@ public class WorldGenFruitTrees implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (chunkGenerator instanceof ChunkGenTFC && world.provider.getDimension() == 0 && TREES.size() > 0 && ConfigTFC.General.FOOD.fruitTreeRarity > 0) {
-            if (random.nextInt(ConfigTFC.General.FOOD.fruitTreeRarity) == 0) {
+        if (chunkGenerator instanceof ChunkGenTFC && world.provider.getDimension() == 0 && TREES.size() > 0 && TFCConfig.General.FOOD.fruitTreeRarity > 0) {
+            if (random.nextInt(TFCConfig.General.FOOD.fruitTreeRarity) == 0) {
                 BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-                float temperature = ClimateTFC.getAvgTemp(world, chunkBlockPos);
+                float temperature = TFCClimate.getAvgTemp(world, chunkBlockPos);
                 float rainfall = ChunkDataTFC.getRainfall(world, chunkBlockPos);
                 List<IFruitTree> trees = TREES.stream().filter(x -> x.isValidConditions(temperature, rainfall)).collect(Collectors.toList());
                 if (!trees.isEmpty()) {

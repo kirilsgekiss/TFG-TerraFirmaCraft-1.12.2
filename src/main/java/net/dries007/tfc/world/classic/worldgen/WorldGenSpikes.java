@@ -6,10 +6,10 @@
 package net.dries007.tfc.world.classic.worldgen;
 
 import net.dries007.tfc.api.types.Rock.Type;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSpike;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSpike;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -40,7 +40,7 @@ public class WorldGenSpikes implements IWorldGenerator {
             BlockPos topPos = ceiling ? basePos.down() : basePos.up();
             BlockPos stoneAttach = ceiling ? basePos.up() : basePos.down();
             BlockPos freeSpace = ceiling ? topPos.down() : topPos.up();
-            if (!BlocksTFC.isRawStone(world.getBlockState(stoneAttach)) || !world.isAirBlock(basePos) || !world.isAirBlock(topPos) || !world.isAirBlock(freeSpace)) {
+            if (!TFCBlocks.isRawStone(world.getBlockState(stoneAttach)) || !world.isAirBlock(basePos) || !world.isAirBlock(topPos) || !world.isAirBlock(freeSpace)) {
                 continue;
             }
             boolean canPlace = true;
@@ -52,8 +52,8 @@ public class WorldGenSpikes implements IWorldGenerator {
             }
             if (canPlace) {
                 TFCBlockRockRaw rockBlock = (TFCBlockRockRaw) world.getBlockState(stoneAttach).getBlock();
-                IBlockState baseState = BlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(TFCBlockRockSpike.BASE, true).withProperty(TFCBlockRockSpike.CEILING, ceiling);
-                IBlockState topState = BlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(TFCBlockRockSpike.BASE, false).withProperty(TFCBlockRockSpike.CEILING, ceiling);
+                IBlockState baseState = TFCBlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(TFCBlockRockSpike.BASE, true).withProperty(TFCBlockRockSpike.CEILING, ceiling);
+                IBlockState topState = TFCBlockRockVariant.get(rockBlock.getRock(), Type.SPIKE).getDefaultState().withProperty(TFCBlockRockSpike.BASE, false).withProperty(TFCBlockRockSpike.CEILING, ceiling);
                 world.setBlockState(basePos, baseState, 2);
                 world.setBlockState(topPos, topState, 2);
             }

@@ -5,16 +5,16 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
 import net.dries007.tfc.api.capability.egg.IEgg;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.EntitiesTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIFindNest;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.TFCEntities;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIFindNest;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -49,7 +49,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 @ParametersAreNonnullByDefault
 public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
     //The last time(in ticks) this chicken has laid eggs
-    private static final DataParameter<Long> LAID = EntityDataManager.createKey(TFCEntityChicken.class, EntitiesTFC.getLongDataSerializer());
+    private static final DataParameter<Long> LAID = EntityDataManager.createKey(TFCEntityChicken.class, TFCEntities.getLongDataSerializer());
     //Copy from vanilla's EntityChicken, used by renderer to properly handle wing flap
     public float wingRotation;
     public float destPos;
@@ -58,7 +58,7 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
     public float wingRotDelta = 1.0F;
 
     public TFCEntityChicken(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.CHICKEN.adulthood, ConfigTFC.Animals.CHICKEN.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.CHICKEN.adulthood, TFCConfig.Animals.CHICKEN.elder));
     }
 
     public TFCEntityChicken(World worldIn, Gender gender, int birthDay) {
@@ -71,14 +71,14 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS)) {
-            return ConfigTFC.Animals.CHICKEN.rarity;
+            return TFCConfig.Animals.CHICKEN.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -98,12 +98,12 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.CHICKEN.adulthood;
+        return TFCConfig.Animals.CHICKEN.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.CHICKEN.elder;
+        return TFCConfig.Animals.CHICKEN.elder;
     }
 
     @Override
@@ -126,7 +126,7 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
             if (cap != null) {
                 TFCEntityChicken chick = new TFCEntityChicken(this.world);
                 chick.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
-                cap.setFertilized(chick, ConfigTFC.Animals.CHICKEN.hatch + CalendarTFC.PLAYER_TIME.getTotalDays());
+                cap.setFertilized(chick, TFCConfig.Animals.CHICKEN.hatch + TFCCalendar.PLAYER_TIME.getTotalDays());
             }
         }
         eggs.add(egg);
@@ -135,12 +135,12 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
 
     @Override
     public void setProductsCooldown() {
-        this.setLaidTicks(CalendarTFC.PLAYER_TIME.getTicks());
+        this.setLaidTicks(TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.CHICKEN.eggTicks + getLaidTicks() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.CHICKEN.eggTicks + getLaidTicks() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -182,7 +182,7 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
         TFCEntityAnimal.addCommonLivestockAI(this, 1.3D);
         TFCEntityAnimal.addCommonPreyAI(this, 1.3D);
 
-        this.tasks.addTask(5, new EntityAIFindNest(this, 1D));
+        this.tasks.addTask(5, new TFCEntityAIFindNest(this, 1D));
     }
 
     @Override
@@ -199,7 +199,7 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_CHICKEN;
+        return TFCLootTables.ANIMALS_CHICKEN;
     }
 
     @Override
@@ -220,7 +220,7 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.getClass() == TFCEntityChicken.class && this.getGender() == Gender.MALE && !this.world.isRemote && !this.isChild() && CalendarTFC.CALENDAR_TIME.getHourOfDay() == 6 && rand.nextInt(600) == 0) {
+        if (this.getClass() == TFCEntityChicken.class && this.getGender() == Gender.MALE && !this.world.isRemote && !this.isChild() && TFCCalendar.CALENDAR_TIME.getHourOfDay() == 6 && rand.nextInt(600) == 0) {
             this.world.playSound(null, this.getPosition(), TFCSounds.ANIMAL_ROOSTER_CRY, SoundCategory.AMBIENT, 0.8f, 1.0f);
         }
         this.oFlap = this.wingRotation;
@@ -255,6 +255,6 @@ public class TFCEntityChicken extends TFCEntityAnimal implements ILivestock {
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.CHICKEN.oldDeathChance;
+        return TFCConfig.Animals.CHICKEN.oldDeathChance;
     }
 }

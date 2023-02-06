@@ -4,15 +4,15 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
-import net.dries007.tfc.objects.blocks.agriculture.BlockBerryBush;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockBerryBush;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,16 +29,16 @@ public class BerryBushProvider implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         IBlockState state = world.getBlockState(data.getPos());
-        if (state.getBlock() instanceof BlockBerryBush) {
-            BlockBerryBush block = (BlockBerryBush) state.getBlock();
-            if (block.getBush().isHarvestMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(BlockBerryBush.FRUITING)) {
-                float temp = ClimateTFC.getActualTemp(world, data.getPos());
+        if (state.getBlock() instanceof TFCBlockBerryBush) {
+            TFCBlockBerryBush block = (TFCBlockBerryBush) state.getBlock();
+            if (block.getBush().isHarvestMonth(TFCCalendar.CALENDAR_TIME.getMonthOfYear()) && !state.getValue(TFCBlockBerryBush.FRUITING)) {
+                float temp = TFCClimate.getActualTemp(world, data.getPos());
                 float rainfall = ChunkDataTFC.getRainfall(world, data.getPos());
                 TETickCounter te = Helpers.getTE(world, data.getPos(), TETickCounter.class);
                 if (te != null && block.getBush().isValidForGrowth(temp, rainfall)) {
                     long hours = te.getTicksSinceUpdate() / ICalendar.TICKS_IN_HOUR;
                     // Don't show 100% since it still needs to check on randomTick to grow
-                    float perc = Math.min(0.99F, hours / (block.getBush().getGrowthTime() * (float) ConfigTFC.General.FOOD.berryBushGrowthTimeModifier)) * 100;
+                    float perc = Math.min(0.99F, hours / (block.getBush().getGrowthTime() * (float) TFCConfig.General.FOOD.berryBushGrowthTimeModifier)) * 100;
                     String growth = String.format("%d%%", Math.round(perc));
                     probeInfo.text(new TextComponentTranslation("waila.tfc.crop.growth", growth).getFormattedText());
                 } else {

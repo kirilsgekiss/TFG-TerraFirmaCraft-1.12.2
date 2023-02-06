@@ -6,7 +6,7 @@
 package net.dries007.tfc.proxy;
 
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
@@ -62,12 +62,12 @@ public class ClientProxy implements IProxy {
     @Nonnull
     @Override
     public String getDayName(int dayOfMonth, long totalDays) {
-        String date = CalendarTFC.CALENDAR_TIME.getMonthOfYear().name() + dayOfMonth;
-        String birthday = CalendarTFC.BIRTHDAYS.get(date);
+        String date = TFCCalendar.CALENDAR_TIME.getMonthOfYear().name() + dayOfMonth;
+        String birthday = TFCCalendar.BIRTHDAYS.get(date);
         if (birthday != null) {
             return birthday;
         }
-        return I18n.format("tfc.enum.day." + CalendarTFC.DAY_NAMES[(int) (totalDays % 7)]);
+        return I18n.format("tfc.enum.day." + TFCCalendar.DAY_NAMES[(int) (totalDays % 7)]);
     }
 
     @Nonnull

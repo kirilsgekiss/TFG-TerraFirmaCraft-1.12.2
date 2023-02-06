@@ -1,9 +1,9 @@
 package net.dries007.tfc.util.agriculture;
 
 import com.ferreusveritas.dynamictrees.api.seasons.ISeasonManager;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -22,17 +22,17 @@ public class TFCSeasonManager implements ISeasonManager {
 
     @Override
     public float getGrowthFactor(World world, BlockPos rootPos, float offset) {
-        return getMonthModifier(CalendarTFC.CALENDAR_TIME.getMonthOfYear());
+        return getMonthModifier(TFCCalendar.CALENDAR_TIME.getMonthOfYear());
     }
 
     @Override
     public float getSeedDropFactor(World world, BlockPos rootPos, float offset) {
-        return getMonthModifier(CalendarTFC.CALENDAR_TIME.getMonthOfYear()) + 0.05F;
+        return getMonthModifier(TFCCalendar.CALENDAR_TIME.getMonthOfYear()) + 0.05F;
     }
 
     @Override
     public float getFruitProductionFactor(World world, BlockPos rootPos, float offset) {
-        float mod = getMonthModifier(CalendarTFC.CALENDAR_TIME.getMonthOfYear());
+        float mod = getMonthModifier(TFCCalendar.CALENDAR_TIME.getMonthOfYear());
         return mod < 0.25F ? 0 : mod; // we don't want to fruit at all if it's the coldest part of the years
     }
 
@@ -43,17 +43,17 @@ public class TFCSeasonManager implements ISeasonManager {
      */
     @Override
     public Float getSeasonValue(World world, BlockPos blockPos) {
-        return (float) Math.min(getMonthModifier(CalendarTFC.CALENDAR_TIME.getMonthOfYear().next().next().next()) * 4, 3.999);
+        return (float) Math.min(getMonthModifier(TFCCalendar.CALENDAR_TIME.getMonthOfYear().next().next().next()) * 4, 3.999);
     }
 
     @Override
     public boolean isTropical(World world, BlockPos blockPos) {
-        return ClimateTFC.getRainfall(world, blockPos) > 300 && ClimateTFC.getAvgTemp(world, blockPos) > 20;
+        return TFCClimate.getRainfall(world, blockPos) > 300 && TFCClimate.getAvgTemp(world, blockPos) > 20;
     }
 
     @Override
     public boolean shouldSnowMelt(World world, BlockPos blockPos) {
-        return ClimateTFC.getDailyTemp(world, blockPos) > 0;
+        return TFCClimate.getDailyTemp(world, blockPos) > 0;
     }
 
     /**

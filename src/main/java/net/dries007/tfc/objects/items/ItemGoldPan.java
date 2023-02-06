@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.items;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
@@ -168,7 +168,7 @@ public class ItemGoldPan extends TFCItem {
                         stack.shrink(1);
                         world.playSound(null, entityLiving.getPosition(), TFCSounds.CERAMIC_BREAK, SoundCategory.PLAYERS, 1.0f, 1.0f);
                     } else {
-                        player.getCooldownTracker().setCooldown(stack.getItem(), ConfigTFC.Devices.GOLD_PAN.cooldownTicks);
+                        player.getCooldownTracker().setCooldown(stack.getItem(), TFCConfig.Devices.GOLD_PAN.cooldownTicks);
                     }
                 }
             }

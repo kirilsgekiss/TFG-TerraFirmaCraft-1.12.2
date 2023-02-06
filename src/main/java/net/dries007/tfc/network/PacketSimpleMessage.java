@@ -6,7 +6,7 @@
 package net.dries007.tfc.network;
 
 import io.netty.buffer.ByteBuf;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.ITextComponent;
@@ -21,9 +21,9 @@ import java.util.function.BooleanSupplier;
 
 public class PacketSimpleMessage implements IMessage {
     public enum MessageCategory {
-        ANVIL(() -> ConfigTFC.Client.TOOLTIP.anvilWeldOutputToActionBar),
-        VESSEL(() -> ConfigTFC.Client.TOOLTIP.vesselOutputToActionBar),
-        ANIMAL(() -> ConfigTFC.Client.TOOLTIP.animalsOutputToActionBar);
+        ANVIL(() -> TFCConfig.Client.TOOLTIP.anvilWeldOutputToActionBar),
+        VESSEL(() -> TFCConfig.Client.TOOLTIP.vesselOutputToActionBar),
+        ANIMAL(() -> TFCConfig.Client.TOOLTIP.animalsOutputToActionBar);
 
         private final BooleanSupplier displayToToolbar;
 

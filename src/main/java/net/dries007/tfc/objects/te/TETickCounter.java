@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.nbt.NBTTagCompound;
 
 import javax.annotation.Nonnull;
@@ -16,11 +16,11 @@ public class TETickCounter extends TEBase {
     private long lastUpdateTick;
 
     public long getTicksSinceUpdate() {
-        return CalendarTFC.PLAYER_TIME.getTicks() - lastUpdateTick;
+        return TFCCalendar.PLAYER_TIME.getTicks() - lastUpdateTick;
     }
 
     public void resetCounter() {
-        lastUpdateTick = CalendarTFC.PLAYER_TIME.getTicks();
+        lastUpdateTick = TFCCalendar.PLAYER_TIME.getTicks();
         markForSync();
     }
 

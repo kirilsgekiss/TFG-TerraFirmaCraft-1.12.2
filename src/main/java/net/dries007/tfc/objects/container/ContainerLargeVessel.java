@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.container;
 
-import net.dries007.tfc.objects.blocks.BlockLargeVessel;
+import net.dries007.tfc.objects.blocks.ceramics.TFCBlockLargeVessel;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.te.TELargeVessel;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -24,7 +24,7 @@ public class ContainerLargeVessel extends ContainerTE<TELargeVessel> implements 
     public void onButtonPress(int buttonID, @Nullable NBTTagCompound extraNBT) {
         // Slot will always be 0, extraNBT will be empty
         if (!tile.getWorld().isRemote) {
-            BlockLargeVessel.toggleLargeVesselSeal(tile.getWorld(), tile.getPos());
+            TFCBlockLargeVessel.toggleLargeVesselSeal(tile.getWorld(), tile.getPos());
         }
     }
 

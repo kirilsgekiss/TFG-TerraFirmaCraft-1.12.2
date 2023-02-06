@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.world.classic.chunkdata;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.util.NBTBuilder;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.world.classic.DataLayer;
 import net.minecraft.nbt.NBTBase;
@@ -152,12 +152,12 @@ public final class ChunkDataTFC {
 
         this.chunkWorkage = 0;
 
-        this.lastUpdateTick = CalendarTFC.PLAYER_TIME.getTicks();
-        this.lastUpdateYear = CalendarTFC.CALENDAR_TIME.getTotalYears();
+        this.lastUpdateTick = TFCCalendar.PLAYER_TIME.getTicks();
+        this.lastUpdateYear = TFCCalendar.CALENDAR_TIME.getTotalYears();
     }
 
     public boolean canWork(int amount) {
-        return ConfigTFC.Devices.SLUICE.maxWorkChunk == 0 || chunkWorkage <= ConfigTFC.Devices.SLUICE.maxWorkChunk + amount;
+        return TFCConfig.Devices.SLUICE.maxWorkChunk == 0 || chunkWorkage <= TFCConfig.Devices.SLUICE.maxWorkChunk + amount;
     }
 
     public void addWork(int amount) {
@@ -264,14 +264,14 @@ public final class ChunkDataTFC {
     }
 
     public void addSpawnProtection(int multiplier) {
-        if (protectedTicks < CalendarTFC.PLAYER_TIME.getTicks()) {
-            protectedTicks = CalendarTFC.PLAYER_TIME.getTicks();
+        if (protectedTicks < TFCCalendar.PLAYER_TIME.getTicks()) {
+            protectedTicks = TFCCalendar.PLAYER_TIME.getTicks();
         }
         protectedTicks += multiplier * 600;
     }
 
     public long getSpawnProtection() {
-        return protectedTicks - (24 * ICalendar.TICKS_IN_HOUR) - CalendarTFC.PLAYER_TIME.getTicks();
+        return protectedTicks - (24 * ICalendar.TICKS_IN_HOUR) - TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     public boolean isSpawnProtected() {
@@ -283,7 +283,7 @@ public final class ChunkDataTFC {
     }
 
     public void resetLastUpdateTick() {
-        this.lastUpdateTick = CalendarTFC.PLAYER_TIME.getTicks();
+        this.lastUpdateTick = TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     public long getLastUpdateYear() {
@@ -291,7 +291,7 @@ public final class ChunkDataTFC {
     }
 
     public void resetLastUpdateYear() {
-        this.lastUpdateYear = CalendarTFC.CALENDAR_TIME.getTotalYears();
+        this.lastUpdateYear = TFCCalendar.CALENDAR_TIME.getTotalYears();
     }
 
     public List<Tree> getValidTrees() {

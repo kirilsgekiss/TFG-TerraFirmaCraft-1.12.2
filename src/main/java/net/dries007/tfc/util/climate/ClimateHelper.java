@@ -5,8 +5,8 @@
 
 package net.dries007.tfc.util.climate;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.TFCConfig;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.dries007.tfc.util.calendar.Month;
@@ -32,7 +32,7 @@ public class ClimateHelper {
      */
     public static float dailyTemp(float regionalTemp, int z, long timeOffset) {
         // Hottest part of the day at 12, coldest at 0
-        int hourOfDay = ICalendarFormatted.getHourOfDay(CalendarTFC.CALENDAR_TIME.getTicks() + timeOffset);
+        int hourOfDay = ICalendarFormatted.getHourOfDay(TFCCalendar.CALENDAR_TIME.getTicks() + timeOffset);
         if (hourOfDay > 12) {
             // Range: 0 - 12
             hourOfDay = 24 - hourOfDay;
@@ -41,7 +41,7 @@ public class ClimateHelper {
         float hourModifier = (hourOfDay / 6f) - 1f;
 
         // Note: this does not use world seed, as that is not synced from server - client, resulting in the seed being different
-        long day = ICalendar.getTotalDays(CalendarTFC.CALENDAR_TIME.getTicks() + timeOffset);
+        long day = ICalendar.getTotalDays(TFCCalendar.CALENDAR_TIME.getTicks() + timeOffset);
         RANDOM.setSeed(day);
         // Range: -1 - 1
         final float dailyModifier = RANDOM.nextFloat() - RANDOM.nextFloat();
@@ -54,13 +54,13 @@ public class ClimateHelper {
      * @return The month adjusted temperature. This gets the base temperature, before daily / hourly changes
      */
     public static float monthlyTemp(float regionalTemp, int z, long timeOffset) {
-        long time = CalendarTFC.CALENDAR_TIME.getTicks() + timeOffset;
-        Month monthOfYear = ICalendarFormatted.getMonthOfYear(time, CalendarTFC.CALENDAR_TIME.getDaysInMonth());
+        long time = TFCCalendar.CALENDAR_TIME.getTicks() + timeOffset;
+        Month monthOfYear = ICalendarFormatted.getMonthOfYear(time, TFCCalendar.CALENDAR_TIME.getDaysInMonth());
 
         final float currentMonthFactor = monthFactor(regionalTemp, monthOfYear, z);
         final float nextMonthFactor = monthFactor(regionalTemp, monthOfYear.next(), z);
 
-        final float delta = (float) ICalendarFormatted.getDayOfMonth(time, CalendarTFC.CALENDAR_TIME.getDaysInMonth()) / CalendarTFC.CALENDAR_TIME.getDaysInMonth();
+        final float delta = (float) ICalendarFormatted.getDayOfMonth(time, TFCCalendar.CALENDAR_TIME.getDaysInMonth()) / TFCCalendar.CALENDAR_TIME.getDaysInMonth();
         // Affine combination to smooth temperature transition
         return currentMonthFactor * (1 - delta) + nextMonthFactor * delta;
     }
@@ -106,11 +106,11 @@ public class ClimateHelper {
      * @return the latitude factor for temperature calculation
      */
     public static float latitudeFactor(int chunkZ) {
-        int tempRange = ConfigTFC.General.WORLD.latitudeTemperatureModifier;
-        if (ConfigTFC.General.WORLD.temperatureMode == TemperatureMode.ENDLESS) {
+        int tempRange = TFCConfig.General.WORLD.latitudeTemperatureModifier;
+        if (TFCConfig.General.WORLD.temperatureMode == TemperatureMode.ENDLESS) {
             chunkZ = MathHelper.clamp(chunkZ, -tempRange / 2, tempRange / 2);
         }
-        return 0.5f + 0.5f * ConfigTFC.General.WORLD.hemisphereType.getValue() * (float) Math.sin(Math.PI * chunkZ / tempRange);
+        return 0.5f + 0.5f * TFCConfig.General.WORLD.hemisphereType.getValue() * (float) Math.sin(Math.PI * chunkZ / tempRange);
     }
 
     private ClimateHelper() {

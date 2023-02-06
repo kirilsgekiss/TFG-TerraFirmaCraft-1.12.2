@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.blocks.metal;
 
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
 import net.dries007.tfc.objects.te.TELamp;
 import net.dries007.tfc.util.Helpers;
@@ -146,7 +146,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock {
 
     @Override
     public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
-        if (state.getValue(LIT) && ConfigTFC.Devices.LAMP.burnRate > 0) {
+        if (state.getValue(LIT) && TFCConfig.Devices.LAMP.burnRate > 0) {
             TELamp tel = Helpers.getTE(worldIn, pos, TELamp.class);
             if (tel != null) {
                 checkFuel(worldIn, pos, state, tel);
@@ -336,7 +336,7 @@ public class TFCBlockLamp extends Block implements ILightableBlock {
         boolean ranOut = false;
         if (!worldIn.isRemote && fluidHandler != null) {
             long ticks = tel.getTicksSinceUpdate();
-            double usage = ConfigTFC.Devices.LAMP.burnRate * ticks / ICalendar.TICKS_IN_HOUR;
+            double usage = TFCConfig.Devices.LAMP.burnRate * ticks / ICalendar.TICKS_IN_HOUR;
             if (usage >= 1) // minimize rounding issues
             {
                 FluidStack used = fluidHandler.drain((int) usage, true); // use fuel

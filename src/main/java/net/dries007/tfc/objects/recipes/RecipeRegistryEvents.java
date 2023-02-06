@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.recipes;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +18,7 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class RecipeRegistryEvents {
     @SubscribeEvent
     public static void onRecipeRegister(RegistryEvent.Register<IRecipe> event) {
-        if (ConfigTFC.General.OVERRIDES.removeVanillaRecipes) {
+        if (TFCConfig.General.OVERRIDES.removeVanillaRecipes) {
             IForgeRegistryModifiable<IRecipe> registry = (IForgeRegistryModifiable<IRecipe>) event.getRegistry();
 
             //misc AKA too lazy to categorize somehow

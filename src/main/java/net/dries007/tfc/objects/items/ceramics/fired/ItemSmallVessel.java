@@ -9,7 +9,7 @@ import gregtech.api.fluids.MetaFluids;
 import gregtech.api.unification.material.Material;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.ISmallVesselHandler;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -31,7 +31,7 @@ import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.items.ceramics.ItemPottery;
 import net.dries007.tfc.util.Alloy;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -196,7 +196,7 @@ public class ItemSmallVessel extends ItemPottery {
         SmallVesselCapability(@Nullable NBTTagCompound nbt) {
             super(4);
 
-            tank = new FluidTank(ConfigTFC.Devices.SMALL_VESSEL.tank);
+            tank = new FluidTank(TFCConfig.Devices.SMALL_VESSEL.tank);
             fluidMode = false;
             deserializeNBT(nbt);
         }
@@ -216,13 +216,13 @@ public class ItemSmallVessel extends ItemPottery {
 
         @Override
         public float getTemperature() {
-            return CapabilityItemHeat.adjustTemp(temperature, heatCapacity, CalendarTFC.PLAYER_TIME.getTicks() - lastUpdateTick);
+            return CapabilityItemHeat.adjustTemp(temperature, heatCapacity, TFCCalendar.PLAYER_TIME.getTicks() - lastUpdateTick);
         }
 
         @Override
         public void setTemperature(float temperature) {
             this.temperature = temperature;
-            this.lastUpdateTick = CalendarTFC.PLAYER_TIME.getTicks();
+            this.lastUpdateTick = TFCCalendar.PLAYER_TIME.getTicks();
         }
 
         @Override

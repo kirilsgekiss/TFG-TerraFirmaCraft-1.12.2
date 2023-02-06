@@ -8,7 +8,7 @@ package net.dries007.tfc.compat.jei.wrappers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipe;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipeFluidMixing;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipeFoodPreservation;
@@ -69,7 +69,7 @@ public class BarrelRecipeWrapper implements IRecipeWrapper {
             if (outputFluid != null && highestFluid < outputFluid.amount) {
                 highestFluid = outputFluid.amount;
             }
-            double maximumMultiplier = (double) ConfigTFC.Devices.BARREL.tank / highestFluid; // Fix the multiplier to the maximum allowed value into a barrel
+            double maximumMultiplier = (double) TFCConfig.Devices.BARREL.tank / highestFluid; // Fix the multiplier to the maximum allowed value into a barrel
             double multiplier = Math.min((double) Fluid.BUCKET_VOLUME / inputFluid.amount, maximumMultiplier);
             inputFluid.amount *= multiplier;
             fluidIngredients.forEach(x -> x.amount *= multiplier);

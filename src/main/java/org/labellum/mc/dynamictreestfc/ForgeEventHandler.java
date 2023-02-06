@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.util.OreDictionaryHelper;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
@@ -28,7 +28,7 @@ public class ForgeEventHandler
                 {
                     if (OreDictionaryHelper.doesStackMatchOre(s,"logWood"))
                     {
-                        s.setCount((int) (s.getCount() * ConfigTFC.General.TREE.stoneAxeReturnRate));
+                        s.setCount((int) (s.getCount() * TFCConfig.General.TREE.stoneAxeReturnRate));
                         //not consolidating partial item stacks on ground
                     }
                 }

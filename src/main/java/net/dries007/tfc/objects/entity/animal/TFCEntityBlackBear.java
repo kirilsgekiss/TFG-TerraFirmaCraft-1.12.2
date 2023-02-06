@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IPredator;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIAttackMeleeTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIStandAttack;
-import net.dries007.tfc.objects.entity.ai.EntityAIWanderHuntArea;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIAttackMelee;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIStandAttack;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIWanderHuntArea;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.entity.Entity;
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityBlackBear extends TFCEntityGrizzlyBear implements IPredator, EntityAIStandAttack.IEntityStandAttack {
+public class TFCEntityBlackBear extends TFCEntityGrizzlyBear implements IPredator, TFCEntityAIStandAttack.IEntityStandAttack {
     private static final int DAYS_TO_ADULTHOOD = 240;
 
     @SuppressWarnings("unused")
@@ -46,16 +46,16 @@ public class TFCEntityBlackBear extends TFCEntityGrizzlyBear implements IPredato
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TEMPERATE_FOREST)) {
-            return ConfigTFC.Animals.BLACK_BEAR.rarity;
+            return TFCConfig.Animals.BLACK_BEAR.rarity;
         }
         return 0;
     }
 
     @Override
     protected void initEntityAI() {
-        EntityAIWander wander = new EntityAIWanderHuntArea(this, 1.0D);
+        EntityAIWander wander = new TFCEntityAIWanderHuntArea(this, 1.0D);
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIStandAttack<>(this, 1.2D, 2.0D, EntityAIAttackMeleeTFC.AttackBehavior.DAYLIGHT_ONLY).setWanderAI(wander));
+        this.tasks.addTask(1, new TFCEntityAIStandAttack<>(this, 1.2D, 2.0D, TFCEntityAIAttackMelee.AttackBehavior.DAYLIGHT_ONLY).setWanderAI(wander));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.1D));
         this.tasks.addTask(5, wander);
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
@@ -64,7 +64,7 @@ public class TFCEntityBlackBear extends TFCEntityGrizzlyBear implements IPredato
 
 
         int priority = 2;
-        for (String input : ConfigTFC.Animals.BLACK_BEAR.huntCreatures) {
+        for (String input : TFCConfig.Animals.BLACK_BEAR.huntCreatures) {
             ResourceLocation key = new ResourceLocation(input);
             EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(key);
             if (entityEntry != null) {
@@ -79,6 +79,6 @@ public class TFCEntityBlackBear extends TFCEntityGrizzlyBear implements IPredato
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_BLACK_BEAR;
+        return TFCLootTables.ANIMALS_BLACK_BEAR;
     }
 }

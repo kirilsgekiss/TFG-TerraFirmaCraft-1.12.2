@@ -5,9 +5,9 @@
 
 package net.dries007.tfc.client;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.TFCConfig;
+import net.dries007.tfc.util.calendar.TFCCalendar;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -34,10 +34,10 @@ public class GrassColorHandler {
         int januaryCode = 0x00;
         int aprilCode = 0x00;
         try {
-            julyCode = Integer.parseUnsignedInt(ConfigTFC.Client.GRASS_COLOR.seasonColorSummer, 16);
-            octoberCode = Integer.parseUnsignedInt(ConfigTFC.Client.GRASS_COLOR.seasonColorAutumn, 16);
-            januaryCode = Integer.parseUnsignedInt(ConfigTFC.Client.GRASS_COLOR.seasonColorWinter, 16);
-            aprilCode = Integer.parseUnsignedInt(ConfigTFC.Client.GRASS_COLOR.seasonColorSpring, 16);
+            julyCode = Integer.parseUnsignedInt(TFCConfig.Client.GRASS_COLOR.seasonColorSummer, 16);
+            octoberCode = Integer.parseUnsignedInt(TFCConfig.Client.GRASS_COLOR.seasonColorAutumn, 16);
+            januaryCode = Integer.parseUnsignedInt(TFCConfig.Client.GRASS_COLOR.seasonColorWinter, 16);
+            aprilCode = Integer.parseUnsignedInt(TFCConfig.Client.GRASS_COLOR.seasonColorSpring, 16);
         } finally {
             monthlyColors[Month.JULY.ordinal()] = new Color(julyCode, true);
             monthlyColors[Month.OCTOBER.ordinal()] = new Color(octoberCode, true);
@@ -58,14 +58,14 @@ public class GrassColorHandler {
             Color seasonalColor = getSeasonalColor();
             Color finalColor = originalColor;
 
-            if (ConfigTFC.Client.GRASS_COLOR.seasonColorEnable) {
+            if (TFCConfig.Client.GRASS_COLOR.seasonColorEnable) {
                 finalColor = blendByAlpha(finalColor, seasonalColor);
             }
 
-            if (ConfigTFC.Client.GRASS_COLOR.noiseEnable) {
-                int levels = ConfigTFC.Client.GRASS_COLOR.noiseLevels;
-                float scale = ConfigTFC.Client.GRASS_COLOR.noiseScale;
-                double darkness = ConfigTFC.Client.GRASS_COLOR.noiseDarkness;
+            if (TFCConfig.Client.GRASS_COLOR.noiseEnable) {
+                int levels = TFCConfig.Client.GRASS_COLOR.noiseLevels;
+                float scale = TFCConfig.Client.GRASS_COLOR.noiseScale;
+                double darkness = TFCConfig.Client.GRASS_COLOR.noiseDarkness;
                 double value = noiseGenerator.getValue(pos.getX() / scale, pos.getZ() / scale);
                 value = curve(0, 1, remap(value, -((1 << levels) - 1), (1 << levels) - 1, 0, 1), 1) * darkness;
                 finalColor = blendByWeight(Color.BLACK, finalColor, value);
@@ -78,7 +78,7 @@ public class GrassColorHandler {
     }
 
     public static Color getSeasonalColor() {
-        return monthlyColors[CalendarTFC.CALENDAR_TIME.getMonthOfYear().ordinal()];
+        return monthlyColors[TFCCalendar.CALENDAR_TIME.getMonthOfYear().ordinal()];
     }
 
     public static double remap(double value, double currentLow, double currentHigh, double newLow, double newHigh) {
@@ -119,8 +119,8 @@ public class GrassColorHandler {
     // Default TFC grass coloring
     private static int computeInitialGrassColor(IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) {
         if (pos != null) {
-            double temp = MathHelper.clamp((ClimateTFC.getMonthlyTemp(pos) + 30) / 60, 0, 1);
-            double rain = MathHelper.clamp((ClimateTFC.getRainfall(pos) - 50) / 400, 0, 1);
+            double temp = MathHelper.clamp((TFCClimate.getMonthlyTemp(pos) + 30) / 60, 0, 1);
+            double rain = MathHelper.clamp((TFCClimate.getRainfall(pos) - 50) / 400, 0, 1);
             return ColorizerGrass.getGrassColor(temp, rain);
         }
 

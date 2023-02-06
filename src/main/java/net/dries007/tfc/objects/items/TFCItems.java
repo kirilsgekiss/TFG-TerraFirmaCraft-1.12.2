@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
@@ -20,9 +20,9 @@ import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
-import net.dries007.tfc.objects.ArmorMaterialTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockSlab;
+import net.dries007.tfc.objects.TFCArmorMaterial;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodDoor;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSlab;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
@@ -76,7 +76,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
-import static net.dries007.tfc.objects.CreativeTabsTFC.*;
+import static net.dries007.tfc.objects.TFCCreativeTabs.*;
 import static net.dries007.tfc.util.Helpers.getNull;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
@@ -931,20 +931,20 @@ public final class TFCItems {
             }
         }
 
-        BlocksTFC.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
-        BlocksTFC.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
-        BlocksTFC.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllNormalItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllColorizedItemBlocks().forEach(x -> registerItemBlock(r, x));
+        TFCBlocks.getAllInventoryItemBlocks().forEach(x -> registerItemBlock(r, x));
 
-        for (TFCBlockLog log : BlocksTFC.getAllLogBlocks())
+        for (TFCBlockLog log : TFCBlocks.getAllLogBlocks())
             simpleItems.add(register(r, log.getRegistryName().getPath(), new TFCItemBlock(log), CT_WOOD));
 
-        for (TFCBlockWoodDoor door : BlocksTFC.getAllDoorBlocks())
+        for (TFCBlockWoodDoor door : TFCBlocks.getAllDoorBlocks())
             simpleItems.add(register(r, door.getRegistryName().getPath(), new TFCItemDoor(door), CT_DECORATIONS));
 
-        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllRockSlabBlocks())
+        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllRockSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
-        for (TFCBlockWoodSlab.Half slab : BlocksTFC.getAllWoodSlabBlocks())
+        for (TFCBlockWoodSlab.Half slab : TFCBlocks.getAllWoodSlabBlocks())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
         for (Wood wood : TFCRegistries.WOODS.getValuesCollection()) {
@@ -1248,50 +1248,50 @@ public final class TFCItems {
         // Armors
         ImmutableList.Builder<TFCItemArmor> armorItems = ImmutableList.builder();
         {
-            armorItems.add(register(r, "armor/helmet/pineapple_leather", new TFCItemArmor(ArmorMaterialTFC.PINEAPPLE_LEATHER, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/pineapple_leather", new TFCItemArmor(ArmorMaterialTFC.PINEAPPLE_LEATHER, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/pineapple_leather", new TFCItemArmor(ArmorMaterialTFC.PINEAPPLE_LEATHER, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/pineapple_leather", new TFCItemArmor(ArmorMaterialTFC.PINEAPPLE_LEATHER, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/pineapple_leather", new TFCItemArmor(TFCArmorMaterial.PINEAPPLE_LEATHER, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/pineapple_leather", new TFCItemArmor(TFCArmorMaterial.PINEAPPLE_LEATHER, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/pineapple_leather", new TFCItemArmor(TFCArmorMaterial.PINEAPPLE_LEATHER, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/pineapple_leather", new TFCItemArmor(TFCArmorMaterial.PINEAPPLE_LEATHER, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/burlap_cloth", new TFCItemArmor(ArmorMaterialTFC.BURLAP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/burlap_cloth", new TFCItemArmor(ArmorMaterialTFC.BURLAP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/burlap_cloth", new TFCItemArmor(ArmorMaterialTFC.BURLAP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/burlap_cloth", new TFCItemArmor(ArmorMaterialTFC.BURLAP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/burlap_cloth", new TFCItemArmor(TFCArmorMaterial.BURLAP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/burlap_cloth", new TFCItemArmor(TFCArmorMaterial.BURLAP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/burlap_cloth", new TFCItemArmor(TFCArmorMaterial.BURLAP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/burlap_cloth", new TFCItemArmor(TFCArmorMaterial.BURLAP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/wool_cloth", new TFCItemArmor(ArmorMaterialTFC.WOOL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/wool_cloth", new TFCItemArmor(ArmorMaterialTFC.WOOL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/wool_cloth", new TFCItemArmor(ArmorMaterialTFC.WOOL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/wool_cloth", new TFCItemArmor(ArmorMaterialTFC.WOOL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/wool_cloth", new TFCItemArmor(TFCArmorMaterial.WOOL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/wool_cloth", new TFCItemArmor(TFCArmorMaterial.WOOL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/wool_cloth", new TFCItemArmor(TFCArmorMaterial.WOOL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/wool_cloth", new TFCItemArmor(TFCArmorMaterial.WOOL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/silk_cloth", new TFCItemArmor(ArmorMaterialTFC.SILK_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/silk_cloth", new TFCItemArmor(ArmorMaterialTFC.SILK_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/silk_cloth", new TFCItemArmor(ArmorMaterialTFC.SILK_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/silk_cloth", new TFCItemArmor(ArmorMaterialTFC.SILK_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/silk_cloth", new TFCItemArmor(TFCArmorMaterial.SILK_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/silk_cloth", new TFCItemArmor(TFCArmorMaterial.SILK_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/silk_cloth", new TFCItemArmor(TFCArmorMaterial.SILK_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/silk_cloth", new TFCItemArmor(TFCArmorMaterial.SILK_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/sisal_cloth", new TFCItemArmor(ArmorMaterialTFC.SISAL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/sisal_cloth", new TFCItemArmor(ArmorMaterialTFC.SISAL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/sisal_cloth", new TFCItemArmor(ArmorMaterialTFC.SISAL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/sisal_cloth", new TFCItemArmor(ArmorMaterialTFC.SISAL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/sisal_cloth", new TFCItemArmor(TFCArmorMaterial.SISAL_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/sisal_cloth", new TFCItemArmor(TFCArmorMaterial.SISAL_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/sisal_cloth", new TFCItemArmor(TFCArmorMaterial.SISAL_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/sisal_cloth", new TFCItemArmor(TFCArmorMaterial.SISAL_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/cotton_cloth", new TFCItemArmor(ArmorMaterialTFC.COTTON_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/cotton_cloth", new TFCItemArmor(ArmorMaterialTFC.COTTON_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/cotton_cloth", new TFCItemArmor(ArmorMaterialTFC.COTTON_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/cotton_cloth", new TFCItemArmor(ArmorMaterialTFC.COTTON_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/cotton_cloth", new TFCItemArmor(TFCArmorMaterial.COTTON_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/cotton_cloth", new TFCItemArmor(TFCArmorMaterial.COTTON_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/cotton_cloth", new TFCItemArmor(TFCArmorMaterial.COTTON_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/cotton_cloth", new TFCItemArmor(TFCArmorMaterial.COTTON_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/linen_cloth", new TFCItemArmor(ArmorMaterialTFC.LINEN_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/linen_cloth", new TFCItemArmor(ArmorMaterialTFC.LINEN_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/linen_cloth", new TFCItemArmor(ArmorMaterialTFC.LINEN_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/linen_cloth", new TFCItemArmor(ArmorMaterialTFC.LINEN_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/linen_cloth", new TFCItemArmor(TFCArmorMaterial.LINEN_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/linen_cloth", new TFCItemArmor(TFCArmorMaterial.LINEN_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/linen_cloth", new TFCItemArmor(TFCArmorMaterial.LINEN_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/linen_cloth", new TFCItemArmor(TFCArmorMaterial.LINEN_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/hemp_cloth", new TFCItemArmor(ArmorMaterialTFC.HEMP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/hemp_cloth", new TFCItemArmor(ArmorMaterialTFC.HEMP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/hemp_cloth", new TFCItemArmor(ArmorMaterialTFC.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/hemp_cloth", new TFCItemArmor(ArmorMaterialTFC.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/yucca_canvas", new TFCItemArmor(ArmorMaterialTFC.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/yucca_canvas", new TFCItemArmor(ArmorMaterialTFC.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/yucca_canvas", new TFCItemArmor(ArmorMaterialTFC.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/yucca_canvas", new TFCItemArmor(ArmorMaterialTFC.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
 
             allArmorItems = armorItems.build();
@@ -1502,7 +1502,7 @@ public final class TFCItems {
         }
 
 
-        for (TFCBlockRockSlab.Half slab : BlocksTFC.getAllSlabBlocksTFC())
+        for (TFCBlockRockSlab.Half slab : TFCBlocks.getAllSlabBlocksTFC())
             simpleItems.add(register(r, slab.getRegistryName().getPath(), new TFCItemSlab(slab, slab, slab.doubleSlab), CT_DECORATIONS));
 
 
@@ -1535,7 +1535,7 @@ public final class TFCItems {
 //            new ItemBlockStickBundle(BlocksTFC.STICK_BUNDLE).setRegistryName(MOD_ID, "stick_bundle")
         );
 
-        if (ConfigTFC.General.OVERRIDES.enableTorchOverride) {
+        if (TFCConfig.General.OVERRIDES.enableTorchOverride) {
             event.getRegistry().register(new ItemBlockTorch(Blocks.TORCH).setRegistryName("minecraft", "torch"));
         }
     }

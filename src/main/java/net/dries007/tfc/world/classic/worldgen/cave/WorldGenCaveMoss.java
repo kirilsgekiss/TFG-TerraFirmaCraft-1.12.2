@@ -2,7 +2,7 @@ package net.dries007.tfc.world.classic.worldgen.cave;
 
 import net.dries007.tfc.api.types.Plant;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockCreepingPlant;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.state.IBlockState;
@@ -30,12 +30,12 @@ public class WorldGenCaveMoss extends WorldGenerator {
         for (int i = 0; i < ChunkDataTFC.getRainfall(worldIn, pos) / 16; ++i) {
             BlockPos blockpos = pos.add(rng.nextInt(4) - rng.nextInt(4), rng.nextInt(4) - rng.nextInt(4), rng.nextInt(4) - rng.nextInt(4));
 
-            if (plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, blockpos)) &&
+            if (plant.isValidTemp(TFCClimate.getActualTemp(worldIn, blockpos)) &&
                     worldIn.isAirBlock(blockpos) &&
                     pos.getY() < WorldTypeTFC.SEALEVEL - 3 &&
                     worldIn.getLightFor(EnumSkyBlock.SKY, blockpos) < 14 &&
                     plantBlock.canBlockStay(worldIn, blockpos, state)) {
-                int plantAge = plant.getAgeForWorldgen(rng, ClimateTFC.getActualTemp(worldIn, blockpos));
+                int plantAge = plant.getAgeForWorldgen(rng, TFCClimate.getActualTemp(worldIn, blockpos));
                 setBlockAndNotifyAdequately(worldIn, blockpos, state.withProperty(TFCBlockCreepingPlant.AGE, plantAge));
             }
         }

@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.api.recipes.barrel;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.util.Helpers;
@@ -112,7 +112,7 @@ public class BarrelRecipe extends IForgeRegistryEntry.Impl<BarrelRecipe> {
         int multiplier = getMultiplier(inputFluid, inputStack);
         if (outputFluid != null) {
             // Ignore input and replace with output
-            int outputAmount = Math.min(multiplier * outputFluid.amount, ConfigTFC.Devices.BARREL.tank);
+            int outputAmount = Math.min(multiplier * outputFluid.amount, TFCConfig.Devices.BARREL.tank);
             return new FluidStack(outputFluid.getFluid(), outputAmount);
         } else {
             // Try and keep as much of the original input as possible

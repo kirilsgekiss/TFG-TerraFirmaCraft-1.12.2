@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.blocks.wood;
 
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
@@ -75,10 +75,10 @@ public class TFCBlockWoodSupport extends Block {
      * @return true if there is a support in 4 block radius
      */
     public static boolean isBeingSupported(World worldIn, BlockPos pos) {
-        int sRangeHor = ConfigTFC.General.FALLABLE.supportBeamRangeHor;
-        int sRangeVert = ConfigTFC.General.FALLABLE.supportBeamRangeUp;
-        int sRangeHorNeg = ConfigTFC.General.FALLABLE.supportBeamRangeHor * -1;
-        int sRangeVertNeg = ConfigTFC.General.FALLABLE.supportBeamRangeDown * -1;
+        int sRangeHor = TFCConfig.General.FALLABLE.supportBeamRangeHor;
+        int sRangeVert = TFCConfig.General.FALLABLE.supportBeamRangeUp;
+        int sRangeHorNeg = TFCConfig.General.FALLABLE.supportBeamRangeHor * -1;
+        int sRangeVertNeg = TFCConfig.General.FALLABLE.supportBeamRangeDown * -1;
         if (!worldIn.isAreaLoaded(pos.add(-32, -32, -32), pos.add(32, 32, 32))) {
             return true; // If world isn't loaded...
         }
@@ -108,10 +108,10 @@ public class TFCBlockWoodSupport extends Block {
         int maxY = Math.max(from.getY(), to.getY());
         int minZ = Math.min(from.getZ(), to.getZ());
         int maxZ = Math.max(from.getZ(), to.getZ());
-        int sRangeHor = ConfigTFC.General.FALLABLE.supportBeamRangeHor;
-        int sRangeVert = ConfigTFC.General.FALLABLE.supportBeamRangeUp;
-        int sRangeHorNeg = ConfigTFC.General.FALLABLE.supportBeamRangeHor * -1;
-        int sRangeVertNeg = ConfigTFC.General.FALLABLE.supportBeamRangeDown * -1;
+        int sRangeHor = TFCConfig.General.FALLABLE.supportBeamRangeHor;
+        int sRangeVert = TFCConfig.General.FALLABLE.supportBeamRangeUp;
+        int sRangeHorNeg = TFCConfig.General.FALLABLE.supportBeamRangeHor * -1;
+        int sRangeVertNeg = TFCConfig.General.FALLABLE.supportBeamRangeDown * -1;
         BlockPos minPoint = new BlockPos(minX, minY, minZ);
         BlockPos maxPoint = new BlockPos(maxX, maxY, maxZ);
         for (BlockPos.MutableBlockPos searchingPoint : BlockPos.getAllInBoxMutable(minPoint.add(sRangeHorNeg, sRangeVertNeg, sRangeHorNeg),

@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -31,7 +31,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
     @SuppressWarnings("unused")
     public TFCEntityMuskOx(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.MUSKOX.adulthood, ConfigTFC.Animals.MUSKOX.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.MUSKOX.adulthood, TFCConfig.Animals.MUSKOX.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
     }
 
     public TFCEntityMuskOx(World worldIn, Gender gender, int birthDay, EnumDyeColor dye) {
@@ -44,7 +44,7 @@ public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TUNDRA)) {
-            return ConfigTFC.Animals.MUSKOX.rarity;
+            return TFCConfig.Animals.MUSKOX.rarity;
         }
         return 0;
     }
@@ -61,9 +61,9 @@ public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.MUSKOX.babies;
+        int numberOfChildren = TFCConfig.Animals.MUSKOX.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityMuskOx baby = new TFCEntityMuskOx(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays(), getDyeColor());
+            TFCEntityMuskOx baby = new TFCEntityMuskOx(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays(), getDyeColor());
             baby.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);
             baby.setFamiliarity(getFamiliarity() < 0.9F ? getFamiliarity() / 2.0F : getFamiliarity() * 0.9F);
             world.spawnEntity(baby);
@@ -72,12 +72,12 @@ public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.MUSKOX.gestation;
+        return TFCConfig.Animals.MUSKOX.gestation;
     }
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.MUSKOX.oldDeathChance;
+        return TFCConfig.Animals.MUSKOX.oldDeathChance;
     }
 
     @Override
@@ -87,17 +87,17 @@ public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.MUSKOX.adulthood;
+        return TFCConfig.Animals.MUSKOX.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.MUSKOX.elder;
+        return TFCConfig.Animals.MUSKOX.elder;
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.MUSKOX.woolTicks + getShearedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.MUSKOX.woolTicks + getShearedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -117,7 +117,7 @@ public class TFCEntityMuskOx extends TFCEntitySheep implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_MUSKOX;
+        return TFCLootTables.ANIMALS_MUSKOX;
     }
 
     @Override

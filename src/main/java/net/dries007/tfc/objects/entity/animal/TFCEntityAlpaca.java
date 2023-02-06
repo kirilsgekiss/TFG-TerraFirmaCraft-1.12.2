@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -39,7 +39,7 @@ import java.util.function.BiConsumer;
 public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
     @SuppressWarnings("unused")
     public TFCEntityAlpaca(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.ALPACA.adulthood, ConfigTFC.Animals.ALPACA.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.ALPACA.adulthood, TFCConfig.Animals.ALPACA.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
     }
 
     public TFCEntityAlpaca(World worldIn, Gender gender, int birthDay, EnumDyeColor dye) {
@@ -51,14 +51,14 @@ public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TAIGA)) {
-            return ConfigTFC.Animals.ALPACA.rarity;
+            return TFCConfig.Animals.ALPACA.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -73,9 +73,9 @@ public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.ALPACA.babies;
+        int numberOfChildren = TFCConfig.Animals.ALPACA.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityAlpaca baby = new TFCEntityAlpaca(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays(), getDyeColor());
+            TFCEntityAlpaca baby = new TFCEntityAlpaca(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays(), getDyeColor());
             baby.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);
             baby.setFamiliarity(getFamiliarity() < 0.9F ? getFamiliarity() / 2.0F : getFamiliarity() * 0.9F);
             world.spawnEntity(baby);
@@ -84,12 +84,12 @@ public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.ALPACA.gestation;
+        return TFCConfig.Animals.ALPACA.gestation;
     }
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.ALPACA.oldDeathChance;
+        return TFCConfig.Animals.ALPACA.oldDeathChance;
     }
 
     @Override
@@ -99,17 +99,17 @@ public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.ALPACA.adulthood;
+        return TFCConfig.Animals.ALPACA.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.ALPACA.elder;
+        return TFCConfig.Animals.ALPACA.elder;
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.ALPACA.woolTicks + getShearedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.ALPACA.woolTicks + getShearedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -129,7 +129,7 @@ public class TFCEntityAlpaca extends TFCEntitySheep implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_ALPACA;
+        return TFCLootTables.ANIMALS_ALPACA;
     }
 
     @Override

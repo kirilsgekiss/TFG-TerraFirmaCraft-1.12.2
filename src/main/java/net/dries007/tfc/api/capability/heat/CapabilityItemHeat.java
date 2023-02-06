@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.api.capability.heat;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.TFCItems;
@@ -68,7 +68,7 @@ public final class CapabilityItemHeat {
      */
     public static float adjustTemp(float temp, float heatCapacity, long ticksSinceUpdate) {
         if (ticksSinceUpdate <= 0) return temp;
-        final float newTemp = temp - heatCapacity * (float) ticksSinceUpdate * (float) ConfigTFC.Devices.TEMPERATURE.globalModifier;
+        final float newTemp = temp - heatCapacity * (float) ticksSinceUpdate * (float) TFCConfig.Devices.TEMPERATURE.globalModifier;
         return newTemp < 0 ? 0 : newTemp;
     }
 
@@ -83,7 +83,7 @@ public final class CapabilityItemHeat {
      * @param modifier the modifier for how much this will heat up: 0 - 1 slows down cooling, 1 = no heating or cooling, > 1 heats, 2 heats at the same rate of normal cooling, 2+ heats faster
      */
     public static void addTemp(IItemHeat instance, float modifier) {
-        final float temp = instance.getTemperature() + modifier * instance.getHeatCapacity() * (float) ConfigTFC.Devices.TEMPERATURE.globalModifier;
+        final float temp = instance.getTemperature() + modifier * instance.getHeatCapacity() * (float) TFCConfig.Devices.TEMPERATURE.globalModifier;
         instance.setTemperature(temp);
     }
 
@@ -91,7 +91,7 @@ public final class CapabilityItemHeat {
         boolean hasAir = airTicks > 0;
         float targetTemperature = burnTemp + (hasAir ? MathHelper.clamp(burnTemp, 0, maxTempBonus) : 0);
         if (temp != targetTemperature) {
-            float delta = (float) ConfigTFC.Devices.TEMPERATURE.heatingModifier;
+            float delta = (float) TFCConfig.Devices.TEMPERATURE.heatingModifier;
             return adjustTempTowards(temp, targetTemperature, delta * (hasAir ? 2 : 1), delta * (hasAir ? 0.5f : 1));
         }
         return temp;

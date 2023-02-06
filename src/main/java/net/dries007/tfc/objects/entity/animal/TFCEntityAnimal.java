@@ -13,10 +13,10 @@ import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.api.types.IPredator;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIPanicTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAITamableAvoidPlayer;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIPanic;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAITamableAvoidPlayer;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityList;
@@ -68,7 +68,7 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
     public static int getRandomGrowth(int daysToAdult, int daysToElder) {
         int randomFactor = daysToElder > 0 ? (int) (daysToElder * 1.25f) : daysToAdult * 4;
         int lifeTimeDays = daysToAdult + Constants.RNG.nextInt(randomFactor);
-        return (int) (CalendarTFC.PLAYER_TIME.getTotalDays() - lifeTimeDays);
+        return (int) (TFCCalendar.PLAYER_TIME.getTotalDays() - lifeTimeDays);
     }
 
     /**
@@ -97,7 +97,7 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
 
         double farSpeed = .8D * speedMult;
         double nearSpeed = 1.1D * speedMult;
-        entity.tasks.addTask(4, new EntityAITamableAvoidPlayer<>(entity, 6.0F, farSpeed, nearSpeed));
+        entity.tasks.addTask(4, new TFCEntityAITamableAvoidPlayer<>(entity, 6.0F, farSpeed, nearSpeed));
         entity.tasks.addTask(6, new EntityAIEatGrass(entity));
     }
 
@@ -113,10 +113,10 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
         double nearSpeed = 1.1D * speedMult;
 
         entity.tasks.addTask(0, new EntityAISwimming(entity));
-        entity.tasks.addTask(1, new EntityAIPanicTFC(entity, 1.4D * speedMult));
+        entity.tasks.addTask(1, new TFCEntityAIPanic(entity, 1.4D * speedMult));
         //space for livestock AIMate and AITempt
         entity.tasks.addTask(4, new EntityAIAvoidEntity<>(entity, TFCEntityWolf.class, 8.0F, farSpeed, nearSpeed));
-        entity.tasks.addTask(4, new EntityAIAvoidEntity<>(entity, EntityAnimalMammal.class, Predicates.instanceOf(IPredator.class), 12.0F, farSpeed, nearSpeed));
+        entity.tasks.addTask(4, new EntityAIAvoidEntity<>(entity, TFCEntityAnimalMammal.class, Predicates.instanceOf(IPredator.class), 12.0F, farSpeed, nearSpeed));
         entity.tasks.addTask(4, new EntityAIAvoidEntity<>(entity, EntityMob.class, 8.0F, farSpeed * 0.7D, nearSpeed * 0.7D));
         // space for follow parent for mammals, find nest for oviparous, and eat grass for livestock
         entity.tasks.addTask(7, new EntityAIWanderAvoidWater(entity, 1.0D));
@@ -140,9 +140,9 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
         this.setBirthDay(birthDay);
         this.setFamiliarity(0);
         this.setGrowingAge(0); //We don't use this
-        this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
-        this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
-        this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+        this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
+        this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
+        this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
         this.setFertilized(false);
     }
 
@@ -192,12 +192,12 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
     public boolean isReadyToMate() {
         if (this.getAge() != Age.ADULT || this.getFamiliarity() < 0.3f || this.isFertilized() || this.isHungry())
             return false;
-        return this.matingTime + MATING_COOLDOWN_DEFAULT_TICKS <= CalendarTFC.PLAYER_TIME.getTicks();
+        return this.matingTime + MATING_COOLDOWN_DEFAULT_TICKS <= TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     @Override
     public boolean isHungry() {
-        return lastFed < CalendarTFC.PLAYER_TIME.getTotalDays();
+        return lastFed < TFCCalendar.PLAYER_TIME.getTotalDays();
     }
 
     @Override
@@ -220,7 +220,7 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
             try {
                 TFCEntityAnimal baby = this.getClass().getConstructor(World.class).newInstance(this.world);
                 baby.setGender(Gender.valueOf(Constants.RNG.nextBoolean()));
-                baby.setBirthDay((int) CalendarTFC.PLAYER_TIME.getTotalDays());
+                baby.setBirthDay((int) TFCCalendar.PLAYER_TIME.getTotalDays());
                 baby.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
                 return baby;
             } catch (Exception ignored) {
@@ -285,29 +285,29 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
             // Is it time to decay familiarity?
             // If this entity was never fed(eg: new born, wild)
             // or wasn't fed yesterday(this is the starting of the second day)
-            if (this.lastFDecay > -1 && this.lastFDecay + 1 < CalendarTFC.PLAYER_TIME.getTotalDays()) {
+            if (this.lastFDecay > -1 && this.lastFDecay + 1 < TFCCalendar.PLAYER_TIME.getTotalDays()) {
                 float familiarity = getFamiliarity();
                 if (familiarity < 0.3f) {
-                    familiarity -= 0.02 * (CalendarTFC.PLAYER_TIME.getTotalDays() - this.lastFDecay);
-                    this.lastFDecay = CalendarTFC.PLAYER_TIME.getTotalDays();
+                    familiarity -= 0.02 * (TFCCalendar.PLAYER_TIME.getTotalDays() - this.lastFDecay);
+                    this.lastFDecay = TFCCalendar.PLAYER_TIME.getTotalDays();
                     this.setFamiliarity(familiarity);
                 }
             }
             if (this.getGender() == Gender.MALE && this.isReadyToMate()) {
-                this.matingTime = CalendarTFC.PLAYER_TIME.getTicks();
+                this.matingTime = TFCCalendar.PLAYER_TIME.getTicks();
                 findFemaleMate(this);
             }
-            if (this.getAge() == Age.OLD && lastDeath < CalendarTFC.PLAYER_TIME.getTotalDays()) {
-                this.lastDeath = CalendarTFC.PLAYER_TIME.getTotalDays();
+            if (this.getAge() == Age.OLD && lastDeath < TFCCalendar.PLAYER_TIME.getTotalDays()) {
+                this.lastDeath = TFCCalendar.PLAYER_TIME.getTotalDays();
                 // Randomly die of old age, tied to entity UUID and calendar time
-                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * CalendarTFC.PLAYER_TIME.getTotalDays());
+                final Random random = new Random(this.entityUniqueID.getMostSignificantBits() * TFCCalendar.PLAYER_TIME.getTotalDays());
                 if (random.nextDouble() < getOldDeathChance()) {
                     this.setDead();
                 }
             }
             if (this instanceof ILivestock) {
                 // Wild livestock disappear after 125% lifespan
-                if (this.getDaysToElderly() > 0 && this.getFamiliarity() < 0.10F && (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= CalendarTFC.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
+                if (this.getDaysToElderly() > 0 && this.getFamiliarity() < 0.10F && (this.getDaysToElderly() + this.getDaysToAdulthood()) * 1.25F <= TFCCalendar.PLAYER_TIME.getTotalDays() - this.getBirthDay()) {
                     this.setDead();
                 }
             }
@@ -347,7 +347,7 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
         return this.world.checkNoEntityCollision(getEntityBoundingBox())
                 //&& this.world.getCollisionBoxes(this, getEntityBoundingBox()).isEmpty()
                 && !this.world.containsAnyLiquid(getEntityBoundingBox())
-                && BlocksTFC.isGround(this.world.getBlockState(this.getPosition().down()));
+                && TFCBlocks.isGround(this.world.getBlockState(this.getPosition().down()));
     }
 
     @Override
@@ -392,7 +392,7 @@ public abstract class TFCEntityAnimal extends EntityAnimal implements IAnimalTFC
      */
     protected boolean eatFood(@Nonnull ItemStack stack, EntityPlayer player) {
         if (!this.world.isRemote) {
-            lastFed = CalendarTFC.PLAYER_TIME.getTotalDays();
+            lastFed = TFCCalendar.PLAYER_TIME.getTotalDays();
             lastFDecay = lastFed; //No decay needed
             this.consumeItemFromStack(player, stack);
             if (this.getAge() == Age.CHILD || this.getFamiliarity() < getAdultFamiliarityCap()) {

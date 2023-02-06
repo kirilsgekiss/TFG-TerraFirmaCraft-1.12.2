@@ -10,7 +10,7 @@ import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.dries007.tfc.api.recipes.ChiselRecipe;
 import net.dries007.tfc.compat.jei.TFCJEIPlugin;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -40,7 +40,7 @@ public class ChiselRecipeWrapper implements IRecipeWrapper {
         ItemStack recipeOutput = new ItemStack(recipe.getOutputState().getBlock());
         if (recipeOutput.isEmpty()) {
             // Failed to grab the output block, using debug block
-            recipeOutput = new ItemStack(BlocksTFC.DEBUG);
+            recipeOutput = new ItemStack(TFCBlocks.DEBUG);
         }
         this.output = recipeOutput;
     }

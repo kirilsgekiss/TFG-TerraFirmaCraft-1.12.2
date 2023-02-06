@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic.genlayers.mountains;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
@@ -33,14 +33,14 @@ public class GenLayerMountainRangeTFC extends GenLayerTFC {
 
             long seed = world.getSeed();
             NoiseGeneratorPerlin noiseGen7 = new NoiseGeneratorPerlin(new Random(seed + 4), 4);
-            float rainfallSpread = (float) ConfigTFC.General.WORLD.rainfallSpreadFactor;
+            float rainfallSpread = (float) TFCConfig.General.WORLD.rainfallSpreadFactor;
             rainfall = MathHelper.clamp(250f + 250f * rainfallSpread * (float) noiseGen7.getValue(x * 0.005, z * 0.005), 0, 500);
         } else if (DimensionManager.getWorld(0) != null) {
             world = DimensionManager.getWorld(0);
 
             long seed = world.getSeed();
             NoiseGeneratorPerlin noiseGen7 = new NoiseGeneratorPerlin(new Random(seed + 4), 4);
-            float rainfallSpread = (float) ConfigTFC.General.WORLD.rainfallSpreadFactor;
+            float rainfallSpread = (float) TFCConfig.General.WORLD.rainfallSpreadFactor;
             rainfall = MathHelper.clamp(250f + 250f * rainfallSpread * (float) noiseGen7.getValue(x * 0.005, z * 0.005), 0, 500);
         }
         //else if (world == null) return null;

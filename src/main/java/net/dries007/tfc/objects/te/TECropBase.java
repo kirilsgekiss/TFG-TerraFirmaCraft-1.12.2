@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.te;
 
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
@@ -19,7 +19,7 @@ public class TECropBase extends TETickCounter implements ICalendarTickable, ITic
     protected long lastTickCalChecked;
 
     public TECropBase() {
-        lastTickCalChecked = CalendarTFC.PLAYER_TIME.getTicks();
+        lastTickCalChecked = TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     @Override

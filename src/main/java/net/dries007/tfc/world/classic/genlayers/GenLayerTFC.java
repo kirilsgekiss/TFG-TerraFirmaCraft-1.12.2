@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic.genlayers;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.RockCategory;
 import net.dries007.tfc.world.classic.biomes.TFCBiome;
@@ -202,7 +202,7 @@ public abstract class GenLayerTFC extends GenLayer {
     }
 
     public static void drawImage(int size, GenLayerTFC genlayer, String name, IntFunction<Color> gibColor) {
-        if (!ConfigTFC.General.DEBUG.debugWorldGenSafe) return;
+        if (!TFCConfig.General.DEBUG.debugWorldGenSafe) return;
         if (FMLCommonHandler.instance().getEffectiveSide().isClient()) return;
         try {
             int[] ints = genlayer.getInts(-size / 2, -size / 2, size, size);

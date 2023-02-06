@@ -12,9 +12,9 @@ import com.ferreusveritas.dynamictrees.api.TreeRegistry;
 import com.ferreusveritas.dynamictrees.api.cells.ICellKit;
 import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
 import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockMimicDynamic;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockMimicDynamic;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
@@ -37,10 +37,10 @@ public class ModBlocks
     {
         //For this mod it is vital that these are never reordered.  If a leaves properties is removed from the
         //mod then there should be a LeavesProperties.NULLPROPERTIES used as a placeholder.
-        tfcLeavesProperties = new LeavesProperties[BlocksTFC.getAllLeafBlocks().size()];
+        tfcLeavesProperties = new LeavesProperties[TFCBlocks.getAllLeafBlocks().size()];
         leafMap = new HashMap<>();
         int i = 0; // DT wants an array of leafprops for some reason
-        for (TFCBlockLeaves leaf : BlocksTFC.getAllLeafBlocks())
+        for (TFCBlockLeaves leaf : TFCBlocks.getAllLeafBlocks())
         {
             LeavesProperties prop = new LeavesProperties(leaf.getDefaultState(), kitMap.get(leaf.tree.toString()));
             leafMap.put(leaf.tree.toString(), prop);

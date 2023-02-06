@@ -5,10 +5,10 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiome;
@@ -31,7 +31,7 @@ import java.util.*;
 
 public class WorldGenTrees implements IWorldGenerator {
     public static void generateLooseSticks(Random rand, int chunkX, int chunkZ, World world, int amount) {
-        if (ConfigTFC.General.WORLD.enableLooseSticks) {
+        if (TFCConfig.General.WORLD.enableLooseSticks) {
             for (int i = 0; i < amount; i++) {
                 final int x = chunkX * 16 + rand.nextInt(16) + 8;
                 final int z = chunkZ * 16 + rand.nextInt(16) + 8;
@@ -41,8 +41,8 @@ public class WorldGenTrees implements IWorldGenerator {
                 // This matches the check in BlockPlacedItemFlat for if the block can stay
                 // Also, only add on soil, since this is called by the world regen handler later
                 IBlockState stateDown = world.getBlockState(pos.down());
-                if (world.isAirBlock(pos) && stateDown.isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isGround(stateDown)) {
-                    world.setBlockState(pos, BlocksTFC.PLACED_ITEM_FLAT.getDefaultState());
+                if (world.isAirBlock(pos) && stateDown.isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isGround(stateDown)) {
+                    world.setBlockState(pos, TFCBlocks.PLACED_ITEM_FLAT.getDefaultState());
                     TEPlacedItemFlat tile = (TEPlacedItemFlat) world.getTileEntity(pos);
                     if (tile != null) {
                         tile.setStack(new ItemStack(Items.STICK));
@@ -75,7 +75,7 @@ public class WorldGenTrees implements IWorldGenerator {
         if (trees.isEmpty()) {
             stickDensity = 1 + (int) (1.5f * density);
         }
-        generateLooseSticks(random, chunkX, chunkZ, world, (int) (Math.ceil(stickDensity * ConfigTFC.General.WORLD.sticksDensityModifier)));
+        generateLooseSticks(random, chunkX, chunkZ, world, (int) (Math.ceil(stickDensity * TFCConfig.General.WORLD.sticksDensityModifier)));
 
         // This is to avoid giant regions of no trees whatsoever.
         // It will create sparse trees ( < 1 per chunk) by averaging the climate data to make it more temperate

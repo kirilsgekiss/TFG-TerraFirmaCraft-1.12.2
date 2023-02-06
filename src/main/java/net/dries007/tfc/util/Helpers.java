@@ -7,12 +7,12 @@ package net.dries007.tfc.util;
 
 import com.google.common.base.Joiner;
 import io.netty.buffer.ByteBuf;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
 import net.dries007.tfc.api.capability.food.IFood;
-import net.dries007.tfc.objects.entity.EntitySeatOn;
+import net.dries007.tfc.objects.entity.TFCEntitySeatOn;
 import net.dries007.tfc.objects.entity.animal.*;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.block.Block;
@@ -165,17 +165,17 @@ public final class Helpers {
                 "juice_purple_grape",
                 "juice_barrel_cactus"
         };
-        Set<String> woodenBucketSet = new HashSet<>(Arrays.asList(ConfigTFC.General.MISC.woodenBucketWhitelist));
+        Set<String> woodenBucketSet = new HashSet<>(Arrays.asList(TFCConfig.General.MISC.woodenBucketWhitelist));
         for (String a : fluidAdditions) {
             woodenBucketSet.add(a);
         }
-        ConfigTFC.General.MISC.woodenBucketWhitelist = woodenBucketSet.toArray(new String[]{});
+        TFCConfig.General.MISC.woodenBucketWhitelist = woodenBucketSet.toArray(new String[]{});
 
-        Set<String> barrelSet = new HashSet<>(Arrays.asList(ConfigTFC.Devices.BARREL.fluidWhitelist));
+        Set<String> barrelSet = new HashSet<>(Arrays.asList(TFCConfig.Devices.BARREL.fluidWhitelist));
         for (String a : fluidAdditions) {
             barrelSet.add(a);
         }
-        ConfigTFC.Devices.BARREL.fluidWhitelist = barrelSet.toArray(new String[]{});
+        TFCConfig.Devices.BARREL.fluidWhitelist = barrelSet.toArray(new String[]{});
 
         // Oil Fuels
         String[] oilAdditions = {
@@ -185,11 +185,11 @@ public final class Helpers {
                 "opium_poppy_seed_oil"
         };
 
-        Set<String> fuelSet = new HashSet<>(Arrays.asList(ConfigTFC.Devices.LAMP.fuels));
+        Set<String> fuelSet = new HashSet<>(Arrays.asList(TFCConfig.Devices.LAMP.fuels));
         for (String a : oilAdditions) {
             fuelSet.add(a);
         }
-        ConfigTFC.Devices.LAMP.fuels = fuelSet.toArray(new String[]{});
+        TFCConfig.Devices.LAMP.fuels = fuelSet.toArray(new String[]{});
     }
 
     public static ItemStack updateFoodFuzzed(ItemStack oldStack, ItemStack newStack) {
@@ -273,7 +273,7 @@ public final class Helpers {
      */
     public static void sitOnBlock(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull EntityLiving creature, double yOffset) {
         if (!world.isRemote && !world.getBlockState(pos).getMaterial().isReplaceable()) {
-            EntitySeatOn seat = new EntitySeatOn(world, pos, yOffset);
+            TFCEntitySeatOn seat = new TFCEntitySeatOn(world, pos, yOffset);
             world.spawnEntity(seat);
             creature.startRiding(seat);
         }
@@ -289,8 +289,8 @@ public final class Helpers {
     @Nullable
     public static Entity getSittingEntity(@Nonnull World world, @Nonnull BlockPos pos) {
         if (!world.isRemote) {
-            List<EntitySeatOn> seats = world.getEntitiesWithinAABB(EntitySeatOn.class, new AxisAlignedBB(pos).grow(1D));
-            for (EntitySeatOn seat : seats) {
+            List<TFCEntitySeatOn> seats = world.getEntitiesWithinAABB(TFCEntitySeatOn.class, new AxisAlignedBB(pos).grow(1D));
+            for (TFCEntitySeatOn seat : seats) {
                 if (pos.equals(seat.getPos())) {
                     return seat.getSittingEntity();
                 }

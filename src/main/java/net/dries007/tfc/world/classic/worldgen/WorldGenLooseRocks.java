@@ -5,9 +5,9 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.Rock;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.items.rock.ItemRock;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.util.Helpers;
@@ -40,7 +40,7 @@ public class WorldGenLooseRocks implements IWorldGenerator {
             int xoff = chunkX * 16 + 8;
             int zoff = chunkZ * 16 + 8;
 
-            for (int i = 0; i < ConfigTFC.General.WORLD.looseRocksFrequency * factor; i++) {
+            for (int i = 0; i < TFCConfig.General.WORLD.looseRocksFrequency * factor; i++) {
                 BlockPos pos = new BlockPos(
                         xoff + random.nextInt(16),
                         0,
@@ -56,13 +56,13 @@ public class WorldGenLooseRocks implements IWorldGenerator {
         // Use air, so it doesn't replace other replaceable world gen
         // This matches the check in BlockPlacedItemFlat for if the block can stay
         // Also, only add on soil, since this is called by the world regen handler later
-        if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && BlocksTFC.isSoil(world.getBlockState(pos.down()))) {
-            world.setBlockState(pos, BlocksTFC.PLACED_ITEM_FLAT.getDefaultState(), 2);
+        if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP) && TFCBlocks.isSoil(world.getBlockState(pos.down()))) {
+            world.setBlockState(pos, TFCBlocks.PLACED_ITEM_FLAT.getDefaultState(), 2);
             TEPlacedItemFlat tile = Helpers.getTE(world, pos, TEPlacedItemFlat.class);
             if (tile != null) {
                 ItemStack stack = ItemStack.EMPTY;
                 if (stack.isEmpty()) {
-                    if (ConfigTFC.General.WORLD.enableLooseRocks) {
+                    if (TFCConfig.General.WORLD.enableLooseRocks) {
                         stack = ItemRock.get(rock, 1);
                     }
                 }

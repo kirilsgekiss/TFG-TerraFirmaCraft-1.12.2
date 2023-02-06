@@ -5,8 +5,8 @@
 
 package net.dries007.tfc.world.classic.biomes;
 
-import net.dries007.tfc.ConfigTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.TFCConfig;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.spawner.WorldEntitySpawnerTFC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -43,7 +43,7 @@ public class TFCBiome extends Biome {
         spawnBiome = false;
 
         // Add creatures to respawn list
-        for (String input : ConfigTFC.General.WORLD.respawnableCreatures) {
+        for (String input : TFCConfig.General.WORLD.respawnableCreatures) {
             String[] split = input.split(" ");
             if (split.length == 4) {
                 ResourceLocation key = new ResourceLocation(split[0]);
@@ -87,7 +87,7 @@ public class TFCBiome extends Biome {
     @Override
     public float getTemperature(@Nonnull BlockPos pos) {
         // Vanilla spec: 0.15 = snow threshold, range = [-1, 1] for overworld temps.
-        return MathHelper.clamp(0.15f + ClimateTFC.getDailyTemp(pos) / 35, -1, 1);
+        return MathHelper.clamp(0.15f + TFCClimate.getDailyTemp(pos) / 35, -1, 1);
     }
 
     @Override

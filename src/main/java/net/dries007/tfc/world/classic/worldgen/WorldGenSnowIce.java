@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.util.climate.IceMeltHandler;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +31,7 @@ public class WorldGenSnowIce implements IWorldGenerator {
                     // Can't use world#canBlockFreeze because it's specific to vanilla water
                     BlockPos posDown = pos.down();
                     IBlockState stateAt = world.getBlockState(posDown);
-                    float actualTemp = ClimateTFC.getActualTemp(world, posDown);
+                    float actualTemp = TFCClimate.getActualTemp(world, posDown);
                     if (actualTemp < IceMeltHandler.ICE_MELT_THRESHOLD - 4 + 4 * (rand.nextFloat() - rand.nextFloat()) && stateAt.getBlock() == ChunkGenTFC.WATER.getBlock()) {
                         world.setBlockState(posDown, ChunkGenTFC.WATER_ICE);
                     }

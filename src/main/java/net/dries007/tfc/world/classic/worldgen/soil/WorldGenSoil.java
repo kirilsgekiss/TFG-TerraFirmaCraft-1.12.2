@@ -1,6 +1,6 @@
 package net.dries007.tfc.world.classic.worldgen.soil;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -30,7 +30,7 @@ public class WorldGenSoil implements IWorldGenerator {
         if (!(chunkGenerator instanceof ChunkGenTFC)) return;
         final BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-        if (ConfigTFC.FloraeGeneral.WORLD.enableAllBlockTypes) {
+        if (TFCConfig.FloraeGeneral.WORLD.enableAllBlockTypes) {
             /*if (ConfigTFC.FloraeGeneral.WORLD.enablePodzolGen)
             {
                 BlockPos pos = world.getTopSolidOrLiquidBlock(chunkBlockPos);
@@ -80,7 +80,6 @@ public class WorldGenSoil implements IWorldGenerator {
                     if ((BlocksTFC.isSoilOrGravel(current) || BlocksTFC.isRawStone(current)))
                     {
                         world.setBlockState(pos, BlockRockVariant.get(ChunkDataTFC.getRockHeight(world, pos), Type.SAND).getDefaultState(), 2);
-                        TFCFlorae.getLog().warn("TFCFlorae: Sand block attempted to generate at " + "X: " + pos.getX() + ", Y: " + pos.getY() + ", Z: " + pos.getZ());
                     }
                 }
             }

@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.items.itemblock;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.size.IItemSize;
-import net.dries007.tfc.objects.blocks.BlockPowderKeg;
+import net.dries007.tfc.objects.blocks.TFCBlockPowderKeg;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public class ItemBlockPowderKeg extends TFCItemBlock implements IItemSize {
-    public ItemBlockPowderKeg(BlockPowderKeg block) {
+    public ItemBlockPowderKeg(TFCBlockPowderKeg block) {
         super(block);
     }
 

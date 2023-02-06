@@ -5,11 +5,11 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IHuntable;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
+import net.dries007.tfc.objects.TFCLootTables;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -31,7 +31,7 @@ import java.util.Random;
 import java.util.function.BiConsumer;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityMongoose extends EntityAnimalMammal implements IHuntable {
+public class TFCEntityMongoose extends TFCEntityAnimalMammal implements IHuntable {
     private static final int DAYS_TO_ADULTHOOD = 64;
 
     @SuppressWarnings("unused")
@@ -49,14 +49,14 @@ public class TFCEntityMongoose extends EntityAnimalMammal implements IHuntable {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.DESERT)) {
-            return ConfigTFC.Animals.MONGOOSE.rarity;
+            return TFCConfig.Animals.MONGOOSE.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.ELDER_AND_POPULATION;
+        return TFCAnimalGroupingRules.ELDER_AND_POPULATION;
     }
 
     @Override
@@ -130,7 +130,7 @@ public class TFCEntityMongoose extends EntityAnimalMammal implements IHuntable {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_MONGOOSE;
+        return TFCLootTables.ANIMALS_MONGOOSE;
     }
 
     @Override

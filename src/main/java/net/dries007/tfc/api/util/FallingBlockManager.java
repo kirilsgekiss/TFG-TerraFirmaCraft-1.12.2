@@ -8,17 +8,17 @@ package net.dries007.tfc.api.util;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.capability.worldtracker.CapabilityWorldTracker;
 import net.dries007.tfc.api.capability.worldtracker.CollapseData;
 import net.dries007.tfc.api.capability.worldtracker.WorldTracker;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.blocks.BlockCharcoalPile;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlockCharcoalPile;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
-import net.dries007.tfc.objects.entity.EntityFallingBlockTFC;
+import net.dries007.tfc.objects.entity.TFCEntityFallingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -41,7 +41,7 @@ import java.util.function.Supplier;
 public class FallingBlockManager {
 
     private static final Set<Material> SOFT_MATERIALS = new ObjectOpenHashSet<>(new Material[]{Material.GROUND, Material.SAND, Material.GRASS, Material.CLAY});
-    private static final Set<Material> HARD_MATERIALS = new ObjectOpenHashSet<>(new Material[]{Material.IRON, BlockCharcoalPile.CHARCOAL_MATERIAL});
+    private static final Set<Material> HARD_MATERIALS = new ObjectOpenHashSet<>(new Material[]{Material.IRON, TFCBlockCharcoalPile.CHARCOAL_MATERIAL});
 
     private static final Map<IBlockState, Specification> FALLABLES = new Object2ObjectOpenHashMap<>();
 
@@ -120,11 +120,11 @@ public class FallingBlockManager {
     }
 
     public static boolean hasSupportingSideBlock(IBlockState state) {
-        return state.isNormalCube() || SIDE_SUPPORTS.contains(state) || state.getBlock() instanceof BlockRockVariant && (((BlockRockVariant) state.getBlock()).getType() == Type.FARMLAND || ((BlockRockVariant) state.getBlock()).getType() == Type.PATH);
+        return state.isNormalCube() || SIDE_SUPPORTS.contains(state) || state.getBlock() instanceof TFCBlockRockVariant && (((TFCBlockRockVariant) state.getBlock()).getType() == Type.FARMLAND || ((TFCBlockRockVariant) state.getBlock()).getType() == Type.PATH);
     }
 
     public static boolean shouldFall(World world, BlockPos posToFallFrom, BlockPos originalPos, IBlockState originalState, boolean ignoreSupportChecks) {
-        return ConfigTFC.General.FALLABLE.enable && canFallThrough(world, posToFallFrom.down(), originalState.getMaterial()) && (ignoreSupportChecks || !TFCBlockWoodSupport.isBeingSupported(world, originalPos));
+        return TFCConfig.General.FALLABLE.enable && canFallThrough(world, posToFallFrom.down(), originalState.getMaterial()) && (ignoreSupportChecks || !TFCBlockWoodSupport.isBeingSupported(world, originalPos));
     }
 
     public static boolean canCollapse(World world, BlockPos pos) {
@@ -227,7 +227,7 @@ public class FallingBlockManager {
                     world.setBlockState(fallablePos, state);
                     world.getGameRules().setOrCreateGameRule("doTileDrops", Boolean.toString(true));
                 }
-                world.spawnEntity(new EntityFallingBlockTFC(world, fallablePos, state));
+                world.spawnEntity(new TFCEntityFallingBlock(world, fallablePos, state));
                 return true;
             }
         }
@@ -245,7 +245,7 @@ public class FallingBlockManager {
         if (world.isRemote || !world.isAreaLoaded(pos.add(-32, -32, -32), pos.add(32, 32, 32))) {
             return false; // First, let's check if this area is loaded and is on server
         }
-        if (Constants.RNG.nextDouble() < ConfigTFC.General.FALLABLE.collapseChance) // Then, we check rng if a collapse should trigger
+        if (Constants.RNG.nextDouble() < TFCConfig.General.FALLABLE.collapseChance) // Then, we check rng if a collapse should trigger
         {
             //Rng the radius
             int radX = (Constants.RNG.nextInt(5) + 4) / 2;
@@ -288,7 +288,7 @@ public class FallingBlockManager {
                 Specification specAt;
                 if (foundEmpty && (specAt = getSpecification(stateAt)) != null && specAt.collapsable && specAt.collapseChecker.canCollapse(world, posAt) && !TFCBlockWoodSupport.isBeingSupported(world, posAt)) {
                     // Check for a possible collapse
-                    if (posAt.distanceSq(centerPoint) < radiusSquared && world.rand.nextFloat() < ConfigTFC.General.FALLABLE.propagateCollapseChance) {
+                    if (posAt.distanceSq(centerPoint) < radiusSquared && world.rand.nextFloat() < TFCConfig.General.FALLABLE.propagateCollapseChance) {
                         // This column has started to collapse. Mark the next block above as unstable for the "follow up"
                         IBlockState resultState = specAt.getResultingState(stateAt);
                         world.setBlockState(posAt, resultState);

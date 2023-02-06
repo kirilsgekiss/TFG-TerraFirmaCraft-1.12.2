@@ -5,17 +5,17 @@
 
 package net.dries007.tfc.objects.blocks.plants;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Plant;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -113,7 +113,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
     @Override
     public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random random) {
         if (!worldIn.isAreaLoaded(pos, 1)) return;
-        Month currentMonth = CalendarTFC.CALENDAR_TIME.getMonthOfYear();
+        Month currentMonth = TFCCalendar.CALENDAR_TIME.getMonthOfYear();
         int currentStage = state.getValue(growthStageProperty);
         int expectedStage = plant.getStageForMonth(currentMonth);
         int currentTime = state.getValue(DAYPERIOD);
@@ -155,8 +155,8 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
         if (!(entityIn instanceof EntityPlayer && ((EntityPlayer) entityIn).isCreative())) {
             double modifier = 0.25 * (4 - state.getValue(AGE));
             modifier = (1 - modifier) * plant.getMovementMod() + modifier;
-            if (modifier < ConfigTFC.General.MISC.minimumPlantMovementModifier) {
-                modifier = ConfigTFC.General.MISC.minimumPlantMovementModifier;
+            if (modifier < TFCConfig.General.MISC.minimumPlantMovementModifier) {
+                modifier = TFCConfig.General.MISC.minimumPlantMovementModifier;
             }
             entityIn.motionX *= modifier;
             entityIn.motionZ *= modifier;
@@ -263,8 +263,8 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
     }
 
     public double getGrowthRate(World world, BlockPos pos) {
-        if (world.isRainingAt(pos)) return ConfigTFC.General.MISC.plantGrowthRate * 5d;
-        else return ConfigTFC.General.MISC.plantGrowthRate;
+        if (world.isRainingAt(pos)) return TFCConfig.General.MISC.plantGrowthRate * 5d;
+        else return TFCConfig.General.MISC.plantGrowthRate;
     }
 
     @Override
@@ -276,7 +276,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        if (plant.getIsClayMarking()) return BlocksTFC.isClay(state) || isValidSoil(state);
+        if (plant.getIsClayMarking()) return TFCBlocks.isClay(state) || isValidSoil(state);
         else return isValidSoil(state);
     }
 
@@ -284,7 +284,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!worldIn.isAreaLoaded(pos, 1)) return;
 
-        if (plant.isValidGrowthTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidSunlight(Math.subtractExact(worldIn.getLightFor(EnumSkyBlock.SKY, pos), worldIn.getSkylightSubtracted()))) {
+        if (plant.isValidGrowthTemp(TFCClimate.getActualTemp(worldIn, pos)) && plant.isValidSunlight(Math.subtractExact(worldIn.getLightFor(EnumSkyBlock.SKY, pos), worldIn.getSkylightSubtracted()))) {
             int j = state.getValue(AGE);
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && ForgeHooks.onCropsGrowPre(worldIn, pos.up(), state, true)) {
@@ -293,7 +293,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
                 }
                 ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
-        } else if (!plant.isValidGrowthTemp(ClimateTFC.getActualTemp(worldIn, pos)) || !plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, pos))) {
+        } else if (!plant.isValidGrowthTemp(TFCClimate.getActualTemp(worldIn, pos)) || !plant.isValidSunlight(worldIn.getLightFor(EnumSkyBlock.SKY, pos))) {
             int j = state.getValue(AGE);
 
             if (rand.nextDouble() < getGrowthRate(worldIn, pos) && ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
@@ -311,7 +311,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
         IBlockState soil = worldIn.getBlockState(pos.down());
         if (state.getBlock() == this) {
-            return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) && plant.isValidTemp(ClimateTFC.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
+            return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this) && plant.isValidTemp(TFCClimate.getActualTemp(worldIn, pos)) && plant.isValidRain(ChunkDataTFC.getRainfall(worldIn, pos));
         }
         return this.canSustainBush(soil);
     }
@@ -363,7 +363,7 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
     }
 
     int getDayPeriod() {
-        return CalendarTFC.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
+        return TFCCalendar.CALENDAR_TIME.getHourOfDay() / (ICalendar.HOURS_IN_DAY / 4);
     }
 
     private boolean isValidSoil(IBlockState state) {
@@ -371,24 +371,24 @@ public class TFCBlockPlant extends BlockBush implements IItemSize {
             case CACTUS:
             case DESERT:
             case DESERT_TALL_PLANT:
-                return BlocksTFC.isSand(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+                return TFCBlocks.isSand(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
             case DRY:
             case DRY_TALL_PLANT:
-                return BlocksTFC.isSand(state) || BlocksTFC.isDryGrass(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+                return TFCBlocks.isSand(state) || TFCBlocks.isDryGrass(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
             case REED:
             case REED_SEA:
             case TALL_REED:
             case TALL_REED_SEA:
-                return BlocksTFC.isSand(state) || BlocksTFC.isSoil(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+                return TFCBlocks.isSand(state) || TFCBlocks.isSoil(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
             case WATER:
             case TALL_WATER:
             case EMERGENT_TALL_WATER:
             case WATER_SEA:
             case TALL_WATER_SEA:
             case EMERGENT_TALL_WATER_SEA:
-                return BlocksTFC.isSand(state) || BlocksTFC.isSoilOrGravel(state) || BlocksTFC.isSoil(state) || BlocksTFC.isGround(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+                return TFCBlocks.isSand(state) || TFCBlocks.isSoilOrGravel(state) || TFCBlocks.isSoil(state) || TFCBlocks.isGround(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
             default:
-                return BlocksTFC.isSoil(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
+                return TFCBlocks.isSoil(state) || state.getBlock() == Blocks.HARDENED_CLAY || state.getBlock() == Blocks.STAINED_HARDENED_CLAY;
         }
     }
 }

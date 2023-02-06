@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
  * This is implemented on TileEntities that need to receive updates whenever the calendar changes drastically
  * Note: the default {@code update()} casts the implementor to {@link TileEntity}
  *
- * @see CalendarTFC#runTransaction(long, long, Runnable)
+ * @see TFCCalendar#runTransaction(long, long, Runnable)
  */
 public interface ICalendarTickable {
     default TileEntity getTileEntity() {
@@ -27,7 +27,7 @@ public interface ICalendarTickable {
     default void checkForCalendarUpdate() {
         TileEntity te = getTileEntity();
         if (te.getWorld() != null && !te.getWorld().isRemote) {
-            long playerTick = CalendarTFC.PLAYER_TIME.getTicks();
+            long playerTick = TFCCalendar.PLAYER_TIME.getTicks();
             long tickDelta = playerTick - getLastUpdateTick();
             if (tickDelta != 1) // Expect 1 tick
             {

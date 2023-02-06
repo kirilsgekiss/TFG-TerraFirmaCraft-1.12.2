@@ -6,20 +6,20 @@
 package net.dries007.tfc.util;
 
 import com.google.common.collect.Lists;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.*;
 import net.dries007.tfc.api.types.Rock.Type;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockMushroom;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.objects.items.TFCItemSeeds;
 import net.dries007.tfc.objects.te.TECropBase;
 import net.dries007.tfc.objects.te.TEPlacedItemFlat;
 import net.dries007.tfc.types.DefaultPlants;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.dries007.tfc.world.classic.worldgen.WorldGenBerryBushes;
 import net.dries007.tfc.world.classic.worldgen.WorldGenPlantTFC;
@@ -83,7 +83,7 @@ public class WorldRegenHandler {
         ChunkDataTFC chunkDataTFC = ChunkDataTFC.get(event.getChunk());
         if (event.getWorld().provider.getDimension() == 0 && chunkDataTFC.isInitialized() && POSITIONS.size() < 1000) {
             // Only run this in the early months of each year
-            if (CalendarTFC.CALENDAR_TIME.getMonthOfYear().isWithin(Month.APRIL, Month.JULY) && !chunkDataTFC.isSpawnProtected() && CalendarTFC.CALENDAR_TIME.getTotalYears() > chunkDataTFC.getLastUpdateYear()) {
+            if (TFCCalendar.CALENDAR_TIME.getMonthOfYear().isWithin(Month.APRIL, Month.JULY) && !chunkDataTFC.isSpawnProtected() && TFCCalendar.CALENDAR_TIME.getTotalYears() > chunkDataTFC.getLastUpdateYear()) {
                 POSITIONS.add(event.getChunk().getPos());
             }
         }
@@ -95,19 +95,19 @@ public class WorldRegenHandler {
             if (!POSITIONS.isEmpty()) {
                 double tps = Helpers.getTPS(event.world, 0);
                 ChunkPos pos = POSITIONS.remove(0);
-                if (tps > ConfigTFC.General.WORLD_REGEN.minRegenTps) {
+                if (tps > TFCConfig.General.WORLD_REGEN.minRegenTps) {
                     Chunk chunk = event.world.getChunk(pos.x, pos.z);
                     BlockPos blockPos = pos.getBlock(0, 0, 0);
                     ChunkDataTFC chunkDataTFC = ChunkDataTFC.get(event.world, pos.getBlock(0, 0, 0));
                     IChunkProvider chunkProvider = event.world.getChunkProvider();
                     IChunkGenerator chunkGenerator = ((ChunkProviderServer) chunkProvider).chunkGenerator;
 
-                    if (CalendarTFC.CALENDAR_TIME.getMonthOfYear().isWithin(Month.APRIL, Month.JULY) && !chunkDataTFC.isSpawnProtected() && CalendarTFC.CALENDAR_TIME.getTotalYears() > chunkDataTFC.getLastUpdateYear()) {
-                        if (ConfigTFC.General.WORLD_REGEN.sticksRocksModifier > 0) {
+                    if (TFCCalendar.CALENDAR_TIME.getMonthOfYear().isWithin(Month.APRIL, Month.JULY) && !chunkDataTFC.isSpawnProtected() && TFCCalendar.CALENDAR_TIME.getTotalYears() > chunkDataTFC.getLastUpdateYear()) {
+                        if (TFCConfig.General.WORLD_REGEN.sticksRocksModifier > 0) {
                             // Nuke any rocks and sticks in chunk.
                             removeAllPlacedItems(event.world, pos);
 
-                            double rockModifier = ConfigTFC.General.WORLD_REGEN.sticksRocksModifier;
+                            double rockModifier = TFCConfig.General.WORLD_REGEN.sticksRocksModifier;
 
                             SURFACE_ROCKS_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
                             FLINT_GEN.generate(RANDOM, pos.x, pos.z, event.world, chunkGenerator, chunkProvider);
@@ -165,10 +165,10 @@ public class WorldRegenHandler {
                 // If I'm not completely missing the point, then we have the top block for each in a chunk. Which is apparently not the top solid block ffs.
                 IBlockState topState = world.getBlockState(topPos);
                 Block topBlock = topState.getBlock();
-                if (!topState.getMaterial().isLiquid() && (topBlock instanceof BlockCropDead || topBlock instanceof TFCBlockMushroom)) {
+                if (!topState.getMaterial().isLiquid() && (topBlock instanceof TFCBlockCropDead || topBlock instanceof TFCBlockMushroom)) {
                     IBlockState soil = world.getBlockState(topPos.down());
-                    if (soil.getBlock() instanceof BlockRockVariant) {
-                        BlockRockVariant soilRock = (BlockRockVariant) soil.getBlock();
+                    if (soil.getBlock() instanceof TFCBlockRockVariant) {
+                        TFCBlockRockVariant soilRock = (TFCBlockRockVariant) soil.getBlock();
                         //Stop removing dead crops from farmland please!
                         if (soilRock.getType() != Type.FARMLAND) {
                             world.removeTileEntity(topPos);
@@ -223,7 +223,7 @@ public class WorldRegenHandler {
 
     public static void regenPredators(World worldIn, Biome biomeIn, int centerX, int centerZ, int diameterX, int diameterZ, Random randomIn) {
         final BlockPos chunkBlockPos = new BlockPos(centerX, 0, centerZ);
-        final float temperature = ClimateTFC.getAvgTemp(worldIn, chunkBlockPos);
+        final float temperature = TFCClimate.getAvgTemp(worldIn, chunkBlockPos);
         final float rainfall = ChunkDataTFC.getRainfall(worldIn, chunkBlockPos);
         final float floraDensity = ChunkDataTFC.getFloraDensity(worldIn, chunkBlockPos);
         final float floraDiversity = ChunkDataTFC.getFloraDiversity(worldIn, chunkBlockPos);

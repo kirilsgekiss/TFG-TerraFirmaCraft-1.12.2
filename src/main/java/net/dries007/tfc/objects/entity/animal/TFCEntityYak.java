@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -30,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class TFCEntityYak extends TFCEntityCow implements ILivestock {
     @SuppressWarnings("unused")
     public TFCEntityYak(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.YAK.adulthood, ConfigTFC.Animals.YAK.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.YAK.adulthood, TFCConfig.Animals.YAK.elder));
     }
 
     public TFCEntityYak(World worldIn, Gender gender, int birthDay) {
@@ -43,16 +43,16 @@ public class TFCEntityYak extends TFCEntityCow implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TAIGA)) {
-            return ConfigTFC.Animals.YAK.rarity;
+            return TFCConfig.Animals.YAK.rarity;
         }
         return 0;
     }
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.YAK.babies;
+        int numberOfChildren = TFCConfig.Animals.YAK.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityYak baby = new TFCEntityYak(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityYak baby = new TFCEntityYak(this.world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
             baby.setFamiliarity(this.getFamiliarity() < 0.9F ? this.getFamiliarity() / 2.0F : this.getFamiliarity() * 0.9F);
             this.world.spawnEntity(baby);
@@ -61,12 +61,12 @@ public class TFCEntityYak extends TFCEntityCow implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.YAK.gestation;
+        return TFCConfig.Animals.YAK.gestation;
     }
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.YAK.oldDeathChance;
+        return TFCConfig.Animals.YAK.oldDeathChance;
     }
 
     @Override
@@ -76,17 +76,17 @@ public class TFCEntityYak extends TFCEntityCow implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.YAK.adulthood;
+        return TFCConfig.Animals.YAK.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.YAK.elder;
+        return TFCConfig.Animals.YAK.elder;
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.YAK.milkTicks + getMilkedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.YAK.milkTicks + getMilkedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -112,7 +112,7 @@ public class TFCEntityYak extends TFCEntityCow implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_YAK;
+        return TFCLootTables.ANIMALS_YAK;
     }
 
     @Override

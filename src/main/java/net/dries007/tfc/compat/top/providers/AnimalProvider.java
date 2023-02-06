@@ -6,8 +6,8 @@ import mcjty.theoneprobe.api.IProbeInfoEntityProvider;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.types.IAnimalTFC;
-import net.dries007.tfc.objects.entity.animal.EntityAnimalMammal;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.entity.animal.TFCEntityAnimalMammal;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.minecraft.entity.Entity;
@@ -34,9 +34,9 @@ public class AnimalProvider implements IProbeInfoEntityProvider {
             switch (animal.getAge()) {
                 case CHILD:
                     long endPlayerTick = (animal.getBirthDay() + animal.getDaysToAdulthood()) * ICalendar.TICKS_IN_DAY;
-                    long delta = endPlayerTick - CalendarTFC.PLAYER_TIME.getTicks();
-                    long endCalendarTick = CalendarTFC.CALENDAR_TIME.getTicks() + delta;
-                    String date = ICalendarFormatted.getTimeAndDate(endCalendarTick, CalendarTFC.CALENDAR_TIME.getDaysInMonth());
+                    long delta = endPlayerTick - TFCCalendar.PLAYER_TIME.getTicks();
+                    long endCalendarTick = TFCCalendar.CALENDAR_TIME.getTicks() + delta;
+                    String date = ICalendarFormatted.getTimeAndDate(endCalendarTick, TFCCalendar.CALENDAR_TIME.getDaysInMonth());
                     probeInfo.text(new TextComponentTranslation("waila.tfc.animal.childhood_end", date).getFormattedText());
                     break;
                 case OLD:
@@ -52,9 +52,9 @@ public class AnimalProvider implements IProbeInfoEntityProvider {
                                 probeInfo.text(new TextComponentTranslation("waila.tfc.animal.pregnant").getFormattedText());
                                 // In 1.15+ this will move to AnimalProperties and everything needed will be there
                                 // For 1.12, addons will need to either extend EntityAnimalMammal or handle the tooltip themselves
-                                if (animal instanceof EntityAnimalMammal) {
-                                    EntityAnimalMammal mother = (EntityAnimalMammal) animal;
-                                    long gestationDaysRemaining = mother.getPregnantTime() + mother.gestationDays() - CalendarTFC.PLAYER_TIME.getTotalDays();
+                                if (animal instanceof TFCEntityAnimalMammal) {
+                                    TFCEntityAnimalMammal mother = (TFCEntityAnimalMammal) animal;
+                                    long gestationDaysRemaining = mother.getPregnantTime() + mother.gestationDays() - TFCCalendar.PLAYER_TIME.getTotalDays();
                                     probeInfo.text(new TextComponentTranslation("waila.tfc.animal.pregnant_end", gestationDaysRemaining).getFormattedText());
                                 }
                             } else {

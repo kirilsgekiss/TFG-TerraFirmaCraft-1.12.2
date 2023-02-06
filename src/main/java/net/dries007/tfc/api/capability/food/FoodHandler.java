@@ -5,9 +5,9 @@
 
 package net.dries007.tfc.api.capability.food;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.util.agriculture.Food;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
@@ -58,7 +58,7 @@ public class FoodHandler implements IFood, ICapabilitySerializable<NBTTagCompoun
         if (isNonDecaying) {
             return UNKNOWN_CREATION_DATE;
         }
-        if (calculateRottenDate(creationDate) < CalendarTFC.PLAYER_TIME.getTicks()) {
+        if (calculateRottenDate(creationDate) < TFCCalendar.PLAYER_TIME.getTicks()) {
             this.creationDate = ROTTEN_DATE;
         }
         return creationDate;
@@ -78,7 +78,7 @@ public class FoodHandler implements IFood, ICapabilitySerializable<NBTTagCompoun
             return ROTTEN_DATE;
         }
         long rottenDate = calculateRottenDate(creationDate);
-        if (rottenDate < CalendarTFC.PLAYER_TIME.getTicks()) {
+        if (rottenDate < TFCCalendar.PLAYER_TIME.getTicks()) {
             return ROTTEN_DATE;
         }
         return rottenDate;
@@ -93,7 +93,7 @@ public class FoodHandler implements IFood, ICapabilitySerializable<NBTTagCompoun
     @Override
     public float getDecayDateModifier() {
         // Decay modifiers are higher = shorter
-        float mod = data.getDecayModifier() * (float) ConfigTFC.General.FOOD.decayModifier;
+        float mod = data.getDecayModifier() * (float) TFCConfig.General.FOOD.decayModifier;
         for (FoodTrait trait : foodTraits) {
             mod *= trait.getDecayModifier();
         }

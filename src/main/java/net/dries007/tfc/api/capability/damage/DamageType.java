@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.api.capability.damage;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -58,17 +58,17 @@ public enum DamageType {
         // Unblockable damage types don't have a special damage source
         if (!source.isUnblockable()) {
             // First try and match damage types specified via config
-            for (String damageType : ConfigTFC.General.DAMAGE.slashingSources) {
+            for (String damageType : TFCConfig.General.DAMAGE.slashingSources) {
                 if (damageType.equals(source.damageType)) {
                     return SLASHING;
                 }
             }
-            for (String damageType : ConfigTFC.General.DAMAGE.crushingSources) {
+            for (String damageType : TFCConfig.General.DAMAGE.crushingSources) {
                 if (damageType.equals(source.damageType)) {
                     return CRUSHING;
                 }
             }
-            for (String damageType : ConfigTFC.General.DAMAGE.piercingSources) {
+            for (String damageType : TFCConfig.General.DAMAGE.piercingSources) {
                 if (damageType.equals(source.damageType)) {
                     return PIERCING;
                 }
@@ -93,17 +93,17 @@ public enum DamageType {
                 ResourceLocation entityType = EntityList.getKey(sourceEntity);
                 if (entityType != null) {
                     String entityTypeName = entityType.toString();
-                    for (String damageType : ConfigTFC.General.DAMAGE.slashingEntities) {
+                    for (String damageType : TFCConfig.General.DAMAGE.slashingEntities) {
                         if (damageType.equals(entityTypeName)) {
                             return SLASHING;
                         }
                     }
-                    for (String damageType : ConfigTFC.General.DAMAGE.crushingEntities) {
+                    for (String damageType : TFCConfig.General.DAMAGE.crushingEntities) {
                         if (damageType.equals(entityTypeName)) {
                             return CRUSHING;
                         }
                     }
-                    for (String damageType : ConfigTFC.General.DAMAGE.piercingEntities) {
+                    for (String damageType : TFCConfig.General.DAMAGE.piercingEntities) {
                         if (damageType.equals(entityTypeName)) {
                             return PIERCING;
                         }

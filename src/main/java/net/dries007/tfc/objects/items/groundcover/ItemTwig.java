@@ -3,7 +3,7 @@ package net.dries007.tfc.objects.items.groundcover;
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.groundcover.BlockTwig;
+import net.dries007.tfc.objects.blocks.groundcover.TFCBlockSurfaceTwig;
 import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.item.ItemStack;
@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class ItemTwig extends TFCItemBlock {
-    public ItemTwig(BlockTwig block) {
+    public ItemTwig(TFCBlockSurfaceTwig block) {
         super(block);
         OreDictionaryHelper.register(this, "wood");
         OreDictionaryHelper.register(this, "wood_twig");

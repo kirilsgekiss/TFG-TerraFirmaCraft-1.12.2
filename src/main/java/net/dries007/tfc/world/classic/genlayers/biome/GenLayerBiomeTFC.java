@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.world.classic.genlayers.biome;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.dries007.tfc.world.classic.genlayers.GenLayerTFC;
@@ -22,7 +22,7 @@ public class GenLayerBiomeTFC extends GenLayerTFC {
     public GenLayerBiomeTFC(long seed, GenLayer parent) {
         super(seed);
         this.parent = parent;
-        if (ConfigTFC.General.DEBUG.debugWorldGenSafe) {
+        if (TFCConfig.General.DEBUG.debugWorldGenSafe) {
             TerraFirmaCraft.getLog().info("Worldgen biome list (ints): {}", biomes);
             TerraFirmaCraft.getLog().info("Worldgen biome list (names): {}", (Object) Arrays.stream(biomes).mapToObj(Biome::getBiomeForId).map(Objects::toString).toArray());
         }

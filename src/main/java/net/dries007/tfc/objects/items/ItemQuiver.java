@@ -5,11 +5,11 @@
 
 package net.dries007.tfc.objects.items;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCGuiHandler;
-import net.dries007.tfc.objects.ArmorMaterialTFC;
+import net.dries007.tfc.objects.TFCArmorMaterial;
 import net.dries007.tfc.objects.inventory.capability.ISlotCallback;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -104,7 +104,7 @@ public class ItemQuiver extends TFCItemArmor {
 
     static QuiverCapability findQuiver(InventoryPlayer playerInv) {
         int mainToSearch = 0;
-        switch (ConfigTFC.General.PLAYER.quiverSearch) {
+        switch (TFCConfig.General.PLAYER.quiverSearch) {
             case DISABLED:
                 return null;
             case ARMOR:
@@ -143,7 +143,7 @@ public class ItemQuiver extends TFCItemArmor {
     }
 
     public ItemQuiver() {
-        super(ArmorMaterialTFC.QUIVER, 1 /* chest*/, EntityEquipmentSlot.CHEST);
+        super(TFCArmorMaterial.QUIVER, 1 /* chest*/, EntityEquipmentSlot.CHEST);
     }
 
     @Override

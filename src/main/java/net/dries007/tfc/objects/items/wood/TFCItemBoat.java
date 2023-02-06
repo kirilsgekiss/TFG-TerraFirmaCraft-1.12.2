@@ -10,7 +10,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.IWoodHandler;
-import net.dries007.tfc.objects.entity.EntityBoatTFC;
+import net.dries007.tfc.objects.entity.TFCEntityBoat;
 import net.dries007.tfc.objects.items.TFCItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -119,7 +119,7 @@ public class TFCItemBoat extends TFCItem implements IWoodHandler {
             } else {
                 Block block = worldIn.getBlockState(raytraceresult.getBlockPos()).getBlock();
                 boolean flag1 = block == Blocks.WATER || block == Blocks.FLOWING_WATER;
-                EntityBoatTFC entityboat = new EntityBoatTFC(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
+                TFCEntityBoat entityboat = new TFCEntityBoat(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
                 entityboat.setBoatType(EntityBoat.Type.OAK); // not sure if required
                 entityboat.setWood(wood);
                 entityboat.rotationYaw = playerIn.rotationYaw;

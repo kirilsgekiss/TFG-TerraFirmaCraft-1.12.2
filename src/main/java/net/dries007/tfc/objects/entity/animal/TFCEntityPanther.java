@@ -5,13 +5,13 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.IPredator;
 import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIAttackMeleeTFC;
-import net.dries007.tfc.objects.entity.ai.EntityAIWanderHuntArea;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIAttackMelee;
+import net.dries007.tfc.objects.entity.ai.TFCEntityAIWanderHuntArea;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -38,7 +38,7 @@ import java.util.Random;
 import java.util.function.BiConsumer;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityPanther extends EntityAnimalMammal implements IPredator {
+public class TFCEntityPanther extends TFCEntityAnimalMammal implements IPredator {
     private static final int DAYS_TO_ADULTHOOD = 160;
 
     @SuppressWarnings("unused")
@@ -57,14 +57,14 @@ public class TFCEntityPanther extends EntityAnimalMammal implements IPredator {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST)) {
-            return ConfigTFC.Animals.PANTHER.rarity;
+            return TFCConfig.Animals.PANTHER.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.ELDER_AND_POPULATION;
+        return TFCAnimalGroupingRules.ELDER_AND_POPULATION;
     }
 
     @Override
@@ -122,9 +122,9 @@ public class TFCEntityPanther extends EntityAnimalMammal implements IPredator {
 
     @Override
     protected void initEntityAI() {
-        EntityAIWander wander = new EntityAIWanderHuntArea(this, 1.0D);
+        EntityAIWander wander = new TFCEntityAIWanderHuntArea(this, 1.0D);
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(3, new EntityAIAttackMeleeTFC<>(this, 1.2D, 1.25D, EntityAIAttackMeleeTFC.AttackBehavior.NIGHTTIME_ONLY).setWanderAI(wander));
+        this.tasks.addTask(3, new TFCEntityAIAttackMelee<>(this, 1.2D, 1.25D, TFCEntityAIAttackMelee.AttackBehavior.NIGHTTIME_ONLY).setWanderAI(wander));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.1D));
         this.tasks.addTask(5, wander); // Move within hunt area
         this.tasks.addTask(7, new EntityAILookIdle(this));
@@ -133,7 +133,7 @@ public class TFCEntityPanther extends EntityAnimalMammal implements IPredator {
         this.tasks.addTask(4, new EntityAIAvoidEntity<>(this, EntityPlayer.class, 16.0F, 1.0D, 1.25D));
 
         int priority = 2;
-        for (String input : ConfigTFC.Animals.PANTHER.huntCreatures) {
+        for (String input : TFCConfig.Animals.PANTHER.huntCreatures) {
             ResourceLocation key = new ResourceLocation(input);
             EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(key);
             if (entityEntry != null) {
@@ -164,7 +164,7 @@ public class TFCEntityPanther extends EntityAnimalMammal implements IPredator {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_PANTHER;
+        return TFCLootTables.ANIMALS_PANTHER;
     }
 
     @Override

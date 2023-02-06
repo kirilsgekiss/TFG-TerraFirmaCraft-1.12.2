@@ -2,8 +2,8 @@ package net.dries007.tfc.world.classic.worldgen;
 
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
@@ -35,7 +35,7 @@ public class WorldGeneratorTrees implements IWorldGenerator {
         ChunkDataTFC chunkData = ChunkDataTFC.get(world, chunkPos);
         final Biome b = world.getBiome(chunkPos);
         final TemplateManager manager = ((WorldServer) world).getStructureTemplateManager();
-        final float avgTemperature = ClimateTFC.getAvgTemp(world, chunkPos);
+        final float avgTemperature = TFCClimate.getAvgTemp(world, chunkPos);
         final float rainfall = ChunkDataTFC.getRainfall(world, chunkPos);
         final float diversity = chunkData.getFloraDiversity();
         final float density = chunkData.getFloraDensity();
@@ -99,7 +99,7 @@ public class WorldGeneratorTrees implements IWorldGenerator {
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((BlocksTFC.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == TFCBiomes.BAYOU) {
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.WATER.getBlock()) && b1 == TFCBiomes.BAYOU) {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.BALD_CYPRESS).isValidLocation(avgTemperature, rainfall, density))
                     if (10f <= avgTemperature && 38f >= avgTemperature && 180f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8) {
                         int randomTree = random.nextInt(13) + 1;
@@ -122,7 +122,7 @@ public class WorldGeneratorTrees implements IWorldGenerator {
                 Biome b1 = world.getBiome(blockPos);
                 //BlockPos blockPos = world.getHeight(chunkPos.add(random.nextInt(16) + 8, (random.nextInt(7) - random.nextInt(7)) * -1, random.nextInt(16) + 8));
 
-                if ((BlocksTFC.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == TFCBiomes.MANGROVE) {
+                if ((TFCBlocks.isGround(down) || world.getBlockState(blockPos).getBlock() == ChunkGenTFC.SEA_WATER.getBlock()) && b1 == TFCBiomes.MANGROVE) {
                     //if (TFCRegistries.TREES.getValue(TreesTFCF.MANGROVE).isValidLocation(avgTemperature, rainfall, density))
                     if (15f <= avgTemperature && 40f >= avgTemperature && 200f <= rainfall && 500f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL - 8) {
                         int randomTree = random.nextInt(13) + 1;
@@ -130,7 +130,6 @@ public class WorldGeneratorTrees implements IWorldGenerator {
                         generateStructure(gen, world, random, blockPos);
 
                         //TFCRegistries.TREES.getValue(TreesTFCF.MANGROVE).makeTree(manager, world, blockPos, random, true);
-                        //TFCFlorae.getLog().warn("TFCFlorae: Mangrove attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                     }
                 }
             }
@@ -145,10 +144,9 @@ public class WorldGeneratorTrees implements IWorldGenerator {
                 final Biome b1 = world.getBiome(blockPos);
 
                 if (b1 != TFCBiomes.BAYOU && b1 != TFCBiomes.MARSH && !TFCBiomes.isOceanicBiome(b1) && !TFCBiomes.isLakeBiome(b1) && !TFCBiomes.isBeachBiome(b1) && !TFCBiomes.isMesaBiome(b1)) {
-                    if ((BlocksTFC.isSand(down) || BlocksTFC.isSoilOrGravel(down)) && (down != Blocks.HARDENED_CLAY && down != Blocks.STAINED_HARDENED_CLAY)) {
+                    if ((TFCBlocks.isSand(down) || TFCBlocks.isSoilOrGravel(down)) && (down != Blocks.HARDENED_CLAY && down != Blocks.STAINED_HARDENED_CLAY)) {
                         if (15f <= avgTemperature && 40f >= avgTemperature && 65f <= rainfall && 150f >= rainfall && blockPos.getY() >= WorldTypeTFC.SEALEVEL) {
 //                            BlockJoshuaTreeFlower.get(TFCRegistries.TREES.getValue(DefaultTrees.JOSHUA_TREE)).generatePlant(world, blockPos, random, 8);
-                            //TFCFlorae.getLog().warn("TFCFlorae: Joshua Tree attempted to generate at " + "X: " + blockPos.getX() + ", Y: " + blockPos.getY() + ", Z: " + blockPos.getZ());
                         }
                     }
                 }

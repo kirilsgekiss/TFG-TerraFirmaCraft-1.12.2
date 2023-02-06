@@ -5,9 +5,9 @@
 
 package net.dries007.tfc.api.capability.food;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.minecraft.client.gui.GuiScreen;
@@ -57,7 +57,7 @@ public interface IFood extends INBTSerializable<NBTTagCompound> {
      * @return true if the food is rotten / decayed.
      */
     default boolean isRotten() {
-        return getRottenDate() < CalendarTFC.PLAYER_TIME.getTicks();
+        return getRottenDate() < TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     /**
@@ -114,26 +114,26 @@ public interface IFood extends INBTSerializable<NBTTagCompound> {
                 text.add(TextFormatting.GOLD + I18n.format("tfc.tooltip.food_infinite_expiry"));
             } else {
                 // Date food rots on.
-                long rottenCalendarTime = rottenDate - CalendarTFC.PLAYER_TIME.getTicks() + CalendarTFC.CALENDAR_TIME.getTicks();
+                long rottenCalendarTime = rottenDate - TFCCalendar.PLAYER_TIME.getTicks() + TFCCalendar.CALENDAR_TIME.getTicks();
                 // Days till food rots.
-                long daysToRotInTicks = rottenCalendarTime - CalendarTFC.CALENDAR_TIME.getTicks();
-                switch (ConfigTFC.Client.TOOLTIP.decayTooltipMode) {
+                long daysToRotInTicks = rottenCalendarTime - TFCCalendar.CALENDAR_TIME.getTicks();
+                switch (TFCConfig.Client.TOOLTIP.decayTooltipMode) {
                     case HIDE:
                         break;
                     case EXPIRATION_ONLY:
-                        text.add(TextFormatting.DARK_GREEN + I18n.format("tfc.tooltip.food_expiry_date", ICalendarFormatted.getTimeAndDate(rottenCalendarTime, CalendarTFC.CALENDAR_TIME.getDaysInMonth())));
+                        text.add(TextFormatting.DARK_GREEN + I18n.format("tfc.tooltip.food_expiry_date", ICalendarFormatted.getTimeAndDate(rottenCalendarTime, TFCCalendar.CALENDAR_TIME.getDaysInMonth())));
                         break;
                     case TIME_REMAINING_ONLY:
                         text.add(TextFormatting.BLUE + I18n.format("tfc.tooltip.food_expiry_date.days", String.valueOf(ICalendar.getTotalDays(daysToRotInTicks))));
                         break;
                     case ALL_INFO:
-                        text.add(TextFormatting.DARK_GREEN + I18n.format("tfc.tooltip.food_expiry_date", ICalendarFormatted.getTimeAndDate(rottenCalendarTime, CalendarTFC.CALENDAR_TIME.getDaysInMonth())));
+                        text.add(TextFormatting.DARK_GREEN + I18n.format("tfc.tooltip.food_expiry_date", ICalendarFormatted.getTimeAndDate(rottenCalendarTime, TFCCalendar.CALENDAR_TIME.getDaysInMonth())));
                         text.add(TextFormatting.BLUE + I18n.format("tfc.tooltip.food_expiry_date.days", String.valueOf(ICalendar.getTotalDays(daysToRotInTicks))));
                         break;
                 }
             }
         }
-        if (ConfigTFC.General.DEBUG.enable) {
+        if (TFCConfig.General.DEBUG.enable) {
             text.add("Created at " + getCreationDate());
         }
 

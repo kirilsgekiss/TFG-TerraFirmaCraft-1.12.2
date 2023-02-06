@@ -2,7 +2,8 @@ buildscript {
     repositories {
         mavenCentral()
         maven {
-            url = 'https://maven.minecraftforge.net'
+            name = 'forge'
+            url = 'https://files.minecraftforge.net'
         }
         maven {
             url = 'https://repo.spongepowered.org/maven'
@@ -21,6 +22,7 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'idea'
 
 if (project.use_mixins.toBoolean()) {
     apply plugin: 'org.spongepowered.mixin'
@@ -69,7 +71,7 @@ repositories {
         url = 'https://repo.spongepowered.org/maven'
     }
     maven {
-        url = 'https://cursemaven.com'
+        url = 'https://www.cursemaven.com'
     }
 }
 

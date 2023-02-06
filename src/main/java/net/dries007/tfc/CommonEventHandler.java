@@ -42,27 +42,27 @@ import net.dries007.tfc.network.PacketCalendarUpdate;
 import net.dries007.tfc.network.PacketPlayerDataUpdate;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.blocks.BlockFluidTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlockFluid;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.devices.BlockQuern;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockMetalAnvil;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockAnvil;
-import net.dries007.tfc.objects.blocks.stone.TFCBlockRockRaw;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockAnvil;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.objects.items.ItemQuiver;
 import net.dries007.tfc.objects.items.TFCItems;
-import net.dries007.tfc.objects.potioneffects.PotionEffectsTFC;
-import net.dries007.tfc.util.DamageSourcesTFC;
+import net.dries007.tfc.objects.potioneffects.TFCPotionEffects;
+import net.dries007.tfc.util.TFCDamageSources;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.CalendarWorldData;
 import net.dries007.tfc.util.calendar.ICalendar;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.util.skills.SmithingSkill;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -187,7 +187,7 @@ public final class CommonEventHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
-        if (ConfigTFC.General.FALLABLE.explosionCausesCollapse) {
+        if (TFCConfig.General.FALLABLE.explosionCausesCollapse) {
             for (BlockPos pos : event.getAffectedBlocks()) {
                 if (FallingBlockManager.checkCollapsingArea(event.getWorld(), pos)) {
                     break;
@@ -243,9 +243,9 @@ public final class CommonEventHandler {
         // Make leaves drop sticks
         if (!event.isSilkTouching() && block instanceof BlockLeaves) {
             // Done via event so it applies to all leaves.
-            double chance = ConfigTFC.General.TREE.leafStickDropChance;
-            if (!heldItem.isEmpty() && Helpers.containsAnyOfCaseInsensitive(heldItem.getItem().getToolClasses(heldItem), ConfigTFC.General.TREE.leafStickDropChanceBonusClasses)) {
-                chance = ConfigTFC.General.TREE.leafStickDropChanceBonus;
+            double chance = TFCConfig.General.TREE.leafStickDropChance;
+            if (!heldItem.isEmpty() && Helpers.containsAnyOfCaseInsensitive(heldItem.getItem().getToolClasses(heldItem), TFCConfig.General.TREE.leafStickDropChanceBonusClasses)) {
+                chance = TFCConfig.General.TREE.leafStickDropChanceBonus;
             }
             if (Constants.RNG.nextFloat() < chance) {
                 event.getDrops().add(new ItemStack(Items.STICK));
@@ -287,11 +287,11 @@ public final class CommonEventHandler {
                 event.setNewSpeed(event.getNewSpeed() + (event.getNewSpeed() * skillModifier));
             }
         }
-        if (event.getState().getBlock() instanceof BlockRockVariant) {
-            event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.rockMiningTimeModifier));
+        if (event.getState().getBlock() instanceof TFCBlockRockVariant) {
+            event.setNewSpeed((float) (event.getNewSpeed() / TFCConfig.General.MISC.rockMiningTimeModifier));
         }
         if (event.getState().getBlock() instanceof TFCBlockLog) {
-            event.setNewSpeed((float) (event.getNewSpeed() / ConfigTFC.General.MISC.logMiningTimeModifier));
+            event.setNewSpeed((float) (event.getNewSpeed() / TFCConfig.General.MISC.logMiningTimeModifier));
         }
     }
 
@@ -321,7 +321,7 @@ public final class CommonEventHandler {
             RayTraceResult result = Helpers.rayTrace(event.getWorld(), player, true);
             if (result != null && result.typeOfHit == RayTraceResult.Type.BLOCK) {
                 IBlockState waterState = world.getBlockState(result.getBlockPos());
-                boolean isWater = BlocksTFC.isWater(waterState), isSaltWater = BlocksTFC.isSeaWater(waterState);
+                boolean isWater = TFCBlocks.isWater(waterState), isSaltWater = TFCBlocks.isSeaWater(waterState);
                 if ((isWater && foodStats.attemptDrink(10, true)) || (isSaltWater && foodStats.attemptDrink(-1, true))) {
                     //Simulated so client will check if he would drink before updating stats
                     if (!world.isRemote) {
@@ -348,13 +348,13 @@ public final class CommonEventHandler {
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
 
-        if (ConfigTFC.General.OVERRIDES.enableHoeing) {
-            if (block instanceof BlockRockVariant) {
-                BlockRockVariant blockRock = (BlockRockVariant) block;
+        if (TFCConfig.General.OVERRIDES.enableHoeing) {
+            if (block instanceof TFCBlockRockVariant) {
+                TFCBlockRockVariant blockRock = (TFCBlockRockVariant) block;
                 if (blockRock.getType() == Type.GRASS || blockRock.getType() == Type.DIRT) {
                     if (!world.isRemote) {
                         world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                        world.setBlockState(pos, BlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
+                        world.setBlockState(pos, TFCBlockRockVariant.get(blockRock.getRock(), Type.FARMLAND).getDefaultState());
                     }
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -390,11 +390,11 @@ public final class CommonEventHandler {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             if (player.getFoodStats() instanceof IFoodStatsTFC) {
                 float healthModifier = ((IFoodStatsTFC) player.getFoodStats()).getHealthModifier();
-                if (healthModifier < ConfigTFC.General.PLAYER.minHealthModifier) {
-                    healthModifier = (float) ConfigTFC.General.PLAYER.minHealthModifier;
+                if (healthModifier < TFCConfig.General.PLAYER.minHealthModifier) {
+                    healthModifier = (float) TFCConfig.General.PLAYER.minHealthModifier;
                 }
-                if (healthModifier > ConfigTFC.General.PLAYER.maxHealthModifier) {
-                    healthModifier = (float) ConfigTFC.General.PLAYER.maxHealthModifier;
+                if (healthModifier > TFCConfig.General.PLAYER.maxHealthModifier) {
+                    healthModifier = (float) TFCConfig.General.PLAYER.maxHealthModifier;
                 }
                 actualDamage /= healthModifier;
             }
@@ -623,30 +623,30 @@ public final class CommonEventHandler {
         World world = event.getWorld();
         BlockPos pos = new BlockPos(event.getX(), event.getY(), event.getZ());
         if (world.getWorldType() == TerraFirmaCraft.getWorldType() && event.getWorld().provider.getDimensionType() == DimensionType.OVERWORLD) {
-            if (ConfigTFC.General.SPAWN_PROTECTION.preventMobs && event.getEntity().isCreatureType(EnumCreatureType.MONSTER, false)) {
+            if (TFCConfig.General.SPAWN_PROTECTION.preventMobs && event.getEntity().isCreatureType(EnumCreatureType.MONSTER, false)) {
                 // Prevent Mobs
                 ChunkDataTFC data = ChunkDataTFC.get(event.getWorld(), pos);
-                int minY = ConfigTFC.General.SPAWN_PROTECTION.minYMobs;
-                int maxY = ConfigTFC.General.SPAWN_PROTECTION.maxYMobs;
+                int minY = TFCConfig.General.SPAWN_PROTECTION.minYMobs;
+                int maxY = TFCConfig.General.SPAWN_PROTECTION.maxYMobs;
                 if (data.isSpawnProtected() && minY <= maxY && event.getY() >= minY && event.getY() <= maxY) {
                     event.setResult(Event.Result.DENY);
                 }
             }
 
-            if (ConfigTFC.General.SPAWN_PROTECTION.preventPredators && event.getEntity() instanceof IPredator) {
+            if (TFCConfig.General.SPAWN_PROTECTION.preventPredators && event.getEntity() instanceof IPredator) {
                 // Prevent Predators
                 ChunkDataTFC data = ChunkDataTFC.get(event.getWorld(), pos);
-                int minY = ConfigTFC.General.SPAWN_PROTECTION.minYPredators;
-                int maxY = ConfigTFC.General.SPAWN_PROTECTION.maxYPredators;
+                int minY = TFCConfig.General.SPAWN_PROTECTION.minYPredators;
+                int maxY = TFCConfig.General.SPAWN_PROTECTION.maxYPredators;
                 if (data.isSpawnProtected() && minY <= maxY && event.getY() >= minY && event.getY() <= maxY) {
                     event.setResult(Event.Result.DENY);
                 }
             }
 
-            if (event.getEntity() instanceof EntitySquid && world.getBlockState(pos).getBlock() instanceof BlockFluidTFC) {
+            if (event.getEntity() instanceof EntitySquid && world.getBlockState(pos).getBlock() instanceof TFCBlockFluid) {
                 // Prevents squids spawning outside of salt water (eg: oceans)
-                Fluid fluid = ((BlockFluidTFC) world.getBlockState(pos).getBlock()).getFluid();
-                if (FluidsTFC.SEA_WATER.get() != fluid) {
+                Fluid fluid = ((TFCBlockFluid) world.getBlockState(pos).getBlock()).getFluid();
+                if (TFCFluids.SEA_WATER.get() != fluid) {
                     event.setResult(Event.Result.DENY);
                 }
             }
@@ -655,7 +655,7 @@ public final class CommonEventHandler {
             if (event.getEntity() instanceof ICreatureTFC) {
                 ICreatureTFC creature = (ICreatureTFC) event.getEntity();
                 float rainfall = ChunkDataTFC.getRainfall(world, pos);
-                float temperature = ClimateTFC.getAvgTemp(world, pos);
+                float temperature = TFCClimate.getAvgTemp(world, pos);
                 float floraDensity = ChunkDataTFC.getFloraDensity(world, pos);
                 float floraDiversity = ChunkDataTFC.getFloraDiversity(world, pos);
                 Biome biome = world.getBiome(pos);
@@ -667,7 +667,7 @@ public final class CommonEventHandler {
             }
 
             // Stop mob spawning on surface
-            if (ConfigTFC.General.DIFFICULTY.preventMobsOnSurface) {
+            if (TFCConfig.General.DIFFICULTY.preventMobsOnSurface) {
                 if (Helpers.shouldPreventOnSurface(event.getEntity())) {
                     int maximumY = (WorldTypeTFC.SEALEVEL - WorldTypeTFC.ROCKLAYER2) / 2 + WorldTypeTFC.ROCKLAYER2; // Half through rock layer 1
                     if (pos.getY() >= maximumY || world.canSeeSky(pos)) {
@@ -679,7 +679,7 @@ public final class CommonEventHandler {
 
         // Stop mob spawning in thatch - the list of non-spawnable light-blocking, non-collidable blocks is hardcoded in WorldEntitySpawner#canEntitySpawnBody
         // This is intentionally outside the previous world type check as this is a fix for the thatch block, not a generic spawning check.
-        if (event.getWorld().getBlockState(pos).getBlock() == BlocksTFC.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == BlocksTFC.THATCH) {
+        if (event.getWorld().getBlockState(pos).getBlock() == TFCBlocks.THATCH || event.getWorld().getBlockState(pos.up()).getBlock() == TFCBlocks.THATCH) {
             event.setResult(Event.Result.DENY);
         }
     }
@@ -689,7 +689,7 @@ public final class CommonEventHandler {
         Entity entity = event.getEntity();
         if (event.getWorld().getWorldType() == TerraFirmaCraft.getWorldType() && event.getWorld().provider.getDimensionType() == DimensionType.OVERWORLD) {
             // Fix skeleton rider traps spawning during thunderstorms
-            if (entity instanceof EntitySkeletonHorse && ConfigTFC.General.DIFFICULTY.preventMobsOnSurface && ((EntitySkeletonHorse) entity).isTrap()) {
+            if (entity instanceof EntitySkeletonHorse && TFCConfig.General.DIFFICULTY.preventMobsOnSurface && ((EntitySkeletonHorse) entity).isTrap()) {
                 entity.setDropItemsWhenDead(false);
                 entity.setDead();
                 event.setCanceled(true);
@@ -720,7 +720,7 @@ public final class CommonEventHandler {
             }
 
             // Prevent vanilla animals (that have a TFC counterpart) from mob spawners / egg throws / other mod mechanics
-            if (ConfigTFC.General.OVERRIDES.forceReplaceVanillaAnimals && Helpers.isVanillaAnimal(entity)) {
+            if (TFCConfig.General.OVERRIDES.forceReplaceVanillaAnimals && Helpers.isVanillaAnimal(entity)) {
                 Entity TFCReplacement = Helpers.getTFCReplacement(entity);
                 if (TFCReplacement != null) {
                     TFCReplacement.setPositionAndRotation(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
@@ -742,14 +742,14 @@ public final class CommonEventHandler {
                 }
             }*/
         }
-        if (ConfigTFC.Devices.TEMPERATURE.coolHeatablesInWorld && entity instanceof EntityItem) {
+        if (TFCConfig.Devices.TEMPERATURE.coolHeatablesInWorld && entity instanceof EntityItem) {
             EntityItem entityItem = (EntityItem) entity;
             ItemStack stack = entityItem.getItem();
             IItemHeat heatCap = stack.getCapability(CapabilityItemHeat.ITEM_HEAT_CAPABILITY, null);
             if (heatCap != null) {
                 // Add a NBT tag here to make sure our ItemExpireEvent listener picks this entity up as valid (and as an extra check)
                 entityItem.addTag("TFCHeatableItem");
-                entityItem.lifespan = ConfigTFC.Devices.TEMPERATURE.ticksBeforeAttemptToCool;
+                entityItem.lifespan = TFCConfig.Devices.TEMPERATURE.ticksBeforeAttemptToCool;
             }
         }
     }
@@ -774,7 +774,7 @@ public final class CommonEventHandler {
         EntityItem entityItem = event.getEntityItem();
         ItemStack stack = entityItem.getItem();
         IItemHeat heatCap;
-        if (ConfigTFC.Devices.TEMPERATURE.coolHeatablesInWorld && entityItem.getTags().contains("TFCHeatableItem") && (heatCap = stack.getCapability(CapabilityItemHeat.ITEM_HEAT_CAPABILITY, null)) != null) {
+        if (TFCConfig.Devices.TEMPERATURE.coolHeatablesInWorld && entityItem.getTags().contains("TFCHeatableItem") && (heatCap = stack.getCapability(CapabilityItemHeat.ITEM_HEAT_CAPABILITY, null)) != null) {
             int lifespan = stack.getItem().getEntityLifespan(stack, entityItem.world);
             if (entityItem.lifespan >= lifespan) {
                 return; // If the ItemEntity has been there for as long or if not longer than the original unmodified lifespan, we return and setDead
@@ -794,7 +794,7 @@ public final class CommonEventHandler {
                             entityItem.world.setBlockState(pos, Blocks.AIR.getDefaultState(), 2); // 1/1000 chance of the fluid being used up. Attempts to match the barrel recipe as it takes 1mb of water per operation.
                         }
                     }
-                    event.setExtraLife(ConfigTFC.Devices.TEMPERATURE.ticksBeforeAttemptToCool); // Set half a second onto the lifespan
+                    event.setExtraLife(TFCConfig.Devices.TEMPERATURE.ticksBeforeAttemptToCool); // Set half a second onto the lifespan
                     event.setCanceled(true);
                     entityItem.setNoPickupDelay(); // For some reason when lifespan is added, pickup delay is reset, we disable this to make the experience seamless
                     return;
@@ -833,7 +833,7 @@ public final class CommonEventHandler {
                         entityItem.world.setBlockState(pos, Blocks.WATER.getDefaultState().getBlock().getDefaultState(), 2); // 1/200 chance of the packed ice turning into water.
                     }
                 }
-                event.setExtraLife(itemTemp == 0 ? lifespan : ConfigTFC.Devices.TEMPERATURE.ticksBeforeAttemptToCool); // Set lifespan accordingly
+                event.setExtraLife(itemTemp == 0 ? lifespan : TFCConfig.Devices.TEMPERATURE.ticksBeforeAttemptToCool); // Set lifespan accordingly
                 entityItem.setNoPickupDelay(); // For some reason when lifespan is added, pickup delay is reset, we disable this to make the experience seamless
             } else {
                 event.setExtraLife(lifespan); // Sets the original lifespan, next time it expires it will be setDead
@@ -854,7 +854,7 @@ public final class CommonEventHandler {
     @SubscribeEvent
     public static void onGameRuleChange(GameRuleChangeEvent event) {
         GameRules rules = event.getRules();
-        if ("naturalRegeneration".equals(event.getRuleName()) && ConfigTFC.General.OVERRIDES.forceNoVanillaNaturalRegeneration) {
+        if ("naturalRegeneration".equals(event.getRuleName()) && TFCConfig.General.OVERRIDES.forceNoVanillaNaturalRegeneration) {
             // Natural regeneration should be disabled, allows TFC to have custom regeneration
             event.getRules().setOrCreateGameRule("naturalRegeneration", "false");
             TerraFirmaCraft.getLog().warn("Something tried to set natural regeneration to true, reverting!");
@@ -868,11 +868,11 @@ public final class CommonEventHandler {
         if (world.provider.getDimension() == 0 && !world.isRemote) {
             // Calendar Sync / Initialization
             CalendarWorldData data = CalendarWorldData.get(world);
-            CalendarTFC.INSTANCE.resetTo(data.getCalendar());
-            TerraFirmaCraft.getNetwork().sendToAll(new PacketCalendarUpdate(CalendarTFC.INSTANCE));
+            TFCCalendar.INSTANCE.resetTo(data.getCalendar());
+            TerraFirmaCraft.getNetwork().sendToAll(new PacketCalendarUpdate(TFCCalendar.INSTANCE));
         }
 
-        if (ConfigTFC.General.OVERRIDES.forceNoVanillaNaturalRegeneration) {
+        if (TFCConfig.General.OVERRIDES.forceNoVanillaNaturalRegeneration) {
             // Natural regeneration should be disabled, allows TFC to have custom regeneration
             event.getWorld().getGameRules().setOrCreateGameRule("naturalRegeneration", "false");
             TerraFirmaCraft.getLog().warn("Updating gamerule naturalRegeneration to false!");
@@ -893,12 +893,12 @@ public final class CommonEventHandler {
     @SubscribeEvent
     public static void onFluidPlaceBlock(BlockEvent.FluidPlaceBlockEvent event) {
         // Since cobble is a gravity block, placing it can lead to world crashes, so we avoid doing that and place rhyolite instead
-        if (ConfigTFC.General.OVERRIDES.enableLavaWaterPlacesTFCBlocks) {
+        if (TFCConfig.General.OVERRIDES.enableLavaWaterPlacesTFCBlocks) {
             if (event.getNewState().getBlock() == Blocks.STONE) {
-                event.setNewState(BlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.BASALT, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
             if (event.getNewState().getBlock() == Blocks.COBBLESTONE) {
-                event.setNewState(BlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
+                event.setNewState(TFCBlockRockVariant.get(Rock.RHYOLITE, Type.RAW).getDefaultState().withProperty(TFCBlockRockRaw.CAN_FALL, false));
             }
         }
     }
@@ -930,7 +930,7 @@ public final class CommonEventHandler {
             }
             if (hugeHeavyCount >= 2) {
                 // Player is barely able to move
-                event.player.addPotionEffect(new PotionEffect(PotionEffectsTFC.OVERBURDENED, 25, 125, false, false));
+                event.player.addPotionEffect(new PotionEffect(TFCPotionEffects.OVERBURDENED, 25, 125, false, false));
             }
         }
 
@@ -975,10 +975,10 @@ public final class CommonEventHandler {
 
         if (entityType != null && target.hurtResistantTime == 0 && !target.getEntityWorld().isRemote && player.getHeldItemMainhand().isEmpty() && player.isSneaking()) {
             String entityTypeName = entityType.toString();
-            for (String pluckable : ConfigTFC.General.MISC.pluckableEntities) {
+            for (String pluckable : TFCConfig.General.MISC.pluckableEntities) {
                 if (pluckable.equals(entityTypeName)) {
                     target.dropItem(Items.FEATHER, 1);
-                    target.attackEntityFrom(DamageSourcesTFC.PLUCKING, (float) ConfigTFC.General.MISC.damagePerFeather);
+                    target.attackEntityFrom(TFCDamageSources.PLUCKING, (float) TFCConfig.General.MISC.damagePerFeather);
                     if (target instanceof IAnimalTFC) {
                         IAnimalTFC animalTarget = (IAnimalTFC) target;
                         animalTarget.setFamiliarity(animalTarget.getFamiliarity() - 0.04f);

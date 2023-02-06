@@ -10,11 +10,11 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenConiferToppe
 import com.ferreusveritas.dynamictrees.trees.Species;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLogDT;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -66,7 +66,7 @@ public class TFCTrees {
 
         //Set up a map of species and their sapling types
         Map<String, TFCBlockSapling> saplingMap = new HashMap<>();
-        BlocksTFC.getAllSaplingBlocks().forEach(s -> saplingMap.put(s.getTree().toString(), s));
+        TFCBlocks.getAllSaplingBlocks().forEach(s -> saplingMap.put(s.getTree().toString(), s));
 
         for (Map.Entry<String, Species> entry : tfcSpecies.entrySet()) {
             TreeRegistry.registerSaplingReplacer(saplingMap.get(entry.getKey()).getDefaultState(), entry.getValue());
@@ -108,19 +108,19 @@ public class TFCTrees {
     }
 
     public static void postInit() {
-        for (BlockRockVariant rock : BlocksTFC.getAllBlockRockVariants()) {
+        for (TFCBlockRockVariant rock : TFCBlocks.getAllBlockRockVariants()) {
             IBlockState def = rock.getDefaultState();
-            if (BlocksTFC.isGrowableSoil(def)) {
+            if (TFCBlocks.isGrowableSoil(def)) {
                 DirtHelper.registerSoil(def.getBlock(), DirtHelper.DIRTLIKE);
-            } else if (BlocksTFC.isSand(def)) {
+            } else if (TFCBlocks.isSand(def)) {
                 DirtHelper.registerSoil(def.getBlock(), DirtHelper.SANDLIKE);
-            } else if (BlocksTFC.isSoilOrGravel(def)) // soil caught above
+            } else if (TFCBlocks.isSoilOrGravel(def)) // soil caught above
             {
                 DirtHelper.registerSoil(def.getBlock(), DirtHelper.GRAVELLIKE);
             }
         }
-        DirtHelper.registerSoil(FluidsTFC.FRESH_WATER.get().getBlock(), DirtHelper.WATERLIKE);
-        DirtHelper.registerSoil(FluidsTFC.SEA_WATER.get().getBlock(), DirtHelper.WATERLIKE); // maybe?
+        DirtHelper.registerSoil(TFCFluids.FRESH_WATER.get().getBlock(), DirtHelper.WATERLIKE);
+        DirtHelper.registerSoil(TFCFluids.SEA_WATER.get().getBlock(), DirtHelper.WATERLIKE); // maybe?
         // "hot spring water" won't grow trees, I expect
     }
 

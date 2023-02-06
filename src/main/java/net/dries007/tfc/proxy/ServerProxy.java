@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.proxy;
 
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IThreadListener;
@@ -59,7 +59,7 @@ public class ServerProxy implements IProxy {
     @Nonnull
     @Override
     public String getDayName(int dayOfMonth, long totalDays) {
-        return CalendarTFC.DAY_NAMES[(int) (totalDays % 7)];
+        return TFCCalendar.DAY_NAMES[(int) (totalDays % 7)];
     }
 
     @Nonnull

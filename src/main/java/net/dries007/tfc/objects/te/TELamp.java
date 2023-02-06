@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.objects.fluids.capability.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class TELamp extends TETickCounter implements IFluidTankCallback, IFluidH
     private boolean powered = false;
 
     public TELamp() {
-        CAPACITY = ConfigTFC.Devices.LAMP.tank;
+        CAPACITY = TFCConfig.Devices.LAMP.tank;
         this.tank.setCapacity(CAPACITY);
         this.tank.setTileEntity(this);
 
@@ -41,7 +41,7 @@ public class TELamp extends TETickCounter implements IFluidTankCallback, IFluidH
     }
 
     public Set<Fluid> getValidFluids() {
-        String[] fluidNames = ConfigTFC.Devices.LAMP.fuels;
+        String[] fluidNames = TFCConfig.Devices.LAMP.fuels;
         Set<Fluid> validFluids = new HashSet<>();
         for (String fluidName : fluidNames) {
             validFluids.add(FluidRegistry.getFluid(fluidName));

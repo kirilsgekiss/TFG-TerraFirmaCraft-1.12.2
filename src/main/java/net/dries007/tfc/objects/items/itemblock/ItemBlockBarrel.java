@@ -5,14 +5,14 @@
 
 package net.dries007.tfc.objects.items.itemblock;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipe;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockBarrel;
 import net.dries007.tfc.objects.fluids.capability.FluidWhitelistHandlerComplex;
 import net.dries007.tfc.objects.te.TEBarrel;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendarFormatted;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -85,7 +85,7 @@ public class ItemBlockBarrel extends TFCItemBlock {
                         }
                         FluidStack fluidStack = handler.drain(Fluid.BUCKET_VOLUME, true);
                         if (canCreateSources && fluidStack != null) {
-                            fluidStack.amount = ConfigTFC.Devices.BARREL.tank;
+                            fluidStack.amount = TFCConfig.Devices.BARREL.tank;
                         }
                         barrelCap.fill(fluidStack, true);
                         return EnumActionResult.SUCCESS;
@@ -129,7 +129,7 @@ public class ItemBlockBarrel extends TFCItemBlock {
                 }
             }
 
-            String formattedDate = ICalendarFormatted.getTimeAndDate(stack.getTagCompound().getLong("sealedCalendarTick"), CalendarTFC.CALENDAR_TIME.getDaysInMonth());
+            String formattedDate = ICalendarFormatted.getTimeAndDate(stack.getTagCompound().getLong("sealedCalendarTick"), TFCCalendar.CALENDAR_TIME.getDaysInMonth());
             tooltip.add(TextFormatting.DARK_GREEN + new TextComponentTranslation("waila.tfc.barrel.sealed", formattedDate).getFormattedText());
         }
     }
@@ -148,7 +148,7 @@ public class ItemBlockBarrel extends TFCItemBlock {
                     IBlockState state = worldIn.getBlockState(pos);
                     IFluidHandler handler = FluidUtil.getFluidHandler(worldIn, pos, rayTrace.sideHit);
                     if (handler != null && handler.drain(Fluid.BUCKET_VOLUME, false) != null) {
-                        FluidTank tank = new FluidTank(ConfigTFC.Devices.BARREL.tank);
+                        FluidTank tank = new FluidTank(TFCConfig.Devices.BARREL.tank);
                         boolean canCreateSources = false; //default
                         if (state.getBlock() instanceof BlockFluidClassic) {
                             BlockFluidClassic fluidblock = (BlockFluidClassic) worldIn.getBlockState(pos).getBlock();
@@ -159,7 +159,7 @@ public class ItemBlockBarrel extends TFCItemBlock {
                         }
                         FluidStack fluidStack = handler.drain(Fluid.BUCKET_VOLUME, true);
                         if (canCreateSources && fluidStack != null) {
-                            fluidStack.amount = ConfigTFC.Devices.BARREL.tank;
+                            fluidStack.amount = TFCConfig.Devices.BARREL.tank;
                         }
                         barrelCap.fill(fluidStack, true);
                         return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
@@ -179,7 +179,7 @@ public class ItemBlockBarrel extends TFCItemBlock {
     // This is not an item handler, but still saves items from a sealed barrel
     public static class ItemBarrelFluidHandler extends FluidWhitelistHandlerComplex {
         protected ItemBarrelFluidHandler(@Nonnull ItemStack container) {
-            super(container, ConfigTFC.Devices.BARREL.tank, ConfigTFC.Devices.BARREL.fluidWhitelist);
+            super(container, TFCConfig.Devices.BARREL.tank, TFCConfig.Devices.BARREL.fluidWhitelist);
         }
 
         @Override
@@ -225,8 +225,8 @@ public class ItemBlockBarrel extends TFCItemBlock {
             }
             NBTTagCompound nbt = container.getTagCompound();
             //noinspection ConstantConditions
-            nbt.setLong("sealedTick", CalendarTFC.PLAYER_TIME.getTicks());
-            nbt.setLong("sealedCalendarTick", CalendarTFC.CALENDAR_TIME.getTicks());
+            nbt.setLong("sealedTick", TFCCalendar.PLAYER_TIME.getTicks());
+            nbt.setLong("sealedCalendarTick", TFCCalendar.CALENDAR_TIME.getTicks());
             container.setTagCompound(nbt);
             super.setFluid(fluid);
         }

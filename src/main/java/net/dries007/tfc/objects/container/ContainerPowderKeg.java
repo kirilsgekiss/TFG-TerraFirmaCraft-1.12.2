@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.objects.container;
 
-import net.dries007.tfc.objects.blocks.BlockPowderKeg;
+import net.dries007.tfc.objects.blocks.TFCBlockPowderKeg;
 import net.dries007.tfc.objects.inventory.slot.SlotCallback;
 import net.dries007.tfc.objects.te.TEPowderKeg;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -24,7 +24,7 @@ public class ContainerPowderKeg extends ContainerTE<TEPowderKeg> implements IBut
     public void onButtonPress(int buttonID, @Nullable NBTTagCompound extraNBT) {
         // Slot will always be 0, extraNBT will be empty
         if (!tile.getWorld().isRemote) {
-            BlockPowderKeg.togglePowderKegSeal(tile.getWorld(), tile.getPos());
+            TFCBlockPowderKeg.togglePowderKegSeal(tile.getWorld(), tile.getPos());
         }
     }
 

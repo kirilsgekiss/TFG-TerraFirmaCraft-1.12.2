@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.api.capability.food;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
@@ -114,7 +114,7 @@ public class NutritionStats implements INBTSerializable<NBTTagCompound> {
         Arrays.fill(this.nutrients, 0);
         int runningHungerTotal = 0;
         // Reload from config
-        hungerWindow = ConfigTFC.General.PLAYER.nutritionRotationHungerWindow;
+        hungerWindow = TFCConfig.General.PLAYER.nutritionRotationHungerWindow;
         for (int i = 0; i < records.size(); i++) {
             FoodData record = records.get(i);
             int nextHunger = record.getHunger() + runningHungerTotal;

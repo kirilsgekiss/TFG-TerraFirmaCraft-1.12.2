@@ -5,7 +5,7 @@ import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.util.SafeChunkBounds;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.types.TFCTrees;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
@@ -36,7 +36,7 @@ public class TreeGenDynamic implements ITreeGenerator {
 
     @Override
     public boolean canGenerateTree(World world, BlockPos pos, Tree treeType) {
-        if (!BlocksTFC.isGrowableSoil(world.getBlockState(pos.down()))) {
+        if (!TFCBlocks.isGrowableSoil(world.getBlockState(pos.down()))) {
             return false;
         }
 

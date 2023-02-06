@@ -6,7 +6,7 @@
 package net.dries007.tfc.api.util;
 
 import net.dries007.tfc.api.types.Tree;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -59,7 +59,7 @@ public interface ITreeGenerator {
         }
 
         // Check if there is a solid block beneath
-        if (!BlocksTFC.isGrowableSoil(world.getBlockState(pos.down()))) {
+        if (!TFCBlocks.isGrowableSoil(world.getBlockState(pos.down()))) {
             return false;
         }
 

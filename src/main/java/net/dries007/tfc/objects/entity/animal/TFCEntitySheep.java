@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.entity.animal;
 
 import gregtech.api.items.toolitem.ToolHelper;
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.food.CapabilityFood;
@@ -14,12 +14,12 @@ import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.ILivestock;
 import net.dries007.tfc.network.PacketSimpleMessage;
 import net.dries007.tfc.network.PacketSimpleMessage.MessageCategory;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.objects.entity.EntitiesTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.objects.entity.TFCEntities;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -59,13 +59,13 @@ import java.util.function.BiConsumer;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 @ParametersAreNonnullByDefault
-public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, ILivestock {
+public class TFCEntitySheep extends TFCEntityAnimalMammal implements IShearable, ILivestock {
     private static final DataParameter<Integer> DYE_COLOR = EntityDataManager.createKey(TFCEntitySheep.class, DataSerializers.VARINT);
-    private static final DataParameter<Long> SHEARED = EntityDataManager.createKey(TFCEntitySheep.class, EntitiesTFC.getLongDataSerializer());
+    private static final DataParameter<Long> SHEARED = EntityDataManager.createKey(TFCEntitySheep.class, TFCEntities.getLongDataSerializer());
 
     @SuppressWarnings("unused")
     public TFCEntitySheep(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.SHEEP.adulthood, ConfigTFC.Animals.SHEEP.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.SHEEP.adulthood, TFCConfig.Animals.SHEEP.elder), EntitySheep.getRandomSheepColor(Constants.RNG));
     }
 
     public TFCEntitySheep(World worldIn, Gender gender, int birthDay, EnumDyeColor dye) {
@@ -80,14 +80,14 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS)) {
-            return ConfigTFC.Animals.SHEEP.rarity;
+            return TFCConfig.Animals.SHEEP.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -102,9 +102,9 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.SHEEP.babies;
+        int numberOfChildren = TFCConfig.Animals.SHEEP.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntitySheep baby = new TFCEntitySheep(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays(), getDyeColor());
+            TFCEntitySheep baby = new TFCEntitySheep(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays(), getDyeColor());
             baby.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);
             baby.setFamiliarity(getFamiliarity() < 0.9F ? getFamiliarity() / 2.0F : getFamiliarity() * 0.9F);
             world.spawnEntity(baby);
@@ -113,7 +113,7 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.SHEEP.gestation;
+        return TFCConfig.Animals.SHEEP.gestation;
     }
 
     @Override
@@ -173,7 +173,7 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.SHEEP.oldDeathChance;
+        return TFCConfig.Animals.SHEEP.oldDeathChance;
     }
 
     @Override
@@ -195,12 +195,12 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.SHEEP.adulthood;
+        return TFCConfig.Animals.SHEEP.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.SHEEP.elder;
+        return TFCConfig.Animals.SHEEP.elder;
     }
 
     @Override
@@ -216,12 +216,12 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Override
     public void setProductsCooldown() {
-        setShearedTick(CalendarTFC.PLAYER_TIME.getTicks());
+        setShearedTick(TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
     public long getProductsCooldown() {
-        return Math.max(0, ConfigTFC.Animals.SHEEP.woolTicks + getShearedTick() - CalendarTFC.PLAYER_TIME.getTicks());
+        return Math.max(0, TFCConfig.Animals.SHEEP.woolTicks + getShearedTick() - TFCCalendar.PLAYER_TIME.getTicks());
     }
 
     @Override
@@ -310,7 +310,7 @@ public class TFCEntitySheep extends EntityAnimalMammal implements IShearable, IL
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_SHEEP;
+        return TFCLootTables.ANIMALS_SHEEP;
     }
 
     @Override

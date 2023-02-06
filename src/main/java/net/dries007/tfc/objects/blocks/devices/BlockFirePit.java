@@ -13,7 +13,7 @@ import net.dries007.tfc.objects.items.ItemFireStarter;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.te.TEBellows;
 import net.dries007.tfc.objects.te.TEFirePit;
-import net.dries007.tfc.util.DamageSourcesTFC;
+import net.dries007.tfc.util.TFCDamageSources;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.Block;
@@ -286,9 +286,9 @@ public class BlockFirePit extends Block implements IBellowsConsumerBlock, ILight
                         if (!anythingInTheInv) {
                             if (state.getValue(LIT)) {
                                 if (attachment == FirePitAttachment.COOKING_POT) {
-                                    player.attackEntityFrom(DamageSourcesTFC.SOUP, 1);
+                                    player.attackEntityFrom(TFCDamageSources.SOUP, 1);
                                 } else {
-                                    player.attackEntityFrom(DamageSourcesTFC.GRILL, 1);
+                                    player.attackEntityFrom(TFCDamageSources.GRILL, 1);
                                 }
 
                             } else {

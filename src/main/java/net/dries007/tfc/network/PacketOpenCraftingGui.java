@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.network;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.util.Helpers;
@@ -22,7 +22,7 @@ public class PacketOpenCraftingGui implements IMessageEmpty {
             TerraFirmaCraft.getProxy().getThreadListener(ctx).addScheduledTask(() -> {
                 EntityPlayer player = TerraFirmaCraft.getProxy().getPlayer(ctx);
                 if (player != null) {
-                    if (ConfigTFC.General.PLAYER.inventoryCraftingMode == InventoryCraftingMode.ALWAYS || (ConfigTFC.General.PLAYER.inventoryCraftingMode == InventoryCraftingMode.ENABLED && Helpers.playerHasItemMatchingOre(player.inventory, "workbench"))) {
+                    if (TFCConfig.General.PLAYER.inventoryCraftingMode == InventoryCraftingMode.ALWAYS || (TFCConfig.General.PLAYER.inventoryCraftingMode == InventoryCraftingMode.ENABLED && Helpers.playerHasItemMatchingOre(player.inventory, "workbench"))) {
                         TFCGuiHandler.openGui(player.world, player, TFCGuiHandler.Type.CRAFTING);
                     }
                 }

@@ -5,7 +5,7 @@ import net.dries007.tfc.api.capability.food.FoodHandler;
 import net.dries007.tfc.objects.items.itemblock.TFCItemBlock;
 import net.dries007.tfc.objects.te.TETickCounter;
 import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -39,7 +39,7 @@ public class ItemBlockRot extends TFCItemBlock {
         if (!worldIn.isRemote && result == EnumActionResult.SUCCESS) {
             TETickCounter te = Helpers.getTE(worldIn, pos.offset(facing), TETickCounter.class);
             if (te != null) {
-                long currentTime = CalendarTFC.PLAYER_TIME.getTicks();
+                long currentTime = TFCCalendar.PLAYER_TIME.getTicks();
                 te.resetCounter(); //te counter is at currentTime
                 te.reduceCounter(foodCreationDate - currentTime); //teCounter is now at foodCrationDate
             }

@@ -5,10 +5,10 @@
 
 package net.dries007.tfc.world.classic.worldgen;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.types.IBerryBush;
-import net.dries007.tfc.objects.blocks.agriculture.BlockBerryBush;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockBerryBush;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.util.math.BlockPos;
@@ -31,13 +31,13 @@ public class WorldGenBerryBushes implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (chunkGenerator instanceof ChunkGenTFC && world.provider.getDimension() == 0 && BUSHES.size() > 0 && ConfigTFC.General.FOOD.berryBushRarity > 0) {
-            if (random.nextInt(ConfigTFC.General.FOOD.berryBushRarity) == 0) {
+        if (chunkGenerator instanceof ChunkGenTFC && world.provider.getDimension() == 0 && BUSHES.size() > 0 && TFCConfig.General.FOOD.berryBushRarity > 0) {
+            if (random.nextInt(TFCConfig.General.FOOD.berryBushRarity) == 0) {
                 // Guarantees bush generation if possible (easier to balance by config file while also making it random)
                 Collections.shuffle(BUSHES);
                 BlockPos chunkBlockPos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
 
-                float temperature = ClimateTFC.getAvgTemp(world, chunkBlockPos);
+                float temperature = TFCClimate.getAvgTemp(world, chunkBlockPos);
                 float rainfall = ChunkDataTFC.getRainfall(world, chunkBlockPos);
                 IBerryBush bush = BUSHES.stream().filter(x -> x.isValidConditions(temperature, rainfall)).findFirst().orElse(null);
 
@@ -49,7 +49,7 @@ public class WorldGenBerryBushes implements IWorldGenerator {
                     if (world.getBlockState(pos).getMaterial().isLiquid() || !world.getBlockState(pos).getMaterial().isReplaceable()) {
                         return;
                     }
-                    BlockBerryBush block = BlockBerryBush.get(bush);
+                    TFCBlockBerryBush block = TFCBlockBerryBush.get(bush);
                     if (block.canPlaceBlockAt(world, pos)) {
                         world.setBlockState(pos, block.getDefaultState());
                     }

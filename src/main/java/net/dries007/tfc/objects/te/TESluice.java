@@ -5,12 +5,12 @@
 
 package net.dries007.tfc.objects.te;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.objects.blocks.devices.BlockSluice;
-import net.dries007.tfc.objects.blocks.stone.BlockRockVariant;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
+import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
+import net.dries007.tfc.objects.fluids.TFCFluids;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -43,7 +43,7 @@ public class TESluice extends TEBase implements ITickable {
     public static final int MAX_SOIL = 50;
 
     public static boolean isValidFluid(Fluid fluid) {
-        return fluid == FluidRegistry.WATER || fluid == FluidsTFC.SEA_WATER.get();
+        return fluid == FluidRegistry.WATER || fluid == TFCFluids.SEA_WATER.get();
     }
 
     private int soil;
@@ -54,7 +54,7 @@ public class TESluice extends TEBase implements ITickable {
         if (!world.isRemote) {
             if (ticksRemaining > 0) {
                 if (--ticksRemaining <= 0) {
-                    if (Constants.RNG.nextDouble() < ConfigTFC.Devices.SLUICE.oreChance) {
+                    if (Constants.RNG.nextDouble() < TFCConfig.Devices.SLUICE.oreChance) {
                         ChunkDataTFC chunkData = getChunkData(true);
                         if (chunkData != null) {
                             /*
@@ -69,7 +69,7 @@ public class TESluice extends TEBase implements ITickable {
                             Helpers.spawnItemStack(world, getFrontWaterPos(), output);
                             chunkData.addWork(3);*/
                         }
-                    } else if (Constants.RNG.nextDouble() < ConfigTFC.Devices.SLUICE.gemChance) {
+                    } else if (Constants.RNG.nextDouble() < TFCConfig.Devices.SLUICE.gemChance) {
                         /*
                         ChunkDataTFC chunkData = getChunkData(false);
                         if (chunkData != null)
@@ -105,8 +105,8 @@ public class TESluice extends TEBase implements ITickable {
                 if (soil < MAX_SOIL) {
                     for (EntityItem entityItem : world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos).grow(1), EntitySelectors.IS_ALIVE)) {
                         ItemStack stack = entityItem.getItem();
-                        if (stack.getItem() instanceof ItemBlock && ((ItemBlock) stack.getItem()).getBlock() instanceof BlockRockVariant) {
-                            BlockRockVariant rockBlock = (BlockRockVariant) ((ItemBlock) stack.getItem()).getBlock();
+                        if (stack.getItem() instanceof ItemBlock && ((ItemBlock) stack.getItem()).getBlock() instanceof TFCBlockRockVariant) {
+                            TFCBlockRockVariant rockBlock = (TFCBlockRockVariant) ((ItemBlock) stack.getItem()).getBlock();
                             if (rockBlock.getType() == Type.SAND || rockBlock.getType() == Type.GRAVEL) {
                                 soil += 20; // Overflows to not consume an stack until a full soil worth is consumed
                                 stack.shrink(1);
@@ -208,7 +208,7 @@ public class TESluice extends TEBase implements ITickable {
     private void consumeSoil() {
         if (soil > 0 && hasFlow()) {
             soil--;
-            ticksRemaining = ConfigTFC.Devices.SLUICE.ticks;
+            ticksRemaining = TFCConfig.Devices.SLUICE.ticks;
             markForBlockUpdate();
         } else {
             ticksRemaining = 0;
@@ -221,7 +221,7 @@ public class TESluice extends TEBase implements ITickable {
 
     private ChunkDataTFC getChunkData(boolean checkVeins) {
         ChunkPos myPos = world.getChunk(pos).getPos();
-        int radius = ConfigTFC.Devices.SLUICE.radius;
+        int radius = TFCConfig.Devices.SLUICE.radius;
         //Copy from Helper method, but only look for workable chunks
         List<Chunk> chunks = new ArrayList<>();
         for (int x = myPos.x - radius; x <= myPos.x + radius; x++) {

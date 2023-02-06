@@ -6,7 +6,7 @@
 package net.dries007.tfc.api.types;
 
 import net.dries007.tfc.objects.blocks.plants.*;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.Month;
 import net.dries007.tfc.world.classic.ChunkGenTFC;
 import net.minecraft.block.material.Material;
@@ -192,7 +192,7 @@ public class Plant extends IForgeRegistryEntry.Impl<Plant> {
     }
 
     public int getStageForMonth() {
-        return getStageForMonth(CalendarTFC.CALENDAR_TIME.getMonthOfYear());
+        return getStageForMonth(TFCCalendar.CALENDAR_TIME.getMonthOfYear());
     }
 
     public int getNumStages() {

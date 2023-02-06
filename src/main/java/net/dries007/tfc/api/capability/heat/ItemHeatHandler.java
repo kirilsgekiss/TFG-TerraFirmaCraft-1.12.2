@@ -5,7 +5,7 @@
 
 package net.dries007.tfc.api.capability.heat;
 
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -54,7 +54,7 @@ public class ItemHeatHandler implements ICapabilitySerializable<NBTTagCompound>,
      */
     @Override
     public float getTemperature() {
-        return CapabilityItemHeat.adjustTemp(temperature, heatCapacity, CalendarTFC.PLAYER_TIME.getTicks() - lastUpdateTick);
+        return CapabilityItemHeat.adjustTemp(temperature, heatCapacity, TFCCalendar.PLAYER_TIME.getTicks() - lastUpdateTick);
     }
 
     /**
@@ -65,7 +65,7 @@ public class ItemHeatHandler implements ICapabilitySerializable<NBTTagCompound>,
     @Override
     public void setTemperature(float temperature) {
         this.temperature = temperature;
-        this.lastUpdateTick = CalendarTFC.PLAYER_TIME.getTicks();
+        this.lastUpdateTick = TFCCalendar.PLAYER_TIME.getTicks();
     }
 
     @Override

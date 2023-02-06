@@ -5,11 +5,11 @@
 
 package net.dries007.tfc.objects.entity.animal;
 
-import net.dries007.tfc.ConfigTFC;
+import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.types.ILivestock;
-import net.dries007.tfc.objects.LootTablesTFC;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.objects.TFCLootTables;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.climate.BiomeHelper;
 import net.dries007.tfc.world.classic.biomes.TFCBiomes;
 import net.minecraft.block.Block;
@@ -31,10 +31,10 @@ import java.util.Random;
 import java.util.function.BiConsumer;
 
 @ParametersAreNonnullByDefault
-public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
+public class TFCEntityPig extends TFCEntityAnimalMammal implements ILivestock {
     @SuppressWarnings("unused")
     public TFCEntityPig(World worldIn) {
-        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(ConfigTFC.Animals.PIG.adulthood, ConfigTFC.Animals.PIG.elder));
+        this(worldIn, Gender.valueOf(Constants.RNG.nextBoolean()), getRandomGrowth(TFCConfig.Animals.PIG.adulthood, TFCConfig.Animals.PIG.elder));
     }
 
     public TFCEntityPig(World worldIn, Gender gender, int birthDay) {
@@ -44,7 +44,7 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public double getOldDeathChance() {
-        return ConfigTFC.Animals.PIG.oldDeathChance;
+        return TFCConfig.Animals.PIG.oldDeathChance;
     }
 
     @Override
@@ -52,14 +52,14 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
         BiomeHelper.BiomeType biomeType = BiomeHelper.getBiomeType(temperature, rainfall, floraDensity);
         if (!TFCBiomes.isOceanicBiome(biome) && !TFCBiomes.isBeachBiome(biome) &&
                 (biomeType == BiomeHelper.BiomeType.PLAINS || biomeType == BiomeHelper.BiomeType.TROPICAL_FOREST)) {
-            return ConfigTFC.Animals.PIG.rarity;
+            return TFCConfig.Animals.PIG.rarity;
         }
         return 0;
     }
 
     @Override
     public BiConsumer<List<EntityLiving>, Random> getGroupingRules() {
-        return AnimalGroupingRules.MALE_AND_FEMALES;
+        return TFCAnimalGroupingRules.MALE_AND_FEMALES;
     }
 
     @Override
@@ -74,9 +74,9 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public void birthChildren() {
-        int numberOfChildren = ConfigTFC.Animals.PIG.babies;
+        int numberOfChildren = TFCConfig.Animals.PIG.babies;
         for (int i = 0; i < numberOfChildren; i++) {
-            TFCEntityPig baby = new TFCEntityPig(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) CalendarTFC.PLAYER_TIME.getTotalDays());
+            TFCEntityPig baby = new TFCEntityPig(world, Gender.valueOf(Constants.RNG.nextBoolean()), (int) TFCCalendar.PLAYER_TIME.getTotalDays());
             baby.setLocationAndAngles(posX, posY, posZ, 0.0F, 0.0F);
             baby.setFamiliarity(getFamiliarity() < 0.9F ? getFamiliarity() / 2.0F : getFamiliarity() * 0.9F);
             world.spawnEntity(baby);
@@ -85,7 +85,7 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public long gestationDays() {
-        return ConfigTFC.Animals.PIG.gestation;
+        return TFCConfig.Animals.PIG.gestation;
     }
 
     @Override
@@ -95,12 +95,12 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
 
     @Override
     public int getDaysToAdulthood() {
-        return ConfigTFC.Animals.PIG.adulthood;
+        return TFCConfig.Animals.PIG.adulthood;
     }
 
     @Override
     public int getDaysToElderly() {
-        return ConfigTFC.Animals.PIG.elder;
+        return TFCConfig.Animals.PIG.elder;
     }
 
     @Override
@@ -135,7 +135,7 @@ public class TFCEntityPig extends EntityAnimalMammal implements ILivestock {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTablesTFC.ANIMALS_PIG;
+        return TFCLootTables.ANIMALS_PIG;
     }
 
     @Override

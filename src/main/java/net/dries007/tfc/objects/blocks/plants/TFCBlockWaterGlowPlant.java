@@ -3,11 +3,11 @@ package net.dries007.tfc.objects.blocks.plants;
 import net.dries007.tfc.api.capability.size.IItemSize;
 import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
-import net.dries007.tfc.objects.blocks.BlockFluidTFC;
-import net.dries007.tfc.objects.blocks.BlocksTFC;
-import net.dries007.tfc.objects.blocks.groundcover.BlockCoralBlock;
-import net.dries007.tfc.objects.fluids.FluidsTFC;
-import net.dries007.tfc.util.climate.ClimateTFC;
+import net.dries007.tfc.objects.blocks.TFCBlockFluid;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
+import net.dries007.tfc.objects.blocks.groundcover.TFCBlockCoralBlock;
+import net.dries007.tfc.objects.fluids.TFCFluids;
+import net.dries007.tfc.util.climate.TFCClimate;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class TFCBlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, IPlantable {
+public class TFCBlockWaterGlowPlant extends TFCBlockFluid implements IItemSize, IPlantable {
     static final PropertyBool DOWN = PropertyBool.create("down");
     static final PropertyBool UP = PropertyBool.create("up");
     static final PropertyBool NORTH = PropertyBool.create("north");
@@ -280,8 +280,8 @@ public class TFCBlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, 
         for (EnumFacing face : EnumFacing.values()) {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof TFCBlockWaterGlowPlant)) {
-                return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof TFCBlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof TFCBlockCoralBlock || up.getBlock() instanceof TFCBlockWaterGlowPlant)) {
+                return TFCClimate.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
         }
         return false;
@@ -291,13 +291,13 @@ public class TFCBlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, 
     @Override
     public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
         this.onBlockHarvested(world, pos, state, player);
-        return world.setBlockState(pos, FluidsTFC.SEA_WATER.get().getBlock().getDefaultState(), world.isRemote ? 11 : 3);
+        return world.setBlockState(pos, TFCFluids.SEA_WATER.get().getBlock().getDefaultState(), world.isRemote ? 11 : 3);
     }
 
     protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!this.canBlockStay(worldIn, pos, state)) {
             this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, FluidsTFC.SEA_WATER.get().getBlock().getDefaultState());
+            worldIn.setBlockState(pos, TFCFluids.SEA_WATER.get().getBlock().getDefaultState());
         }
     }
 
@@ -306,8 +306,8 @@ public class TFCBlockWaterGlowPlant extends BlockFluidTFC implements IItemSize, 
         for (EnumFacing face : EnumFacing.values()) {
             IBlockState up = worldIn.getBlockState(pos.up());
             IBlockState blockState = worldIn.getBlockState(pos.offset(face));
-            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || BlocksTFC.isGround(blockState) || blockState.getBlock() instanceof BlockCoralBlock) && (BlocksTFC.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof BlockCoralBlock || up.getBlock() instanceof TFCBlockWaterGlowPlant)) {
-                return ClimateTFC.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
+            if ((blockState.getBlockFaceShape(worldIn, pos.offset(face), face.getOpposite()) == BlockFaceShape.SOLID || TFCBlocks.isGround(blockState) || blockState.getBlock() instanceof TFCBlockCoralBlock) && (TFCBlocks.isSeaWater(worldIn.getBlockState(pos.up())) || up.getBlock() instanceof TFCBlockCoralBlock || up.getBlock() instanceof TFCBlockWaterGlowPlant)) {
+                return TFCClimate.getAvgTemp(worldIn, pos) >= 10f && ChunkDataTFC.getRainfall(worldIn, pos) >= 100f;
             }
         }
         return false;

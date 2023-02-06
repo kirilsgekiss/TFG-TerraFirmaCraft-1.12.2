@@ -6,13 +6,13 @@
 package net.dries007.tfc.util.agriculture;
 
 import net.dries007.tfc.api.types.ICrop;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropSimple;
-import net.dries007.tfc.objects.blocks.agriculture.BlockCropSpreading;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropDead;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropSimple;
+import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCropSpreading;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockCrop;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.items.food.TFCItemFood;
-import net.dries007.tfc.util.calendar.CalendarTFC;
+import net.dries007.tfc.util.calendar.TFCCalendar;
 import net.dries007.tfc.util.calendar.ICalendar;
 import net.dries007.tfc.util.skills.Skill;
 import net.dries007.tfc.util.skills.SkillTier;
@@ -163,7 +163,7 @@ public enum Crop implements ICrop {
 
     @Override
     public long getGrowthTicks() {
-        return (long) (growthTime * CalendarTFC.CALENDAR_TIME.getDaysInMonth() * ICalendar.TICKS_IN_DAY);
+        return (long) (growthTime * TFCCalendar.CALENDAR_TIME.getDaysInMonth() * ICalendar.TICKS_IN_DAY);
     }
 
     @Override
@@ -194,15 +194,15 @@ public enum Crop implements ICrop {
 
     public TFCBlockCrop createGrowingBlock() {
         if (type == SIMPLE || type == PICKABLE) {
-            return BlockCropSimple.create(this, type == PICKABLE);
+            return TFCBlockCropSimple.create(this, type == PICKABLE);
         } else if (type == SPREADING) {
-            return BlockCropSpreading.create(this);
+            return TFCBlockCropSpreading.create(this);
         }
         throw new IllegalStateException("Invalid growthstage property " + growthStages + " for crop");
     }
 
-    public BlockCropDead createDeadBlock() {
-        return new BlockCropDead(this);
+    public TFCBlockCropDead createDeadBlock() {
+        return new TFCBlockCropDead(this);
     }
 
     @SideOnly(Side.CLIENT)
