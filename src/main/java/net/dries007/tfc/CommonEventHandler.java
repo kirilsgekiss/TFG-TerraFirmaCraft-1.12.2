@@ -6,6 +6,7 @@
 package net.dries007.tfc;
 
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
+import com.ferreusveritas.dynamictrees.event.BiomeSuitabilityEvent;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
@@ -1070,6 +1071,18 @@ public final class CommonEventHandler {
                 }
             }
         }
+    }
+
+    /**
+     * Listen for DynamicTrees event for biome suitability
+     * Ignore suitability computations for TFC Trees for now
+     * https://github.com/ferreusveritas/DynamicTrees/blob/f7edfc2d423b87bf6b7ebf2ad1b628a694114171/src/main/java/com/ferreusveritas/dynamictrees/trees/Species.java#L963
+     * need to catch BiomeSuitabilityEvent
+     */
+    @SubscribeEvent
+    public static void biomeHandler(BiomeSuitabilityEvent event)
+    {
+        event.setSuitability(1.0f); //doesn't change value, sets isHandled
     }
 
     private static int countPlayerOverburdened(InventoryPlayer inventory) {

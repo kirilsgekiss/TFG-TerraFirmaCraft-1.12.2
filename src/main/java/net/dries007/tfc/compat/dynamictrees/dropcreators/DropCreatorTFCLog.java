@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 public class DropCreatorTFCLog extends DropCreator {
     public DropCreatorTFCLog(String name) {

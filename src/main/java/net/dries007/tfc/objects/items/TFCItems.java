@@ -17,6 +17,7 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Wood;
+import net.dries007.tfc.compat.dynamictrees.DTTrees;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
@@ -72,6 +73,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.dries007.tfc.compat.dynamictrees.DTItems;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.TFCCreativeTabs.*;
@@ -1532,6 +1534,13 @@ public final class TFCItems {
         if (TFCConfig.General.OVERRIDES.enableTorchOverride) {
             event.getRegistry().register(new TFCItemBlockTorch(Blocks.TORCH).setRegistryName("minecraft", "torch"));
         }
+    }
+
+    @SubscribeEvent
+    public static void registerDynamicTreesItems(RegistryEvent.Register<Item> event)
+    {
+        DTItems.register(event.getRegistry());
+        DTTrees.registerItems(event.getRegistry());
     }
 
     private static void registerPottery(Builder<Item> items, IForgeRegistry<Item> r, String nameUnfired, String nameFired) {

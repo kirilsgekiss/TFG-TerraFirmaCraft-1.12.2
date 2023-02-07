@@ -5,11 +5,6 @@
 
 package net.dries007.tfc.objects.blocks;
 
-import com.ferreusveritas.dynamictrees.ModConstants;
-import com.ferreusveritas.dynamictrees.api.TreeRegistry;
-import com.ferreusveritas.dynamictrees.api.cells.ICellKit;
-import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
-import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
@@ -23,6 +18,8 @@ import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.types.Wood;
 import net.dries007.tfc.api.util.FallingBlockManager;
+import net.dries007.tfc.compat.dynamictrees.DTLeavesHandler;
+import net.dries007.tfc.compat.dynamictrees.DTTrees;
 import net.dries007.tfc.compat.gregtech.materials.TFCMaterialFlags;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.blocks.ceramics.*;
@@ -59,7 +56,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -68,10 +64,6 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import org.labellum.mc.dynamictreestfc.DynamicTreesTFC;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.types.Rock.Type.*;
@@ -1607,6 +1599,13 @@ public final class TFCBlocks {
             );
 
         }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void registerDynamicTreesBlocks(RegistryEvent.Register<Block> event)
+    {
+        DTLeavesHandler.register();
+        DTTrees.registerBlocks(event.getRegistry());
     }
 
     public static boolean isWater(IBlockState current) {

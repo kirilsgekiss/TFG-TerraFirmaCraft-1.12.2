@@ -70,7 +70,7 @@ public class TFCTreeFamily extends TreeFamily {
                     addGenFeature(new FeatureGenVine().setQuantity(8).setMaxLength(32).setRayDistance(32));//Generate Vines
                     //intentional fall through to set thick parameters for kapok too
                 case "sequoia":
-                    addGenFeature(new TFCFeatureGenMound(2));//Place a 3x3 of dirt under thick trees
+                    addGenFeature(new DTFeatureGenMound(2));//Place a 3x3 of dirt under thick trees
                     setSoilLongevity(36);//Grows for a while so it can actually get tall
                     addGenFeature(new FeatureGenFlareBottom());//Flare the bottom
 
@@ -103,7 +103,7 @@ public class TFCTreeFamily extends TreeFamily {
 
     @Override
     public void createSpecies() {
-        setCommonSpecies(new TreeTFCSpecies(this, TFCLeavesHandler.stringLeavesPropertiesMap.get(getName().toString())));
+        setCommonSpecies(new TreeTFCSpecies(this, DTLeavesHandler.stringLeavesPropertiesMap.get(getName().toString())));
         getCommonSpecies().generateSeed();
     }
 

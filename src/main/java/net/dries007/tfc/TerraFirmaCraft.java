@@ -5,6 +5,7 @@
 
 package net.dries007.tfc;
 
+import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.seasons.SeasonHelper;
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
 import net.dries007.tfc.api.capability.egg.CapabilityEgg;
@@ -21,7 +22,9 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCKeybindings;
 import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
 import net.dries007.tfc.command.*;
-import net.dries007.tfc.compat.dynamictrees.TFCLeavesHandler;
+import net.dries007.tfc.compat.dynamictrees.DTLeavesHandler;
+import net.dries007.tfc.compat.dynamictrees.DTRootDecay;
+import net.dries007.tfc.compat.dynamictrees.DTTrees;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
@@ -37,16 +40,6 @@ import net.dries007.tfc.util.fuel.FuelManager;
 import net.dries007.tfc.util.json.JsonConfigRegistry;
 import net.dries007.tfc.world.classic.WorldTypeTFC;
 import net.dries007.tfc.world.classic.chunkdata.CapabilityChunkData;
-import net.dries007.tfc.world.classic.worldgen.*;
-import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
-import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
-import net.dries007.tfc.world.classic.worldgen.groundcover.*;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenClays;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoil;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilDecorative;
-import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilTypes;
-import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
-import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.server.dedicated.PropertyManager;
@@ -57,7 +50,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.server.FMLServerHandler;
 import org.apache.logging.log4j.LogManager;
@@ -125,7 +117,7 @@ public final class TerraFirmaCraft {
         TFCToolItems.init();
         TFCMetaItem.init();
 
-        TFCLeavesHandler.preInit();
+        DTLeavesHandler.preInit();
 
         //OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID); // Client Proxy from Florae?
 
@@ -211,6 +203,9 @@ public final class TerraFirmaCraft {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 //        DefaultRecipes.register();
+
+        DTTrees.postInit();
+        TreeHelper.setCustomRootBlockDecay(DTRootDecay.INSTANCE);
 
         FuelManager.postInit();
         JsonConfigRegistry.INSTANCE.postInit();

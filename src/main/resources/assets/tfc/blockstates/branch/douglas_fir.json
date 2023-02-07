@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "tfc:branch/douglas_fir#dynamictree" }
+  }
+}

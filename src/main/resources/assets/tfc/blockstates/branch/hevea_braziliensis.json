@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "tfc:branch/hevea_braziliensis#dynamictree" }
+  }
+}

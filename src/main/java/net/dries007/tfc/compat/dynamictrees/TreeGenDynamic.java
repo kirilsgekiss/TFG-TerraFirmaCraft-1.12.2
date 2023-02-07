@@ -26,7 +26,7 @@ public class TreeGenDynamic implements ITreeGenerator {
 
     @Override
     public void generateTree(TemplateManager manager, World world, BlockPos pos, Tree tree, Random random, boolean isWorldGen) {
-        Species dtSpecies = TFCTrees.tfcSpecies.get(tree.toString());
+        Species dtSpecies = DTTrees.TFCSpecies.get(tree.toString());
         SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(pos).getPos());
         dtSpecies.generate(world, pos.down(), world.getBiome(pos), random, leavesRadius <= 0 ? dtSpecies.maxBranchRadius() / 3 : leavesRadius, bounds);
         //dtSpecies.getJoCode("JP").setCareful(true).generate(world, dtSpecies, blockPos, world.getBiome(blockPos), EnumFacing.SOUTH, 8, SafeChunkBounds.ANY);
@@ -43,7 +43,7 @@ public class TreeGenDynamic implements ITreeGenerator {
             return false;
         }
 
-        Species dTree = TFCTrees.tfcSpecies.get(treeType.toString());
+        Species dTree = DTTrees.TFCSpecies.get(treeType.toString());
         int lowestBranchHeight = dTree.getLowestBranchHeight();
         int maxTreeHeight = (int) ((TFCTreeFamily.TreeTFCSpecies) dTree).getSignalEnergy(); //signal energy access problem so need to cast
 

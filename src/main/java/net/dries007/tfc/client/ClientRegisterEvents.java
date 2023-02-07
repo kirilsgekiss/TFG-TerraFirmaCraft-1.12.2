@@ -17,13 +17,12 @@ import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.render.*;
-import net.dries007.tfc.compat.dynamictrees.TFCTrees;
+import net.dries007.tfc.compat.dynamictrees.DTTrees;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.TFCBlockThatchBed;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeLeaves;
-import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSmooth;
@@ -68,7 +67,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.labellum.mc.dynamictreestfc.DynamicTreesTFC;
 import net.dries007.tfc.compat.dynamictrees.client.TFCModelHelper;
 
 import javax.annotation.Nonnull;
@@ -310,14 +308,14 @@ public final class ClientRegisterEvents {
         TFCBlocks.getAllBlockSapling().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(TFCBlockSapling.STAGE).build()));
 
         // Register meshes for tree branches
-        TFCTrees.tfcTrees.forEach(s -> {
+        DTTrees.TFCTrees.forEach(s -> {
             // Register Branch itemBlock
             TFCModelHelper.regModel(s.getDynamicBranch());
             // Register custom state mapper for branch
             TFCModelHelper.regModel(s);
         });
 
-        TFCTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));//Register Seed Item Models
+        DTTrees.TFCSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));//Register Seed Item Models
 
         //=== Wood ===================================================================================================//
 
@@ -439,7 +437,7 @@ public final class ClientRegisterEvents {
         //=== Tree ===================================================================================================//
 
         blockColor.registerBlockColorHandler(foliageColor, TFCBlocks.getAllBlockLeaves().toArray(new Block[0]));
-        blockColor.registerBlockColorHandler(foliageColor, LeavesPaging.getLeavesMapForModId(DynamicTreesTFC.MOD_ID).values().toArray(new Block[0]));
+        blockColor.registerBlockColorHandler(foliageColor, LeavesPaging.getLeavesMapForModId(MOD_ID).values().toArray(new Block[0]));
 
         //=== Wood ===================================================================================================//
 
