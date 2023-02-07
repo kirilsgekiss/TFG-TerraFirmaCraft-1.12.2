@@ -21,6 +21,7 @@ import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.TFCKeybindings;
 import net.dries007.tfc.client.gui.overlay.PlayerDataOverlay;
 import net.dries007.tfc.command.*;
+import net.dries007.tfc.compat.dynamictrees.TFCLeavesHandler;
 import net.dries007.tfc.compat.gregtech.items.TFCMetaItem;
 import net.dries007.tfc.compat.gregtech.items.tools.TFCToolItems;
 import net.dries007.tfc.compat.top.TOPCompatibility;
@@ -115,12 +116,14 @@ public final class TerraFirmaCraft {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        log.debug("TerraFirmaCraft is Working! :)"); // todo: wtf check
+        log.debug("TerraFirmaCraft is Working! :)");
 
         TFCToolItems.init();
         TFCMetaItem.init();
 
         someStuffOnPreInit(event);
+
+        TFCLeavesHandler.preInit();
 
         //OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID); // Client Proxy from Florae?
 

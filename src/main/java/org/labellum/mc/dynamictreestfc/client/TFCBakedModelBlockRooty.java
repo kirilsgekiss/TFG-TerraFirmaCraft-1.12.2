@@ -23,13 +23,13 @@ import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
-public class BakedModelBlockRootyTFC extends BakedModelBlockRooty
+public class TFCBakedModelBlockRooty extends BakedModelBlockRooty
 {
     private TextureAtlasSprite particleSprite = Minecraft.getMinecraft().getTextureMapBlocks().getTextureExtry("minecraft:dirt");
     private static final IModel rootyIModel = ModelLoaderRegistry.getModelOrMissing(new ResourceLocation(MOD_ID, "block/roots"));
     private static final IBakedModel rootyIBakedModel = rootyIModel.bake(rootyIModel.getDefaultState(), DefaultVertexFormats.BLOCK, ModelLoader.defaultTextureGetter());
 
-    public BakedModelBlockRootyTFC()
+    public TFCBakedModelBlockRooty()
     {
         super(null);
     }

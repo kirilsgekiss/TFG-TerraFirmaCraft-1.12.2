@@ -5,6 +5,11 @@
 
 package net.dries007.tfc.objects.blocks;
 
+import com.ferreusveritas.dynamictrees.ModConstants;
+import com.ferreusveritas.dynamictrees.api.TreeRegistry;
+import com.ferreusveritas.dynamictrees.api.cells.ICellKit;
+import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
+import com.ferreusveritas.dynamictrees.blocks.LeavesProperties;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import gregtech.api.GregTechAPI;
@@ -54,6 +59,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -62,6 +68,10 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.labellum.mc.dynamictreestfc.DynamicTreesTFC;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.api.types.Rock.Type.*;
@@ -280,10 +290,12 @@ public final class TFCBlocks {
     @GameRegistry.ObjectHolder("plants/saguaro_cactus")
     public static final TFCBlockSaguaroCactus SAGUARO_CACTUS = getNull();
 
+    public static TFCBlockMimicDynamic blockRootyDirt = getNull();
 
     //=== ImmutableList ==============================================================================================//
     // All these are for use in model registration. Do not use for block lookups.
     // Use the static get methods in the classes instead.
+
     private static ImmutableList<ItemBlock> allNormalItemBlocks = getNull();
     private static ImmutableList<ItemBlock> allInventoryItemBlocks = getNull();
     private static ImmutableList<ItemBlock> allColorizedItemBlocks = getNull();
@@ -1246,6 +1258,9 @@ public final class TFCBlocks {
                 allBlockRockWall.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
                 allBlockRockStairs.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
             }
+
+            blockRootyDirt = new TFCBlockMimicDynamic();
+            event.getRegistry().register(blockRootyDirt);
         }
 
         //=== Joshua Tree ============================================================================================//
@@ -1530,7 +1545,6 @@ public final class TFCBlocks {
 
         //multiBlock.add(register(r, "multiblock/campfire", new BlockCampfire(Material.ROCK), CT_MISC));
         //multiBlock.add(register(r, "multiblock/dummyHalf", new BlockDummyHalf(), CT_MISC));
-
 
         allNormalItemBlocks = normalItemBlocks.build();
         allColorizedItemBlocks = colorizedItemBlocks.build();

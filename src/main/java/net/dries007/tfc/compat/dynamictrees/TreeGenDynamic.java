@@ -1,4 +1,4 @@
-package net.dries007.tfc.world.classic.worldgen.trees.dt;
+package net.dries007.tfc.compat.dynamictrees;
 
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
 import com.ferreusveritas.dynamictrees.trees.Species;
@@ -7,15 +7,12 @@ import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
-import net.dries007.tfc.types.TFCTrees;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
-import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import org.lwjgl.Sys;
 
 import java.util.Random;
 
@@ -48,7 +45,7 @@ public class TreeGenDynamic implements ITreeGenerator {
 
         Species dTree = TFCTrees.tfcSpecies.get(treeType.toString());
         int lowestBranchHeight = dTree.getLowestBranchHeight();
-        int maxTreeHeight = (int) ((TreeFamilyTFC.TreeTFCSpecies) dTree).getSignalEnergy(); //signal energy access problem so need to cast
+        int maxTreeHeight = (int) ((TFCTreeFamily.TreeTFCSpecies) dTree).getSignalEnergy(); //signal energy access problem so need to cast
 
         SafeChunkBounds bounds = new SafeChunkBounds(world, world.getChunk(pos).getPos());
         for (int y = 0; y <= lowestBranchHeight; y++) {

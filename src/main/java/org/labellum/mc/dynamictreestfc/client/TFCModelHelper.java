@@ -18,7 +18,7 @@ import com.ferreusveritas.dynamictrees.trees.TreeFamily;
  * Would have only overridden 1 method, but it's private
  */
 @SideOnly(Side.CLIENT)
-public class ModelHelperTFC extends ModelHelper
+public class TFCModelHelper extends ModelHelper
 {
     /**
      * Registers models associated with the tree.

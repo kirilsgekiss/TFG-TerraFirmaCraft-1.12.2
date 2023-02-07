@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc;
+package net.dries007.tfc.compat.dynamictrees;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.block.state.IBlockState;

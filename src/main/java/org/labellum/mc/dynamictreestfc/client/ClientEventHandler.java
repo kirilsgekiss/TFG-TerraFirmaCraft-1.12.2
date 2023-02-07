@@ -1,5 +1,6 @@
 package org.labellum.mc.dynamictreestfc.client;
 
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
@@ -19,8 +20,7 @@ import com.ferreusveritas.dynamictrees.items.Seed;
 import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.client.GrassColorHandler;
-import org.labellum.mc.dynamictreestfc.ModBlocks;
-import net.dries007.tfc.types.TFCTrees;
+import net.dries007.tfc.compat.dynamictrees.TFCTrees;
 
 import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
@@ -33,10 +33,10 @@ public class ClientEventHandler
     @SubscribeEvent
     public static void onModelBake(ModelBakeEvent event)
     {
-        Block block = ModBlocks.blockRootyDirt;
+        Block block = TFCBlocks.blockRootyDirt;
         if (block.getRegistryName() != null)
         {
-            BakedModelBlockRooty rootyModel = new BakedModelBlockRootyTFC();
+            BakedModelBlockRooty rootyModel = new TFCBakedModelBlockRooty();
             event.getModelRegistry().putObject(new ModelResourceLocation(block.getRegistryName(), "normal"), rootyModel);
         }
     }
@@ -47,13 +47,13 @@ public class ClientEventHandler
         //Register Meshers for Branches
         for (TreeFamily tree : TFCTrees.tfcTrees)
         {
-            ModelHelperTFC.regModel(tree.getDynamicBranch());//Register Branch itemBlock
-            ModelHelperTFC.regModel(tree);//Register custom state mapper for branch
+            TFCModelHelper.regModel(tree.getDynamicBranch());//Register Branch itemBlock
+            TFCModelHelper.regModel(tree);//Register custom state mapper for branch
         }
 
-        ModelLoader.setCustomStateMapper(ModBlocks.blockRootyDirt, new StateMap.Builder().ignore(BlockRooty.LIFE).build());
+        ModelLoader.setCustomStateMapper(TFCBlocks.blockRootyDirt, new StateMap.Builder().ignore(BlockRooty.LIFE).build());
 
-        TFCTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> ModelHelperTFC.regModel(s.getSeed()));//Register Seed Item Models
+        TFCTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));//Register Seed Item Models
     }
 
     @SubscribeEvent
@@ -61,6 +61,6 @@ public class ClientEventHandler
     {
         final BlockColors blockColors = event.getBlockColors();
         blockColors.registerBlockColorHandler(GrassColorHandler::computeGrassColor, LeavesPaging.getLeavesMapForModId(MOD_ID).values().toArray(new Block[0]));
-        blockColors.registerBlockColorHandler(GrassColorHandler::computeGrassColor, ModBlocks.blockRootyDirt);
+        blockColors.registerBlockColorHandler(GrassColorHandler::computeGrassColor, TFCBlocks.blockRootyDirt);
     }
 }

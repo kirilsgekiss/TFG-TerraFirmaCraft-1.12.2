@@ -1,21 +1,20 @@
 package org.labellum.mc.dynamictreestfc;
 
-import net.dries007.tfc.types.TFCTrees;
-import net.dries007.tfc.util.agriculture.TFCSeasonManager;
+import net.dries007.tfc.compat.dynamictrees.TFCLeavesHandler;
+import net.dries007.tfc.compat.dynamictrees.TFCRootDecay;
+import net.dries007.tfc.compat.dynamictrees.TFCTrees;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.event.BiomeSuitabilityEvent;
-import com.ferreusveritas.dynamictrees.seasons.SeasonHelper;
 import net.dries007.tfc.TerraFirmaCraft;
 import org.labellum.mc.dynamictreestfc.proxy.CommonProxy;
 
@@ -61,18 +60,7 @@ public class DynamicTreesTFC
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
-        System.out.println(MOD_NAME + " is loading");
-        proxy.preInit();
         logger = event.getModLog();
-    }
-
-    /**
-     * This is the second initialization event. Register custom recipes
-     */
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-        proxy.init();
     }
 
     /**
@@ -120,7 +108,7 @@ public class DynamicTreesTFC
         @SubscribeEvent
         public static void addBlocks(RegistryEvent.Register<Block> event)
         {
-            ModBlocks.register(event.getRegistry());
+            TFCLeavesHandler.register();
             TFCTrees.registerBlocks(event.getRegistry());
         }
     }

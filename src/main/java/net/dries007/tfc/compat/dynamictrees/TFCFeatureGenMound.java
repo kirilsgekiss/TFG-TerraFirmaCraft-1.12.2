@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc;
+package net.dries007.tfc.compat.dynamictrees;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 
 // almost worth doing an access transformer of the private fields instead of re-implementation
 
-public class FeatureGenMoundTFC extends FeatureGenMound
+public class TFCFeatureGenMound extends FeatureGenMound
 {
 
     private static final SimpleVoxmap moundMap = new SimpleVoxmap(5, 4, 5, new byte[] {
@@ -30,7 +30,7 @@ public class FeatureGenMoundTFC extends FeatureGenMound
 
     private final int moundCutoffRadius;
 
-    public FeatureGenMoundTFC(int moundCutoffRadius)
+    public TFCFeatureGenMound(int moundCutoffRadius)
     {
         super(moundCutoffRadius);
         this.moundCutoffRadius = moundCutoffRadius;

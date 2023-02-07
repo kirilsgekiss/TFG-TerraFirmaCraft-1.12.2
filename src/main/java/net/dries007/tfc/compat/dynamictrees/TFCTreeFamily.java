@@ -1,4 +1,4 @@
-package net.dries007.tfc.world.classic.worldgen.trees;
+package net.dries007.tfc.compat.dynamictrees;
 
 import com.ferreusveritas.dynamictrees.ModConstants;
 import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
@@ -10,6 +10,7 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenVine;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchBasic;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockBranchThick;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
@@ -20,11 +21,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.labellum.mc.dynamictreestfc.FeatureGenMoundTFC;
 import org.labellum.mc.dynamictreestfc.ModBlocks;
-import org.labellum.mc.dynamictreestfc.dropcreators.DropCreatorTFCLog;
+import net.dries007.tfc.compat.dynamictrees.dropcreators.DropCreatorTFCLog;
 
-public class TreeFamilyTFC extends TreeFamily {
+public class TFCTreeFamily extends TreeFamily {
     public boolean hasConiferVariants = false;
     private boolean thick = false;
 
@@ -37,7 +37,7 @@ public class TreeFamilyTFC extends TreeFamily {
         this.thick = thick;
     }
 
-    public TreeFamilyTFC(ResourceLocation name, Tree tree) {
+    public TFCTreeFamily(ResourceLocation name, Tree tree) {
         super(name);
 
         switch (getName().getPath()) {
@@ -60,7 +60,7 @@ public class TreeFamilyTFC extends TreeFamily {
 
     //Species need not be created as a nested class.  They can be created after the tree has already been constructed.
     public class TreeTFCSpecies extends Species {
-        public TreeTFCSpecies(TreeFamilyTFC treeFamily, LeavesProperties prop) {
+        public TreeTFCSpecies(TFCTreeFamily treeFamily, LeavesProperties prop) {
             super(treeFamily.getName(), treeFamily, prop);
             setupStandardSeedDropping();
             remDropCreator(new ResourceLocation(ModConstants.MODID, "logs"));
@@ -71,7 +71,7 @@ public class TreeFamilyTFC extends TreeFamily {
                     addGenFeature(new FeatureGenVine().setQuantity(8).setMaxLength(32).setRayDistance(32));//Generate Vines
                     //intentional fall through to set thick parameters for kapok too
                 case "sequoia":
-                    addGenFeature(new FeatureGenMoundTFC(2));//Place a 3x3 of dirt under thick trees
+                    addGenFeature(new TFCFeatureGenMound(2));//Place a 3x3 of dirt under thick trees
                     setSoilLongevity(36);//Grows for a while so it can actually get tall
                     addGenFeature(new FeatureGenFlareBottom());//Flare the bottom
 
@@ -81,7 +81,7 @@ public class TreeFamilyTFC extends TreeFamily {
         @Override
 
         public BlockRooty getRootyBlock(World world, BlockPos rootPos) {
-            return ModBlocks.blockRootyDirt;
+            return TFCBlocks.blockRootyDirt;
         }
 
         public float getSignalEnergy() {
@@ -104,7 +104,7 @@ public class TreeFamilyTFC extends TreeFamily {
 
     @Override
     public void createSpecies() {
-        setCommonSpecies(new TreeTFCSpecies(this, ModBlocks.leafMap.get(getName().toString())));
+        setCommonSpecies(new TreeTFCSpecies(this, TFCLeavesHandler.stringLeavesPropertiesMap.get(getName().toString())));
         getCommonSpecies().generateSeed();
     }
 

@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc.dropcreators;
+package net.dries007.tfc.compat.dynamictrees.dropcreators;
 
 import com.ferreusveritas.dynamictrees.systems.dropcreators.DropCreator;
 import com.ferreusveritas.dynamictrees.trees.Species;

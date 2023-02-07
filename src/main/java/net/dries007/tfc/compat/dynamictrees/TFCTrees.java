@@ -1,4 +1,4 @@
-package net.dries007.tfc.types;
+package net.dries007.tfc.compat.dynamictrees;
 
 import com.ferreusveritas.dynamictrees.api.TreeRegistry;
 import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
@@ -10,12 +10,13 @@ import com.ferreusveritas.dynamictrees.systems.featuregen.FeatureGenConiferToppe
 import com.ferreusveritas.dynamictrees.trees.Species;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.dries007.tfc.api.types.Tree;
+import net.dries007.tfc.compat.dynamictrees.TFCLeavesHandler;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLogDT;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
 import net.dries007.tfc.objects.fluids.TFCFluids;
-import net.dries007.tfc.world.classic.worldgen.trees.TreeFamilyTFC;
+import net.dries007.tfc.compat.dynamictrees.TFCTreeFamily;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -31,7 +32,7 @@ import static org.labellum.mc.dynamictreestfc.DynamicTreesTFC.MOD_ID;
 
 
 public class TFCTrees {
-    public static ArrayList<TreeFamilyTFC> tfcTrees = new ArrayList<>();
+    public static ArrayList<TFCTreeFamily> tfcTrees = new ArrayList<>();
     public static Map<String, Species> tfcSpecies = new HashMap<>();
 
     public static void registerBlocks(IForgeRegistry<Block> registry) {
@@ -47,7 +48,7 @@ public class TFCTrees {
 
             ResourceLocation resLoc = new ResourceLocation(MOD_ID, treeName);
 
-            TreeFamilyTFC family = new TreeFamilyTFC(resLoc, tree);
+            TFCTreeFamily family = new TFCTreeFamily(resLoc, tree);
 
             tfcTrees.add(family);
 
@@ -71,9 +72,9 @@ public class TFCTrees {
 
         tfcTrees.forEach(t -> {
             String treeName = t.getName().getPath();
-            ModBlocks.leafMap.get(treeName).setTree(t);
+            TFCLeavesHandler.stringLeavesPropertiesMap.get(treeName).setTree(t);
             Species species = tfcSpecies.get(treeName);
-            species.setLeavesProperties(ModBlocks.leafMap.get(treeName));
+            species.setLeavesProperties(TFCLeavesHandler.stringLeavesPropertiesMap.get(treeName));
 
             switch (treeName) {
                 case "acacia":
@@ -84,7 +85,7 @@ public class TFCTrees {
                 case "pine":
                 case "sequoia":
                 case "white_cedar":
-                    species.addGenFeature(new FeatureGenConiferTopper(ModBlocks.leafMap.get(treeName)));
+                    species.addGenFeature(new FeatureGenConiferTopper(TFCLeavesHandler.stringLeavesPropertiesMap.get(treeName)));
                     t.hasConiferVariants = true;
             }
         });
@@ -100,7 +101,7 @@ public class TFCTrees {
     {
         TFCRegistries.TREES.getValuesCollection().forEach(t -> {
             String treeName = t.toString();
-            ((TreeFamilyTFC) tfcSpecies.get(treeName).getFamily()).setPrimitiveLog(TFCBlockLogDT.get(t).getDefaultState());
+            ((TFCTreeFamily) tfcSpecies.get(treeName).getFamily()).setPrimitiveLog(TFCBlockLogDT.get(t).getDefaultState());
         });
     }
 
