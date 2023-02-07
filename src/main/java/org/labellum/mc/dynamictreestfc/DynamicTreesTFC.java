@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -16,7 +15,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
 import com.ferreusveritas.dynamictrees.event.BiomeSuitabilityEvent;
 import net.dries007.tfc.TerraFirmaCraft;
-import org.labellum.mc.dynamictreestfc.proxy.CommonProxy;
 
 import static com.ferreusveritas.dynamictrees.ModConstants.*;
 
@@ -45,11 +43,6 @@ public class DynamicTreesTFC
      */
     @Mod.Instance(MOD_ID)
     public static DynamicTreesTFC INSTANCE;
-
-
-    @SidedProxy(clientSide = "org.labellum.mc.dynamictreestfc.proxy.ClientProxy",
-        serverSide = "org.labellum.mc.dynamictreestfc.proxy.CommonProxy")
-    public static CommonProxy proxy;
 
     public static Logger logger;
 

@@ -1,11 +1,13 @@
 package net.dries007.tfc.objects.blocks.rock;
 
 import com.ferreusveritas.dynamictrees.blocks.BlockRootyDirt;
+import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 import net.dries007.tfc.api.types.Rock;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataProvider;
 import net.dries007.tfc.world.classic.chunkdata.ChunkDataTFC;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -13,6 +15,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ModelBakeEvent;
+import net.dries007.tfc.compat.dynamictrees.client.TFCBakedModelBlockRooty;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -63,5 +67,11 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt {
             }
         }
         return super.getDecayBlockState(world, pos);
+    }
+
+    public void onModelBake(ModelBakeEvent event)
+    {
+        BakedModelBlockRooty rootyModel = new TFCBakedModelBlockRooty();
+        event.getModelRegistry().putObject(new ModelResourceLocation(this.getRegistryName(), "normal"), rootyModel);
     }
 }

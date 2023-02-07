@@ -21,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.labellum.mc.dynamictreestfc.ModBlocks;
 import net.dries007.tfc.compat.dynamictrees.dropcreators.DropCreatorTFCLog;
 
 public class TFCTreeFamily extends TreeFamily {

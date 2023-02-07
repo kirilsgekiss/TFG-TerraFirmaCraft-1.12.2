@@ -1062,10 +1062,10 @@ public final class TFCBlocks {
                                 plant == TFCRegistries.PLANTS.getValue(DefaultPlants.JUNGLE_VINE))) {
                     if (plant == TFCRegistries.PLANTS.getValue(DefaultPlants.GLOW_VINE)) {
                         blockHangingGlowingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingGlowingPlant(plant), CT_FLORA));
-                        //plantHangingGlowingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingGlowingCreepingPlantTFC(plant), CT_FLORA));
+                        // plantHangingGlowingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingGlowingCreepingPlantTFC(plant), CT_FLORA));
                     } else {
                         blockHangingPlant.add(register(r, "plants/" + plant.getRegistryName().getPath(), new TFCBlockHangingPlant(plant), CT_FLORA));
-                        //plantHangingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingCreepingPlantTFC(plant), CT_FLORA));
+                        // plantHangingCreepingBlock.add(register(r, "plants/" + plant.getRegistryName().getPath() + "_creeping", new BlockHangingCreepingPlantTFC(plant), CT_FLORA));
                     }
                 } else {
                     blockPlants.add(register(r, "plants/" + plant.getRegistryName().getPath(), plant.getPlantType().create(plant), CT_FLORA));

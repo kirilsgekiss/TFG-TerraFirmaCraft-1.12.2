@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc.client;
+package net.dries007.tfc.compat.dynamictrees.client;
 
 import java.util.ArrayList;
 import java.util.List;

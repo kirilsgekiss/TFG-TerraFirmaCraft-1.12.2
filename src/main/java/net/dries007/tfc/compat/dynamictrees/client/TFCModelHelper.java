@@ -1,4 +1,4 @@
-package org.labellum.mc.dynamictreestfc.client;
+package net.dries007.tfc.compat.dynamictrees.client;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;

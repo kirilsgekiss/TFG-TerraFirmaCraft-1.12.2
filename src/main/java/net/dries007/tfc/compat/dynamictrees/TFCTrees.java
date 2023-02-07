@@ -22,7 +22,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
-import org.labellum.mc.dynamictreestfc.ModBlocks;
 
 import java.util.ArrayList;
 import java.util.HashMap;

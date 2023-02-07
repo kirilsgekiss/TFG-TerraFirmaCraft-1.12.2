@@ -5,6 +5,9 @@
 
 package net.dries007.tfc.client;
 
+import com.ferreusveritas.dynamictrees.blocks.BlockRooty;
+import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
+import com.ferreusveritas.dynamictrees.items.Seed;
 import com.google.common.collect.ImmutableMap;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.TFCConfig;
@@ -14,11 +17,13 @@ import net.dries007.tfc.api.capability.food.IFood;
 import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.render.*;
+import net.dries007.tfc.compat.dynamictrees.TFCTrees;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.TFCBlockThatchBed;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.agriculture.TFCBlockFruitTreeLeaves;
+import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockRaw;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSmooth;
@@ -51,6 +56,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidBase;
@@ -62,6 +68,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.labellum.mc.dynamictreestfc.DynamicTreesTFC;
+import net.dries007.tfc.compat.dynamictrees.client.TFCModelHelper;
 
 import javax.annotation.Nonnull;
 
@@ -94,6 +102,12 @@ public final class ClientRegisterEvents {
         }
         return 0xFFFFFF;
     };
+
+    @SubscribeEvent
+    public static void bakingModels(ModelBakeEvent event)
+    {
+        TFCBlocks.blockRootyDirt.onModelBake(event);
+    }
 
     @SubscribeEvent
     @SuppressWarnings("ConstantConditions")
@@ -135,12 +149,6 @@ public final class ClientRegisterEvents {
             ModelLoader.setCustomModelResourceLocation(TFCItems.UNFIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.UNFIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
             ModelLoader.setCustomModelResourceLocation(TFCItems.FIRED_STONEWARE_VESSEL_GLAZED, color.getDyeDamage(), new ModelResourceLocation(TFCItems.FIRED_STONEWARE_VESSEL_GLAZED.getRegistryName().toString()));
         }
-
-        // Gold Pan
-        /*ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));
-        for (int meta = 0; meta < ItemGoldPan.TYPES.length; meta++)
-            ModelLoader.setCustomModelResourceLocation(ItemsTFC.GOLDPAN, meta, new ModelResourceLocation(MOD_ID + ":goldpan/" + ItemGoldPan.TYPES[meta]));
-        ModelLoader.registerItemVariants(ItemsTFC.GOLDPAN, Arrays.stream(ItemGoldPan.TYPES).map(e -> new ResourceLocation(MOD_ID, "goldpan/" + e)).toArray(ResourceLocation[]::new));*/
 
         // Ceramic Molds
         for (TFCOrePrefixExtended extendedOrePrefix : TFGUtils.TFC_OREPREFIX_REGISTRY) {
@@ -223,8 +231,6 @@ public final class ClientRegisterEvents {
 
         }
 
-
-
         //=== Register blockstates for Blocks ========================================================================//
 
         TFCBlocks.getAllNormalItemBlocks().forEach(s -> ModelLoader.setCustomModelResourceLocation(s, 0, new ModelResourceLocation(s.getRegistryName(), "normal")));
@@ -303,6 +309,16 @@ public final class ClientRegisterEvents {
         TFCBlocks.getAllBlockLog().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(TFCBlockLog.PLACED).build()));
         TFCBlocks.getAllBlockSapling().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(TFCBlockSapling.STAGE).build()));
 
+        // Register meshes for tree branches
+        TFCTrees.tfcTrees.forEach(s -> {
+            // Register Branch itemBlock
+            TFCModelHelper.regModel(s.getDynamicBranch());
+            // Register custom state mapper for branch
+            TFCModelHelper.regModel(s);
+        });
+
+        TFCTrees.tfcSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));//Register Seed Item Models
+
         //=== Wood ===================================================================================================//
 
         TFCBlocks.getAllBlockBarrel().forEach(TFCBlockBarrel::onModelRegister);
@@ -335,6 +351,7 @@ public final class ClientRegisterEvents {
         // BLOCKS - STATE MAPPERS //
         // Blocks with Ignored Properties
 
+        ModelLoader.setCustomStateMapper(TFCBlocks.blockRootyDirt, new StateMap.Builder().ignore(BlockRooty.LIFE).build());
 
         ModelLoader.setCustomStateMapper(TFCBlocks.THATCH_BED, new StateMap.Builder().ignore(TFCBlockThatchBed.OCCUPIED).build());
 
@@ -422,6 +439,7 @@ public final class ClientRegisterEvents {
         //=== Tree ===================================================================================================//
 
         blockColor.registerBlockColorHandler(foliageColor, TFCBlocks.getAllBlockLeaves().toArray(new Block[0]));
+        blockColor.registerBlockColorHandler(foliageColor, LeavesPaging.getLeavesMapForModId(DynamicTreesTFC.MOD_ID).values().toArray(new Block[0]));
 
         //=== Wood ===================================================================================================//
 
@@ -448,10 +466,12 @@ public final class ClientRegisterEvents {
         blockColor.registerBlockColorHandler(grassColor, TFCBlocks.PEAT_GRASS);
         blockColor.registerBlockColorHandler(grassColor, TFCBlocks.getAllBlockRockVariant().stream()
                 .filter(x -> x.getType().isGrass).toArray(TFCBlockRockVariant[]::new));
+        blockColor.registerBlockColorHandler(grassColor, TFCBlocks.blockRootyDirt);
         // This is talking about tall grass vs actual grass blocks
+
         //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllGrassBlocks().toArray(new TFCBlockPlant[0]));
 
-//        blockColor.registerBlockColorHandler(foliageColor, TFCBlocks.getAllBlockPlant().toArray(new TFCBlockPlant[0]));
+        //blockColor.registerBlockColorHandler(foliageColor, TFCBlocks.getAllBlockPlant().toArray(new TFCBlockPlant[0]));
 
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFlowerPots().toArray(new Block[0]));
 

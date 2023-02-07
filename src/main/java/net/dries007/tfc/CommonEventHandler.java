@@ -5,6 +5,7 @@
 
 package net.dries007.tfc;
 
+import com.ferreusveritas.dynamictrees.blocks.BlockBranch;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.Material;
 import net.dries007.tfc.api.capability.damage.CapabilityDamageResistance;
@@ -1046,6 +1047,27 @@ public final class CommonEventHandler {
                     words[i] = word;
                 }
                 event.setComponent(new TextComponentTranslation("<" + event.getUsername() + "> " + String.join(" ", words)));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onHarvestDrops(BlockEvent.HarvestDropsEvent event)
+    {
+        EntityPlayer player = event.getHarvester();
+        if (player != null && event.getState().getBlock() instanceof BlockBranch)
+        {
+            ItemStack held = player.getHeldItemMainhand();
+            if (OreDictionaryHelper.doesStackMatchOre(held, "axeStone"))
+            {
+                for (ItemStack s: event.getDrops())
+                {
+                    if (OreDictionaryHelper.doesStackMatchOre(s,"logWood"))
+                    {
+                        s.setCount((int) (s.getCount() * TFCConfig.General.TREE.stoneAxeReturnRate));
+                        //not consolidating partial item stacks on ground
+                    }
+                }
             }
         }
     }
