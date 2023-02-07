@@ -27,6 +27,14 @@ import net.dries007.tfc.world.classic.mapgen.MapGenRavineTFC;
 import net.dries007.tfc.world.classic.mapgen.MapGenRiverRavine;
 import net.dries007.tfc.world.classic.spawner.WorldEntitySpawnerTFC;
 import net.dries007.tfc.world.classic.worldgen.*;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGenLightstones;
+import net.dries007.tfc.world.classic.worldgen.cave.WorldGeneratorUnderground;
+import net.dries007.tfc.world.classic.worldgen.groundcover.*;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenClays;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilDecorative;
+import net.dries007.tfc.world.classic.worldgen.soil.WorldGenSoilTypes;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructures;
+import net.dries007.tfc.world.classic.worldgen.structures.WorldGenStructuresCorals;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockSnow;
 import net.minecraft.block.state.IBlockState;
@@ -47,6 +55,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistry;
 
 import javax.annotation.Nullable;
@@ -91,6 +100,28 @@ public class ChunkGenTFC implements IChunkGenerator {
     private static final IWorldGenerator WATERFALL_GEN = new WorldGenFalls(WATER, 15);
     private static final IWorldGenerator LAVAFALL_GEN = new WorldGenFalls(Blocks.FLOWING_LAVA.getDefaultState(), 5);
     private static final IWorldGenerator SNOW_ICE_GEN = new WorldGenSnowIce();
+    private static final IWorldGenerator STRUCTURES_GEN = new WorldGenStructures();
+    private static final IWorldGenerator STRUCTURES_CORAILS = new WorldGenStructuresCorals();
+    public static final IWorldGenerator MESA_STRATA_GEN = new WorldGenMesaStrata();
+    public static final IWorldGenerator MOSSY_RAW_GEN = new WorldGenMossyRaw();
+    public static final IWorldGenerator FLORAE_PLANTS_GEN = new WorldGeneratorPlants();
+    public static final IWorldGenerator UNDERGROUND_GEN = new WorldGeneratorUnderground();
+    public static final IWorldGenerator LIGHT_STONE_GEN = new WorldGenLightstones();
+    public static final IWorldGenerator GLOW_PLANT_GEN = new WorldGenGlowPlant();
+    public static final IWorldGenerator SOIL_DECORATIVE_GEN = new WorldGenSoilDecorative();
+    public static final IWorldGenerator CLAYS_GEN = new WorldGenClays();
+    public static final IWorldGenerator SURFACE_ROCKS_GEN = new WorldGenSurfaceRocks();
+    public static final IWorldGenerator SURFACE_SEASHELLS_GEN = new WorldGenSurfaceSeashells();
+    public static final IWorldGenerator SURFACE_FLINT_GEN = new WorldGenSurfaceFlint();
+    public static final IWorldGenerator SURFACE_BONES_GEN = new WorldGenSurfaceBones();
+    public static final IWorldGenerator SURFACE_PINE_CONE_GEN = new WorldGenSurfacePinecone();
+    public static final IWorldGenerator DRIFTWOOD_GEN = new WorldGenSurfaceDriftwood();
+    public static final IWorldGenerator SURFACE_TWIG_GEN = new WorldGenSurfaceTwig();
+
+    // GameRegistry.registerWorldGenerator(new WorldGeneratorTrees(), 0); // todo?
+    // GameRegistry.registerWorldGenerator(new WorldGenCorals(), 0); // todo?
+    // GameRegistry.registerWorldGenerator(new WorldGenSoil(), 0); // todo?
+    // GameRegistry.registerWorldGenerator(new WorldGenGourds(), 0); // todo?
 
     public static final float RAINFALL_SAND = 75;
     public static final float RAINFALL_SAND_SANDY_MIX = 125;
@@ -335,6 +366,24 @@ public class ChunkGenTFC implements IChunkGenerator {
         STALACTITE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
         STALAGMITE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
         SNOW_ICE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+
+        UNDERGROUND_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        MESA_STRATA_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SOIL_DECORATIVE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        MOSSY_RAW_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        STRUCTURES_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_ROCKS_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_SEASHELLS_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_FLINT_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_BONES_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_PINE_CONE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        SURFACE_TWIG_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        DRIFTWOOD_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        STRUCTURES_CORAILS.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        CLAYS_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        FLORAE_PLANTS_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        LIGHT_STONE_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
+        GLOW_PLANT_GEN.generate(rand, chunkX, chunkZ, world, this, world.getChunkProvider());
 
         if (TerrainGen.populate(this, world, rand, chunkX, chunkZ, false, ANIMALS)) {
             WorldEntitySpawnerTFC.performWorldGenSpawning(world, biome, worldX + 8, worldZ + 8, 16, 16, rand);

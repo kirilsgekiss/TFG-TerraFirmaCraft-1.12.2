@@ -885,6 +885,7 @@ public final class TFCBlocks {
             }
 
             // Pebble Water
+            /*
             Builder<TFCBlockPebbleWater> pebbleWater = ImmutableList.builder();
             {
                 for (Rock rock : TFCRegistries.ROCKS.getValuesCollection()) {
@@ -893,7 +894,7 @@ public final class TFCBlocks {
 
                 allBlockPebbleWater = pebbleWater.build();
                 allBlockPebbleWater.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
-            }
+            }*/
 
             // Surface Bone
             Builder<TFCBlockSurfaceBones> surfaceBone = ImmutableList.builder();
@@ -1111,6 +1112,7 @@ public final class TFCBlocks {
 
             }
 
+            /*
             {
                 blockWaterGlowPlant.add(register(r, "plants/glowing_sea_banana", new TFCBlockWaterGlowPlant(TFCFluids.SEA_WATER.get()), CT_FLORA));
             }
@@ -1118,7 +1120,7 @@ public final class TFCBlocks {
             for (TFCBlockWaterGlowPlant plantGlowWaterBlock : allBlockWaterGlowPlant)
             {
                 normalItemBlocks.add(new TFCItemBlock(plantGlowWaterBlock));
-            }
+            }*/
 
             //        {
 //            /*

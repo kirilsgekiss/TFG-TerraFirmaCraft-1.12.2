@@ -26,10 +26,9 @@ public class TFCLeavesHandler {
 
     public static void register()
     {
-        //For this mod it is vital that these are never reordered.  If a leaves properties is removed from the
-        //mod then there should be a LeavesProperties.NULLPROPERTIES used as a placeholder.
+        // For this mod it is vital that these are never reordered.  If a leaves properties is removed from the
+        // mod then there should be a LeavesProperties.NULLPROPERTIES used as a placeholder.
         TFCLeavesProperties = new LeavesProperties[TFCBlocks.getAllBlockLeaves().size()];
-        // stringLeavesPropertiesMap = new HashMap<>();
         int i = 0; // DT wants an array of leafprops for some reason
         for (TFCBlockLeaves leaf : TFCBlocks.getAllBlockLeaves())
         {
