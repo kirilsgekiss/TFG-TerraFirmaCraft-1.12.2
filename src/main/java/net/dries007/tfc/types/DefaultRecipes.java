@@ -21,7 +21,6 @@
 //import net.dries007.tfc.api.capability.forge.CapabilityForgeable;
 //import net.dries007.tfc.api.capability.forge.IForgeable;
 //import net.dries007.tfc.api.capability.forge.IForgeableMeasurableMetal;
-//import net.dries007.tfc.api.capability.size.Size;
 //import net.dries007.tfc.api.recipes.*;
 //import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
 //import net.dries007.tfc.api.recipes.anvil.AnvilRecipeMeasurable;
@@ -50,17 +49,16 @@
 //import net.dries007.tfc.compat.tfc.TFGUtils;
 //import net.dries007.tfc.objects.blocks.TFCBlocks;
 //import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
+//import net.dries007.tfc.objects.blocks.rock.TFCBlockRockDecorative;
 //import net.dries007.tfc.objects.blocks.rock.TFCBlockRockSlab;
 //import net.dries007.tfc.objects.blocks.rock.TFCBlockRockStairs;
 //import net.dries007.tfc.objects.blocks.rock.TFCBlockRockVariant;
 //import net.dries007.tfc.objects.blocks.wood.*;
-//import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 //import net.dries007.tfc.objects.fluids.TFCFluids;
 //import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 //import net.dries007.tfc.objects.inventory.ingredient.IngredientFluidItem;
 //import net.dries007.tfc.objects.inventory.ingredient.IngredientItemFood;
 //import net.dries007.tfc.objects.items.TFCItemAnimalHide;
-//import net.dries007.tfc.objects.items.TFCItemMisc;
 //import net.dries007.tfc.objects.items.TFCItems;
 //import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 //import net.dries007.tfc.objects.items.ceramics.unfired.molds.ItemUnfiredClayMold;
@@ -83,6 +81,7 @@
 //import net.minecraft.init.Blocks;
 //import net.minecraft.init.Items;
 //import net.minecraft.item.EnumDyeColor;
+//import net.minecraft.item.Item;
 //import net.minecraft.item.ItemStack;
 //import net.minecraft.util.ResourceLocation;
 //import net.minecraftforge.event.RegistryEvent;
@@ -300,19 +299,19 @@
 //    public static void registerWoodRecipes() {
 //        for (Wood wood : TFCRegistries.WOODS.getValuesCollection())
 //        {
-//            // Log -> Lumber
-//            ModHandler.addShapelessRecipe(String.format("lumber_%s", wood),
-//                    new ItemStack(TFCItemLumber.get(wood), 8),
-//                    new ItemStack(TFCBlockLog.get(wood)),
-//                    ToolItems.SAW);
-//
-//            CUTTER_RECIPES.recipeBuilder()
-//                    .input(TFCBlockLog.get(wood))
-//                    .output(TFCItemLumber.get(wood), 16)
-//                    .output(OrePrefix.dust, Materials.Wood, 2)
-//                    .duration(200)
-//                    .EUt(7)
-//                    .buildAndRegister();
+////            // Log -> Lumber
+////            ModHandler.addShapelessRecipe(String.format("lumber_%s", wood),
+////                    new ItemStack(TFCItemLumber.get(wood), 8),
+////                    new ItemStack(TFCBlockLog.get(wood)),
+////                    ToolItems.SAW);
+////
+////            CUTTER_RECIPES.recipeBuilder()
+////                    .input(TFCBlockLog.get(wood))
+////                    .output(TFCItemLumber.get(wood), 16)
+////                    .output(OrePrefix.dust, Materials.Wood, 2)
+////                    .duration(200)
+////                    .EUt(7)
+////                    .buildAndRegister();
 //
 //            // Lumber -> Planks
 //            ModHandler.addShapedRecipe(String.format("plank_%s", wood),
@@ -429,21 +428,21 @@
 //                    .EUt(7)
 //                    .buildAndRegister();
 //
-//            // Log -> Gates
-//            ModHandler.addShapedRecipe(String.format("log_gate_%s", wood),
-//                    new ItemStack(TFCBlockFenceGateLog.get(wood)), "YXY", "YXY",
-//                    'X', new ItemStack(TFCBlockLog.get(wood)),
-//                    'Y', Items.STICK
-//            );
-//
-//            ASSEMBLER_RECIPES.recipeBuilder()
-//                    .input(TFCBlockLog.get(wood), 2)
-//                    .input(Items.STICK, 4)
-//                    .notConsumable(new IntCircuitIngredient(2))
-//                    .output(TFCBlockFenceGateLog.get(wood))
-//                    .duration(200)
-//                    .EUt(7)
-//                    .buildAndRegister();
+////            // Log -> Gates
+////            ModHandler.addShapedRecipe(String.format("log_gate_%s", wood),
+////                    new ItemStack(TFCBlockFenceGateLog.get(wood)), "YXY", "YXY",
+////                    'X', new ItemStack(TFCBlockLog.get(wood)),
+////                    'Y', Items.STICK
+////            );
+////
+////            ASSEMBLER_RECIPES.recipeBuilder()
+////                    .input(TFCBlockLog.get(wood), 2)
+////                    .input(Items.STICK, 4)
+////                    .notConsumable(new IntCircuitIngredient(2))
+////                    .output(TFCBlockFenceGateLog.get(wood))
+////                    .duration(200)
+////                    .EUt(7)
+////                    .buildAndRegister();
 //
 //            // Bookshelf's
 //            ModHandler.addShapedRecipe(String.format("bookshelf_%s", wood),
@@ -567,20 +566,20 @@
 //                    .EUt(7)
 //                    .buildAndRegister();
 //
-//            // Supports
-//            ModHandler.addShapedRecipe(String.format("support_%s", wood),
-//                    new ItemStack(TFCBlockWoodSupport.get(wood)), "ZX ", " X ", " X ",
-//                    'X', TFCBlockLog.get(wood),
-//                    'Z', ToolItems.SAW
-//            );
-//
-//            ASSEMBLER_RECIPES.recipeBuilder()
-//                    .input(TFCBlockLog.get(wood), 3)
-//                    .notConsumable(new IntCircuitIngredient(7))
-//                    .output(TFCBlockWoodSupport.get(wood), 8)
-//                    .duration(200)
-//                    .EUt(7)
-//                    .buildAndRegister();
+////            // Supports
+////            ModHandler.addShapedRecipe(String.format("support_%s", wood),
+////                    new ItemStack(TFCBlockWoodSupport.get(wood)), "ZX ", " X ", " X ",
+////                    'X', TFCBlockLog.get(wood),
+////                    'Z', ToolItems.SAW
+////            );
+////
+////            ASSEMBLER_RECIPES.recipeBuilder()
+////                    .input(TFCBlockLog.get(wood), 3)
+////                    .notConsumable(new IntCircuitIngredient(7))
+////                    .output(TFCBlockWoodSupport.get(wood), 8)
+////                    .duration(200)
+////                    .EUt(7)
+////                    .buildAndRegister();
 //        }
 //    }
 //
@@ -616,7 +615,7 @@
 //            new BarrelRecipe(IIngredient.of(TANNIN.get(), 500), IIngredient.of(TFCItemAnimalHide.get(TFCItemAnimalHide.HideType.PREPARED, TFCItemAnimalHide.HideSize.LARGE)), null, new ItemStack(Items.LEATHER, 3), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("leather_large_hide"),
 //            // Misc
 //            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 1000), IIngredient.of("logWoodTannin"), new FluidStack(TANNIN.get(), 10000), ItemStack.EMPTY, 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("tannin"),
-//            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 200), IIngredient.of(TFCItems.JUTE), null, new ItemStack(TFCItems.getRegisteredItem("jute")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("jute_fiber"),
+//            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 200), IIngredient.of("jute"), null, new ItemStack((Item) IIngredient.of("jute.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("jute_fiber"),
 //            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 600), new IngredientItemFood(IIngredient.of(TFCItemFood.get(Food.SUGARCANE), 5)), null, new ItemStack(Items.SUGAR), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar"),
 //            new BarrelRecipe(IIngredient.of(LIMEWATER.get(), 500), IIngredient.of(new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage())), null, new ItemStack(TFCItems.GLUE), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("glue"),
 //            // Alcohol - Classic created 1000mb with 4oz, which would be 8 items per full barrel at 5 oz/item. Instead we now require 20 items, so conversion is 2 oz/item here
@@ -658,9 +657,9 @@
 //            //olive oil production
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of(TFCItems.OLIVE_PASTE), new FluidStack(OLIVE_OIL_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("olive_water"),
 //            // Balance note: Classic gave 250mb for 160oz of olives ~= 32 items. We give 800 mb for that, so 3.2x more. Hopefully will help with lamp usage
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(OLIVE_OIL.get(), 50), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("olive_oil"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(OLIVE_OIL.get(), 50), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("olive_oil"),
 //            // Balance: switch to fresh water. Hot water use that way is broken
-//            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 125), IIngredient.of(TFCItems.DIRTY_JUTE_NET), null, new ItemStack(TFCItems.JUTE_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net"),
+//            new BarrelRecipe(IIngredient.of(FluidRegistry.WATER, 125), IIngredient.of("dirty.jute.net"), null, new ItemStack((Item) IIngredient.of("jute.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net"),
 //            // Temperature recipes
 //            new BarrelRecipeTemperature(IIngredient.of(FluidRegistry.WATER, 1), 50).setRegistryName("water_cooling"),
 //            new BarrelRecipeTemperature(IIngredient.of(SEA_WATER.get(), 1), 50).setRegistryName("salt_water_cooling"),
@@ -690,102 +689,102 @@
 //            new BarrelRecipe(IIngredient.of(BASE_POTASH_LIQUOR.get(), 150), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), new FluidStack(WASTE.get(), 150), new ItemStack(TFCItems.CELLULOSE_FIBERS), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("cellulose_fibers_from_yucca_crop"),
 //
 //            // Papyrus Fibers
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 600), IIngredient.of("pulpPapyrus", 3), null, new ItemStack(TFCItems.PAPYRUS_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("papyrus_fiber_from_papyrus"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 600), IIngredient.of("pulpPapyrus", 3), null, new ItemStack((Item) IIngredient.of("papyrus.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("papyrus_fiber_from_papyrus"),
 //
 //            // Fiber Processing
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropAgave"), null, new ItemStack(TFCItems.SISAL_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sisal_fiber"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropLinen"), null, new ItemStack(TFCItems.LINEN_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("linen_fiber"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropHemp"), null, new ItemStack(TFCItems.HEMP_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("hemp_fiber"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 300), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), null, new ItemStack(TFCItems.YUCCA_FIBER), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("yucca_fiber"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropAgave"), null, new ItemStack((Item) IIngredient.of("sisal.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("sisal_fiber"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropLinen"), null, new ItemStack((Item) IIngredient.of("linen.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("linen_fiber"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 200), IIngredient.of("cropHemp"), null, new ItemStack((Item) IIngredient.of("hemp.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("hemp_fiber"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 300), IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.YUCCA))), null, new ItemStack((Item) IIngredient.of("yucca.fiber")), 8 * ICalendar.TICKS_IN_HOUR).setRegistryName("yucca_fiber"),
 //
 //            // Fluid Production from paste
 //
 //            // Olive
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("olive_oil_sisal"),
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("olive_oil_silk"),
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("olive_oil_cotton"),
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("olive_oil_linen"),
-//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("olive_oil_hemp"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("olive_oil_sisal"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("olive_oil_silk"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("olive_oil_cotton"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("olive_oil_linen"),
+//            new BarrelRecipe(IIngredient.of(OLIVE_OIL_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(OLIVE_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("olive_oil_hemp"),
 //
 //            // Soybean
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("pasteSoybean"), new FluidStack(SOYBEAN_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("soybean_water"),
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("groundSoybeans"), new FluidStack(SOYBEAN_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("soybean_water_firmalife"),
 //
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("soy_milk_jute"),
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("soy_milk_silk"),
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("soy_milk_sisal"),
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("soy_milk_cotton"),
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("soy_milk_linen"),
-//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(SOY_MILK.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("soy_milk_hemp"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("soy_milk_jute"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("soy_milk_silk"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("soy_milk_sisal"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("soy_milk_cotton"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("soy_milk_linen"),
+//            new BarrelRecipe(IIngredient.of(SOYBEAN_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(SOY_MILK.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("soy_milk_hemp"),
 //
 //                new BarrelRecipeFluidMixing(IIngredient.of(SOY_MILK.get(), 9), new IngredientFluidItem(VINEGAR.get(), 1), new FluidStack(MILK_VINEGAR.get(), 10), 0).setRegistryName("soy_milk_vinegar"),
 //
 //            // Linseed
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("pasteLinseed"), new FluidStack(LINSEED_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("linseed_water"),
 //
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("linseed_oil_jute"),
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("linseed_oil_sisal"),
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("linseed_oil_silk"),
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("linseed_oil_cotton"),
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("linseed_oil_linen"),
-//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("linseed_oil_hemp"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("linseed_oil_jute"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("linseed_oil_sisal"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("linseed_oil_silk"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("linseed_oil_cotton"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("linseed_oil_linen"),
+//            new BarrelRecipe(IIngredient.of(LINSEED_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(LINSEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("linseed_oil_hemp"),
 //
 //            // Rape Seed
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("pasteRapeSeed"), new FluidStack(RAPE_SEED_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("rape_seed_water"),
 //
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("rape_seed_oil_jute"),
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("rape_seed_oil_sisal"),
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("rape_seed_oil_silk"),
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("rape_seed_oil_cotton"),
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("rape_seed_oil_linen"),
-//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("rape_seed_oil_hemp"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("rape_seed_oil_jute"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("rape_seed_oil_sisal"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("rape_seed_oil_silk"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("rape_seed_oil_cotton"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("rape_seed_oil_linen"),
+//            new BarrelRecipe(IIngredient.of(RAPE_SEED_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(RAPE_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("rape_seed_oil_hemp"),
 //
 //            // Sunflower Seed
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("pasteSunflowerSeed"), new FluidStack(SUNFLOWER_SEED_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("sunflower_seed_water"),
 //
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("sunflower_seed_oil_jute"),
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("sunflower_seed_oil_sisal"),
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("sunflower_seed_oil_silk"),
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("sunflower_seed_oil_cotton"),
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("sunflower_seed_oil_linen"),
-//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("sunflower_seed_oil_hemp"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("sunflower_seed_oil_jute"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("sunflower_seed_oil_sisal"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("sunflower_seed_oil_silk"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("sunflower_seed_oil_cotton"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("sunflower_seed_oil_linen"),
+//            new BarrelRecipe(IIngredient.of(SUNFLOWER_SEED_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(SUNFLOWER_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("sunflower_seed_oil_hemp"),
 //
 //            // Opium Poppy Seed
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("pasteOpiumPoppySeed"), new FluidStack(OPIUM_POPPY_SEED_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("opium_poppy_seed_water"),
 //
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("opium_poppy_seed_oil_jute"),
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("opium_poppy_seed_oil_sisal"),
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("opium_poppy_seed_oil_silk"),
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("opium_poppy_seed_oil_cotton"),
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("opium_poppy_seed_oil_linen"),
-//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("opium_poppy_seed_oil_hemp"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("opium_poppy_seed_oil_jute"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("opium_poppy_seed_oil_sisal"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("opium_poppy_seed_oil_silk"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("opium_poppy_seed_oil_cotton"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("opium_poppy_seed_oil_linen"),
+//            new BarrelRecipe(IIngredient.of(OPIUM_POPPY_SEED_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(OPIUM_POPPY_SEED_OIL.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("opium_poppy_seed_oil_hemp"),
 //
 //            // Sugar Beet Water
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("mashedSugarBeet"), new FluidStack(SUGAR_BEET_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar_beet_water"),
 //
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("sugar_beet_water_jute"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("sugar_beet_water_sisal"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("sugar_beet_water_silk"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("sugar_beet_water_cotton"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("sugar_beet_water_linen"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("sugar_beet_water_hemp"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("sugar_beet_water_jute"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("sugar_beet_water_sisal"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("sugar_beet_water_silk"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("sugar_beet_water_cotton"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("sugar_beet_water_linen"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_BEET_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("sugar_beet_water_hemp"),
 //
 //            // Sugarcane Water
 //            new BarrelRecipe(IIngredient.of(HOT_WATER.get(), 125), IIngredient.of("mashedSugarCane"), new FluidStack(SUGAR_CANE_WATER.get(), 125), ItemStack.EMPTY, 2 * ICalendar.TICKS_IN_HOUR).setRegistryName("sugar_cane_water"),
 //
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.JUTE_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_JUTE_NET), 0).setRegistryName("sugar_cane_water_jute"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.SISAL_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_SISAL_NET), 0).setRegistryName("sugar_cane_water_sisal"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.SILK_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_SILK_NET), 0).setRegistryName("sugar_cane_water_silk"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.COTTON_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_COTTON_NET), 0).setRegistryName("sugar_cane_water_cotton"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.LINEN_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_LINEN_NET), 0).setRegistryName("sugar_cane_water_linen"),
-//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of(TFCItems.HEMP_NET), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack(TFCItems.DIRTY_HEMP_NET), 0).setRegistryName("sugar_cane_water_hemp"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("jute.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.jute.net")), 0).setRegistryName("sugar_cane_water_jute"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("sisal.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.sisal.net")), 0).setRegistryName("sugar_cane_water_sisal"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("silk.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.silk.net")), 0).setRegistryName("sugar_cane_water_silk"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("cotton.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.cotton.net")), 0).setRegistryName("sugar_cane_water_cotton"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("linen.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.linen.net")), 0).setRegistryName("sugar_cane_water_linen"),
+//            new BarrelRecipe(IIngredient.of(SUGAR_CANE_WATER.get(), 250), IIngredient.of("hemp.net"), new FluidStack(SUGAR_WATER.get(), 25), new ItemStack((Item) IIngredient.of("dirty.hemp.net")), 0).setRegistryName("sugar_cane_water_hemp"),
 //
 //            // Dirty Nets
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(TFCItems.DIRTY_SISAL_NET), null, new ItemStack(TFCItems.SISAL_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_sisal"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(TFCItems.DIRTY_SILK_NET), null, new ItemStack(TFCItems.SILK_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_silk"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(TFCItems.DIRTY_COTTON_NET), null, new ItemStack(TFCItems.COTTON_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_cotton"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(TFCItems.DIRTY_LINEN_NET), null, new ItemStack(TFCItems.LINEN_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_linen"),
-//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(TFCItems.DIRTY_HEMP_NET), null, new ItemStack(TFCItems.HEMP_NET), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_hemp"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of("dirty.sisal.net"), null, new ItemStack((Item) IIngredient.of("sisal.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_sisal"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of("dirty.silk.net"), null, new ItemStack((Item) IIngredient.of("silk.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_silk"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of("dirty.cotton.net"), null, new ItemStack((Item) IIngredient.of("cotton.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_cotton"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of("dirty.linen.net"), null, new ItemStack((Item) IIngredient.of("linen.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_linen"),
+//            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of("dirty.hemp.net"), null, new ItemStack((Item) IIngredient.of("hemp.net")), ICalendar.TICKS_IN_HOUR).setRegistryName("clean_net_hemp"),
 //
 //            // Sugary Fluids
 //            new BarrelRecipe(IIngredient.of(FRESH_WATER.get(), 125), IIngredient.of(Items.SUGAR), new FluidStack(SUGAR_WATER.get(), 125), ItemStack.EMPTY, 0).setRegistryName("sugar_water_from_sugar_fresh"),
@@ -945,9 +944,9 @@
 //                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(new ItemStack(Blocks.CONCRETE_POWDER, 1, 0)), null, new ItemStack(Blocks.CONCRETE_POWDER, 1, dyeMeta), ICalendar.TICKS_IN_HOUR).setRegistryName("concrete_" + dyeName),
 //                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.AGGREGATE), null, new ItemStack(Blocks.CONCRETE_POWDER, 1, dyeMeta), ICalendar.TICKS_IN_HOUR).setRegistryName("aggregate_" + dyeName),
 //                // Alabaster
-//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_BRICKS_PLAIN), null, new ItemStack(BlockDecorativeStone.ALABASTER_BRICKS.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_bricks_" + dyeColor.getName()),
-//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_RAW_PLAIN), null, new ItemStack(BlockDecorativeStone.ALABASTER_RAW.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_raw_" + dyeColor.getName()),
-//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_POLISHED_PLAIN), null, new ItemStack(BlockDecorativeStone.ALABASTER_POLISHED.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_polished_" + dyeColor.getName())
+//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_BRICKS_PLAIN), null, new ItemStack(TFCBlockRockDecorative.ALABASTER_BRICKS.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_bricks_" + dyeColor.getName()),
+//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_RAW_PLAIN), null, new ItemStack(TFCBlockRockDecorative.ALABASTER_RAW.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_raw_" + dyeColor.getName()),
+//                new BarrelRecipe(IIngredient.of(fluid, 125), IIngredient.of(TFCBlocks.ALABASTER_POLISHED_PLAIN), null, new ItemStack(TFCBlockRockDecorative.ALABASTER_POLISHED.get(dyeColor)), ICalendar.TICKS_IN_HOUR).setRegistryName("alabaster_polished_" + dyeColor.getName())
 //            );
 //        }
 //        // Un-dyeing Recipes
@@ -1026,20 +1025,20 @@
 //        IForgeRegistry<LoomRecipe> r = event.getRegistry();
 //
 //        r.registerAll(
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "burlap_cloth"), IIngredient.of(TFCItems.JUTE_FIBER, 12), new ItemStack(TFCItems.JUTE_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/burlap.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_cloth"), IIngredient.of(TFCItems.WOOL_YARN, 16), new ItemStack(TFCItems.WOOL_CLOTH), 16, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "silk_cloth"), IIngredient.of(Items.STRING, 24), new ItemStack(TFCItems.SILK_CLOTH), 24, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "cotton_cloth"), IIngredient.of(TFCItems.COTTON_STRING, 12), new ItemStack(TFCItems.COTTON_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "hemp_cloth"), IIngredient.of(TFCItems.HEMP_STRING, 12), new ItemStack(TFCItems.HEMP_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/hemp.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "linen_cloth"), IIngredient.of(TFCItems.LINEN_STRING, 12), new ItemStack(TFCItems.LINEN_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/linen.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "sisal_cloth"), IIngredient.of(TFCItems.SISAL_STRING, 12), new ItemStack(TFCItems.SISAL_CLOTH), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/sisal.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "burlap_cloth"), IIngredient.of("jute.string", 12), new ItemStack((Item) IIngredient.of("jute.cloth")), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/burlap.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_cloth"), IIngredient.of(TFCItems.WOOL_YARN, 16), new ItemStack((Item) IIngredient.of("wool.cloth")), 16, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "silk_cloth"), IIngredient.of(Items.STRING, 24), new ItemStack((Item) IIngredient.of("silk.cloth")), 24, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "cotton_cloth"), IIngredient.of("cotton.string", 12), new ItemStack((Item) IIngredient.of("cotton.cloth")), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/cotton.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "hemp_cloth"), IIngredient.of("hemp.string", 12), new ItemStack((Item) IIngredient.of("hemp.cloth")), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/hemp.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "linen_cloth"), IIngredient.of("linen.string", 12), new ItemStack((Item) IIngredient.of("linen.cloth")), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/linen.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "sisal_cloth"), IIngredient.of("sisal.string", 12), new ItemStack((Item) IIngredient.of("sisal.cloth")), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/sisal.png")),
 ////            new LoomRecipe(new ResourceLocation(MOD_ID, "yucca_canvas"), IIngredient.of(TFCItems.YUCCA_STRING, 12), new ItemStack(TFCItems.YUCCA_CANVAS), 12, new ResourceLocation(MOD_ID, "textures/blocks/devices/loom/product/yucca.png")),
 //
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block"), IIngredient.of(TFCItems.WOOL_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block"), IIngredient.of("wool.cloth", 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
 //
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_cotton"), IIngredient.of(TFCItems.COTTON_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_linen"), IIngredient.of(TFCItems.LINEN_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
-//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_silk"), IIngredient.of(TFCItems.SILK_CLOTH, 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png"))
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_cotton"), IIngredient.of("cotton.cloth", 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_linen"), IIngredient.of("linen.cloth", 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png")),
+//            new LoomRecipe(new ResourceLocation(MOD_ID, "wool_block_silk"), IIngredient.of("sulk.cloth", 4), new ItemStack(Blocks.WOOL, 8), 4, new ResourceLocation("minecraft", "textures/blocks/wool_colored_white.png"))
 //        );
 //    }
 //
@@ -1161,7 +1160,7 @@
 //                new QuernRecipe(IIngredient.of(TFCItemFood.get(Food.ROASTED_COFFEE_BEANS)), new ItemStack(TFCItemFood.get(Food.COFFEE_POWDER), 2)).setRegistryName("ground_coffee_beans"),
 ////                new QuernRecipe(IIngredient.of("pearl"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.PEARL))).setRegistryName("crushed_pearl"),
 ////                new QuernRecipe(IIngredient.of("pearlBlack"), new ItemStack(ItemPowderTFCF.get(PowderTFCF.BLACK_PEARL))).setRegistryName("crushed_black_pearl"),
-//                new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PAPYRUS))), new ItemStack(TFCItems.PAPYRUS_PULP, 3)).setRegistryName("crushed_papyrus"),
+//                new QuernRecipe(IIngredient.of(TFCBlockPlant.get(TFCRegistries.PLANTS.getValue(DefaultPlants.PAPYRUS))), new ItemStack((Item) IIngredient.of("papyrus.pulp"), 3)).setRegistryName("crushed_papyrus"),
 //                new QuernRecipe(IIngredient.of("linseed"), new ItemStack(TFCItemFood.get(Food.LINSEED_PASTE), 1)).setRegistryName("crushed_linseed"),
 //                new QuernRecipe(IIngredient.of("rapeSeed"), new ItemStack(TFCItemFood.get(Food.RAPE_SEED_PASTE), 1)).setRegistryName("crushed_rape_seed"),
 //                new QuernRecipe(IIngredient.of("sunflowerSeed"), new ItemStack(TFCItemFood.get(Food.SUNFLOWER_SEED_PASTE), 1)).setRegistryName("crushed_sunflower_seed"),
@@ -1321,8 +1320,8 @@
 //        // Alabaster smoothing
 //        for (EnumDyeColor color : EnumDyeColor.values())
 //        {
-//            Block rawColoredAlabaster = BlockDecorativeStone.ALABASTER_RAW.get(color);
-//            IBlockState smoothColoredAlabaster = BlockDecorativeStone.ALABASTER_POLISHED.get(color).getDefaultState();
+//            Block rawColoredAlabaster = TFCBlockRockDecorative.ALABASTER_RAW.get(color);
+//            IBlockState smoothColoredAlabaster = TFCBlockRockDecorative.ALABASTER_POLISHED.get(color).getDefaultState();
 //            event.getRegistry().register(new ChiselRecipe(rawColoredAlabaster, smoothColoredAlabaster).setRegistryName("smooth_" + color.getName() + "_alabaster"));
 //        }
 //        // And plain

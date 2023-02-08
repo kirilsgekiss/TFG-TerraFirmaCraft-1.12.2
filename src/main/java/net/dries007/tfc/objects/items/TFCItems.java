@@ -886,12 +886,12 @@ public final class TFCItems {
             }
 
 
-            simpleItems.add(register(r, "crop/product/fiber/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fiber", "fiber_yucca"), CT_MISC));
-            simpleItems.add(register(r, "crop/product/cloth/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.LIGHT, "cloth", "cloth_yucca", "fabric", "fabric_yucca", "canvas", "canvas_yucca"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/fiber/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fiber", "yucca.fiber"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/cloth/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.LIGHT, "cloth", "yucca.cloth"), CT_MISC));
 
-            simpleItems.add(register(r, "crop/product/papyrus_pulp", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "pulp", "pulp_papyrus"), CT_MISC));
-            simpleItems.add(register(r, "crop/product/fiber/papyrus", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "fiber", "fiber_papyrus"), CT_MISC));
-            simpleItems.add(register(r, "crop/product/papyrus_paper", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "paper", "paper_papyrus"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/papyrus_pulp", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "pulp", "pulp.papyrus"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/fiber/papyrus", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "fiber", "fiber.papyrus"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/papyrus_paper", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "paper", "paper.papyrus"), CT_MISC));
 
             simpleItems.add(register(r, "crop/product/madder", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "crop_madder", "madder"), CT_MISC));
             simpleItems.add(register(r, "crop/product/weld", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "crop_weld", "weld"), CT_MISC));
