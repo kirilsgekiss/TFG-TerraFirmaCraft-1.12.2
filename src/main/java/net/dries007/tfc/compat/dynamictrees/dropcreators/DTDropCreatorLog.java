@@ -14,8 +14,8 @@ import java.util.Random;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class DropCreatorTFCLog extends DropCreator {
-    public DropCreatorTFCLog(String name) {
+public class DTDropCreatorLog extends DropCreator {
+    public DTDropCreatorLog(String name) {
         super(new ResourceLocation(MOD_ID, name + "logs"));
     }
 

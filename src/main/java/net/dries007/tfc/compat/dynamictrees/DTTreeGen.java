@@ -17,10 +17,10 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import java.util.Random;
 
 
-public class TreeGenDynamic implements ITreeGenerator {
+public class DTTreeGen implements ITreeGenerator {
     private int leavesRadius; // used to store useful radius between canGenerate and Generate
 
-    public TreeGenDynamic() {
+    public DTTreeGen() {
         leavesRadius = 0;
     }
 

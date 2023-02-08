@@ -18,7 +18,7 @@ import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.render.*;
 import net.dries007.tfc.compat.dynamictrees.DTTrees;
-import net.dries007.tfc.compat.dynamictrees.client.TFCModelHelper;
+import net.dries007.tfc.compat.dynamictrees.client.DTModelHelper;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.TFCBlockThatchBed;
@@ -302,12 +302,12 @@ public final class ClientRegisterEvents {
         // Register meshes for tree branches
         DTTrees.TFCTrees.forEach(s -> {
             // Register Branch itemBlock
-            TFCModelHelper.regModel(s.getDynamicBranch());
+            DTModelHelper.regModel(s.getDynamicBranch());
             // Register custom state mapper for branch
-            TFCModelHelper.regModel(s);
+            DTModelHelper.regModel(s);
         });
 
-        DTTrees.TFCSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));// Register Seed Item Models
+        DTTrees.TFCSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> DTModelHelper.regModel(s.getSeed()));// Register Seed Item Models
 
         //=== Wood ===================================================================================================//
 

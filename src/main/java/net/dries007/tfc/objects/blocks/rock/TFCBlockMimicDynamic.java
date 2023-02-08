@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelBakeEvent;
-import net.dries007.tfc.compat.dynamictrees.client.TFCBakedModelBlockRooty;
+import net.dries007.tfc.compat.dynamictrees.client.DTBakedModelBlockRooty;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -71,7 +71,7 @@ public class TFCBlockMimicDynamic extends BlockRootyDirt {
 
     public void onModelBake(ModelBakeEvent event)
     {
-        BakedModelBlockRooty rootyModel = new TFCBakedModelBlockRooty();
+        BakedModelBlockRooty rootyModel = new DTBakedModelBlockRooty();
         event.getModelRegistry().putObject(new ModelResourceLocation(this.getRegistryName(), "normal"), rootyModel);
     }
 }

@@ -73,7 +73,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.dries007.tfc.compat.dynamictrees.DTItems;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 import static net.dries007.tfc.objects.TFCCreativeTabs.*;
@@ -1262,7 +1261,6 @@ public final class TFCItems {
     @SubscribeEvent
     public static void registerDynamicTreesItems(RegistryEvent.Register<Item> event)
     {
-        DTItems.register(event.getRegistry());
         DTTrees.registerItems(event.getRegistry());
     }
 

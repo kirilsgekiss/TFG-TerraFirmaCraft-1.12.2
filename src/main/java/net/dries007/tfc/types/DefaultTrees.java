@@ -10,7 +10,7 @@ import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.api.util.ITreeGenerator;
 import net.dries007.tfc.world.classic.worldgen.trees.TreeGenBushes;
-import net.dries007.tfc.compat.dynamictrees.TreeGenDynamic;
+import net.dries007.tfc.compat.dynamictrees.DTTreeGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -25,7 +25,7 @@ public final class DefaultTrees {
      */
 
     public static final ITreeGenerator GEN_BUSHES = new TreeGenBushes();
-    public static final ITreeGenerator GEN_DYNAMIC = new TreeGenDynamic();
+    public static final ITreeGenerator GEN_DYNAMIC = new DTTreeGen();
 
     @SubscribeEvent
     public static void onPreRegisterTree(TFCRegistryEvent.RegisterPreBlock<Tree> event) {

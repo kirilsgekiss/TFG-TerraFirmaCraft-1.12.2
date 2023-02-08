@@ -23,13 +23,13 @@ import com.ferreusveritas.dynamictrees.models.bakedmodels.BakedModelBlockRooty;
 
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
-public class TFCBakedModelBlockRooty extends BakedModelBlockRooty
+public class DTBakedModelBlockRooty extends BakedModelBlockRooty
 {
     private TextureAtlasSprite particleSprite = Minecraft.getMinecraft().getTextureMapBlocks().getTextureExtry("minecraft:dirt");
     private static final IModel rootyIModel = ModelLoaderRegistry.getModelOrMissing(new ResourceLocation(MOD_ID, "block/roots"));
     private static final IBakedModel rootyIBakedModel = rootyIModel.bake(rootyIModel.getDefaultState(), DefaultVertexFormats.BLOCK, ModelLoader.defaultTextureGetter());
 
-    public TFCBakedModelBlockRooty()
+    public DTBakedModelBlockRooty()
     {
         super(null);
     }

@@ -96,9 +96,13 @@ public class DTTrees {
 
     public static void registerItems(IForgeRegistry<Item> registry) // has to wait until TFC Items have been registered
     {
-        TFCRegistries.TREES.getValuesCollection().forEach(t -> {
-            String treeName = t.toString();
-            ((TFCTreeFamily) TFCSpecies.get(treeName).getFamily()).setPrimitiveLog(TFCBlockLogDT.get(t).getDefaultState());
+        ArrayList<Item> treeItems = new ArrayList<>();
+        DTTrees.TFCTrees.forEach(tree -> tree.getRegisterableItems(treeItems));
+        registry.registerAll(treeItems.toArray(new Item[treeItems.size()]));
+
+        TFCRegistries.TREES.getValuesCollection().forEach(tree -> {
+            String treeName = tree.toString();
+            ((TFCTreeFamily) TFCSpecies.get(treeName).getFamily()).setPrimitiveLog(TFCBlockLogDT.get(tree).getDefaultState());
         });
     }
 

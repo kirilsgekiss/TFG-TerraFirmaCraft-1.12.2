@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.dries007.tfc.compat.dynamictrees.dropcreators.DropCreatorTFCLog;
+import net.dries007.tfc.compat.dynamictrees.dropcreators.DTDropCreatorLog;
 
 public class TFCTreeFamily extends TreeFamily {
     public boolean hasConiferVariants = false;
@@ -63,7 +63,7 @@ public class TFCTreeFamily extends TreeFamily {
             super(treeFamily.getName(), treeFamily, prop);
             setupStandardSeedDropping();
             remDropCreator(new ResourceLocation(ModConstants.MODID, "logs"));
-            addDropCreator(new DropCreatorTFCLog(treeFamily.getName().getPath())); // need our own because stacksize
+            addDropCreator(new DTDropCreatorLog(treeFamily.getName().getPath())); // need our own because stacksize
 
             switch (treeFamily.getName().getPath()) {
                 case "kapok":
