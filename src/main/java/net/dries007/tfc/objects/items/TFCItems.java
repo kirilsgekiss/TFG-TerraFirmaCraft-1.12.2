@@ -573,16 +573,6 @@ public final class TFCItems {
     @GameRegistry.ObjectHolder("cellulose_fibers")
     public static final TFCItemMisc CELLULOSE_FIBERS = getNull();
 
-    @GameRegistry.ObjectHolder("wood/fruit_tree/pole/cassia_cinnamon")
-    public static final TFCItemMisc CASSIA_CINNAMON_POLE = getNull();
-    @GameRegistry.ObjectHolder("wood/fruit_tree/lumber/cassia_cinnamon")
-    public static final TFCItemMisc CASSIA_CINNAMON_LUMBER = getNull();
-    @GameRegistry.ObjectHolder("wood/fruit_tree/pole/ceylon_cinnamon")
-    public static final TFCItemMisc CEYLON_CINNAMON_POLE = getNull();
-    @GameRegistry.ObjectHolder("wood/fruit_tree/lumber/ceylon_cinnamon")
-    public static final TFCItemMisc CEYLON_CINNAMON_LUMBER = getNull();
-
-
     @GameRegistry.ObjectHolder("storage/unfired/urn")
     public static final ItemPottery UNFIRED_URN = getNull();
     @GameRegistry.ObjectHolder("wooden_bucket_salt")
@@ -1021,10 +1011,10 @@ public final class TFCItems {
             armorItems.add(register(r, "armor/leggings/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
             armorItems.add(register(r, "armor/boots/hemp_cloth", new TFCItemArmor(TFCArmorMaterial.HEMP_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
-            armorItems.add(register(r, "armor/helmet/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 0, EntityEquipmentSlot.HEAD), CT_MISC));
-            armorItems.add(register(r, "armor/chestplate/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 1, EntityEquipmentSlot.CHEST), CT_MISC));
-            armorItems.add(register(r, "armor/leggings/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 2, EntityEquipmentSlot.LEGS), CT_MISC));
-            armorItems.add(register(r, "armor/boots/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CANVAS, 3, EntityEquipmentSlot.FEET), CT_MISC));
+            armorItems.add(register(r, "armor/helmet/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CLOTH, 0, EntityEquipmentSlot.HEAD), CT_MISC));
+            armorItems.add(register(r, "armor/chestplate/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CLOTH, 1, EntityEquipmentSlot.CHEST), CT_MISC));
+            armorItems.add(register(r, "armor/leggings/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CLOTH, 2, EntityEquipmentSlot.LEGS), CT_MISC));
+            armorItems.add(register(r, "armor/boots/yucca_canvas", new TFCItemArmor(TFCArmorMaterial.YUCCA_CLOTH, 3, EntityEquipmentSlot.FEET), CT_MISC));
 
 
             allArmorItems = armorItems.build();

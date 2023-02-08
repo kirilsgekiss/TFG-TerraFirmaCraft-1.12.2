@@ -97,7 +97,7 @@ public class TFCItemArmor extends ItemArmor implements IItemSize, IDamageResista
                 this.materialTFC != TFCArmorMaterial.COTTON_CLOTH ||
                 this.materialTFC != TFCArmorMaterial.LINEN_CLOTH ||
                 this.materialTFC != TFCArmorMaterial.HEMP_CLOTH ||
-                this.materialTFC != TFCArmorMaterial.YUCCA_CANVAS) {
+                this.materialTFC != TFCArmorMaterial.YUCCA_CLOTH) {
             return false;
         } else {
             NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -121,7 +121,7 @@ public class TFCItemArmor extends ItemArmor implements IItemSize, IDamageResista
                 this.materialTFC != TFCArmorMaterial.COTTON_CLOTH ||
                 this.materialTFC != TFCArmorMaterial.LINEN_CLOTH ||
                 this.materialTFC != TFCArmorMaterial.HEMP_CLOTH ||
-                this.materialTFC != TFCArmorMaterial.YUCCA_CANVAS) {
+                this.materialTFC != TFCArmorMaterial.YUCCA_CLOTH) {
             return DEFAULT_COLOR;
         } else {
             NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -155,7 +155,7 @@ public class TFCItemArmor extends ItemArmor implements IItemSize, IDamageResista
             if (this.materialTFC == TFCArmorMaterial.WOOL_CLOTH) {
                 return WOOL_COLOR;
             }
-            if (this.materialTFC == TFCArmorMaterial.YUCCA_CANVAS) {
+            if (this.materialTFC == TFCArmorMaterial.YUCCA_CLOTH) {
                 return YUCCA_COLOR;
             }
         }
@@ -175,7 +175,7 @@ public class TFCItemArmor extends ItemArmor implements IItemSize, IDamageResista
                 this.materialTFC == TFCArmorMaterial.COTTON_CLOTH ||
                 this.materialTFC == TFCArmorMaterial.LINEN_CLOTH ||
                 this.materialTFC == TFCArmorMaterial.HEMP_CLOTH ||
-                this.materialTFC == TFCArmorMaterial.YUCCA_CANVAS) {
+                this.materialTFC == TFCArmorMaterial.YUCCA_CLOTH) {
             NBTTagCompound nbttagcompound = stack.getTagCompound();
             if (nbttagcompound != null) {
                 NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");

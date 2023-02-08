@@ -37,7 +37,7 @@ public class TFCArmorMaterial implements IArmorMaterialTFC {
     public static final IArmorMaterialTFC COTTON_CLOTH = new TFCArmorMaterial(EnumHelper.addArmorMaterial("cotton_cloth", MOD_ID + ":cotton_cloth", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 1.5f, 1.5f, 4);
     public static final IArmorMaterialTFC LINEN_CLOTH = new TFCArmorMaterial(EnumHelper.addArmorMaterial("linen_cloth", MOD_ID + ":linen_cloth", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 1.5f, 1.5f, 4);
     public static final IArmorMaterialTFC HEMP_CLOTH = new TFCArmorMaterial(EnumHelper.addArmorMaterial("hemp_cloth", MOD_ID + ":hemp_cloth", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 1.5f, 1.5f, 4);
-    public static final IArmorMaterialTFC YUCCA_CANVAS = new TFCArmorMaterial(EnumHelper.addArmorMaterial("yucca_canvas", MOD_ID + ":yucca_canvas", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 1.5f, 1.5f, 4);
+    public static final IArmorMaterialTFC YUCCA_CLOTH = new TFCArmorMaterial(EnumHelper.addArmorMaterial("yucca_canvas", MOD_ID + ":yucca_canvas", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 1.5f, 1.5f, 4);
 
 
     private final float piercingRes, slashingRes, crushingRes;

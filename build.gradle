@@ -97,16 +97,9 @@ dependencies {
 
     deobfCompile 'curse.maven:dramatictrees-637540:4312145'
 
-    compileOnly 'curse.maven:crafttweaker-239197:3935788'
+//    compileOnly 'curse.maven:crafttweaker-239197:3935788'
     compileOnly 'curse.maven:groovyscript-687577:4329872'
-
-    // dead
-    compileOnly "curse.maven:endercore-231868:2972849"
-    compileOnly "curse.maven:ender_io-64578:3328811"
-    compileOnly "curse.maven:buildcraft-core-231305:3204464"
-    compileOnly "curse.maven:cofh-core-69162:2920433"
     compileOnly "curse.maven:ae2_extended_life-570458:4370127"
-    compileOnly "curse.maven:forestry-59751:2918418"
 }
 
 sourceSets {
