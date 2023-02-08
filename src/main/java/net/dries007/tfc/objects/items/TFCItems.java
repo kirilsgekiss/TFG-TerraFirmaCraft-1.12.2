@@ -119,64 +119,6 @@ public final class TFCItems {
     @GameRegistry.ObjectHolder("crop/product/silk")
     public static final TFCItemMisc SILK = getNull();
 
-    //=== Crop fiber =================================================================================================//
-
-    @GameRegistry.ObjectHolder("crop/product/jute_fiber")
-    public static final TFCItemMisc JUTE_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/sisal_fiber")
-    public static final TFCItemMisc SISAL_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/linen_fiber")
-    public static final TFCItemMisc LINEN_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/hemp_fiber")
-    public static final TFCItemMisc HEMP_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/cotton_fiber")
-    public static final TFCItemMisc COTTON_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/yucca_fiber")
-    public static final TFCItemMisc YUCCA_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/papyrus_fiber")
-    public static final TFCItemMisc PAPYRUS_FIBER = getNull();
-    @GameRegistry.ObjectHolder("crop/product/silk_fiber")
-    public static final TFCItemMisc SILK_FIBER = getNull();
-
-    //=== Crop string ================================================================================================//
-
-    @GameRegistry.ObjectHolder("crop/product/jute_string")
-    public static final TFCItemMisc JUTE_STRING = getNull();
-    @GameRegistry.ObjectHolder("crop/product/sisal_string")
-    public static final TFCItemMisc SISAL_STRING = getNull();
-    @GameRegistry.ObjectHolder("crop/product/linen_string")
-    public static final TFCItemMisc LINEN_STRING = getNull();
-    @GameRegistry.ObjectHolder("crop/product/hemp_string")
-    public static final TFCItemMisc HEMP_STRING = getNull();
-    @GameRegistry.ObjectHolder("crop/product/cotton_string")
-    public static final TFCItemMisc COTTON_STRING = getNull();
-    @GameRegistry.ObjectHolder("crop/product/yucca_string")
-    public static final TFCItemMisc YUCCA_STRING = getNull();
-
-    //=== Crop cloth =================================================================================================//
-
-    @GameRegistry.ObjectHolder("crop/product/jute_cloth")
-    public static final TFCItemMisc JUTE_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/sisal_cloth")
-    public static final TFCItemMisc SISAL_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/linen_cloth")
-    public static final TFCItemMisc LINEN_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/hemp_cloth")
-    public static final TFCItemMisc HEMP_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/cotton_cloth")
-    public static final TFCItemMisc COTTON_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/yucca_canvas")
-    public static final TFCItemMisc YUCCA_CANVAS = getNull();
-    @GameRegistry.ObjectHolder("animal/product/wool_cloth")
-    public static final TFCItemMisc WOOL_CLOTH = getNull();
-    @GameRegistry.ObjectHolder("crop/product/papyrus_paper")
-    public static final TFCItemMisc PAPYRUS_PAPER = getNull();
-    @GameRegistry.ObjectHolder("animal/product/silk_cloth")
-    public static final TFCItemMisc SILK_CLOTH = getNull();
-
-    @GameRegistry.ObjectHolder("crop/product/papyrus_pulp")
-    public static final TFCItemMisc PAPYRUS_PULP = getNull();
-
     //=== Crop head ==================================================================================================//
 
     @GameRegistry.ObjectHolder("crop/product/chamomile_head")
@@ -954,11 +896,11 @@ public final class TFCItems {
             }
 
 
-            simpleItems.add(register(r, "crop/product/yucca_fiber", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fiber", "fiber_yucca"), CT_MISC));
-            simpleItems.add(register(r, "crop/product/yucca_canvas", new TFCItemMisc(Size.VERY_SMALL, Weight.LIGHT, "cloth", "cloth_yucca", "fabric", "fabric_yucca", "canvas", "canvas_yucca"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/fiber/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "fiber", "fiber_yucca"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/cloth/yucca", new TFCItemMisc(Size.VERY_SMALL, Weight.LIGHT, "cloth", "cloth_yucca", "fabric", "fabric_yucca", "canvas", "canvas_yucca"), CT_MISC));
 
             simpleItems.add(register(r, "crop/product/papyrus_pulp", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "pulp", "pulp_papyrus"), CT_MISC));
-            simpleItems.add(register(r, "crop/product/papyrus_fiber", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "fiber", "fiber_papyrus"), CT_MISC));
+            simpleItems.add(register(r, "crop/product/fiber/papyrus", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "fiber", "fiber_papyrus"), CT_MISC));
             simpleItems.add(register(r, "crop/product/papyrus_paper", new TFCItemMisc(Size.SMALL, Weight.VERY_LIGHT, "paper", "paper_papyrus"), CT_MISC));
 
             simpleItems.add(register(r, "crop/product/madder", new TFCItemMisc(Size.VERY_SMALL, Weight.VERY_LIGHT, "crop_madder", "madder"), CT_MISC));

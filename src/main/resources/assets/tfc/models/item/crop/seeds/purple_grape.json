@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/seeds/purple_grape"
+    "layer0": "tfc:items/material_set/crop/seeds/purple_grape"
   }
 }

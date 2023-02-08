@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/product/hops"
+    "layer0": "tfc:items/material_set/crop/product/hops"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/product/chamomile_head"
+    "layer0": "tfc:items/material_set/crop/product/chamomile_head"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tfc:items/material_set/crop/product/fiber/yucca"
+  }
+}

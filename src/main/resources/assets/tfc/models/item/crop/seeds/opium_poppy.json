@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfc:items/crop/seeds/opium_poppy"
+    "layer0": "tfc:items/material_set/crop/seeds/opium_poppy"
   }
 }

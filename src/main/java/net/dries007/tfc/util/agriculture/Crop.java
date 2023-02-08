@@ -79,7 +79,7 @@ public enum Crop implements ICrop {
 
     SISAL(() -> new ItemStack(TFCItems.SISAL), () -> ItemStack.EMPTY, 12f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
     COCA(() -> new ItemStack(TFCItemFood.get(Food.COCA_LEAF)), () -> ItemStack.EMPTY, 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, PICKABLE),
-    COTTON(() -> new ItemStack(TFCItems.COTTON_FIBER), () -> ItemStack.EMPTY, 0f, 8f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, PICKABLE),
+    COTTON(() -> new ItemStack(TFCItems.COTTON), () -> ItemStack.EMPTY, 0f, 8f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, PICKABLE),
     LINEN(() -> new ItemStack(TFCItems.LINEN), () -> ItemStack.EMPTY, 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, SIMPLE),
     HEMP(() -> new ItemStack(TFCItems.HEMP), () -> new ItemStack(TFCItemFood.get(Food.CANNABIS_BUD)), 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 5, 0.5f, PICKABLE),
     HOP(() -> new ItemStack(TFCItems.HOPS), () -> ItemStack.EMPTY, 0f, 18f, 35f, 40f, 50f, 100f, 400f, 450f, 6, 0.5f, PICKABLE),
