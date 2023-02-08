@@ -7,7 +7,7 @@ package net.dries007.tfc.objects.blocks.devices;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.items.ItemFireStarter;
+import net.dries007.tfc.objects.items.TFCItemFireStarter;
 import net.dries007.tfc.objects.te.TEPitKiln;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
@@ -165,7 +165,7 @@ public class BlockPitKiln extends Block implements ILightableBlock {
         TEPitKiln te = Helpers.getTE(worldIn, pos, TEPitKiln.class);
         if (te != null) {
             // Skip interacting if using a fire starter (wait for fire in #neighborChanged)
-            if (ItemFireStarter.canIgnite(playerIn.getHeldItem(hand))) {
+            if (TFCItemFireStarter.canIgnite(playerIn.getHeldItem(hand))) {
                 return false;
             }
             return te.onRightClick(playerIn, playerIn.getHeldItem(hand), hitX < 0.5, hitZ < 0.5);

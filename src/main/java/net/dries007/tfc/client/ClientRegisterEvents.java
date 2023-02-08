@@ -18,6 +18,7 @@ import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.api.util.IWoodHandler;
 import net.dries007.tfc.client.render.*;
 import net.dries007.tfc.compat.dynamictrees.DTTrees;
+import net.dries007.tfc.compat.dynamictrees.client.TFCModelHelper;
 import net.dries007.tfc.compat.tfc.TFCOrePrefixExtended;
 import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.TFCBlockThatchBed;
@@ -32,7 +33,7 @@ import net.dries007.tfc.objects.blocks.wood.*;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLeaves;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockSapling;
-import net.dries007.tfc.objects.items.ItemAnimalHide;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide;
 import net.dries007.tfc.objects.items.TFCItemArmor;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
@@ -67,7 +68,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.dries007.tfc.compat.dynamictrees.client.TFCModelHelper;
 
 import javax.annotation.Nonnull;
 
@@ -242,13 +242,14 @@ public final class ClientRegisterEvents {
         //=== Groundcover ============================================================================================//
 
 //        if (TFCConfig.FloraeGeneral.WORLD.enableCoralWorldGen) {TFCBlocks.getAllBlockCoral().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(TFCBlockCoral.LEVEL).build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverBones) { TFCBlocks.getAllBlockSurfaceBones().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverDriftwood) { TFCBlocks.getAllBlockDriftwood().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverFlint) { TFCBlocks.getAllBlockSurfaceFlint().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverPinecone) { TFCBlocks.getAllBlockSurfacePinecone().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverRock) { TFCBlocks.getAllBlockSurfaceRock().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverSeashell) { TFCBlocks.getAllBlockSurfaceSeashells().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
-//        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverTwig) { TFCBlocks.getAllBlockSurfaceTwig().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableLightstoneWorldGen) {TFCBlocks.getAllBlockLightstone().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverBones) { TFCBlocks.getAllBlockSurfaceBones().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverDriftwood) { TFCBlocks.getAllBlockDriftwood().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverFlint) { TFCBlocks.getAllBlockSurfaceFlint().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverPinecone) { TFCBlocks.getAllBlockSurfacePinecone().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverRock) { TFCBlocks.getAllBlockSurfaceRock().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverSeashell) { TFCBlocks.getAllBlockSurfaceSeashells().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
+        if (TFCConfig.FloraeGeneral.WORLD.enableGroundcoverTwig) { TFCBlocks.getAllBlockSurfaceTwig().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().build()));}
 
 
         //=== Rock ===================================================================================================//
@@ -260,39 +261,30 @@ public final class ClientRegisterEvents {
         TFCBlocks.getAllBlockRockVariant().forEach(e -> {
             switch (e.getType()) {
                 case RAW:
-
                 case MOSSY_RAW:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockRockRaw.CAN_FALL).build());
                     break;
-
                 case FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmland.MOISTURE).build());
                     break;
-
                 case SMOOTH:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockRockSmooth.CAN_FALL).build());
                     break;
-
                 case LOAMY_SAND_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandLoamySand.MOISTURE).build());
                     break;
-
                 case SANDY_LOAM_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandSandyLoam.MOISTURE).build());
                     break;
-
                 case LOAM_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandLoam.MOISTURE).build());
                     break;
-
                 case SILT_LOAM_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandSiltLoam.MOISTURE).build());
                     break;
-
                 case SILT_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandSilt.MOISTURE).build());
                     break;
-
                 case HUMUS_FARMLAND:
                     ModelLoader.setCustomStateMapper(e, new StateMap.Builder().ignore(TFCBlockFarmlandHumus.MOISTURE).build());
                     break;
@@ -315,7 +307,7 @@ public final class ClientRegisterEvents {
             TFCModelHelper.regModel(s);
         });
 
-        DTTrees.TFCSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));//Register Seed Item Models
+        DTTrees.TFCSpecies.values().stream().filter(s -> s.getSeed() != Seed.NULLSEED).forEach(s -> TFCModelHelper.regModel(s.getSeed()));// Register Seed Item Models
 
         //=== Wood ===================================================================================================//
 
@@ -361,7 +353,7 @@ public final class ClientRegisterEvents {
         ModelLoader.setCustomStateMapper(TFCBlocks.PIT_KILN, blockIn -> ImmutableMap.of(TFCBlocks.PIT_KILN.getDefaultState(), empty));
         ModelLoader.setCustomStateMapper(TFCBlocks.PLACED_ITEM_FLAT, blockIn -> ImmutableMap.of(TFCBlocks.PLACED_ITEM_FLAT.getDefaultState(), empty));
         ModelLoader.setCustomStateMapper(TFCBlocks.PLACED_ITEM, blockIn -> ImmutableMap.of(TFCBlocks.PLACED_ITEM.getDefaultState(), empty));
-        ModelLoader.setCustomStateMapper(TFCBlocks.PLACED_HIDE, blockIn -> ImmutableMap.of(TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, ItemAnimalHide.HideSize.SMALL), empty, TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, ItemAnimalHide.HideSize.MEDIUM), empty, TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, ItemAnimalHide.HideSize.LARGE), empty));
+        ModelLoader.setCustomStateMapper(TFCBlocks.PLACED_HIDE, blockIn -> ImmutableMap.of(TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, TFCItemAnimalHide.HideSize.SMALL), empty, TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, TFCItemAnimalHide.HideSize.MEDIUM), empty, TFCBlocks.PLACED_HIDE.getDefaultState().withProperty(SIZE, TFCItemAnimalHide.HideSize.LARGE), empty));
 
         // Register TESRs
         ClientRegistry.bindTileEntitySpecialRenderer(TEChest.class, new TESRChestTFC());
@@ -503,7 +495,7 @@ public final class ClientRegisterEvents {
 
 
         //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllShortGrassBlocks().toArray(new BlockShortGrassTFC[0]));
-        //blockColors.registerBlockColorHandler(grassColor, BlocksTFCF.getAllTallGrassBlocks().toArray(new BlockTallGrassTFCF[0]));
+        //blockColors.registerBlockColorHandler(grassColor, TFCBlocks.getAllTallGrassBlocks().toArray(new BlockTallGrassTFCF[0]));
 
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllFruitLeaves().toArray(new Block[0]));
         // blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllNormalTreeLeaves().toArray(new Block[0]));
@@ -512,8 +504,8 @@ public final class ClientRegisterEvents {
 //        for (Block block : TFCBlocks.getAllBambooLeaves())
 //            blockColors.registerBlockColorHandler(foliageColor, block);
 
-        //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.CASSIA_CINNAMON_LEAVES);
-        //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.CEYLON_CINNAMON_LEAVES);
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.CASSIA_CINNAMON_LEAVES);
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.CEYLON_CINNAMON_LEAVES);
 
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllWaterPlantBlocks().toArray(new BlockWaterPlantTFC[0]));
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingPlantBlocks().toArray(new BlockHangingPlantTFC[0]));
@@ -522,9 +514,9 @@ public final class ClientRegisterEvents {
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllHangingGlowingCreepingPlantBlocks().toArray(new BlockHangingGlowingCreepingPlantTFC[0]));
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllCreepingPlantBlocks().toArray(new BlockCreepingPlantTFC[0]));
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllTallGrassWaterBlocks().toArray(new BlockTallGrassWaterTFC[0]));
-        //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantTFCF[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllStandardBlocks().toArray(new BlockPlantTFCF[0]));
         //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllStandardBlocks().toArray(new BlockPlantDummy1[0]));
-        //blockColors.registerBlockColorHandler(foliageColor, BlocksTFCF.getAllStandardBlocks().toArray(new BlockPlantDummy2[0]));
+        //blockColors.registerBlockColorHandler(foliageColor, TFCBlocks.getAllStandardBlocks().toArray(new BlockPlantDummy2[0]));
     }
 
     @SubscribeEvent

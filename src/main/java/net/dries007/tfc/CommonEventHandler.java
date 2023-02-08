@@ -55,7 +55,7 @@ import net.dries007.tfc.objects.blocks.wood.TFCBlockWoodSupport;
 import net.dries007.tfc.objects.blocks.wood.tree.TFCBlockLog;
 import net.dries007.tfc.objects.container.CapabilityContainerListener;
 import net.dries007.tfc.objects.fluids.TFCFluids;
-import net.dries007.tfc.objects.items.ItemQuiver;
+import net.dries007.tfc.objects.items.TFCItemQuiver;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.potioneffects.TFCPotionEffects;
 import net.dries007.tfc.util.TFCDamageSources;
@@ -950,7 +950,7 @@ public final class CommonEventHandler {
         if (!event.hasAmmo() && event.getAction() == null) {
             final EntityPlayer player = event.getEntityPlayer();
             if (player != null && !player.capabilities.isCreativeMode) {
-                if (ItemQuiver.replenishArrow(player)) {
+                if (TFCItemQuiver.replenishArrow(player)) {
                     event.setAction(new ActionResult<>(EnumActionResult.PASS, event.getBow()));
                 }
             }
@@ -962,7 +962,7 @@ public final class CommonEventHandler {
     public static void pickupQuiverItems(EntityItemPickupEvent event) //only pickups of EntityItem, not EntityArrow
     {
         if (!event.isCanceled()) {
-            if (ItemQuiver.pickupAmmo(event)) {
+            if (TFCItemQuiver.pickupAmmo(event)) {
                 event.setResult(Event.Result.ALLOW);
                 event.getItem().getItem().setCount(0);
             }

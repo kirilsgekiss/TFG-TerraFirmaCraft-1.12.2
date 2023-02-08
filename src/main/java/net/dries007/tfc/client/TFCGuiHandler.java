@@ -12,9 +12,9 @@ import net.dries007.tfc.api.util.IRockObject;
 import net.dries007.tfc.client.gui.*;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockChest;
 import net.dries007.tfc.objects.container.*;
-import net.dries007.tfc.objects.items.ItemBag;
-import net.dries007.tfc.objects.items.ItemQuiver;
-import net.dries007.tfc.objects.items.ItemSack;
+import net.dries007.tfc.objects.items.TFCItemBag;
+import net.dries007.tfc.objects.items.TFCItemQuiver;
+import net.dries007.tfc.objects.items.TFCItemSack;
 import net.dries007.tfc.objects.items.ceramics.fired.ItemSmallVessel;
 import net.dries007.tfc.objects.items.ceramics.fired.molds.ItemClayMold;
 import net.dries007.tfc.objects.items.rock.ItemMud;
@@ -130,7 +130,7 @@ public class TFCGuiHandler implements IGuiHandler {
             case CRAFTING:
                 return new ContainerInventoryCrafting(player.inventory, player.world);
             case QUIVER:
-                return new ContainerQuiver(player.inventory, stack.getItem() instanceof ItemQuiver ? stack : player.getHeldItemOffhand());
+                return new ContainerQuiver(player.inventory, stack.getItem() instanceof TFCItemQuiver ? stack : player.getHeldItemOffhand());
             case CHEST:
                 if (world.getBlockState(pos).getBlock() instanceof TFCBlockChest) {
                     ILockableContainer chestContainer = ((TFCBlockChest) world.getBlockState(pos).getBlock()).getLockableContainer(world, pos);
@@ -144,9 +144,9 @@ public class TFCGuiHandler implements IGuiHandler {
             case SALAD:
                 return new ContainerSalad(player.inventory);
             case SACK:
-                return new ContainerSack(player.inventory, stack.getItem() instanceof ItemSack ? stack : player.getHeldItemOffhand());
+                return new ContainerSack(player.inventory, stack.getItem() instanceof TFCItemSack ? stack : player.getHeldItemOffhand());
             case BAG:
-                return new ContainerBag(player.inventory, stack.getItem() instanceof ItemBag ? stack : player.getHeldItemOffhand());
+                return new ContainerBag(player.inventory, stack.getItem() instanceof TFCItemBag ? stack : player.getHeldItemOffhand());
             case PINEAPPLE_LEATHER:
                 return new ContainerKnapping(KnappingType.PINEAPPLE_LEATHER, player.inventory, OreDictionaryHelper.doesStackMatchOre(stack, "leatherPineapple") ? stack : player.getHeldItemOffhand());
             case BURLAP_CLOTH:

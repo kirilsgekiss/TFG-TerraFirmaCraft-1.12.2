@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.blocks;
 
 import gregtech.api.items.toolitem.ToolHelper;
-import net.dries007.tfc.objects.items.ItemAnimalHide;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide;
 import net.dries007.tfc.objects.te.TEPlacedHide;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.OreDictionaryHelper;
@@ -42,13 +42,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @ParametersAreNonnullByDefault
 public class TFCBlockPlacedHide extends Block {
-    public static final PropertyEnum<ItemAnimalHide.HideSize> SIZE = PropertyEnum.create("size", ItemAnimalHide.HideSize.class);
+    public static final PropertyEnum<TFCItemAnimalHide.HideSize> SIZE = PropertyEnum.create("size", TFCItemAnimalHide.HideSize.class);
 
     public TFCBlockPlacedHide() {
         super(Material.CIRCUITS);
         setHardness(0.2f);
 
-        setDefaultState(getBlockState().getBaseState().withProperty(SIZE, ItemAnimalHide.HideSize.MEDIUM));
+        setDefaultState(getBlockState().getBaseState().withProperty(SIZE, TFCItemAnimalHide.HideSize.MEDIUM));
     }
 
     @SuppressWarnings("deprecation")
@@ -67,7 +67,7 @@ public class TFCBlockPlacedHide extends Block {
     @Override
     @Nonnull
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(SIZE, ItemAnimalHide.HideSize.valueOf(meta));
+        return getDefaultState().withProperty(SIZE, TFCItemAnimalHide.HideSize.valueOf(meta));
     }
 
     @Override
@@ -199,8 +199,8 @@ public class TFCBlockPlacedHide extends Block {
     private ItemStack getItemStackDropped(IBlockAccess world, BlockPos pos, IBlockState state) {
         TEPlacedHide tile = Helpers.getTE(world, pos, TEPlacedHide.class);
         if (tile != null && tile.isComplete()) {
-            return new ItemStack(ItemAnimalHide.get(ItemAnimalHide.HideType.SCRAPED, state.getValue(SIZE)));
+            return new ItemStack(TFCItemAnimalHide.get(TFCItemAnimalHide.HideType.SCRAPED, state.getValue(SIZE)));
         }
-        return new ItemStack(ItemAnimalHide.get(ItemAnimalHide.HideType.SOAKED, state.getValue(SIZE)));
+        return new ItemStack(TFCItemAnimalHide.get(TFCItemAnimalHide.HideType.SOAKED, state.getValue(SIZE)));
     }
 }

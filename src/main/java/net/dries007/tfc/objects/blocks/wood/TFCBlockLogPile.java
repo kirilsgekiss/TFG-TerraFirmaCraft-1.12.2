@@ -11,7 +11,7 @@ import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.items.ItemFireStarter;
+import net.dries007.tfc.objects.items.TFCItemFireStarter;
 import net.dries007.tfc.objects.te.TEInventory;
 import net.dries007.tfc.objects.te.TELogPile;
 import net.dries007.tfc.util.Helpers;
@@ -137,7 +137,7 @@ public class TFCBlockLogPile extends Block implements ILightableBlock {
             // 2. Try and light the TE
             // 3. Open the GUI
             ItemStack stack = player.getHeldItem(hand);
-            if (!state.getValue(LIT) && side == EnumFacing.UP && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos) && ItemFireStarter.onIgnition(stack)) {
+            if (!state.getValue(LIT) && side == EnumFacing.UP && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos) && TFCItemFireStarter.onIgnition(stack)) {
                 // Light the Pile
                 if (!world.isRemote) {
                     world.setBlockState(pos, state.withProperty(LIT, true));

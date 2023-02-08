@@ -40,8 +40,8 @@ import net.dries007.tfc.compat.tfc.TFGUtils;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.wood.TFCBlockLoom;
 import net.dries007.tfc.objects.container.ContainerInventoryCrafting;
-import net.dries007.tfc.objects.items.ItemAnimalHide;
-import net.dries007.tfc.objects.items.ItemAnimalHide.HideType;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide.HideType;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.items.metal.ItemAnvil;
 import net.dries007.tfc.objects.items.rock.ItemMud;
@@ -545,8 +545,8 @@ public final class TFCJEIPlugin implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(Items.COAL, 1, 1), VanillaTypes.ITEM, new TextComponentTranslation("jei.description.tfc.charcoal_pit").getFormattedText());
 
         List<ScrapingWrapper> scrapingList = new ArrayList<>();
-        for (ItemAnimalHide.HideSize size : ItemAnimalHide.HideSize.values()) {
-            scrapingList.add(new ScrapingWrapper(ItemAnimalHide.get(HideType.SOAKED, size), ItemAnimalHide.get(HideType.SCRAPED, size)));
+        for (TFCItemAnimalHide.HideSize size : TFCItemAnimalHide.HideSize.values()) {
+            scrapingList.add(new ScrapingWrapper(TFCItemAnimalHide.get(HideType.SOAKED, size), TFCItemAnimalHide.get(HideType.SCRAPED, size)));
         }
         registry.addRecipes(scrapingList, SCRAPING_UID);
 

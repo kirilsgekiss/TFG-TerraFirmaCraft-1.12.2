@@ -13,7 +13,7 @@ import net.dries007.tfc.objects.blocks.ceramics.TFCBlockFireBrick;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.metal.TFCBlockCladding;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.items.ItemFireStarter;
+import net.dries007.tfc.objects.items.TFCItemFireStarter;
 import net.dries007.tfc.objects.te.TEBellows;
 import net.dries007.tfc.objects.te.TEBlastFurnace;
 import net.dries007.tfc.objects.te.TEMetalSheet;
@@ -129,7 +129,7 @@ public class BlockBlastFurnace extends Block implements IBellowsConsumerBlock, I
                 if (te == null)
                     return true;
                 ItemStack held = playerIn.getHeldItem(hand);
-                if (te.canIgnite() && ItemFireStarter.onIgnition(held)) {
+                if (te.canIgnite() && TFCItemFireStarter.onIgnition(held)) {
                     worldIn.setBlockState(pos, state.withProperty(LIT, true));
                     //te.onIgnite();
                     return true;

@@ -6,7 +6,7 @@
 package net.dries007.tfc.objects.blocks;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.dries007.tfc.objects.items.ItemAnimalHide;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.SoundType;
@@ -75,7 +75,7 @@ public class TFCBlockThatchBed extends BlockBed {
     @Override
     public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
         if (state.getValue(PART) == BlockBed.EnumPartType.HEAD) {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemAnimalHide.get(ItemAnimalHide.HideType.RAW, ItemAnimalHide.HideSize.LARGE)));
+            spawnAsEntity(worldIn, pos, new ItemStack(TFCItemAnimalHide.get(TFCItemAnimalHide.HideType.RAW, TFCItemAnimalHide.HideSize.LARGE)));
             spawnAsEntity(worldIn, pos, new ItemStack(TFCBlocks.THATCH, 2));
         }
     }

@@ -9,7 +9,7 @@ import net.dries007.tfc.api.capability.size.Size;
 import net.dries007.tfc.api.capability.size.Weight;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.entity.projectile.TFCEntityThrownJavelin;
-import net.dries007.tfc.objects.items.ItemQuiver;
+import net.dries007.tfc.objects.items.TFCItemQuiver;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -103,7 +103,7 @@ public class ItemJavelinTFCF extends ItemTool implements IItemSize {
                 }
                 player.inventory.deleteStack(stack);
                 player.addStat(StatList.getObjectUseStats(this));
-                ItemQuiver.replenishJavelin(player.inventory); //Use a quiver if possible
+                TFCItemQuiver.replenishJavelin(player.inventory); //Use a quiver if possible
             }
         }
     }

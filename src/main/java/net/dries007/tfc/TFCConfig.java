@@ -2504,10 +2504,6 @@ public final class TFCConfig {
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGourdWorldGen")
             public boolean enableGourdWorldGen = true;
 
-            @Config.Comment("Enable vines?")
-            @Config.LangKey("config." + MOD_ID + ".general.world.enableAllVines")
-            public boolean enableAllVines = true;
-
             @Config.Comment("Enable bone groundcover?")
             @Config.LangKey("config." + MOD_ID + ".general.world.enableGroundcoverBones")
             public boolean enableGroundcoverBones = true;

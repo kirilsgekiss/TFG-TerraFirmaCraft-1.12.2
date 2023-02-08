@@ -17,7 +17,6 @@ import net.dries007.tfc.api.types.Rock.Type;
 import net.dries007.tfc.objects.blocks.TFCBlocks;
 import net.dries007.tfc.objects.blocks.plants.TFCBlockPlant;
 import net.dries007.tfc.objects.blocks.rock.TFCBlockRockDecorative;
-import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.types.DefaultPlants;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -76,13 +75,6 @@ public class OreDictionaryHelper {
         done = true;
         MAP.forEach((t, s) -> OreDictionary.registerOre(s, t.toItemStack()));
         MAP.clear(); // No need to keep this stuff around
-
-        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.JUTE_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.WOOL_CLOTH));
-        OreDictionary.registerOre("cloth", new ItemStack(TFCItems.SILK_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.JUTE_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.WOOL_CLOTH));
-        OreDictionary.registerOre("fabric", new ItemStack(TFCItems.SILK_CLOTH));
 
         //OreDictionary.registerOre("stickBunch", new ItemStack(ItemsTFC.STICK_BUNCH));
         //OreDictionary.registerOre("stickBundle", new ItemStack(ItemsTFC.STICK_BUNCH));

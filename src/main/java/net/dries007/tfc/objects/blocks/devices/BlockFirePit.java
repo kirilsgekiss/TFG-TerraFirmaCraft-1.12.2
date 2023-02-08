@@ -9,7 +9,7 @@ import net.dries007.tfc.api.util.IBellowsConsumerBlock;
 import net.dries007.tfc.client.TFCGuiHandler;
 import net.dries007.tfc.client.particle.TFCParticles;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.items.ItemFireStarter;
+import net.dries007.tfc.objects.items.TFCItemFireStarter;
 import net.dries007.tfc.objects.items.TFCItems;
 import net.dries007.tfc.objects.te.TEBellows;
 import net.dries007.tfc.objects.te.TEFirePit;
@@ -227,7 +227,7 @@ public class BlockFirePit extends Block implements IBellowsConsumerBlock, ILight
 
             // Try to light the fire pit
             if (!state.getValue(LIT)) {
-                if (ItemFireStarter.onIgnition(held)) {
+                if (TFCItemFireStarter.onIgnition(held)) {
                     worldIn.setBlockState(pos, state.withProperty(LIT, true));
                     return true;
                 }

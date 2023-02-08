@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tfc:items/material_set/crop/product/disc/sisal",
+    "layer1": "tfc:items/material_set/crop/product/disc/overlay/opium_poppy_seed"
+  }
+}

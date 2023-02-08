@@ -262,12 +262,8 @@ public class TFCBlockMetalAnvil extends Block {
         return metal;
     }
 
-    /**
-     * use this if your block can be fluidlogged.
-     *
-     * @author jbred
-     */
-    public interface IFluidloggable {
+    public interface IFluidloggable
+    {
         /**
          * @return true if the IBlockState is fluidloggable
          */
@@ -297,9 +293,7 @@ public class TFCBlockMetalAnvil extends Block {
          * @return true if the FluidState should be visible while this is fluidlogged
          */
         @SideOnly(Side.CLIENT)
-        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) {
-            return true;
-        }
+        default boolean shouldFluidRender(@Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState here, @Nonnull FluidState fluidState) { return true; }
 
         /**
          * called by {@link FluidloggedUtils#setFluidState}

@@ -531,8 +531,7 @@ public final class TFCBlocks {
     public static ImmutableList<BlockFluidBase> getAllBlockFluidBase() { return allBlockFluidBase; }
 
 
-
-    public static String[] bamboo = {"arrow_bamboo", "black_bamboo", "blue_bamboo", "dragon_bamboo", "golden_bamboo", "narrow_leaf_bamboo", "red_bamboo", "temple_bamboo", "thorny_bamboo", "timber_bamboo", "tinwa_bamboo", "weavers_bamboo"};
+//    public static String[] bamboo = {"arrow_bamboo", "black_bamboo", "blue_bamboo", "dragon_bamboo", "golden_bamboo", "narrow_leaf_bamboo", "red_bamboo", "temple_bamboo", "thorny_bamboo", "timber_bamboo", "tinwa_bamboo", "weavers_bamboo"};
 //    public static Tree[] bambooTrees = {DefaultTrees.ARROW_BAMBOO, DefaultTrees.BLACK_BAMBOO, DefaultTrees.BLUE_BAMBOO, DefaultTrees.DRAGON_BAMBOO, DefaultTrees.GOLDEN_BAMBOO, DefaultTrees.NARROW_LEAF_BAMBOO, DefaultTrees.RED_BAMBOO, DefaultTrees.TEMPLE_BAMBOO, DefaultTrees.THORNY_BAMBOO, DefaultTrees.TIMBER_BAMBOO, DefaultTrees.TINWA_BAMBOO, DefaultTrees.WEAVERS_BAMBOO};
 
     @SubscribeEvent
@@ -870,10 +869,12 @@ public final class TFCBlocks {
             // Block Lightstone
             Builder<TFCBlockSurfaceLightstone> blockLightstone = ImmutableList.builder();
             {
-                blockLightstone.add(register(r, "groundcover/lightstone", new TFCBlockSurfaceLightstone(0.8f), CT_FLORA));
+                if (TFCConfig.FloraeGeneral.WORLD.enableLightstoneWorldGen) {
+                    blockLightstone.add(register(r, "groundcover/lightstone", new TFCBlockSurfaceLightstone(0.8f), CT_FLORA));
 
-                allBlockSurfaceLightstone = blockLightstone.build();
-                allBlockSurfaceLightstone.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+                    allBlockSurfaceLightstone = blockLightstone.build();
+                    allBlockSurfaceLightstone.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
+                }
             }
 
             // Pebble Water
@@ -974,9 +975,9 @@ public final class TFCBlocks {
         //=== Metal ==================================================================================================//
 
         {
-            Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
             Builder<TFCBlockCladding> blockCladding = ImmutableList.builder();
             Builder<TFCBlockLamp> blockLamps = ImmutableList.builder();
+            Builder<TFCBlockMetalAnvil> blockAnvils = ImmutableList.builder();
             Builder<TFCBlockMetalTrapDoor> blockMetalTrapdoors = ImmutableList.builder();
             {
                 for (gregtech.api.unification.material.Material material : GregTechAPI.MATERIAL_REGISTRY) {
@@ -997,9 +998,9 @@ public final class TFCBlocks {
                     }
                 }
 
-                allBlockMetalAnvil = blockAnvils.build();
                 allBlockCladding = blockCladding.build();
                 allBlockLamps = blockLamps.build();
+                allBlockMetalAnvil = blockAnvils.build();
                 allBlockMetalTrapDoor = blockMetalTrapdoors.build();
             }
 

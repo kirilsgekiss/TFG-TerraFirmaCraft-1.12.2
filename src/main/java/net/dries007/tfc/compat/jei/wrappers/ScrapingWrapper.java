@@ -8,7 +8,7 @@ package net.dries007.tfc.compat.jei.wrappers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.dries007.tfc.objects.items.ItemAnimalHide;
+import net.dries007.tfc.objects.items.TFCItemAnimalHide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
@@ -22,7 +22,7 @@ public class ScrapingWrapper implements IRecipeWrapper {
     private final ItemStack output;
     private final List<ItemStack> hides;
 
-    public ScrapingWrapper(ItemAnimalHide in, ItemAnimalHide out) {
+    public ScrapingWrapper(TFCItemAnimalHide in, TFCItemAnimalHide out) {
         output = new ItemStack(out);
         hides = new ArrayList<>();
         hides.add(new ItemStack(in));

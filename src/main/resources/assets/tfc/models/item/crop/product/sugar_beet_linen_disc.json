@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "tfc:items/crop/product/sugar_beet_linen_disc"
-  }
-}

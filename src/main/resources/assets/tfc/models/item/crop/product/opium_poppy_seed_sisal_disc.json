@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "tfc:items/crop/product/opium_poppy_seed_sisal_disc"
-  }
-}

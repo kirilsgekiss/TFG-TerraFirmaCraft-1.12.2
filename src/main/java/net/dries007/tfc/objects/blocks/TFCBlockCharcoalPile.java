@@ -8,7 +8,7 @@ package net.dries007.tfc.objects.blocks;
 import net.dries007.tfc.client.TFCSounds;
 import net.dries007.tfc.objects.blocks.devices.BlockCharcoalForge;
 import net.dries007.tfc.objects.blocks.property.ILightableBlock;
-import net.dries007.tfc.objects.items.ItemFireStarter;
+import net.dries007.tfc.objects.items.TFCItemFireStarter;
 import net.dries007.tfc.objects.te.TECharcoalForge;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.block.Block;
@@ -153,7 +153,7 @@ public class TFCBlockCharcoalPile extends Block implements ILightableBlock {
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
-        if (state.getValue(LAYERS) >= 7 && BlockCharcoalForge.isValid(world, pos) && ItemFireStarter.onIgnition(stack)) {
+        if (state.getValue(LAYERS) >= 7 && BlockCharcoalForge.isValid(world, pos) && TFCItemFireStarter.onIgnition(stack)) {
             if (!world.isRemote) {
                 world.setBlockState(pos, TFCBlocks.CHARCOAL_FORGE.getDefaultState().withProperty(LIT, true));
                 TECharcoalForge te = Helpers.getTE(world, pos, TECharcoalForge.class);
