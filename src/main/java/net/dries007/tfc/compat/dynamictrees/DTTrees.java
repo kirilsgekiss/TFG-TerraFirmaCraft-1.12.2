@@ -69,9 +69,9 @@ public class DTTrees {
 
         TFCTrees.forEach(t -> {
             String treeName = t.getName().getPath();
-            DTLeavesHandler.stringLeavesPropertiesMap.get(treeName).setTree(t);
+            DTLeavesHandler.leavesPropertiesMap.get(treeName).setTree(t);
             Species species = TFCSpecies.get(treeName);
-            species.setLeavesProperties(DTLeavesHandler.stringLeavesPropertiesMap.get(treeName));
+            species.setLeavesProperties(DTLeavesHandler.leavesPropertiesMap.get(treeName));
 
             switch (treeName) {
                 case "acacia":
@@ -82,7 +82,7 @@ public class DTTrees {
                 case "pine":
                 case "sequoia":
                 case "white_cedar":
-                    species.addGenFeature(new FeatureGenConiferTopper(DTLeavesHandler.stringLeavesPropertiesMap.get(treeName)));
+                    species.addGenFeature(new FeatureGenConiferTopper(DTLeavesHandler.leavesPropertiesMap.get(treeName)));
                     t.hasConiferVariants = true;
             }
         });

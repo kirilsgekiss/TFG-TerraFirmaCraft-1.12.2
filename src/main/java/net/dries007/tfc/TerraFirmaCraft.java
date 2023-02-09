@@ -117,12 +117,6 @@ public final class TerraFirmaCraft {
         TFCToolItems.init();
         TFCMetaItem.init();
 
-        DTLeavesHandler.preInit();
-
-        //OBJLoader.INSTANCE.addDomain(TFCFLORAE_MODID); // Client Proxy from Florae?
-
-        SeasonHelper.setSeasonManager(TFCSeasonManager.INSTANCE);
-
         // No need to sync config here, forge magic
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new TFCGuiHandler());
         network = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
@@ -148,6 +142,8 @@ public final class TerraFirmaCraft {
 
         TFCEntities.preInit();
         JsonConfigRegistry.INSTANCE.preInit(event.getModConfigurationDirectory());
+
+        SeasonHelper.setSeasonManager(TFCSeasonManager.INSTANCE);
 
         CapabilityChunkData.preInit();
         CapabilityItemSize.preInit();

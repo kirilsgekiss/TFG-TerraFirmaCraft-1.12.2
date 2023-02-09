@@ -1080,7 +1080,6 @@ public final class TFCBlocks {
             allBlockHangingGlowingCreepingPlant = blockHangingGlowingCreepingPlant.build();
             allBlockHangingGlowingCreepingPlant.forEach(x -> normalItemBlocks.add(new TFCItemBlock(x)));
 
-
             Builder<TFCBlockCaveMushroom> blockCaveMushroom = ImmutableList.builder();
             {
 

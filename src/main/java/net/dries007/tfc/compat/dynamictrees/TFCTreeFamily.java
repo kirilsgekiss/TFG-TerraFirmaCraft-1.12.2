@@ -103,7 +103,7 @@ public class TFCTreeFamily extends TreeFamily {
 
     @Override
     public void createSpecies() {
-        setCommonSpecies(new TreeTFCSpecies(this, DTLeavesHandler.stringLeavesPropertiesMap.get(getName().toString())));
+        setCommonSpecies(new TreeTFCSpecies(this, DTLeavesHandler.leavesPropertiesMap.get(getName().toString())));
         getCommonSpecies().generateSeed();
     }
 

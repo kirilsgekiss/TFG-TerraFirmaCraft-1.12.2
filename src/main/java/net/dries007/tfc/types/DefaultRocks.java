@@ -17,11 +17,13 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 @SuppressWarnings("WeakerAccess")
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public final class DefaultRocks {
+    // Types
     public static final ResourceLocation SEDIMENTARY = new ResourceLocation(MOD_ID, "sedimentary");
     public static final ResourceLocation METAMORPHIC = new ResourceLocation(MOD_ID, "metamorphic");
     public static final ResourceLocation IGNEOUS_INTRUSIVE = new ResourceLocation(MOD_ID, "igneous_intrusive");
     public static final ResourceLocation IGNEOUS_EXTRUSIVE = new ResourceLocation(MOD_ID, "igneous_extrusive");
 
+    // Rocks
     public static final ResourceLocation GRANITE = new ResourceLocation(MOD_ID, "granite");
     public static final ResourceLocation DIORITE = new ResourceLocation(MOD_ID, "diorite");
     public static final ResourceLocation GABBRO = new ResourceLocation(MOD_ID, "gabbro");
