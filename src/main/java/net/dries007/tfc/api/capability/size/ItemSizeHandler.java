@@ -37,14 +37,17 @@ public class ItemSizeHandler implements ICapabilityProvider, IItemSize {
         return get(Size.SMALL, Weight.LIGHT, true); // Default to fitting in small vessels and stacksize = 32
     }
 
-    private final Size size;
-    private final Weight weight;
-    private final boolean canStack;
+    private Size size;
+    private Weight weight;
+    private boolean canStack;
 
     public ItemSizeHandler(Size size, Weight weight, boolean canStack) {
         this.size = size;
         this.weight = weight;
         this.canStack = canStack;
+    }
+
+    public ItemSizeHandler() {
     }
 
     @Override

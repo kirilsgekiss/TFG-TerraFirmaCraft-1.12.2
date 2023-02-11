@@ -9,12 +9,14 @@ import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.minecraft.block.BlockLadder;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -24,7 +26,7 @@ import java.util.function.Supplier;
 
 public final class CapabilityItemSize {
     public static final ResourceLocation KEY = new ResourceLocation(TerraFirmaCraft.MOD_ID, "item_size");
-    public static final Map<IIngredient<ItemStack>, Supplier<ICapabilityProvider>> CUSTOM_ITEMS = new LinkedHashMap<>(); //Used inside CT, set custom IItemSize for items outside TFC
+    public static final Map<IIngredient<ItemStack>, Supplier<ICapabilityProvider>> CUSTOM_ITEMS = new LinkedHashMap<>(); // Used inside CT, set custom IItemSize for items outside TFC
     @CapabilityInject(IItemSize.class)
     public static Capability<IItemSize> ITEM_SIZE_CAPABILITY;
 
@@ -35,6 +37,7 @@ public final class CapabilityItemSize {
 
     public static void init() {
         // Add hardcoded size values for vanilla items
+        CUSTOM_ITEMS.put(IIngredient.of(Blocks.CLAY), () -> ItemSizeHandler.get(Size.SMALL, Weight.LIGHT, true));
         // CUSTOM_ITEMS.put(IIngredient.of(Items.COAL), () -> ItemSizeHandler.get(Size.SMALL, Weight.LIGHT, true)); // Store anywhere stacksize = 32
         //CUSTOM_ITEMS.put(IIngredient.of(Items.STICK), ItemStickCapability::new); // Store anywhere stacksize = 64
         //CUSTOM_ITEMS.put(IIngredient.of(Items.CLAY_BALL), () -> ItemSizeHandler.get(Size.SMALL, Weight.VERY_LIGHT, true)); // Store anywhere stacksize = 64

@@ -9,6 +9,7 @@ import net.dries007.tfc.TFCConfig;
 import net.dries007.tfc.api.capability.DumbStorage;
 import net.dries007.tfc.objects.inventory.ingredient.IIngredient;
 import net.dries007.tfc.objects.items.TFCItems;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -39,7 +40,7 @@ public final class CapabilityItemHeat {
     public static void init() {
         // register heat on vanilla egg for cooking
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(Items.EGG), () -> new ItemHeatHandler(null, 1, 480));
-        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of("blockClay"), () -> new ItemHeatHandler(null, 1, 600));
+        CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(Blocks.CLAY), () -> new ItemHeatHandler(null, 1, 600));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.GLASS_SHARD), () -> new ItemHeatHandler(null, 1, 1000));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of(TFCItems.STICK_BUNCH), () -> new ItemHeatHandler(null, 1, 200));
         CapabilityItemHeat.CUSTOM_ITEMS.put(IIngredient.of("terracotta"), () -> new ItemHeatHandler(null, 1, 1200));

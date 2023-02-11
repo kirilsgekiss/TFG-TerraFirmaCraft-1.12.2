@@ -32,6 +32,7 @@ import net.dries007.tfc.network.*;
 import net.dries007.tfc.objects.TFCLootTables;
 import net.dries007.tfc.objects.entity.TFCEntities;
 import net.dries007.tfc.proxy.IProxy;
+import net.dries007.tfc.types.DefaultRecipes;
 import net.dries007.tfc.util.CapabilityHeatHandler;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.agriculture.TFCSeasonManager;
@@ -146,14 +147,8 @@ public final class TerraFirmaCraft {
         SeasonHelper.setSeasonManager(TFCSeasonManager.INSTANCE);
 
         CapabilityChunkData.preInit();
-        CapabilityItemSize.preInit();
-        CapabilityItemHeat.preInit();
-        CapabilityForgeable.preInit();
-        CapabilityFood.preInit();
-        CapabilityEgg.preInit();
         CapabilityPlayerData.preInit();
         CapabilityDamageResistance.preInit();
-        CapabilityMetalItem.preInit();
         CapabilityWorldTracker.preInit();
 
         Helpers.insertWhitelistFluids();
@@ -165,6 +160,18 @@ public final class TerraFirmaCraft {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        CapabilityItemSize.preInit();
+        CapabilityItemHeat.preInit();
+        CapabilityForgeable.preInit();
+        CapabilityFood.preInit();
+        CapabilityEgg.preInit();
+        CapabilityMetalItem.preInit();
+
+        CapabilityItemSize.init();
+        CapabilityItemHeat.init();
+        CapabilityMetalItem.init();
+        CapabilityHeatHandler.init();
+
         TFCLootTables.init();
         CapabilityFood.init();
 
@@ -188,17 +195,12 @@ public final class TerraFirmaCraft {
 
         worldTypeTFC = new WorldTypeTFC();
 
-        CapabilityItemSize.init();
-        CapabilityItemHeat.init();
-        CapabilityMetalItem.init();
-        CapabilityHeatHandler.init();
-
         TOPCompatibility.registerCompatibility();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-//        DefaultRecipes.register();
+        // DefaultRecipes.register();
 
         DTTrees.postInit();
         TreeHelper.setCustomRootBlockDecay(DTRootDecay.INSTANCE);
