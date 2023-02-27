@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"texture": "tfc:blocks/material_set/wood/sheet/support"
+		"texture": "tfc:blocks/material_set/wood/sheet/pattern"
 	},
 	"elements": [
 		{

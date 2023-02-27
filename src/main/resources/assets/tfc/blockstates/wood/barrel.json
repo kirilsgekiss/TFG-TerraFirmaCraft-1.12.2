@@ -7,8 +7,7 @@
       "particle": "tfc:blocks/material_set/wood/planks/pattern",
       "planks": "tfc:blocks/material_set/wood/planks/pattern",
       "lid": "tfc:blocks/material_set/wood/barrel/lid/pattern",
-      "base": "tfc:blocks/material_set/wood/barrel/base/pattern",
-      "hoop": "tfc:blocks/material_set/wood/barrel/hoop/lacquered_wood"
+      "base": "tfc:blocks/material_set/wood/barrel/base/pattern"
     }
   },
   "variants": {
