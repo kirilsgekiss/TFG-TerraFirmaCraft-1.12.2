@@ -87,7 +87,7 @@ public class TFCStoneTypes {
                 () -> TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.GNEISS), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof TFCBlockRockRaw && state == TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.GNEISS), Type.RAW).getDefaultState(), true);
 
-        new StoneType(18, "tfc_soapstone", SoundType.STONE, TFCOrePrefix.oreKomatiite, TFCMaterials.Komatiite,
+        new StoneType(18, "tfc_komatiite", SoundType.STONE, TFCOrePrefix.oreKomatiite, TFCMaterials.Komatiite,
                 () -> TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.KOMATIITE), Type.RAW).getDefaultState(),
                 state -> state.getBlock() instanceof TFCBlockRockRaw && state == TFCBlockRockRaw.get(TFCRegistries.ROCKS.getValue(DefaultRocks.KOMATIITE), Type.RAW).getDefaultState(), true);
 
