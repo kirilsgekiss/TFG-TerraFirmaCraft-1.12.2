@@ -106,21 +106,21 @@ dependencies {
 
     implementation 'org.jetbrains:annotations:23.0.0'
 
-    deobfCompile 'curse.maven:reid-629017:4205759'
-    deobfCompile 'curse.maven:universal-tweaks-705000:4384565'
+    deobfCompile 'curse.maven:reid-629017:4399765'
+    deobfCompile 'curse.maven:universal-tweaks-705000:4411367'
     deobfCompile 'curse.maven:codechicken-lib-1-8-242818:2779848'
     deobfCompile 'curse.maven:had-enough-items-557549:4109510'
     deobfCompile 'curse.maven:the-one-probe-245211:2667280'
     deobfCompile 'curse.maven:fluidloggedapi-485654:4262473'
     deobfCompile 'curse.maven:ctm-267602:2915363'
 
-    deobfCompile 'curse.maven:gregtech-557242:4325257'
+    deobfCompile 'curse.maven:gregtech-557242:4390983'
 
-    deobfCompile 'curse.maven:dramatictrees-637540:4312145'
+    deobfCompile 'curse.maven:dramatictrees-637540:4398759'
 
 //    compileOnly 'curse.maven:crafttweaker-239197:3935788'
-    compileOnly 'curse.maven:groovyscript-687577:4329872'
-    compileOnly "curse.maven:ae2_extended_life-570458:4370127"
+    compileOnly 'curse.maven:groovyscript-687577:4405662'
+    compileOnly "curse.maven:ae2_extended_life-570458:4406629"
 }
 
 sourceSets {
