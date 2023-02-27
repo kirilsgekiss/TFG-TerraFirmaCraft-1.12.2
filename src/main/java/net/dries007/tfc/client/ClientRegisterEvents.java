@@ -318,19 +318,19 @@ public final class ClientRegisterEvents {
         TFCBlocks.getAllBlockChest().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(BlockChest.FACING).build()));
         TFCBlocks.getAllBlockFence().forEach(TFCBlockFence::onModelRegister);
         TFCBlocks.getAllBlockFenceGate().forEach(TFCBlockFenceGate::onModelRegister);
-//        TFCBlocks.getAllBlockFenceGateLog().forEach(TFCBlockFenceGateLog::onModelRegister);
+        TFCBlocks.getAllBlockFenceGateLog().forEach(TFCBlockFenceGateLog::onModelRegister);
         TFCBlocks.getAllBlockFenceGateLog().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(TFCBlockFenceGateLog.POWERED).build()));
         TFCBlocks.getAllBlockLoom().forEach(TFCBlockLoom::onModelRegister);
         TFCBlocks.getAllBlockPlank().forEach(TFCBlockPlank::onModelRegister);
         TFCBlocks.getAllBlockToolRack().forEach(TFCBlockToolRack::onModelRegister);
         TFCBlocks.getAllBlockWoodButton().forEach(TFCBlockWoodButton::onModelRegister);
-//        TFCBlocks.getAllBlockWoodDoor().forEach(TFCBlockWoodDoor::onModelRegister);
+        TFCBlocks.getAllBlockWoodDoor().forEach(TFCBlockWoodDoor::onModelRegister);
         TFCBlocks.getAllBlockWoodDoor().forEach(s -> ModelLoader.setCustomStateMapper(s, new StateMap.Builder().ignore(BlockDoor.POWERED).build()));
         TFCBlocks.getAllBlockWoodPressurePlate().forEach(TFCBlockWoodPressurePlate::onModelRegister);
         TFCBlocks.getAllBlockWoodSlab().forEach(TFCBlockWoodSlab.Half::onModelRegister);
         TFCBlocks.getAllBlockWoodStairs().forEach(TFCBlockWoodStairs::onModelRegister);
         TFCBlocks.getAllBlockWoodSupport().forEach(TFCBlockWoodSupport::onModelRegister);
-//        TFCBlocks.getAllBlockWoodTrapDoor().forEach(TFCBlockWoodTrapDoor::onModelRegister);
+        TFCBlocks.getAllBlockWoodTrapDoor().forEach(TFCBlockWoodTrapDoor::onModelRegister);
         TFCBlocks.getAllBlockWorkbench().forEach(TFCBlockWorkbench::onModelRegister);
 
         //=== Other ==================================================================================================//
@@ -497,20 +497,20 @@ public final class ClientRegisterEvents {
 
         TFCBlocks.getAllBlockBarrel().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockBookshelf().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
-        // TFCBlocks.getAllBlockChest().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
+//        TFCBlocks.getAllBlockChest().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockFence().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockFenceGate().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
-        // TFCBlocks.getAllBlockFenceGateLog().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
+        TFCBlocks.getAllBlockFenceGateLog().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockLoom().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockPlank().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockToolRack().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockWoodButton().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
-        // TFCBlocks.getAllBlockWoodDoor().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
+        TFCBlocks.getAllBlockWoodDoor().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockWoodPressurePlate().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockWoodSlab().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s, s.doubleSlab));
         TFCBlocks.getAllBlockWoodStairs().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockWoodSupport().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
-        // TFCBlocks.getAllBlockWoodTrapDoor().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
+        TFCBlocks.getAllBlockWoodTrapDoor().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
         TFCBlocks.getAllBlockWorkbench().forEach(s -> blockColor.registerBlockColorHandler(woodBlockColors, s));
 
 
@@ -539,20 +539,20 @@ public final class ClientRegisterEvents {
 
         TFCBlocks.getAllBlockBarrel().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockBookshelf().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
-        // TFCBlocks.getAllBlockChest().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
+//        TFCBlocks.getAllBlockChest().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockFence().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockFenceGate().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
-        // TFCBlocks.getAllBlockFenceGateLog().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
+        TFCBlocks.getAllBlockFenceGateLog().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockLoom().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockPlank().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockToolRack().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWoodButton().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
-        // TFCBlocks.getAllBlockWoodDoor().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
+        TFCBlocks.getAllBlockWoodDoor().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWoodPressurePlate().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWoodSlab().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWoodStairs().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWoodSupport().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
-        // TFCBlocks.getAllBlockWoodTrapDoor().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
+        TFCBlocks.getAllBlockWoodTrapDoor().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
         TFCBlocks.getAllBlockWorkbench().forEach(s -> itemColors.registerItemColorHandler(woodItemBlockColors, Item.getItemFromBlock(s)));
 
         TFCItems.getAllLumberItems().forEach(s -> itemColors.registerItemColorHandler(woodItemColors, s));
@@ -622,9 +622,9 @@ public final class ClientRegisterEvents {
         {
             public int colorMultiplier(ItemStack stack, int tintIndex)
             {
-                return tintIndex > 0 ? -1 : ((ItemArmorTFCF)stack.getItem()).getColor(stack);
+                return tintIndex > 0 ? -1 : ((ItemArmorTFC)stack.getItem()).getColor(stack);
             }
-        }, ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFCF[0]));
+        }, ItemsTFC.getAllArmorItems().toArray(new ItemArmorTFC[0]));
         */
 
         // itemColors.registerItemColorHandler((stack, tintIndex) ->

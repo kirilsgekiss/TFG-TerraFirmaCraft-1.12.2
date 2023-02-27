@@ -3,17 +3,24 @@ package net.dries007.tfc.objects.blocks.wood;
 import git.jbredwards.fluidlogged_api.api.util.FluidState;
 import git.jbredwards.fluidlogged_api.api.util.FluidloggedUtils;
 import net.dries007.tfc.api.types.Wood;
+import net.dries007.tfc.api.util.IWoodHandler;
+import net.dries007.tfc.client.CustomStateMap;
+import net.dries007.tfc.client.model.IHasModel;
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,7 +29,10 @@ import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TFCBlockFenceGateLog extends BlockFenceGate {
+import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
+
+public class TFCBlockFenceGateLog extends BlockFenceGate implements IHasModel, IWoodHandler {
+    private final ResourceLocation MODEL_LOCATION = new ResourceLocation(MOD_ID, "wood/fence_gate_log");
     private static final Map<Wood, TFCBlockFenceGateLog> MAP = new HashMap<>();
 
     public static TFCBlockFenceGateLog get(Wood wood) {
@@ -43,6 +53,20 @@ public class TFCBlockFenceGateLog extends BlockFenceGate {
         OreDictionaryHelper.register(this, "fence", "gate", "log", "wood");
         OreDictionaryHelper.register(this, "fence", "gate", "log", "wood", wood.getRegistryName().getPath());
         Blocks.FIRE.setFireInfo(this, 5, 20);
+    }
+
+    @Override
+    public Wood getWood() {
+        return wood;
+    }
+
+    @Override
+    public void onModelRegister() {
+        ModelLoader.setCustomStateMapper(this, new CustomStateMap.Builder().customPath(MODEL_LOCATION).ignore(BlockFenceGate.POWERED).build());
+
+        for (IBlockState state : this.getBlockState().getValidStates()) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), this.getMetaFromState(state), new ModelResourceLocation(MODEL_LOCATION, "inventory"));
+        }
     }
 
     public interface IFluidloggable {
